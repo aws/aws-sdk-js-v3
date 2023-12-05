@@ -241,7 +241,7 @@ see LICENSE for more information.
 CreateScalingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/CreateScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/CreateScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/CreateScalingPlanCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/createscalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/createscalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/createscalingplancommandoutput.html)
 
 </details>
 <details>
@@ -249,7 +249,7 @@ CreateScalingPlan
 DeleteScalingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DeleteScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DeleteScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DeleteScalingPlanCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/deletescalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/deletescalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/deletescalingplancommandoutput.html)
 
 </details>
 <details>
@@ -257,7 +257,7 @@ DeleteScalingPlan
 DescribeScalingPlanResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DescribeScalingPlanResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlanResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlanResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/describescalingplanresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanresourcescommandoutput.html)
 
 </details>
 <details>
@@ -265,7 +265,7 @@ DescribeScalingPlanResources
 DescribeScalingPlans
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DescribeScalingPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlansCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/describescalingplanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanscommandoutput.html)
 
 </details>
 <details>
@@ -273,7 +273,7 @@ DescribeScalingPlans
 GetScalingPlanResourceForecastData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/GetScalingPlanResourceForecastDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/GetScalingPlanResourceForecastDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/GetScalingPlanResourceForecastDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/getscalingplanresourceforecastdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/getscalingplanresourceforecastdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/getscalingplanresourceforecastdatacommandoutput.html)
 
 </details>
 <details>
@@ -281,6 +281,6 @@ GetScalingPlanResourceForecastData
 UpdateScalingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/UpdateScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/UpdateScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/UpdateScalingPlanCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/updatescalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/updatescalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/updatescalingplancommandoutput.html)
 
 </details>

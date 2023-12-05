@@ -214,7 +214,7 @@ see LICENSE for more information.
 AddFacetToObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/AddFacetToObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AddFacetToObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AddFacetToObjectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/addfacettoobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/addfacettoobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/addfacettoobjectcommandoutput.html)
 
 </details>
 <details>
@@ -222,7 +222,7 @@ AddFacetToObject
 ApplySchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ApplySchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ApplySchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ApplySchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/applyschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/applyschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/applyschemacommandoutput.html)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ ApplySchema
 AttachObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/AttachObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachObjectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/attachobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachobjectcommandoutput.html)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ AttachObject
 AttachPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/AttachPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/attachpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachpolicycommandoutput.html)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ AttachPolicy
 AttachToIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/AttachToIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachToIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachToIndexCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/attachtoindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachtoindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachtoindexcommandoutput.html)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ AttachToIndex
 AttachTypedLink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/AttachTypedLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachTypedLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/AttachTypedLinkCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/attachtypedlinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachtypedlinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/attachtypedlinkcommandoutput.html)
 
 </details>
 <details>
@@ -262,7 +262,7 @@ AttachTypedLink
 BatchRead
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/BatchReadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/BatchReadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/BatchReadCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/batchreadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/batchreadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/batchreadcommandoutput.html)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ BatchRead
 BatchWrite
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/BatchWriteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/BatchWriteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/BatchWriteCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/batchwritecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/batchwritecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/batchwritecommandoutput.html)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ BatchWrite
 CreateDirectory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/CreateDirectoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateDirectoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateDirectoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/createdirectorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createdirectorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createdirectorycommandoutput.html)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ CreateDirectory
 CreateFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/CreateFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/createfacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createfacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createfacetcommandoutput.html)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ CreateFacet
 CreateIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/CreateIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateIndexCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/createindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createindexcommandoutput.html)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ CreateIndex
 CreateObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/CreateObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateObjectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/createobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createobjectcommandoutput.html)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ CreateObject
 CreateSchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/CreateSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateSchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/createschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createschemacommandoutput.html)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ CreateSchema
 CreateTypedLinkFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/CreateTypedLinkFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateTypedLinkFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/CreateTypedLinkFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/createtypedlinkfacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createtypedlinkfacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/createtypedlinkfacetcommandoutput.html)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ CreateTypedLinkFacet
 DeleteDirectory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DeleteDirectoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteDirectoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteDirectoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/deletedirectorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deletedirectorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deletedirectorycommandoutput.html)
 
 </details>
 <details>
@@ -334,7 +334,7 @@ DeleteDirectory
 DeleteFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DeleteFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/deletefacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deletefacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deletefacetcommandoutput.html)
 
 </details>
 <details>
@@ -342,7 +342,7 @@ DeleteFacet
 DeleteObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DeleteObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteObjectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/deleteobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deleteobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deleteobjectcommandoutput.html)
 
 </details>
 <details>
@@ -350,7 +350,7 @@ DeleteObject
 DeleteSchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DeleteSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteSchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/deleteschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deleteschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deleteschemacommandoutput.html)
 
 </details>
 <details>
@@ -358,7 +358,7 @@ DeleteSchema
 DeleteTypedLinkFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DeleteTypedLinkFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteTypedLinkFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DeleteTypedLinkFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/deletetypedlinkfacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deletetypedlinkfacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/deletetypedlinkfacetcommandoutput.html)
 
 </details>
 <details>
@@ -366,7 +366,7 @@ DeleteTypedLinkFacet
 DetachFromIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DetachFromIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachFromIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachFromIndexCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/detachfromindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachfromindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachfromindexcommandoutput.html)
 
 </details>
 <details>
@@ -374,7 +374,7 @@ DetachFromIndex
 DetachObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DetachObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachObjectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/detachobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachobjectcommandoutput.html)
 
 </details>
 <details>
@@ -382,7 +382,7 @@ DetachObject
 DetachPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DetachPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/detachpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachpolicycommandoutput.html)
 
 </details>
 <details>
@@ -390,7 +390,7 @@ DetachPolicy
 DetachTypedLink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DetachTypedLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachTypedLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DetachTypedLinkCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/detachtypedlinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachtypedlinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/detachtypedlinkcommandoutput.html)
 
 </details>
 <details>
@@ -398,7 +398,7 @@ DetachTypedLink
 DisableDirectory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/DisableDirectoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DisableDirectoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/DisableDirectoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/disabledirectorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/disabledirectorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/disabledirectorycommandoutput.html)
 
 </details>
 <details>
@@ -406,7 +406,7 @@ DisableDirectory
 EnableDirectory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/EnableDirectoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/EnableDirectoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/EnableDirectoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/enabledirectorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/enabledirectorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/enabledirectorycommandoutput.html)
 
 </details>
 <details>
@@ -414,7 +414,7 @@ EnableDirectory
 GetAppliedSchemaVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetAppliedSchemaVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetAppliedSchemaVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetAppliedSchemaVersionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getappliedschemaversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getappliedschemaversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getappliedschemaversioncommandoutput.html)
 
 </details>
 <details>
@@ -422,7 +422,7 @@ GetAppliedSchemaVersion
 GetDirectory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetDirectoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetDirectoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetDirectoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getdirectorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getdirectorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getdirectorycommandoutput.html)
 
 </details>
 <details>
@@ -430,7 +430,7 @@ GetDirectory
 GetFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getfacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getfacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getfacetcommandoutput.html)
 
 </details>
 <details>
@@ -438,7 +438,7 @@ GetFacet
 GetLinkAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetLinkAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetLinkAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetLinkAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getlinkattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getlinkattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getlinkattributescommandoutput.html)
 
 </details>
 <details>
@@ -446,7 +446,7 @@ GetLinkAttributes
 GetObjectAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetObjectAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetObjectAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetObjectAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getobjectattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getobjectattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getobjectattributescommandoutput.html)
 
 </details>
 <details>
@@ -454,7 +454,7 @@ GetObjectAttributes
 GetObjectInformation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetObjectInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetObjectInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetObjectInformationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getobjectinformationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getobjectinformationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getobjectinformationcommandoutput.html)
 
 </details>
 <details>
@@ -462,7 +462,7 @@ GetObjectInformation
 GetSchemaAsJson
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetSchemaAsJsonCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetSchemaAsJsonCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetSchemaAsJsonCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/getschemaasjsoncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getschemaasjsoncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/getschemaasjsoncommandoutput.html)
 
 </details>
 <details>
@@ -470,7 +470,7 @@ GetSchemaAsJson
 GetTypedLinkFacetInformation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/GetTypedLinkFacetInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetTypedLinkFacetInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/GetTypedLinkFacetInformationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/gettypedlinkfacetinformationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/gettypedlinkfacetinformationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/gettypedlinkfacetinformationcommandoutput.html)
 
 </details>
 <details>
@@ -478,7 +478,7 @@ GetTypedLinkFacetInformation
 ListAppliedSchemaArns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListAppliedSchemaArnsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListAppliedSchemaArnsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListAppliedSchemaArnsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listappliedschemaarnscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listappliedschemaarnscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listappliedschemaarnscommandoutput.html)
 
 </details>
 <details>
@@ -486,7 +486,7 @@ ListAppliedSchemaArns
 ListAttachedIndices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListAttachedIndicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListAttachedIndicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListAttachedIndicesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listattachedindicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listattachedindicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listattachedindicescommandoutput.html)
 
 </details>
 <details>
@@ -494,7 +494,7 @@ ListAttachedIndices
 ListDevelopmentSchemaArns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListDevelopmentSchemaArnsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListDevelopmentSchemaArnsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListDevelopmentSchemaArnsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listdevelopmentschemaarnscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listdevelopmentschemaarnscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listdevelopmentschemaarnscommandoutput.html)
 
 </details>
 <details>
@@ -502,7 +502,7 @@ ListDevelopmentSchemaArns
 ListDirectories
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListDirectoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListDirectoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListDirectoriesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listdirectoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listdirectoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listdirectoriescommandoutput.html)
 
 </details>
 <details>
@@ -510,7 +510,7 @@ ListDirectories
 ListFacetAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListFacetAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListFacetAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListFacetAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listfacetattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listfacetattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listfacetattributescommandoutput.html)
 
 </details>
 <details>
@@ -518,7 +518,7 @@ ListFacetAttributes
 ListFacetNames
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListFacetNamesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListFacetNamesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListFacetNamesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listfacetnamescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listfacetnamescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listfacetnamescommandoutput.html)
 
 </details>
 <details>
@@ -526,7 +526,7 @@ ListFacetNames
 ListIncomingTypedLinks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListIncomingTypedLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListIncomingTypedLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListIncomingTypedLinksCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listincomingtypedlinkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listincomingtypedlinkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listincomingtypedlinkscommandoutput.html)
 
 </details>
 <details>
@@ -534,7 +534,7 @@ ListIncomingTypedLinks
 ListIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListIndexCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listindexcommandoutput.html)
 
 </details>
 <details>
@@ -542,7 +542,7 @@ ListIndex
 ListManagedSchemaArns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListManagedSchemaArnsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListManagedSchemaArnsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListManagedSchemaArnsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listmanagedschemaarnscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listmanagedschemaarnscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listmanagedschemaarnscommandoutput.html)
 
 </details>
 <details>
@@ -550,7 +550,7 @@ ListManagedSchemaArns
 ListObjectAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListObjectAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listobjectattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectattributescommandoutput.html)
 
 </details>
 <details>
@@ -558,7 +558,7 @@ ListObjectAttributes
 ListObjectChildren
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListObjectChildrenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectChildrenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectChildrenCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listobjectchildrencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectchildrencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectchildrencommandoutput.html)
 
 </details>
 <details>
@@ -566,7 +566,7 @@ ListObjectChildren
 ListObjectParentPaths
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListObjectParentPathsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectParentPathsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectParentPathsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listobjectparentpathscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectparentpathscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectparentpathscommandoutput.html)
 
 </details>
 <details>
@@ -574,7 +574,7 @@ ListObjectParentPaths
 ListObjectParents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListObjectParentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectParentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectParentsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listobjectparentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectparentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectparentscommandoutput.html)
 
 </details>
 <details>
@@ -582,7 +582,7 @@ ListObjectParents
 ListObjectPolicies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListObjectPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListObjectPoliciesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listobjectpoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectpoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listobjectpoliciescommandoutput.html)
 
 </details>
 <details>
@@ -590,7 +590,7 @@ ListObjectPolicies
 ListOutgoingTypedLinks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListOutgoingTypedLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListOutgoingTypedLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListOutgoingTypedLinksCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listoutgoingtypedlinkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listoutgoingtypedlinkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listoutgoingtypedlinkscommandoutput.html)
 
 </details>
 <details>
@@ -598,7 +598,7 @@ ListOutgoingTypedLinks
 ListPolicyAttachments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListPolicyAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListPolicyAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListPolicyAttachmentsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listpolicyattachmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listpolicyattachmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listpolicyattachmentscommandoutput.html)
 
 </details>
 <details>
@@ -606,7 +606,7 @@ ListPolicyAttachments
 ListPublishedSchemaArns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListPublishedSchemaArnsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListPublishedSchemaArnsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListPublishedSchemaArnsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listpublishedschemaarnscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listpublishedschemaarnscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listpublishedschemaarnscommandoutput.html)
 
 </details>
 <details>
@@ -614,7 +614,7 @@ ListPublishedSchemaArns
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListTagsForResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -622,7 +622,7 @@ ListTagsForResource
 ListTypedLinkFacetAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListTypedLinkFacetAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListTypedLinkFacetAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListTypedLinkFacetAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listtypedlinkfacetattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listtypedlinkfacetattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listtypedlinkfacetattributescommandoutput.html)
 
 </details>
 <details>
@@ -630,7 +630,7 @@ ListTypedLinkFacetAttributes
 ListTypedLinkFacetNames
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/ListTypedLinkFacetNamesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListTypedLinkFacetNamesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/ListTypedLinkFacetNamesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/listtypedlinkfacetnamescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listtypedlinkfacetnamescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/listtypedlinkfacetnamescommandoutput.html)
 
 </details>
 <details>
@@ -638,7 +638,7 @@ ListTypedLinkFacetNames
 LookupPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/LookupPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/LookupPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/LookupPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/lookuppolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/lookuppolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/lookuppolicycommandoutput.html)
 
 </details>
 <details>
@@ -646,7 +646,7 @@ LookupPolicy
 PublishSchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/PublishSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/PublishSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/PublishSchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/publishschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/publishschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/publishschemacommandoutput.html)
 
 </details>
 <details>
@@ -654,7 +654,7 @@ PublishSchema
 PutSchemaFromJson
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/PutSchemaFromJsonCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/PutSchemaFromJsonCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/PutSchemaFromJsonCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/putschemafromjsoncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/putschemafromjsoncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/putschemafromjsoncommandoutput.html)
 
 </details>
 <details>
@@ -662,7 +662,7 @@ PutSchemaFromJson
 RemoveFacetFromObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/RemoveFacetFromObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/RemoveFacetFromObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/RemoveFacetFromObjectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/removefacetfromobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/removefacetfromobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/removefacetfromobjectcommandoutput.html)
 
 </details>
 <details>
@@ -670,7 +670,7 @@ RemoveFacetFromObject
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/TagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -678,7 +678,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UntagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -686,7 +686,7 @@ UntagResource
 UpdateFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpdateFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/updatefacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updatefacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updatefacetcommandoutput.html)
 
 </details>
 <details>
@@ -694,7 +694,7 @@ UpdateFacet
 UpdateLinkAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpdateLinkAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateLinkAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateLinkAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/updatelinkattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updatelinkattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updatelinkattributescommandoutput.html)
 
 </details>
 <details>
@@ -702,7 +702,7 @@ UpdateLinkAttributes
 UpdateObjectAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpdateObjectAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateObjectAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateObjectAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/updateobjectattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updateobjectattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updateobjectattributescommandoutput.html)
 
 </details>
 <details>
@@ -710,7 +710,7 @@ UpdateObjectAttributes
 UpdateSchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpdateSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateSchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/updateschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updateschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updateschemacommandoutput.html)
 
 </details>
 <details>
@@ -718,7 +718,7 @@ UpdateSchema
 UpdateTypedLinkFacet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpdateTypedLinkFacetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateTypedLinkFacetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpdateTypedLinkFacetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/updatetypedlinkfacetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updatetypedlinkfacetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/updatetypedlinkfacetcommandoutput.html)
 
 </details>
 <details>
@@ -726,7 +726,7 @@ UpdateTypedLinkFacet
 UpgradeAppliedSchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpgradeAppliedSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpgradeAppliedSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpgradeAppliedSchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/upgradeappliedschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/upgradeappliedschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/upgradeappliedschemacommandoutput.html)
 
 </details>
 <details>
@@ -734,6 +734,6 @@ UpgradeAppliedSchema
 UpgradePublishedSchema
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/clouddirectory/command/UpgradePublishedSchemaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpgradePublishedSchemaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-clouddirectory/Interface/UpgradePublishedSchemaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/classes/upgradepublishedschemacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/upgradepublishedschemacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-clouddirectory/interfaces/upgradepublishedschemacommandoutput.html)
 
 </details>

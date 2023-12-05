@@ -229,7 +229,7 @@ see LICENSE for more information.
 BatchGetAggregateResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/BatchGetAggregateResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/BatchGetAggregateResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/BatchGetAggregateResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/batchgetaggregateresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/batchgetaggregateresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/batchgetaggregateresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ BatchGetAggregateResourceConfig
 BatchGetResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/BatchGetResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/BatchGetResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/BatchGetResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/batchgetresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/batchgetresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/batchgetresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ BatchGetResourceConfig
 DeleteAggregationAuthorization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteAggregationAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteAggregationAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteAggregationAuthorizationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteaggregationauthorizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteaggregationauthorizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteaggregationauthorizationcommandoutput.html)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ DeleteAggregationAuthorization
 DeleteConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ DeleteConfigRule
 DeleteConfigurationAggregator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteConfigurationAggregatorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConfigurationAggregatorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConfigurationAggregatorCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteconfigurationaggregatorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconfigurationaggregatorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconfigurationaggregatorcommandoutput.html)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ DeleteConfigurationAggregator
 DeleteConfigurationRecorder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConfigurationRecorderCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteconfigurationrecordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconfigurationrecordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconfigurationrecordercommandoutput.html)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ DeleteConfigurationRecorder
 DeleteConformancePack
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteConformancePackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConformancePackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConformancePackCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteconformancepackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconformancepackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteconformancepackcommandoutput.html)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ DeleteConformancePack
 DeleteDeliveryChannel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteDeliveryChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteDeliveryChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteDeliveryChannelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deletedeliverychannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deletedeliverychannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deletedeliverychannelcommandoutput.html)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ DeleteDeliveryChannel
 DeleteEvaluationResults
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteEvaluationResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteEvaluationResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteEvaluationResultsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteevaluationresultscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteevaluationresultscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteevaluationresultscommandoutput.html)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ DeleteEvaluationResults
 DeleteOrganizationConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteOrganizationConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteOrganizationConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteOrganizationConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteorganizationconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteorganizationconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteorganizationconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ DeleteOrganizationConfigRule
 DeleteOrganizationConformancePack
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteOrganizationConformancePackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteOrganizationConformancePackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteOrganizationConformancePackCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteorganizationconformancepackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteorganizationconformancepackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteorganizationconformancepackcommandoutput.html)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ DeleteOrganizationConformancePack
 DeletePendingAggregationRequest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeletePendingAggregationRequestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeletePendingAggregationRequestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeletePendingAggregationRequestCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deletependingaggregationrequestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deletependingaggregationrequestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deletependingaggregationrequestcommandoutput.html)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ DeletePendingAggregationRequest
 DeleteRemediationConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteRemediationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRemediationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRemediationConfigurationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteremediationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteremediationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteremediationconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ DeleteRemediationConfiguration
 DeleteRemediationExceptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteRemediationExceptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRemediationExceptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRemediationExceptionsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteremediationexceptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteremediationexceptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteremediationexceptionscommandoutput.html)
 
 </details>
 <details>
@@ -341,7 +341,7 @@ DeleteRemediationExceptions
 DeleteResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -349,7 +349,7 @@ DeleteResourceConfig
 DeleteRetentionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteRetentionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRetentionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRetentionConfigurationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deleteretentionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteretentionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deleteretentionconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -357,7 +357,7 @@ DeleteRetentionConfiguration
 DeleteStoredQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteStoredQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteStoredQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteStoredQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deletestoredquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deletestoredquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deletestoredquerycommandoutput.html)
 
 </details>
 <details>
@@ -365,7 +365,7 @@ DeleteStoredQuery
 DeliverConfigSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeliverConfigSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeliverConfigSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeliverConfigSnapshotCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/deliverconfigsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deliverconfigsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/deliverconfigsnapshotcommandoutput.html)
 
 </details>
 <details>
@@ -373,7 +373,7 @@ DeliverConfigSnapshot
 DescribeAggregateComplianceByConfigRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeAggregateComplianceByConfigRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeAggregateComplianceByConfigRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeAggregateComplianceByConfigRulesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeaggregatecompliancebyconfigrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeaggregatecompliancebyconfigrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeaggregatecompliancebyconfigrulescommandoutput.html)
 
 </details>
 <details>
@@ -381,7 +381,7 @@ DescribeAggregateComplianceByConfigRules
 DescribeAggregateComplianceByConformancePacks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeAggregateComplianceByConformancePacksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeAggregateComplianceByConformancePacksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeAggregateComplianceByConformancePacksCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeaggregatecompliancebyconformancepackscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeaggregatecompliancebyconformancepackscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeaggregatecompliancebyconformancepackscommandoutput.html)
 
 </details>
 <details>
@@ -389,7 +389,7 @@ DescribeAggregateComplianceByConformancePacks
 DescribeAggregationAuthorizations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeAggregationAuthorizationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeAggregationAuthorizationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeAggregationAuthorizationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeaggregationauthorizationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeaggregationauthorizationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeaggregationauthorizationscommandoutput.html)
 
 </details>
 <details>
@@ -397,7 +397,7 @@ DescribeAggregationAuthorizations
 DescribeComplianceByConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeComplianceByConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeComplianceByConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeComplianceByConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describecompliancebyconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describecompliancebyconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describecompliancebyconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -405,7 +405,7 @@ DescribeComplianceByConfigRule
 DescribeComplianceByResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeComplianceByResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeComplianceByResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeComplianceByResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describecompliancebyresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describecompliancebyresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describecompliancebyresourcecommandoutput.html)
 
 </details>
 <details>
@@ -413,7 +413,7 @@ DescribeComplianceByResource
 DescribeConfigRuleEvaluationStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConfigRuleEvaluationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigRuleEvaluationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigRuleEvaluationStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconfigruleevaluationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigruleevaluationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigruleevaluationstatuscommandoutput.html)
 
 </details>
 <details>
@@ -421,7 +421,7 @@ DescribeConfigRuleEvaluationStatus
 DescribeConfigRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConfigRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigRulesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconfigrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigrulescommandoutput.html)
 
 </details>
 <details>
@@ -429,7 +429,7 @@ DescribeConfigRules
 DescribeConfigurationAggregators
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConfigurationAggregatorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationAggregatorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationAggregatorsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconfigurationaggregatorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationaggregatorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationaggregatorscommandoutput.html)
 
 </details>
 <details>
@@ -437,7 +437,7 @@ DescribeConfigurationAggregators
 DescribeConfigurationAggregatorSourcesStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConfigurationAggregatorSourcesStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationAggregatorSourcesStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationAggregatorSourcesStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconfigurationaggregatorsourcesstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationaggregatorsourcesstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationaggregatorsourcesstatuscommandoutput.html)
 
 </details>
 <details>
@@ -445,7 +445,7 @@ DescribeConfigurationAggregatorSourcesStatus
 DescribeConfigurationRecorders
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConfigurationRecordersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationRecordersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationRecordersCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconfigurationrecorderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationrecorderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationrecorderscommandoutput.html)
 
 </details>
 <details>
@@ -453,7 +453,7 @@ DescribeConfigurationRecorders
 DescribeConfigurationRecorderStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConfigurationRecorderStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationRecorderStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConfigurationRecorderStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconfigurationrecorderstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationrecorderstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconfigurationrecorderstatuscommandoutput.html)
 
 </details>
 <details>
@@ -461,7 +461,7 @@ DescribeConfigurationRecorderStatus
 DescribeConformancePackCompliance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConformancePackComplianceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConformancePackComplianceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConformancePackComplianceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconformancepackcompliancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconformancepackcompliancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconformancepackcompliancecommandoutput.html)
 
 </details>
 <details>
@@ -469,7 +469,7 @@ DescribeConformancePackCompliance
 DescribeConformancePacks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConformancePacksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConformancePacksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConformancePacksCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconformancepackscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconformancepackscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconformancepackscommandoutput.html)
 
 </details>
 <details>
@@ -477,7 +477,7 @@ DescribeConformancePacks
 DescribeConformancePackStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeConformancePackStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConformancePackStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeConformancePackStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeconformancepackstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconformancepackstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeconformancepackstatuscommandoutput.html)
 
 </details>
 <details>
@@ -485,7 +485,7 @@ DescribeConformancePackStatus
 DescribeDeliveryChannels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeDeliveryChannelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeDeliveryChannelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeDeliveryChannelsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describedeliverychannelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describedeliverychannelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describedeliverychannelscommandoutput.html)
 
 </details>
 <details>
@@ -493,7 +493,7 @@ DescribeDeliveryChannels
 DescribeDeliveryChannelStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeDeliveryChannelStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeDeliveryChannelStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeDeliveryChannelStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describedeliverychannelstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describedeliverychannelstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describedeliverychannelstatuscommandoutput.html)
 
 </details>
 <details>
@@ -501,7 +501,7 @@ DescribeDeliveryChannelStatus
 DescribeOrganizationConfigRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeOrganizationConfigRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConfigRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConfigRulesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeorganizationconfigrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconfigrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconfigrulescommandoutput.html)
 
 </details>
 <details>
@@ -509,7 +509,7 @@ DescribeOrganizationConfigRules
 DescribeOrganizationConfigRuleStatuses
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeOrganizationConfigRuleStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConfigRuleStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConfigRuleStatusesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeorganizationconfigrulestatusescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconfigrulestatusescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconfigrulestatusescommandoutput.html)
 
 </details>
 <details>
@@ -517,7 +517,7 @@ DescribeOrganizationConfigRuleStatuses
 DescribeOrganizationConformancePacks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeOrganizationConformancePacksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConformancePacksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConformancePacksCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeorganizationconformancepackscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconformancepackscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconformancepackscommandoutput.html)
 
 </details>
 <details>
@@ -525,7 +525,7 @@ DescribeOrganizationConformancePacks
 DescribeOrganizationConformancePackStatuses
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeOrganizationConformancePackStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConformancePackStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeOrganizationConformancePackStatusesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeorganizationconformancepackstatusescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconformancepackstatusescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeorganizationconformancepackstatusescommandoutput.html)
 
 </details>
 <details>
@@ -533,7 +533,7 @@ DescribeOrganizationConformancePackStatuses
 DescribePendingAggregationRequests
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribePendingAggregationRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribePendingAggregationRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribePendingAggregationRequestsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describependingaggregationrequestscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describependingaggregationrequestscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describependingaggregationrequestscommandoutput.html)
 
 </details>
 <details>
@@ -541,7 +541,7 @@ DescribePendingAggregationRequests
 DescribeRemediationConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeRemediationConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRemediationConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRemediationConfigurationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeremediationconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeremediationconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeremediationconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -549,7 +549,7 @@ DescribeRemediationConfigurations
 DescribeRemediationExceptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeRemediationExceptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRemediationExceptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRemediationExceptionsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeremediationexceptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeremediationexceptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeremediationexceptionscommandoutput.html)
 
 </details>
 <details>
@@ -557,7 +557,7 @@ DescribeRemediationExceptions
 DescribeRemediationExecutionStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeRemediationExecutionStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRemediationExecutionStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRemediationExecutionStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeremediationexecutionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeremediationexecutionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeremediationexecutionstatuscommandoutput.html)
 
 </details>
 <details>
@@ -565,7 +565,7 @@ DescribeRemediationExecutionStatus
 DescribeRetentionConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DescribeRetentionConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRetentionConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DescribeRetentionConfigurationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/describeretentionconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeretentionconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/describeretentionconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -573,7 +573,7 @@ DescribeRetentionConfigurations
 GetAggregateComplianceDetailsByConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetAggregateComplianceDetailsByConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateComplianceDetailsByConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateComplianceDetailsByConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getaggregatecompliancedetailsbyconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregatecompliancedetailsbyconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregatecompliancedetailsbyconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -581,7 +581,7 @@ GetAggregateComplianceDetailsByConfigRule
 GetAggregateConfigRuleComplianceSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetAggregateConfigRuleComplianceSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateConfigRuleComplianceSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateConfigRuleComplianceSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getaggregateconfigrulecompliancesummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregateconfigrulecompliancesummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregateconfigrulecompliancesummarycommandoutput.html)
 
 </details>
 <details>
@@ -589,7 +589,7 @@ GetAggregateConfigRuleComplianceSummary
 GetAggregateConformancePackComplianceSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetAggregateConformancePackComplianceSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateConformancePackComplianceSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateConformancePackComplianceSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getaggregateconformancepackcompliancesummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregateconformancepackcompliancesummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregateconformancepackcompliancesummarycommandoutput.html)
 
 </details>
 <details>
@@ -597,7 +597,7 @@ GetAggregateConformancePackComplianceSummary
 GetAggregateDiscoveredResourceCounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetAggregateDiscoveredResourceCountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateDiscoveredResourceCountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateDiscoveredResourceCountsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getaggregatediscoveredresourcecountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregatediscoveredresourcecountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregatediscoveredresourcecountscommandoutput.html)
 
 </details>
 <details>
@@ -605,7 +605,7 @@ GetAggregateDiscoveredResourceCounts
 GetAggregateResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetAggregateResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetAggregateResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getaggregateresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregateresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getaggregateresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -613,7 +613,7 @@ GetAggregateResourceConfig
 GetComplianceDetailsByConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetComplianceDetailsByConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceDetailsByConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceDetailsByConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getcompliancedetailsbyconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancedetailsbyconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancedetailsbyconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -621,7 +621,7 @@ GetComplianceDetailsByConfigRule
 GetComplianceDetailsByResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetComplianceDetailsByResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceDetailsByResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceDetailsByResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getcompliancedetailsbyresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancedetailsbyresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancedetailsbyresourcecommandoutput.html)
 
 </details>
 <details>
@@ -629,7 +629,7 @@ GetComplianceDetailsByResource
 GetComplianceSummaryByConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetComplianceSummaryByConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceSummaryByConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceSummaryByConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getcompliancesummarybyconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancesummarybyconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancesummarybyconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -637,7 +637,7 @@ GetComplianceSummaryByConfigRule
 GetComplianceSummaryByResourceType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetComplianceSummaryByResourceTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceSummaryByResourceTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetComplianceSummaryByResourceTypeCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getcompliancesummarybyresourcetypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancesummarybyresourcetypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcompliancesummarybyresourcetypecommandoutput.html)
 
 </details>
 <details>
@@ -645,7 +645,7 @@ GetComplianceSummaryByResourceType
 GetConformancePackComplianceDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetConformancePackComplianceDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetConformancePackComplianceDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetConformancePackComplianceDetailsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getconformancepackcompliancedetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getconformancepackcompliancedetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getconformancepackcompliancedetailscommandoutput.html)
 
 </details>
 <details>
@@ -653,7 +653,7 @@ GetConformancePackComplianceDetails
 GetConformancePackComplianceSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetConformancePackComplianceSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetConformancePackComplianceSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetConformancePackComplianceSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getconformancepackcompliancesummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getconformancepackcompliancesummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getconformancepackcompliancesummarycommandoutput.html)
 
 </details>
 <details>
@@ -661,7 +661,7 @@ GetConformancePackComplianceSummary
 GetCustomRulePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetCustomRulePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetCustomRulePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetCustomRulePolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getcustomrulepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcustomrulepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getcustomrulepolicycommandoutput.html)
 
 </details>
 <details>
@@ -669,7 +669,7 @@ GetCustomRulePolicy
 GetDiscoveredResourceCounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetDiscoveredResourceCountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetDiscoveredResourceCountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetDiscoveredResourceCountsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getdiscoveredresourcecountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getdiscoveredresourcecountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getdiscoveredresourcecountscommandoutput.html)
 
 </details>
 <details>
@@ -677,7 +677,7 @@ GetDiscoveredResourceCounts
 GetOrganizationConfigRuleDetailedStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetOrganizationConfigRuleDetailedStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetOrganizationConfigRuleDetailedStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetOrganizationConfigRuleDetailedStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getorganizationconfigruledetailedstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getorganizationconfigruledetailedstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getorganizationconfigruledetailedstatuscommandoutput.html)
 
 </details>
 <details>
@@ -685,7 +685,7 @@ GetOrganizationConfigRuleDetailedStatus
 GetOrganizationConformancePackDetailedStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetOrganizationConformancePackDetailedStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetOrganizationConformancePackDetailedStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetOrganizationConformancePackDetailedStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getorganizationconformancepackdetailedstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getorganizationconformancepackdetailedstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getorganizationconformancepackdetailedstatuscommandoutput.html)
 
 </details>
 <details>
@@ -693,7 +693,7 @@ GetOrganizationConformancePackDetailedStatus
 GetOrganizationCustomRulePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetOrganizationCustomRulePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetOrganizationCustomRulePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetOrganizationCustomRulePolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getorganizationcustomrulepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getorganizationcustomrulepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getorganizationcustomrulepolicycommandoutput.html)
 
 </details>
 <details>
@@ -701,7 +701,7 @@ GetOrganizationCustomRulePolicy
 GetResourceConfigHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetResourceConfigHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetResourceConfigHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetResourceConfigHistoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getresourceconfighistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getresourceconfighistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getresourceconfighistorycommandoutput.html)
 
 </details>
 <details>
@@ -709,7 +709,7 @@ GetResourceConfigHistory
 GetResourceEvaluationSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetResourceEvaluationSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetResourceEvaluationSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetResourceEvaluationSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getresourceevaluationsummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getresourceevaluationsummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getresourceevaluationsummarycommandoutput.html)
 
 </details>
 <details>
@@ -717,7 +717,7 @@ GetResourceEvaluationSummary
 GetStoredQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetStoredQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetStoredQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetStoredQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/getstoredquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getstoredquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/getstoredquerycommandoutput.html)
 
 </details>
 <details>
@@ -725,7 +725,7 @@ GetStoredQuery
 ListAggregateDiscoveredResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListAggregateDiscoveredResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListAggregateDiscoveredResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListAggregateDiscoveredResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/listaggregatediscoveredresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listaggregatediscoveredresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listaggregatediscoveredresourcescommandoutput.html)
 
 </details>
 <details>
@@ -733,7 +733,7 @@ ListAggregateDiscoveredResources
 ListConformancePackComplianceScores
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListConformancePackComplianceScoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListConformancePackComplianceScoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListConformancePackComplianceScoresCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/listconformancepackcompliancescorescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listconformancepackcompliancescorescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listconformancepackcompliancescorescommandoutput.html)
 
 </details>
 <details>
@@ -741,7 +741,7 @@ ListConformancePackComplianceScores
 ListDiscoveredResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListDiscoveredResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListDiscoveredResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListDiscoveredResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/listdiscoveredresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listdiscoveredresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listdiscoveredresourcescommandoutput.html)
 
 </details>
 <details>
@@ -749,7 +749,7 @@ ListDiscoveredResources
 ListResourceEvaluations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListResourceEvaluationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListResourceEvaluationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListResourceEvaluationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/listresourceevaluationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listresourceevaluationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listresourceevaluationscommandoutput.html)
 
 </details>
 <details>
@@ -757,7 +757,7 @@ ListResourceEvaluations
 ListStoredQueries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListStoredQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListStoredQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListStoredQueriesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/liststoredqueriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/liststoredqueriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/liststoredqueriescommandoutput.html)
 
 </details>
 <details>
@@ -765,7 +765,7 @@ ListStoredQueries
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListTagsForResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -773,7 +773,7 @@ ListTagsForResource
 PutAggregationAuthorization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutAggregationAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutAggregationAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutAggregationAuthorizationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putaggregationauthorizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putaggregationauthorizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putaggregationauthorizationcommandoutput.html)
 
 </details>
 <details>
@@ -781,7 +781,7 @@ PutAggregationAuthorization
 PutConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -789,7 +789,7 @@ PutConfigRule
 PutConfigurationAggregator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutConfigurationAggregatorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConfigurationAggregatorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConfigurationAggregatorCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putconfigurationaggregatorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconfigurationaggregatorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconfigurationaggregatorcommandoutput.html)
 
 </details>
 <details>
@@ -797,7 +797,7 @@ PutConfigurationAggregator
 PutConfigurationRecorder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConfigurationRecorderCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putconfigurationrecordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconfigurationrecordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconfigurationrecordercommandoutput.html)
 
 </details>
 <details>
@@ -805,7 +805,7 @@ PutConfigurationRecorder
 PutConformancePack
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutConformancePackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConformancePackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConformancePackCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putconformancepackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconformancepackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putconformancepackcommandoutput.html)
 
 </details>
 <details>
@@ -813,7 +813,7 @@ PutConformancePack
 PutDeliveryChannel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutDeliveryChannelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutDeliveryChannelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutDeliveryChannelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putdeliverychannelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putdeliverychannelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putdeliverychannelcommandoutput.html)
 
 </details>
 <details>
@@ -821,7 +821,7 @@ PutDeliveryChannel
 PutEvaluations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutEvaluationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutEvaluationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutEvaluationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putevaluationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putevaluationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putevaluationscommandoutput.html)
 
 </details>
 <details>
@@ -829,7 +829,7 @@ PutEvaluations
 PutExternalEvaluation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutExternalEvaluationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutExternalEvaluationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutExternalEvaluationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putexternalevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putexternalevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putexternalevaluationcommandoutput.html)
 
 </details>
 <details>
@@ -837,7 +837,7 @@ PutExternalEvaluation
 PutOrganizationConfigRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutOrganizationConfigRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutOrganizationConfigRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutOrganizationConfigRuleCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putorganizationconfigrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putorganizationconfigrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putorganizationconfigrulecommandoutput.html)
 
 </details>
 <details>
@@ -845,7 +845,7 @@ PutOrganizationConfigRule
 PutOrganizationConformancePack
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutOrganizationConformancePackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutOrganizationConformancePackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutOrganizationConformancePackCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putorganizationconformancepackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putorganizationconformancepackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putorganizationconformancepackcommandoutput.html)
 
 </details>
 <details>
@@ -853,7 +853,7 @@ PutOrganizationConformancePack
 PutRemediationConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutRemediationConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRemediationConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRemediationConfigurationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putremediationconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putremediationconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putremediationconfigurationscommandoutput.html)
 
 </details>
 <details>
@@ -861,7 +861,7 @@ PutRemediationConfigurations
 PutRemediationExceptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutRemediationExceptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRemediationExceptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRemediationExceptionsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putremediationexceptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putremediationexceptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putremediationexceptionscommandoutput.html)
 
 </details>
 <details>
@@ -869,7 +869,7 @@ PutRemediationExceptions
 PutResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -877,7 +877,7 @@ PutResourceConfig
 PutRetentionConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutRetentionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRetentionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRetentionConfigurationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putretentionconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putretentionconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putretentionconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -885,7 +885,7 @@ PutRetentionConfiguration
 PutStoredQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutStoredQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutStoredQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutStoredQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/putstoredquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putstoredquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/putstoredquerycommandoutput.html)
 
 </details>
 <details>
@@ -893,7 +893,7 @@ PutStoredQuery
 SelectAggregateResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/SelectAggregateResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/SelectAggregateResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/SelectAggregateResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/selectaggregateresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/selectaggregateresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/selectaggregateresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -901,7 +901,7 @@ SelectAggregateResourceConfig
 SelectResourceConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/SelectResourceConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/SelectResourceConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/SelectResourceConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/selectresourceconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/selectresourceconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/selectresourceconfigcommandoutput.html)
 
 </details>
 <details>
@@ -909,7 +909,7 @@ SelectResourceConfig
 StartConfigRulesEvaluation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/StartConfigRulesEvaluationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartConfigRulesEvaluationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartConfigRulesEvaluationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/startconfigrulesevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startconfigrulesevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startconfigrulesevaluationcommandoutput.html)
 
 </details>
 <details>
@@ -917,7 +917,7 @@ StartConfigRulesEvaluation
 StartConfigurationRecorder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/StartConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartConfigurationRecorderCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/startconfigurationrecordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startconfigurationrecordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startconfigurationrecordercommandoutput.html)
 
 </details>
 <details>
@@ -925,7 +925,7 @@ StartConfigurationRecorder
 StartRemediationExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/StartRemediationExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartRemediationExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartRemediationExecutionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/startremediationexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startremediationexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startremediationexecutioncommandoutput.html)
 
 </details>
 <details>
@@ -933,7 +933,7 @@ StartRemediationExecution
 StartResourceEvaluation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/StartResourceEvaluationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartResourceEvaluationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StartResourceEvaluationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/startresourceevaluationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startresourceevaluationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/startresourceevaluationcommandoutput.html)
 
 </details>
 <details>
@@ -941,7 +941,7 @@ StartResourceEvaluation
 StopConfigurationRecorder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/StopConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StopConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/StopConfigurationRecorderCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/stopconfigurationrecordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/stopconfigurationrecordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/stopconfigurationrecordercommandoutput.html)
 
 </details>
 <details>
@@ -949,7 +949,7 @@ StopConfigurationRecorder
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/TagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -957,6 +957,6 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/UntagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-config-service/interfaces/untagresourcecommandoutput.html)
 
 </details>

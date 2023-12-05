@@ -214,7 +214,7 @@ see LICENSE for more information.
 GetApplicationComponentDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetApplicationComponentDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetApplicationComponentDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetApplicationComponentDetailsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getapplicationcomponentdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getapplicationcomponentdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getapplicationcomponentdetailscommandoutput.html)
 
 </details>
 <details>
@@ -222,7 +222,7 @@ GetApplicationComponentDetails
 GetApplicationComponentStrategies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetApplicationComponentStrategiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetApplicationComponentStrategiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetApplicationComponentStrategiesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getapplicationcomponentstrategiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getapplicationcomponentstrategiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getapplicationcomponentstrategiescommandoutput.html)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ GetApplicationComponentStrategies
 GetAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetAssessmentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ GetAssessment
 GetImportFileTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetImportFileTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetImportFileTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetImportFileTaskCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getimportfiletaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getimportfiletaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getimportfiletaskcommandoutput.html)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ GetImportFileTask
 GetLatestAssessmentId
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetLatestAssessmentIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetLatestAssessmentIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetLatestAssessmentIdCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getlatestassessmentidcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getlatestassessmentidcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getlatestassessmentidcommandoutput.html)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ GetLatestAssessmentId
 GetPortfolioPreferences
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetPortfolioPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetPortfolioPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetPortfolioPreferencesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getportfoliopreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getportfoliopreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getportfoliopreferencescommandoutput.html)
 
 </details>
 <details>
@@ -262,7 +262,7 @@ GetPortfolioPreferences
 GetPortfolioSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetPortfolioSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetPortfolioSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetPortfolioSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getportfoliosummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getportfoliosummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getportfoliosummarycommandoutput.html)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ GetPortfolioSummary
 GetRecommendationReportDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetRecommendationReportDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetRecommendationReportDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetRecommendationReportDetailsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getrecommendationreportdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getrecommendationreportdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getrecommendationreportdetailscommandoutput.html)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ GetRecommendationReportDetails
 GetServerDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetServerDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetServerDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetServerDetailsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getserverdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getserverdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getserverdetailscommandoutput.html)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ GetServerDetails
 GetServerStrategies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/GetServerStrategiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetServerStrategiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/GetServerStrategiesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/getserverstrategiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getserverstrategiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/getserverstrategiescommandoutput.html)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ GetServerStrategies
 ListAnalyzableServers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/ListAnalyzableServersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListAnalyzableServersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListAnalyzableServersCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/listanalyzableserverscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listanalyzableserverscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listanalyzableserverscommandoutput.html)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ ListAnalyzableServers
 ListApplicationComponents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/ListApplicationComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListApplicationComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListApplicationComponentsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/listapplicationcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listapplicationcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listapplicationcomponentscommandoutput.html)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ ListApplicationComponents
 ListCollectors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/ListCollectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListCollectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListCollectorsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/listcollectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listcollectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listcollectorscommandoutput.html)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ ListCollectors
 ListImportFileTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/ListImportFileTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListImportFileTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListImportFileTaskCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/listimportfiletaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listimportfiletaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listimportfiletaskcommandoutput.html)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ ListImportFileTask
 ListServers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/ListServersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListServersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/ListServersCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/listserverscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listserverscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/listserverscommandoutput.html)
 
 </details>
 <details>
@@ -334,7 +334,7 @@ ListServers
 PutPortfolioPreferences
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/PutPortfolioPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/PutPortfolioPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/PutPortfolioPreferencesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/putportfoliopreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/putportfoliopreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/putportfoliopreferencescommandoutput.html)
 
 </details>
 <details>
@@ -342,7 +342,7 @@ PutPortfolioPreferences
 StartAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/StartAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StartAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StartAssessmentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/startassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/startassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/startassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -350,7 +350,7 @@ StartAssessment
 StartImportFileTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/StartImportFileTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StartImportFileTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StartImportFileTaskCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/startimportfiletaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/startimportfiletaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/startimportfiletaskcommandoutput.html)
 
 </details>
 <details>
@@ -358,7 +358,7 @@ StartImportFileTask
 StartRecommendationReportGeneration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/StartRecommendationReportGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StartRecommendationReportGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StartRecommendationReportGenerationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/startrecommendationreportgenerationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/startrecommendationreportgenerationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/startrecommendationreportgenerationcommandoutput.html)
 
 </details>
 <details>
@@ -366,7 +366,7 @@ StartRecommendationReportGeneration
 StopAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/StopAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StopAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/StopAssessmentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/stopassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/stopassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/stopassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -374,7 +374,7 @@ StopAssessment
 UpdateApplicationComponentConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/UpdateApplicationComponentConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/UpdateApplicationComponentConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/UpdateApplicationComponentConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/updateapplicationcomponentconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/updateapplicationcomponentconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/updateapplicationcomponentconfigcommandoutput.html)
 
 </details>
 <details>
@@ -382,6 +382,6 @@ UpdateApplicationComponentConfig
 UpdateServerConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhubstrategy/command/UpdateServerConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/UpdateServerConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhubstrategy/Interface/UpdateServerConfigCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/classes/updateserverconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/updateserverconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migrationhubstrategy/interfaces/updateserverconfigcommandoutput.html)
 
 </details>

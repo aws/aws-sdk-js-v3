@@ -213,7 +213,7 @@ see LICENSE for more information.
 CreateAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/CreateAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/CreateAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/CreateAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/createaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/createaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/createaudiencemodelcommandoutput.html)
 
 </details>
 <details>
@@ -221,7 +221,7 @@ CreateAudienceModel
 CreateConfiguredAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/CreateConfiguredAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/CreateConfiguredAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/CreateConfiguredAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/createconfiguredaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/createconfiguredaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/createconfiguredaudiencemodelcommandoutput.html)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ CreateConfiguredAudienceModel
 CreateTrainingDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/CreateTrainingDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/CreateTrainingDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/CreateTrainingDatasetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/createtrainingdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/createtrainingdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/createtrainingdatasetcommandoutput.html)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ CreateTrainingDataset
 DeleteAudienceGenerationJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/DeleteAudienceGenerationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteAudienceGenerationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteAudienceGenerationJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/deleteaudiencegenerationjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteaudiencegenerationjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteaudiencegenerationjobcommandoutput.html)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ DeleteAudienceGenerationJob
 DeleteAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/DeleteAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/deleteaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteaudiencemodelcommandoutput.html)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ DeleteAudienceModel
 DeleteConfiguredAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/DeleteConfiguredAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteConfiguredAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteConfiguredAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/deleteconfiguredaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteconfiguredaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteconfiguredaudiencemodelcommandoutput.html)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ DeleteConfiguredAudienceModel
 DeleteConfiguredAudienceModelPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/DeleteConfiguredAudienceModelPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteConfiguredAudienceModelPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteConfiguredAudienceModelPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/deleteconfiguredaudiencemodelpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteconfiguredaudiencemodelpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deleteconfiguredaudiencemodelpolicycommandoutput.html)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ DeleteConfiguredAudienceModelPolicy
 DeleteTrainingDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/DeleteTrainingDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteTrainingDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/DeleteTrainingDatasetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/deletetrainingdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deletetrainingdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/deletetrainingdatasetcommandoutput.html)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ DeleteTrainingDataset
 GetAudienceGenerationJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/GetAudienceGenerationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetAudienceGenerationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetAudienceGenerationJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/getaudiencegenerationjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getaudiencegenerationjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getaudiencegenerationjobcommandoutput.html)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ GetAudienceGenerationJob
 GetAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/GetAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/getaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getaudiencemodelcommandoutput.html)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ GetAudienceModel
 GetConfiguredAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/GetConfiguredAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetConfiguredAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetConfiguredAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/getconfiguredaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getconfiguredaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getconfiguredaudiencemodelcommandoutput.html)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ GetConfiguredAudienceModel
 GetConfiguredAudienceModelPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/GetConfiguredAudienceModelPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetConfiguredAudienceModelPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetConfiguredAudienceModelPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/getconfiguredaudiencemodelpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getconfiguredaudiencemodelpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/getconfiguredaudiencemodelpolicycommandoutput.html)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ GetConfiguredAudienceModelPolicy
 GetTrainingDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/GetTrainingDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetTrainingDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/GetTrainingDatasetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/gettrainingdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/gettrainingdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/gettrainingdatasetcommandoutput.html)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ GetTrainingDataset
 ListAudienceExportJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/ListAudienceExportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListAudienceExportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListAudienceExportJobsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/listaudienceexportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listaudienceexportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listaudienceexportjobscommandoutput.html)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ ListAudienceExportJobs
 ListAudienceGenerationJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/ListAudienceGenerationJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListAudienceGenerationJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListAudienceGenerationJobsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/listaudiencegenerationjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listaudiencegenerationjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listaudiencegenerationjobscommandoutput.html)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ ListAudienceGenerationJobs
 ListAudienceModels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/ListAudienceModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListAudienceModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListAudienceModelsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/listaudiencemodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listaudiencemodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listaudiencemodelscommandoutput.html)
 
 </details>
 <details>
@@ -341,7 +341,7 @@ ListAudienceModels
 ListConfiguredAudienceModels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/ListConfiguredAudienceModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListConfiguredAudienceModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListConfiguredAudienceModelsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/listconfiguredaudiencemodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listconfiguredaudiencemodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listconfiguredaudiencemodelscommandoutput.html)
 
 </details>
 <details>
@@ -349,7 +349,7 @@ ListConfiguredAudienceModels
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListTagsForResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -357,7 +357,7 @@ ListTagsForResource
 ListTrainingDatasets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/ListTrainingDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListTrainingDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/ListTrainingDatasetsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/listtrainingdatasetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listtrainingdatasetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/listtrainingdatasetscommandoutput.html)
 
 </details>
 <details>
@@ -365,7 +365,7 @@ ListTrainingDatasets
 PutConfiguredAudienceModelPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/PutConfiguredAudienceModelPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/PutConfiguredAudienceModelPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/PutConfiguredAudienceModelPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/putconfiguredaudiencemodelpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/putconfiguredaudiencemodelpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/putconfiguredaudiencemodelpolicycommandoutput.html)
 
 </details>
 <details>
@@ -373,7 +373,7 @@ PutConfiguredAudienceModelPolicy
 StartAudienceExportJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/StartAudienceExportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/StartAudienceExportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/StartAudienceExportJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/startaudienceexportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/startaudienceexportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/startaudienceexportjobcommandoutput.html)
 
 </details>
 <details>
@@ -381,7 +381,7 @@ StartAudienceExportJob
 StartAudienceGenerationJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/StartAudienceGenerationJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/StartAudienceGenerationJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/StartAudienceGenerationJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/startaudiencegenerationjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/startaudiencegenerationjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/startaudiencegenerationjobcommandoutput.html)
 
 </details>
 <details>
@@ -389,7 +389,7 @@ StartAudienceGenerationJob
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/TagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -397,7 +397,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/UntagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -405,6 +405,6 @@ UntagResource
 UpdateConfiguredAudienceModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cleanroomsml/command/UpdateConfiguredAudienceModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/UpdateConfiguredAudienceModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cleanroomsml/Interface/UpdateConfiguredAudienceModelCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/classes/updateconfiguredaudiencemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/updateconfiguredaudiencemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanroomsml/interfaces/updateconfiguredaudiencemodelcommandoutput.html)
 
 </details>

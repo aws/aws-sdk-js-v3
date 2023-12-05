@@ -209,7 +209,7 @@ see LICENSE for more information.
 DecryptData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/DecryptDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/DecryptDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/DecryptDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/decryptdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/decryptdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/decryptdatacommandoutput.html)
 
 </details>
 <details>
@@ -217,7 +217,7 @@ DecryptData
 EncryptData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/EncryptDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/EncryptDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/EncryptDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/encryptdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/encryptdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/encryptdatacommandoutput.html)
 
 </details>
 <details>
@@ -225,7 +225,7 @@ EncryptData
 GenerateCardValidationData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateCardValidationDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateCardValidationDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateCardValidationDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/generatecardvalidationdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/generatecardvalidationdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/generatecardvalidationdatacommandoutput.html)
 
 </details>
 <details>
@@ -233,7 +233,7 @@ GenerateCardValidationData
 GenerateMac
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GenerateMacCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GenerateMacCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/generatemaccommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/generatemaccommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/generatemaccommandoutput.html)
 
 </details>
 <details>
@@ -241,7 +241,7 @@ GenerateMac
 GeneratePinData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/GeneratePinDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GeneratePinDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/GeneratePinDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/generatepindatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/generatepindatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/generatepindatacommandoutput.html)
 
 </details>
 <details>
@@ -249,7 +249,7 @@ GeneratePinData
 ReEncryptData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/ReEncryptDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/ReEncryptDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/ReEncryptDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/reencryptdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/reencryptdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/reencryptdatacommandoutput.html)
 
 </details>
 <details>
@@ -257,7 +257,7 @@ ReEncryptData
 TranslatePinData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/TranslatePinDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/TranslatePinDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/TranslatePinDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/translatepindatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/translatepindatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/translatepindatacommandoutput.html)
 
 </details>
 <details>
@@ -265,7 +265,7 @@ TranslatePinData
 VerifyAuthRequestCryptogram
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/VerifyAuthRequestCryptogramCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyAuthRequestCryptogramCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyAuthRequestCryptogramCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/verifyauthrequestcryptogramcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifyauthrequestcryptogramcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifyauthrequestcryptogramcommandoutput.html)
 
 </details>
 <details>
@@ -273,7 +273,7 @@ VerifyAuthRequestCryptogram
 VerifyCardValidationData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/VerifyCardValidationDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyCardValidationDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyCardValidationDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/verifycardvalidationdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifycardvalidationdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifycardvalidationdatacommandoutput.html)
 
 </details>
 <details>
@@ -281,7 +281,7 @@ VerifyCardValidationData
 VerifyMac
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/VerifyMacCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyMacCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyMacCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/verifymaccommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifymaccommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifymaccommandoutput.html)
 
 </details>
 <details>
@@ -289,6 +289,6 @@ VerifyMac
 VerifyPinData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/payment-cryptography-data/command/VerifyPinDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyPinDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-payment-cryptography-data/Interface/VerifyPinDataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/classes/verifypindatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifypindatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-payment-cryptography-data/interfaces/verifypindatacommandoutput.html)
 
 </details>

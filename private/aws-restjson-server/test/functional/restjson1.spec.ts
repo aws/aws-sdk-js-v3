@@ -27750,6 +27750,45 @@ it("RestJsonMalformedUnionValueIsArray:MalformedRequest", async () => {
 });
 
 /**
+ * When an unknown union member is received, the response should be a 400
+ * SerializationException.
+ */
+it("RestJsonMalformedUnionUnknownMember:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonService<{}>> = {
+    MalformedUnion: testFunction as MalformedUnion<{}>,
+  };
+  const handler = getRestJsonServiceHandler(
+    testService as RestJsonService<{}>,
+    (ctx: {}, failures: __ValidationFailure[]) => {
+      if (failures) {
+        throw failures;
+      }
+      return undefined;
+    }
+  );
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUnion",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{\n    "union": {\n        "unknown": "hello"\n    }\n}']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("SerializationException");
+});
+
+/**
  * Headers that target strings with a mediaType are base64 encoded
  */
 it("MediaTypeHeaderInputBase64:ServerRequest", async () => {

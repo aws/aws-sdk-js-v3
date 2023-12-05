@@ -39,6 +39,21 @@ import {
   NoInputAndOutputCommandOutput,
 } from "./commands/NoInputAndOutputCommand";
 import {
+  OperationWithDefaultsCommand,
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "./commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommand,
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "./commands/OperationWithNestedStructureCommand";
+import {
+  OperationWithRequiredMembersCommand,
+  OperationWithRequiredMembersCommandInput,
+  OperationWithRequiredMembersCommandOutput,
+} from "./commands/OperationWithRequiredMembersCommand";
+import {
   PutWithContentEncodingCommand,
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
@@ -59,6 +74,9 @@ const commands = {
   JsonUnionsCommand,
   NoInputAndNoOutputCommand,
   NoInputAndOutputCommand,
+  OperationWithDefaultsCommand,
+  OperationWithNestedStructureCommand,
+  OperationWithRequiredMembersCommand,
   PutWithContentEncodingCommand,
   SimpleScalarPropertiesCommand,
 };
@@ -192,6 +210,57 @@ export interface JSONRPC10 {
     args: NoInputAndOutputCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: NoInputAndOutputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OperationWithDefaultsCommand}
+   */
+  operationWithDefaults(
+    args: OperationWithDefaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OperationWithDefaultsCommandOutput>;
+  operationWithDefaults(
+    args: OperationWithDefaultsCommandInput,
+    cb: (err: any, data?: OperationWithDefaultsCommandOutput) => void
+  ): void;
+  operationWithDefaults(
+    args: OperationWithDefaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OperationWithDefaultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OperationWithNestedStructureCommand}
+   */
+  operationWithNestedStructure(
+    args: OperationWithNestedStructureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OperationWithNestedStructureCommandOutput>;
+  operationWithNestedStructure(
+    args: OperationWithNestedStructureCommandInput,
+    cb: (err: any, data?: OperationWithNestedStructureCommandOutput) => void
+  ): void;
+  operationWithNestedStructure(
+    args: OperationWithNestedStructureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OperationWithNestedStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OperationWithRequiredMembersCommand}
+   */
+  operationWithRequiredMembers(
+    args: OperationWithRequiredMembersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OperationWithRequiredMembersCommandOutput>;
+  operationWithRequiredMembers(
+    args: OperationWithRequiredMembersCommandInput,
+    cb: (err: any, data?: OperationWithRequiredMembersCommandOutput) => void
+  ): void;
+  operationWithRequiredMembers(
+    args: OperationWithRequiredMembersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OperationWithRequiredMembersCommandOutput) => void
   ): void;
 
   /**

@@ -214,7 +214,7 @@ see LICENSE for more information.
 CancelGremlinQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelGremlinQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelGremlinQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelGremlinQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/cancelgremlinquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelgremlinquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelgremlinquerycommandoutput.html)
 
 </details>
 <details>
@@ -222,7 +222,7 @@ CancelGremlinQuery
 CancelLoaderJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelLoaderJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelLoaderJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelLoaderJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/cancelloaderjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelloaderjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelloaderjobcommandoutput.html)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ CancelLoaderJob
 CancelMLDataProcessingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelMLDataProcessingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelMLDataProcessingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelMLDataProcessingJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/cancelmldataprocessingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelmldataprocessingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelmldataprocessingjobcommandoutput.html)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ CancelMLDataProcessingJob
 CancelMLModelTrainingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelMLModelTrainingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelMLModelTrainingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelMLModelTrainingJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/cancelmlmodeltrainingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelmlmodeltrainingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelmlmodeltrainingjobcommandoutput.html)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ CancelMLModelTrainingJob
 CancelMLModelTransformJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelMLModelTransformJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelMLModelTransformJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelMLModelTransformJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/cancelmlmodeltransformjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelmlmodeltransformjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelmlmodeltransformjobcommandoutput.html)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ CancelMLModelTransformJob
 CancelOpenCypherQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CancelOpenCypherQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelOpenCypherQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CancelOpenCypherQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/cancelopencypherquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelopencypherquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/cancelopencypherquerycommandoutput.html)
 
 </details>
 <details>
@@ -262,7 +262,7 @@ CancelOpenCypherQuery
 CreateMLEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/CreateMLEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CreateMLEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/CreateMLEndpointCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/createmlendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/createmlendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/createmlendpointcommandoutput.html)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ CreateMLEndpoint
 DeleteMLEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/DeleteMLEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/DeleteMLEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/DeleteMLEndpointCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/deletemlendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/deletemlendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/deletemlendpointcommandoutput.html)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ DeleteMLEndpoint
 DeletePropertygraphStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/DeletePropertygraphStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/DeletePropertygraphStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/DeletePropertygraphStatisticsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/deletepropertygraphstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/deletepropertygraphstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/deletepropertygraphstatisticscommandoutput.html)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ DeletePropertygraphStatistics
 DeleteSparqlStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/DeleteSparqlStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/DeleteSparqlStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/DeleteSparqlStatisticsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/deletesparqlstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/deletesparqlstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/deletesparqlstatisticscommandoutput.html)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ DeleteSparqlStatistics
 ExecuteFastReset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ExecuteFastResetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteFastResetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteFastResetCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/executefastresetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executefastresetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executefastresetcommandoutput.html)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ ExecuteFastReset
 ExecuteGremlinExplainQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ExecuteGremlinExplainQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteGremlinExplainQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteGremlinExplainQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/executegremlinexplainquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executegremlinexplainquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executegremlinexplainquerycommandoutput.html)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ ExecuteGremlinExplainQuery
 ExecuteGremlinProfileQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ExecuteGremlinProfileQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteGremlinProfileQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteGremlinProfileQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/executegremlinprofilequerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executegremlinprofilequerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executegremlinprofilequerycommandoutput.html)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ ExecuteGremlinProfileQuery
 ExecuteGremlinQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ExecuteGremlinQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteGremlinQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteGremlinQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/executegremlinquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executegremlinquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executegremlinquerycommandoutput.html)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ ExecuteGremlinQuery
 ExecuteOpenCypherExplainQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ExecuteOpenCypherExplainQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteOpenCypherExplainQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteOpenCypherExplainQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/executeopencypherexplainquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executeopencypherexplainquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executeopencypherexplainquerycommandoutput.html)
 
 </details>
 <details>
@@ -334,7 +334,7 @@ ExecuteOpenCypherExplainQuery
 ExecuteOpenCypherQuery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ExecuteOpenCypherQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteOpenCypherQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ExecuteOpenCypherQueryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/executeopencypherquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executeopencypherquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/executeopencypherquerycommandoutput.html)
 
 </details>
 <details>
@@ -342,7 +342,7 @@ ExecuteOpenCypherQuery
 GetEngineStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetEngineStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetEngineStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetEngineStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getenginestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getenginestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getenginestatuscommandoutput.html)
 
 </details>
 <details>
@@ -350,7 +350,7 @@ GetEngineStatus
 GetGremlinQueryStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetGremlinQueryStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetGremlinQueryStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetGremlinQueryStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getgremlinquerystatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getgremlinquerystatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getgremlinquerystatuscommandoutput.html)
 
 </details>
 <details>
@@ -358,7 +358,7 @@ GetGremlinQueryStatus
 GetLoaderJobStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetLoaderJobStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetLoaderJobStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetLoaderJobStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getloaderjobstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getloaderjobstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getloaderjobstatuscommandoutput.html)
 
 </details>
 <details>
@@ -366,7 +366,7 @@ GetLoaderJobStatus
 GetMLDataProcessingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetMLDataProcessingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLDataProcessingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLDataProcessingJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getmldataprocessingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmldataprocessingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmldataprocessingjobcommandoutput.html)
 
 </details>
 <details>
@@ -374,7 +374,7 @@ GetMLDataProcessingJob
 GetMLEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetMLEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLEndpointCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getmlendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmlendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmlendpointcommandoutput.html)
 
 </details>
 <details>
@@ -382,7 +382,7 @@ GetMLEndpoint
 GetMLModelTrainingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetMLModelTrainingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLModelTrainingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLModelTrainingJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getmlmodeltrainingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmlmodeltrainingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmlmodeltrainingjobcommandoutput.html)
 
 </details>
 <details>
@@ -390,7 +390,7 @@ GetMLModelTrainingJob
 GetMLModelTransformJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetMLModelTransformJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLModelTransformJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetMLModelTransformJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getmlmodeltransformjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmlmodeltransformjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getmlmodeltransformjobcommandoutput.html)
 
 </details>
 <details>
@@ -398,7 +398,7 @@ GetMLModelTransformJob
 GetOpenCypherQueryStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetOpenCypherQueryStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetOpenCypherQueryStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetOpenCypherQueryStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getopencypherquerystatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getopencypherquerystatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getopencypherquerystatuscommandoutput.html)
 
 </details>
 <details>
@@ -406,7 +406,7 @@ GetOpenCypherQueryStatus
 GetPropertygraphStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetPropertygraphStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetPropertygraphStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetPropertygraphStatisticsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getpropertygraphstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getpropertygraphstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getpropertygraphstatisticscommandoutput.html)
 
 </details>
 <details>
@@ -414,7 +414,7 @@ GetPropertygraphStatistics
 GetPropertygraphStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetPropertygraphStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetPropertygraphStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetPropertygraphStreamCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getpropertygraphstreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getpropertygraphstreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getpropertygraphstreamcommandoutput.html)
 
 </details>
 <details>
@@ -422,7 +422,7 @@ GetPropertygraphStream
 GetPropertygraphSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetPropertygraphSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetPropertygraphSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetPropertygraphSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getpropertygraphsummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getpropertygraphsummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getpropertygraphsummarycommandoutput.html)
 
 </details>
 <details>
@@ -430,7 +430,7 @@ GetPropertygraphSummary
 GetRDFGraphSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetRDFGraphSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetRDFGraphSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetRDFGraphSummaryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getrdfgraphsummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getrdfgraphsummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getrdfgraphsummarycommandoutput.html)
 
 </details>
 <details>
@@ -438,7 +438,7 @@ GetRDFGraphSummary
 GetSparqlStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetSparqlStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetSparqlStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetSparqlStatisticsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getsparqlstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getsparqlstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getsparqlstatisticscommandoutput.html)
 
 </details>
 <details>
@@ -446,7 +446,7 @@ GetSparqlStatistics
 GetSparqlStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/GetSparqlStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetSparqlStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/GetSparqlStreamCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/getsparqlstreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getsparqlstreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/getsparqlstreamcommandoutput.html)
 
 </details>
 <details>
@@ -454,7 +454,7 @@ GetSparqlStream
 ListGremlinQueries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListGremlinQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListGremlinQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListGremlinQueriesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listgremlinqueriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listgremlinqueriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listgremlinqueriescommandoutput.html)
 
 </details>
 <details>
@@ -462,7 +462,7 @@ ListGremlinQueries
 ListLoaderJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListLoaderJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListLoaderJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListLoaderJobsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listloaderjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listloaderjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listloaderjobscommandoutput.html)
 
 </details>
 <details>
@@ -470,7 +470,7 @@ ListLoaderJobs
 ListMLDataProcessingJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListMLDataProcessingJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLDataProcessingJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLDataProcessingJobsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listmldataprocessingjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmldataprocessingjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmldataprocessingjobscommandoutput.html)
 
 </details>
 <details>
@@ -478,7 +478,7 @@ ListMLDataProcessingJobs
 ListMLEndpoints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListMLEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLEndpointsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listmlendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmlendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmlendpointscommandoutput.html)
 
 </details>
 <details>
@@ -486,7 +486,7 @@ ListMLEndpoints
 ListMLModelTrainingJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListMLModelTrainingJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLModelTrainingJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLModelTrainingJobsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listmlmodeltrainingjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmlmodeltrainingjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmlmodeltrainingjobscommandoutput.html)
 
 </details>
 <details>
@@ -494,7 +494,7 @@ ListMLModelTrainingJobs
 ListMLModelTransformJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListMLModelTransformJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLModelTransformJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListMLModelTransformJobsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listmlmodeltransformjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmlmodeltransformjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listmlmodeltransformjobscommandoutput.html)
 
 </details>
 <details>
@@ -502,7 +502,7 @@ ListMLModelTransformJobs
 ListOpenCypherQueries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ListOpenCypherQueriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListOpenCypherQueriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ListOpenCypherQueriesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/listopencypherqueriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listopencypherqueriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/listopencypherqueriescommandoutput.html)
 
 </details>
 <details>
@@ -510,7 +510,7 @@ ListOpenCypherQueries
 ManagePropertygraphStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ManagePropertygraphStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ManagePropertygraphStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ManagePropertygraphStatisticsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/managepropertygraphstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/managepropertygraphstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/managepropertygraphstatisticscommandoutput.html)
 
 </details>
 <details>
@@ -518,7 +518,7 @@ ManagePropertygraphStatistics
 ManageSparqlStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/ManageSparqlStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ManageSparqlStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/ManageSparqlStatisticsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/managesparqlstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/managesparqlstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/managesparqlstatisticscommandoutput.html)
 
 </details>
 <details>
@@ -526,7 +526,7 @@ ManageSparqlStatistics
 StartLoaderJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/StartLoaderJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartLoaderJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartLoaderJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/startloaderjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startloaderjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startloaderjobcommandoutput.html)
 
 </details>
 <details>
@@ -534,7 +534,7 @@ StartLoaderJob
 StartMLDataProcessingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/StartMLDataProcessingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartMLDataProcessingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartMLDataProcessingJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/startmldataprocessingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startmldataprocessingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startmldataprocessingjobcommandoutput.html)
 
 </details>
 <details>
@@ -542,7 +542,7 @@ StartMLDataProcessingJob
 StartMLModelTrainingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/StartMLModelTrainingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartMLModelTrainingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartMLModelTrainingJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/startmlmodeltrainingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startmlmodeltrainingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startmlmodeltrainingjobcommandoutput.html)
 
 </details>
 <details>
@@ -550,6 +550,6 @@ StartMLModelTrainingJob
 StartMLModelTransformJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptunedata/command/StartMLModelTransformJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartMLModelTransformJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptunedata/Interface/StartMLModelTransformJobCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/classes/startmlmodeltransformjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startmlmodeltransformjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-neptunedata/interfaces/startmlmodeltransformjobcommandoutput.html)
 
 </details>

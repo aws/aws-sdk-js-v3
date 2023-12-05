@@ -142,7 +142,7 @@ export class ListScheduledQueriesCommand extends $Command<
       getEndpointPlugin(configuration, ListScheduledQueriesCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
+      getEndpointDiscoveryPlugin(configuration, { clientStack, isDiscoveredEndpointRequired: true, options })
     );
 
     const stack = clientStack.concat(this.middlewareStack);

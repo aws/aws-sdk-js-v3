@@ -212,7 +212,7 @@ see LICENSE for more information.
 AddDraftAppVersionResourceMappings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/AddDraftAppVersionResourceMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/AddDraftAppVersionResourceMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/AddDraftAppVersionResourceMappingsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/adddraftappversionresourcemappingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/adddraftappversionresourcemappingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/adddraftappversionresourcemappingscommandoutput.html)
 
 </details>
 <details>
@@ -220,7 +220,7 @@ AddDraftAppVersionResourceMappings
 BatchUpdateRecommendationStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/BatchUpdateRecommendationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/BatchUpdateRecommendationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/BatchUpdateRecommendationStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/batchupdaterecommendationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/batchupdaterecommendationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/batchupdaterecommendationstatuscommandoutput.html)
 
 </details>
 <details>
@@ -228,7 +228,7 @@ BatchUpdateRecommendationStatus
 CreateApp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/CreateAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateAppCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/createappcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createappcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createappcommandoutput.html)
 
 </details>
 <details>
@@ -236,7 +236,7 @@ CreateApp
 CreateAppVersionAppComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/CreateAppVersionAppComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateAppVersionAppComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateAppVersionAppComponentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/createappversionappcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createappversionappcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createappversionappcomponentcommandoutput.html)
 
 </details>
 <details>
@@ -244,7 +244,7 @@ CreateAppVersionAppComponent
 CreateAppVersionResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/CreateAppVersionResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateAppVersionResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateAppVersionResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/createappversionresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createappversionresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createappversionresourcecommandoutput.html)
 
 </details>
 <details>
@@ -252,7 +252,7 @@ CreateAppVersionResource
 CreateRecommendationTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/CreateRecommendationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateRecommendationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateRecommendationTemplateCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/createrecommendationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createrecommendationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createrecommendationtemplatecommandoutput.html)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ CreateRecommendationTemplate
 CreateResiliencyPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/CreateResiliencyPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateResiliencyPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/CreateResiliencyPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/createresiliencypolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createresiliencypolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/createresiliencypolicycommandoutput.html)
 
 </details>
 <details>
@@ -268,7 +268,7 @@ CreateResiliencyPolicy
 DeleteApp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleteappcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappcommandoutput.html)
 
 </details>
 <details>
@@ -276,7 +276,7 @@ DeleteApp
 DeleteAppAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteAppAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppAssessmentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleteappassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -284,7 +284,7 @@ DeleteAppAssessment
 DeleteAppInputSource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteAppInputSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppInputSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppInputSourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleteappinputsourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappinputsourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappinputsourcecommandoutput.html)
 
 </details>
 <details>
@@ -292,7 +292,7 @@ DeleteAppInputSource
 DeleteAppVersionAppComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteAppVersionAppComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppVersionAppComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppVersionAppComponentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleteappversionappcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappversionappcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappversionappcomponentcommandoutput.html)
 
 </details>
 <details>
@@ -300,7 +300,7 @@ DeleteAppVersionAppComponent
 DeleteAppVersionResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteAppVersionResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppVersionResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteAppVersionResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleteappversionresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappversionresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteappversionresourcecommandoutput.html)
 
 </details>
 <details>
@@ -308,7 +308,7 @@ DeleteAppVersionResource
 DeleteRecommendationTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteRecommendationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteRecommendationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteRecommendationTemplateCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleterecommendationtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleterecommendationtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleterecommendationtemplatecommandoutput.html)
 
 </details>
 <details>
@@ -316,7 +316,7 @@ DeleteRecommendationTemplate
 DeleteResiliencyPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DeleteResiliencyPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteResiliencyPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DeleteResiliencyPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/deleteresiliencypolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteresiliencypolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/deleteresiliencypolicycommandoutput.html)
 
 </details>
 <details>
@@ -324,7 +324,7 @@ DeleteResiliencyPolicy
 DescribeApp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappcommandoutput.html)
 
 </details>
 <details>
@@ -332,7 +332,7 @@ DescribeApp
 DescribeAppAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppAssessmentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -340,7 +340,7 @@ DescribeAppAssessment
 DescribeAppVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversioncommandoutput.html)
 
 </details>
 <details>
@@ -348,7 +348,7 @@ DescribeAppVersion
 DescribeAppVersionAppComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppVersionAppComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionAppComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionAppComponentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappversionappcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversionappcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversionappcomponentcommandoutput.html)
 
 </details>
 <details>
@@ -356,7 +356,7 @@ DescribeAppVersionAppComponent
 DescribeAppVersionResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppVersionResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappversionresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversionresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversionresourcecommandoutput.html)
 
 </details>
 <details>
@@ -364,7 +364,7 @@ DescribeAppVersionResource
 DescribeAppVersionResourcesResolutionStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppVersionResourcesResolutionStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionResourcesResolutionStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionResourcesResolutionStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappversionresourcesresolutionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversionresourcesresolutionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversionresourcesresolutionstatuscommandoutput.html)
 
 </details>
 <details>
@@ -372,7 +372,7 @@ DescribeAppVersionResourcesResolutionStatus
 DescribeAppVersionTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeAppVersionTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeAppVersionTemplateCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeappversiontemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversiontemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeappversiontemplatecommandoutput.html)
 
 </details>
 <details>
@@ -380,7 +380,7 @@ DescribeAppVersionTemplate
 DescribeDraftAppVersionResourcesImportStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeDraftAppVersionResourcesImportStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeDraftAppVersionResourcesImportStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeDraftAppVersionResourcesImportStatusCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describedraftappversionresourcesimportstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describedraftappversionresourcesimportstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describedraftappversionresourcesimportstatuscommandoutput.html)
 
 </details>
 <details>
@@ -388,7 +388,7 @@ DescribeDraftAppVersionResourcesImportStatus
 DescribeResiliencyPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeResiliencyPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResiliencyPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeResiliencyPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/describeresiliencypolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeresiliencypolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/describeresiliencypolicycommandoutput.html)
 
 </details>
 <details>
@@ -396,7 +396,7 @@ DescribeResiliencyPolicy
 ImportResourcesToDraftAppVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ImportResourcesToDraftAppVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ImportResourcesToDraftAppVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ImportResourcesToDraftAppVersionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/importresourcestodraftappversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/importresourcestodraftappversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/importresourcestodraftappversioncommandoutput.html)
 
 </details>
 <details>
@@ -404,7 +404,7 @@ ImportResourcesToDraftAppVersion
 ListAlarmRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAlarmRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAlarmRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAlarmRecommendationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listalarmrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listalarmrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listalarmrecommendationscommandoutput.html)
 
 </details>
 <details>
@@ -412,7 +412,7 @@ ListAlarmRecommendations
 ListAppAssessmentComplianceDrifts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppAssessmentComplianceDriftsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppAssessmentComplianceDriftsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppAssessmentComplianceDriftsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappassessmentcompliancedriftscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappassessmentcompliancedriftscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappassessmentcompliancedriftscommandoutput.html)
 
 </details>
 <details>
@@ -420,7 +420,7 @@ ListAppAssessmentComplianceDrifts
 ListAppAssessments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppAssessmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppAssessmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppAssessmentsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappassessmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappassessmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappassessmentscommandoutput.html)
 
 </details>
 <details>
@@ -428,7 +428,7 @@ ListAppAssessments
 ListAppComponentCompliances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppComponentCompliancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppComponentCompliancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppComponentCompliancesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappcomponentcompliancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappcomponentcompliancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappcomponentcompliancescommandoutput.html)
 
 </details>
 <details>
@@ -436,7 +436,7 @@ ListAppComponentCompliances
 ListAppComponentRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppComponentRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppComponentRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppComponentRecommendationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappcomponentrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappcomponentrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappcomponentrecommendationscommandoutput.html)
 
 </details>
 <details>
@@ -444,7 +444,7 @@ ListAppComponentRecommendations
 ListAppInputSources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppInputSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppInputSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppInputSourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappinputsourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappinputsourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappinputsourcescommandoutput.html)
 
 </details>
 <details>
@@ -452,7 +452,7 @@ ListAppInputSources
 ListApps
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappscommandoutput.html)
 
 </details>
 <details>
@@ -460,7 +460,7 @@ ListApps
 ListAppVersionAppComponents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppVersionAppComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionAppComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionAppComponentsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappversionappcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionappcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionappcomponentscommandoutput.html)
 
 </details>
 <details>
@@ -468,7 +468,7 @@ ListAppVersionAppComponents
 ListAppVersionResourceMappings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppVersionResourceMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionResourceMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionResourceMappingsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappversionresourcemappingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionresourcemappingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionresourcemappingscommandoutput.html)
 
 </details>
 <details>
@@ -476,7 +476,7 @@ ListAppVersionResourceMappings
 ListAppVersionResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppVersionResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappversionresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionresourcescommandoutput.html)
 
 </details>
 <details>
@@ -484,7 +484,7 @@ ListAppVersionResources
 ListAppVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListAppVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListAppVersionsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listappversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listappversionscommandoutput.html)
 
 </details>
 <details>
@@ -492,7 +492,7 @@ ListAppVersions
 ListRecommendationTemplates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListRecommendationTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListRecommendationTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListRecommendationTemplatesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listrecommendationtemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listrecommendationtemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listrecommendationtemplatescommandoutput.html)
 
 </details>
 <details>
@@ -500,7 +500,7 @@ ListRecommendationTemplates
 ListResiliencyPolicies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListResiliencyPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResiliencyPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListResiliencyPoliciesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listresiliencypoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listresiliencypoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listresiliencypoliciescommandoutput.html)
 
 </details>
 <details>
@@ -508,7 +508,7 @@ ListResiliencyPolicies
 ListSopRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListSopRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListSopRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListSopRecommendationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listsoprecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listsoprecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listsoprecommendationscommandoutput.html)
 
 </details>
 <details>
@@ -516,7 +516,7 @@ ListSopRecommendations
 ListSuggestedResiliencyPolicies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListSuggestedResiliencyPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListSuggestedResiliencyPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListSuggestedResiliencyPoliciesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listsuggestedresiliencypoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listsuggestedresiliencypoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listsuggestedresiliencypoliciescommandoutput.html)
 
 </details>
 <details>
@@ -524,7 +524,7 @@ ListSuggestedResiliencyPolicies
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListTagsForResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -532,7 +532,7 @@ ListTagsForResource
 ListTestRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListTestRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListTestRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListTestRecommendationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listtestrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listtestrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listtestrecommendationscommandoutput.html)
 
 </details>
 <details>
@@ -540,7 +540,7 @@ ListTestRecommendations
 ListUnsupportedAppVersionResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListUnsupportedAppVersionResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListUnsupportedAppVersionResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListUnsupportedAppVersionResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/listunsupportedappversionresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listunsupportedappversionresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/listunsupportedappversionresourcescommandoutput.html)
 
 </details>
 <details>
@@ -548,7 +548,7 @@ ListUnsupportedAppVersionResources
 PublishAppVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/PublishAppVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/PublishAppVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/PublishAppVersionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/publishappversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/publishappversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/publishappversioncommandoutput.html)
 
 </details>
 <details>
@@ -556,7 +556,7 @@ PublishAppVersion
 PutDraftAppVersionTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/PutDraftAppVersionTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/PutDraftAppVersionTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/PutDraftAppVersionTemplateCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/putdraftappversiontemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/putdraftappversiontemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/putdraftappversiontemplatecommandoutput.html)
 
 </details>
 <details>
@@ -564,7 +564,7 @@ PutDraftAppVersionTemplate
 RemoveDraftAppVersionResourceMappings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/RemoveDraftAppVersionResourceMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/RemoveDraftAppVersionResourceMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/RemoveDraftAppVersionResourceMappingsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/removedraftappversionresourcemappingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/removedraftappversionresourcemappingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/removedraftappversionresourcemappingscommandoutput.html)
 
 </details>
 <details>
@@ -572,7 +572,7 @@ RemoveDraftAppVersionResourceMappings
 ResolveAppVersionResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ResolveAppVersionResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ResolveAppVersionResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ResolveAppVersionResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/resolveappversionresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/resolveappversionresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/resolveappversionresourcescommandoutput.html)
 
 </details>
 <details>
@@ -580,7 +580,7 @@ ResolveAppVersionResources
 StartAppAssessment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartAppAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/startappassessmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/startappassessmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/startappassessmentcommandoutput.html)
 
 </details>
 <details>
@@ -588,7 +588,7 @@ StartAppAssessment
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/TagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -596,7 +596,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UntagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -604,7 +604,7 @@ UntagResource
 UpdateApp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/UpdateAppCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/updateappcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappcommandoutput.html)
 
 </details>
 <details>
@@ -612,7 +612,7 @@ UpdateApp
 UpdateAppVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/UpdateAppVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppVersionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/updateappversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappversioncommandoutput.html)
 
 </details>
 <details>
@@ -620,7 +620,7 @@ UpdateAppVersion
 UpdateAppVersionAppComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/UpdateAppVersionAppComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppVersionAppComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppVersionAppComponentCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/updateappversionappcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappversionappcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappversionappcomponentcommandoutput.html)
 
 </details>
 <details>
@@ -628,7 +628,7 @@ UpdateAppVersionAppComponent
 UpdateAppVersionResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/UpdateAppVersionResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppVersionResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateAppVersionResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/updateappversionresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappversionresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateappversionresourcecommandoutput.html)
 
 </details>
 <details>
@@ -636,6 +636,6 @@ UpdateAppVersionResource
 UpdateResiliencyPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/UpdateResiliencyPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateResiliencyPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/UpdateResiliencyPolicyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/classes/updateresiliencypolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateresiliencypolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resiliencehub/interfaces/updateresiliencypolicycommandoutput.html)
 
 </details>

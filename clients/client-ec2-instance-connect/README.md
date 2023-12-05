@@ -210,7 +210,7 @@ see LICENSE for more information.
 SendSerialConsoleSSHPublicKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-instance-connect/command/SendSerialConsoleSSHPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSerialConsoleSSHPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSerialConsoleSSHPublicKeyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendserialconsolesshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandoutput.html)
 
 </details>
 <details>
@@ -218,6 +218,6 @@ SendSerialConsoleSSHPublicKey
 SendSSHPublicKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-instance-connect/command/SendSSHPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSSHPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSSHPublicKeyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendsshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandoutput.html)
 
 </details>

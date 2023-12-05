@@ -213,7 +213,7 @@ see LICENSE for more information.
 AcceptDirectConnectGatewayAssociationProposal
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AcceptDirectConnectGatewayAssociationProposalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AcceptDirectConnectGatewayAssociationProposalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AcceptDirectConnectGatewayAssociationProposalCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/acceptdirectconnectgatewayassociationproposalcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/acceptdirectconnectgatewayassociationproposalcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/acceptdirectconnectgatewayassociationproposalcommandoutput.html)
 
 </details>
 <details>
@@ -221,7 +221,7 @@ AcceptDirectConnectGatewayAssociationProposal
 AllocateConnectionOnInterconnect
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AllocateConnectionOnInterconnectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateConnectionOnInterconnectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateConnectionOnInterconnectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/allocateconnectiononinterconnectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocateconnectiononinterconnectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocateconnectiononinterconnectcommandoutput.html)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ AllocateConnectionOnInterconnect
 AllocateHostedConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AllocateHostedConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateHostedConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateHostedConnectionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/allocatehostedconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocatehostedconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocatehostedconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ AllocateHostedConnection
 AllocatePrivateVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AllocatePrivateVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocatePrivateVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocatePrivateVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/allocateprivatevirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocateprivatevirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocateprivatevirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ AllocatePrivateVirtualInterface
 AllocatePublicVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AllocatePublicVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocatePublicVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocatePublicVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/allocatepublicvirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocatepublicvirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocatepublicvirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ AllocatePublicVirtualInterface
 AllocateTransitVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AllocateTransitVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateTransitVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateTransitVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/allocatetransitvirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocatetransitvirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/allocatetransitvirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ AllocateTransitVirtualInterface
 AssociateConnectionWithLag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AssociateConnectionWithLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateConnectionWithLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateConnectionWithLagCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/associateconnectionwithlagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associateconnectionwithlagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associateconnectionwithlagcommandoutput.html)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ AssociateConnectionWithLag
 AssociateHostedConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AssociateHostedConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateHostedConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateHostedConnectionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/associatehostedconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associatehostedconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associatehostedconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ AssociateHostedConnection
 AssociateMacSecKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AssociateMacSecKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateMacSecKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateMacSecKeyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/associatemacseckeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associatemacseckeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associatemacseckeycommandoutput.html)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ AssociateMacSecKey
 AssociateVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AssociateVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/associatevirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associatevirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/associatevirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ AssociateVirtualInterface
 ConfirmConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ConfirmConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmConnectionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/confirmconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ ConfirmConnection
 ConfirmCustomerAgreement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ConfirmCustomerAgreementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmCustomerAgreementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmCustomerAgreementCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/confirmcustomeragreementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmcustomeragreementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmcustomeragreementcommandoutput.html)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ ConfirmCustomerAgreement
 ConfirmPrivateVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ConfirmPrivateVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmPrivateVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmPrivateVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/confirmprivatevirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmprivatevirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmprivatevirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ ConfirmPrivateVirtualInterface
 ConfirmPublicVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ConfirmPublicVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmPublicVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmPublicVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/confirmpublicvirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmpublicvirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmpublicvirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ ConfirmPublicVirtualInterface
 ConfirmTransitVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ConfirmTransitVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmTransitVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ConfirmTransitVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/confirmtransitvirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmtransitvirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/confirmtransitvirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ ConfirmTransitVirtualInterface
 CreateBGPPeer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateBGPPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateBGPPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateBGPPeerCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createbgppeercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createbgppeercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createbgppeercommandoutput.html)
 
 </details>
 <details>
@@ -341,7 +341,7 @@ CreateBGPPeer
 CreateConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateConnectionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -349,7 +349,7 @@ CreateConnection
 CreateDirectConnectGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateDirectConnectGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateDirectConnectGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateDirectConnectGatewayCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createdirectconnectgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createdirectconnectgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createdirectconnectgatewaycommandoutput.html)
 
 </details>
 <details>
@@ -357,7 +357,7 @@ CreateDirectConnectGateway
 CreateDirectConnectGatewayAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateDirectConnectGatewayAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateDirectConnectGatewayAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateDirectConnectGatewayAssociationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createdirectconnectgatewayassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createdirectconnectgatewayassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createdirectconnectgatewayassociationcommandoutput.html)
 
 </details>
 <details>
@@ -365,7 +365,7 @@ CreateDirectConnectGatewayAssociation
 CreateDirectConnectGatewayAssociationProposal
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateDirectConnectGatewayAssociationProposalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateDirectConnectGatewayAssociationProposalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateDirectConnectGatewayAssociationProposalCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createdirectconnectgatewayassociationproposalcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createdirectconnectgatewayassociationproposalcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createdirectconnectgatewayassociationproposalcommandoutput.html)
 
 </details>
 <details>
@@ -373,7 +373,7 @@ CreateDirectConnectGatewayAssociationProposal
 CreateInterconnect
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateInterconnectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateInterconnectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateInterconnectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createinterconnectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createinterconnectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createinterconnectcommandoutput.html)
 
 </details>
 <details>
@@ -381,7 +381,7 @@ CreateInterconnect
 CreateLag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateLagCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createlagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createlagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createlagcommandoutput.html)
 
 </details>
 <details>
@@ -389,7 +389,7 @@ CreateLag
 CreatePrivateVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreatePrivateVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreatePrivateVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreatePrivateVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createprivatevirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createprivatevirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createprivatevirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -397,7 +397,7 @@ CreatePrivateVirtualInterface
 CreatePublicVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreatePublicVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreatePublicVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreatePublicVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createpublicvirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createpublicvirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createpublicvirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -405,7 +405,7 @@ CreatePublicVirtualInterface
 CreateTransitVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateTransitVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateTransitVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateTransitVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/createtransitvirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createtransitvirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/createtransitvirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -413,7 +413,7 @@ CreateTransitVirtualInterface
 DeleteBGPPeer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteBGPPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteBGPPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteBGPPeerCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deletebgppeercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletebgppeercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletebgppeercommandoutput.html)
 
 </details>
 <details>
@@ -421,7 +421,7 @@ DeleteBGPPeer
 DeleteConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteConnectionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deleteconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deleteconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deleteconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -429,7 +429,7 @@ DeleteConnection
 DeleteDirectConnectGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteDirectConnectGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteDirectConnectGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteDirectConnectGatewayCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deletedirectconnectgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletedirectconnectgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletedirectconnectgatewaycommandoutput.html)
 
 </details>
 <details>
@@ -437,7 +437,7 @@ DeleteDirectConnectGateway
 DeleteDirectConnectGatewayAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteDirectConnectGatewayAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteDirectConnectGatewayAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteDirectConnectGatewayAssociationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deletedirectconnectgatewayassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletedirectconnectgatewayassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletedirectconnectgatewayassociationcommandoutput.html)
 
 </details>
 <details>
@@ -445,7 +445,7 @@ DeleteDirectConnectGatewayAssociation
 DeleteDirectConnectGatewayAssociationProposal
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteDirectConnectGatewayAssociationProposalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteDirectConnectGatewayAssociationProposalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteDirectConnectGatewayAssociationProposalCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deletedirectconnectgatewayassociationproposalcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletedirectconnectgatewayassociationproposalcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletedirectconnectgatewayassociationproposalcommandoutput.html)
 
 </details>
 <details>
@@ -453,7 +453,7 @@ DeleteDirectConnectGatewayAssociationProposal
 DeleteInterconnect
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteInterconnectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteInterconnectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteInterconnectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deleteinterconnectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deleteinterconnectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deleteinterconnectcommandoutput.html)
 
 </details>
 <details>
@@ -461,7 +461,7 @@ DeleteInterconnect
 DeleteLag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteLagCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deletelagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletelagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletelagcommandoutput.html)
 
 </details>
 <details>
@@ -469,7 +469,7 @@ DeleteLag
 DeleteVirtualInterface
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteVirtualInterfaceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/deletevirtualinterfacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletevirtualinterfacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/deletevirtualinterfacecommandoutput.html)
 
 </details>
 <details>
@@ -477,7 +477,7 @@ DeleteVirtualInterface
 DescribeConnectionLoa
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeConnectionLoaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeConnectionLoaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeConnectionLoaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describeconnectionloacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeconnectionloacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeconnectionloacommandoutput.html)
 
 </details>
 <details>
@@ -485,7 +485,7 @@ DescribeConnectionLoa
 DescribeConnections
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeConnectionsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describeconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeconnectionscommandoutput.html)
 
 </details>
 <details>
@@ -493,7 +493,7 @@ DescribeConnections
 DescribeConnectionsOnInterconnect
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeConnectionsOnInterconnectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeConnectionsOnInterconnectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeConnectionsOnInterconnectCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describeconnectionsoninterconnectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeconnectionsoninterconnectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeconnectionsoninterconnectcommandoutput.html)
 
 </details>
 <details>
@@ -501,7 +501,7 @@ DescribeConnectionsOnInterconnect
 DescribeCustomerMetadata
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeCustomerMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeCustomerMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeCustomerMetadataCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describecustomermetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describecustomermetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describecustomermetadatacommandoutput.html)
 
 </details>
 <details>
@@ -509,7 +509,7 @@ DescribeCustomerMetadata
 DescribeDirectConnectGatewayAssociationProposals
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeDirectConnectGatewayAssociationProposalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewayAssociationProposalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewayAssociationProposalsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describedirectconnectgatewayassociationproposalscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayassociationproposalscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayassociationproposalscommandoutput.html)
 
 </details>
 <details>
@@ -517,7 +517,7 @@ DescribeDirectConnectGatewayAssociationProposals
 DescribeDirectConnectGatewayAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeDirectConnectGatewayAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewayAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewayAssociationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describedirectconnectgatewayassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayassociationscommandoutput.html)
 
 </details>
 <details>
@@ -525,7 +525,7 @@ DescribeDirectConnectGatewayAssociations
 DescribeDirectConnectGatewayAttachments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeDirectConnectGatewayAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewayAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewayAttachmentsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describedirectconnectgatewayattachmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayattachmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayattachmentscommandoutput.html)
 
 </details>
 <details>
@@ -533,7 +533,7 @@ DescribeDirectConnectGatewayAttachments
 DescribeDirectConnectGateways
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeDirectConnectGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeDirectConnectGatewaysCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describedirectconnectgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describedirectconnectgatewayscommandoutput.html)
 
 </details>
 <details>
@@ -541,7 +541,7 @@ DescribeDirectConnectGateways
 DescribeHostedConnections
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeHostedConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeHostedConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeHostedConnectionsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describehostedconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describehostedconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describehostedconnectionscommandoutput.html)
 
 </details>
 <details>
@@ -549,7 +549,7 @@ DescribeHostedConnections
 DescribeInterconnectLoa
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeInterconnectLoaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeInterconnectLoaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeInterconnectLoaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describeinterconnectloacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeinterconnectloacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeinterconnectloacommandoutput.html)
 
 </details>
 <details>
@@ -557,7 +557,7 @@ DescribeInterconnectLoa
 DescribeInterconnects
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeInterconnectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeInterconnectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeInterconnectsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describeinterconnectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeinterconnectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeinterconnectscommandoutput.html)
 
 </details>
 <details>
@@ -565,7 +565,7 @@ DescribeInterconnects
 DescribeLags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeLagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeLagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeLagsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describelagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describelagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describelagscommandoutput.html)
 
 </details>
 <details>
@@ -573,7 +573,7 @@ DescribeLags
 DescribeLoa
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeLoaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeLoaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeLoaCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describeloacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeloacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describeloacommandoutput.html)
 
 </details>
 <details>
@@ -581,7 +581,7 @@ DescribeLoa
 DescribeLocations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeLocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeLocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeLocationsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describelocationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describelocationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describelocationscommandoutput.html)
 
 </details>
 <details>
@@ -589,7 +589,7 @@ DescribeLocations
 DescribeRouterConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeRouterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeRouterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeRouterConfigurationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describerouterconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describerouterconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describerouterconfigurationcommandoutput.html)
 
 </details>
 <details>
@@ -597,7 +597,7 @@ DescribeRouterConfiguration
 DescribeTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeTagsCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describetagscommandoutput.html)
 
 </details>
 <details>
@@ -605,7 +605,7 @@ DescribeTags
 DescribeVirtualGateways
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeVirtualGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeVirtualGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeVirtualGatewaysCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describevirtualgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describevirtualgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describevirtualgatewayscommandoutput.html)
 
 </details>
 <details>
@@ -613,7 +613,7 @@ DescribeVirtualGateways
 DescribeVirtualInterfaces
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DescribeVirtualInterfacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeVirtualInterfacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DescribeVirtualInterfacesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/describevirtualinterfacescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describevirtualinterfacescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/describevirtualinterfacescommandoutput.html)
 
 </details>
 <details>
@@ -621,7 +621,7 @@ DescribeVirtualInterfaces
 DisassociateConnectionFromLag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DisassociateConnectionFromLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateConnectionFromLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateConnectionFromLagCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/disassociateconnectionfromlagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/disassociateconnectionfromlagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/disassociateconnectionfromlagcommandoutput.html)
 
 </details>
 <details>
@@ -629,7 +629,7 @@ DisassociateConnectionFromLag
 DisassociateMacSecKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DisassociateMacSecKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateMacSecKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateMacSecKeyCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/disassociatemacseckeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/disassociatemacseckeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/disassociatemacseckeycommandoutput.html)
 
 </details>
 <details>
@@ -637,7 +637,7 @@ DisassociateMacSecKey
 ListVirtualInterfaceTestHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ListVirtualInterfaceTestHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListVirtualInterfaceTestHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListVirtualInterfaceTestHistoryCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/listvirtualinterfacetesthistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/listvirtualinterfacetesthistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/listvirtualinterfacetesthistorycommandoutput.html)
 
 </details>
 <details>
@@ -645,7 +645,7 @@ ListVirtualInterfaceTestHistory
 StartBgpFailoverTest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/StartBgpFailoverTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/StartBgpFailoverTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/StartBgpFailoverTestCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/startbgpfailovertestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/startbgpfailovertestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/startbgpfailovertestcommandoutput.html)
 
 </details>
 <details>
@@ -653,7 +653,7 @@ StartBgpFailoverTest
 StopBgpFailoverTest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/StopBgpFailoverTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/StopBgpFailoverTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/StopBgpFailoverTestCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/stopbgpfailovertestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/stopbgpfailovertestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/stopbgpfailovertestcommandoutput.html)
 
 </details>
 <details>
@@ -661,7 +661,7 @@ StopBgpFailoverTest
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/TagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -669,7 +669,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UntagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -677,7 +677,7 @@ UntagResource
 UpdateConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateConnectionCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/updateconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updateconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updateconnectioncommandoutput.html)
 
 </details>
 <details>
@@ -685,7 +685,7 @@ UpdateConnection
 UpdateDirectConnectGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateDirectConnectGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateDirectConnectGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateDirectConnectGatewayCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/updatedirectconnectgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatedirectconnectgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatedirectconnectgatewaycommandoutput.html)
 
 </details>
 <details>
@@ -693,7 +693,7 @@ UpdateDirectConnectGateway
 UpdateDirectConnectGatewayAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateDirectConnectGatewayAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateDirectConnectGatewayAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateDirectConnectGatewayAssociationCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/updatedirectconnectgatewayassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatedirectconnectgatewayassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatedirectconnectgatewayassociationcommandoutput.html)
 
 </details>
 <details>
@@ -701,7 +701,7 @@ UpdateDirectConnectGatewayAssociation
 UpdateLag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateLagCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/updatelagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatelagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatelagcommandoutput.html)
 
 </details>
 <details>
@@ -709,6 +709,6 @@ UpdateLag
 UpdateVirtualInterfaceAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateVirtualInterfaceAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateVirtualInterfaceAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateVirtualInterfaceAttributesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/classes/updatevirtualinterfaceattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatevirtualinterfaceattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-direct-connect/interfaces/updatevirtualinterfaceattributescommandoutput.html)
 
 </details>

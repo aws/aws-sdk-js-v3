@@ -208,7 +208,7 @@ see LICENSE for more information.
 QueryForecast
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/forecastquery/command/QueryForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryForecastCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/classes/queryforecastcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/queryforecastcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/queryforecastcommandoutput.html)
 
 </details>
 <details>
@@ -216,6 +216,6 @@ QueryForecast
 QueryWhatIfForecast
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/forecastquery/command/QueryWhatIfForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryWhatIfForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-forecastquery/Interface/QueryWhatIfForecastCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/classes/querywhatifforecastcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/querywhatifforecastcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-forecastquery/interfaces/querywhatifforecastcommandoutput.html)
 
 </details>

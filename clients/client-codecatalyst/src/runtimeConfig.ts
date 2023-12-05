@@ -3,7 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
-import { nodeProvider } from "@aws-sdk/token-providers";
+import { FromSsoInit, nodeProvider } from "@aws-sdk/token-providers";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
@@ -46,7 +46,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
         schemeId: "smithy.api#httpBearerAuth",
         identityProvider: (ipc: IdentityProviderConfig) =>
           ipc.getIdentityProvider("smithy.api#httpBearerAuth") ||
-          (async (idProps) => await nodeProvider(idProps?.__config || {})(idProps)),
+          (async (idProps) => await nodeProvider(idProps as FromSsoInit)(idProps)),
         signer: new HttpBearerAuthSigner(),
       },
     ],

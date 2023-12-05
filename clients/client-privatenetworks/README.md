@@ -211,7 +211,7 @@ see LICENSE for more information.
 AcknowledgeOrderReceipt
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/AcknowledgeOrderReceiptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/AcknowledgeOrderReceiptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/AcknowledgeOrderReceiptCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/acknowledgeorderreceiptcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/acknowledgeorderreceiptcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/acknowledgeorderreceiptcommandoutput.html)
 
 </details>
 <details>
@@ -219,7 +219,7 @@ AcknowledgeOrderReceipt
 ActivateDeviceIdentifier
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ActivateDeviceIdentifierCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ActivateDeviceIdentifierCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ActivateDeviceIdentifierCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/activatedeviceidentifiercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/activatedeviceidentifiercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/activatedeviceidentifiercommandoutput.html)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ ActivateDeviceIdentifier
 ActivateNetworkSite
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ActivateNetworkSiteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ActivateNetworkSiteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ActivateNetworkSiteCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/activatenetworksitecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/activatenetworksitecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/activatenetworksitecommandoutput.html)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ ActivateNetworkSite
 ConfigureAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ConfigureAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ConfigureAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ConfigureAccessPointCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/configureaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/configureaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/configureaccesspointcommandoutput.html)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ ConfigureAccessPoint
 CreateNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/CreateNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/CreateNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/CreateNetworkCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/createnetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/createnetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/createnetworkcommandoutput.html)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ CreateNetwork
 CreateNetworkSite
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/CreateNetworkSiteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/CreateNetworkSiteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/CreateNetworkSiteCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/createnetworksitecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/createnetworksitecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/createnetworksitecommandoutput.html)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ CreateNetworkSite
 DeactivateDeviceIdentifier
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/DeactivateDeviceIdentifierCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/DeactivateDeviceIdentifierCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/DeactivateDeviceIdentifierCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/deactivatedeviceidentifiercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/deactivatedeviceidentifiercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/deactivatedeviceidentifiercommandoutput.html)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ DeactivateDeviceIdentifier
 DeleteNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/DeleteNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/DeleteNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/DeleteNetworkCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/deletenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/deletenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/deletenetworkcommandoutput.html)
 
 </details>
 <details>
@@ -275,7 +275,7 @@ DeleteNetwork
 DeleteNetworkSite
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/DeleteNetworkSiteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/DeleteNetworkSiteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/DeleteNetworkSiteCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/deletenetworksitecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/deletenetworksitecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/deletenetworksitecommandoutput.html)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ DeleteNetworkSite
 GetDeviceIdentifier
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/GetDeviceIdentifierCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetDeviceIdentifierCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetDeviceIdentifierCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/getdeviceidentifiercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getdeviceidentifiercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getdeviceidentifiercommandoutput.html)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ GetDeviceIdentifier
 GetNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/GetNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetNetworkCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/getnetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getnetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getnetworkcommandoutput.html)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ GetNetwork
 GetNetworkResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/GetNetworkResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetNetworkResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetNetworkResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/getnetworkresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getnetworkresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getnetworkresourcecommandoutput.html)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ GetNetworkResource
 GetNetworkSite
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/GetNetworkSiteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetNetworkSiteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetNetworkSiteCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/getnetworksitecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getnetworksitecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getnetworksitecommandoutput.html)
 
 </details>
 <details>
@@ -315,7 +315,7 @@ GetNetworkSite
 GetOrder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/GetOrderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetOrderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/GetOrderCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/getordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/getordercommandoutput.html)
 
 </details>
 <details>
@@ -323,7 +323,7 @@ GetOrder
 ListDeviceIdentifiers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ListDeviceIdentifiersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListDeviceIdentifiersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListDeviceIdentifiersCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/listdeviceidentifierscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listdeviceidentifierscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listdeviceidentifierscommandoutput.html)
 
 </details>
 <details>
@@ -331,7 +331,7 @@ ListDeviceIdentifiers
 ListNetworkResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ListNetworkResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListNetworkResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListNetworkResourcesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/listnetworkresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listnetworkresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listnetworkresourcescommandoutput.html)
 
 </details>
 <details>
@@ -339,7 +339,7 @@ ListNetworkResources
 ListNetworks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ListNetworksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListNetworksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListNetworksCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/listnetworkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listnetworkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listnetworkscommandoutput.html)
 
 </details>
 <details>
@@ -347,7 +347,7 @@ ListNetworks
 ListNetworkSites
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ListNetworkSitesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListNetworkSitesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListNetworkSitesCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/listnetworksitescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listnetworksitescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listnetworksitescommandoutput.html)
 
 </details>
 <details>
@@ -355,7 +355,7 @@ ListNetworkSites
 ListOrders
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ListOrdersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListOrdersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListOrdersCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/listorderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listorderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listorderscommandoutput.html)
 
 </details>
 <details>
@@ -363,7 +363,7 @@ ListOrders
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/ListTagsForResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/listtagsforresourcecommandoutput.html)
 
 </details>
 <details>
@@ -371,7 +371,7 @@ ListTagsForResource
 Ping
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/PingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/PingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/PingCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/pingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/pingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/pingcommandoutput.html)
 
 </details>
 <details>
@@ -379,7 +379,7 @@ Ping
 StartNetworkResourceUpdate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/StartNetworkResourceUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/StartNetworkResourceUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/StartNetworkResourceUpdateCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/startnetworkresourceupdatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/startnetworkresourceupdatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/startnetworkresourceupdatecommandoutput.html)
 
 </details>
 <details>
@@ -387,7 +387,7 @@ StartNetworkResourceUpdate
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/TagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/tagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -395,7 +395,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/UntagResourceCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>
@@ -403,7 +403,7 @@ UntagResource
 UpdateNetworkSite
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/UpdateNetworkSiteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/UpdateNetworkSiteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/UpdateNetworkSiteCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/updatenetworksitecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/updatenetworksitecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/updatenetworksitecommandoutput.html)
 
 </details>
 <details>
@@ -411,6 +411,6 @@ UpdateNetworkSite
 UpdateNetworkSitePlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/privatenetworks/command/UpdateNetworkSitePlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/UpdateNetworkSitePlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-privatenetworks/Interface/UpdateNetworkSitePlanCommandOutput/)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/classes/updatenetworksiteplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/updatenetworksiteplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-privatenetworks/interfaces/updatenetworksiteplancommandoutput.html)
 
 </details>
