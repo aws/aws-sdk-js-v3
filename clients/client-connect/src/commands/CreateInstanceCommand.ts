@@ -61,6 +61,9 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *   DirectoryId: "STRING_VALUE",
  *   InboundCallsEnabled: true || false, // required
  *   OutboundCallsEnabled: true || false, // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);

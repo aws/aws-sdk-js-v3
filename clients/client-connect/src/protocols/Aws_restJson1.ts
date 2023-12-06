@@ -1714,6 +1714,7 @@ export const se_CreateInstanceCommand = async (
       InboundCallsEnabled: [],
       InstanceAlias: [],
       OutboundCallsEnabled: [],
+      Tags: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -23880,6 +23881,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
     OutboundCallsEnabled: __expectBoolean,
     ServiceRole: __expectString,
     StatusReason: _json,
+    Tags: _json,
   }) as any;
 };
 

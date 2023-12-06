@@ -2841,6 +2841,12 @@ export interface CreateInstanceRequest {
    * <p>Your contact center allows outbound calls.</p>
    */
   OutboundCallsEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -6625,6 +6631,12 @@ export interface Instance {
    * <p>This URL allows contact center users to access the Amazon Connect admin website.</p>
    */
   InstanceAccessUrl?: string;
+
+  /**
+   * @public
+   * <p>The tags of an instance.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
