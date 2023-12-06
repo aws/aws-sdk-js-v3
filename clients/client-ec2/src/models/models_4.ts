@@ -4380,6 +4380,12 @@ export interface ProcessorInfo {
    *     AMD SEV-SNP</a>.</p>
    */
   SupportedFeatures?: SupportedAdditionalProcessorFeature[];
+
+  /**
+   * @public
+   * <p>The manufacturer of the processor.</p>
+   */
+  Manufacturer?: string;
 }
 
 /**

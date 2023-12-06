@@ -88785,6 +88785,9 @@ const de_ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo =
       context
     );
   }
+  if (output["manufacturer"] !== undefined) {
+    contents.Manufacturer = __expectString(output["manufacturer"]);
+  }
   return contents;
 };
 

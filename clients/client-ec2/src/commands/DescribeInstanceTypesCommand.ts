@@ -88,6 +88,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //         SupportedFeatures: [ // SupportedAdditionalProcessorFeatureList
  * //           "amd-sev-snp",
  * //         ],
+ * //         Manufacturer: "STRING_VALUE",
  * //       },
  * //       VCpuInfo: { // VCpuInfo
  * //         DefaultVCpus: Number("int"),
