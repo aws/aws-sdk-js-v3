@@ -45,8 +45,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
 
 /**
  * @public
- * <p>Gets the import token and the wrapping key certificate to initiate a TR-34 key import into Amazon Web Services Payment Cryptography.</p>
- *          <p>The wrapping key certificate wraps the key under import within the TR-34 key payload. The import token and wrapping key certificate must be in place and operational before calling <a>ImportKey</a>. The import token expires in 7 days. The same import token can be used to import multiple keys into your service account.</p>
+ * <p>Gets the import token and the wrapping key certificate in PEM format (base64 encoded) to initiate a TR-34 WrappedKeyBlock.</p>
+ *          <p>The wrapping key certificate wraps the key under import. The import token and wrapping key certificate must be in place and operational before calling <a>ImportKey</a>. The import token expires in 7 days. You can use the same import token to import multiple keys into your service account.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
  *          <p>

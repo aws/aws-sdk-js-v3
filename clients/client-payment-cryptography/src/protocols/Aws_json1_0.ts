@@ -60,6 +60,8 @@ import {
   DeleteAliasInput,
   DeleteKeyInput,
   DeleteKeyOutput,
+  ExportAttributes,
+  ExportDukptInitialKey,
   ExportKeyInput,
   ExportKeyMaterial,
   ExportTr31KeyBlock,
@@ -1773,6 +1775,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_DeleteAliasInput omitted.
 
 // se_DeleteKeyInput omitted.
+
+// se_ExportAttributes omitted.
+
+// se_ExportDukptInitialKey omitted.
 
 // se_ExportKeyInput omitted.
 

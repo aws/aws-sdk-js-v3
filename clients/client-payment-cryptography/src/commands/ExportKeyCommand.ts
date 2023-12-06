@@ -46,33 +46,65 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
 
 /**
  * @public
- * <p>Exports a key from Amazon Web Services Payment Cryptography using either ANSI X9 TR-34 or TR-31 key export standard.</p>
- *          <p>Amazon Web Services Payment Cryptography simplifies main or root key exchange process by eliminating the need of a paper-based key exchange process. It takes a modern and secure approach based of the ANSI X9 TR-34 key exchange standard.</p>
- *          <p>You can use <code>ExportKey</code> to export main or root keys such as KEK (Key Encryption Key), using asymmetric key exchange technique following ANSI X9 TR-34 standard. The ANSI X9 TR-34 standard uses asymmetric keys to establishes bi-directional trust between the two parties exchanging keys. After which you can export working keys using the ANSI X9 TR-31 symmetric key exchange standard as mandated by PCI PIN. Using this operation, you can share your Amazon Web Services Payment Cryptography generated keys with other service partners to perform cryptographic operations outside of Amazon Web Services Payment Cryptography </p>
+ * <p>Exports a key from Amazon Web Services Payment Cryptography.</p>
+ *          <p>Amazon Web Services Payment Cryptography simplifies key exchange by replacing the existing paper-based approach with a modern electronic approach. With <code>ExportKey</code> you can export symmetric keys using either symmetric and asymmetric key exchange mechanisms. Using this operation, you can share your Amazon Web Services Payment Cryptography generated keys with other service partners to perform cryptographic operations outside of Amazon Web Services Payment Cryptography </p>
+ *          <p>For symmetric key exchange, Amazon Web Services Payment Cryptography uses the ANSI X9 TR-31 norm in accordance with PCI PIN guidelines. And for asymmetric key exchange, Amazon Web Services Payment Cryptography supports ANSI X9 TR-34 norm . Asymmetric key exchange methods are typically used to establish bi-directional trust between the two parties exhanging keys and are used for initial key exchange such as Key Encryption Key (KEK). After which you can export working keys using symmetric method to perform various cryptographic operations within Amazon Web Services Payment Cryptography.</p>
+ *          <p>The TR-34 norm is intended for exchanging 3DES keys only and keys are imported in a WrappedKeyBlock format. Key attributes (such as KeyUsage, KeyAlgorithm, KeyModesOfUse, Exportability) are contained within the key block.</p>
+ *          <p>You can also use <code>ExportKey</code> functionality to generate and export an IPEK (Initial Pin Encryption Key) from Amazon Web Services Payment Cryptography using either TR-31 or TR-34 export key exchange. IPEK is generated from BDK (Base Derivation Key) and <code>ExportDukptInitialKey</code> attribute KSN (<code>KeySerialNumber</code>). The generated IPEK does not persist within Amazon Web Services Payment Cryptography and has to be re-generated each time during export.</p>
  *          <p>
- *             <b>TR-34 key export</b>
+ *             <b>To export KEK or IPEK using TR-34</b>
  *          </p>
- *          <p>Amazon Web Services Payment Cryptography uses TR-34 asymmetric key exchange standard to export main keys such as KEK. In TR-34 terminology, the sending party of the key is called Key Distribution Host (KDH) and the receiving party of the key is called Key Receiving Host (KRH). In key export process, KDH is Amazon Web Services Payment Cryptography which initiates key export. KRH is the user receiving the key. Before you initiate TR-34 key export, you must obtain an export token by calling <a>GetParametersForExport</a>. This operation also returns the signing key certificate that KDH uses to sign the wrapped key to generate a TR-34 wrapped key block. The export token expires after 7 days.</p>
+ *          <p>Using this operation, you can export initial key using TR-34 asymmetric key exchange. You can only export KEK generated within Amazon Web Services Payment Cryptography. In TR-34 terminology, the sending party of the key is called Key Distribution Host (KDH) and the receiving party of the key is called Key Receiving Device (KRD). During key export process, KDH is Amazon Web Services Payment Cryptography which initiates key export and KRD is the user receiving the key.</p>
+ *          <p>To initiate TR-34 key export, the KRD must obtain an export token by calling <a>GetParametersForExport</a>. This operation also generates a key pair for the purpose of key export, signs the key and returns back the signing public key certificate (also known as KDH signing certificate) and root certificate chain. The KDH uses the private key to sign the the export payload and the signing public key certificate is provided to KRD to verify the signature. The KRD can import the root certificate into its Hardware Security Module (HSM), as required. The export token and the associated KDH signing certificate expires after 7 days. </p>
+ *          <p>Next the KRD generates a key pair for the the purpose of encrypting the KDH key and provides the public key cerificate (also known as KRD wrapping certificate) back to KDH. The KRD will also import the root cerificate chain into Amazon Web Services Payment Cryptography by calling <a>ImportKey</a> for <code>RootCertificatePublicKey</code>. The KDH, Amazon Web Services Payment Cryptography, will use the KRD wrapping cerificate to encrypt (wrap) the key under export and signs it with signing private key to generate a TR-34 WrappedKeyBlock. For more information on TR-34 key export, see section <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-export.html">Exporting symmetric keys</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p>
  *          <p>Set the following parameters:</p>
- *          <dl>
- *             <dt>CertificateAuthorityPublicKeyIdentifier</dt>
- *             <dd>
- *                <p>The <code>KeyARN</code> of the certificate chain that will sign the wrapping key certificate. This must exist within Amazon Web Services Payment Cryptography before you initiate TR-34 key export. If it does not exist, you can import it by calling <a>ImportKey</a> for <code>RootCertificatePublicKey</code>.</p>
- *             </dd>
- *             <dt>ExportToken</dt>
- *             <dd>
- *                <p>Obtained from KDH by calling <a>GetParametersForExport</a>.</p>
- *             </dd>
- *             <dt>WrappingKeyCertificate</dt>
- *             <dd>
- *                <p>Amazon Web Services Payment Cryptography uses this to wrap the key under export.</p>
- *             </dd>
- *          </dl>
- *          <p>When this operation is successful, Amazon Web Services Payment Cryptography returns the TR-34 wrapped key block. </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ExportAttributes</code>: Specify export attributes in case of IPEK export. This parameter is optional for KEK export.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ExportKeyIdentifier</code>: The <code>KeyARN</code> of the KEK or BDK (in case of IPEK) under export.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>KeyMaterial</code>: Use <code>Tr34KeyBlock</code> parameters.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CertificateAuthorityPublicKeyIdentifier</code>: The <code>KeyARN</code> of the certificate chain that signed the KRD wrapping key certificate.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ExportToken</code>: Obtained from KDH by calling <a>GetParametersForImport</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>WrappingKeyCertificate</code>: The public key certificate in PEM format (base64 encoded) of the KRD wrapping key Amazon Web Services Payment Cryptography uses for encryption of the TR-34 export payload. This certificate must be signed by the root certificate (CertificateAuthorityPublicKeyIdentifier) imported into Amazon Web Services Payment Cryptography.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When this operation is successful, Amazon Web Services Payment Cryptography returns the KEK or IPEK as a TR-34 WrappedKeyBlock. </p>
  *          <p>
- *             <b>TR-31 key export</b>
+ *             <b>To export WK (Working Key) or IPEK using TR-31</b>
  *          </p>
- *          <p>Amazon Web Services Payment Cryptography uses TR-31 symmetric key exchange standard to export working keys. In TR-31, you must use a main key such as KEK to encrypt or wrap the key under export. To establish a KEK, you can use <a>CreateKey</a> or <a>ImportKey</a>. When this operation is successful, Amazon Web Services Payment Cryptography returns a TR-31 wrapped key block. </p>
+ *          <p>Using this operation, you can export working keys or IPEK using TR-31 symmetric key exchange. In TR-31, you must use an initial key such as KEK to encrypt or wrap the key under export. To establish a KEK, you can use <a>CreateKey</a> or <a>ImportKey</a>. </p>
+ *          <p>Set the following parameters:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ExportAttributes</code>: Specify export attributes in case of IPEK export. This parameter is optional for KEK export.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ExportKeyIdentifier</code>: The <code>KeyARN</code> of the KEK or BDK (in case of IPEK) under export.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>KeyMaterial</code>: Use <code>Tr31KeyBlock</code> parameters.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When this operation is successful, Amazon Web Services Payment Cryptography returns the WK or IPEK as a TR-31 WrappedKeyBlock.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
  *          <p>
@@ -110,6 +142,12 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  *     },
  *   },
  *   ExportKeyIdentifier: "STRING_VALUE", // required
+ *   ExportAttributes: { // ExportAttributes
+ *     ExportDukptInitialKey: { // ExportDukptInitialKey
+ *       KeySerialNumber: "STRING_VALUE", // required
+ *     },
+ *     KeyCheckValueAlgorithm: "STRING_VALUE",
+ *   },
  * };
  * const command = new ExportKeyCommand(input);
  * const response = await client.send(command);
@@ -118,6 +156,8 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  * //     WrappingKeyArn: "STRING_VALUE", // required
  * //     WrappedKeyMaterialFormat: "STRING_VALUE", // required
  * //     KeyMaterial: "STRING_VALUE", // required
+ * //     KeyCheckValue: "STRING_VALUE",
+ * //     KeyCheckValueAlgorithm: "STRING_VALUE",
  * //   },
  * // };
  *
