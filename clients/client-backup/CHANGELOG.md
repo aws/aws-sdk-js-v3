@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+
+### Features
+
+* **client-backup:** AWS Backup - Features: Add VaultType to the output of DescribeRecoveryPoint, ListRecoveryPointByBackupVault API and add ResourceType to the input of ListRestoreJobs API ([f1f4163](https://github.com/aws/aws-sdk-js-v3/commit/f1f4163debd43bf2834cff2226d9228bec6625e5))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

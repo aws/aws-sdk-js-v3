@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+
+### Features
+
+* **client-ec2:** Releasing the new cpuManufacturer attribute within the DescribeInstanceTypes API response which notifies our customers with information on who the Manufacturer is for the processor attached to the instance, for example: Intel. ([35fbeb8](https://github.com/aws/aws-sdk-js-v3/commit/35fbeb846843da47b950e7e03be3370489cab5bc))
+
+
+
+
+
 # [3.467.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.466.0...v3.467.0) (2023-12-05)
 
 

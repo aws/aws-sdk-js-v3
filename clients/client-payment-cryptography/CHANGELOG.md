@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+
+### Features
+
+* **client-payment-cryptography:** AWS Payment Cryptography IPEK feature release ([6e117d1](https://github.com/aws/aws-sdk-js-v3/commit/6e117d116d1752088f23173c1cf08935d6ba610a))
+
+
+
+
+
 # [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography

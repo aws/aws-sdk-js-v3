@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+**Note:** Version bump only for package @aws-sdk/client-cleanroomsml
+
+
+
+
+
 # [3.467.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.466.0...v3.467.0) (2023-12-05)
 
 

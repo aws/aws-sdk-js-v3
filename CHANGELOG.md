@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+
+### Features
+
+* **client-backup:** AWS Backup - Features: Add VaultType to the output of DescribeRecoveryPoint, ListRecoveryPointByBackupVault API and add ResourceType to the input of ListRestoreJobs API ([f1f4163](https://github.com/aws/aws-sdk-js-v3/commit/f1f4163debd43bf2834cff2226d9228bec6625e5))
+* **client-connect:** Releasing Tagging Support for Instance Management APIS ([8c5845d](https://github.com/aws/aws-sdk-js-v3/commit/8c5845d75eedcfb29b99e9d0e46ed22f7e8a66e1))
+* **client-ec2:** Releasing the new cpuManufacturer attribute within the DescribeInstanceTypes API response which notifies our customers with information on who the Manufacturer is for the processor attached to the instance, for example: Intel. ([35fbeb8](https://github.com/aws/aws-sdk-js-v3/commit/35fbeb846843da47b950e7e03be3370489cab5bc))
+* **client-payment-cryptography:** AWS Payment Cryptography IPEK feature release ([6e117d1](https://github.com/aws/aws-sdk-js-v3/commit/6e117d116d1752088f23173c1cf08935d6ba610a))
+
+
+
+
+
 # [3.467.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.466.0...v3.467.0) (2023-12-05)
 
 
