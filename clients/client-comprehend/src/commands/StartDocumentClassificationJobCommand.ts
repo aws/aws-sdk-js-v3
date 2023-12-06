@@ -42,7 +42,7 @@ export interface StartDocumentClassificationJobCommandOutput
 
 /**
  * @public
- * <p>Starts an asynchronous document classification job. Use the
+ * <p>Starts an asynchronous document classification job using a custom classification model.  Use the
  *       <code>DescribeDocumentClassificationJob</code>
  *           operation to track the progress of the job.</p>
  * @example

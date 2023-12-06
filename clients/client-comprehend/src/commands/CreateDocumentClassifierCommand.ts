@@ -150,9 +150,7 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *       current request. </p>
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
- *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages,
+ *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *

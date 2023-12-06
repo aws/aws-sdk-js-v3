@@ -270,26 +270,35 @@ export type InvalidRequestDetailReason = (typeof InvalidRequestDetailReason)[key
 
 /**
  * @public
- * <p>Provides additional detail about why the request failed:</p>
- *          <ul>
- *             <li>
- *                <p>Document size is too large - Check the size of your file and resubmit the request.</p>
- *             </li>
- *             <li>
- *                <p>Document type is not supported - Check the file type and resubmit the request.</p>
- *             </li>
- *             <li>
- *                <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p>
- *             </li>
- *             <li>
- *                <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
- *             </li>
- *          </ul>
+ * <p>Provides additional detail about why the request failed.</p>
  */
 export interface InvalidRequestDetail {
   /**
    * @public
-   * <p>Reason code is <code>INVALID_DOCUMENT</code>.</p>
+   * <p>Reason codes include the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>DOCUMENT_SIZE_EXCEEDED - Document size is too large. Check the size of your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>UNSUPPORTED_DOC_TYPE - Document type is not supported. Check the file type and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>PAGE_LIMIT_EXCEEDED - Too many pages in the document. Check the number of pages in your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>TEXTRACT_ACCESS_DENIED - Access denied to Amazon Textract. Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT_TEXTRACT_JSON - Document is not Amazon Textract JSON format. Verify the format and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>MISMATCHED_TOTAL_PAGE_COUNT - Check the number of pages in your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>INVALID_DOCUMENT - Invalid document. Check the file and resubmit the request.</p>
+   *             </li>
+   *          </ul>
    */
   Reason?: InvalidRequestDetailReason;
 }
@@ -318,21 +327,7 @@ export class InvalidRequestException extends __BaseException {
   Reason?: InvalidRequestReason;
   /**
    * @public
-   * <p>Provides additional detail about why the request failed:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Document size is too large - Check the size of your file and resubmit the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Document type is not supported - Check the file type and resubmit the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
-   *             </li>
-   *          </ul>
+   * <p>Provides additional detail about why the request failed.</p>
    */
   Detail?: InvalidRequestDetail;
   /**
@@ -588,9 +583,7 @@ export interface BatchDetectEntitiesResponse {
 
 /**
  * @public
- * <p>Amazon Comprehend can't process the language of the input text. For custom entity
- *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages,
+ * <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  */
@@ -1573,11 +1566,11 @@ export interface DocumentReaderConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TABLES</code> - Returns information about any tables that are detected in the input document. </p>
+   *                   <code>TABLES</code> - Returns additional information about any tables that are detected in the input document. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FORMS</code> - Returns information and the data from any forms that are detected in the input document. </p>
+   *                   <code>FORMS</code> - Returns additional information about any forms that are detected in the input document. </p>
    *             </li>
    *          </ul>
    */
@@ -1598,7 +1591,8 @@ export interface ClassifyDocumentRequest {
   /**
    * @public
    * <p>The Amazon Resource Number (ARN) of the endpoint. </p>
-   *          <p>For prompt classification, Amazon Comprehend provides the endpoint ARN: <code>zzz</code>.</p>
+   *          <p>For prompt safety classification, Amazon Comprehend provides the endpoint ARN. For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>
+   *          </p>
    *          <p>For custom classification, you create an endpoint for your custom model. For more information,
    *       see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/using-endpoints.html">Using Amazon Comprehend endpoints</a>.</p>
    */
@@ -1609,7 +1603,7 @@ export interface ClassifyDocumentRequest {
    * <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.</p>
    *          <p>When you classify a document using a custom model, you can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
    *         or <code>AnalyzeDocument</code> output file.</p>
-   *          <p>To classify a document using the prompt classifier, use the <code>Text</code> parameter for input.</p>
+   *          <p>To classify a document using the prompt safety classifier, use the <code>Text</code> parameter for input.</p>
    *          <p>Provide the input document as a sequence of base64-encoded bytes.
    *       If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode
    *       the document file bytes for you. </p>
@@ -1866,18 +1860,18 @@ export interface WarningsListItem {
 export interface ClassifyDocumentResponse {
   /**
    * @public
-   * <p>The classes used by the document being analyzed. These are used for multi-class trained
-   *       models. Individual classes are mutually exclusive and each document is expected to have only a
+   * <p>The classes used by the document being analyzed. These are used for models trained in multi-class mode.
+   *       Individual classes are mutually exclusive and each document is expected to have only a
    *       single class assigned to it. For example, an animal can be a dog or a cat, but not both at the
    *       same time. </p>
-   *          <p>For prompt classification, the response includes a single class (<code>UNDESIRED_PROMPT</code>), along with a confidence score.
-   *       A higher confidence score indicates that the input prompt is undesired in nature.</p>
+   *          <p>For prompt safety classification, the response includes only two classes (SAFE_PROMPT and UNSAFE_PROMPT),
+   *       along with a confidence score for each class. The value range of the score is zero to one, where one is the highest confidence.</p>
    */
   Classes?: DocumentClass[];
 
   /**
    * @public
-   * <p>The labels used the document being analyzed. These are used for multi-label trained
+   * <p>The labels used in the document being analyzed. These are used for multi-label trained
    *       models. Individual labels represent different categories that are related in some manner and
    *       are not mutually exclusive. For example, a movie can be just an action movie, or it can be an
    *       action movie, a science fiction movie, and a comedy, all at the same time. </p>
@@ -2829,8 +2823,9 @@ export interface CreateDocumentClassifierRequest {
   /**
    * @public
    * <p>Indicates the mode in which the classifier will be trained. The classifier can be trained
-   *       in multi-class mode, which identifies one and only one class for each document, or multi-label
-   *       mode, which identifies one or more labels for each document. In multi-label mode, multiple
+   *       in multi-class (single-label) mode or multi-label mode.
+   *       Multi-class mode identifies a single class label for each document and
+   *       multi-label mode identifies one or more class labels for each document. Multiple
    *       labels for an individual document are separated by a delimiter. The default delimiter between
    *       labels is a pipe (|).</p>
    */
@@ -3075,7 +3070,7 @@ export interface EntityTypesListItem {
    *       custom entity recognizer.</p>
    *          <p>Entity types must not contain the following invalid characters: \n (line break), \\n
    *       (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t
-   *       (escaped tab), space, and , (comma).</p>
+   *       (escaped tab), and , (comma).</p>
    */
   Type: string | undefined;
 }
@@ -6383,7 +6378,8 @@ export interface TextSegment {
 export interface DetectToxicContentRequest {
   /**
    * @public
-   * <p>A list of up to 10 text strings. The maximum size for the list is 10 KB.</p>
+   * <p>A list of up to 10 text strings. Each string has a maximum size of 1 KB, and
+   *       the maximum size of the list is 10 KB.</p>
    */
   TextSegments: TextSegment[] | undefined;
 
@@ -6435,8 +6431,7 @@ export interface ToxicContent {
 
 /**
  * @public
- * <p>Toxicity analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
- *          </p>
+ * <p>Toxicity analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface ToxicLabels {
   /**
@@ -6447,7 +6442,7 @@ export interface ToxicLabels {
 
   /**
    * @public
-   * <p>Overall toxicity score for the string.</p>
+   * <p>Overall toxicity score for the string. Value range is zero to one, where one is the highest confidence.</p>
    */
   Toxicity?: number;
 }

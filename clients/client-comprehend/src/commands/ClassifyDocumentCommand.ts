@@ -47,18 +47,19 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  *          <ul>
  *             <li>
  *                <p>Custom classifier - a custom model that you have created and trained.
- *         For input, you can provide plain text, a single-page document (PDF, Word, or image), or Textract API output.
- *         For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ *         For input, you can provide plain text, a single-page document (PDF, Word, or image), or
+ *         Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>Prompt classifier - Amazon Comprehend provides a model for classifying prompts.
+ *                <p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying
+ *         input prompts for generative AI applications.
  *         For input, you provide English plain text input.
- *         For prompt classification, the response includes only the <code>Classes</code> field.
- *         For more information about prompt classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/prompt-classification.html">Prompt classifiers</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ *         For prompt safety classification, the response includes only the <code>Classes</code> field.
+ *         For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>If the system detects errors while processing a page in the input document,
- *       the API response includes an entry in <code>Errors</code> that describes the errors.</p>
+ *       the API response includes an <code>Errors</code> field that describes the errors.</p>
  *          <p>If the system detects a document-level error in your input document, the API returns an
  *       <code>InvalidRequestException</code> error response.
  *       For details about this exception, see

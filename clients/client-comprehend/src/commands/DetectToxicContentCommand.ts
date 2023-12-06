@@ -42,10 +42,9 @@ export interface DetectToxicContentCommandOutput extends DetectToxicContentRespo
 /**
  * @public
  * <p>Performs toxicity analysis on the list of text strings that you provide as input.
- *       The analysis uses the order of strings in the list to determine context when predicting toxicity.
  *       The API response contains a results list that matches the size of the input list.
- *       For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
- *          </p>
+ *       For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,9 +93,7 @@ export interface DetectToxicContentCommandOutput extends DetectToxicContentRespo
  *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
- *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages,
+ *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
