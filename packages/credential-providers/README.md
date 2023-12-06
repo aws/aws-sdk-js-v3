@@ -54,9 +54,8 @@ const client = new FooClient({
       "api.twitter.com": "TWITTERTOKEN'",
       "www.digits.com": "DIGITSTOKEN",
     },
-    // Optional. Custom client config if you need overwrite default Cognito Identity client
-    // configuration.
-    clientConfig: { region },
+    // Optional. Custom client if you need overwrite default Cognito Identity client.
+    client: new CognitoIdentityClient({ region }),
   }),
 });
 ```
@@ -99,9 +98,8 @@ const client = new FooClient({
       "api.twitter.com": "TWITTERTOKEN",
       "www.digits.com": "DIGITSTOKEN",
     },
-    // Optional. Custom client config if you need overwrite default Cognito Identity client
-    // configuration.
-    clientConfig: { region },
+    // Optional. Custom client if you need overwrite default Cognito Identity client.
+    client: new CognitoIdentityClient({ region }),
   }),
 });
 ```

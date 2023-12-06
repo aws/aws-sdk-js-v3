@@ -43,7 +43,7 @@ export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIden
  *       'api.twitter.com': 'TWITTERTOKEN',
  *       'www.digits.com': 'DIGITSTOKEN'
  *     },
- *     // Optional. Custom client configuration if you need overwrite default Cognito Identity client configuration.
+ *     // Optional. Custom client if you need overwrite default Cognito Identity client.
  *     client: new CognitoIdentityClient({ region })
  *   }),
  * });
