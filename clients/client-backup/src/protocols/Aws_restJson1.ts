@@ -2524,6 +2524,7 @@ export const se_ListRestoreJobsCommand = async (
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     accountId: [, input.ByAccountId!],
+    resourceType: [, input.ByResourceType!],
     createdBefore: [
       () => input.ByCreatedBefore !== void 0,
       () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
@@ -5043,6 +5044,7 @@ export const de_DescribeRecoveryPointCommand = async (
     Status: __expectString,
     StatusMessage: __expectString,
     StorageClass: __expectString,
+    VaultType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -9396,6 +9398,7 @@ const de_RecoveryPointByBackupVault = (output: any, context: __SerdeContext): Re
     SourceBackupVaultArn: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    VaultType: __expectString,
   }) as any;
 };
 

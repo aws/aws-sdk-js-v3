@@ -37,10 +37,8 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
- *          for a service, Backup tries to protect that service's resources in this Region,
- *          when the resource is included in an on-demand backup or scheduled backup plan. Otherwise,
- *             Backup does not try to protect that service's resources in this Region. Use
+ * <p>Updates the current service opt-in settings for the Region.</p>
+ *          <p>Use
  *          the <code>DescribeRegionSettings</code> API to determine the resource types that are
  *          supported.</p>
  * @example

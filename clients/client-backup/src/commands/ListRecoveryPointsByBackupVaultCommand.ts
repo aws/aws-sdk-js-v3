@@ -101,6 +101,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * //       CompositeMemberIdentifier: "STRING_VALUE",
  * //       IsParent: true || false,
  * //       ResourceName: "STRING_VALUE",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
  * //     },
  * //   ],
  * // };

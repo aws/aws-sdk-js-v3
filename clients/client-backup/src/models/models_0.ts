@@ -4192,6 +4192,12 @@ export interface DescribeRecoveryPointOutput {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the type of vault in which the described recovery point is stored.</p>
+   */
+  VaultType?: VaultType;
 }
 
 /**
@@ -5579,6 +5585,10 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
    *             </li>
    *             <li>
@@ -5607,7 +5617,15 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5616,6 +5634,10 @@ export interface ListBackupJobsInput {
    *             <li>
    *                <p>
    *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6130,6 +6152,10 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
    *             </li>
    *             <li>
@@ -6158,7 +6184,15 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6167,6 +6201,10 @@ export interface ListCopyJobsInput {
    *             <li>
    *                <p>
    *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6780,7 +6818,73 @@ export interface ListRecoveryPointsByBackupVaultInput {
 
   /**
    * @public
-   * <p>Returns only recovery points that match the specified resource type.</p>
+   * <p>Returns only recovery points that match the specified resource type(s):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code> for Amazon Elastic Compute Cloud</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FSx</code> for Amazon FSx</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *             </li>
+   *          </ul>
    */
   ByResourceType?: string;
 
@@ -6987,6 +7091,12 @@ export interface RecoveryPointByBackupVault {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the type of vault in which the described recovery point is stored.</p>
+   */
+  VaultType?: VaultType;
 }
 
 /**
@@ -7356,6 +7466,79 @@ export interface ListRestoreJobsInput {
    *          specified account ID.</p>
    */
   ByAccountId?: string;
+
+  /**
+   * @public
+   * <p>Include this parameter to return only restore jobs for the
+   *             specified resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code> for Amazon Elastic Compute Cloud</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FSx</code> for Amazon FSx</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *             </li>
+   *          </ul>
+   */
+  ByResourceType?: string;
 
   /**
    * @public
@@ -8964,6 +9147,13 @@ export interface UpdateRegionSettingsInput {
   /**
    * @public
    * <p>Updates the list of services along with the opt-in preferences for the Region.</p>
+   *          <p>If resource assignments are only based on tags, then service opt-in settings are applied.
+   *          If a resource type is explicitly assigned to a backup plan, such as Amazon S3,
+   *          Amazon EC2, or Amazon RDS, it will be included in the
+   *          backup even if the opt-in is not enabled for that particular service.
+   *          If both a resource type and tags are specified in a resource assignment,
+   *          the resource type specified in the backup plan takes priority over the
+   *          tag condition. Service opt-in settings are disregarded in this situation.</p>
    */
   ResourceTypeOptInPreference?: Record<string, boolean>;
 

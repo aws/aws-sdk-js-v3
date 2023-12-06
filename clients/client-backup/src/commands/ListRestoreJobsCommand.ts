@@ -49,6 +49,7 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ByAccountId: "STRING_VALUE",
+ *   ByResourceType: "STRING_VALUE",
  *   ByCreatedBefore: new Date("TIMESTAMP"),
  *   ByCreatedAfter: new Date("TIMESTAMP"),
  *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
