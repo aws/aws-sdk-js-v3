@@ -3,7 +3,7 @@ import { Paginator } from "@smithy/types";
 
 import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import { WorkSpacesThinClientClient } from "../WorkSpacesThinClientClient";
-import { WorkSpacesThinPaginationConfiguration } from "./Interfaces";
+import { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
 
 /**
  * @internal
@@ -20,7 +20,7 @@ const makePagedClientRequest = async (
  * @public
  */
 export async function* paginateListDevices(
-  config: WorkSpacesThinPaginationConfiguration,
+  config: WorkSpacesThinClientPaginationConfiguration,
   input: ListDevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDevicesCommandOutput> {
@@ -34,7 +34,7 @@ export async function* paginateListDevices(
     if (config.client instanceof WorkSpacesThinClientClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
-      throw new Error("Invalid client, expected WorkSpacesThin | WorkSpacesThinClientClient");
+      throw new Error("Invalid client, expected WorkSpacesThinClient | WorkSpacesThinClientClient");
     }
     yield page;
     const prevToken = token;

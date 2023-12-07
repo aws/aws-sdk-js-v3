@@ -6,7 +6,7 @@ import { DefaultExtensionConfiguration } from "@smithy/types";
 /**
  * @internal
  */
-export interface WorkSpacesThinExtensionConfiguration
+export interface WorkSpacesThinClientExtensionConfiguration
   extends HttpHandlerExtensionConfiguration,
     DefaultExtensionConfiguration,
     AwsRegionExtensionConfiguration {}

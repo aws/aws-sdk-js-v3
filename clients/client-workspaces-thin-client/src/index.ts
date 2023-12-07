@@ -17,10 +17,10 @@
  * @packageDocumentation
  */
 export * from "./WorkSpacesThinClientClient";
-export * from "./WorkSpacesThin";
+export * from "./WorkSpacesThinClient";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
 export { RuntimeExtension } from "./runtimeExtensions";
-export { WorkSpacesThinExtensionConfiguration } from "./extensionConfiguration";
+export { WorkSpacesThinClientExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -7,7 +7,7 @@ import {
   ListEnvironmentsCommandOutput,
 } from "../commands/ListEnvironmentsCommand";
 import { WorkSpacesThinClientClient } from "../WorkSpacesThinClientClient";
-import { WorkSpacesThinPaginationConfiguration } from "./Interfaces";
+import { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
 
 /**
  * @internal
@@ -24,7 +24,7 @@ const makePagedClientRequest = async (
  * @public
  */
 export async function* paginateListEnvironments(
-  config: WorkSpacesThinPaginationConfiguration,
+  config: WorkSpacesThinClientPaginationConfiguration,
   input: ListEnvironmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEnvironmentsCommandOutput> {
@@ -38,7 +38,7 @@ export async function* paginateListEnvironments(
     if (config.client instanceof WorkSpacesThinClientClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
-      throw new Error("Invalid client, expected WorkSpacesThin | WorkSpacesThinClientClient");
+      throw new Error("Invalid client, expected WorkSpacesThinClient | WorkSpacesThinClientClient");
     }
     yield page;
     const prevToken = token;

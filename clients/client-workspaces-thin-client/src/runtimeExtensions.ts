@@ -6,13 +6,13 @@ import {
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
-import { WorkSpacesThinExtensionConfiguration } from "./extensionConfiguration";
+import { WorkSpacesThinClientExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public
  */
 export interface RuntimeExtension {
-  configure(extensionConfiguration: WorkSpacesThinExtensionConfiguration): void;
+  configure(extensionConfiguration: WorkSpacesThinClientExtensionConfiguration): void;
 }
 
 /**
@@ -22,13 +22,13 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<WorkSpacesThinExtensionConfiguration>>(t: T) => t;
+const asPartial = <T extends Partial<WorkSpacesThinClientExtensionConfiguration>>(t: T) => t;
 
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const extensionConfiguration: WorkSpacesThinExtensionConfiguration = {
+  const extensionConfiguration: WorkSpacesThinClientExtensionConfiguration = {
     ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
     ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
     ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
