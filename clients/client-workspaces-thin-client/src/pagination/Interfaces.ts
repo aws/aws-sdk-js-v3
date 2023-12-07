@@ -6,6 +6,6 @@ import { WorkSpacesThinClientClient } from "../WorkSpacesThinClientClient";
 /**
  * @public
  */
-export interface WorkSpacesThinPaginationConfiguration extends PaginationConfiguration {
+export interface WorkSpacesThinClientPaginationConfiguration extends PaginationConfiguration {
   client: WorkSpacesThinClientClient;
 }

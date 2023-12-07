@@ -7,7 +7,7 @@ import {
   ListSoftwareSetsCommandOutput,
 } from "../commands/ListSoftwareSetsCommand";
 import { WorkSpacesThinClientClient } from "../WorkSpacesThinClientClient";
-import { WorkSpacesThinPaginationConfiguration } from "./Interfaces";
+import { WorkSpacesThinClientPaginationConfiguration } from "./Interfaces";
 
 /**
  * @internal
@@ -24,7 +24,7 @@ const makePagedClientRequest = async (
  * @public
  */
 export async function* paginateListSoftwareSets(
-  config: WorkSpacesThinPaginationConfiguration,
+  config: WorkSpacesThinClientPaginationConfiguration,
   input: ListSoftwareSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSoftwareSetsCommandOutput> {
@@ -38,7 +38,7 @@ export async function* paginateListSoftwareSets(
     if (config.client instanceof WorkSpacesThinClientClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
-      throw new Error("Invalid client, expected WorkSpacesThin | WorkSpacesThinClientClient");
+      throw new Error("Invalid client, expected WorkSpacesThinClient | WorkSpacesThinClientClient");
     }
     yield page;
     const prevToken = token;

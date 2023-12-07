@@ -91,7 +91,7 @@ const commands = {
   UpdateSoftwareSetCommand,
 };
 
-export interface WorkSpacesThin {
+export interface WorkSpacesThinClient {
   /**
    * @see {@link CreateEnvironmentCommand}
    */
@@ -338,5 +338,5 @@ export interface WorkSpacesThin {
  *             your WorkSpaces Thin Client resources, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces-thin-client/index.html">WorkSpaces Thin Client section of the
  *                     CLI Reference</a>.</p>
  */
-export class WorkSpacesThin extends WorkSpacesThinClientClient implements WorkSpacesThin {}
-createAggregatedClient(commands, WorkSpacesThin);
+export class WorkSpacesThinClient extends WorkSpacesThinClientClient implements WorkSpacesThinClient {}
+createAggregatedClient(commands, WorkSpacesThinClient);
