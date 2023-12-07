@@ -11,7 +11,7 @@
 |@aws-sdk/client-cloudwatch-logs|3.465.0|1.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codebuild|3.465.0|1.1 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codecommit|3.465.0|2.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/client-codedeploy|3.465.0|1.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/client-codedeploy|3.468.0|1.4 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-codepipeline|3.465.0|959.2 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-identity|3.465.0|520.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/client-cognito-identity-provider|3.465.0|2.6 MB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|

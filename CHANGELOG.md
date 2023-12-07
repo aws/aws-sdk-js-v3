@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.469.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.468.0...v3.469.0) (2023-12-07)
+
+
+### Features
+
+* **client-codedeploy:** This release adds support for two new CodeDeploy features: 1) zonal deployments for Amazon EC2 in-place deployments, 2) deployments triggered by Auto Scaling group termination lifecycle hook events. ([a75595d](https://github.com/aws/aws-sdk-js-v3/commit/a75595df69a4274996fd536601c744667e1c7e71))
+* **clients:** update client endpoints as of 2023-12-07 ([07b4fda](https://github.com/aws/aws-sdk-js-v3/commit/07b4fda9262601bce6c0d4914a04213b0bc49a9a))
+
+
+
+
+
 # [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
 
 
