@@ -94,6 +94,7 @@ const {
 
     const undoS3 = s3Hack();
     await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+    require("./customizations/workspaces-thin-client")();
     undoS3();
 
     if (!noPrivateClients) {
