@@ -30,10 +30,6 @@ const { solo } = yargs(process.argv.slice(2))
     );
     await codeOrdering(join(SDK_CLIENTS_DIR, `client-${solo}`));
 
-    if (solo === "workspaces-thin-client") {
-      require("./customizations/workspaces-thin-client")();
-    }
-
     // post-generation transforms
     const clientFolder = join(SDK_CLIENTS_DIR, `client-${solo}`);
     const libFolder = join(SDK_CLIENTS_DIR, "..", "lib", `lib-${solo}`);

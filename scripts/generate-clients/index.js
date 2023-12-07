@@ -132,8 +132,6 @@ const {
       emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
       rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
     }
-
-    require("./customizations/workspaces-thin-client")();
   } catch (e) {
     console.log(e);
     process.exit(1);
