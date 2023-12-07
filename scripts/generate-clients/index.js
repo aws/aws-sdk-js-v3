@@ -94,7 +94,6 @@ const {
 
     const undoS3 = s3Hack();
     await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
-    require("./customizations/workspaces-thin-client")();
     undoS3();
 
     if (!noPrivateClients) {
@@ -133,6 +132,8 @@ const {
       emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
       rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
     }
+
+    require("./customizations/workspaces-thin-client")();
   } catch (e) {
     console.log(e);
     process.exit(1);
