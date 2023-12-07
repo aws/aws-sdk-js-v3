@@ -55,6 +55,7 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * //     { // AutoScalingGroup
  * //       name: "STRING_VALUE",
  * //       hook: "STRING_VALUE",
+ * //       terminationHook: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

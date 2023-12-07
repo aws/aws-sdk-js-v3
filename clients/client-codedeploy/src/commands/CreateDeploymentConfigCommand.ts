@@ -62,6 +62,14 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  *     },
  *   },
  *   computePlatform: "Server" || "Lambda" || "ECS",
+ *   zonalConfig: { // ZonalConfig
+ *     firstZoneMonitorDurationInSeconds: Number("long"),
+ *     monitorDurationInSeconds: Number("long"),
+ *     minimumHealthyHostsPerZone: { // MinimumHealthyHostsPerZone
+ *       type: "HOST_COUNT" || "FLEET_PERCENT",
+ *       value: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new CreateDeploymentConfigCommand(input);
  * const response = await client.send(command);
@@ -98,6 +106,9 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * @throws {@link InvalidTrafficRoutingConfigurationException} (client fault)
  *  <p> The configuration that specifies how traffic is routed during a deployment is
  *             invalid.</p>
+ *
+ * @throws {@link InvalidZonalDeploymentConfigurationException} (client fault)
+ *  <p>The <code>ZonalConfig</code> object is not valid.</p>
  *
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>

@@ -122,7 +122,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * //       Ready: Number("long"),
  * //     },
  * //     description: "STRING_VALUE",
- * //     creator: "user" || "autoscaling" || "codeDeployRollback" || "CodeDeploy" || "CodeDeployAutoUpdate" || "CloudFormation" || "CloudFormationRollback",
+ * //     creator: "user" || "autoscaling" || "codeDeployRollback" || "CodeDeploy" || "CodeDeployAutoUpdate" || "CloudFormation" || "CloudFormationRollback" || "autoscalingTermination",
  * //     ignoreApplicationStopFailures: true || false,
  * //     autoRollbackConfiguration: { // AutoRollbackConfiguration
  * //       enabled: true || false,

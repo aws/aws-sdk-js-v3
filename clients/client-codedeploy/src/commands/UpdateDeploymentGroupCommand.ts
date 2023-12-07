@@ -168,6 +168,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *       ],
  *     ],
  *   },
+ *   terminationHookEnabled: true || false,
  * };
  * const command = new UpdateDeploymentGroupCommand(input);
  * const response = await client.send(command);
@@ -176,6 +177,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * //     { // AutoScalingGroup
  * //       name: "STRING_VALUE",
  * //       hook: "STRING_VALUE",
+ * //       terminationHook: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

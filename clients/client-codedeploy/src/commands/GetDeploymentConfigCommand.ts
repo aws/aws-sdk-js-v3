@@ -70,6 +70,14 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * //         linearInterval: Number("int"),
  * //       },
  * //     },
+ * //     zonalConfig: { // ZonalConfig
+ * //       firstZoneMonitorDurationInSeconds: Number("long"),
+ * //       monitorDurationInSeconds: Number("long"),
+ * //       minimumHealthyHostsPerZone: { // MinimumHealthyHostsPerZone
+ * //         type: "HOST_COUNT" || "FLEET_PERCENT",
+ * //         value: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *

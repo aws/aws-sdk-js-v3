@@ -77,6 +77,7 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * //         { // AutoScalingGroup
  * //           name: "STRING_VALUE",
  * //           hook: "STRING_VALUE",
+ * //           terminationHook: "STRING_VALUE",
  * //         },
  * //       ],
  * //       serviceRoleArn: "STRING_VALUE",
@@ -216,6 +217,7 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * //           clusterName: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       terminationHookEnabled: true || false,
  * //     },
  * //   ],
  * //   errorMessage: "STRING_VALUE",

@@ -504,9 +504,19 @@ export interface AutoScalingGroup {
 
   /**
    * @public
-   * <p>An Auto Scaling lifecycle event hook name.</p>
+   * <p>The name of the launch hook that CodeDeploy installed into the Auto Scaling group.</p>
+   *          <p>For more information about the launch hook, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors">How Amazon EC2 Auto Scaling works with CodeDeploy</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
    */
   hook?: string;
+
+  /**
+   * @public
+   * <p>The name of the termination hook that CodeDeploy installed into the Auto Scaling group.</p>
+   *          <p>For more information about the termination hook, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling termination deployments during Auto Scaling scale-in events</a> in the
+   *             <i>CodeDeploy User Guide</i>.</p>
+   */
+  terminationHook?: string;
 }
 
 /**
@@ -1294,18 +1304,18 @@ export interface LastDeploymentInfo {
 
 /**
  * @public
- * <p>Information about a Classic Load Balancer in Elastic Load Balancing to use in a deployment.
- *             Instances are registered directly with a load balancer, and traffic is routed to the
- *             load balancer.</p>
+ * <p>Information about a Classic Load Balancer in Elastic Load Balancing to use in a
+ *             deployment. Instances are registered directly with a load balancer, and traffic is
+ *             routed to the load balancer.</p>
  */
 export interface ELBInfo {
   /**
    * @public
-   * <p>For blue/green deployments, the name of the Classic Load Balancer that is used to route
-   *             traffic from original instances to replacement instances in a blue/green deployment. For
-   *             in-place deployments, the name of the Classic Load Balancer that instances are deregistered from
-   *             so they are not serving traffic during a deployment, and then re-registered with after
-   *             the deployment is complete.</p>
+   * <p>For blue/green deployments, the name of the Classic Load Balancer that is used to
+   *             route traffic from original instances to replacement instances in a blue/green
+   *             deployment. For in-place deployments, the name of the Classic Load Balancer that
+   *             instances are deregistered from so they are not serving traffic during a deployment, and
+   *             then re-registered with after the deployment is complete.</p>
    */
   name?: string;
 }
@@ -1383,8 +1393,8 @@ export interface LoadBalancerInfo {
   /**
    * @public
    * <p>An array that contains information about the load balancers to use for load balancing
-   *             in a deployment. If you're using Classic Load Balancers, specify those load balancers
-   *             in this array. </p>
+   *             in a deployment. If you're using Classic Load Balancers, specify those load balancers in
+   *             this array. </p>
    *          <note>
    *             <p>You can add up to 10 load balancers to the array.</p>
    *          </note>
@@ -1701,6 +1711,15 @@ export interface DeploymentGroupInfo {
    *             pair using the format <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
+
+  /**
+   * @public
+   * <p>Indicates whether the deployment group was configured to have CodeDeploy
+   *             install a termination hook into an Auto Scaling group.</p>
+   *          <p>For more information about the termination hook, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors">How Amazon EC2 Auto Scaling works with CodeDeploy</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
+   */
+  terminationHookEnabled?: boolean;
 }
 
 /**
@@ -2205,6 +2224,7 @@ export interface BatchGetDeploymentsInput {
  */
 export const DeploymentCreator = {
   Autoscaling: "autoscaling",
+  AutoscalingTermination: "autoscalingTermination",
   CloudFormation: "CloudFormation",
   CloudFormationRollback: "CloudFormationRollback",
   CodeDeploy: "CodeDeploy",
@@ -2753,7 +2773,7 @@ export interface BatchGetDeploymentTargetsInput {
    * @public
    * <p> The unique ID of a deployment. </p>
    */
-  deploymentId?: string;
+  deploymentId: string | undefined;
 
   /**
    * @public
@@ -2784,7 +2804,7 @@ export interface BatchGetDeploymentTargetsInput {
    *             </li>
    *          </ul>
    */
-  targetIds?: string[];
+  targetIds: string[] | undefined;
 }
 
 /**
@@ -4207,7 +4227,7 @@ export type MinimumHealthyHostsType = (typeof MinimumHealthyHostsType)[keyof typ
 
 /**
  * @public
- * <p>Information about minimum healthy instance.</p>
+ * <p>Information about the minimum number of healthy instances.</p>
  */
 export interface MinimumHealthyHosts {
   /**
@@ -4352,6 +4372,95 @@ export interface TrafficRoutingConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const MinimumHealthyHostsPerZoneType = {
+  FLEET_PERCENT: "FLEET_PERCENT",
+  HOST_COUNT: "HOST_COUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type MinimumHealthyHostsPerZoneType =
+  (typeof MinimumHealthyHostsPerZoneType)[keyof typeof MinimumHealthyHostsPerZoneType];
+
+/**
+ * @public
+ * <p>Information about the minimum number of healthy instances per Availability
+ *             Zone.</p>
+ */
+export interface MinimumHealthyHostsPerZone {
+  /**
+   * @public
+   * <p>The <code>type</code> associated with the <code>MinimumHealthyHostsPerZone</code>
+   *             option.</p>
+   */
+  type?: MinimumHealthyHostsPerZoneType;
+
+  /**
+   * @public
+   * <p>The <code>value</code> associated with the <code>MinimumHealthyHostsPerZone</code>
+   *             option.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>Configure the <code>ZonalConfig</code> object if you want CodeDeploy to
+ *             deploy your application to one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone</a> at a time, within an Amazon Web Services Region. By
+ *             deploying to one Availability Zone at a time, you can expose your deployment to a
+ *             progressively larger audience as confidence in the deployment's performance and
+ *             viability grows. If you don't configure the <code>ZonalConfig</code> object, CodeDeploy deploys your application to a random selection of hosts across a
+ *             Region.</p>
+ *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+ *                 Guide</i>.</p>
+ */
+export interface ZonalConfig {
+  /**
+   * @public
+   * <p>The period of time, in seconds, that CodeDeploy must wait after completing a
+   *             deployment to the <i>first</i> Availability Zone. CodeDeploy will
+   *             wait this amount of time before starting a deployment to the second Availability Zone.
+   *             You might set this option if you want to allow extra bake time for the first
+   *             Availability Zone. If you don't specify a value for
+   *                 <code>firstZoneMonitorDurationInSeconds</code>, then CodeDeploy uses the
+   *                 <code>monitorDurationInSeconds</code> value for the first Availability Zone.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  firstZoneMonitorDurationInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The period of time, in seconds, that CodeDeploy must wait after completing a
+   *             deployment to an Availability Zone. CodeDeploy will wait this amount of time
+   *             before starting a deployment to the next Availability Zone. Consider adding a monitor
+   *             duration to give the deployment some time to prove itself (or 'bake') in one
+   *             Availability Zone before it is released in the next zone. If you don't specify a
+   *                 <code>monitorDurationInSeconds</code>, CodeDeploy starts deploying to the
+   *             next Availability Zone immediately.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  monitorDurationInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The number or percentage of instances that must remain available per Availability Zone
+   *             during a deployment. This option works in conjunction with the
+   *                 <code>MinimumHealthyHosts</code> option. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az">About the minimum number of healthy hosts per Availability Zone</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
+   *          <p>If you don't specify the <code>minimumHealthyHostsPerZone</code> option, then CodeDeploy uses a default value of <code>0</code> percent.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  minimumHealthyHostsPerZone?: MinimumHealthyHostsPerZone;
+}
+
+/**
+ * @public
  * <p>Represents the input of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigInput {
@@ -4396,6 +4505,15 @@ export interface CreateDeploymentConfigInput {
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
   computePlatform?: ComputePlatform;
+
+  /**
+   * @public
+   * <p>Configure the <code>ZonalConfig</code> object if you want CodeDeploy to
+   *             deploy your application to one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone</a> at a time, within an Amazon Web Services Region.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  zonalConfig?: ZonalConfig;
 }
 
 /**
@@ -4487,6 +4605,26 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidMinimumHealthyHostValueException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The <code>ZonalConfig</code> object is not valid.</p>
+ */
+export class InvalidZonalDeploymentConfigurationException extends __BaseException {
+  readonly name: "InvalidZonalDeploymentConfigurationException" = "InvalidZonalDeploymentConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidZonalDeploymentConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidZonalDeploymentConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidZonalDeploymentConfigurationException.prototype);
   }
 }
 
@@ -4635,6 +4773,20 @@ export interface CreateDeploymentGroupInput {
    *             define. </p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
+   *                     CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</p>
+   *          <p>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install a termination hook into your Auto Scaling group when you create a
+   *             deployment group. When this hook is installed, CodeDeploy will perform
+   *             termination deployments.</p>
+   *          <p>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling termination deployments during Auto Scaling scale-in events</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
+   *          <p>For more information about Auto Scaling scale-in events, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in">Scale in</a> topic in the <i>Amazon EC2 Auto Scaling User
+   *             Guide</i>.</p>
+   */
+  terminationHookEnabled?: boolean;
 }
 
 /**
@@ -5351,7 +5503,7 @@ export interface DeploymentConfigInfo {
 
   /**
    * @public
-   * <p>Information about the number or percentage of minimum healthy instance.</p>
+   * <p>Information about the number or percentage of minimum healthy instances.</p>
    */
   minimumHealthyHosts?: MinimumHealthyHosts;
 
@@ -5375,6 +5527,12 @@ export interface DeploymentConfigInfo {
    *             only.</p>
    */
   trafficRoutingConfig?: TrafficRoutingConfig;
+
+  /**
+   * @public
+   * <p>Information about a zonal configuration.</p>
+   */
+  zonalConfig?: ZonalConfig;
 }
 
 /**
@@ -5459,13 +5617,13 @@ export interface GetDeploymentTargetInput {
    * @public
    * <p> The unique ID of a deployment. </p>
    */
-  deploymentId?: string;
+  deploymentId: string | undefined;
 
   /**
    * @public
    * <p> The unique ID of a deployment target. </p>
    */
-  targetId?: string;
+  targetId: string | undefined;
 }
 
 /**
@@ -6243,7 +6401,7 @@ export interface ListDeploymentTargetsInput {
    * @public
    * <p> The unique ID of a deployment. </p>
    */
-  deploymentId?: string;
+  deploymentId: string | undefined;
 
   /**
    * @public
@@ -7136,6 +7294,20 @@ export interface UpdateDeploymentGroupInput {
    *             on-premises instances identified by all the tag groups.</p>
    */
   onPremisesTagSet?: OnPremisesTagSet;
+
+  /**
+   * @public
+   * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
+   *                 CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</p>
+   *          <p>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install a termination hook into your Auto Scaling group when you update a
+   *             deployment group. When this hook is installed, CodeDeploy will perform
+   *             termination deployments.</p>
+   *          <p>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling termination deployments during Auto Scaling scale-in events</a> in the
+   *             <i>CodeDeploy User Guide</i>.</p>
+   *          <p>For more information about Auto Scaling scale-in events, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in">Scale in</a> topic in the <i>Amazon EC2 Auto Scaling User
+   *                 Guide</i>.</p>
+   */
+  terminationHookEnabled?: boolean;
 }
 
 /**

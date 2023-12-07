@@ -173,6 +173,7 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   terminationHookEnabled: true || false,
  * };
  * const command = new CreateDeploymentGroupCommand(input);
  * const response = await client.send(command);

@@ -74,6 +74,7 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * //       { // AutoScalingGroup
  * //         name: "STRING_VALUE",
  * //         hook: "STRING_VALUE",
+ * //         terminationHook: "STRING_VALUE",
  * //       },
  * //     ],
  * //     serviceRoleArn: "STRING_VALUE",
@@ -213,6 +214,7 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * //         clusterName: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     terminationHookEnabled: true || false,
  * //   },
  * // };
  *

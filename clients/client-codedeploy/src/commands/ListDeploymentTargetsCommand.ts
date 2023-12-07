@@ -45,7 +45,7 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * // const { CodeDeployClient, ListDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // ListDeploymentTargetsInput
- *   deploymentId: "STRING_VALUE",
+ *   deploymentId: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   targetFilters: { // TargetFilters
  *     "<keys>": [ // FilterValueList
@@ -96,6 +96,9 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  *
  * @throws {@link InvalidNextTokenException} (client fault)
  *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTargetFilterNameException} (client fault)
+ *  <p> The target filter name is invalid. </p>
  *
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
