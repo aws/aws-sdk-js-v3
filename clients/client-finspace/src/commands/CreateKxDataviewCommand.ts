@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { UpdateKxClusterDatabasesRequest, UpdateKxClusterDatabasesResponse } from "../models/models_0";
-import { de_UpdateKxClusterDatabasesCommand, se_UpdateKxClusterDatabasesCommand } from "../protocols/Aws_restJson1";
+import { CreateKxDataviewRequest, CreateKxDataviewResponse } from "../models/models_0";
+import { de_CreateKxDataviewCommand, se_CreateKxDataviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,73 +25,78 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateKxClusterDatabasesCommand}.
+ * The input for {@link CreateKxDataviewCommand}.
  */
-export interface UpdateKxClusterDatabasesCommandInput extends UpdateKxClusterDatabasesRequest {}
+export interface CreateKxDataviewCommandInput extends CreateKxDataviewRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateKxClusterDatabasesCommand}.
+ * The output of {@link CreateKxDataviewCommand}.
  */
-export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDatabasesResponse, __MetadataBearer {}
+export interface CreateKxDataviewCommandOutput extends CreateKxDataviewResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates the databases mounted on a kdb cluster, which includes the <code>changesetId</code> and all the dbPaths to be cached. This API does not allow you to change a database name or add a database if you created a cluster without one. </p>
- *          <p>Using this API you can point a cluster to a different changeset and modify a list of partitions being cached.</p>
+ * <p>
+ * Creates a snapshot of kdb database with tiered storage capabilities and a pre-warmed cache, ready for mounting on kdb clusters.  Dataviews are only available for clusters running on a scaling group. They are not supported on dedicated clusters. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, UpdateKxClusterDatabasesCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, UpdateKxClusterDatabasesCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, CreateKxDataviewCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, CreateKxDataviewCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // UpdateKxClusterDatabasesRequest
+ * const input = { // CreateKxDataviewRequest
  *   environmentId: "STRING_VALUE", // required
- *   clusterName: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
- *   databases: [ // KxDatabaseConfigurations // required
- *     { // KxDatabaseConfiguration
- *       databaseName: "STRING_VALUE", // required
- *       cacheConfigurations: [ // KxDatabaseCacheConfigurations
- *         { // KxDatabaseCacheConfiguration
- *           cacheType: "STRING_VALUE", // required
- *           dbPaths: [ // DbPaths // required
- *             "STRING_VALUE",
- *           ],
- *           dataviewName: "STRING_VALUE",
- *         },
+ *   databaseName: "STRING_VALUE", // required
+ *   dataviewName: "STRING_VALUE", // required
+ *   azMode: "SINGLE" || "MULTI", // required
+ *   availabilityZoneId: "STRING_VALUE",
+ *   changesetId: "STRING_VALUE",
+ *   segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ *     { // KxDataviewSegmentConfiguration
+ *       dbPaths: [ // SegmentConfigurationDbPathList // required
+ *         "STRING_VALUE",
  *       ],
- *       changesetId: "STRING_VALUE",
- *       dataviewName: "STRING_VALUE",
- *       dataviewConfiguration: { // KxDataviewConfiguration
- *         dataviewName: "STRING_VALUE",
- *         dataviewVersionId: "STRING_VALUE",
- *         changesetId: "STRING_VALUE",
- *         segmentConfigurations: [ // KxDataviewSegmentConfigurationList
- *           { // KxDataviewSegmentConfiguration
- *             dbPaths: [ // SegmentConfigurationDbPathList // required
- *               "STRING_VALUE",
- *             ],
- *             volumeName: "STRING_VALUE", // required
- *           },
- *         ],
- *       },
+ *       volumeName: "STRING_VALUE", // required
  *     },
  *   ],
- *   deploymentConfiguration: { // KxDeploymentConfiguration
- *     deploymentStrategy: "NO_RESTART" || "ROLLING", // required
+ *   autoUpdate: true || false,
+ *   description: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
  *   },
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new UpdateKxClusterDatabasesCommand(input);
+ * const command = new CreateKxDataviewCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateKxDataviewResponse
+ * //   dataviewName: "STRING_VALUE",
+ * //   databaseName: "STRING_VALUE",
+ * //   environmentId: "STRING_VALUE",
+ * //   azMode: "SINGLE" || "MULTI",
+ * //   availabilityZoneId: "STRING_VALUE",
+ * //   changesetId: "STRING_VALUE",
+ * //   segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ * //     { // KxDataviewSegmentConfiguration
+ * //       dbPaths: [ // SegmentConfigurationDbPathList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       volumeName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   description: "STRING_VALUE",
+ * //   autoUpdate: true || false,
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "FAILED" || "DELETING",
+ * // };
  *
  * ```
  *
- * @param UpdateKxClusterDatabasesCommandInput - {@link UpdateKxClusterDatabasesCommandInput}
- * @returns {@link UpdateKxClusterDatabasesCommandOutput}
- * @see {@link UpdateKxClusterDatabasesCommandInput} for command's `input` shape.
- * @see {@link UpdateKxClusterDatabasesCommandOutput} for command's `response` shape.
+ * @param CreateKxDataviewCommandInput - {@link CreateKxDataviewCommandInput}
+ * @returns {@link CreateKxDataviewCommandOutput}
+ * @see {@link CreateKxDataviewCommandInput} for command's `input` shape.
+ * @see {@link CreateKxDataviewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -107,6 +112,9 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service limit or quota is exceeded.</p>
  *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource group already exists.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
@@ -120,9 +128,9 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class UpdateKxClusterDatabasesCommand extends $Command<
-  UpdateKxClusterDatabasesCommandInput,
-  UpdateKxClusterDatabasesCommandOutput,
+export class CreateKxDataviewCommand extends $Command<
+  CreateKxDataviewCommandInput,
+  CreateKxDataviewCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -137,7 +145,7 @@ export class UpdateKxClusterDatabasesCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateKxClusterDatabasesCommandInput) {
+  constructor(readonly input: CreateKxDataviewCommandInput) {
     super();
   }
 
@@ -148,17 +156,17 @@ export class UpdateKxClusterDatabasesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateKxClusterDatabasesCommandInput, UpdateKxClusterDatabasesCommandOutput> {
+  ): Handler<CreateKxDataviewCommandInput, CreateKxDataviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateKxClusterDatabasesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateKxDataviewCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "UpdateKxClusterDatabasesCommand";
+    const commandName = "CreateKxDataviewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -167,7 +175,7 @@ export class UpdateKxClusterDatabasesCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "UpdateKxClusterDatabases",
+        operation: "CreateKxDataview",
       },
     };
     const { requestHandler } = configuration;
@@ -181,14 +189,14 @@ export class UpdateKxClusterDatabasesCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateKxClusterDatabasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateKxClusterDatabasesCommand(input, context);
+  private serialize(input: CreateKxDataviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateKxDataviewCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateKxClusterDatabasesCommandOutput> {
-    return de_UpdateKxClusterDatabasesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKxDataviewCommandOutput> {
+    return de_CreateKxDataviewCommand(output, context);
   }
 }

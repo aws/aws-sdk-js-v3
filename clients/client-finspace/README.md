@@ -237,6 +237,14 @@ CreateKxDatabase
 </details>
 <details>
 <summary>
+CreateKxDataview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/CreateKxDataviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxDataviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxDataviewCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateKxEnvironment
 </summary>
 
@@ -245,10 +253,26 @@ CreateKxEnvironment
 </details>
 <details>
 <summary>
+CreateKxScalingGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/CreateKxScalingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxScalingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxScalingGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateKxUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/CreateKxUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateKxVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/CreateKxVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/CreateKxVolumeCommandOutput/)
 
 </details>
 <details>
@@ -277,6 +301,14 @@ DeleteKxDatabase
 </details>
 <details>
 <summary>
+DeleteKxDataview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/DeleteKxDataviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxDataviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxDataviewCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteKxEnvironment
 </summary>
 
@@ -285,10 +317,26 @@ DeleteKxEnvironment
 </details>
 <details>
 <summary>
+DeleteKxScalingGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/DeleteKxScalingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxScalingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxScalingGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteKxUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/DeleteKxUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteKxVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/DeleteKxVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxVolumeCommandOutput/)
 
 </details>
 <details>
@@ -333,6 +381,14 @@ GetKxDatabase
 </details>
 <details>
 <summary>
+GetKxDataview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/GetKxDataviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxDataviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxDataviewCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetKxEnvironment
 </summary>
 
@@ -341,10 +397,26 @@ GetKxEnvironment
 </details>
 <details>
 <summary>
+GetKxScalingGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/GetKxScalingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxScalingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxScalingGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetKxUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/GetKxUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetKxVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/GetKxVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/GetKxVolumeCommandOutput/)
 
 </details>
 <details>
@@ -389,6 +461,14 @@ ListKxDatabases
 </details>
 <details>
 <summary>
+ListKxDataviews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/ListKxDataviewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxDataviewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxDataviewsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListKxEnvironments
 </summary>
 
@@ -397,10 +477,26 @@ ListKxEnvironments
 </details>
 <details>
 <summary>
+ListKxScalingGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/ListKxScalingGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxScalingGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxScalingGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListKxUsers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/ListKxUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxUsersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListKxVolumes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/ListKxVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/ListKxVolumesCommandOutput/)
 
 </details>
 <details>
@@ -461,6 +557,14 @@ UpdateKxDatabase
 </details>
 <details>
 <summary>
+UpdateKxDataview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/UpdateKxDataviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/UpdateKxDataviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/UpdateKxDataviewCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateKxEnvironment
 </summary>
 
@@ -481,5 +585,13 @@ UpdateKxUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/UpdateKxUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/UpdateKxUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/UpdateKxUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateKxVolume
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/UpdateKxVolumeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/UpdateKxVolumeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/UpdateKxVolumeCommandOutput/)
 
 </details>

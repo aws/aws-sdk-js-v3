@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { DeleteKxUserRequest, DeleteKxUserResponse } from "../models/models_0";
-import { de_DeleteKxUserCommand, se_DeleteKxUserCommand } from "../protocols/Aws_restJson1";
+import { GetKxDataviewRequest, GetKxDataviewResponse } from "../models/models_0";
+import { de_GetKxDataviewCommand, se_GetKxDataviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,47 +25,85 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKxUserCommand}.
+ * The input for {@link GetKxDataviewCommand}.
  */
-export interface DeleteKxUserCommandInput extends DeleteKxUserRequest {}
+export interface GetKxDataviewCommandInput extends GetKxDataviewRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKxUserCommand}.
+ * The output of {@link GetKxDataviewCommand}.
  */
-export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __MetadataBearer {}
+export interface GetKxDataviewCommandOutput extends GetKxDataviewResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a user in the specified kdb environment.</p>
+ * <p>
+ * Retrieves details of the dataview.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, DeleteKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, DeleteKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, GetKxDataviewCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, GetKxDataviewCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // DeleteKxUserRequest
- *   userName: "STRING_VALUE", // required
+ * const input = { // GetKxDataviewRequest
  *   environmentId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   databaseName: "STRING_VALUE", // required
+ *   dataviewName: "STRING_VALUE", // required
  * };
- * const command = new DeleteKxUserCommand(input);
+ * const command = new GetKxDataviewCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetKxDataviewResponse
+ * //   databaseName: "STRING_VALUE",
+ * //   dataviewName: "STRING_VALUE",
+ * //   azMode: "SINGLE" || "MULTI",
+ * //   availabilityZoneId: "STRING_VALUE",
+ * //   changesetId: "STRING_VALUE",
+ * //   segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ * //     { // KxDataviewSegmentConfiguration
+ * //       dbPaths: [ // SegmentConfigurationDbPathList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       volumeName: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   activeVersions: [ // KxDataviewActiveVersionList
+ * //     { // KxDataviewActiveVersion
+ * //       changesetId: "STRING_VALUE",
+ * //       segmentConfigurations: [
+ * //         {
+ * //           dbPaths: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           volumeName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       attachedClusters: [ // AttachedClusterList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       createdTimestamp: new Date("TIMESTAMP"),
+ * //       versionId: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   description: "STRING_VALUE",
+ * //   autoUpdate: true || false,
+ * //   environmentId: "STRING_VALUE",
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "FAILED" || "DELETING",
+ * //   statusReason: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteKxUserCommandInput - {@link DeleteKxUserCommandInput}
- * @returns {@link DeleteKxUserCommandOutput}
- * @see {@link DeleteKxUserCommandInput} for command's `input` shape.
- * @see {@link DeleteKxUserCommandOutput} for command's `response` shape.
+ * @param GetKxDataviewCommandInput - {@link GetKxDataviewCommandInput}
+ * @returns {@link GetKxDataviewCommandOutput}
+ * @see {@link GetKxDataviewCommandInput} for command's `input` shape.
+ * @see {@link GetKxDataviewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict with this action, and it could not be completed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
@@ -84,9 +122,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class DeleteKxUserCommand extends $Command<
-  DeleteKxUserCommandInput,
-  DeleteKxUserCommandOutput,
+export class GetKxDataviewCommand extends $Command<
+  GetKxDataviewCommandInput,
+  GetKxDataviewCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +139,7 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteKxUserCommandInput) {
+  constructor(readonly input: GetKxDataviewCommandInput) {
     super();
   }
 
@@ -112,15 +150,15 @@ export class DeleteKxUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteKxUserCommandInput, DeleteKxUserCommandOutput> {
+  ): Handler<GetKxDataviewCommandInput, GetKxDataviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteKxUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, GetKxDataviewCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "DeleteKxUserCommand";
+    const commandName = "GetKxDataviewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -129,7 +167,7 @@ export class DeleteKxUserCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "DeleteKxUser",
+        operation: "GetKxDataview",
       },
     };
     const { requestHandler } = configuration;
@@ -143,14 +181,14 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteKxUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKxUserCommand(input, context);
+  private serialize(input: GetKxDataviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_GetKxDataviewCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxUserCommandOutput> {
-    return de_DeleteKxUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKxDataviewCommandOutput> {
+    return de_GetKxDataviewCommand(output, context);
   }
 }

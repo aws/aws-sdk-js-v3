@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { ListKxClustersRequest, ListKxClustersResponse } from "../models/models_0";
-import { de_ListKxClustersCommand, se_ListKxClustersCommand } from "../protocols/Aws_restJson1";
+import { ListKxDataviewsRequest, ListKxDataviewsResponse } from "../models/models_0";
+import { de_ListKxDataviewsCommand, se_ListKxDataviewsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,54 +25,75 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListKxClustersCommand}.
+ * The input for {@link ListKxDataviewsCommand}.
  */
-export interface ListKxClustersCommandInput extends ListKxClustersRequest {}
+export interface ListKxDataviewsCommandInput extends ListKxDataviewsRequest {}
 /**
  * @public
  *
- * The output of {@link ListKxClustersCommand}.
+ * The output of {@link ListKxDataviewsCommand}.
  */
-export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __MetadataBearer {}
+export interface ListKxDataviewsCommandOutput extends ListKxDataviewsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns a list of clusters.</p>
+ * <p>
+ * Returns a list of all the dataviews in the database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, ListKxClustersCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, ListKxClustersCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, ListKxDataviewsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, ListKxDataviewsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // ListKxClustersRequest
+ * const input = { // ListKxDataviewsRequest
  *   environmentId: "STRING_VALUE", // required
- *   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP" || "TICKERPLANT",
- *   maxResults: Number("int"),
+ *   databaseName: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
  * };
- * const command = new ListKxClustersCommand(input);
+ * const command = new ListKxDataviewsCommand(input);
  * const response = await client.send(command);
- * // { // ListKxClustersResponse
- * //   kxClusterSummaries: [ // KxClusters
- * //     { // KxCluster
- * //       status: "PENDING" || "CREATING" || "CREATE_FAILED" || "RUNNING" || "UPDATING" || "DELETING" || "DELETED" || "DELETE_FAILED",
- * //       statusReason: "STRING_VALUE",
- * //       clusterName: "STRING_VALUE",
- * //       clusterType: "HDB" || "RDB" || "GATEWAY" || "GP" || "TICKERPLANT",
- * //       clusterDescription: "STRING_VALUE",
- * //       releaseLabel: "STRING_VALUE",
- * //       volumes: [ // Volumes
- * //         { // Volume
- * //           volumeName: "STRING_VALUE",
- * //           volumeType: "NAS_1",
- * //         },
- * //       ],
- * //       initializationScript: "STRING_VALUE",
- * //       executionRole: "STRING_VALUE",
+ * // { // ListKxDataviewsResponse
+ * //   kxDataviews: [ // KxDataviews
+ * //     { // KxDataviewListEntry
+ * //       environmentId: "STRING_VALUE",
+ * //       databaseName: "STRING_VALUE",
+ * //       dataviewName: "STRING_VALUE",
  * //       azMode: "SINGLE" || "MULTI",
  * //       availabilityZoneId: "STRING_VALUE",
- * //       lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       changesetId: "STRING_VALUE",
+ * //       segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ * //         { // KxDataviewSegmentConfiguration
+ * //           dbPaths: [ // SegmentConfigurationDbPathList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           volumeName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       activeVersions: [ // KxDataviewActiveVersionList
+ * //         { // KxDataviewActiveVersion
+ * //           changesetId: "STRING_VALUE",
+ * //           segmentConfigurations: [
+ * //             {
+ * //               dbPaths: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               volumeName: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           attachedClusters: [ // AttachedClusterList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           createdTimestamp: new Date("TIMESTAMP"),
+ * //           versionId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       status: "CREATING" || "ACTIVE" || "UPDATING" || "FAILED" || "DELETING",
+ * //       description: "STRING_VALUE",
+ * //       autoUpdate: true || false,
  * //       createdTimestamp: new Date("TIMESTAMP"),
+ * //       lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       statusReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -80,24 +101,18 @@ export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __M
  *
  * ```
  *
- * @param ListKxClustersCommandInput - {@link ListKxClustersCommandInput}
- * @returns {@link ListKxClustersCommandOutput}
- * @see {@link ListKxClustersCommandInput} for command's `input` shape.
- * @see {@link ListKxClustersCommandOutput} for command's `response` shape.
+ * @param ListKxDataviewsCommandInput - {@link ListKxDataviewsCommandInput}
+ * @returns {@link ListKxDataviewsCommandOutput}
+ * @see {@link ListKxDataviewsCommandInput} for command's `input` shape.
+ * @see {@link ListKxDataviewsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
- * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict with this action, and it could not be completed.</p>
- *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>A service limit or quota is exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -112,9 +127,9 @@ export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __M
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class ListKxClustersCommand extends $Command<
-  ListKxClustersCommandInput,
-  ListKxClustersCommandOutput,
+export class ListKxDataviewsCommand extends $Command<
+  ListKxDataviewsCommandInput,
+  ListKxDataviewsCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -129,7 +144,7 @@ export class ListKxClustersCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListKxClustersCommandInput) {
+  constructor(readonly input: ListKxDataviewsCommandInput) {
     super();
   }
 
@@ -140,17 +155,17 @@ export class ListKxClustersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListKxClustersCommandInput, ListKxClustersCommandOutput> {
+  ): Handler<ListKxDataviewsCommandInput, ListKxDataviewsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListKxClustersCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListKxDataviewsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "ListKxClustersCommand";
+    const commandName = "ListKxDataviewsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -159,7 +174,7 @@ export class ListKxClustersCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "ListKxClusters",
+        operation: "ListKxDataviews",
       },
     };
     const { requestHandler } = configuration;
@@ -173,14 +188,14 @@ export class ListKxClustersCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListKxClustersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListKxClustersCommand(input, context);
+  private serialize(input: ListKxDataviewsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListKxDataviewsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxClustersCommandOutput> {
-    return de_ListKxClustersCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxDataviewsCommandOutput> {
+    return de_ListKxDataviewsCommand(output, context);
   }
 }

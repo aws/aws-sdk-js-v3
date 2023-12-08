@@ -48,7 +48,12 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  *   clientToken: "STRING_VALUE",
  *   environmentId: "STRING_VALUE", // required
  *   clusterName: "STRING_VALUE", // required
- *   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP", // required
+ *   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP" || "TICKERPLANT", // required
+ *   tickerplantLogConfiguration: { // TickerplantLogConfiguration
+ *     tickerplantLogVolumes: [ // TickerplantLogVolumes
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  *   databases: [ // KxDatabaseConfigurations
  *     { // KxDatabaseConfiguration
  *       databaseName: "STRING_VALUE", // required
@@ -58,9 +63,24 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  *           dbPaths: [ // DbPaths // required
  *             "STRING_VALUE",
  *           ],
+ *           dataviewName: "STRING_VALUE",
  *         },
  *       ],
  *       changesetId: "STRING_VALUE",
+ *       dataviewName: "STRING_VALUE",
+ *       dataviewConfiguration: { // KxDataviewConfiguration
+ *         dataviewName: "STRING_VALUE",
+ *         dataviewVersionId: "STRING_VALUE",
+ *         changesetId: "STRING_VALUE",
+ *         segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ *           { // KxDataviewSegmentConfiguration
+ *             dbPaths: [ // SegmentConfigurationDbPathList // required
+ *               "STRING_VALUE",
+ *             ],
+ *             volumeName: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
  *     },
  *   ],
  *   cacheStorageConfigurations: [ // KxCacheStorageConfigurations
@@ -107,13 +127,21 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  *   },
  *   executionRole: "STRING_VALUE",
  *   savedownStorageConfiguration: { // KxSavedownStorageConfiguration
- *     type: "SDS01", // required
- *     size: Number("int"), // required
+ *     type: "SDS01",
+ *     size: Number("int"),
+ *     volumeName: "STRING_VALUE",
  *   },
  *   azMode: "SINGLE" || "MULTI", // required
  *   availabilityZoneId: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   scalingGroupConfiguration: { // KxScalingGroupConfiguration
+ *     scalingGroupName: "STRING_VALUE", // required
+ *     memoryLimit: Number("int"),
+ *     memoryReservation: Number("int"), // required
+ *     nodeCount: Number("int"), // required
+ *     cpu: Number("double"),
  *   },
  * };
  * const command = new CreateKxClusterCommand(input);
@@ -123,7 +151,18 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * //   status: "PENDING" || "CREATING" || "CREATE_FAILED" || "RUNNING" || "UPDATING" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //   statusReason: "STRING_VALUE",
  * //   clusterName: "STRING_VALUE",
- * //   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP",
+ * //   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP" || "TICKERPLANT",
+ * //   tickerplantLogConfiguration: { // TickerplantLogConfiguration
+ * //     tickerplantLogVolumes: [ // TickerplantLogVolumes
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   volumes: [ // Volumes
+ * //     { // Volume
+ * //       volumeName: "STRING_VALUE",
+ * //       volumeType: "NAS_1",
+ * //     },
+ * //   ],
  * //   databases: [ // KxDatabaseConfigurations
  * //     { // KxDatabaseConfiguration
  * //       databaseName: "STRING_VALUE", // required
@@ -133,9 +172,24 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * //           dbPaths: [ // DbPaths // required
  * //             "STRING_VALUE",
  * //           ],
+ * //           dataviewName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       changesetId: "STRING_VALUE",
+ * //       dataviewName: "STRING_VALUE",
+ * //       dataviewConfiguration: { // KxDataviewConfiguration
+ * //         dataviewName: "STRING_VALUE",
+ * //         dataviewVersionId: "STRING_VALUE",
+ * //         changesetId: "STRING_VALUE",
+ * //         segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ * //           { // KxDataviewSegmentConfiguration
+ * //             dbPaths: [ // SegmentConfigurationDbPathList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             volumeName: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   cacheStorageConfigurations: [ // KxCacheStorageConfigurations
@@ -183,12 +237,20 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * //   executionRole: "STRING_VALUE",
  * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
  * //   savedownStorageConfiguration: { // KxSavedownStorageConfiguration
- * //     type: "SDS01", // required
- * //     size: Number("int"), // required
+ * //     type: "SDS01",
+ * //     size: Number("int"),
+ * //     volumeName: "STRING_VALUE",
  * //   },
  * //   azMode: "SINGLE" || "MULTI",
  * //   availabilityZoneId: "STRING_VALUE",
  * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   scalingGroupConfiguration: { // KxScalingGroupConfiguration
+ * //     scalingGroupName: "STRING_VALUE", // required
+ * //     memoryLimit: Number("int"),
+ * //     memoryReservation: Number("int"), // required
+ * //     nodeCount: Number("int"), // required
+ * //     cpu: Number("double"),
+ * //   },
  * // };
  *
  * ```

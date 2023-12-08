@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { DeleteKxUserRequest, DeleteKxUserResponse } from "../models/models_0";
-import { de_DeleteKxUserCommand, se_DeleteKxUserCommand } from "../protocols/Aws_restJson1";
+import { DeleteKxDataviewRequest, DeleteKxDataviewResponse } from "../models/models_0";
+import { de_DeleteKxDataviewCommand, se_DeleteKxDataviewCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,40 +25,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKxUserCommand}.
+ * The input for {@link DeleteKxDataviewCommand}.
  */
-export interface DeleteKxUserCommandInput extends DeleteKxUserRequest {}
+export interface DeleteKxDataviewCommandInput extends DeleteKxDataviewRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKxUserCommand}.
+ * The output of {@link DeleteKxDataviewCommand}.
  */
-export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __MetadataBearer {}
+export interface DeleteKxDataviewCommandOutput extends DeleteKxDataviewResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a user in the specified kdb environment.</p>
+ * <p>
+ * Deletes the specified dataview. Before deleting a dataview, make sure that it is not in use by any cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, DeleteKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, DeleteKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, DeleteKxDataviewCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, DeleteKxDataviewCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // DeleteKxUserRequest
- *   userName: "STRING_VALUE", // required
+ * const input = { // DeleteKxDataviewRequest
  *   environmentId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   databaseName: "STRING_VALUE", // required
+ *   dataviewName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new DeleteKxUserCommand(input);
+ * const command = new DeleteKxDataviewCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteKxUserCommandInput - {@link DeleteKxUserCommandInput}
- * @returns {@link DeleteKxUserCommandOutput}
- * @see {@link DeleteKxUserCommandInput} for command's `input` shape.
- * @see {@link DeleteKxUserCommandOutput} for command's `response` shape.
+ * @param DeleteKxDataviewCommandInput - {@link DeleteKxDataviewCommandInput}
+ * @returns {@link DeleteKxDataviewCommandOutput}
+ * @see {@link DeleteKxDataviewCommandInput} for command's `input` shape.
+ * @see {@link DeleteKxDataviewCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,9 +86,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class DeleteKxUserCommand extends $Command<
-  DeleteKxUserCommandInput,
-  DeleteKxUserCommandOutput,
+export class DeleteKxDataviewCommand extends $Command<
+  DeleteKxDataviewCommandInput,
+  DeleteKxDataviewCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +103,7 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteKxUserCommandInput) {
+  constructor(readonly input: DeleteKxDataviewCommandInput) {
     super();
   }
 
@@ -112,15 +114,17 @@ export class DeleteKxUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteKxUserCommandInput, DeleteKxUserCommandOutput> {
+  ): Handler<DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteKxUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteKxDataviewCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "DeleteKxUserCommand";
+    const commandName = "DeleteKxDataviewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -129,7 +133,7 @@ export class DeleteKxUserCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "DeleteKxUser",
+        operation: "DeleteKxDataview",
       },
     };
     const { requestHandler } = configuration;
@@ -143,14 +147,14 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteKxUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKxUserCommand(input, context);
+  private serialize(input: DeleteKxDataviewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteKxDataviewCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxUserCommandOutput> {
-    return de_DeleteKxUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxDataviewCommandOutput> {
+    return de_DeleteKxDataviewCommand(output, context);
   }
 }

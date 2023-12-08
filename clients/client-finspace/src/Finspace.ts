@@ -23,15 +23,30 @@ import {
   CreateKxDatabaseCommandOutput,
 } from "./commands/CreateKxDatabaseCommand";
 import {
+  CreateKxDataviewCommand,
+  CreateKxDataviewCommandInput,
+  CreateKxDataviewCommandOutput,
+} from "./commands/CreateKxDataviewCommand";
+import {
   CreateKxEnvironmentCommand,
   CreateKxEnvironmentCommandInput,
   CreateKxEnvironmentCommandOutput,
 } from "./commands/CreateKxEnvironmentCommand";
 import {
+  CreateKxScalingGroupCommand,
+  CreateKxScalingGroupCommandInput,
+  CreateKxScalingGroupCommandOutput,
+} from "./commands/CreateKxScalingGroupCommand";
+import {
   CreateKxUserCommand,
   CreateKxUserCommandInput,
   CreateKxUserCommandOutput,
 } from "./commands/CreateKxUserCommand";
+import {
+  CreateKxVolumeCommand,
+  CreateKxVolumeCommandInput,
+  CreateKxVolumeCommandOutput,
+} from "./commands/CreateKxVolumeCommand";
 import {
   DeleteEnvironmentCommand,
   DeleteEnvironmentCommandInput,
@@ -48,15 +63,30 @@ import {
   DeleteKxDatabaseCommandOutput,
 } from "./commands/DeleteKxDatabaseCommand";
 import {
+  DeleteKxDataviewCommand,
+  DeleteKxDataviewCommandInput,
+  DeleteKxDataviewCommandOutput,
+} from "./commands/DeleteKxDataviewCommand";
+import {
   DeleteKxEnvironmentCommand,
   DeleteKxEnvironmentCommandInput,
   DeleteKxEnvironmentCommandOutput,
 } from "./commands/DeleteKxEnvironmentCommand";
 import {
+  DeleteKxScalingGroupCommand,
+  DeleteKxScalingGroupCommandInput,
+  DeleteKxScalingGroupCommandOutput,
+} from "./commands/DeleteKxScalingGroupCommand";
+import {
   DeleteKxUserCommand,
   DeleteKxUserCommandInput,
   DeleteKxUserCommandOutput,
 } from "./commands/DeleteKxUserCommand";
+import {
+  DeleteKxVolumeCommand,
+  DeleteKxVolumeCommandInput,
+  DeleteKxVolumeCommandOutput,
+} from "./commands/DeleteKxVolumeCommand";
 import {
   GetEnvironmentCommand,
   GetEnvironmentCommandInput,
@@ -83,11 +113,22 @@ import {
   GetKxDatabaseCommandOutput,
 } from "./commands/GetKxDatabaseCommand";
 import {
+  GetKxDataviewCommand,
+  GetKxDataviewCommandInput,
+  GetKxDataviewCommandOutput,
+} from "./commands/GetKxDataviewCommand";
+import {
   GetKxEnvironmentCommand,
   GetKxEnvironmentCommandInput,
   GetKxEnvironmentCommandOutput,
 } from "./commands/GetKxEnvironmentCommand";
+import {
+  GetKxScalingGroupCommand,
+  GetKxScalingGroupCommandInput,
+  GetKxScalingGroupCommandOutput,
+} from "./commands/GetKxScalingGroupCommand";
 import { GetKxUserCommand, GetKxUserCommandInput, GetKxUserCommandOutput } from "./commands/GetKxUserCommand";
+import { GetKxVolumeCommand, GetKxVolumeCommandInput, GetKxVolumeCommandOutput } from "./commands/GetKxVolumeCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
@@ -114,11 +155,26 @@ import {
   ListKxDatabasesCommandOutput,
 } from "./commands/ListKxDatabasesCommand";
 import {
+  ListKxDataviewsCommand,
+  ListKxDataviewsCommandInput,
+  ListKxDataviewsCommandOutput,
+} from "./commands/ListKxDataviewsCommand";
+import {
   ListKxEnvironmentsCommand,
   ListKxEnvironmentsCommandInput,
   ListKxEnvironmentsCommandOutput,
 } from "./commands/ListKxEnvironmentsCommand";
+import {
+  ListKxScalingGroupsCommand,
+  ListKxScalingGroupsCommandInput,
+  ListKxScalingGroupsCommandOutput,
+} from "./commands/ListKxScalingGroupsCommand";
 import { ListKxUsersCommand, ListKxUsersCommandInput, ListKxUsersCommandOutput } from "./commands/ListKxUsersCommand";
+import {
+  ListKxVolumesCommand,
+  ListKxVolumesCommandInput,
+  ListKxVolumesCommandOutput,
+} from "./commands/ListKxVolumesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -151,6 +207,11 @@ import {
   UpdateKxDatabaseCommandOutput,
 } from "./commands/UpdateKxDatabaseCommand";
 import {
+  UpdateKxDataviewCommand,
+  UpdateKxDataviewCommandInput,
+  UpdateKxDataviewCommandOutput,
+} from "./commands/UpdateKxDataviewCommand";
+import {
   UpdateKxEnvironmentCommand,
   UpdateKxEnvironmentCommandInput,
   UpdateKxEnvironmentCommandOutput,
@@ -165,6 +226,11 @@ import {
   UpdateKxUserCommandInput,
   UpdateKxUserCommandOutput,
 } from "./commands/UpdateKxUserCommand";
+import {
+  UpdateKxVolumeCommand,
+  UpdateKxVolumeCommandInput,
+  UpdateKxVolumeCommandOutput,
+} from "./commands/UpdateKxVolumeCommand";
 import { FinspaceClient, FinspaceClientConfig } from "./FinspaceClient";
 
 const commands = {
@@ -172,27 +238,39 @@ const commands = {
   CreateKxChangesetCommand,
   CreateKxClusterCommand,
   CreateKxDatabaseCommand,
+  CreateKxDataviewCommand,
   CreateKxEnvironmentCommand,
+  CreateKxScalingGroupCommand,
   CreateKxUserCommand,
+  CreateKxVolumeCommand,
   DeleteEnvironmentCommand,
   DeleteKxClusterCommand,
   DeleteKxDatabaseCommand,
+  DeleteKxDataviewCommand,
   DeleteKxEnvironmentCommand,
+  DeleteKxScalingGroupCommand,
   DeleteKxUserCommand,
+  DeleteKxVolumeCommand,
   GetEnvironmentCommand,
   GetKxChangesetCommand,
   GetKxClusterCommand,
   GetKxConnectionStringCommand,
   GetKxDatabaseCommand,
+  GetKxDataviewCommand,
   GetKxEnvironmentCommand,
+  GetKxScalingGroupCommand,
   GetKxUserCommand,
+  GetKxVolumeCommand,
   ListEnvironmentsCommand,
   ListKxChangesetsCommand,
   ListKxClusterNodesCommand,
   ListKxClustersCommand,
   ListKxDatabasesCommand,
+  ListKxDataviewsCommand,
   ListKxEnvironmentsCommand,
+  ListKxScalingGroupsCommand,
   ListKxUsersCommand,
+  ListKxVolumesCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -200,9 +278,11 @@ const commands = {
   UpdateKxClusterCodeConfigurationCommand,
   UpdateKxClusterDatabasesCommand,
   UpdateKxDatabaseCommand,
+  UpdateKxDataviewCommand,
   UpdateKxEnvironmentCommand,
   UpdateKxEnvironmentNetworkCommand,
   UpdateKxUserCommand,
+  UpdateKxVolumeCommand,
 };
 
 export interface Finspace {
@@ -272,6 +352,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link CreateKxDataviewCommand}
+   */
+  createKxDataview(
+    args: CreateKxDataviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKxDataviewCommandOutput>;
+  createKxDataview(
+    args: CreateKxDataviewCommandInput,
+    cb: (err: any, data?: CreateKxDataviewCommandOutput) => void
+  ): void;
+  createKxDataview(
+    args: CreateKxDataviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKxDataviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateKxEnvironmentCommand}
    */
   createKxEnvironment(
@@ -289,6 +386,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link CreateKxScalingGroupCommand}
+   */
+  createKxScalingGroup(
+    args: CreateKxScalingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKxScalingGroupCommandOutput>;
+  createKxScalingGroup(
+    args: CreateKxScalingGroupCommandInput,
+    cb: (err: any, data?: CreateKxScalingGroupCommandOutput) => void
+  ): void;
+  createKxScalingGroup(
+    args: CreateKxScalingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKxScalingGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateKxUserCommand}
    */
   createKxUser(args: CreateKxUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateKxUserCommandOutput>;
@@ -297,6 +411,20 @@ export interface Finspace {
     args: CreateKxUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateKxUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateKxVolumeCommand}
+   */
+  createKxVolume(
+    args: CreateKxVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKxVolumeCommandOutput>;
+  createKxVolume(args: CreateKxVolumeCommandInput, cb: (err: any, data?: CreateKxVolumeCommandOutput) => void): void;
+  createKxVolume(
+    args: CreateKxVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKxVolumeCommandOutput) => void
   ): void;
 
   /**
@@ -348,6 +476,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link DeleteKxDataviewCommand}
+   */
+  deleteKxDataview(
+    args: DeleteKxDataviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKxDataviewCommandOutput>;
+  deleteKxDataview(
+    args: DeleteKxDataviewCommandInput,
+    cb: (err: any, data?: DeleteKxDataviewCommandOutput) => void
+  ): void;
+  deleteKxDataview(
+    args: DeleteKxDataviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKxDataviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteKxEnvironmentCommand}
    */
   deleteKxEnvironment(
@@ -365,6 +510,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link DeleteKxScalingGroupCommand}
+   */
+  deleteKxScalingGroup(
+    args: DeleteKxScalingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKxScalingGroupCommandOutput>;
+  deleteKxScalingGroup(
+    args: DeleteKxScalingGroupCommandInput,
+    cb: (err: any, data?: DeleteKxScalingGroupCommandOutput) => void
+  ): void;
+  deleteKxScalingGroup(
+    args: DeleteKxScalingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKxScalingGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteKxUserCommand}
    */
   deleteKxUser(args: DeleteKxUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKxUserCommandOutput>;
@@ -373,6 +535,20 @@ export interface Finspace {
     args: DeleteKxUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteKxUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteKxVolumeCommand}
+   */
+  deleteKxVolume(
+    args: DeleteKxVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKxVolumeCommandOutput>;
+  deleteKxVolume(args: DeleteKxVolumeCommandInput, cb: (err: any, data?: DeleteKxVolumeCommandOutput) => void): void;
+  deleteKxVolume(
+    args: DeleteKxVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKxVolumeCommandOutput) => void
   ): void;
 
   /**
@@ -443,6 +619,17 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link GetKxDataviewCommand}
+   */
+  getKxDataview(args: GetKxDataviewCommandInput, options?: __HttpHandlerOptions): Promise<GetKxDataviewCommandOutput>;
+  getKxDataview(args: GetKxDataviewCommandInput, cb: (err: any, data?: GetKxDataviewCommandOutput) => void): void;
+  getKxDataview(
+    args: GetKxDataviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKxDataviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetKxEnvironmentCommand}
    */
   getKxEnvironment(
@@ -460,6 +647,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link GetKxScalingGroupCommand}
+   */
+  getKxScalingGroup(
+    args: GetKxScalingGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKxScalingGroupCommandOutput>;
+  getKxScalingGroup(
+    args: GetKxScalingGroupCommandInput,
+    cb: (err: any, data?: GetKxScalingGroupCommandOutput) => void
+  ): void;
+  getKxScalingGroup(
+    args: GetKxScalingGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKxScalingGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetKxUserCommand}
    */
   getKxUser(args: GetKxUserCommandInput, options?: __HttpHandlerOptions): Promise<GetKxUserCommandOutput>;
@@ -468,6 +672,17 @@ export interface Finspace {
     args: GetKxUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetKxUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetKxVolumeCommand}
+   */
+  getKxVolume(args: GetKxVolumeCommandInput, options?: __HttpHandlerOptions): Promise<GetKxVolumeCommandOutput>;
+  getKxVolume(args: GetKxVolumeCommandInput, cb: (err: any, data?: GetKxVolumeCommandOutput) => void): void;
+  getKxVolume(
+    args: GetKxVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKxVolumeCommandOutput) => void
   ): void;
 
   /**
@@ -550,6 +765,20 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link ListKxDataviewsCommand}
+   */
+  listKxDataviews(
+    args: ListKxDataviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKxDataviewsCommandOutput>;
+  listKxDataviews(args: ListKxDataviewsCommandInput, cb: (err: any, data?: ListKxDataviewsCommandOutput) => void): void;
+  listKxDataviews(
+    args: ListKxDataviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKxDataviewsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListKxEnvironmentsCommand}
    */
   listKxEnvironments(
@@ -567,6 +796,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link ListKxScalingGroupsCommand}
+   */
+  listKxScalingGroups(
+    args: ListKxScalingGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKxScalingGroupsCommandOutput>;
+  listKxScalingGroups(
+    args: ListKxScalingGroupsCommandInput,
+    cb: (err: any, data?: ListKxScalingGroupsCommandOutput) => void
+  ): void;
+  listKxScalingGroups(
+    args: ListKxScalingGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKxScalingGroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListKxUsersCommand}
    */
   listKxUsers(args: ListKxUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListKxUsersCommandOutput>;
@@ -575,6 +821,17 @@ export interface Finspace {
     args: ListKxUsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListKxUsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListKxVolumesCommand}
+   */
+  listKxVolumes(args: ListKxVolumesCommandInput, options?: __HttpHandlerOptions): Promise<ListKxVolumesCommandOutput>;
+  listKxVolumes(args: ListKxVolumesCommandInput, cb: (err: any, data?: ListKxVolumesCommandOutput) => void): void;
+  listKxVolumes(
+    args: ListKxVolumesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKxVolumesCommandOutput) => void
   ): void;
 
   /**
@@ -685,6 +942,23 @@ export interface Finspace {
   ): void;
 
   /**
+   * @see {@link UpdateKxDataviewCommand}
+   */
+  updateKxDataview(
+    args: UpdateKxDataviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKxDataviewCommandOutput>;
+  updateKxDataview(
+    args: UpdateKxDataviewCommandInput,
+    cb: (err: any, data?: UpdateKxDataviewCommandOutput) => void
+  ): void;
+  updateKxDataview(
+    args: UpdateKxDataviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKxDataviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateKxEnvironmentCommand}
    */
   updateKxEnvironment(
@@ -727,6 +1001,20 @@ export interface Finspace {
     args: UpdateKxUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKxUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKxVolumeCommand}
+   */
+  updateKxVolume(
+    args: UpdateKxVolumeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKxVolumeCommandOutput>;
+  updateKxVolume(args: UpdateKxVolumeCommandInput, cb: (err: any, data?: UpdateKxVolumeCommandOutput) => void): void;
+  updateKxVolume(
+    args: UpdateKxVolumeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKxVolumeCommandOutput) => void
   ): void;
 }
 

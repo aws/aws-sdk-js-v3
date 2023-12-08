@@ -106,6 +106,9 @@ export interface GetKxEnvironmentCommandOutput extends GetKxEnvironmentResponse,
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this action, and it could not be completed.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>

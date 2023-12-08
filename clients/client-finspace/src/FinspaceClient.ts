@@ -52,19 +52,31 @@ import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from ".
 import { CreateKxChangesetCommandInput, CreateKxChangesetCommandOutput } from "./commands/CreateKxChangesetCommand";
 import { CreateKxClusterCommandInput, CreateKxClusterCommandOutput } from "./commands/CreateKxClusterCommand";
 import { CreateKxDatabaseCommandInput, CreateKxDatabaseCommandOutput } from "./commands/CreateKxDatabaseCommand";
+import { CreateKxDataviewCommandInput, CreateKxDataviewCommandOutput } from "./commands/CreateKxDataviewCommand";
 import {
   CreateKxEnvironmentCommandInput,
   CreateKxEnvironmentCommandOutput,
 } from "./commands/CreateKxEnvironmentCommand";
+import {
+  CreateKxScalingGroupCommandInput,
+  CreateKxScalingGroupCommandOutput,
+} from "./commands/CreateKxScalingGroupCommand";
 import { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "./commands/CreateKxUserCommand";
+import { CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput } from "./commands/CreateKxVolumeCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
 import { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "./commands/DeleteKxClusterCommand";
 import { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "./commands/DeleteKxDatabaseCommand";
+import { DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput } from "./commands/DeleteKxDataviewCommand";
 import {
   DeleteKxEnvironmentCommandInput,
   DeleteKxEnvironmentCommandOutput,
 } from "./commands/DeleteKxEnvironmentCommand";
+import {
+  DeleteKxScalingGroupCommandInput,
+  DeleteKxScalingGroupCommandOutput,
+} from "./commands/DeleteKxScalingGroupCommand";
 import { DeleteKxUserCommandInput, DeleteKxUserCommandOutput } from "./commands/DeleteKxUserCommand";
+import { DeleteKxVolumeCommandInput, DeleteKxVolumeCommandOutput } from "./commands/DeleteKxVolumeCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
 import { GetKxChangesetCommandInput, GetKxChangesetCommandOutput } from "./commands/GetKxChangesetCommand";
 import { GetKxClusterCommandInput, GetKxClusterCommandOutput } from "./commands/GetKxClusterCommand";
@@ -73,15 +85,24 @@ import {
   GetKxConnectionStringCommandOutput,
 } from "./commands/GetKxConnectionStringCommand";
 import { GetKxDatabaseCommandInput, GetKxDatabaseCommandOutput } from "./commands/GetKxDatabaseCommand";
+import { GetKxDataviewCommandInput, GetKxDataviewCommandOutput } from "./commands/GetKxDataviewCommand";
 import { GetKxEnvironmentCommandInput, GetKxEnvironmentCommandOutput } from "./commands/GetKxEnvironmentCommand";
+import { GetKxScalingGroupCommandInput, GetKxScalingGroupCommandOutput } from "./commands/GetKxScalingGroupCommand";
 import { GetKxUserCommandInput, GetKxUserCommandOutput } from "./commands/GetKxUserCommand";
+import { GetKxVolumeCommandInput, GetKxVolumeCommandOutput } from "./commands/GetKxVolumeCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
 import { ListKxChangesetsCommandInput, ListKxChangesetsCommandOutput } from "./commands/ListKxChangesetsCommand";
 import { ListKxClusterNodesCommandInput, ListKxClusterNodesCommandOutput } from "./commands/ListKxClusterNodesCommand";
 import { ListKxClustersCommandInput, ListKxClustersCommandOutput } from "./commands/ListKxClustersCommand";
 import { ListKxDatabasesCommandInput, ListKxDatabasesCommandOutput } from "./commands/ListKxDatabasesCommand";
+import { ListKxDataviewsCommandInput, ListKxDataviewsCommandOutput } from "./commands/ListKxDataviewsCommand";
 import { ListKxEnvironmentsCommandInput, ListKxEnvironmentsCommandOutput } from "./commands/ListKxEnvironmentsCommand";
+import {
+  ListKxScalingGroupsCommandInput,
+  ListKxScalingGroupsCommandOutput,
+} from "./commands/ListKxScalingGroupsCommand";
 import { ListKxUsersCommandInput, ListKxUsersCommandOutput } from "./commands/ListKxUsersCommand";
+import { ListKxVolumesCommandInput, ListKxVolumesCommandOutput } from "./commands/ListKxVolumesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -98,6 +119,7 @@ import {
   UpdateKxClusterDatabasesCommandOutput,
 } from "./commands/UpdateKxClusterDatabasesCommand";
 import { UpdateKxDatabaseCommandInput, UpdateKxDatabaseCommandOutput } from "./commands/UpdateKxDatabaseCommand";
+import { UpdateKxDataviewCommandInput, UpdateKxDataviewCommandOutput } from "./commands/UpdateKxDataviewCommand";
 import {
   UpdateKxEnvironmentCommandInput,
   UpdateKxEnvironmentCommandOutput,
@@ -107,6 +129,7 @@ import {
   UpdateKxEnvironmentNetworkCommandOutput,
 } from "./commands/UpdateKxEnvironmentNetworkCommand";
 import { UpdateKxUserCommandInput, UpdateKxUserCommandOutput } from "./commands/UpdateKxUserCommand";
+import { UpdateKxVolumeCommandInput, UpdateKxVolumeCommandOutput } from "./commands/UpdateKxVolumeCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -126,27 +149,39 @@ export type ServiceInputTypes =
   | CreateKxChangesetCommandInput
   | CreateKxClusterCommandInput
   | CreateKxDatabaseCommandInput
+  | CreateKxDataviewCommandInput
   | CreateKxEnvironmentCommandInput
+  | CreateKxScalingGroupCommandInput
   | CreateKxUserCommandInput
+  | CreateKxVolumeCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteKxClusterCommandInput
   | DeleteKxDatabaseCommandInput
+  | DeleteKxDataviewCommandInput
   | DeleteKxEnvironmentCommandInput
+  | DeleteKxScalingGroupCommandInput
   | DeleteKxUserCommandInput
+  | DeleteKxVolumeCommandInput
   | GetEnvironmentCommandInput
   | GetKxChangesetCommandInput
   | GetKxClusterCommandInput
   | GetKxConnectionStringCommandInput
   | GetKxDatabaseCommandInput
+  | GetKxDataviewCommandInput
   | GetKxEnvironmentCommandInput
+  | GetKxScalingGroupCommandInput
   | GetKxUserCommandInput
+  | GetKxVolumeCommandInput
   | ListEnvironmentsCommandInput
   | ListKxChangesetsCommandInput
   | ListKxClusterNodesCommandInput
   | ListKxClustersCommandInput
   | ListKxDatabasesCommandInput
+  | ListKxDataviewsCommandInput
   | ListKxEnvironmentsCommandInput
+  | ListKxScalingGroupsCommandInput
   | ListKxUsersCommandInput
+  | ListKxVolumesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -154,9 +189,11 @@ export type ServiceInputTypes =
   | UpdateKxClusterCodeConfigurationCommandInput
   | UpdateKxClusterDatabasesCommandInput
   | UpdateKxDatabaseCommandInput
+  | UpdateKxDataviewCommandInput
   | UpdateKxEnvironmentCommandInput
   | UpdateKxEnvironmentNetworkCommandInput
-  | UpdateKxUserCommandInput;
+  | UpdateKxUserCommandInput
+  | UpdateKxVolumeCommandInput;
 
 /**
  * @public
@@ -166,27 +203,39 @@ export type ServiceOutputTypes =
   | CreateKxChangesetCommandOutput
   | CreateKxClusterCommandOutput
   | CreateKxDatabaseCommandOutput
+  | CreateKxDataviewCommandOutput
   | CreateKxEnvironmentCommandOutput
+  | CreateKxScalingGroupCommandOutput
   | CreateKxUserCommandOutput
+  | CreateKxVolumeCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteKxClusterCommandOutput
   | DeleteKxDatabaseCommandOutput
+  | DeleteKxDataviewCommandOutput
   | DeleteKxEnvironmentCommandOutput
+  | DeleteKxScalingGroupCommandOutput
   | DeleteKxUserCommandOutput
+  | DeleteKxVolumeCommandOutput
   | GetEnvironmentCommandOutput
   | GetKxChangesetCommandOutput
   | GetKxClusterCommandOutput
   | GetKxConnectionStringCommandOutput
   | GetKxDatabaseCommandOutput
+  | GetKxDataviewCommandOutput
   | GetKxEnvironmentCommandOutput
+  | GetKxScalingGroupCommandOutput
   | GetKxUserCommandOutput
+  | GetKxVolumeCommandOutput
   | ListEnvironmentsCommandOutput
   | ListKxChangesetsCommandOutput
   | ListKxClusterNodesCommandOutput
   | ListKxClustersCommandOutput
   | ListKxDatabasesCommandOutput
+  | ListKxDataviewsCommandOutput
   | ListKxEnvironmentsCommandOutput
+  | ListKxScalingGroupsCommandOutput
   | ListKxUsersCommandOutput
+  | ListKxVolumesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -194,9 +243,11 @@ export type ServiceOutputTypes =
   | UpdateKxClusterCodeConfigurationCommandOutput
   | UpdateKxClusterDatabasesCommandOutput
   | UpdateKxDatabaseCommandOutput
+  | UpdateKxDataviewCommandOutput
   | UpdateKxEnvironmentCommandOutput
   | UpdateKxEnvironmentNetworkCommandOutput
-  | UpdateKxUserCommandOutput;
+  | UpdateKxUserCommandOutput
+  | UpdateKxVolumeCommandOutput;
 
 /**
  * @public

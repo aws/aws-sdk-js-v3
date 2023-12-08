@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { DeleteKxUserRequest, DeleteKxUserResponse } from "../models/models_0";
-import { de_DeleteKxUserCommand, se_DeleteKxUserCommand } from "../protocols/Aws_restJson1";
+import { ListKxScalingGroupsRequest, ListKxScalingGroupsResponse } from "../models/models_0";
+import { de_ListKxScalingGroupsCommand, se_ListKxScalingGroupsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,40 +25,57 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKxUserCommand}.
+ * The input for {@link ListKxScalingGroupsCommand}.
  */
-export interface DeleteKxUserCommandInput extends DeleteKxUserRequest {}
+export interface ListKxScalingGroupsCommandInput extends ListKxScalingGroupsRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKxUserCommand}.
+ * The output of {@link ListKxScalingGroupsCommand}.
  */
-export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __MetadataBearer {}
+export interface ListKxScalingGroupsCommandOutput extends ListKxScalingGroupsResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a user in the specified kdb environment.</p>
+ * <p>
+ * Returns a list of scaling groups in a kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, DeleteKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, DeleteKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, ListKxScalingGroupsCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, ListKxScalingGroupsCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // DeleteKxUserRequest
- *   userName: "STRING_VALUE", // required
+ * const input = { // ListKxScalingGroupsRequest
  *   environmentId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new DeleteKxUserCommand(input);
+ * const command = new ListKxScalingGroupsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListKxScalingGroupsResponse
+ * //   scalingGroups: [ // KxScalingGroupList
+ * //     { // KxScalingGroup
+ * //       scalingGroupName: "STRING_VALUE",
+ * //       hostType: "STRING_VALUE",
+ * //       clusters: [ // KxClusterNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       availabilityZoneId: "STRING_VALUE",
+ * //       status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //       statusReason: "STRING_VALUE",
+ * //       lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //       createdTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteKxUserCommandInput - {@link DeleteKxUserCommandInput}
- * @returns {@link DeleteKxUserCommandOutput}
- * @see {@link DeleteKxUserCommandInput} for command's `input` shape.
- * @see {@link DeleteKxUserCommandOutput} for command's `response` shape.
+ * @param ListKxScalingGroupsCommandInput - {@link ListKxScalingGroupsCommandInput}
+ * @returns {@link ListKxScalingGroupsCommandOutput}
+ * @see {@link ListKxScalingGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListKxScalingGroupsCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,6 +87,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit or quota is exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -84,9 +104,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class DeleteKxUserCommand extends $Command<
-  DeleteKxUserCommandInput,
-  DeleteKxUserCommandOutput,
+export class ListKxScalingGroupsCommand extends $Command<
+  ListKxScalingGroupsCommandInput,
+  ListKxScalingGroupsCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +121,7 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteKxUserCommandInput) {
+  constructor(readonly input: ListKxScalingGroupsCommandInput) {
     super();
   }
 
@@ -112,15 +132,17 @@ export class DeleteKxUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteKxUserCommandInput, DeleteKxUserCommandOutput> {
+  ): Handler<ListKxScalingGroupsCommandInput, ListKxScalingGroupsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteKxUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListKxScalingGroupsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "DeleteKxUserCommand";
+    const commandName = "ListKxScalingGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -129,7 +151,7 @@ export class DeleteKxUserCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "DeleteKxUser",
+        operation: "ListKxScalingGroups",
       },
     };
     const { requestHandler } = configuration;
@@ -143,14 +165,14 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteKxUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKxUserCommand(input, context);
+  private serialize(input: ListKxScalingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListKxScalingGroupsCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxUserCommandOutput> {
-    return de_DeleteKxUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxScalingGroupsCommandOutput> {
+    return de_ListKxScalingGroupsCommand(output, context);
   }
 }

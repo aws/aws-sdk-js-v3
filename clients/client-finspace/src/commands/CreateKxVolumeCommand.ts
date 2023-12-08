@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { DeleteKxUserRequest, DeleteKxUserResponse } from "../models/models_0";
-import { de_DeleteKxUserCommand, se_DeleteKxUserCommand } from "../protocols/Aws_restJson1";
+import { CreateKxVolumeRequest, CreateKxVolumeResponse } from "../models/models_0";
+import { de_CreateKxVolumeCommand, se_CreateKxVolumeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,40 +25,71 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKxUserCommand}.
+ * The input for {@link CreateKxVolumeCommand}.
  */
-export interface DeleteKxUserCommandInput extends DeleteKxUserRequest {}
+export interface CreateKxVolumeCommandInput extends CreateKxVolumeRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKxUserCommand}.
+ * The output of {@link CreateKxVolumeCommand}.
  */
-export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __MetadataBearer {}
+export interface CreateKxVolumeCommandOutput extends CreateKxVolumeResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a user in the specified kdb environment.</p>
+ * <p>
+ * Creates a new volume with a specific amount of throughput and storage capacity. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, DeleteKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, DeleteKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, CreateKxVolumeCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, CreateKxVolumeCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // DeleteKxUserRequest
- *   userName: "STRING_VALUE", // required
- *   environmentId: "STRING_VALUE", // required
+ * const input = { // CreateKxVolumeRequest
  *   clientToken: "STRING_VALUE",
+ *   environmentId: "STRING_VALUE", // required
+ *   volumeType: "NAS_1", // required
+ *   volumeName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nas1Configuration: { // KxNAS1Configuration
+ *     type: "SSD_1000" || "SSD_250" || "HDD_12",
+ *     size: Number("int"),
+ *   },
+ *   azMode: "SINGLE" || "MULTI", // required
+ *   availabilityZoneIds: [ // AvailabilityZoneIds // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new DeleteKxUserCommand(input);
+ * const command = new CreateKxVolumeCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateKxVolumeResponse
+ * //   environmentId: "STRING_VALUE",
+ * //   volumeName: "STRING_VALUE",
+ * //   volumeType: "NAS_1",
+ * //   volumeArn: "STRING_VALUE",
+ * //   nas1Configuration: { // KxNAS1Configuration
+ * //     type: "SSD_1000" || "SSD_250" || "HDD_12",
+ * //     size: Number("int"),
+ * //   },
+ * //   status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //   statusReason: "STRING_VALUE",
+ * //   azMode: "SINGLE" || "MULTI",
+ * //   description: "STRING_VALUE",
+ * //   availabilityZoneIds: [ // AvailabilityZoneIds
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   createdTimestamp: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *
- * @param DeleteKxUserCommandInput - {@link DeleteKxUserCommandInput}
- * @returns {@link DeleteKxUserCommandOutput}
- * @see {@link DeleteKxUserCommandInput} for command's `input` shape.
- * @see {@link DeleteKxUserCommandOutput} for command's `response` shape.
+ * @param CreateKxVolumeCommandInput - {@link CreateKxVolumeCommandInput}
+ * @returns {@link CreateKxVolumeCommandOutput}
+ * @see {@link CreateKxVolumeCommandInput} for command's `input` shape.
+ * @see {@link CreateKxVolumeCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,6 +101,12 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit or quota is exceeded.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource group already exists.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -84,9 +121,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class DeleteKxUserCommand extends $Command<
-  DeleteKxUserCommandInput,
-  DeleteKxUserCommandOutput,
+export class CreateKxVolumeCommand extends $Command<
+  CreateKxVolumeCommandInput,
+  CreateKxVolumeCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +138,7 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteKxUserCommandInput) {
+  constructor(readonly input: CreateKxVolumeCommandInput) {
     super();
   }
 
@@ -112,15 +149,17 @@ export class DeleteKxUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteKxUserCommandInput, DeleteKxUserCommandOutput> {
+  ): Handler<CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteKxUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateKxVolumeCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "DeleteKxUserCommand";
+    const commandName = "CreateKxVolumeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -129,7 +168,7 @@ export class DeleteKxUserCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "DeleteKxUser",
+        operation: "CreateKxVolume",
       },
     };
     const { requestHandler } = configuration;
@@ -143,14 +182,14 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteKxUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKxUserCommand(input, context);
+  private serialize(input: CreateKxVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateKxVolumeCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxUserCommandOutput> {
-    return de_DeleteKxUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKxVolumeCommandOutput> {
+    return de_CreateKxVolumeCommand(output, context);
   }
 }

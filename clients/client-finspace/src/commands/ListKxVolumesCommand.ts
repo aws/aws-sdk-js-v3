@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { DeleteKxUserRequest, DeleteKxUserResponse } from "../models/models_0";
-import { de_DeleteKxUserCommand, se_DeleteKxUserCommand } from "../protocols/Aws_restJson1";
+import { ListKxVolumesRequest, ListKxVolumesResponse } from "../models/models_0";
+import { de_ListKxVolumesCommand, se_ListKxVolumesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,40 +25,60 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKxUserCommand}.
+ * The input for {@link ListKxVolumesCommand}.
  */
-export interface DeleteKxUserCommandInput extends DeleteKxUserRequest {}
+export interface ListKxVolumesCommandInput extends ListKxVolumesRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKxUserCommand}.
+ * The output of {@link ListKxVolumesCommand}.
  */
-export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __MetadataBearer {}
+export interface ListKxVolumesCommandOutput extends ListKxVolumesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a user in the specified kdb environment.</p>
+ * <p>
+ * Lists all the volumes in a kdb environment.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, DeleteKxUserCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, DeleteKxUserCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, ListKxVolumesCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, ListKxVolumesCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // DeleteKxUserRequest
- *   userName: "STRING_VALUE", // required
+ * const input = { // ListKxVolumesRequest
  *   environmentId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   volumeType: "NAS_1",
  * };
- * const command = new DeleteKxUserCommand(input);
+ * const command = new ListKxVolumesCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListKxVolumesResponse
+ * //   kxVolumeSummaries: [ // KxVolumes
+ * //     { // KxVolume
+ * //       volumeName: "STRING_VALUE",
+ * //       volumeType: "NAS_1",
+ * //       status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "UPDATING" || "UPDATED" || "UPDATE_FAILED" || "DELETING" || "DELETED" || "DELETE_FAILED",
+ * //       description: "STRING_VALUE",
+ * //       statusReason: "STRING_VALUE",
+ * //       azMode: "SINGLE" || "MULTI",
+ * //       availabilityZoneIds: [ // AvailabilityZoneIds
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       createdTimestamp: new Date("TIMESTAMP"),
+ * //       lastModifiedTimestamp: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteKxUserCommandInput - {@link DeleteKxUserCommandInput}
- * @returns {@link DeleteKxUserCommandOutput}
- * @see {@link DeleteKxUserCommandInput} for command's `input` shape.
- * @see {@link DeleteKxUserCommandOutput} for command's `response` shape.
+ * @param ListKxVolumesCommandInput - {@link ListKxVolumesCommandInput}
+ * @returns {@link ListKxVolumesCommandOutput}
+ * @see {@link ListKxVolumesCommandInput} for command's `input` shape.
+ * @see {@link ListKxVolumesCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -70,6 +90,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service limit or quota is exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -84,9 +107,9 @@ export interface DeleteKxUserCommandOutput extends DeleteKxUserResponse, __Metad
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class DeleteKxUserCommand extends $Command<
-  DeleteKxUserCommandInput,
-  DeleteKxUserCommandOutput,
+export class ListKxVolumesCommand extends $Command<
+  ListKxVolumesCommandInput,
+  ListKxVolumesCommandOutput,
   FinspaceClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -101,7 +124,7 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteKxUserCommandInput) {
+  constructor(readonly input: ListKxVolumesCommandInput) {
     super();
   }
 
@@ -112,15 +135,15 @@ export class DeleteKxUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FinspaceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteKxUserCommandInput, DeleteKxUserCommandOutput> {
+  ): Handler<ListKxVolumesCommandInput, ListKxVolumesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteKxUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListKxVolumesCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "FinspaceClient";
-    const commandName = "DeleteKxUserCommand";
+    const commandName = "ListKxVolumesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -129,7 +152,7 @@ export class DeleteKxUserCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSHabaneroManagementService",
-        operation: "DeleteKxUser",
+        operation: "ListKxVolumes",
       },
     };
     const { requestHandler } = configuration;
@@ -143,14 +166,14 @@ export class DeleteKxUserCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteKxUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKxUserCommand(input, context);
+  private serialize(input: ListKxVolumesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListKxVolumesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKxUserCommandOutput> {
-    return de_DeleteKxUserCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListKxVolumesCommandOutput> {
+    return de_ListKxVolumesCommand(output, context);
   }
 }
