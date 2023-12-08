@@ -60,7 +60,7 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * //       Name: "STRING_VALUE",
  * //       FirehoseArn: "STRING_VALUE",
  * //       State: "STRING_VALUE",
- * //       OutputFormat: "json" || "opentelemetry0.7",
+ * //       OutputFormat: "json" || "opentelemetry0.7" || "opentelemetry1.0",
  * //     },
  * //   ],
  * // };

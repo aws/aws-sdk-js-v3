@@ -73,7 +73,7 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * //   State: "STRING_VALUE",
  * //   CreationDate: new Date("TIMESTAMP"),
  * //   LastUpdateDate: new Date("TIMESTAMP"),
- * //   OutputFormat: "json" || "opentelemetry0.7",
+ * //   OutputFormat: "json" || "opentelemetry0.7" || "opentelemetry1.0",
  * //   StatisticsConfigurations: [ // MetricStreamStatisticsConfigurations
  * //     { // MetricStreamStatisticsConfiguration
  * //       IncludeMetrics: [ // MetricStreamStatisticsIncludeMetrics // required

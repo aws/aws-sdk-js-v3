@@ -97,7 +97,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  *   ],
  *   FirehoseArn: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
- *   OutputFormat: "json" || "opentelemetry0.7", // required
+ *   OutputFormat: "json" || "opentelemetry0.7" || "opentelemetry1.0", // required
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

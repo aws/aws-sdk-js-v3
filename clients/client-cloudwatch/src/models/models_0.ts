@@ -2740,6 +2740,7 @@ export interface MetricStreamFilter {
 export const MetricStreamOutputFormat = {
   JSON: "json",
   OPEN_TELEMETRY_0_7: "opentelemetry0.7",
+  OPEN_TELEMETRY_1_0: "opentelemetry1.0",
 } as const;
 
 /**
@@ -2790,7 +2791,7 @@ export interface MetricStreamStatisticsConfiguration {
    * @public
    * <p>The list of additional statistics that are to be streamed for the metrics listed
    * 			in the <code>IncludeMetrics</code> array in this structure. This list can include as many as 20 statistics.</p>
-   *          <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry0.7</code>, the only
+   *          <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry1.0</code> or <code>opentelemetry0.7</code>, the only
    * 			valid values are <code>p<i>??</i>
    *             </code> percentile statistics such as <code>p90</code>, <code>p99</code> and so on.</p>
    *          <p>If the <code>OutputFormat</code> for the stream is <code>json</code>,
@@ -2870,7 +2871,7 @@ export interface GetMetricStreamOutput {
   /**
    * @public
    * <p>The output format for the stream.
-   * 			Valid values are <code>json</code> and <code>opentelemetry0.7</code>.
+   * 			Valid values are <code>json</code>, <code>opentelemetry1.0</code>, and <code>opentelemetry0.7</code>.
    * 			For more information about metric stream output formats,
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">Metric streams output formats</a>.</p>
    */
@@ -3309,7 +3310,7 @@ export interface MetricStreamEntry {
   /**
    * @public
    * <p>The output format of this metric stream. Valid values are
-   * 			<code>json</code>
+   * 			<code>json</code>, <code>opentelemetry1.0</code>,
    * 			and <code>opentelemetry0.7</code>.</p>
    */
   OutputFormat?: MetricStreamOutputFormat;
@@ -4198,8 +4199,8 @@ export interface PutMetricAlarmInput {
    * <p>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
    * 		operation, you must specify either <code>MetricName</code> or a <code>Metrics</code> array.</p>
    *          <p>If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the
-   * 			<code>Dimensions</code>, <code>Period</code>,
-   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify
+   * 			<code>Namespace</code>, <code>Dimensions</code>, <code>Period</code>,
+   * 			<code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify
    * 		all this information in the <code>Metrics</code> array.</p>
    */
   MetricName?: string;
@@ -4319,7 +4320,9 @@ export interface PutMetricAlarmInput {
    * 			NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance
    * 			receives on all network interfaces. You can also specify a unit when you create a custom
    * 			metric. Units help provide conceptual meaning to your data. Metric data points that
-   * 			specify a unit of measure, such as Percent, are aggregated separately.</p>
+   * 			specify a unit of measure, such as Percent, are aggregated separately.
+   * 			If you are creating an alarm based on a metric math expression, you can specify the unit for each
+   * 			metric (if needed) within the objects in the <code>Metrics</code> array.</p>
    *          <p>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have been published for the
    * 			metric and attempts to evaluate the alarm.
    * 			Usually, metrics are
@@ -4405,8 +4408,9 @@ export interface PutMetricAlarmInput {
    *          <p>Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p>
    *          <p>One item in the <code>Metrics</code> array is the expression that the alarm watches. You designate this expression
    * 			by setting <code>ReturnData</code> to true for this object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</p>
-   *          <p>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>,
-   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation.
+   *          <p>If you use the <code>Metrics</code> parameter, you cannot include the
+   * 			<code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>,
+   * 			<code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation.
    * 			Instead, you retrieve
    * 		the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
    */
@@ -4630,8 +4634,8 @@ export interface PutMetricStreamInput {
 
   /**
    * @public
-   * <p>The output format for the stream. Valid values are <code>json</code>
-   * 		and <code>opentelemetry0.7</code>. For more information about metric stream
+   * <p>The output format for the stream. Valid values are <code>json</code>, <code>opentelemetry1.0</code>,
+   * 			and <code>opentelemetry0.7</code>. For more information about metric stream
    * 		output formats, see
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
    * 				Metric streams output formats</a>.</p>
@@ -4664,7 +4668,7 @@ export interface PutMetricStreamInput {
    * 				<code>json</code>, you can stream any additional statistic that is supported by
    * 				CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
    * 				CloudWatch statistics definitions</a>. If the <code>OutputFormat</code>
-   * 			is <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95,
+   * 			is <code>opentelemetry1.0</code> or <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95,
    * 			p99.9, and so on.</p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
