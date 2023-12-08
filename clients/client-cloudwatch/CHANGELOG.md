@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for the OpenTelemetry 1.0 output format in CloudWatch Metric Streams. ([349863d](https://github.com/aws/aws-sdk-js-v3/commit/349863d8a54aae07108bf6c89261421e877a8a80))
+
+
+
+
+
 # [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

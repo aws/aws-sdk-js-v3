@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
+
+
+### Features
+
+* **client-finspace:** Releasing Scaling Group, Dataview, and Volume APIs ([f18d4ef](https://github.com/aws/aws-sdk-js-v3/commit/f18d4efba4572d742396193429f08bfd1f7b6b22))
+
+
+
+
+
 # [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace
