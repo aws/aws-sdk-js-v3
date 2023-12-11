@@ -240,7 +240,6 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             OperationShape operation,
             HttpBinding payloadBinding
     ) {
-        super.serializeInputPayload(context, operation, payloadBinding);
         serializePayload(context, payloadBinding);
     }
 
@@ -250,7 +249,6 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             OperationShape operation,
             HttpBinding payloadBinding
     ) {
-        super.serializeOutputPayload(context, operation, payloadBinding);
         serializePayload(context, payloadBinding);
     }
 
@@ -260,7 +258,6 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             StructureShape error,
             HttpBinding payloadBinding
     ) {
-        super.serializeErrorPayload(context, error, payloadBinding);
         serializePayload(context, payloadBinding);
     }
 
