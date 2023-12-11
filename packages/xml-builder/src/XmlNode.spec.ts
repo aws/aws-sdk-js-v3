@@ -103,4 +103,25 @@ describe("XmlNode", () => {
       expect(node.removeAttribute("foo")).toBe(node);
     });
   });
+
+  describe("brevity methods", () => {
+    describe('.l() "list', () => {
+      it("creates a list node", () => {
+        const data = { alist: [XmlNode.of("a", "aaa"), XmlNode.of("b", "bbb")] };
+
+        const node = new XmlNode("root");
+        node.l(data, "alist", "member", () => data.alist);
+
+        expect(node.toString()).toEqual("<root><member>aaa</member><member>bbb</member></root>");
+      });
+    });
+    describe('.lc() "list with container"', () => {
+      const data = { alist: [XmlNode.of("a", "aaa"), XmlNode.of("b", "bbb")] };
+
+      const node = new XmlNode("root");
+      node.lc(data, "alist", "member", () => data.alist);
+
+      expect(node.toString()).toEqual("<root><member><a>aaa</a><b>bbb</b></member></root>");
+    });
+  });
 });
