@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.471.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.470.0...v3.471.0) (2023-12-11)
+
+
+### Features
+
+* **client-neptune:** This release adds a new parameter configuration setting to the Neptune cluster related APIs that can be leveraged to switch between the underlying supported storage modes. ([1d866af](https://github.com/aws/aws-sdk-js-v3/commit/1d866afbe11220877f15df1f6c89589eb6501d03))
+* **client-securityhub:** Added new resource detail objects to ASFF, including resources for AwsDynamoDbTable, AwsEc2ClientVpnEndpoint, AwsMskCluster, AwsS3AccessPoint, AwsS3Bucket ([eb49e73](https://github.com/aws/aws-sdk-js-v3/commit/eb49e732d35e66c63e31b5c0b38bb22a33ae858c))
+
+
+
+
+
 # [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
 
 
