@@ -90,6 +90,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * //       DBClusterSnapshotArn: "STRING_VALUE",
  * //       SourceDBClusterSnapshotArn: "STRING_VALUE",
  * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       StorageType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

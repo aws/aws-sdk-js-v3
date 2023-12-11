@@ -80,6 +80,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * //     DBClusterSnapshotArn: "STRING_VALUE",
  * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

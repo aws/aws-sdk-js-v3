@@ -4194,6 +4194,9 @@ const de_ModifyDBClusterCommandError = async (
     case "StorageQuotaExceeded":
     case "com.amazonaws.neptune#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
+    case "StorageTypeNotSupported":
+    case "com.amazonaws.neptune#StorageTypeNotSupportedFault":
+      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6808,6 +6811,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input.GlobalClusterIdentifier != null) {
     entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -8156,6 +8162,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -8754,6 +8763,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
+  }
   return entries;
 };
 
@@ -8837,6 +8849,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.StorageType != null) {
+    entries["StorageType"] = input.StorageType;
   }
   return entries;
 };
@@ -9107,6 +9122,9 @@ const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): 
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
     contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -9474,6 +9492,14 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   }
   if (output["GlobalClusterIdentifier"] !== undefined) {
     contents.GlobalClusterIdentifier = __expectString(output["GlobalClusterIdentifier"]);
+  }
+  if (output["IOOptimizedNextAllowedModificationTime"] !== undefined) {
+    contents.IOOptimizedNextAllowedModificationTime = __expectNonNull(
+      __parseRfc3339DateTimeWithOffset(output["IOOptimizedNextAllowedModificationTime"])
+    );
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   return contents;
 };
@@ -9938,6 +9964,9 @@ const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSn
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
     contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  }
+  if (output["StorageType"] !== undefined) {
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   return contents;
 };

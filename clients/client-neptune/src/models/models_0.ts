@@ -894,6 +894,12 @@ export interface DBClusterSnapshot {
    *       is enabled, and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type associated with the DB cluster snapshot.</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -1380,7 +1386,10 @@ export interface CreateDBClusterMessage {
 
   /**
    * @public
-   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
+   * <p>A list of the log types that this DB cluster should export to CloudWatch Logs.
+   *       Valid log types are: <code>audit</code> (to publish audit logs) and
+   *       <code>slowquery</code> (to publish slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing Neptune logs
+   *       to Amazon CloudWatch logs</a>.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
@@ -1406,6 +1415,32 @@ export interface CreateDBClusterMessage {
    *       should be added.</p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard | iopt1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>When you create a Neptune cluster with the storage type set to <code>iopt1</code>, the storage type is returned
+   *         in the response. The storage type isn't returned when you set it to <code>standard</code>.</p>
+   *          </note>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -1510,6 +1545,9 @@ export interface DBClusterOptionGroupStatus {
  * @public
  * <p>A list of the log types whose configuration is still pending. In other
  *       words, these log types are in the process of being activated or deactivated.</p>
+ *          <p>Valid log types are: <code>audit</code> (to publish audit logs) and
+ *       <code>slowquery</code> (to publish slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing Neptune logs
+ *       to Amazon CloudWatch logs</a>.</p>
  */
 export interface PendingCloudwatchLogsExports {
   /**
@@ -1563,6 +1601,12 @@ export interface ClusterPendingModifiedValues {
    * <p>The number of days for which automatic DB snapshots are retained.</p>
    */
   BackupRetentionPeriod?: number;
+
+  /**
+   * @public
+   * <p>The storage type for the DB cluster.</p>
+   */
+  StorageType?: string;
 
   /**
    * @public
@@ -1872,7 +1916,10 @@ export interface DBCluster {
 
   /**
    * @public
-   * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
+   * <p>A list of the log types that this DB cluster is configured to export to CloudWatch Logs.
+   *       Valid log types are: <code>audit</code> (to publish audit logs to CloudWatch) and
+   *       slowquery (to publish slow-query logs to CloudWatch). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing Neptune logs
+   *       to Amazon CloudWatch logs</a>.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
 
@@ -1916,6 +1963,18 @@ export interface DBCluster {
    *       This identifier is the unique key that identifies a global database.</p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The next time you can modify the DB cluster to use the <code>iopt1</code> storage type.</p>
+   */
+  IOOptimizedNextAllowedModificationTime?: Date;
+
+  /**
+   * @public
+   * <p>The storage type associated with the DB cluster.</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -3114,7 +3173,7 @@ export interface OptionGroupMembership {
 
 /**
  * @public
- * <p> This data type is used as a response element in the <a>ModifyDBInstance</a>
+ * <p>This data type is used as a response element in the <a>ModifyDBInstance</a>
  *       action.</p>
  */
 export interface PendingModifiedValues {
@@ -7091,6 +7150,9 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
  *       to CloudWatch Logs for a specific DB instance or DB cluster.</p>
  *          <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays
  *       determine which logs will be exported (or not exported) to CloudWatch Logs.</p>
+ *          <p>Valid log types are: <code>audit</code> (to publish audit logs) and
+ *       <code>slowquery</code> (to publish slow-query logs). See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html">Publishing Neptune logs
+ *       to Amazon CloudWatch logs</a>.</p>
  */
 export interface CloudwatchLogsExportConfiguration {
   /**
@@ -7260,7 +7322,8 @@ export interface ModifyDBClusterMessage {
   /**
    * @public
    * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
-   *       for a specific DB cluster.</p>
+   *       for a specific DB cluster. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/cloudwatch-logs.html#cloudwatch-logs-cli">Using the
+   *       CLI to publish Neptune audit logs to CloudWatch Logs</a>.</p>
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
@@ -7330,6 +7393,28 @@ export interface ModifyDBClusterMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    */
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>Valid Values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard | iopt1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -8752,6 +8837,16 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    */
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+
+  /**
+   * @public
+   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   *          <p>Valid values: <code>standard</code>, <code>iopt1</code>
+   *          </p>
+   *          <p>Default: <code>standard</code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -8967,6 +9062,16 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *       <i>Amazon Neptune User Guide</i>.</p>
    */
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
+
+  /**
+   * @public
+   * <p>Specifies the storage type to be associated with the DB cluster.</p>
+   *          <p>Valid values: <code>standard</code>, <code>iopt1</code>
+   *          </p>
+   *          <p>Default: <code>standard</code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**

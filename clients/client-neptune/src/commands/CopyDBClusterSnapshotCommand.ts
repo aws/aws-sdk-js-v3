@@ -87,6 +87,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * //     DBClusterSnapshotArn: "STRING_VALUE",
  * //     SourceDBClusterSnapshotArn: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

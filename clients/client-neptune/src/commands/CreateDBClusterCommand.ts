@@ -93,6 +93,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *     MaxCapacity: Number("double"),
  *   },
  *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -177,6 +178,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
+ * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
  * //     },
@@ -188,6 +190,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       MaxCapacity: Number("double"),
  * //     },
  * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

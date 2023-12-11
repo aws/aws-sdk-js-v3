@@ -134,6 +134,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
+ * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
  * //     },
@@ -145,6 +146,8 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       MaxCapacity: Number("double"),
  * //     },
  * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *

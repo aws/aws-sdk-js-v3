@@ -90,6 +90,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -174,6 +175,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
+ * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
  * //     },
@@ -185,6 +187,8 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       MaxCapacity: Number("double"),
  * //     },
  * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *
