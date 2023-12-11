@@ -836,9 +836,6 @@ export const se_CreateBucketCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  if (input.CreateBucketConfiguration !== undefined) {
-    body = se_CreateBucketConfiguration(input.CreateBucketConfiguration, context);
-  }
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = se_CreateBucketConfiguration(input.CreateBucketConfiguration, context);
@@ -3631,9 +3628,6 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
     "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  if (input.LifecycleConfiguration !== undefined) {
-    body = se_LifecycleConfiguration(input.LifecycleConfiguration, context);
-  }
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = se_LifecycleConfiguration(input.LifecycleConfiguration, context);
@@ -3729,9 +3723,6 @@ export const se_PutBucketReplicationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/replication";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  if (input.ReplicationConfiguration !== undefined) {
-    body = se_ReplicationConfiguration(input.ReplicationConfiguration, context);
-  }
   let contents: any;
   if (input.ReplicationConfiguration !== undefined) {
     contents = se_ReplicationConfiguration(input.ReplicationConfiguration, context);
@@ -3777,9 +3768,6 @@ export const se_PutBucketTaggingCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  if (input.Tagging !== undefined) {
-    body = se_Tagging(input.Tagging, context);
-  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = se_Tagging(input.Tagging, context);
@@ -3826,9 +3814,6 @@ export const se_PutBucketVersioningCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  if (input.VersioningConfiguration !== undefined) {
-    body = se_VersioningConfiguration(input.VersioningConfiguration, context);
-  }
   let contents: any;
   if (input.VersioningConfiguration !== undefined) {
     contents = se_VersioningConfiguration(input.VersioningConfiguration, context);
@@ -3976,9 +3961,6 @@ export const se_PutPublicAccessBlockCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20180820/configuration/publicAccessBlock";
   let body: any;
-  if (input.PublicAccessBlockConfiguration !== undefined) {
-    body = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
-  }
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);

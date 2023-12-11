@@ -504,9 +504,6 @@ export const se_CompleteMultipartUploadCommand = async (
     uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
-  if (input.MultipartUpload !== undefined) {
-    body = se_CompletedMultipartUpload(input.MultipartUpload, context);
-  }
   let contents: any;
   if (input.MultipartUpload !== undefined) {
     contents = se_CompletedMultipartUpload(input.MultipartUpload, context);
@@ -636,9 +633,6 @@ export const se_CreateBucketCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  if (input.CreateBucketConfiguration !== undefined) {
-    body = se_CreateBucketConfiguration(input.CreateBucketConfiguration, context);
-  }
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = se_CreateBucketConfiguration(input.CreateBucketConfiguration, context);
@@ -1192,9 +1186,6 @@ export const se_DeleteObjectsCommand = async (
     "x-id": [, "DeleteObjects"],
   });
   let body: any;
-  if (input.Delete !== undefined) {
-    body = se_Delete(input.Delete, context);
-  }
   let contents: any;
   if (input.Delete !== undefined) {
     contents = se_Delete(input.Delete, context);
@@ -2638,9 +2629,6 @@ export const se_PutBucketAccelerateConfigurationCommand = async (
     accelerate: [, ""],
   });
   let body: any;
-  if (input.AccelerateConfiguration !== undefined) {
-    body = se_AccelerateConfiguration(input.AccelerateConfiguration, context);
-  }
   let contents: any;
   if (input.AccelerateConfiguration !== undefined) {
     contents = se_AccelerateConfiguration(input.AccelerateConfiguration, context);
@@ -2686,9 +2674,6 @@ export const se_PutBucketAclCommand = async (
     acl: [, ""],
   });
   let body: any;
-  if (input.AccessControlPolicy !== undefined) {
-    body = se_AccessControlPolicy(input.AccessControlPolicy, context);
-  }
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = se_AccessControlPolicy(input.AccessControlPolicy, context);
@@ -2727,9 +2712,6 @@ export const se_PutBucketAnalyticsConfigurationCommand = async (
     id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
-  if (input.AnalyticsConfiguration !== undefined) {
-    body = se_AnalyticsConfiguration(input.AnalyticsConfiguration, context);
-  }
   let contents: any;
   if (input.AnalyticsConfiguration !== undefined) {
     contents = se_AnalyticsConfiguration(input.AnalyticsConfiguration, context);
@@ -2769,9 +2751,6 @@ export const se_PutBucketCorsCommand = async (
     cors: [, ""],
   });
   let body: any;
-  if (input.CORSConfiguration !== undefined) {
-    body = se_CORSConfiguration(input.CORSConfiguration, context);
-  }
   let contents: any;
   if (input.CORSConfiguration !== undefined) {
     contents = se_CORSConfiguration(input.CORSConfiguration, context);
@@ -2811,9 +2790,6 @@ export const se_PutBucketEncryptionCommand = async (
     encryption: [, ""],
   });
   let body: any;
-  if (input.ServerSideEncryptionConfiguration !== undefined) {
-    body = se_ServerSideEncryptionConfiguration(input.ServerSideEncryptionConfiguration, context);
-  }
   let contents: any;
   if (input.ServerSideEncryptionConfiguration !== undefined) {
     contents = se_ServerSideEncryptionConfiguration(input.ServerSideEncryptionConfiguration, context);
@@ -2851,9 +2827,6 @@ export const se_PutBucketIntelligentTieringConfigurationCommand = async (
     id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
-  if (input.IntelligentTieringConfiguration !== undefined) {
-    body = se_IntelligentTieringConfiguration(input.IntelligentTieringConfiguration, context);
-  }
   let contents: any;
   if (input.IntelligentTieringConfiguration !== undefined) {
     contents = se_IntelligentTieringConfiguration(input.IntelligentTieringConfiguration, context);
@@ -2892,9 +2865,6 @@ export const se_PutBucketInventoryConfigurationCommand = async (
     id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
-  if (input.InventoryConfiguration !== undefined) {
-    body = se_InventoryConfiguration(input.InventoryConfiguration, context);
-  }
   let contents: any;
   if (input.InventoryConfiguration !== undefined) {
     contents = se_InventoryConfiguration(input.InventoryConfiguration, context);
@@ -2933,9 +2903,6 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
     lifecycle: [, ""],
   });
   let body: any;
-  if (input.LifecycleConfiguration !== undefined) {
-    body = se_BucketLifecycleConfiguration(input.LifecycleConfiguration, context);
-  }
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = se_BucketLifecycleConfiguration(input.LifecycleConfiguration, context);
@@ -2976,9 +2943,6 @@ export const se_PutBucketLoggingCommand = async (
     logging: [, ""],
   });
   let body: any;
-  if (input.BucketLoggingStatus !== undefined) {
-    body = se_BucketLoggingStatus(input.BucketLoggingStatus, context);
-  }
   let contents: any;
   if (input.BucketLoggingStatus !== undefined) {
     contents = se_BucketLoggingStatus(input.BucketLoggingStatus, context);
@@ -3017,9 +2981,6 @@ export const se_PutBucketMetricsConfigurationCommand = async (
     id: [, __expectNonNull(input.Id!, `Id`)],
   });
   let body: any;
-  if (input.MetricsConfiguration !== undefined) {
-    body = se_MetricsConfiguration(input.MetricsConfiguration, context);
-  }
   let contents: any;
   if (input.MetricsConfiguration !== undefined) {
     contents = se_MetricsConfiguration(input.MetricsConfiguration, context);
@@ -3061,9 +3022,6 @@ export const se_PutBucketNotificationConfigurationCommand = async (
     notification: [, ""],
   });
   let body: any;
-  if (input.NotificationConfiguration !== undefined) {
-    body = se_NotificationConfiguration(input.NotificationConfiguration, context);
-  }
   let contents: any;
   if (input.NotificationConfiguration !== undefined) {
     contents = se_NotificationConfiguration(input.NotificationConfiguration, context);
@@ -3102,9 +3060,6 @@ export const se_PutBucketOwnershipControlsCommand = async (
     ownershipControls: [, ""],
   });
   let body: any;
-  if (input.OwnershipControls !== undefined) {
-    body = se_OwnershipControls(input.OwnershipControls, context);
-  }
   let contents: any;
   if (input.OwnershipControls !== undefined) {
     contents = se_OwnershipControls(input.OwnershipControls, context);
@@ -3148,9 +3103,6 @@ export const se_PutBucketPolicyCommand = async (
     policy: [, ""],
   });
   let body: any;
-  if (input.Policy !== undefined) {
-    body = input.Policy;
-  }
   let contents: any;
   if (input.Policy !== undefined) {
     contents = input.Policy;
@@ -3189,9 +3141,6 @@ export const se_PutBucketReplicationCommand = async (
     replication: [, ""],
   });
   let body: any;
-  if (input.ReplicationConfiguration !== undefined) {
-    body = se_ReplicationConfiguration(input.ReplicationConfiguration, context);
-  }
   let contents: any;
   if (input.ReplicationConfiguration !== undefined) {
     contents = se_ReplicationConfiguration(input.ReplicationConfiguration, context);
@@ -3231,9 +3180,6 @@ export const se_PutBucketRequestPaymentCommand = async (
     requestPayment: [, ""],
   });
   let body: any;
-  if (input.RequestPaymentConfiguration !== undefined) {
-    body = se_RequestPaymentConfiguration(input.RequestPaymentConfiguration, context);
-  }
   let contents: any;
   if (input.RequestPaymentConfiguration !== undefined) {
     contents = se_RequestPaymentConfiguration(input.RequestPaymentConfiguration, context);
@@ -3273,9 +3219,6 @@ export const se_PutBucketTaggingCommand = async (
     tagging: [, ""],
   });
   let body: any;
-  if (input.Tagging !== undefined) {
-    body = se_Tagging(input.Tagging, context);
-  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = se_Tagging(input.Tagging, context);
@@ -3316,9 +3259,6 @@ export const se_PutBucketVersioningCommand = async (
     versioning: [, ""],
   });
   let body: any;
-  if (input.VersioningConfiguration !== undefined) {
-    body = se_VersioningConfiguration(input.VersioningConfiguration, context);
-  }
   let contents: any;
   if (input.VersioningConfiguration !== undefined) {
     contents = se_VersioningConfiguration(input.VersioningConfiguration, context);
@@ -3358,9 +3298,6 @@ export const se_PutBucketWebsiteCommand = async (
     website: [, ""],
   });
   let body: any;
-  if (input.WebsiteConfiguration !== undefined) {
-    body = se_WebsiteConfiguration(input.WebsiteConfiguration, context);
-  }
   let contents: any;
   if (input.WebsiteConfiguration !== undefined) {
     contents = se_WebsiteConfiguration(input.WebsiteConfiguration, context);
@@ -3441,9 +3378,6 @@ export const se_PutObjectCommand = async (
     "x-id": [, "PutObject"],
   });
   let body: any;
-  if (input.Body !== undefined) {
-    body = input.Body;
-  }
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;
@@ -3490,9 +3424,6 @@ export const se_PutObjectAclCommand = async (
     versionId: [, input.VersionId!],
   });
   let body: any;
-  if (input.AccessControlPolicy !== undefined) {
-    body = se_AccessControlPolicy(input.AccessControlPolicy, context);
-  }
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = se_AccessControlPolicy(input.AccessControlPolicy, context);
@@ -3535,9 +3466,6 @@ export const se_PutObjectLegalHoldCommand = async (
     versionId: [, input.VersionId!],
   });
   let body: any;
-  if (input.LegalHold !== undefined) {
-    body = se_ObjectLockLegalHold(input.LegalHold, context);
-  }
   let contents: any;
   if (input.LegalHold !== undefined) {
     contents = se_ObjectLockLegalHold(input.LegalHold, context);
@@ -3580,9 +3508,6 @@ export const se_PutObjectLockConfigurationCommand = async (
     "object-lock": [, ""],
   });
   let body: any;
-  if (input.ObjectLockConfiguration !== undefined) {
-    body = se_ObjectLockConfiguration(input.ObjectLockConfiguration, context);
-  }
   let contents: any;
   if (input.ObjectLockConfiguration !== undefined) {
     contents = se_ObjectLockConfiguration(input.ObjectLockConfiguration, context);
@@ -3629,9 +3554,6 @@ export const se_PutObjectRetentionCommand = async (
     versionId: [, input.VersionId!],
   });
   let body: any;
-  if (input.Retention !== undefined) {
-    body = se_ObjectLockRetention(input.Retention, context);
-  }
   let contents: any;
   if (input.Retention !== undefined) {
     contents = se_ObjectLockRetention(input.Retention, context);
@@ -3675,9 +3597,6 @@ export const se_PutObjectTaggingCommand = async (
     versionId: [, input.VersionId!],
   });
   let body: any;
-  if (input.Tagging !== undefined) {
-    body = se_Tagging(input.Tagging, context);
-  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = se_Tagging(input.Tagging, context);
@@ -3717,9 +3636,6 @@ export const se_PutPublicAccessBlockCommand = async (
     publicAccessBlock: [, ""],
   });
   let body: any;
-  if (input.PublicAccessBlockConfiguration !== undefined) {
-    body = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
-  }
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
@@ -3762,9 +3678,6 @@ export const se_RestoreObjectCommand = async (
     versionId: [, input.VersionId!],
   });
   let body: any;
-  if (input.RestoreRequest !== undefined) {
-    body = se_RestoreRequest(input.RestoreRequest, context);
-  }
   let contents: any;
   if (input.RestoreRequest !== undefined) {
     contents = se_RestoreRequest(input.RestoreRequest, context);
@@ -3880,9 +3793,6 @@ export const se_UploadPartCommand = async (
     uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
-  if (input.Body !== undefined) {
-    body = input.Body;
-  }
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;
@@ -4037,9 +3947,6 @@ export const se_WriteGetObjectResponseCommand = async (
     "x-id": [, "WriteGetObjectResponse"],
   });
   let body: any;
-  if (input.Body !== undefined) {
-    body = input.Body;
-  }
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;

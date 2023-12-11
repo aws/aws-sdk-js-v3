@@ -707,9 +707,6 @@ export const se_HttpEnumPayloadCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EnumPayload";
   let body: any;
-  if (input.payload !== undefined) {
-    body = input.payload;
-  }
   let contents: any;
   if (input.payload !== undefined) {
     contents = input.payload;
@@ -740,9 +737,6 @@ export const se_HttpPayloadTraitsCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraits";
   let body: any;
-  if (input.blob !== undefined) {
-    body = input.blob;
-  }
   let contents: any;
   if (input.blob !== undefined) {
     contents = input.blob;
@@ -774,9 +768,6 @@ export const se_HttpPayloadTraitsWithMediaTypeCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraitsWithMediaType";
   let body: any;
-  if (input.blob !== undefined) {
-    body = input.blob;
-  }
   let contents: any;
   if (input.blob !== undefined) {
     contents = input.blob;
@@ -807,9 +798,6 @@ export const se_HttpPayloadWithMemberXmlNameCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithMemberXmlName";
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlName(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlName(input.nested, context);
@@ -842,9 +830,6 @@ export const se_HttpPayloadWithStructureCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_NestedPayload(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_NestedPayload(input.nested, context);
@@ -875,9 +860,6 @@ export const se_HttpPayloadWithUnionCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithUnion";
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_UnionPayload(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_UnionPayload(input.nested, context);
@@ -909,9 +891,6 @@ export const se_HttpPayloadWithXmlNameCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlName";
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlName(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlName(input.nested, context);
@@ -943,9 +922,6 @@ export const se_HttpPayloadWithXmlNamespaceCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlNamespace";
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlNamespace(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlNamespace(input.nested, context);
@@ -978,9 +954,6 @@ export const se_HttpPayloadWithXmlNamespaceAndPrefixCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlNamespaceAndPrefix";
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlNamespaceAndPrefix(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlNamespaceAndPrefix(input.nested, context);
@@ -1264,9 +1237,6 @@ export const se_HttpStringPayloadCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringPayload";
   let body: any;
-  if (input.payload !== undefined) {
-    body = input.payload;
-  }
   let contents: any;
   if (input.payload !== undefined) {
     contents = input.payload;
@@ -1859,9 +1829,6 @@ export const se_XmlAttributesOnPayloadCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlAttributesOnPayload";
   let body: any;
-  if (input.payload !== undefined) {
-    body = se_XmlAttributesInputOutput(input.payload, context);
-  }
   let contents: any;
   if (input.payload !== undefined) {
     contents = se_XmlAttributesInputOutput(input.payload, context);
