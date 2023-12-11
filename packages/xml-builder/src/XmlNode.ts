@@ -24,15 +24,18 @@ export class XmlNode {
   public constructor(private name: string, public readonly children: Stringable[] = []) {}
 
   public withName(name: string): XmlNode {
-    return this.n(name);
+    this.name = name;
+    return this;
   }
 
   public addAttribute(name: string, value: any): XmlNode {
-    return this.a(name, value);
+    this.attributes[name] = value;
+    return this;
   }
 
   public addChildNode(child: Stringable): XmlNode {
-    return this.c(child);
+    this.children.push(child);
+    return this;
   }
 
   public removeAttribute(name: string): XmlNode {
