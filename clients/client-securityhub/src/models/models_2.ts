@@ -37,6 +37,7 @@ import {
   AwsDmsReplicationInstanceDetails,
   AwsDmsReplicationTaskDetails,
   AwsDynamoDbTableDetails,
+  AwsEc2ClientVpnEndpointDetails,
   AwsEc2EipDetails,
   AwsEc2InstanceDetails,
   AwsEc2LaunchTemplateDetails,
@@ -105,6 +106,7 @@ import {
   AwsRdsEventSubscriptionDetails,
   AwsRedshiftClusterDetails,
   AwsRoute53HostedZoneDetails,
+  AwsS3AccessPointDetails,
   AwsS3AccountPublicAccessBlockDetails,
   AwsS3BucketDetails,
   AwsS3ObjectDetails,
@@ -118,12 +120,8 @@ import {
   AwsWafRegionalRateBasedRuleDetails,
   AwsWafRegionalRuleDetails,
   AwsWafRegionalRuleGroupDetails,
-  AwsWafRegionalWebAclDetails,
-  AwsWafRuleDetails,
-  AwsWafRuleGroupDetails,
-  AwsWafv2ActionAllowDetails,
-  AwsWafv2CustomRequestHandlingDetails,
-  AwsWafv2CustomResponseDetails,
+  AwsWafRegionalWebAclRulesListActionDetails,
+  AwsWafRegionalWebAclRulesListOverrideActionDetails,
   Compliance,
   DataClassificationDetails,
   FindingProviderFields,
@@ -138,6 +136,338 @@ import {
   Remediation,
 } from "./models_1";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * @public
+ * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
+ * objects that identify the web requests that you want to allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRegionalWebAclRulesListDetails {
+  /**
+   * @public
+   * <p>The action that WAF takes when a web request matches all conditions in the rule, such as allow,
+   *          block, or count the request.
+   *       </p>
+   */
+  Action?: AwsWafRegionalWebAclRulesListActionDetails;
+
+  /**
+   * @public
+   * <p>Overrides the rule evaluation result in the rule group.
+   *       </p>
+   */
+  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails;
+
+  /**
+   * @public
+   * <p>The order in which WAF evaluates the rules in a web ACL.
+   *       </p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>The ID of an WAF Regional rule to associate with a web ACL. </p>
+   */
+  RuleId?: string;
+
+  /**
+   * @public
+   * <p>For actions that are associated with a rule, the action that WAF takes when a web
+   * request matches all conditions in a rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
+ *          want to allow, block, or count. </p>
+ */
+export interface AwsWafRegionalWebAclDetails {
+  /**
+   * @public
+   * <p>The action to perform if none of the rules contained in the web ACL match.
+   *       </p>
+   */
+  DefaultAction?: string;
+
+  /**
+   * @public
+   * <p>A name for the metrics for this web ACL.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>A descriptive name for the web ACL.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of
+   * the rule.
+   *       </p>
+   */
+  RulesList?: AwsWafRegionalWebAclRulesListDetails[];
+
+  /**
+   * @public
+   * <p>The ID of the web ACL.
+   *       </p>
+   */
+  WebAclId?: string;
+}
+
+/**
+ * @public
+ * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+ *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+ * for each object, indicates whether you want to negate the settings.
+ *       </p>
+ */
+export interface AwsWafRulePredicateListDetails {
+  /**
+   * @public
+   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
+   *       </p>
+   */
+  DataId?: string;
+
+  /**
+   * @public
+   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
+   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
+   *       </p>
+   */
+  Negated?: boolean;
+
+  /**
+   * @public
+   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRuleDetails {
+  /**
+   * @public
+   * <p>The name of the metrics for this rule.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>A descriptive name for the rule.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+   *          for each object, indicates whether you want to negate the settings.
+   *       </p>
+   */
+  PredicateList?: AwsWafRulePredicateListDetails[];
+
+  /**
+   * @public
+   * <p>The ID of the WAF rule.
+   *       </p>
+   */
+  RuleId?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+ *       </p>
+ */
+export interface AwsWafRuleGroupRulesActionDetails {
+  /**
+   * @public
+   * <p>The action that WAF should take on a web request when it matches the rule's
+   *          statement.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+ *          allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRuleGroupRulesDetails {
+  /**
+   * @public
+   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+   *       </p>
+   */
+  Action?: AwsWafRuleGroupRulesActionDetails;
+
+  /**
+   * @public
+   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
+   *          based on the value of <code>Priority</code>.</p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>The rule ID for a rule.
+   *       </p>
+   */
+  RuleId?: string;
+
+  /**
+   * @public
+   * <p>The type of rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
+ *       </p>
+ */
+export interface AwsWafRuleGroupDetails {
+  /**
+   * @public
+   * <p>The name of the metrics for this rule group.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>The name of the rule group.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The ID of the rule group.
+   *       </p>
+   */
+  RuleGroupId?: string;
+
+  /**
+   * @public
+   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+   * allow, block, or count.
+   *       </p>
+   */
+  Rules?: AwsWafRuleGroupRulesDetails[];
+}
+
+/**
+ * @public
+ * <p>
+ *          A custom header for custom request and response handling.
+ *       </p>
+ */
+export interface AwsWafv2CustomHttpHeader {
+  /**
+   * @public
+   * <p>
+   *          The name of the custom header.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The value of the custom header.
+   *       </p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
+ *       </p>
+ */
+export interface AwsWafv2CustomRequestHandlingDetails {
+  /**
+   * @public
+   * <p>
+   *          The HTTP headers to insert into the request.
+   *       </p>
+   */
+  InsertHeaders?: AwsWafv2CustomHttpHeader[];
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
+ *       </p>
+ */
+export interface AwsWafv2ActionAllowDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines custom handling for the web request. For information about customizing web requests and responses, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
+ *       </p>
+ */
+export interface AwsWafv2CustomResponseDetails {
+  /**
+   * @public
+   * <p>
+   *          References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block.
+   *       </p>
+   */
+  CustomResponseBodyKey?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i>
+   *          </p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * @public
+   * <p>
+   *          The HTTP headers to use in the response.
+   *       </p>
+   */
+  ResponseHeaders?: AwsWafv2CustomHttpHeader[];
+}
 
 /**
  * @public
@@ -1451,6 +1781,24 @@ export interface ResourceDetails {
    *             Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.</p>
    */
   AwsMskCluster?: AwsMskClusterDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Amazon Simple Storage Service (Amazon S3) access point. S3 access points are named network
+   *             endpoints that are attached to S3 buckets that you can use to perform S3 object operations.
+   *         </p>
+   */
+  AwsS3AccessPoint?: AwsS3AccessPointDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Client VPN endpoint. A Client VPN endpoint is the resource that you
+   *             create and configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
+   *         </p>
+   */
+  AwsEc2ClientVpnEndpoint?: AwsEc2ClientVpnEndpointDetails;
 }
 
 /**
@@ -4144,8 +4492,13 @@ export interface ParameterConfiguration {
   /**
    * @public
    * <p>
-   *             Identifies whether a control parameter uses a custom user-defined value or the Security Hub default value.
-   *         </p>
+   *             Identifies whether a control parameter uses a custom user-defined value or subscribes to the default
+   *             Security Hub behavior.</p>
+   *          <p>When <code>ValueType</code> is set equal to <code>DEFAULT</code>, the default
+   *             behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter.
+   *             When <code>ValueType</code> is set equal to <code>DEFAULT</code>, Security Hub ignores user-provided input for
+   *             the <code>Value</code> field.</p>
+   *          <p>When <code>ValueType</code> is set equal to <code>CUSTOM</code>, the <code>Value</code> field can't be empty.</p>
    */
   ValueType: ParameterValueType | undefined;
 
@@ -5520,7 +5873,8 @@ export interface ConfigurationPolicySummary {
   /**
    * @public
    * <p>
-   *             The name of the configuration policy.
+   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
+   *             <code>-, ., !, *, /</code>.
    *         </p>
    */
   Name?: string;
@@ -5864,7 +6218,8 @@ export interface CreateConfigurationPolicyRequest {
   /**
    * @public
    * <p>
-   *             The name of the configuration policy.
+   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
+   *             <code>-, ., !, *, /</code>.
    *         </p>
    */
   Name: string | undefined;
@@ -8880,7 +9235,8 @@ export interface UpdateConfigurationPolicyRequest {
   /**
    * @public
    * <p>
-   *             The name of the configuration policy.
+   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
+   *             <code>-, ., !, *, /</code>.
    *         </p>
    */
   Name?: string;

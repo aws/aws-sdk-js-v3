@@ -7391,6 +7391,361 @@ export interface AwsDynamoDbTableDetails {
    *          </ul>
    */
   TableStatus?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.
+   *         </p>
+   */
+  DeletionProtectionEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Active Directory that’s used to authenticate an Client VPN endpoint.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails {
+  /**
+   * @public
+   * <p>
+   *             The ID of the Active Directory used for authentication.
+   *         </p>
+   */
+  DirectoryId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the IAM SAML identity providers used for federated authentication.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+   *         </p>
+   */
+  SamlProviderArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+   *         </p>
+   */
+  SelfServiceSamlProviderArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Information about the client certificate used for authentication.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the client certificate.
+   *         </p>
+   */
+  ClientRootCertificateChain?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Information about the authentication method used by the Client VPN endpoint.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             The authentication type used.
+   *         </p>
+   */
+  Type?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the Active Directory, if applicable. With Active Directory authentication, clients are authenticated
+   *             against existing Active Directory groups.
+   *         </p>
+   */
+  ActiveDirectory?: AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the authentication certificates, if applicable.</p>
+   */
+  MutualAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the IAM SAML identity provider, if applicable.</p>
+   */
+  FederatedAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the status of the Client VPN endpoint attribute.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails {
+  /**
+   * @public
+   * <p>
+   *             The status code.
+   *         </p>
+   */
+  Code?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The status message.
+   *         </p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for managing connection authorization for new client connections.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointClientConnectOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether client connect options are enabled.
+   *         </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+   *         </p>
+   */
+  LambdaFunctionArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The status of any updates to the client connect options.
+   *         </p>
+   */
+  Status?: AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a
+ *             VPN session is established.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             Current state of text banner feature.
+   *         </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             Customizable text that will be displayed in a banner on Amazon Web Services provided clients when a VPN session is
+   *             established.
+   *         </p>
+   */
+  BannerText?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Information about the client connection logging options for the Client VPN endpoint.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointConnectionLogOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether client connection logging is enabled for the Client VPN endpoint.
+   *         </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
+   *         </p>
+   */
+  CloudwatchLogGroup?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+   *         </p>
+   */
+  CloudwatchLogStream?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes an Client VPN endpoint. A Client VPN endpoint is the resource that you create and
+ *             configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointDetails {
+  /**
+   * @public
+   * <p>
+   *             The ID of the Client VPN endpoint.
+   *         </p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A brief description of the endpoint.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+   *         </p>
+   */
+  ClientCidrBlock?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the DNS servers to be used for DNS resolution.
+   *         </p>
+   */
+  DnsServer?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether split-tunnel is enabled in the Client VPN endpoint.
+   *         </p>
+   */
+  SplitTunnel?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The transport protocol used by the Client VPN endpoint.
+   *         </p>
+   */
+  TransportProtocol?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The port number for the Client VPN endpoint.
+   *         </p>
+   */
+  VpnPort?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the server certificate.
+   *         </p>
+   */
+  ServerCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the authentication method used by the Client VPN endpoint.
+   *         </p>
+   */
+  AuthenticationOptions?: AwsEc2ClientVpnEndpointAuthenticationOptionsDetails[];
+
+  /**
+   * @public
+   * <p>
+   *             Information about the client connection logging options for the Client VPN endpoint.
+   *         </p>
+   */
+  ConnectionLogOptions?: AwsEc2ClientVpnEndpointConnectionLogOptionsDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The IDs of the security groups for the target network.
+   *         </p>
+   */
+  SecurityGroupIdSet?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The ID of the VPC.
+   *         </p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The URL of the self-service portal.
+   *         </p>
+   */
+  SelfServicePortalUrl?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The options for managing connection authorization for new client connections.
+   *         </p>
+   */
+  ClientConnectOptions?: AwsEc2ClientVpnEndpointClientConnectOptionsDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum VPN session duration time in hours.
+   *         </p>
+   */
+  SessionTimeoutHours?: number;
+
+  /**
+   * @public
+   * <p>
+   *             Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a
+   *             VPN session is established.
+   *         </p>
+   */
+  ClientLoginBannerOptions?: AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails;
 }
 
 /**
@@ -12297,488 +12652,4 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
    * <p>The soft limit for the ulimit type.</p>
    */
   SoftLimit?: number;
-}
-
-/**
- * @public
- * <p>A data volume to mount from another container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
-  /**
-   * @public
-   * <p>Whether the container has read-only access to the volume.</p>
-   */
-  ReadOnly?: boolean;
-
-  /**
-   * @public
-   * <p>The name of another container within the same task definition from which to mount volumes.</p>
-   */
-  SourceContainer?: string;
-}
-
-/**
- * @public
- * <p>A container definition that describes a container in the task.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
-  /**
-   * @public
-   * <p>The command that is passed to the container.</p>
-   */
-  Command?: string[];
-
-  /**
-   * @public
-   * <p>The number of CPU units reserved for the container.</p>
-   */
-  Cpu?: number;
-
-  /**
-   * @public
-   * <p>The dependencies that are defined for container startup and shutdown.</p>
-   */
-  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[];
-
-  /**
-   * @public
-   * <p>Whether to disable networking within the container.</p>
-   */
-  DisableNetworking?: boolean;
-
-  /**
-   * @public
-   * <p>A list of DNS search domains that are presented to the container.</p>
-   */
-  DnsSearchDomains?: string[];
-
-  /**
-   * @public
-   * <p>A list of DNS servers that are presented to the container.</p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * @public
-   * <p>A key-value map of labels to add to the container.</p>
-   */
-  DockerLabels?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
-   */
-  DockerSecurityOptions?: string[];
-
-  /**
-   * @public
-   * <p>The entry point that is passed to the container.</p>
-   */
-  EntryPoint?: string[];
-
-  /**
-   * @public
-   * <p>The environment variables to pass to a container.</p>
-   */
-  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[];
-
-  /**
-   * @public
-   * <p>A list of files containing the environment variables to pass to a container.</p>
-   */
-  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[];
-
-  /**
-   * @public
-   * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
-   */
-  Essential?: boolean;
-
-  /**
-   * @public
-   * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
-   */
-  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[];
-
-  /**
-   * @public
-   * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
-   */
-  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails;
-
-  /**
-   * @public
-   * <p>The container health check command and associated configuration parameters for the container.</p>
-   */
-  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails;
-
-  /**
-   * @public
-   * <p>The hostname to use for the container.</p>
-   */
-  Hostname?: string;
-
-  /**
-   * @public
-   * <p>The image used to start the container.</p>
-   */
-  Image?: string;
-
-  /**
-   * @public
-   * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
-   */
-  Interactive?: boolean;
-
-  /**
-   * @public
-   * <p>A list of links for the container in the form <code>
-   *                <i>container_name</i>:<i>alias</i>
-   *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
-   */
-  Links?: string[];
-
-  /**
-   * @public
-   * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
-   */
-  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails;
-
-  /**
-   * @public
-   * <p>The log configuration specification for the container.</p>
-   */
-  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails;
-
-  /**
-   * @public
-   * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
-   */
-  Memory?: number;
-
-  /**
-   * @public
-   * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
-   */
-  MemoryReservation?: number;
-
-  /**
-   * @public
-   * <p>The mount points for the data volumes in the container.</p>
-   */
-  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[];
-
-  /**
-   * @public
-   * <p>The name of the container.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The list of port mappings for the container.</p>
-   */
-  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[];
-
-  /**
-   * @public
-   * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
-   */
-  Privileged?: boolean;
-
-  /**
-   * @public
-   * <p>Whether to allocate a TTY to the container.</p>
-   */
-  PseudoTerminal?: boolean;
-
-  /**
-   * @public
-   * <p>Whether the container is given read-only access to its root file system.</p>
-   */
-  ReadonlyRootFilesystem?: boolean;
-
-  /**
-   * @public
-   * <p>The private repository authentication credentials to use.</p>
-   */
-  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails;
-
-  /**
-   * @public
-   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
-   */
-  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[];
-
-  /**
-   * @public
-   * <p>The secrets to pass to the container.</p>
-   */
-  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[];
-
-  /**
-   * @public
-   * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
-   */
-  StartTimeout?: number;
-
-  /**
-   * @public
-   * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
-   */
-  StopTimeout?: number;
-
-  /**
-   * @public
-   * <p>A list of namespaced kernel parameters to set in the container.</p>
-   */
-  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[];
-
-  /**
-   * @public
-   * <p>A list of ulimits to set in the container. </p>
-   */
-  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[];
-
-  /**
-   * @public
-   * <p>The user to use inside the container.</p>
-   *          <p>The value can use one of the following formats.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>:<code>
-   *                      <i>group</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>:<code>
-   *                      <i>gid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>:<code>
-   *                      <i>gid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>:<code>
-   *                      <i>group</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  User?: string;
-
-  /**
-   * @public
-   * <p>Data volumes to mount from another container.</p>
-   */
-  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[];
-
-  /**
-   * @public
-   * <p>The working directory in which to run commands inside the container.</p>
-   */
-  WorkingDirectory?: string;
-}
-
-/**
- * @public
- * <p>An Elastic Inference accelerator to use
- *          for the containers in the task.</p>
- */
-export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
-  /**
-   * @public
-   * <p>The Elastic Inference accelerator device name.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * @public
-   * <p>The Elastic Inference accelerator type to use.</p>
-   */
-  DeviceType?: string;
-}
-
-/**
- * @public
- * <p>A placement constraint object to use for tasks.</p>
- */
-export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
-  /**
-   * @public
-   * <p>A cluster query language expression to apply to the constraint.</p>
-   */
-  Expression?: string;
-
-  /**
-   * @public
-   * <p>The type of constraint.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
-  /**
-   * @public
-   * <p>The name of the property.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The value of the property.</p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- * <p>The configuration details for the App Mesh
- *          proxy.</p>
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
-  /**
-   * @public
-   * <p>The name of the container that will serve as the App Mesh proxy.</p>
-   */
-  ContainerName?: string;
-
-  /**
-   * @public
-   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
-   */
-  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
-
-  /**
-   * @public
-   * <p>The proxy type.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Information about a Docker volume.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
-  /**
-   * @public
-   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
-   */
-  Autoprovision?: boolean;
-
-  /**
-   * @public
-   * <p>The Docker volume driver to use.</p>
-   */
-  Driver?: string;
-
-  /**
-   * @public
-   * <p>A map of Docker driver-specific options that are passed through.</p>
-   */
-  DriverOpts?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Custom metadata to add to the Docker volume.</p>
-   */
-  Labels?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
-   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
-   */
-  Scope?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
-  /**
-   * @public
-   * <p>The Amazon EFS access point identifier to use.</p>
-   */
-  AccessPointId?: string;
-
-  /**
-   * @public
-   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
-   */
-  Iam?: string;
-}
-
-/**
- * @public
- * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
-  /**
-   * @public
-   * <p>The authorization configuration details for the Amazon EFS file system.</p>
-   */
-  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
-
-  /**
-   * @public
-   * <p>The Amazon EFS file system identifier to use.</p>
-   */
-  FilesystemId?: string;
-
-  /**
-   * @public
-   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
-   */
-  RootDirectory?: string;
-
-  /**
-   * @public
-   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
-   */
-  TransitEncryption?: string;
-
-  /**
-   * @public
-   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
-   */
-  TransitEncryptionPort?: number;
 }

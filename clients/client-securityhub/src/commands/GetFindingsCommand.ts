@@ -1278,6 +1278,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                   },
  * //                 },
  * //               },
+ * //               Name: "STRING_VALUE",
  * //             },
  * //             AwsS3AccountPublicAccessBlock: {
  * //               BlockPublicAcls: true || false,
@@ -1529,6 +1530,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               TableName: "STRING_VALUE",
  * //               TableSizeBytes: Number("long"),
  * //               TableStatus: "STRING_VALUE",
+ * //               DeletionProtectionEnabled: true || false,
  * //             },
  * //             AwsApiGatewayStage: { // AwsApiGatewayStageDetails
  * //               DeploymentId: "STRING_VALUE",
@@ -4190,6 +4192,70 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                     Enabled: true || false,
  * //                   },
  * //                 },
+ * //                 EnhancedMonitoring: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             AwsS3AccessPoint: { // AwsS3AccessPointDetails
+ * //               AccessPointArn: "STRING_VALUE",
+ * //               Alias: "STRING_VALUE",
+ * //               Bucket: "STRING_VALUE",
+ * //               BucketAccountId: "STRING_VALUE",
+ * //               Name: "STRING_VALUE",
+ * //               NetworkOrigin: "STRING_VALUE",
+ * //               PublicAccessBlockConfiguration: {
+ * //                 BlockPublicAcls: true || false,
+ * //                 BlockPublicPolicy: true || false,
+ * //                 IgnorePublicAcls: true || false,
+ * //                 RestrictPublicBuckets: true || false,
+ * //               },
+ * //               VpcConfiguration: { // AwsS3AccessPointVpcConfigurationDetails
+ * //                 VpcId: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             AwsEc2ClientVpnEndpoint: { // AwsEc2ClientVpnEndpointDetails
+ * //               ClientVpnEndpointId: "STRING_VALUE",
+ * //               Description: "STRING_VALUE",
+ * //               ClientCidrBlock: "STRING_VALUE",
+ * //               DnsServer: "<StringList>",
+ * //               SplitTunnel: true || false,
+ * //               TransportProtocol: "STRING_VALUE",
+ * //               VpnPort: Number("int"),
+ * //               ServerCertificateArn: "STRING_VALUE",
+ * //               AuthenticationOptions: [ // AwsEc2ClientVpnEndpointAuthenticationOptionsList
+ * //                 { // AwsEc2ClientVpnEndpointAuthenticationOptionsDetails
+ * //                   Type: "STRING_VALUE",
+ * //                   ActiveDirectory: { // AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails
+ * //                     DirectoryId: "STRING_VALUE",
+ * //                   },
+ * //                   MutualAuthentication: { // AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails
+ * //                     ClientRootCertificateChain: "STRING_VALUE",
+ * //                   },
+ * //                   FederatedAuthentication: { // AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails
+ * //                     SamlProviderArn: "STRING_VALUE",
+ * //                     SelfServiceSamlProviderArn: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               ConnectionLogOptions: { // AwsEc2ClientVpnEndpointConnectionLogOptionsDetails
+ * //                 Enabled: true || false,
+ * //                 CloudwatchLogGroup: "STRING_VALUE",
+ * //                 CloudwatchLogStream: "STRING_VALUE",
+ * //               },
+ * //               SecurityGroupIdSet: "<StringList>",
+ * //               VpcId: "STRING_VALUE",
+ * //               SelfServicePortalUrl: "STRING_VALUE",
+ * //               ClientConnectOptions: { // AwsEc2ClientVpnEndpointClientConnectOptionsDetails
+ * //                 Enabled: true || false,
+ * //                 LambdaFunctionArn: "STRING_VALUE",
+ * //                 Status: { // AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails
+ * //                   Code: "STRING_VALUE",
+ * //                   Message: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               SessionTimeoutHours: Number("int"),
+ * //               ClientLoginBannerOptions: { // AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails
+ * //                 Enabled: true || false,
+ * //                 BannerText: "STRING_VALUE",
  * //               },
  * //             },
  * //           },

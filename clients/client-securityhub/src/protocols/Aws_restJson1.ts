@@ -388,6 +388,15 @@ import {
   AwsDynamoDbTableRestoreSummary,
   AwsDynamoDbTableSseDescription,
   AwsDynamoDbTableStreamSpecification,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsDetails,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails,
+  AwsEc2ClientVpnEndpointClientConnectOptionsDetails,
+  AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails,
+  AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails,
+  AwsEc2ClientVpnEndpointConnectionLogOptionsDetails,
+  AwsEc2ClientVpnEndpointDetails,
   AwsEc2EipDetails,
   AwsEc2InstanceDetails,
   AwsEc2InstanceMetadataOptions,
@@ -481,7 +490,6 @@ import {
   AwsEcsServicePlacementStrategiesDetails,
   AwsEcsServiceServiceRegistriesDetails,
   AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails,
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
   AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
@@ -500,14 +508,6 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
-  AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
-  AwsEcsTaskDefinitionPlacementConstraintsDetails,
-  AwsEcsTaskDefinitionProxyConfigurationDetails,
-  AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
-  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -543,8 +543,17 @@ import {
 } from "../models/models_0";
 import {
   _Record,
+  AwsEcsTaskDefinitionContainerDefinitionsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
   AwsEcsTaskDefinitionDetails,
+  AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
+  AwsEcsTaskDefinitionPlacementConstraintsDetails,
+  AwsEcsTaskDefinitionProxyConfigurationDetails,
+  AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
   AwsEcsTaskDefinitionVolumesDetails,
+  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
   AwsEcsTaskDefinitionVolumesHostDetails,
   AwsEcsTaskDetails,
   AwsEcsTaskVolumeDetails,
@@ -711,6 +720,8 @@ import {
   AwsRoute53HostedZoneObjectDetails,
   AwsRoute53HostedZoneVpcDetails,
   AwsRoute53QueryLoggingConfigDetails,
+  AwsS3AccessPointDetails,
+  AwsS3AccessPointVpcConfigurationDetails,
   AwsS3AccountPublicAccessBlockDetails,
   AwsS3BucketBucketLifecycleConfigurationDetails,
   AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails,
@@ -766,19 +777,8 @@ import {
   AwsWafRegionalRuleGroupRulesActionDetails,
   AwsWafRegionalRuleGroupRulesDetails,
   AwsWafRegionalRulePredicateListDetails,
-  AwsWafRegionalWebAclDetails,
   AwsWafRegionalWebAclRulesListActionDetails,
-  AwsWafRegionalWebAclRulesListDetails,
   AwsWafRegionalWebAclRulesListOverrideActionDetails,
-  AwsWafRuleDetails,
-  AwsWafRuleGroupDetails,
-  AwsWafRuleGroupRulesActionDetails,
-  AwsWafRuleGroupRulesDetails,
-  AwsWafRulePredicateListDetails,
-  AwsWafv2ActionAllowDetails,
-  AwsWafv2CustomHttpHeader,
-  AwsWafv2CustomRequestHandlingDetails,
-  AwsWafv2CustomResponseDetails,
   Cell,
   ClassificationResult,
   ClassificationStatus,
@@ -840,7 +840,18 @@ import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
+  AwsWafRegionalWebAclDetails,
+  AwsWafRegionalWebAclRulesListDetails,
+  AwsWafRuleDetails,
+  AwsWafRuleGroupDetails,
+  AwsWafRuleGroupRulesActionDetails,
+  AwsWafRuleGroupRulesDetails,
+  AwsWafRulePredicateListDetails,
+  AwsWafv2ActionAllowDetails,
   AwsWafv2ActionBlockDetails,
+  AwsWafv2CustomHttpHeader,
+  AwsWafv2CustomRequestHandlingDetails,
+  AwsWafv2CustomResponseDetails,
   AwsWafv2RuleGroupDetails,
   AwsWafv2RulesActionCaptchaDetails,
   AwsWafv2RulesActionCountDetails,
@@ -8587,6 +8598,26 @@ const se_AwsCloudWatchAlarmDetails = (input: AwsCloudWatchAlarmDetails, context:
 
 // se_AwsDynamoDbTableStreamSpecification omitted.
 
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsList omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointClientConnectOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointConnectionLogOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointDetails omitted.
+
 // se_AwsEc2EipDetails omitted.
 
 // se_AwsEc2InstanceDetails omitted.
@@ -9552,6 +9583,10 @@ const se_AwsRedshiftClusterRestoreStatus = (input: AwsRedshiftClusterRestoreStat
 
 // se_AwsRoute53QueryLoggingConfigDetails omitted.
 
+// se_AwsS3AccessPointDetails omitted.
+
+// se_AwsS3AccessPointVpcConfigurationDetails omitted.
+
 // se_AwsS3AccountPublicAccessBlockDetails omitted.
 
 // se_AwsS3BucketBucketLifecycleConfigurationDetails omitted.
@@ -10300,6 +10335,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsDmsReplicationInstance: _json,
     AwsDmsReplicationTask: _json,
     AwsDynamoDbTable: _json,
+    AwsEc2ClientVpnEndpoint: _json,
     AwsEc2Eip: _json,
     AwsEc2Instance: _json,
     AwsEc2LaunchTemplate: (_) => se_AwsEc2LaunchTemplateDetails(_, context),
@@ -10353,6 +10389,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsRdsEventSubscription: _json,
     AwsRedshiftCluster: (_) => se_AwsRedshiftClusterDetails(_, context),
     AwsRoute53HostedZone: _json,
+    AwsS3AccessPoint: _json,
     AwsS3AccountPublicAccessBlock: _json,
     AwsS3Bucket: _json,
     AwsS3Object: _json,
@@ -11298,6 +11335,26 @@ const de_AwsCloudWatchAlarmDetails = (output: any, context: __SerdeContext): Aws
 // de_AwsDynamoDbTableSseDescription omitted.
 
 // de_AwsDynamoDbTableStreamSpecification omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsList omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointClientConnectOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointConnectionLogOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointDetails omitted.
 
 // de_AwsEc2EipDetails omitted.
 
@@ -12264,6 +12321,10 @@ const de_AwsRedshiftClusterRestoreStatus = (output: any, context: __SerdeContext
 // de_AwsRoute53HostedZoneVpcsList omitted.
 
 // de_AwsRoute53QueryLoggingConfigDetails omitted.
+
+// de_AwsS3AccessPointDetails omitted.
+
+// de_AwsS3AccessPointVpcConfigurationDetails omitted.
 
 // de_AwsS3AccountPublicAccessBlockDetails omitted.
 
@@ -13339,6 +13400,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsDmsReplicationInstance: _json,
     AwsDmsReplicationTask: _json,
     AwsDynamoDbTable: _json,
+    AwsEc2ClientVpnEndpoint: _json,
     AwsEc2Eip: _json,
     AwsEc2Instance: _json,
     AwsEc2LaunchTemplate: (_: any) => de_AwsEc2LaunchTemplateDetails(_, context),
@@ -13392,6 +13454,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsRdsEventSubscription: _json,
     AwsRedshiftCluster: (_: any) => de_AwsRedshiftClusterDetails(_, context),
     AwsRoute53HostedZone: _json,
+    AwsS3AccessPoint: _json,
     AwsS3AccountPublicAccessBlock: _json,
     AwsS3Bucket: _json,
     AwsS3Object: _json,

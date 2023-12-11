@@ -3,15 +3,508 @@ import {
   AssociatedStandard,
   AvailabilityZone,
   AwsEcsContainerDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsDetails,
-  AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
-  AwsEcsTaskDefinitionPlacementConstraintsDetails,
-  AwsEcsTaskDefinitionProxyConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
   RelatedFinding,
   SeverityLabel,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>A data volume to mount from another container.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
+  /**
+   * @public
+   * <p>Whether the container has read-only access to the volume.</p>
+   */
+  ReadOnly?: boolean;
+
+  /**
+   * @public
+   * <p>The name of another container within the same task definition from which to mount volumes.</p>
+   */
+  SourceContainer?: string;
+}
+
+/**
+ * @public
+ * <p>A container definition that describes a container in the task.</p>
+ */
+export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
+  /**
+   * @public
+   * <p>The command that is passed to the container.</p>
+   */
+  Command?: string[];
+
+  /**
+   * @public
+   * <p>The number of CPU units reserved for the container.</p>
+   */
+  Cpu?: number;
+
+  /**
+   * @public
+   * <p>The dependencies that are defined for container startup and shutdown.</p>
+   */
+  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[];
+
+  /**
+   * @public
+   * <p>Whether to disable networking within the container.</p>
+   */
+  DisableNetworking?: boolean;
+
+  /**
+   * @public
+   * <p>A list of DNS search domains that are presented to the container.</p>
+   */
+  DnsSearchDomains?: string[];
+
+  /**
+   * @public
+   * <p>A list of DNS servers that are presented to the container.</p>
+   */
+  DnsServers?: string[];
+
+  /**
+   * @public
+   * <p>A key-value map of labels to add to the container.</p>
+   */
+  DockerLabels?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
+   */
+  DockerSecurityOptions?: string[];
+
+  /**
+   * @public
+   * <p>The entry point that is passed to the container.</p>
+   */
+  EntryPoint?: string[];
+
+  /**
+   * @public
+   * <p>The environment variables to pass to a container.</p>
+   */
+  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[];
+
+  /**
+   * @public
+   * <p>A list of files containing the environment variables to pass to a container.</p>
+   */
+  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[];
+
+  /**
+   * @public
+   * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
+   */
+  Essential?: boolean;
+
+  /**
+   * @public
+   * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
+   */
+  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[];
+
+  /**
+   * @public
+   * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
+   */
+  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails;
+
+  /**
+   * @public
+   * <p>The container health check command and associated configuration parameters for the container.</p>
+   */
+  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails;
+
+  /**
+   * @public
+   * <p>The hostname to use for the container.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * @public
+   * <p>The image used to start the container.</p>
+   */
+  Image?: string;
+
+  /**
+   * @public
+   * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
+   */
+  Interactive?: boolean;
+
+  /**
+   * @public
+   * <p>A list of links for the container in the form <code>
+   *                <i>container_name</i>:<i>alias</i>
+   *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
+   */
+  Links?: string[];
+
+  /**
+   * @public
+   * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
+   */
+  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails;
+
+  /**
+   * @public
+   * <p>The log configuration specification for the container.</p>
+   */
+  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails;
+
+  /**
+   * @public
+   * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
+   */
+  Memory?: number;
+
+  /**
+   * @public
+   * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
+   */
+  MemoryReservation?: number;
+
+  /**
+   * @public
+   * <p>The mount points for the data volumes in the container.</p>
+   */
+  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[];
+
+  /**
+   * @public
+   * <p>The name of the container.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The list of port mappings for the container.</p>
+   */
+  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[];
+
+  /**
+   * @public
+   * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
+   */
+  Privileged?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to allocate a TTY to the container.</p>
+   */
+  PseudoTerminal?: boolean;
+
+  /**
+   * @public
+   * <p>Whether the container is given read-only access to its root file system.</p>
+   */
+  ReadonlyRootFilesystem?: boolean;
+
+  /**
+   * @public
+   * <p>The private repository authentication credentials to use.</p>
+   */
+  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails;
+
+  /**
+   * @public
+   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
+   */
+  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[];
+
+  /**
+   * @public
+   * <p>The secrets to pass to the container.</p>
+   */
+  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[];
+
+  /**
+   * @public
+   * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
+   */
+  StartTimeout?: number;
+
+  /**
+   * @public
+   * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
+   */
+  StopTimeout?: number;
+
+  /**
+   * @public
+   * <p>A list of namespaced kernel parameters to set in the container.</p>
+   */
+  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[];
+
+  /**
+   * @public
+   * <p>A list of ulimits to set in the container. </p>
+   */
+  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[];
+
+  /**
+   * @public
+   * <p>The user to use inside the container.</p>
+   *          <p>The value can use one of the following formats.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>:<code>
+   *                      <i>group</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>:<code>
+   *                      <i>gid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>user</i>
+   *                   </code>:<code>
+   *                      <i>gid</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <i>uid</i>
+   *                   </code>:<code>
+   *                      <i>group</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  User?: string;
+
+  /**
+   * @public
+   * <p>Data volumes to mount from another container.</p>
+   */
+  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[];
+
+  /**
+   * @public
+   * <p>The working directory in which to run commands inside the container.</p>
+   */
+  WorkingDirectory?: string;
+}
+
+/**
+ * @public
+ * <p>An Elastic Inference accelerator to use
+ *          for the containers in the task.</p>
+ */
+export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
+  /**
+   * @public
+   * <p>The Elastic Inference accelerator device name.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * @public
+   * <p>The Elastic Inference accelerator type to use.</p>
+   */
+  DeviceType?: string;
+}
+
+/**
+ * @public
+ * <p>A placement constraint object to use for tasks.</p>
+ */
+export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
+  /**
+   * @public
+   * <p>A cluster query language expression to apply to the constraint.</p>
+   */
+  Expression?: string;
+
+  /**
+   * @public
+   * <p>The type of constraint.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
+  /**
+   * @public
+   * <p>The name of the property.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The value of the property.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>The configuration details for the App Mesh
+ *          proxy.</p>
+ */
+export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
+  /**
+   * @public
+   * <p>The name of the container that will serve as the App Mesh proxy.</p>
+   */
+  ContainerName?: string;
+
+  /**
+   * @public
+   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
+   */
+  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
+
+  /**
+   * @public
+   * <p>The proxy type.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Information about a Docker volume.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
+  /**
+   * @public
+   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
+   */
+  Autoprovision?: boolean;
+
+  /**
+   * @public
+   * <p>The Docker volume driver to use.</p>
+   */
+  Driver?: string;
+
+  /**
+   * @public
+   * <p>A map of Docker driver-specific options that are passed through.</p>
+   */
+  DriverOpts?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Custom metadata to add to the Docker volume.</p>
+   */
+  Labels?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
+   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
+   */
+  Scope?: string;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
+  /**
+   * @public
+   * <p>The Amazon EFS access point identifier to use.</p>
+   */
+  AccessPointId?: string;
+
+  /**
+   * @public
+   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
+   */
+  Iam?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
+  /**
+   * @public
+   * <p>The authorization configuration details for the Amazon EFS file system.</p>
+   */
+  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
+
+  /**
+   * @public
+   * <p>The Amazon EFS file system identifier to use.</p>
+   */
+  FilesystemId?: string;
+
+  /**
+   * @public
+   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
+   */
+  RootDirectory?: string;
+
+  /**
+   * @public
+   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
+   */
+  TransitEncryption?: string;
+
+  /**
+   * @public
+   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
+   */
+  TransitEncryptionPort?: number;
+}
 
 /**
  * @public
@@ -3595,7 +4088,7 @@ export interface AwsMskClusterClusterInfoEncryptionInfoDetails {
 /**
  * @public
  * <p>
- *             Provide details about an Amazon MSK cluster.</p>
+ *             Provide details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.</p>
  */
 export interface AwsMskClusterClusterInfoDetails {
   /**
@@ -3609,7 +4102,7 @@ export interface AwsMskClusterClusterInfoDetails {
   /**
    * @public
    * <p>
-   *             The current version of the MSK cluster.</p>
+   *             The current version of the cluster.</p>
    */
   CurrentVersion?: string;
 
@@ -3633,6 +4126,14 @@ export interface AwsMskClusterClusterInfoDetails {
    *             Provides information for different modes of client authentication.</p>
    */
   ClientAuthentication?: AwsMskClusterClusterInfoClientAuthenticationDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies the level of monitoring for the cluster.
+   *         </p>
+   */
+  EnhancedMonitoring?: string;
 }
 
 /**
@@ -7552,6 +8053,93 @@ export interface AwsS3AccountPublicAccessBlockDetails {
 
 /**
  * @public
+ * <p>
+ *             The virtual private cloud (VPC) configuration for an Amazon S3 access point.
+ *         </p>
+ */
+export interface AwsS3AccessPointVpcConfigurationDetails {
+  /**
+   * @public
+   * <p>
+   *             If this field is specified, this access point will only allow connections from the specified VPC ID.
+   *         </p>
+   */
+  VpcId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Returns configuration information about the specified Amazon S3 access point. S3 access points are named
+ *             network endpoints that are attached to buckets that you can use to perform S3 object operations.
+ *         </p>
+ */
+export interface AwsS3AccessPointDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the access point.
+   *         </p>
+   */
+  AccessPointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name or alias of the access point.
+   *         </p>
+   */
+  Alias?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the S3 bucket associated with the specified access point.
+   *         </p>
+   */
+  Bucket?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services account ID associated with the S3 bucket associated with this access point.
+   *         </p>
+   */
+  BucketAccountId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the specified access point.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether this access point allows access from the public internet.
+   *         </p>
+   */
+  NetworkOrigin?: string;
+
+  /**
+   * @public
+   * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
+   */
+  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Contains the virtual private cloud (VPC) configuration for the specified access point.
+   *         </p>
+   */
+  VpcConfiguration?: AwsS3AccessPointVpcConfigurationDetails;
+}
+
+/**
+ * @public
  * <p>Information about what Amazon S3
  *          does when a multipart upload is incomplete.</p>
  */
@@ -8237,7 +8825,7 @@ export interface AwsS3BucketServerSideEncryptionConfiguration {
 
 /**
  * @public
- * <p>The details of an Amazon S3 bucket.</p>
+ * <p>The details of an Amazon Simple Storage Service (Amazon S3) bucket.</p>
  */
 export interface AwsS3BucketDetails {
   /**
@@ -8275,7 +8863,7 @@ export interface AwsS3BucketDetails {
 
   /**
    * @public
-   * <p>The lifecycle configuration for objects in the S3 bucket.</p>
+   * <p>The lifecycle configuration for objects in the specified bucket.</p>
    */
   BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails;
 
@@ -8318,10 +8906,18 @@ export interface AwsS3BucketDetails {
   /**
    * @public
    * <p>
-   *          Specifies which rule Amazon S3 applies by default to every new object placed in the specified bucket.
+   *          Specifies which rule Amazon S3 applies by default to every new object placed in the bucket.
    *       </p>
    */
   ObjectLockConfiguration?: AwsS3BucketObjectLockConfiguration;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the bucket.
+   *         </p>
+   */
+  Name?: string;
 }
 
 /**
@@ -10507,336 +11103,4 @@ export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
    *       </p>
    */
   Type?: string;
-}
-
-/**
- * @public
- * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
- * objects that identify the web requests that you want to allow, block, or count.
- *       </p>
- */
-export interface AwsWafRegionalWebAclRulesListDetails {
-  /**
-   * @public
-   * <p>The action that WAF takes when a web request matches all conditions in the rule, such as allow,
-   *          block, or count the request.
-   *       </p>
-   */
-  Action?: AwsWafRegionalWebAclRulesListActionDetails;
-
-  /**
-   * @public
-   * <p>Overrides the rule evaluation result in the rule group.
-   *       </p>
-   */
-  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails;
-
-  /**
-   * @public
-   * <p>The order in which WAF evaluates the rules in a web ACL.
-   *       </p>
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * <p>The ID of an WAF Regional rule to associate with a web ACL. </p>
-   */
-  RuleId?: string;
-
-  /**
-   * @public
-   * <p>For actions that are associated with a rule, the action that WAF takes when a web
-   * request matches all conditions in a rule.
-   *       </p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
- *          want to allow, block, or count. </p>
- */
-export interface AwsWafRegionalWebAclDetails {
-  /**
-   * @public
-   * <p>The action to perform if none of the rules contained in the web ACL match.
-   *       </p>
-   */
-  DefaultAction?: string;
-
-  /**
-   * @public
-   * <p>A name for the metrics for this web ACL.
-   *       </p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>A descriptive name for the web ACL.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of
-   * the rule.
-   *       </p>
-   */
-  RulesList?: AwsWafRegionalWebAclRulesListDetails[];
-
-  /**
-   * @public
-   * <p>The ID of the web ACL.
-   *       </p>
-   */
-  WebAclId?: string;
-}
-
-/**
- * @public
- * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
- *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
- * for each object, indicates whether you want to negate the settings.
- *       </p>
- */
-export interface AwsWafRulePredicateListDetails {
-  /**
-   * @public
-   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
-   *       </p>
-   */
-  DataId?: string;
-
-  /**
-   * @public
-   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
-   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
-   *       </p>
-   */
-  Negated?: boolean;
-
-  /**
-   * @public
-   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
-   *       </p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
- *       </p>
- */
-export interface AwsWafRuleDetails {
-  /**
-   * @public
-   * <p>The name of the metrics for this rule.
-   *       </p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>A descriptive name for the rule.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
-   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
-   *          for each object, indicates whether you want to negate the settings.
-   *       </p>
-   */
-  PredicateList?: AwsWafRulePredicateListDetails[];
-
-  /**
-   * @public
-   * <p>The ID of the WAF rule.
-   *       </p>
-   */
-  RuleId?: string;
-}
-
-/**
- * @public
- * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
- *       </p>
- */
-export interface AwsWafRuleGroupRulesActionDetails {
-  /**
-   * @public
-   * <p>The action that WAF should take on a web request when it matches the rule's
-   *          statement.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
- *          allow, block, or count.
- *       </p>
- */
-export interface AwsWafRuleGroupRulesDetails {
-  /**
-   * @public
-   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
-   *       </p>
-   */
-  Action?: AwsWafRuleGroupRulesActionDetails;
-
-  /**
-   * @public
-   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
-   *          based on the value of <code>Priority</code>.</p>
-   */
-  Priority?: number;
-
-  /**
-   * @public
-   * <p>The rule ID for a rule.
-   *       </p>
-   */
-  RuleId?: string;
-
-  /**
-   * @public
-   * <p>The type of rule.
-   *       </p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
- *       </p>
- */
-export interface AwsWafRuleGroupDetails {
-  /**
-   * @public
-   * <p>The name of the metrics for this rule group.
-   *       </p>
-   */
-  MetricName?: string;
-
-  /**
-   * @public
-   * <p>The name of the rule group.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The ID of the rule group.
-   *       </p>
-   */
-  RuleGroupId?: string;
-
-  /**
-   * @public
-   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
-   * allow, block, or count.
-   *       </p>
-   */
-  Rules?: AwsWafRuleGroupRulesDetails[];
-}
-
-/**
- * @public
- * <p>
- *          A custom header for custom request and response handling.
- *       </p>
- */
-export interface AwsWafv2CustomHttpHeader {
-  /**
-   * @public
-   * <p>
-   *          The name of the custom header.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The value of the custom header.
-   *       </p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- * <p>
- *          Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
- *       </p>
- */
-export interface AwsWafv2CustomRequestHandlingDetails {
-  /**
-   * @public
-   * <p>
-   *          The HTTP headers to insert into the request.
-   *       </p>
-   */
-  InsertHeaders?: AwsWafv2CustomHttpHeader[];
-}
-
-/**
- * @public
- * <p>
- *          Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
- *       </p>
- */
-export interface AwsWafv2ActionAllowDetails {
-  /**
-   * @public
-   * <p>
-   *          Defines custom handling for the web request. For information about customizing web requests and responses, see
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
-   *       </p>
-   */
-  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
-}
-
-/**
- * @public
- * <p>
- *          A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
- *       </p>
- */
-export interface AwsWafv2CustomResponseDetails {
-  /**
-   * @public
-   * <p>
-   *          References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block.
-   *       </p>
-   */
-  CustomResponseBodyKey?: string;
-
-  /**
-   * @public
-   * <p>
-   *          The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i>
-   *          </p>
-   */
-  ResponseCode?: number;
-
-  /**
-   * @public
-   * <p>
-   *          The HTTP headers to use in the response.
-   *       </p>
-   */
-  ResponseHeaders?: AwsWafv2CustomHttpHeader[];
 }
