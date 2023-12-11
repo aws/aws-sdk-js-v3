@@ -773,9 +773,6 @@ export const se_CreateCachePolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
   let body: any;
-  if (input.CachePolicyConfig !== undefined) {
-    body = se_CachePolicyConfig(input.CachePolicyConfig, context);
-  }
   let contents: any;
   if (input.CachePolicyConfig !== undefined) {
     contents = se_CachePolicyConfig(input.CachePolicyConfig, context);
@@ -809,9 +806,6 @@ export const se_CreateCloudFrontOriginAccessIdentityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront";
   let body: any;
-  if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
-    body = se_CloudFrontOriginAccessIdentityConfig(input.CloudFrontOriginAccessIdentityConfig, context);
-  }
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = se_CloudFrontOriginAccessIdentityConfig(input.CloudFrontOriginAccessIdentityConfig, context);
@@ -844,9 +838,6 @@ export const se_CreateContinuousDeploymentPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/continuous-deployment-policy";
   let body: any;
-  if (input.ContinuousDeploymentPolicyConfig !== undefined) {
-    body = se_ContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
-  }
   let contents: any;
   if (input.ContinuousDeploymentPolicyConfig !== undefined) {
     contents = se_ContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
@@ -879,9 +870,6 @@ export const se_CreateDistributionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
   let body: any;
-  if (input.DistributionConfig !== undefined) {
-    body = se_DistributionConfig(input.DistributionConfig, context);
-  }
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = se_DistributionConfig(input.DistributionConfig, context);
@@ -917,9 +905,6 @@ export const se_CreateDistributionWithTagsCommand = async (
     WithTags: [, ""],
   });
   let body: any;
-  if (input.DistributionConfigWithTags !== undefined) {
-    body = se_DistributionConfigWithTags(input.DistributionConfigWithTags, context);
-  }
   let contents: any;
   if (input.DistributionConfigWithTags !== undefined) {
     contents = se_DistributionConfigWithTags(input.DistributionConfigWithTags, context);
@@ -953,9 +938,6 @@ export const se_CreateFieldLevelEncryptionConfigCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption";
   let body: any;
-  if (input.FieldLevelEncryptionConfig !== undefined) {
-    body = se_FieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
-  }
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = se_FieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
@@ -989,9 +971,6 @@ export const se_CreateFieldLevelEncryptionProfileCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile";
   let body: any;
-  if (input.FieldLevelEncryptionProfileConfig !== undefined) {
-    body = se_FieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
-  }
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = se_FieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
@@ -1073,9 +1052,6 @@ export const se_CreateInvalidationCommand = async (
     false
   );
   let body: any;
-  if (input.InvalidationBatch !== undefined) {
-    body = se_InvalidationBatch(input.InvalidationBatch, context);
-  }
   let contents: any;
   if (input.InvalidationBatch !== undefined) {
     contents = se_InvalidationBatch(input.InvalidationBatch, context);
@@ -1107,9 +1083,6 @@ export const se_CreateKeyGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
   let body: any;
-  if (input.KeyGroupConfig !== undefined) {
-    body = se_KeyGroupConfig(input.KeyGroupConfig, context);
-  }
   let contents: any;
   if (input.KeyGroupConfig !== undefined) {
     contents = se_KeyGroupConfig(input.KeyGroupConfig, context);
@@ -1192,9 +1165,6 @@ export const se_CreateMonitoringSubscriptionCommand = async (
     false
   );
   let body: any;
-  if (input.MonitoringSubscription !== undefined) {
-    body = se_MonitoringSubscription(input.MonitoringSubscription, context);
-  }
   let contents: any;
   if (input.MonitoringSubscription !== undefined) {
     contents = se_MonitoringSubscription(input.MonitoringSubscription, context);
@@ -1227,9 +1197,6 @@ export const se_CreateOriginAccessControlCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-access-control";
   let body: any;
-  if (input.OriginAccessControlConfig !== undefined) {
-    body = se_OriginAccessControlConfig(input.OriginAccessControlConfig, context);
-  }
   let contents: any;
   if (input.OriginAccessControlConfig !== undefined) {
     contents = se_OriginAccessControlConfig(input.OriginAccessControlConfig, context);
@@ -1262,9 +1229,6 @@ export const se_CreateOriginRequestPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy";
   let body: any;
-  if (input.OriginRequestPolicyConfig !== undefined) {
-    body = se_OriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
-  }
   let contents: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     contents = se_OriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
@@ -1296,9 +1260,6 @@ export const se_CreatePublicKeyCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
   let body: any;
-  if (input.PublicKeyConfig !== undefined) {
-    body = se_PublicKeyConfig(input.PublicKeyConfig, context);
-  }
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = se_PublicKeyConfig(input.PublicKeyConfig, context);
@@ -1384,9 +1345,6 @@ export const se_CreateResponseHeadersPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy";
   let body: any;
-  if (input.ResponseHeadersPolicyConfig !== undefined) {
-    body = se_ResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
-  }
   let contents: any;
   if (input.ResponseHeadersPolicyConfig !== undefined) {
     contents = se_ResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
@@ -1419,9 +1377,6 @@ export const se_CreateStreamingDistributionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
   let body: any;
-  if (input.StreamingDistributionConfig !== undefined) {
-    body = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context);
-  }
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context);
@@ -1457,9 +1412,6 @@ export const se_CreateStreamingDistributionWithTagsCommand = async (
     WithTags: [, ""],
   });
   let body: any;
-  if (input.StreamingDistributionConfigWithTags !== undefined) {
-    body = se_StreamingDistributionConfigWithTags(input.StreamingDistributionConfigWithTags, context);
-  }
   let contents: any;
   if (input.StreamingDistributionConfigWithTags !== undefined) {
     contents = se_StreamingDistributionConfigWithTags(input.StreamingDistributionConfigWithTags, context);
@@ -3461,9 +3413,6 @@ export const se_TagResourceCommand = async (
     Resource: [, __expectNonNull(input.Resource!, `Resource`)],
   });
   let body: any;
-  if (input.Tags !== undefined) {
-    body = se_Tags(input.Tags, context);
-  }
   let contents: any;
   if (input.Tags !== undefined) {
     contents = se_Tags(input.Tags, context);
@@ -3539,9 +3488,6 @@ export const se_UntagResourceCommand = async (
     Resource: [, __expectNonNull(input.Resource!, `Resource`)],
   });
   let body: any;
-  if (input.TagKeys !== undefined) {
-    body = se_TagKeys(input.TagKeys, context);
-  }
   let contents: any;
   if (input.TagKeys !== undefined) {
     contents = se_TagKeys(input.TagKeys, context);
@@ -3577,9 +3523,6 @@ export const se_UpdateCachePolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.CachePolicyConfig !== undefined) {
-    body = se_CachePolicyConfig(input.CachePolicyConfig, context);
-  }
   let contents: any;
   if (input.CachePolicyConfig !== undefined) {
     contents = se_CachePolicyConfig(input.CachePolicyConfig, context);
@@ -3615,9 +3558,6 @@ export const se_UpdateCloudFrontOriginAccessIdentityCommand = async (
     "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
-    body = se_CloudFrontOriginAccessIdentityConfig(input.CloudFrontOriginAccessIdentityConfig, context);
-  }
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = se_CloudFrontOriginAccessIdentityConfig(input.CloudFrontOriginAccessIdentityConfig, context);
@@ -3653,9 +3593,6 @@ export const se_UpdateContinuousDeploymentPolicyCommand = async (
     "/2020-05-31/continuous-deployment-policy/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.ContinuousDeploymentPolicyConfig !== undefined) {
-    body = se_ContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
-  }
   let contents: any;
   if (input.ContinuousDeploymentPolicyConfig !== undefined) {
     contents = se_ContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
@@ -3690,9 +3627,6 @@ export const se_UpdateDistributionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.DistributionConfig !== undefined) {
-    body = se_DistributionConfig(input.DistributionConfig, context);
-  }
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = se_DistributionConfig(input.DistributionConfig, context);
@@ -3759,9 +3693,6 @@ export const se_UpdateFieldLevelEncryptionConfigCommand = async (
     "/2020-05-31/field-level-encryption/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.FieldLevelEncryptionConfig !== undefined) {
-    body = se_FieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
-  }
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = se_FieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
@@ -3797,9 +3728,6 @@ export const se_UpdateFieldLevelEncryptionProfileCommand = async (
     "/2020-05-31/field-level-encryption-profile/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.FieldLevelEncryptionProfileConfig !== undefined) {
-    body = se_FieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
-  }
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = se_FieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
@@ -3873,9 +3801,6 @@ export const se_UpdateKeyGroupCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.KeyGroupConfig !== undefined) {
-    body = se_KeyGroupConfig(input.KeyGroupConfig, context);
-  }
   let contents: any;
   if (input.KeyGroupConfig !== undefined) {
     contents = se_KeyGroupConfig(input.KeyGroupConfig, context);
@@ -3946,9 +3871,6 @@ export const se_UpdateOriginAccessControlCommand = async (
     "/2020-05-31/origin-access-control/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.OriginAccessControlConfig !== undefined) {
-    body = se_OriginAccessControlConfig(input.OriginAccessControlConfig, context);
-  }
   let contents: any;
   if (input.OriginAccessControlConfig !== undefined) {
     contents = se_OriginAccessControlConfig(input.OriginAccessControlConfig, context);
@@ -3983,9 +3905,6 @@ export const se_UpdateOriginRequestPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.OriginRequestPolicyConfig !== undefined) {
-    body = se_OriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
-  }
   let contents: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     contents = se_OriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
@@ -4020,9 +3939,6 @@ export const se_UpdatePublicKeyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.PublicKeyConfig !== undefined) {
-    body = se_PublicKeyConfig(input.PublicKeyConfig, context);
-  }
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = se_PublicKeyConfig(input.PublicKeyConfig, context);
@@ -4114,9 +4030,6 @@ export const se_UpdateResponseHeadersPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.ResponseHeadersPolicyConfig !== undefined) {
-    body = se_ResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
-  }
   let contents: any;
   if (input.ResponseHeadersPolicyConfig !== undefined) {
     contents = se_ResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
@@ -4152,9 +4065,6 @@ export const se_UpdateStreamingDistributionCommand = async (
     "/2020-05-31/streaming-distribution/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
-  if (input.StreamingDistributionConfig !== undefined) {
-    body = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context);
-  }
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context);
