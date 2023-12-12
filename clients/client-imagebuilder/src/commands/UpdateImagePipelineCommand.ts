@@ -38,7 +38,8 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
 /**
  * @public
  * <p>Updates an image pipeline. Image pipelines enable you to automate the creation and
- * 			distribution of images.</p>
+ * 			distribution of images. You must specify exactly one recipe for your image, using either
+ * 			a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p>
  *          <note>
  *             <p>UpdateImagePipeline does not support selective updates for the pipeline. You must
  * 				specify all of the required properties in the update request, not just the
@@ -78,6 +79,22 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *       ],
  *     },
  *   },
+ *   workflows: [ // WorkflowConfigurationList
+ *     { // WorkflowConfiguration
+ *       workflowArn: "STRING_VALUE", // required
+ *       parameters: [ // WorkflowParameterList
+ *         { // WorkflowParameter
+ *           name: "STRING_VALUE", // required
+ *           value: [ // WorkflowParameterValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       parallelGroup: "STRING_VALUE",
+ *       onFailure: "CONTINUE" || "ABORT",
+ *     },
+ *   ],
+ *   executionRole: "STRING_VALUE",
  * };
  * const command = new UpdateImagePipelineCommand(input);
  * const response = await client.send(command);

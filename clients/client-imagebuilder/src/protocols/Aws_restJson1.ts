@@ -56,6 +56,7 @@ import {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
 } from "../commands/CreateLifecyclePolicyCommand";
+import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
 import {
   DeleteContainerRecipeCommandInput,
@@ -79,6 +80,7 @@ import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "../commands/DeleteLifecyclePolicyCommand";
+import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "../commands/GetComponentPolicyCommand";
 import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "../commands/GetContainerRecipeCommand";
@@ -107,6 +109,7 @@ import {
   GetLifecycleExecutionCommandOutput,
 } from "../commands/GetLifecycleExecutionCommand";
 import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommandInput,
   GetWorkflowExecutionCommandOutput,
@@ -171,9 +174,18 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListWaitingWorkflowStepsCommandInput,
+  ListWaitingWorkflowStepsCommandOutput,
+} from "../commands/ListWaitingWorkflowStepsCommand";
+import {
+  ListWorkflowBuildVersionsCommandInput,
+  ListWorkflowBuildVersionsCommandOutput,
+} from "../commands/ListWorkflowBuildVersionsCommand";
+import {
   ListWorkflowExecutionsCommandInput,
   ListWorkflowExecutionsCommandOutput,
 } from "../commands/ListWorkflowExecutionsCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
   ListWorkflowStepExecutionsCommandInput,
   ListWorkflowStepExecutionsCommandOutput,
@@ -188,6 +200,10 @@ import {
   PutImageRecipePolicyCommandInput,
   PutImageRecipePolicyCommandOutput,
 } from "../commands/PutImageRecipePolicyCommand";
+import {
+  SendWorkflowStepActionCommandInput,
+  SendWorkflowStepActionCommandOutput,
+} from "../commands/SendWorkflowStepActionCommand";
 import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
@@ -281,6 +297,8 @@ import {
   ServiceUnavailableException,
   SystemsManagerAgent,
   TargetContainerRepository,
+  WorkflowConfiguration,
+  WorkflowParameter,
 } from "../models/models_0";
 
 /**
@@ -480,11 +498,13 @@ export const se_CreateImageCommand = async (
       containerRecipeArn: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
+      executionRole: [],
       imageRecipeArn: [],
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
       infrastructureConfigurationArn: [],
       tags: (_) => _json(_),
+      workflows: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -518,6 +538,7 @@ export const se_CreateImagePipelineCommand = async (
       description: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
+      executionRole: [],
       imageRecipeArn: [],
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
@@ -526,6 +547,7 @@ export const se_CreateImagePipelineCommand = async (
       schedule: (_) => _json(_),
       status: [],
       tags: (_) => _json(_),
+      workflows: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -644,6 +666,44 @@ export const se_CreateLifecyclePolicyCommand = async (
       resourceType: [],
       status: [],
       tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateWorkflowCommand
+ */
+export const se_CreateWorkflowCommand = async (
+  input: CreateWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateWorkflow";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      changeDescription: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      data: [],
+      description: [],
+      kmsKeyId: [],
+      name: [],
+      semanticVersion: [],
+      tags: (_) => _json(_),
+      type: [],
+      uri: [],
     })
   );
   return new __HttpRequest({
@@ -859,6 +919,32 @@ export const se_DeleteLifecyclePolicyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLifecyclePolicy";
   const query: any = map({
     lifecyclePolicyArn: [, __expectNonNull(input.lifecyclePolicyArn!, `lifecyclePolicyArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteWorkflowCommand
+ */
+export const se_DeleteWorkflowCommand = async (
+  input: DeleteWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteWorkflow";
+  const query: any = map({
+    workflowBuildVersionArn: [, __expectNonNull(input.workflowBuildVersionArn!, `workflowBuildVersionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1206,6 +1292,32 @@ export const se_GetLifecyclePolicyCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLifecyclePolicy";
   const query: any = map({
     lifecyclePolicyArn: [, __expectNonNull(input.lifecyclePolicyArn!, `lifecyclePolicyArn`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetWorkflowCommand
+ */
+export const se_GetWorkflowCommand = async (
+  input: GetWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkflow";
+  const query: any = map({
+    workflowBuildVersionArn: [, __expectNonNull(input.workflowBuildVersionArn!, `workflowBuildVersionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1886,6 +1998,69 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListWaitingWorkflowStepsCommand
+ */
+export const se_ListWaitingWorkflowStepsCommand = async (
+  input: ListWaitingWorkflowStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWaitingWorkflowSteps";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListWorkflowBuildVersionsCommand
+ */
+export const se_ListWorkflowBuildVersionsCommand = async (
+  input: ListWorkflowBuildVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWorkflowBuildVersions";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      workflowVersionArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListWorkflowExecutionsCommand
  */
 export const se_ListWorkflowExecutionsCommand = async (
@@ -1904,6 +2079,39 @@ export const se_ListWorkflowExecutionsCommand = async (
       imageBuildVersionArn: [],
       maxResults: [],
       nextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListWorkflowsCommand
+ */
+export const se_ListWorkflowsCommand = async (
+  input: ListWorkflowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWorkflows";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      byName: [],
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      owner: [],
     })
   );
   return new __HttpRequest({
@@ -2057,6 +2265,40 @@ export const se_PutImageRecipePolicyCommand = async (
     take(input, {
       imageRecipeArn: [],
       policy: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1SendWorkflowStepActionCommand
+ */
+export const se_SendWorkflowStepActionCommand = async (
+  input: SendWorkflowStepActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendWorkflowStepAction";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      action: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      imageBuildVersionArn: [],
+      reason: [],
+      stepExecutionId: [],
     })
   );
   return new __HttpRequest({
@@ -2250,6 +2492,7 @@ export const se_UpdateImagePipelineCommand = async (
       description: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
+      executionRole: [],
       imagePipelineArn: [],
       imageRecipeArn: [],
       imageScanningConfiguration: (_) => _json(_),
@@ -2257,6 +2500,7 @@ export const se_UpdateImagePipelineCommand = async (
       infrastructureConfigurationArn: [],
       schedule: (_) => _json(_),
       status: [],
+      workflows: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -3103,6 +3347,84 @@ const de_CreateLifecyclePolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateWorkflowCommand
+ */
+export const de_CreateWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    workflowBuildVersionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWorkflowCommandError
+ */
+const de_CreateWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
+      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteComponentCommand
  */
 export const de_DeleteComponentCommand = async (
@@ -3592,6 +3914,71 @@ const de_DeleteLifecyclePolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
+      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkflowCommand
+ */
+export const de_DeleteWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workflowBuildVersionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkflowCommandError
+ */
+const de_DeleteWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4447,6 +4834,68 @@ const de_GetLifecyclePolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetWorkflowCommand
+ */
+export const de_GetWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workflow: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowCommandError
+ */
+const de_GetWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetWorkflowExecutionCommand
  */
 export const de_GetWorkflowExecutionCommand = async (
@@ -4464,6 +4913,7 @@ export const de_GetWorkflowExecutionCommand = async (
     endTime: __expectString,
     imageBuildVersionArn: __expectString,
     message: __expectString,
+    parallelGroup: __expectString,
     requestId: __expectString,
     startTime: __expectString,
     status: __expectString,
@@ -5861,6 +6311,138 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListWaitingWorkflowStepsCommand
+ */
+export const de_ListWaitingWorkflowStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWaitingWorkflowStepsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWaitingWorkflowStepsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    steps: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWaitingWorkflowStepsCommandError
+ */
+const de_ListWaitingWorkflowStepsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWaitingWorkflowStepsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowBuildVersionsCommand
+ */
+export const de_ListWorkflowBuildVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowBuildVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWorkflowBuildVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowBuildVersionsCommandError
+ */
+const de_ListWorkflowBuildVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowBuildVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListWorkflowExecutionsCommand
  */
 export const de_ListWorkflowExecutionsCommand = async (
@@ -5892,6 +6474,72 @@ const de_ListWorkflowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowsCommand
+ */
+export const de_ListWorkflowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWorkflowsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowVersionList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowsCommandError
+ */
+const de_ListWorkflowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6257,6 +6905,82 @@ const de_PutImageRecipePolicyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SendWorkflowStepActionCommand
+ */
+export const de_SendWorkflowStepActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendWorkflowStepActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SendWorkflowStepActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    imageBuildVersionArn: __expectString,
+    stepExecutionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendWorkflowStepActionCommandError
+ */
+const de_SendWorkflowStepActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendWorkflowStepActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.imagebuilder#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -7257,6 +7981,16 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_TargetContainerRepository omitted.
 
+// se_WorkflowConfiguration omitted.
+
+// se_WorkflowConfigurationList omitted.
+
+// se_WorkflowParameter omitted.
+
+// se_WorkflowParameterList omitted.
+
+// se_WorkflowParameterValueList omitted.
+
 // de_AccountAggregation omitted.
 
 // de_AccountList omitted.
@@ -7383,6 +8117,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
     deprecationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     distributionConfiguration: _json,
     enhancedImageMetadataEnabled: __expectBoolean,
+    executionRole: __expectString,
     imageRecipe: _json,
     imageScanningConfiguration: _json,
     imageSource: __expectString,
@@ -7400,6 +8135,7 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
     tags: _json,
     type: __expectString,
     version: __expectString,
+    workflows: _json,
   }) as any;
 };
 
@@ -7717,13 +8453,43 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 
 // de_VulnerablePackageList omitted.
 
+// de_Workflow omitted.
+
+// de_WorkflowConfiguration omitted.
+
+// de_WorkflowConfigurationList omitted.
+
 // de_WorkflowExecutionMetadata omitted.
 
 // de_WorkflowExecutionsList omitted.
 
+// de_WorkflowParameter omitted.
+
+// de_WorkflowParameterDetail omitted.
+
+// de_WorkflowParameterDetailList omitted.
+
+// de_WorkflowParameterList omitted.
+
+// de_WorkflowParameterValueList omitted.
+
+// de_WorkflowState omitted.
+
+// de_WorkflowStepExecution omitted.
+
+// de_WorkflowStepExecutionList omitted.
+
 // de_WorkflowStepExecutionsList omitted.
 
 // de_WorkflowStepMetadata omitted.
+
+// de_WorkflowSummary omitted.
+
+// de_WorkflowSummaryList omitted.
+
+// de_WorkflowVersion omitted.
+
+// de_WorkflowVersionList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

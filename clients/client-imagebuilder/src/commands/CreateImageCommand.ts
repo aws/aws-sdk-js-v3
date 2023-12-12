@@ -70,6 +70,22 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *       ],
  *     },
  *   },
+ *   workflows: [ // WorkflowConfigurationList
+ *     { // WorkflowConfiguration
+ *       workflowArn: "STRING_VALUE", // required
+ *       parameters: [ // WorkflowParameterList
+ *         { // WorkflowParameter
+ *           name: "STRING_VALUE", // required
+ *           value: [ // WorkflowParameterValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       parallelGroup: "STRING_VALUE",
+ *       onFailure: "CONTINUE" || "ABORT",
+ *     },
+ *   ],
+ *   executionRole: "STRING_VALUE",
  * };
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);

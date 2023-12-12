@@ -37,7 +37,7 @@ export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowSte
 
 /**
  * @public
- * <p>Shows runtime data for each step in a runtime instance of the workflow
+ * <p>Returns runtime data for each step in a runtime instance of the workflow
  * 			that you specify in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,7 +60,7 @@ export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowSte
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       action: "STRING_VALUE",
- * //       status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED",
+ * //       status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
  * //       rollbackStatus: "RUNNING" || "COMPLETED" || "SKIPPED" || "FAILED",
  * //       message: "STRING_VALUE",
  * //       inputs: "STRING_VALUE",

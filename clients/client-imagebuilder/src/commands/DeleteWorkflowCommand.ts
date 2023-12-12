@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { GetWorkflowExecutionRequest, GetWorkflowExecutionResponse } from "../models/models_0";
-import { de_GetWorkflowExecutionCommand, se_GetWorkflowExecutionCommand } from "../protocols/Aws_restJson1";
+import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_0";
+import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,54 +25,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetWorkflowExecutionCommand}.
+ * The input for {@link DeleteWorkflowCommand}.
  */
-export interface GetWorkflowExecutionCommandInput extends GetWorkflowExecutionRequest {}
+export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
 /**
  * @public
  *
- * The output of {@link GetWorkflowExecutionCommand}.
+ * The output of {@link DeleteWorkflowCommand}.
  */
-export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionResponse, __MetadataBearer {}
+export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get the runtime information that was logged for a specific runtime instance
- * 			of the workflow.</p>
+ * <p>Deletes a specific workflow resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, GetWorkflowExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, GetWorkflowExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, DeleteWorkflowCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, DeleteWorkflowCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = { // GetWorkflowExecutionRequest
- *   workflowExecutionId: "STRING_VALUE", // required
+ * const input = { // DeleteWorkflowRequest
+ *   workflowBuildVersionArn: "STRING_VALUE", // required
  * };
- * const command = new GetWorkflowExecutionCommand(input);
+ * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
- * // { // GetWorkflowExecutionResponse
- * //   requestId: "STRING_VALUE",
+ * // { // DeleteWorkflowResponse
  * //   workflowBuildVersionArn: "STRING_VALUE",
- * //   workflowExecutionId: "STRING_VALUE",
- * //   imageBuildVersionArn: "STRING_VALUE",
- * //   type: "BUILD" || "TEST" || "DISTRIBUTION",
- * //   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETED" || "CANCELLED",
- * //   message: "STRING_VALUE",
- * //   totalStepCount: Number("int"),
- * //   totalStepsSucceeded: Number("int"),
- * //   totalStepsFailed: Number("int"),
- * //   totalStepsSkipped: Number("int"),
- * //   startTime: "STRING_VALUE",
- * //   endTime: "STRING_VALUE",
- * //   parallelGroup: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetWorkflowExecutionCommandInput - {@link GetWorkflowExecutionCommandInput}
- * @returns {@link GetWorkflowExecutionCommandOutput}
- * @see {@link GetWorkflowExecutionCommandInput} for command's `input` shape.
- * @see {@link GetWorkflowExecutionCommandOutput} for command's `response` shape.
+ * @param DeleteWorkflowCommandInput - {@link DeleteWorkflowCommandInput}
+ * @returns {@link DeleteWorkflowCommandOutput}
+ * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
@@ -89,6 +75,10 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
  *
+ * @throws {@link ResourceDependencyException} (client fault)
+ *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
+ * 			this action. See the error message for more details.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
  * 			exception.</p>
@@ -100,9 +90,9 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
-export class GetWorkflowExecutionCommand extends $Command<
-  GetWorkflowExecutionCommandInput,
-  GetWorkflowExecutionCommandOutput,
+export class DeleteWorkflowCommand extends $Command<
+  DeleteWorkflowCommandInput,
+  DeleteWorkflowCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -117,7 +107,7 @@ export class GetWorkflowExecutionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetWorkflowExecutionCommandInput) {
+  constructor(readonly input: DeleteWorkflowCommandInput) {
     super();
   }
 
@@ -128,17 +118,17 @@ export class GetWorkflowExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetWorkflowExecutionCommandInput, GetWorkflowExecutionCommandOutput> {
+  ): Handler<DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetWorkflowExecutionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteWorkflowCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ImagebuilderClient";
-    const commandName = "GetWorkflowExecutionCommand";
+    const commandName = "DeleteWorkflowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -147,7 +137,7 @@ export class GetWorkflowExecutionCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "imagebuilder",
-        operation: "GetWorkflowExecution",
+        operation: "DeleteWorkflow",
       },
     };
     const { requestHandler } = configuration;
@@ -161,14 +151,14 @@ export class GetWorkflowExecutionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetWorkflowExecutionCommand(input, context);
+  private serialize(input: DeleteWorkflowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteWorkflowCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowExecutionCommandOutput> {
-    return de_GetWorkflowExecutionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkflowCommandOutput> {
+    return de_DeleteWorkflowCommand(output, context);
   }
 }

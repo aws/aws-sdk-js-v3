@@ -16,5 +16,8 @@ export * from "./ListInfrastructureConfigurationsPaginator";
 export * from "./ListLifecycleExecutionResourcesPaginator";
 export * from "./ListLifecycleExecutionsPaginator";
 export * from "./ListLifecyclePoliciesPaginator";
+export * from "./ListWaitingWorkflowStepsPaginator";
+export * from "./ListWorkflowBuildVersionsPaginator";
 export * from "./ListWorkflowExecutionsPaginator";
 export * from "./ListWorkflowStepExecutionsPaginator";
+export * from "./ListWorkflowsPaginator";

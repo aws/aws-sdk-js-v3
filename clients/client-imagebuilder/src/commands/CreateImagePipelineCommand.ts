@@ -76,6 +76,22 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *       ],
  *     },
  *   },
+ *   workflows: [ // WorkflowConfigurationList
+ *     { // WorkflowConfiguration
+ *       workflowArn: "STRING_VALUE", // required
+ *       parameters: [ // WorkflowParameterList
+ *         { // WorkflowParameter
+ *           name: "STRING_VALUE", // required
+ *           value: [ // WorkflowParameterValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       parallelGroup: "STRING_VALUE",
+ *       onFailure: "CONTINUE" || "ABORT",
+ *     },
+ *   ],
+ *   executionRole: "STRING_VALUE",
  * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);

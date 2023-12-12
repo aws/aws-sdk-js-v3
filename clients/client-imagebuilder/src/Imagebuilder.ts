@@ -49,6 +49,11 @@ import {
   CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
 import {
+  CreateWorkflowCommand,
+  CreateWorkflowCommandInput,
+  CreateWorkflowCommandOutput,
+} from "./commands/CreateWorkflowCommand";
+import {
   DeleteComponentCommand,
   DeleteComponentCommandInput,
   DeleteComponentCommandOutput,
@@ -84,6 +89,11 @@ import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  DeleteWorkflowCommand,
+  DeleteWorkflowCommandInput,
+  DeleteWorkflowCommandOutput,
+} from "./commands/DeleteWorkflowCommand";
 import {
   GetComponentCommand,
   GetComponentCommandInput,
@@ -145,6 +155,7 @@ import {
   GetLifecyclePolicyCommandInput,
   GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
+import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommand,
   GetWorkflowExecutionCommandInput,
@@ -247,10 +258,25 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListWaitingWorkflowStepsCommand,
+  ListWaitingWorkflowStepsCommandInput,
+  ListWaitingWorkflowStepsCommandOutput,
+} from "./commands/ListWaitingWorkflowStepsCommand";
+import {
+  ListWorkflowBuildVersionsCommand,
+  ListWorkflowBuildVersionsCommandInput,
+  ListWorkflowBuildVersionsCommandOutput,
+} from "./commands/ListWorkflowBuildVersionsCommand";
+import {
   ListWorkflowExecutionsCommand,
   ListWorkflowExecutionsCommandInput,
   ListWorkflowExecutionsCommandOutput,
 } from "./commands/ListWorkflowExecutionsCommand";
+import {
+  ListWorkflowsCommand,
+  ListWorkflowsCommandInput,
+  ListWorkflowsCommandOutput,
+} from "./commands/ListWorkflowsCommand";
 import {
   ListWorkflowStepExecutionsCommand,
   ListWorkflowStepExecutionsCommandInput,
@@ -276,6 +302,11 @@ import {
   PutImageRecipePolicyCommandInput,
   PutImageRecipePolicyCommandOutput,
 } from "./commands/PutImageRecipePolicyCommand";
+import {
+  SendWorkflowStepActionCommand,
+  SendWorkflowStepActionCommandInput,
+  SendWorkflowStepActionCommandOutput,
+} from "./commands/SendWorkflowStepActionCommand";
 import {
   StartImagePipelineExecutionCommand,
   StartImagePipelineExecutionCommandInput,
@@ -325,6 +356,7 @@ const commands = {
   CreateImageRecipeCommand,
   CreateInfrastructureConfigurationCommand,
   CreateLifecyclePolicyCommand,
+  CreateWorkflowCommand,
   DeleteComponentCommand,
   DeleteContainerRecipeCommand,
   DeleteDistributionConfigurationCommand,
@@ -333,6 +365,7 @@ const commands = {
   DeleteImageRecipeCommand,
   DeleteInfrastructureConfigurationCommand,
   DeleteLifecyclePolicyCommand,
+  DeleteWorkflowCommand,
   GetComponentCommand,
   GetComponentPolicyCommand,
   GetContainerRecipeCommand,
@@ -346,6 +379,7 @@ const commands = {
   GetInfrastructureConfigurationCommand,
   GetLifecycleExecutionCommand,
   GetLifecyclePolicyCommand,
+  GetWorkflowCommand,
   GetWorkflowExecutionCommand,
   GetWorkflowStepExecutionCommand,
   ImportComponentCommand,
@@ -367,12 +401,16 @@ const commands = {
   ListLifecycleExecutionsCommand,
   ListLifecyclePoliciesCommand,
   ListTagsForResourceCommand,
+  ListWaitingWorkflowStepsCommand,
+  ListWorkflowBuildVersionsCommand,
   ListWorkflowExecutionsCommand,
+  ListWorkflowsCommand,
   ListWorkflowStepExecutionsCommand,
   PutComponentPolicyCommand,
   PutContainerRecipePolicyCommand,
   PutImagePolicyCommand,
   PutImageRecipePolicyCommand,
+  SendWorkflowStepActionCommand,
   StartImagePipelineExecutionCommand,
   StartResourceStateUpdateCommand,
   TagResourceCommand,
@@ -546,6 +584,20 @@ export interface Imagebuilder {
   ): void;
 
   /**
+   * @see {@link CreateWorkflowCommand}
+   */
+  createWorkflow(
+    args: CreateWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkflowCommandOutput>;
+  createWorkflow(args: CreateWorkflowCommandInput, cb: (err: any, data?: CreateWorkflowCommandOutput) => void): void;
+  createWorkflow(
+    args: CreateWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkflowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteComponentCommand}
    */
   deleteComponent(
@@ -670,6 +722,20 @@ export interface Imagebuilder {
     args: DeleteLifecyclePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkflowCommand}
+   */
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkflowCommandOutput>;
+  deleteWorkflow(args: DeleteWorkflowCommandInput, cb: (err: any, data?: DeleteWorkflowCommandOutput) => void): void;
+  deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): void;
 
   /**
@@ -873,6 +939,17 @@ export interface Imagebuilder {
     args: GetLifecyclePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkflowCommand}
+   */
+  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
   ): void;
 
   /**
@@ -1215,6 +1292,40 @@ export interface Imagebuilder {
   ): void;
 
   /**
+   * @see {@link ListWaitingWorkflowStepsCommand}
+   */
+  listWaitingWorkflowSteps(
+    args: ListWaitingWorkflowStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWaitingWorkflowStepsCommandOutput>;
+  listWaitingWorkflowSteps(
+    args: ListWaitingWorkflowStepsCommandInput,
+    cb: (err: any, data?: ListWaitingWorkflowStepsCommandOutput) => void
+  ): void;
+  listWaitingWorkflowSteps(
+    args: ListWaitingWorkflowStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWaitingWorkflowStepsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkflowBuildVersionsCommand}
+   */
+  listWorkflowBuildVersions(
+    args: ListWorkflowBuildVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowBuildVersionsCommandOutput>;
+  listWorkflowBuildVersions(
+    args: ListWorkflowBuildVersionsCommandInput,
+    cb: (err: any, data?: ListWorkflowBuildVersionsCommandOutput) => void
+  ): void;
+  listWorkflowBuildVersions(
+    args: ListWorkflowBuildVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowBuildVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWorkflowExecutionsCommand}
    */
   listWorkflowExecutions(
@@ -1229,6 +1340,17 @@ export interface Imagebuilder {
     args: ListWorkflowExecutionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkflowExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   */
+  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
   ): void;
 
   /**
@@ -1311,6 +1433,23 @@ export interface Imagebuilder {
     args: PutImageRecipePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendWorkflowStepActionCommand}
+   */
+  sendWorkflowStepAction(
+    args: SendWorkflowStepActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendWorkflowStepActionCommandOutput>;
+  sendWorkflowStepAction(
+    args: SendWorkflowStepActionCommandInput,
+    cb: (err: any, data?: SendWorkflowStepActionCommandOutput) => void
+  ): void;
+  sendWorkflowStepAction(
+    args: SendWorkflowStepActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendWorkflowStepActionCommandOutput) => void
   ): void;
 
   /**

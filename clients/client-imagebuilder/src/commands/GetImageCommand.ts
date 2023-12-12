@@ -329,6 +329,22 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //     },
  * //     deprecationTime: new Date("TIMESTAMP"),
  * //     lifecycleExecutionId: "STRING_VALUE",
+ * //     executionRole: "STRING_VALUE",
+ * //     workflows: [ // WorkflowConfigurationList
+ * //       { // WorkflowConfiguration
+ * //         workflowArn: "STRING_VALUE", // required
+ * //         parameters: [ // WorkflowParameterList
+ * //           { // WorkflowParameter
+ * //             name: "STRING_VALUE", // required
+ * //             value: [ // WorkflowParameterValueList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         parallelGroup: "STRING_VALUE",
+ * //         onFailure: "CONTINUE" || "ABORT",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

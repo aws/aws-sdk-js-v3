@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { GetWorkflowExecutionRequest, GetWorkflowExecutionResponse } from "../models/models_0";
-import { de_GetWorkflowExecutionCommand, se_GetWorkflowExecutionCommand } from "../protocols/Aws_restJson1";
+import { SendWorkflowStepActionRequest, SendWorkflowStepActionResponse } from "../models/models_0";
+import { de_SendWorkflowStepActionCommand, se_SendWorkflowStepActionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,54 +25,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetWorkflowExecutionCommand}.
+ * The input for {@link SendWorkflowStepActionCommand}.
  */
-export interface GetWorkflowExecutionCommandInput extends GetWorkflowExecutionRequest {}
+export interface SendWorkflowStepActionCommandInput extends SendWorkflowStepActionRequest {}
 /**
  * @public
  *
- * The output of {@link GetWorkflowExecutionCommand}.
+ * The output of {@link SendWorkflowStepActionCommand}.
  */
-export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionResponse, __MetadataBearer {}
+export interface SendWorkflowStepActionCommandOutput extends SendWorkflowStepActionResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get the runtime information that was logged for a specific runtime instance
- * 			of the workflow.</p>
+ * <p>Pauses or resumes image creation when the associated workflow runs a
+ * 			<code>WaitForAction</code> step.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, GetWorkflowExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, GetWorkflowExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, SendWorkflowStepActionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, SendWorkflowStepActionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = { // GetWorkflowExecutionRequest
- *   workflowExecutionId: "STRING_VALUE", // required
+ * const input = { // SendWorkflowStepActionRequest
+ *   stepExecutionId: "STRING_VALUE", // required
+ *   imageBuildVersionArn: "STRING_VALUE", // required
+ *   action: "RESUME" || "STOP", // required
+ *   reason: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new GetWorkflowExecutionCommand(input);
+ * const command = new SendWorkflowStepActionCommand(input);
  * const response = await client.send(command);
- * // { // GetWorkflowExecutionResponse
- * //   requestId: "STRING_VALUE",
- * //   workflowBuildVersionArn: "STRING_VALUE",
- * //   workflowExecutionId: "STRING_VALUE",
+ * // { // SendWorkflowStepActionResponse
+ * //   stepExecutionId: "STRING_VALUE",
  * //   imageBuildVersionArn: "STRING_VALUE",
- * //   type: "BUILD" || "TEST" || "DISTRIBUTION",
- * //   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETED" || "CANCELLED",
- * //   message: "STRING_VALUE",
- * //   totalStepCount: Number("int"),
- * //   totalStepsSucceeded: Number("int"),
- * //   totalStepsFailed: Number("int"),
- * //   totalStepsSkipped: Number("int"),
- * //   startTime: "STRING_VALUE",
- * //   endTime: "STRING_VALUE",
- * //   parallelGroup: "STRING_VALUE",
+ * //   clientToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param GetWorkflowExecutionCommandInput - {@link GetWorkflowExecutionCommandInput}
- * @returns {@link GetWorkflowExecutionCommandOutput}
- * @see {@link GetWorkflowExecutionCommandInput} for command's `input` shape.
- * @see {@link GetWorkflowExecutionCommandOutput} for command's `response` shape.
+ * @param SendWorkflowStepActionCommandInput - {@link SendWorkflowStepActionCommandInput}
+ * @returns {@link SendWorkflowStepActionCommandOutput}
+ * @see {@link SendWorkflowStepActionCommandInput} for command's `input` shape.
+ * @see {@link SendWorkflowStepActionCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
@@ -86,8 +79,22 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
  *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>You have specified a client token for an operation using parameter values that differ
+ * 			from a previous request that used the same client token.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value that you provided for the specified parameter is invalid.</p>
+ *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource that you are trying to operate on is currently in use. Review the message
+ * 			details and retry later.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>At least one of the resources referenced by your request does not exist.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>This exception is thrown when the service encounters an unrecoverable
@@ -100,9 +107,9 @@ export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionR
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
-export class GetWorkflowExecutionCommand extends $Command<
-  GetWorkflowExecutionCommandInput,
-  GetWorkflowExecutionCommandOutput,
+export class SendWorkflowStepActionCommand extends $Command<
+  SendWorkflowStepActionCommandInput,
+  SendWorkflowStepActionCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -117,7 +124,7 @@ export class GetWorkflowExecutionCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: GetWorkflowExecutionCommandInput) {
+  constructor(readonly input: SendWorkflowStepActionCommandInput) {
     super();
   }
 
@@ -128,17 +135,17 @@ export class GetWorkflowExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetWorkflowExecutionCommandInput, GetWorkflowExecutionCommandOutput> {
+  ): Handler<SendWorkflowStepActionCommandInput, SendWorkflowStepActionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetWorkflowExecutionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, SendWorkflowStepActionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ImagebuilderClient";
-    const commandName = "GetWorkflowExecutionCommand";
+    const commandName = "SendWorkflowStepActionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -147,7 +154,7 @@ export class GetWorkflowExecutionCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "imagebuilder",
-        operation: "GetWorkflowExecution",
+        operation: "SendWorkflowStepAction",
       },
     };
     const { requestHandler } = configuration;
@@ -161,14 +168,14 @@ export class GetWorkflowExecutionCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: GetWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetWorkflowExecutionCommand(input, context);
+  private serialize(input: SendWorkflowStepActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SendWorkflowStepActionCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWorkflowExecutionCommandOutput> {
-    return de_GetWorkflowExecutionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendWorkflowStepActionCommandOutput> {
+    return de_SendWorkflowStepActionCommand(output, context);
   }
 }

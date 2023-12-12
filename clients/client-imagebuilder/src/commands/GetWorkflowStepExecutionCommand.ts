@@ -59,7 +59,7 @@ export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepEx
  * //   name: "STRING_VALUE",
  * //   description: "STRING_VALUE",
  * //   action: "STRING_VALUE",
- * //   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED",
+ * //   status: "PENDING" || "SKIPPED" || "RUNNING" || "COMPLETED" || "FAILED" || "CANCELLED",
  * //   rollbackStatus: "RUNNING" || "COMPLETED" || "SKIPPED" || "FAILED",
  * //   message: "STRING_VALUE",
  * //   inputs: "STRING_VALUE",
