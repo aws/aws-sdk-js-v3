@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.472.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.471.0...v3.472.0) (2023-12-12)
+
+
+### Bug Fixes
+
+* **codegen:** dedupe `[@aws](https://github.com/aws).protocols#restXml` serialization ([#5568](https://github.com/aws/aws-sdk-js-v3/issues/5568)) ([7df7325](https://github.com/aws/aws-sdk-js-v3/commit/7df73259b6d39e27550eb99add11d207186e451c))
+
+
+### Features
+
+* **client-cloudwatch-logs:** This release introduces the StartLiveTail API to tail ingested logs in near real time. ([0385471](https://github.com/aws/aws-sdk-js-v3/commit/038547133b51f240b5be9998f9e96002cce27a16))
+* **client-imagebuilder:** This release adds the Image Workflows feature to give more flexibility and control over the image building and testing process. ([5cea9af](https://github.com/aws/aws-sdk-js-v3/commit/5cea9af7bc641813256fe03b9e2927603070a3eb))
+* **client-location:** This release 1)  adds sub-municipality field in Places API for searching and getting places information, and 2) allows optimizing route calculation based on expected arrival time. ([98c0145](https://github.com/aws/aws-sdk-js-v3/commit/98c0145e84a20b2005734f68de8e252182a58cc3))
+* **clients:** update client endpoints as of 2023-12-12 ([2bc4bb0](https://github.com/aws/aws-sdk-js-v3/commit/2bc4bb07775e0bb9d58c9e0b6334b9c185bc3ef6))
+* **xml-builder:** additional serde helper methods ([#5567](https://github.com/aws/aws-sdk-js-v3/issues/5567)) ([792d3ae](https://github.com/aws/aws-sdk-js-v3/commit/792d3ae2ed314cd3702b7bf1c770aff36e21ca70))
+
+
+
+
+
 # [3.471.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.470.0...v3.471.0) (2023-12-11)
 
 

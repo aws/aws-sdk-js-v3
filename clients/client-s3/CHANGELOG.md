@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.472.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.471.0...v3.472.0) (2023-12-12)
+
+
+### Bug Fixes
+
+* **codegen:** dedupe `[@aws](https://github.com/aws).protocols#restXml` serialization ([#5568](https://github.com/aws/aws-sdk-js-v3/issues/5568)) ([7df7325](https://github.com/aws/aws-sdk-js-v3/commit/7df73259b6d39e27550eb99add11d207186e451c))
+
+
+
+
+
 # [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
 
 **Note:** Version bump only for package @aws-sdk/client-s3
