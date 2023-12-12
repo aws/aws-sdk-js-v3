@@ -63,6 +63,7 @@ export * from "./PutQueryDefinitionCommand";
 export * from "./PutResourcePolicyCommand";
 export * from "./PutRetentionPolicyCommand";
 export * from "./PutSubscriptionFilterCommand";
+export * from "./StartLiveTailCommand";
 export * from "./StartQueryCommand";
 export * from "./StopQueryCommand";
 export * from "./TagLogGroupCommand";

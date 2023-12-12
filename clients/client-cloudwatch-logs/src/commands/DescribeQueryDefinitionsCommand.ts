@@ -37,7 +37,8 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
 
 /**
  * @public
- * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
+ * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions. You can
+ *     retrieve query definitions from the current account or from a source account that is linked to the current account.</p>
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
  *       query definitions that have names that start with a certain string.</p>
  * @example

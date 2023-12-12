@@ -751,6 +751,14 @@ PutSubscriptionFilter
 </details>
 <details>
 <summary>
+StartLiveTail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartLiveTailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StartLiveTailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/StartLiveTailCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartQuery
 </summary>
 

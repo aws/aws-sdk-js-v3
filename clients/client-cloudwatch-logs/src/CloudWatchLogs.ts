@@ -319,6 +319,11 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
+import {
+  StartLiveTailCommand,
+  StartLiveTailCommandInput,
+  StartLiveTailCommandOutput,
+} from "./commands/StartLiveTailCommand";
 import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagLogGroupCommand, TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
@@ -414,6 +419,7 @@ const commands = {
   PutResourcePolicyCommand,
   PutRetentionPolicyCommand,
   PutSubscriptionFilterCommand,
+  StartLiveTailCommand,
   StartQueryCommand,
   StopQueryCommand,
   TagLogGroupCommand,
@@ -1446,6 +1452,17 @@ export interface CloudWatchLogs {
     args: PutSubscriptionFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutSubscriptionFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartLiveTailCommand}
+   */
+  startLiveTail(args: StartLiveTailCommandInput, options?: __HttpHandlerOptions): Promise<StartLiveTailCommandOutput>;
+  startLiveTail(args: StartLiveTailCommandInput, cb: (err: any, data?: StartLiveTailCommandOutput) => void): void;
+  startLiveTail(
+    args: StartLiveTailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartLiveTailCommandOutput) => void
   ): void;
 
   /**

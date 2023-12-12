@@ -21,6 +21,11 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -38,6 +43,7 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -205,6 +211,7 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
+import { StartLiveTailCommandInput, StartLiveTailCommandOutput } from "./commands/StartLiveTailCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
@@ -296,6 +303,7 @@ export type ServiceInputTypes =
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
+  | StartLiveTailCommandInput
   | StartQueryCommandInput
   | StopQueryCommandInput
   | TagLogGroupCommandInput
@@ -374,6 +382,7 @@ export type ServiceOutputTypes =
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
+  | StartLiveTailCommandOutput
   | StartQueryCommandOutput
   | StopQueryCommandOutput
   | TagLogGroupCommandOutput
@@ -510,6 +519,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   extensions?: RuntimeExtension[];
 
   /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -526,6 +540,7 @@ export type CloudWatchLogsClientConfigType = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig &
+  EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -546,6 +561,7 @@ export type CloudWatchLogsClientResolvedConfigType = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -612,9 +628,10 @@ export class CloudWatchLogsClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveAwsAuthConfig(_config_5);
     const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

@@ -1,5 +1,9 @@
 // smithy-typescript generated code
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
@@ -13,6 +17,7 @@ import {
 } from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -176,6 +181,7 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
 } from "../commands/PutSubscriptionFilterCommand";
+import { StartLiveTailCommandInput, StartLiveTailCommandOutput } from "../commands/StartLiveTailCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "../commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "../commands/TagLogGroupCommand";
@@ -252,6 +258,8 @@ import {
   ListLogAnomalyDetectorsRequest,
   ListTagsForResourceRequest,
   ListTagsLogGroupRequest,
+  LiveTailSessionStart,
+  LiveTailSessionUpdate,
   MalformedQueryException,
   MetricFilter,
   MetricTransformation,
@@ -274,6 +282,10 @@ import {
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  SessionStreamingException,
+  SessionTimeoutException,
+  StartLiveTailRequest,
+  StartLiveTailResponseStream,
   StartQueryRequest,
   StopQueryRequest,
   SuppressionPeriod,
@@ -1120,6 +1132,26 @@ export const se_PutSubscriptionFilterCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartLiveTailCommand
+ */
+export const se_StartLiveTailCommand = async (
+  input: StartLiveTailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartLiveTail");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "streaming-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 /**
@@ -4688,6 +4720,62 @@ const de_PutSubscriptionFilterCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1StartLiveTailCommand
+ */
+export const de_StartLiveTailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<StartLiveTailCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartLiveTailCommandError(output, context);
+  }
+  const contents = { responseStream: de_StartLiveTailResponseStream(output.body, context) };
+  const response: StartLiveTailCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartLiveTailCommandError
+ */
+const de_StartLiveTailCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLiveTailCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cloudwatchlogs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartQueryCommand
  */
 export const de_StartQueryCommand = async (
@@ -5403,6 +5491,104 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * deserializeAws_json1_1StartLiveTailResponseStream
+ */
+const de_StartLiveTailResponseStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<StartLiveTailResponseStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["sessionStart"] != null) {
+      return {
+        sessionStart: await de_LiveTailSessionStart_event(event["sessionStart"], context),
+      };
+    }
+    if (event["sessionUpdate"] != null) {
+      return {
+        sessionUpdate: await de_LiveTailSessionUpdate_event(event["sessionUpdate"], context),
+      };
+    }
+    if (event["SessionTimeoutException"] != null) {
+      return {
+        SessionTimeoutException: await de_SessionTimeoutException_event(event["SessionTimeoutException"], context),
+      };
+    }
+    if (event["SessionStreamingException"] != null) {
+      return {
+        SessionStreamingException: await de_SessionStreamingException_event(
+          event["SessionStreamingException"],
+          context
+        ),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const de_LiveTailSessionStart_event = async (output: any, context: __SerdeContext): Promise<LiveTailSessionStart> => {
+  const contents: LiveTailSessionStart = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_LiveTailSessionUpdate_event = async (output: any, context: __SerdeContext): Promise<LiveTailSessionUpdate> => {
+  const contents: LiveTailSessionUpdate = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_SessionStreamingException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<SessionStreamingException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_SessionStreamingExceptionRes(parsedOutput, context);
+};
+const de_SessionTimeoutException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<SessionTimeoutException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_SessionTimeoutExceptionRes(parsedOutput, context);
+};
+/**
+ * deserializeAws_json1_1SessionStreamingExceptionRes
+ */
+const de_SessionStreamingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SessionStreamingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new SessionStreamingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1SessionTimeoutExceptionRes
+ */
+const de_SessionTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SessionTimeoutException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new SessionTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 // se_AccountIds omitted.
 
 // se_AssociateKmsKeyRequest omitted.
@@ -5595,6 +5781,10 @@ const se_PutQueryDefinitionRequest = (input: PutQueryDefinitionRequest, context:
 
 // se_PutSubscriptionFilterRequest omitted.
 
+// se_StartLiveTailLogGroupIdentifiers omitted.
+
+// se_StartLiveTailRequest omitted.
+
 // se_StartQueryRequest omitted.
 
 // se_StopQueryRequest omitted.
@@ -5755,6 +5945,8 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 
 // de_InheritedProperties omitted.
 
+// de_InputLogStreamNames omitted.
+
 // de_InvalidOperationException omitted.
 
 // de_InvalidParameterException omitted.
@@ -5770,6 +5962,16 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 // de_ListTagsForResourceResponse omitted.
 
 // de_ListTagsLogGroupResponse omitted.
+
+// de_LiveTailSessionLogEvent omitted.
+
+// de_LiveTailSessionMetadata omitted.
+
+// de_LiveTailSessionResults omitted.
+
+// de_LiveTailSessionStart omitted.
+
+// de_LiveTailSessionUpdate omitted.
 
 // de_LogGroup omitted.
 
@@ -5926,6 +6128,12 @@ const de_QueryStatistics = (output: any, context: __SerdeContext): QueryStatisti
 // de_ServiceQuotaExceededException omitted.
 
 // de_ServiceUnavailableException omitted.
+
+// de_SessionStreamingException omitted.
+
+// de_SessionTimeoutException omitted.
+
+// de_StartLiveTailLogGroupIdentifiers omitted.
 
 // de_StartQueryResponse omitted.
 
