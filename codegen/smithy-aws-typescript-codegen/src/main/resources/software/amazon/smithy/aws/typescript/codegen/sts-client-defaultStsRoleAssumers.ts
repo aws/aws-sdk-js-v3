@@ -119,7 +119,7 @@ export const decorateDefaultCredentialProvider =
   (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
   (input: STSClientResolvedConfig) =>
     provider({
-      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor),
-      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor),
+      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor as new (options: STSClientConfig) => STSClient),
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor as new (options: STSClientConfig) => STSClient),
       ...input,
     });
