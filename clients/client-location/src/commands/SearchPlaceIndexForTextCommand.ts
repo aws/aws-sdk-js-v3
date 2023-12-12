@@ -131,6 +131,7 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  * //         SupplementalCategories: [ // PlaceSupplementalCategoryList
  * //           "STRING_VALUE",
  * //         ],
+ * //         SubMunicipality: "STRING_VALUE",
  * //       },
  * //       Distance: Number("double"),
  * //       Relevance: Number("double"),

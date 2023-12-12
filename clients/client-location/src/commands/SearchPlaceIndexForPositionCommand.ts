@@ -105,6 +105,7 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * //         SupplementalCategories: [ // PlaceSupplementalCategoryList
  * //           "STRING_VALUE",
  * //         ],
+ * //         SubMunicipality: "STRING_VALUE",
  * //       },
  * //       Distance: Number("double"), // required
  * //       PlaceId: "STRING_VALUE",

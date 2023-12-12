@@ -102,6 +102,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     SupplementalCategories: [ // PlaceSupplementalCategoryList
  * //       "STRING_VALUE",
  * //     ],
+ * //     SubMunicipality: "STRING_VALUE",
  * //   },
  * // };
  *

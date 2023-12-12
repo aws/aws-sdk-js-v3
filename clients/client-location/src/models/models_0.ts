@@ -1395,6 +1395,11 @@ export type DistanceUnit = "Kilometers" | "Miles";
 /**
  * @public
  */
+export type OptimizationMode = "FastestRoute" | "ShortestRoute";
+
+/**
+ * @public
+ */
 export type TravelMode = "Bicycle" | "Car" | "Motorcycle" | "Truck" | "Walking";
 
 /**
@@ -1656,10 +1661,6 @@ export interface CalculateRouteRequest {
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route.
    *             Otherwise, the best time of day to travel with the best traffic conditions is used to
    *             calculate the route.</p>
-   *          <note>
-   *             <p>Setting a departure time in the past returns a <code>400
-   *                     ValidationException</code> error.</p>
-   *          </note>
    *          <ul>
    *             <li>
    *                <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
@@ -1718,6 +1719,22 @@ export interface CalculateRouteRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    */
   TruckModeOptions?: CalculateRouteTruckModeOptions;
+
+  /**
+   * @public
+   * <p>Specifies the desired time of arrival. Uses the given time to calculate the route.
+   *             Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p>
+   *          <note>
+   *             <p>ArrivalTime is not supported Esri.</p>
+   *          </note>
+   */
+  ArrivalTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies the distance to optimize for when calculating a route.</p>
+   */
+  OptimizeFor?: OptimizationMode;
 
   /**
    * @public
@@ -5124,6 +5141,16 @@ export interface Place {
    *             to any Amazon Location categories.</p>
    */
   SupplementalCategories?: string[];
+
+  /**
+   * @public
+   * <p>An area that's part of a larger municipality. For example, <code>Blissville </code>
+   *             is a submunicipality in the Queen County in New York.</p>
+   *          <note>
+   *             <p>This property supported by Esri and OpenData. The Esri property is <code>district</code>, and the OpenData property is <code>borough</code>.</p>
+   *          </note>
+   */
+  SubMunicipality?: string;
 }
 
 /**
@@ -5178,7 +5205,7 @@ export interface ListDevicePositionsRequest {
 
   /**
    * @public
-   * <p>The geomerty used to filter device positions.</p>
+   * <p>The geometry used to filter device positions.</p>
    */
   FilterGeometry?: TrackingFilterGeometry;
 }

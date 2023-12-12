@@ -537,6 +537,7 @@ export const se_CalculateRouteCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ArrivalTime: (_) => _.toISOString().split(".")[0] + "Z",
       CarModeOptions: (_) => _json(_),
       DepartNow: [],
       DeparturePosition: (_) => se_Position(_, context),
@@ -544,6 +545,7 @@ export const se_CalculateRouteCommand = async (
       DestinationPosition: (_) => se_Position(_, context),
       DistanceUnit: [],
       IncludeLegGeometry: [],
+      OptimizeFor: [],
       TravelMode: [],
       TruckModeOptions: (_) => se_CalculateRouteTruckModeOptions(_, context),
       WaypointPositions: (_) => se_WaypointPositionList(_, context),
@@ -6856,6 +6858,7 @@ const de_Place = (output: any, context: __SerdeContext): Place => {
     PostalCode: __expectString,
     Region: __expectString,
     Street: __expectString,
+    SubMunicipality: __expectString,
     SubRegion: __expectString,
     SupplementalCategories: _json,
     TimeZone: _json,
