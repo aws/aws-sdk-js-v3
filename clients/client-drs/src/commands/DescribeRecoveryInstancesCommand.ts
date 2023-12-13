@@ -154,6 +154,7 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * //       isDrill: true || false,
  * //       originEnvironment: "STRING_VALUE",
  * //       originAvailabilityZone: "STRING_VALUE",
+ * //       agentVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

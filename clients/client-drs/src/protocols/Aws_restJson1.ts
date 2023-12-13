@@ -3052,6 +3052,7 @@ export const de_DisconnectSourceServerCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    agentVersion: __expectString,
     arn: __expectString,
     dataReplicationInfo: _json,
     lastLaunchResult: __expectString,
@@ -3748,6 +3749,7 @@ export const de_RetryDataReplicationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    agentVersion: __expectString,
     arn: __expectString,
     dataReplicationInfo: _json,
     lastLaunchResult: __expectString,

@@ -166,6 +166,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * //       replicationDirection: "STRING_VALUE",
  * //       reversedDirectionSourceServerArn: "STRING_VALUE",
  * //       sourceNetworkID: "STRING_VALUE",
+ * //       agentVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

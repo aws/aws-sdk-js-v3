@@ -1491,6 +1491,12 @@ export interface SourceServer {
    * <p>ID of the Source Network which is protecting this Source Server's network.</p>
    */
   sourceNetworkID?: string;
+
+  /**
+   * @public
+   * <p>The version of the DRS agent installed on the source server</p>
+   */
+  agentVersion?: string;
 }
 
 /**
@@ -3039,6 +3045,12 @@ export interface RecoveryInstance {
    * <p>AWS availability zone associated with the recovery instance.</p>
    */
   originAvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The version of the DRS agent installed on the recovery instance</p>
+   */
+  agentVersion?: string;
 }
 
 /**

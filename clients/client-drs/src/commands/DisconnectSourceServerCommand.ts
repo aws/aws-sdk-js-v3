@@ -150,6 +150,7 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * //   replicationDirection: "STRING_VALUE",
  * //   reversedDirectionSourceServerArn: "STRING_VALUE",
  * //   sourceNetworkID: "STRING_VALUE",
+ * //   agentVersion: "STRING_VALUE",
  * // };
  *
  * ```
