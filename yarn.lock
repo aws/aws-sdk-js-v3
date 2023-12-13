@@ -2803,15 +2803,16 @@
     "@smithy/util-middleware" "^2.0.8"
     tslib "^2.5.0"
 
-"@smithy/core@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@smithy/core/-/core-1.0.5.tgz#579229021cca94f996e2fb29734db2a7e11d064f"
-  integrity sha512-OwDyOxFGeNOCLfln99+acQUEQ9KYaI/oZbljTZkJsFsBti/gDjq0O6FHFOxosF4i+IsCnBfXyl6u3RxuHUbCWw==
+"@smithy/core@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@smithy/core/-/core-1.1.0.tgz#80e419842cfcaf93040b2cc546f1d12731555479"
+  integrity sha512-k1zaT5S4K0bG67Q5TmPZ6PdWNQBTMQErChuDvTi+NTx21kKDt+/4YRidsK6nDbHizN6fn1bafUxrougZdKrpxA==
   dependencies:
     "@smithy/middleware-endpoint" "^2.2.3"
     "@smithy/middleware-retry" "^2.0.24"
     "@smithy/middleware-serde" "^2.0.15"
     "@smithy/protocol-http" "^3.0.11"
+    "@smithy/smithy-client" "^2.1.18"
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
@@ -2892,16 +2893,16 @@
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
-"@smithy/experimental-identity-and-auth@^0.0.28":
-  version "0.0.28"
-  resolved "https://registry.yarnpkg.com/@smithy/experimental-identity-and-auth/-/experimental-identity-and-auth-0.0.28.tgz#05c69ca5dcaf29564ad6f0bd683516c231344d6f"
-  integrity sha512-Xqf6d5l1lc0o8kNAwa1cW4TX4j6OVhWqHDOE+zXEJ44AK1PPuDpxo/ia203ef68DbzaX/YCtO2TBtYT+bhUNPA==
+"@smithy/experimental-identity-and-auth@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@smithy/experimental-identity-and-auth/-/experimental-identity-and-auth-0.0.29.tgz#05d649636cda900b74f6f7b7b479c1b39769ad08"
+  integrity sha512-FQqX08AG2lI/fNwajV7NmfY07Ky3U0n9w1UQYGVEEzxrJ/qGEBvtVOYTrzYCVXs8zsVPUMUCs0FMTfE6IcrPzQ==
   dependencies:
     "@smithy/middleware-endpoint" "^2.2.3"
     "@smithy/middleware-retry" "^2.0.24"
     "@smithy/middleware-serde" "^2.0.15"
     "@smithy/protocol-http" "^3.0.11"
-    "@smithy/signature-v4" "^2.0.17"
+    "@smithy/signature-v4" "^2.0.18"
     "@smithy/types" "^2.7.0"
     tslib "^2.5.0"
 
@@ -3172,10 +3173,10 @@
     "@smithy/util-utf8" "^2.0.0"
     tslib "^2.5.0"
 
-"@smithy/signature-v4@^2.0.17":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@smithy/signature-v4/-/signature-v4-2.0.17.tgz#3ce17d8143f18670ca9bd5f99738dfadb3a7f3fc"
-  integrity sha512-ru5IUbHUAYgJ5ZqZaBi6PEsMjFT/do0Eu21Qt7b07NuRuPlwAMhlqNRDy/KE9QAF20ygehb+xe9ebmyZ26/BSA==
+"@smithy/signature-v4@^2.0.18":
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@smithy/signature-v4/-/signature-v4-2.0.18.tgz#53b78b238edaa84cc8d61faf67d2b3c926cdd698"
+  integrity sha512-SJRAj9jT/l9ocm8D0GojMbnA1sp7I4JeStOQ4lEXI8A5eHE73vbjlzlqIFB7cLvIgau0oUl4cGVpF9IGCrvjlw==
   dependencies:
     "@smithy/eventstream-codec" "^2.0.15"
     "@smithy/is-array-buffer" "^2.0.0"

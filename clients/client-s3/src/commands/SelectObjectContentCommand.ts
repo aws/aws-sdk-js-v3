@@ -311,6 +311,12 @@ export class SelectObjectContentCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "SelectObjectContent",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

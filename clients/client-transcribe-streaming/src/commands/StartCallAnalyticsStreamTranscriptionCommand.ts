@@ -288,6 +288,13 @@ export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "Transcribe",
         operation: "StartCallAnalyticsStreamTranscription",
+        /**
+         * @internal
+         */
+        eventStream: {
+          input: true,
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

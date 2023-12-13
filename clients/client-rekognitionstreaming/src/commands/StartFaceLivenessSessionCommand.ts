@@ -280,6 +280,13 @@ export class StartFaceLivenessSessionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "RekognitionStreamingService",
         operation: "StartFaceLivenessSession",
+        /**
+         * @internal
+         */
+        eventStream: {
+          input: true,
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

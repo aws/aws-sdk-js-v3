@@ -250,6 +250,12 @@ export class InvokeWithResponseStreamCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSGirApiService",
         operation: "InvokeWithResponseStream",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

@@ -212,6 +212,12 @@ export class StartLiveTailCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "Logs_20140328",
         operation: "StartLiveTail",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

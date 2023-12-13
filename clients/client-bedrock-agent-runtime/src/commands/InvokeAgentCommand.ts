@@ -369,6 +369,12 @@ export class InvokeAgentCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonBedrockAgentRunTimeService",
         operation: "InvokeAgent",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

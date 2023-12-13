@@ -523,6 +523,13 @@ export class StartConversationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSDeepSenseRunTimeServiceApi2_0",
         operation: "StartConversation",
+        /**
+         * @internal
+         */
+        eventStream: {
+          input: true,
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

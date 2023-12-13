@@ -209,6 +209,12 @@ export class InvokeEndpointWithResponseStreamCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonSageMakerRuntime",
         operation: "InvokeEndpointWithResponseStream",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;
