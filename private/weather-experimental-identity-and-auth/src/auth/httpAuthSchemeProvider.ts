@@ -115,6 +115,25 @@ export interface WeatherHttpAuthSchemeProvider extends HttpAuthSchemeProvider<We
 export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider = (authParameters) => {
   const options: HttpAuthOption[] = [];
   switch (authParameters.operation) {
+    case "OnlyCustomAuth": {
+      options.push(createExampleWeatherCustomAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "OnlyCustomAuthOptional": {
+      options.push(createExampleWeatherCustomAuthHttpAuthOption(authParameters));
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "OnlyHttpApiKeyAndBearerAuth": {
+      options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
+      options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "OnlyHttpApiKeyAndBearerAuthReversed": {
+      options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
+      options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
+      break;
+    }
     case "OnlyHttpApiKeyAuth": {
       options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
       break;
@@ -133,27 +152,8 @@ export const defaultWeatherHttpAuthSchemeProvider: WeatherHttpAuthSchemeProvider
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
-    case "OnlyHttpApiKeyAndBearerAuth": {
-      options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
-      options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
-      break;
-    }
-    case "OnlyHttpApiKeyAndBearerAuthReversed": {
-      options.push(createSmithyApiHttpBearerAuthHttpAuthOption(authParameters));
-      options.push(createSmithyApiHttpApiKeyAuthHttpAuthOption(authParameters));
-      break;
-    }
     case "OnlySigv4AuthOptional": {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
-      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
-      break;
-    }
-    case "OnlyCustomAuth": {
-      options.push(createExampleWeatherCustomAuthHttpAuthOption(authParameters));
-      break;
-    }
-    case "OnlyCustomAuthOptional": {
-      options.push(createExampleWeatherCustomAuthHttpAuthOption(authParameters));
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }

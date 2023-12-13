@@ -190,6 +190,12 @@ export class InvokeModelWithResponseStreamCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonBedrockFrontendService",
         operation: "InvokeModelWithResponseStream",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

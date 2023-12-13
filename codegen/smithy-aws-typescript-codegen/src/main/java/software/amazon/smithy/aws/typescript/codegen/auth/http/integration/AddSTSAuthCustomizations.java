@@ -27,6 +27,7 @@ import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.auth.AuthUtils;
@@ -77,27 +78,6 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             SupportSigV4Auth.class.getCanonicalName(),
             AwsSdkCustomizeSigV4Auth.class.getCanonicalName());
     }
-
-    // @Override
-    // public List<RuntimeClientPlugin> getClientPlugins() {
-    //     return ListUtils.of(
-    //         RuntimeClientPlugin.builder()
-    //             .inputConfig(Symbol.builder()
-    //                     .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-    //                     .name("StsAuthInputConfig")
-    //                     .build())
-    //             .resolvedConfig(Symbol.builder()
-    //                     .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-    //                     .name("StsAuthResolvedConfig")
-    //                     .build())
-    //             .resolveFunction(Symbol.builder()
-    //                     .namespace(AuthUtils.HTTP_AUTH_SCHEME_PROVIDER_MODULE, "/")
-    //                     .name("resolveStsAuthConfig")
-    //                     .build())
-    //             .servicePredicate((m, s) -> isSTSService(s.toShapeId()))
-    //             .build()
-    //     );
-    // }
 
     @Override
     public Model preprocessModel(Model model, TypeScriptSettings settings) {
@@ -208,12 +188,13 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             w.addRelativeImport(serviceSymbol.getName() + "Config", null,
                 Paths.get(".", serviceSymbol.getNamespace()));
             w.write("export interface StsAuthInputConfig {}\n");
-            w.openBlock("export interface StsAuthResolvedConfig {", "}\n", () -> {
-                w.writeDocs("""
+            w.openBlock("export interface StsAuthResolvedConfig {", "}\n", () -> w
+                .writeDocs("""
                     Reference to STSClient class constructor.
                     @internal""")
-                    .write("stsClientCtor: new (config: STSClientConfig) => STSClient");
-            });
+                .addDependency(TypeScriptDependency.SMITHY_TYPES)
+                .addImport("Client", null, TypeScriptDependency.SMITHY_TYPES)
+                .write("stsClientCtor: new (clientConfig: any) => Client<any, any, any>;"));
             w.openBlock("""
                 export const resolveStsAuthConfig = <T>(
                   input: T & StsAuthInputConfig

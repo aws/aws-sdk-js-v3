@@ -221,6 +221,12 @@ export class SubscribeToShardCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "Kinesis_20131202",
         operation: "SubscribeToShard",
+        /**
+         * @internal
+         */
+        eventStream: {
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;

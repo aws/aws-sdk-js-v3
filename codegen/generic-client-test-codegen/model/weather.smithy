@@ -3,7 +3,6 @@ $version: "2.0"
 namespace example.weather
 
 use aws.auth#sigv4
-use aws.api#service
 
 @authDefinition
 @trait
@@ -13,7 +12,6 @@ structure customAuth {}
 @protocolDefinition
 structure fakeProtocol {}
 
-@service(sdkId: "weather")
 @fakeProtocol
 @httpApiKeyAuth(name: "X-Api-Key", in: "header")
 @httpBearerAuth
@@ -88,30 +86,3 @@ operation SameAsService {
     service: String
   }
 }
-
-apply Weather @smithy.rules#endpointRuleSet({
-  "version": "1.3",
-  "parameters": {
-    "Region": {
-      "required": true,
-      "type": "String",
-      "documentation": "docs"
-    }
-  },
-  "rules": [
-    {
-      "conditions": [],
-      "documentation": "base rule",
-      "endpoint": {
-        "url": "https://{Region}.amazonaws.com",
-        "properties": {},
-        "headers": {}
-      },
-      "type": "endpoint"
-    }
-  ]
-})
-
-apply Weather @smithy.rules#clientContextParams(
-  Region: {type: "string", documentation: "docs"}
-)

@@ -293,6 +293,13 @@ export class StartStreamTranscriptionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "Transcribe",
         operation: "StartStreamTranscription",
+        /**
+         * @internal
+         */
+        eventStream: {
+          input: true,
+          output: true,
+        },
       },
     };
     const { requestHandler } = configuration;
