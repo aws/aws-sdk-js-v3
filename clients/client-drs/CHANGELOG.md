@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
+
+
+### Features
+
+* **client-drs:** Adding AgentVersion to SourceServer and RecoveryInstance structures ([01b2633](https://github.com/aws/aws-sdk-js-v3/commit/01b2633bbfec78836ce6158400de3e7b5c649654))
+
+
+
+
+
 # [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
 
 **Note:** Version bump only for package @aws-sdk/client-drs

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
+
+
+### Features
+
+* **client-drs:** Adding AgentVersion to SourceServer and RecoveryInstance structures ([01b2633](https://github.com/aws/aws-sdk-js-v3/commit/01b2633bbfec78836ce6158400de3e7b5c649654))
+* **clients:** update client endpoints as of 2023-12-13 ([3ef57fb](https://github.com/aws/aws-sdk-js-v3/commit/3ef57fb76ade20d6e69596391d0017d5a88ef67c))
+* **experimentalIdentityAndAuth:** add `endpointRuleSet` trait to generic client test ([#5573](https://github.com/aws/aws-sdk-js-v3/issues/5573)) ([03d6230](https://github.com/aws/aws-sdk-js-v3/commit/03d6230982548f631350e8abac9954b59e8c7f28))
+* **experimentalIdentityAndAuth:** add event streaming input integrations relative to auth ([#5578](https://github.com/aws/aws-sdk-js-v3/issues/5578)) ([a12b2eb](https://github.com/aws/aws-sdk-js-v3/commit/a12b2eb9acf1c14696ae02489545718bcc634964))
+
+
+
+
+
 # [3.472.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.471.0...v3.472.0) (2023-12-12)
 
 
