@@ -38,7 +38,7 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
         if (
           clientConfig.followRegionRedirects &&
           // err.name === "PermanentRedirect" && --> removing the error name check, as that allows for HEAD operations (which have the 301 status code, but not the same error name) to be covered for region redirection as well
-          err.$metadata.httpStatusCode === 301
+          err?.$metadata?.httpStatusCode === 301
         ) {
           try {
             const actualRegion = err.$response.headers["x-amz-bucket-region"];
