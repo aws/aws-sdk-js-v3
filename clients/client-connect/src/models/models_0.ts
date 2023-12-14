@@ -486,7 +486,7 @@ export interface AgentStatus {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1466,8 +1466,8 @@ export interface BatchAssociateAnalyticsDataSetResponse {
 
   /**
    * @public
-   * <p>A list of errors for datasets that aren't successfully associated
-   *    with the target account.</p>
+   * <p>A list of errors for datasets that aren't successfully associated with the target
+   *    account.</p>
    */
   Errors?: ErrorResult[];
 }
@@ -1838,7 +1838,7 @@ export interface ClaimPhoneNumberRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1907,7 +1907,7 @@ export interface CreateAgentStatusRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2011,7 +2011,7 @@ export interface CreateContactFlowRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2102,7 +2102,7 @@ export interface CreateContactFlowModuleRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -2765,7 +2765,7 @@ export interface CreateHoursOfOperationRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2844,7 +2844,8 @@ export interface CreateInstanceRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{ "tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{
+   *     "tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -2947,7 +2948,7 @@ export interface CreateIntegrationAssociationRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3268,7 +3269,7 @@ export interface CreatePromptRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3362,7 +3363,7 @@ export interface CreateQueueRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3510,7 +3511,7 @@ export interface CreateQuickConnectRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3639,7 +3640,7 @@ export interface CreateRoutingProfileRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -3725,7 +3726,7 @@ export type NotificationDeliveryType = (typeof NotificationDeliveryType)[keyof t
 export interface NotificationRecipientType {
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}. Amazon Connect users with the specified tags will be notified.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}. Amazon Connect users with the specified tags will be notified.</p>
    */
   UserTags?: Record<string, string>;
 
@@ -4080,7 +4081,7 @@ export interface CreateSecurityProfileRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -4475,7 +4476,7 @@ export interface CreateTrafficDistributionGroupRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -4560,7 +4561,7 @@ export interface CreateUseCaseRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -4741,7 +4742,7 @@ export interface CreateUserRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -4788,7 +4789,7 @@ export interface CreateUserHierarchyGroupRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -5199,7 +5200,7 @@ export interface CreateVocabularyRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -5895,6 +5896,12 @@ export interface Contact {
    * <p>Information about Amazon Connect Wisdom.</p>
    */
   WisdomInfo?: WisdomInfo;
+
+  /**
+   * @public
+   * <p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -6158,7 +6165,7 @@ export interface Evaluation {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -6268,7 +6275,7 @@ export interface ContactFlow {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -6379,7 +6386,7 @@ export interface ContactFlowModule {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -6493,7 +6500,7 @@ export interface HoursOfOperation {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -7145,7 +7152,7 @@ export interface ClaimedPhoneNumberSummary {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -7249,7 +7256,7 @@ export interface Prompt {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -7363,7 +7370,7 @@ export interface Queue {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 

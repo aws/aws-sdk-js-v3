@@ -839,12 +839,18 @@ import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "./commands/SuspendContactRecordingCommand";
+import { TagContactCommand, TagContactCommandInput, TagContactCommandOutput } from "./commands/TagContactCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TransferContactCommand,
   TransferContactCommandInput,
   TransferContactCommandOutput,
 } from "./commands/TransferContactCommand";
+import {
+  UntagContactCommand,
+  UntagContactCommandInput,
+  UntagContactCommandOutput,
+} from "./commands/UntagContactCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -1245,8 +1251,10 @@ const commands = {
   StopContactStreamingCommand,
   SubmitContactEvaluationCommand,
   SuspendContactRecordingCommand,
+  TagContactCommand,
   TagResourceCommand,
   TransferContactCommand,
+  UntagContactCommand,
   UntagResourceCommand,
   UpdateAgentStatusCommand,
   UpdateContactCommand,
@@ -4138,6 +4146,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link TagContactCommand}
+   */
+  tagContact(args: TagContactCommandInput, options?: __HttpHandlerOptions): Promise<TagContactCommandOutput>;
+  tagContact(args: TagContactCommandInput, cb: (err: any, data?: TagContactCommandOutput) => void): void;
+  tagContact(
+    args: TagContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -4160,6 +4179,17 @@ export interface Connect {
     args: TransferContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TransferContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagContactCommand}
+   */
+  untagContact(args: UntagContactCommandInput, options?: __HttpHandlerOptions): Promise<UntagContactCommandOutput>;
+  untagContact(args: UntagContactCommandInput, cb: (err: any, data?: UntagContactCommandOutput) => void): void;
+  untagContact(
+    args: UntagContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagContactCommandOutput) => void
   ): void;
 
   /**

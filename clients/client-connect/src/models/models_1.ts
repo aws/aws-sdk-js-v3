@@ -119,7 +119,7 @@ export interface QuickConnect {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -214,7 +214,7 @@ export interface RoutingProfile {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -352,7 +352,7 @@ export interface Rule {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -422,7 +422,7 @@ export interface SecurityProfile {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -568,7 +568,7 @@ export interface TrafficDistributionGroup {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -834,7 +834,7 @@ export interface HierarchyGroup {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -1063,7 +1063,7 @@ export interface Vocabulary {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3671,7 +3671,7 @@ export interface GetTaskTemplateResponse {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -3793,7 +3793,7 @@ export interface ImportPhoneNumberRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -3908,8 +3908,8 @@ export interface ListAnalyticsDataAssociationsResponse {
   /**
    * @public
    * <p>An array of successful results: <code>DataSetId</code>, <code>TargetAccountId</code>,
-   *    <code>ResourceShareId</code>, <code>ResourceShareArn</code>. This is a paginated API, so
-   *    <code>nextToken</code> is given if there are more results to be returned.</p>
+   *     <code>ResourceShareId</code>, <code>ResourceShareArn</code>. This is a paginated API, so
+   *     <code>nextToken</code> is given if there are more results to be returned.</p>
    */
   Results?: AnalyticsDataAssociationResult[];
 
@@ -8734,7 +8734,7 @@ export interface SecurityProfileSearchSummary {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -8890,7 +8890,7 @@ export interface UserSearchSummary {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 
@@ -9097,8 +9097,8 @@ export interface ChatEvent {
    *     <code>EVENT</code>.</p>
    *          <ul>
    *             <li>
-   *                <p>For allowed message content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a> topic
-   *      in the <i>Amazon Connect Participant Service API Reference</i>.</p>
+   *                <p>For allowed message content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a> topic in the <i>Amazon Connect Participant Service API
+   *       Reference</i>.</p>
    *             </li>
    *             <li>
    *                <p>For allowed event content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a> topic in the <i>Amazon Connect Participant Service API

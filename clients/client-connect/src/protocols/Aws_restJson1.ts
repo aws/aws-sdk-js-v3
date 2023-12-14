@@ -510,8 +510,10 @@ import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "../commands/SuspendContactRecordingCommand";
+import { TagContactCommandInput, TagContactCommandOutput } from "../commands/TagContactCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TransferContactCommandInput, TransferContactCommandOutput } from "../commands/TransferContactCommand";
+import { UntagContactCommandInput, UntagContactCommandOutput } from "../commands/UntagContactCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "../commands/UpdateAgentStatusCommand";
 import {
@@ -6790,6 +6792,37 @@ export const se_SuspendContactRecordingCommand = async (
 };
 
 /**
+ * serializeAws_restJson1TagContactCommand
+ */
+export const se_TagContactCommand = async (
+  input: TagContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/tags";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactId: [],
+      InstanceId: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -6849,6 +6882,38 @@ export const se_TransferContactCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UntagContactCommand
+ */
+export const se_UntagContactCommand = async (
+  input: UntagContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/tags/{InstanceId}/{ContactId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    TagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -19311,6 +19376,61 @@ const de_SuspendContactRecordingCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1TagContactCommand
+ */
+export const de_TagContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_TagContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagContactCommandError
+ */
+const de_TagContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -19418,6 +19538,61 @@ const de_TransferContactCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagContactCommand
+ */
+export const de_UntagContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UntagContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagContactCommandError
+ */
+const de_UntagContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -22500,6 +22675,8 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_ContactStates omitted.
 
+// se_ContactTagMap omitted.
+
 // se_ControlPlaneTagFilter omitted.
 
 // se_CrossChannelBehavior omitted.
@@ -23244,6 +23421,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     QueueInfo: (_: any) => de_QueueInfo(_, context),
     RelatedContactId: __expectString,
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
     WisdomInfo: _json,
   }) as any;
 };
@@ -23261,6 +23439,8 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 // de_ContactFlowSummaryList omitted.
 
 // de_ContactReferences omitted.
+
+// de_ContactTagMap omitted.
 
 /**
  * deserializeAws_restJson1Credentials

@@ -529,8 +529,10 @@ import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "./commands/SuspendContactRecordingCommand";
+import { TagContactCommandInput, TagContactCommandOutput } from "./commands/TagContactCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TransferContactCommandInput, TransferContactCommandOutput } from "./commands/TransferContactCommand";
+import { UntagContactCommandInput, UntagContactCommandOutput } from "./commands/UntagContactCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "./commands/UpdateAgentStatusCommand";
 import {
@@ -870,8 +872,10 @@ export type ServiceInputTypes =
   | StopContactStreamingCommandInput
   | SubmitContactEvaluationCommandInput
   | SuspendContactRecordingCommandInput
+  | TagContactCommandInput
   | TagResourceCommandInput
   | TransferContactCommandInput
+  | UntagContactCommandInput
   | UntagResourceCommandInput
   | UpdateAgentStatusCommandInput
   | UpdateContactAttributesCommandInput
@@ -1102,8 +1106,10 @@ export type ServiceOutputTypes =
   | StopContactStreamingCommandOutput
   | SubmitContactEvaluationCommandOutput
   | SuspendContactRecordingCommandOutput
+  | TagContactCommandOutput
   | TagResourceCommandOutput
   | TransferContactCommandOutput
+  | UntagContactCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentStatusCommandOutput
   | UpdateContactAttributesCommandOutput

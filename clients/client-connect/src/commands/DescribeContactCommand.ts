@@ -83,6 +83,9 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
  * //     },
+ * //     Tags: { // ContactTagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

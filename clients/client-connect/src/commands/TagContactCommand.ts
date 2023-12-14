@@ -15,11 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { BatchAssociateAnalyticsDataSetRequest, BatchAssociateAnalyticsDataSetResponse } from "../models/models_0";
-import {
-  de_BatchAssociateAnalyticsDataSetCommand,
-  se_BatchAssociateAnalyticsDataSetCommand,
-} from "../protocols/Aws_restJson1";
+import { TagContactRequest, TagContactResponse } from "../models/models_2";
+import { de_TagContactCommand, se_TagContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,61 +25,44 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link BatchAssociateAnalyticsDataSetCommand}.
+ * The input for {@link TagContactCommand}.
  */
-export interface BatchAssociateAnalyticsDataSetCommandInput extends BatchAssociateAnalyticsDataSetRequest {}
+export interface TagContactCommandInput extends TagContactRequest {}
 /**
  * @public
  *
- * The output of {@link BatchAssociateAnalyticsDataSetCommand}.
+ * The output of {@link TagContactCommand}.
  */
-export interface BatchAssociateAnalyticsDataSetCommandOutput
-  extends BatchAssociateAnalyticsDataSetResponse,
-    __MetadataBearer {}
+export interface TagContactCommandOutput extends TagContactResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Associates a list of analytics datasets for a given Amazon Connect instance to a target
- *    account. You can associate multiple datasets in a single call.</p>
+ * <p>Adds the specified tags to the contact resource. For more information about this API is used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set up granular billing for a detailed
+ *     view of your Amazon Connect usage</a>.
+ *   </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, BatchAssociateAnalyticsDataSetCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, BatchAssociateAnalyticsDataSetCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, TagContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, TagContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // BatchAssociateAnalyticsDataSetRequest
+ * const input = { // TagContactRequest
+ *   ContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   DataSetIds: [ // DataSetIds // required
- *     "STRING_VALUE",
- *   ],
- *   TargetAccountId: "STRING_VALUE",
+ *   Tags: { // ContactTagMap // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new BatchAssociateAnalyticsDataSetCommand(input);
+ * const command = new TagContactCommand(input);
  * const response = await client.send(command);
- * // { // BatchAssociateAnalyticsDataSetResponse
- * //   Created: [ // AnalyticsDataAssociationResults
- * //     { // AnalyticsDataAssociationResult
- * //       DataSetId: "STRING_VALUE",
- * //       TargetAccountId: "STRING_VALUE",
- * //       ResourceShareId: "STRING_VALUE",
- * //       ResourceShareArn: "STRING_VALUE",
- * //     },
- * //   ],
- * //   Errors: [ // ErrorResults
- * //     { // ErrorResult
- * //       ErrorCode: "STRING_VALUE",
- * //       ErrorMessage: "STRING_VALUE",
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param BatchAssociateAnalyticsDataSetCommandInput - {@link BatchAssociateAnalyticsDataSetCommandInput}
- * @returns {@link BatchAssociateAnalyticsDataSetCommandOutput}
- * @see {@link BatchAssociateAnalyticsDataSetCommandInput} for command's `input` shape.
- * @see {@link BatchAssociateAnalyticsDataSetCommandOutput} for command's `response` shape.
+ * @param TagContactCommandInput - {@link TagContactCommandInput}
+ * @returns {@link TagContactCommandOutput}
+ * @see {@link TagContactCommandInput} for command's `input` shape.
+ * @see {@link TagContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -104,9 +84,9 @@ export interface BatchAssociateAnalyticsDataSetCommandOutput
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class BatchAssociateAnalyticsDataSetCommand extends $Command<
-  BatchAssociateAnalyticsDataSetCommandInput,
-  BatchAssociateAnalyticsDataSetCommandOutput,
+export class TagContactCommand extends $Command<
+  TagContactCommandInput,
+  TagContactCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -121,7 +101,7 @@ export class BatchAssociateAnalyticsDataSetCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: BatchAssociateAnalyticsDataSetCommandInput) {
+  constructor(readonly input: TagContactCommandInput) {
     super();
   }
 
@@ -132,17 +112,15 @@ export class BatchAssociateAnalyticsDataSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchAssociateAnalyticsDataSetCommandInput, BatchAssociateAnalyticsDataSetCommandOutput> {
+  ): Handler<TagContactCommandInput, TagContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchAssociateAnalyticsDataSetCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, TagContactCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "BatchAssociateAnalyticsDataSetCommand";
+    const commandName = "TagContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,7 +129,7 @@ export class BatchAssociateAnalyticsDataSetCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "BatchAssociateAnalyticsDataSet",
+        operation: "TagContact",
       },
     };
     const { requestHandler } = configuration;
@@ -165,20 +143,14 @@ export class BatchAssociateAnalyticsDataSetCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(
-    input: BatchAssociateAnalyticsDataSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_BatchAssociateAnalyticsDataSetCommand(input, context);
+  private serialize(input: TagContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_TagContactCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchAssociateAnalyticsDataSetCommandOutput> {
-    return de_BatchAssociateAnalyticsDataSetCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagContactCommandOutput> {
+    return de_TagContactCommand(output, context);
   }
 }

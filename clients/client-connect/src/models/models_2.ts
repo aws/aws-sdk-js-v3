@@ -125,8 +125,9 @@ export interface SendChatIntegrationEventRequest {
   /**
    * @public
    * <p>Chat system identifier, used in part to uniquely identify chat. This is associated with the
-   *   Amazon Connect instance and flow to be used to start chats. For SMS, this is the phone
-   *    number destination of inbound SMS messages represented by an Amazon Pinpoint phone number ARN.</p>
+   *     Amazon Connect instance and flow to be used to start chats. For SMS, this is the phone
+   *    number destination of inbound SMS messages represented by an Amazon Pinpoint phone number
+   *    ARN.</p>
    */
   DestinationId: string | undefined;
 
@@ -359,9 +360,10 @@ export interface StartChatContactRequest {
    *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
    *          <note>
    *             <p>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and
-   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in the
-   *     SupportedMessagingContentTypes field of this API in order to set <code>SegmentAttributes</code> as \{<code>
-   *      "connect:Subtype": \{"valueString" : "connect:Guide" \}\}</code>.</p>
+   *      <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in
+   *     the SupportedMessagingContentTypes field of this API in order to set
+   *      <code>SegmentAttributes</code> as \{<code> "connect:Subtype": \{"valueString" : "connect:Guide"
+   *      \}\}</code>.</p>
    *          </note>
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue>;
@@ -1316,6 +1318,37 @@ export interface SuspendContactRecordingResponse {}
 /**
  * @public
  */
+export interface TagContactRequest {
+  /**
+   * @public
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags to be assigned to the contact resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   *          <note>
+   *             <p>Authorization is not supported by this tag.</p>
+   *          </note>
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagContactResponse {}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * @public
@@ -1325,7 +1358,7 @@ export interface TagResourceRequest {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -1390,6 +1423,34 @@ export interface TransferContactResponse {
    */
   ContactArn?: string;
 }
+
+/**
+ * @public
+ */
+export interface UntagContactRequest {
+  /**
+   * @public
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagContactResponse {}
 
 /**
  * @public
@@ -3317,7 +3378,7 @@ export interface EvaluationForm {
 
   /**
    * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
 }
