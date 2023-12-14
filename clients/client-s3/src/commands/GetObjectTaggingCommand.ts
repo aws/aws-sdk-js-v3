@@ -212,6 +212,9 @@ export class GetObjectTaggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectTagging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectTaggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

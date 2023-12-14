@@ -207,6 +207,9 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketNotificationConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketNotificationConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

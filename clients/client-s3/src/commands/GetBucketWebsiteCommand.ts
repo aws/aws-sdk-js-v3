@@ -189,6 +189,9 @@ export class GetBucketWebsiteCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketWebsite",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketWebsiteCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

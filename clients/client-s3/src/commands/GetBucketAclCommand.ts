@@ -163,6 +163,9 @@ export class GetBucketAclCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketAcl",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketAclCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

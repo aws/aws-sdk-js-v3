@@ -156,6 +156,9 @@ export class DeleteBucketLifecycleCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketLifecycle",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketLifecycleCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

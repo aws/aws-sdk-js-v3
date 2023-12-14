@@ -145,6 +145,9 @@ export class DeleteBucketEncryptionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketEncryption",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketEncryptionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

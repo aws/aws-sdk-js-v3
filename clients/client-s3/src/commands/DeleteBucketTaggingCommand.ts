@@ -150,6 +150,9 @@ export class DeleteBucketTaggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketTagging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketTaggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

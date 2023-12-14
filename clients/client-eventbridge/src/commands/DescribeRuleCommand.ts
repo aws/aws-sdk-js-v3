@@ -129,6 +129,9 @@ export class DescribeRuleCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DescribeRule",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DescribeRuleCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

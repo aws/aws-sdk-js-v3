@@ -186,6 +186,10 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketIntelligentTieringConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions:
+            GetBucketIntelligentTieringConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

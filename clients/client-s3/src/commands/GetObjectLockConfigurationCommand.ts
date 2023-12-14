@@ -143,6 +143,9 @@ export class GetObjectLockConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectLockConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectLockConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

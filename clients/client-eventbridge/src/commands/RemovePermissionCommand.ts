@@ -128,6 +128,9 @@ export class RemovePermissionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "RemovePermission",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: RemovePermissionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

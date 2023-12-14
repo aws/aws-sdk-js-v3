@@ -139,6 +139,9 @@ export class GetObjectLegalHoldCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectLegalHold",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectLegalHoldCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

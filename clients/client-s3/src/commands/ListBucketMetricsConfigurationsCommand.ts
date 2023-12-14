@@ -190,6 +190,9 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "ListBucketMetricsConfigurations",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListBucketMetricsConfigurationsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

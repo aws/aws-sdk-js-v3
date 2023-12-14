@@ -27,7 +27,6 @@
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",
     "@aws-sdk/middleware-sdk-sqs": "*",
-    "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/region-config-resolver": "*",
     "@aws-sdk/types": "*",
@@ -35,6 +34,7 @@
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/config-resolver": "^2.0.21",
+    "@smithy/core": "^1.1.0",
     "@smithy/fetch-http-handler": "^2.3.1",
     "@smithy/hash-node": "^2.0.17",
     "@smithy/invalid-dependency": "^2.0.15",
@@ -56,6 +56,7 @@
     "@smithy/util-defaults-mode-browser": "^2.0.22",
     "@smithy/util-defaults-mode-node": "^2.0.29",
     "@smithy/util-endpoints": "^1.0.7",
+    "@smithy/util-middleware": "^2.0.8",
     "@smithy/util-retry": "^2.0.8",
     "@smithy/util-utf8": "^2.0.2",
     "tslib": "^2.5.0"

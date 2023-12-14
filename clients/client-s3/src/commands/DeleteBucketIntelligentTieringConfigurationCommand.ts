@@ -154,6 +154,10 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketIntelligentTieringConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions:
+            DeleteBucketIntelligentTieringConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

@@ -167,6 +167,9 @@ export class PutBucketRequestPaymentCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketRequestPayment",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketRequestPaymentCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

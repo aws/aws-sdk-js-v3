@@ -374,6 +374,9 @@ export class ListMultipartUploadsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "ListMultipartUploads",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListMultipartUploadsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

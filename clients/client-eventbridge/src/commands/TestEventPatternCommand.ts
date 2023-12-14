@@ -124,6 +124,9 @@ export class TestEventPatternCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "TestEventPattern",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: TestEventPatternCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

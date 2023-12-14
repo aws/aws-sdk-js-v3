@@ -140,6 +140,9 @@ export class GetObjectRetentionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectRetention",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectRetentionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

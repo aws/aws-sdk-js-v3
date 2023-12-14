@@ -311,6 +311,9 @@ export class SelectObjectContentCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "SelectObjectContent",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: SelectObjectContentCommand.getEndpointParameterInstructions,
+        },
         /**
          * @internal
          */

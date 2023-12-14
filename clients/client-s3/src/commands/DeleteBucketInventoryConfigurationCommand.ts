@@ -152,6 +152,9 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketInventoryConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketInventoryConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

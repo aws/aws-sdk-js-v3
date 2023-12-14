@@ -126,6 +126,9 @@ export class CancelReplayCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "CancelReplay",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: CancelReplayCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

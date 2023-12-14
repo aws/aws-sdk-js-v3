@@ -193,6 +193,9 @@ export class GetBucketCorsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketCors",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketCorsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

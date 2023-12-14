@@ -190,6 +190,9 @@ export class CreateSessionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "CreateSession",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: CreateSessionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

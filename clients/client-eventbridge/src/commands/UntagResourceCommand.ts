@@ -130,6 +130,9 @@ export class UntagResourceCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "UntagResource",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: UntagResourceCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

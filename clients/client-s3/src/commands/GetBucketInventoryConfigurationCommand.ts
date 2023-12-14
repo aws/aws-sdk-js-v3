@@ -188,6 +188,9 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketInventoryConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketInventoryConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

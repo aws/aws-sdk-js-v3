@@ -118,6 +118,9 @@ export class DeleteArchiveCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DeleteArchive",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteArchiveCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

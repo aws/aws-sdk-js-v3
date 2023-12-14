@@ -143,6 +143,9 @@ export class DescribeReplayCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DescribeReplay",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DescribeReplayCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

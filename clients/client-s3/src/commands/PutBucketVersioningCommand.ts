@@ -193,6 +193,9 @@ export class PutBucketVersioningCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketVersioning",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketVersioningCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

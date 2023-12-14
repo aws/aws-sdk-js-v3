@@ -163,6 +163,9 @@ export class GetObjectTorrentCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectTorrent",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectTorrentCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

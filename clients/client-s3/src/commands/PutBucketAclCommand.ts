@@ -365,6 +365,9 @@ export class PutBucketAclCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketAcl",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketAclCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

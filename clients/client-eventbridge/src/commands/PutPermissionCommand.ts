@@ -149,6 +149,9 @@ export class PutPermissionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "PutPermission",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutPermissionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

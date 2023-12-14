@@ -127,6 +127,9 @@ export class DeauthorizeConnectionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DeauthorizeConnection",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeauthorizeConnectionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

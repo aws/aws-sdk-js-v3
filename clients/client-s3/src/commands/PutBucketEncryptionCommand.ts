@@ -174,6 +174,9 @@ export class PutBucketEncryptionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketEncryption",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketEncryptionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

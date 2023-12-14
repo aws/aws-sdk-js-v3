@@ -241,6 +241,9 @@ export class PutBucketInventoryConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketInventoryConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketInventoryConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

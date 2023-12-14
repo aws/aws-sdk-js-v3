@@ -356,6 +356,9 @@ export class GetObjectAttributesCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectAttributes",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectAttributesCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

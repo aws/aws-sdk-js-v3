@@ -160,6 +160,9 @@ export class GetBucketEncryptionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketEncryption",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketEncryptionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

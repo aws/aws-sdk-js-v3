@@ -151,6 +151,9 @@ export class GetBucketRequestPaymentCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketRequestPayment",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketRequestPaymentCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

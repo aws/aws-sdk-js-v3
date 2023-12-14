@@ -154,6 +154,9 @@ export class DeleteBucketCorsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketCors",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketCorsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

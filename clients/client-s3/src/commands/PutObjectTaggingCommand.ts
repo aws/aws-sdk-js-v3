@@ -226,6 +226,9 @@ export class PutObjectTaggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutObjectTagging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutObjectTaggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

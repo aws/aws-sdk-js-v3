@@ -176,6 +176,9 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketAccelerateConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketAccelerateConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

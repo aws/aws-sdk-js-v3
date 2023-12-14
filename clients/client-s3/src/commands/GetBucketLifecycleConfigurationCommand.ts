@@ -263,6 +263,9 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketLifecycleConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketLifecycleConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

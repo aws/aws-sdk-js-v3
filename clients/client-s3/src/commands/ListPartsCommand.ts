@@ -278,6 +278,9 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "ListParts",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListPartsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

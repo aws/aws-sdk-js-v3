@@ -134,6 +134,9 @@ export class ListArchivesCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "ListArchives",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListArchivesCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

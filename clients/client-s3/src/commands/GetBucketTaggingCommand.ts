@@ -184,6 +184,9 @@ export class GetBucketTaggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketTagging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketTaggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

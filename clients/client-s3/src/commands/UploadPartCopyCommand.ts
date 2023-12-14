@@ -385,6 +385,9 @@ export class UploadPartCopyCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "UploadPartCopy",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: UploadPartCopyCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

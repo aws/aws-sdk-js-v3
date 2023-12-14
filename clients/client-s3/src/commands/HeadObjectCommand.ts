@@ -335,6 +335,9 @@ export class HeadObjectCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "HeadObject",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: HeadObjectCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

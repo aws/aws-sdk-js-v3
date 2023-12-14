@@ -149,6 +149,9 @@ export class ListEndpointsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "ListEndpoints",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListEndpointsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

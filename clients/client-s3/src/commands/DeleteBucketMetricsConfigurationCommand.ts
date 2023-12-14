@@ -160,6 +160,9 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketMetricsConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketMetricsConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

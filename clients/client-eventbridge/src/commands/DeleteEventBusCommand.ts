@@ -118,6 +118,9 @@ export class DeleteEventBusCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DeleteEventBus",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteEventBusCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

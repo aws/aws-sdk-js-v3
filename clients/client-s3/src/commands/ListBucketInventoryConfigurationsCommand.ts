@@ -201,6 +201,9 @@ export class ListBucketInventoryConfigurationsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "ListBucketInventoryConfigurations",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListBucketInventoryConfigurationsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;
