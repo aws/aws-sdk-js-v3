@@ -2598,6 +2598,26 @@ export interface RedshiftDestinationConfiguration {
 
 /**
  * @public
+ * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+ */
+export interface SplunkBufferingHints {
+  /**
+   * @public
+   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).</p>
+   */
+  IntervalInSeconds?: number;
+
+  /**
+   * @public
+   * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+   *
+   *          </p>
+   */
+  SizeInMBs?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const HECEndpointType = {
@@ -2711,6 +2731,12 @@ export interface SplunkDestinationConfiguration {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+   */
+  BufferingHints?: SplunkBufferingHints;
 }
 
 /**
@@ -3550,6 +3576,12 @@ export interface SplunkDestinationDescription {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+   */
+  BufferingHints?: SplunkBufferingHints;
 }
 
 /**
@@ -4139,6 +4171,28 @@ export interface ListTagsForDeliveryStreamOutput {
 
 /**
  * @public
+ * <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
+ */
+export class InvalidSourceException extends __BaseException {
+  readonly name: "InvalidSourceException" = "InvalidSourceException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSourceException, __BaseException>) {
+    super({
+      name: "InvalidSourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSourceException.prototype);
+    this.code = opts.code;
+  }
+}
+
+/**
+ * @public
  * <p>The unit of data in a delivery stream.</p>
  */
 export interface _Record {
@@ -4586,6 +4640,12 @@ export interface SplunkDestinationUpdate {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+   */
+  BufferingHints?: SplunkBufferingHints;
 }
 
 /**

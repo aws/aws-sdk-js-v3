@@ -104,6 +104,7 @@ import {
   InputFormatConfiguration,
   InvalidArgumentException,
   InvalidKMSResourceException,
+  InvalidSourceException,
   KinesisStreamSourceConfiguration,
   KinesisStreamSourceDescription,
   KMSEncryptionConfig,
@@ -133,6 +134,7 @@ import {
   Serializer,
   ServiceUnavailableException,
   SourceDescription,
+  SplunkBufferingHints,
   SplunkDestinationConfiguration,
   SplunkDestinationUpdate,
   SplunkRetryOptions,
@@ -582,6 +584,9 @@ const de_PutRecordCommandError = async (
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
       throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
+    case "InvalidSourceException":
+    case "com.amazonaws.firehose#InvalidSourceException":
+      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -637,6 +642,9 @@ const de_PutRecordBatchCommandError = async (
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
       throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
+    case "InvalidSourceException":
+    case "com.amazonaws.firehose#InvalidSourceException":
+      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -980,6 +988,22 @@ const de_InvalidKMSResourceExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1InvalidSourceExceptionRes
+ */
+const de_InvalidSourceExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidSourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1LimitExceededExceptionRes
  */
 const de_LimitExceededExceptionRes = async (
@@ -1314,6 +1338,8 @@ const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
   });
 };
 
+// se_SplunkBufferingHints omitted.
+
 // se_SplunkDestinationConfiguration omitted.
 
 // se_SplunkDestinationUpdate omitted.
@@ -1524,6 +1550,8 @@ const de_ExtendedS3DestinationDescription = (
 
 // de_InvalidKMSResourceException omitted.
 
+// de_InvalidSourceException omitted.
+
 /**
  * deserializeAws_json1_1KinesisStreamSourceDescription
  */
@@ -1647,6 +1675,8 @@ const de_SourceDescription = (output: any, context: __SerdeContext): SourceDescr
     MSKSourceDescription: (_: any) => de_MSKSourceDescription(_, context),
   }) as any;
 };
+
+// de_SplunkBufferingHints omitted.
 
 // de_SplunkDestinationDescription omitted.
 

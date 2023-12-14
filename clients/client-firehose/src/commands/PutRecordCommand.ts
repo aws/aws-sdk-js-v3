@@ -110,6 +110,9 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
  *             <code>NotFoundException</code>.</p>
  *
+ * @throws {@link InvalidSourceException} (client fault)
+ *  <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *

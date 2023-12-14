@@ -390,6 +390,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       ],
  *     },
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     BufferingHints: { // SplunkBufferingHints
+ *       IntervalInSeconds: Number("int"),
+ *       SizeInMBs: Number("int"),
+ *     },
  *   },
  *   HttpEndpointDestinationUpdate: { // HttpEndpointDestinationUpdate
  *     EndpointConfiguration: { // HttpEndpointConfiguration

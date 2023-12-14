@@ -463,6 +463,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       ],
  *     },
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     BufferingHints: { // SplunkBufferingHints
+ *       IntervalInSeconds: Number("int"),
+ *       SizeInMBs: Number("int"),
+ *     },
  *   },
  *   HttpEndpointDestinationConfiguration: { // HttpEndpointDestinationConfiguration
  *     EndpointConfiguration: { // HttpEndpointConfiguration

@@ -439,6 +439,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             ],
  * //           },
  * //           CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ * //           BufferingHints: { // SplunkBufferingHints
+ * //             IntervalInSeconds: Number("int"),
+ * //             SizeInMBs: Number("int"),
+ * //           },
  * //         },
  * //         HttpEndpointDestinationDescription: { // HttpEndpointDestinationDescription
  * //           EndpointConfiguration: { // HttpEndpointDescription
