@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Features
+
+* **client-connect:** This release adds support for more granular billing using tags (key:value pairs) ([417de03](https://github.com/aws/aws-sdk-js-v3/commit/417de037c70ef98e7b0316412b602cad7974f3d9))
+
+
+
+
+
 # [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

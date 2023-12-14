@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift adds the ability to add and update the game properties of active game sessions. ([9c8b6c6](https://github.com/aws/aws-sdk-js-v3/commit/9c8b6c6cbef877c3887252f6c0832fe4836791e5))
+
+
+
+
+
 # [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

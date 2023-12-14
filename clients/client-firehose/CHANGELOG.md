@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Features
+
+* **client-firehose:** This release, 1) adds configurable buffering hints for the Splunk destination, and 2) reduces the minimum configurable buffering interval for supported destinations ([dab6455](https://github.com/aws/aws-sdk-js-v3/commit/dab64555963557ed046b7d28d41587330c4b1d9b))
+
+
+
+
+
 # [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
 
 **Note:** Version bump only for package @aws-sdk/client-firehose

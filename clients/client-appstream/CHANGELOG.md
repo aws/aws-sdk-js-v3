@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Features
+
+* **client-appstream:** This release includes support for images of Windows Server 2022 platform. ([701ead0](https://github.com/aws/aws-sdk-js-v3/commit/701ead0802414a31fc6602319693660d2e9b2bd2))
+
+
+
+
+
 # [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
 
 **Note:** Version bump only for package @aws-sdk/client-appstream

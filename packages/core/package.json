@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core",
-  "version": "3.468.0",
+  "version": "3.474.0",
   "description": "Core functions & classes shared by multiple AWS SDK clients",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
@@ -26,8 +26,8 @@
   "dependencies": {
     "@smithy/core": "^1.1.0",
     "@smithy/protocol-http": "^3.0.11",
-    "@smithy/smithy-client": "^2.1.18",
     "@smithy/signature-v4": "^2.0.0",
+    "@smithy/smithy-client": "^2.1.18",
     "@smithy/types": "^2.7.0",
     "tslib": "^2.5.0"
   },

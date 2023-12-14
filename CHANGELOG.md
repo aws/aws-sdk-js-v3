@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** safely access nested properties for error ([#5580](https://github.com/aws/aws-sdk-js-v3/issues/5580)) ([013665e](https://github.com/aws/aws-sdk-js-v3/commit/013665e184937c224008195fda10ea1cc5c49109))
+
+
+### Features
+
+* **client-appstream:** This release includes support for images of Windows Server 2022 platform. ([701ead0](https://github.com/aws/aws-sdk-js-v3/commit/701ead0802414a31fc6602319693660d2e9b2bd2))
+* **client-billingconductor:** Billing Conductor is releasing a new API, GetBillingGroupCostReport, which provides the ability to retrieve/view the Billing Group Cost Report broken down by attributes for a specific billing group. ([ba49477](https://github.com/aws/aws-sdk-js-v3/commit/ba49477a78d4cffa1ffc9348af6a89f4831dac5f))
+* **client-connect:** This release adds support for more granular billing using tags (key:value pairs) ([417de03](https://github.com/aws/aws-sdk-js-v3/commit/417de037c70ef98e7b0316412b602cad7974f3d9))
+* **client-firehose:** This release, 1) adds configurable buffering hints for the Splunk destination, and 2) reduces the minimum configurable buffering interval for supported destinations ([dab6455](https://github.com/aws/aws-sdk-js-v3/commit/dab64555963557ed046b7d28d41587330c4b1d9b))
+* **client-gamelift:** Amazon GameLift adds the ability to add and update the game properties of active game sessions. ([9c8b6c6](https://github.com/aws/aws-sdk-js-v3/commit/9c8b6c6cbef877c3887252f6c0832fe4836791e5))
+* **client-iot:** This release adds the ability to self-manage certificate signing in AWS IoT Core fleet provisioning using the new certificate provider resource. ([a55c878](https://github.com/aws/aws-sdk-js-v3/commit/a55c87844978ec6102ebfbb2f3feb99f690a7a98))
+* **client-neptune-graph:** This is the initial SDK release for Amazon Neptune Analytics ([8210ba2](https://github.com/aws/aws-sdk-js-v3/commit/8210ba24db7677762126733347ab424899571ec3))
+* **client-opensearch:** Updating documentation for Amazon OpenSearch Service support for new zero-ETL integration with Amazon S3. ([c63279d](https://github.com/aws/aws-sdk-js-v3/commit/c63279d462d21bc08a9df6494eecbc12ee7261b8))
+* **client-quicksight:** Update Dashboard Links support; SingleAxisOptions support; Scatterplot Query limit support. ([ee74785](https://github.com/aws/aws-sdk-js-v3/commit/ee74785bf9107bd32a9294d5ba6da59a944a8e6d))
+* **clients:** update client endpoints as of 2023-12-14 ([ab69ea0](https://github.com/aws/aws-sdk-js-v3/commit/ab69ea03effe9c69a306e611893f178705f66812))
+* **core:** add `experimentalIdentityAndAuth` AWS SDK SigV4 support ([#5586](https://github.com/aws/aws-sdk-js-v3/issues/5586)) ([9a97df5](https://github.com/aws/aws-sdk-js-v3/commit/9a97df5953e722ed4887bcb65a41c019f08a5cbb))
+* **experimentalIdentityAndAuth:** add `[@smithy](https://github.com/smithy).rules#endpointRuleSet` auth scheme providers ([#5579](https://github.com/aws/aws-sdk-js-v3/issues/5579)) ([3814163](https://github.com/aws/aws-sdk-js-v3/commit/381416337f3716519d69d6e8839a6903aa22ed30))
+* **experimentalIdentityAndAuth:** release phase for STS ([#5282](https://github.com/aws/aws-sdk-js-v3/issues/5282)) ([f6658b4](https://github.com/aws/aws-sdk-js-v3/commit/f6658b49dde8e510f56bf192dee26befe9a67103))
+
+
+
+
+
 # [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Features
+
+* **core:** add `experimentalIdentityAndAuth` AWS SDK SigV4 support ([#5586](https://github.com/aws/aws-sdk-js-v3/issues/5586)) ([9a97df5](https://github.com/aws/aws-sdk-js-v3/commit/9a97df5953e722ed4887bcb65a41c019f08a5cbb))
+
+
+
+
+
 # [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
 
 **Note:** Version bump only for package @aws-sdk/core

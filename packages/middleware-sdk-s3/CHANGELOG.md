@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** safely access nested properties for error ([#5580](https://github.com/aws/aws-sdk-js-v3/issues/5580)) ([013665e](https://github.com/aws/aws-sdk-js-v3/commit/013665e184937c224008195fda10ea1cc5c49109))
+
+
+
+
+
 # [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
