@@ -77,7 +77,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *   IdleDisconnectTimeoutInSeconds: Number("int"),
  *   IamRoleArn: "STRING_VALUE",
  *   StreamView: "APP" || "DESKTOP",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
  *   MaxConcurrentSessions: Number("int"),
  *   UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  *     "STRING_VALUE",
@@ -136,7 +136,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //     IdleDisconnectTimeoutInSeconds: Number("int"),
  * //     IamRoleArn: "STRING_VALUE",
  * //     StreamView: "APP" || "DESKTOP",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
  * //     MaxConcurrentSessions: Number("int"),
  * //     UsbDeviceFilterStrings: [ // UsbDeviceFilterStrings
  * //       "STRING_VALUE",

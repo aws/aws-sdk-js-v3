@@ -66,7 +66,7 @@ export interface StartImageBuilderCommandOutput extends StartImageBuilderResult,
  * //       ],
  * //     },
  * //     InstanceType: "STRING_VALUE",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
  * //     IamRoleArn: "STRING_VALUE",
  * //     State: "PENDING" || "UPDATING_AGENT" || "RUNNING" || "STOPPING" || "STOPPED" || "REBOOTING" || "SNAPSHOTTING" || "DELETING" || "FAILED" || "UPDATING" || "PENDING_QUALIFICATION",
  * //     StateChangeReason: { // ImageBuilderStateChangeReason

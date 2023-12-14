@@ -82,7 +82,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * //       S3Key: "STRING_VALUE",
  * //     },
  * //     Platforms: [ // Platforms
- * //       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ * //       "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
  * //     ],
  * //     InstanceFamilies: [ // StringList
  * //       "STRING_VALUE",
