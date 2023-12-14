@@ -31,11 +31,11 @@ import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -85,9 +85,9 @@ public final class AddS3Config implements TypeScriptIntegration {
 
         Model.Builder modelBuilder = model.toBuilder();
 
+        TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<StructureShape> inputShapes = new HashSet<>();
-        for (ShapeId operationId : serviceShape.getAllOperations()) {
-            OperationShape operationShape = model.expectShape(operationId, OperationShape.class);
+        for (OperationShape operationShape : topDownIndex.getContainedOperations(serviceShape)) {
             if (NON_BUCKET_ENDPOINT_OPERATIONS.contains(operationShape.getId().getName(serviceShape))) {
                 continue;
             }
@@ -120,11 +120,6 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(service)) {
             return;
         }
-        writer.addImport("CreateSessionCommand", null, "./src/commands/CreateSessionCommand");
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return;
-        }
-        // feat(experimentalIdentityAndAuth): control branch for S3 Config interface fields
         writer.writeDocs("Whether to escape request path when signing the request.")
             .write("signingEscapePath?: boolean;\n");
         writer.writeDocs(
@@ -142,10 +137,6 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(settings.getService(model))) {
             return Collections.emptyMap();
         }
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return Collections.emptyMap();
-        }
-        // feat(experimentalIdentityAndAuth): control branch for S3 Config runtime config
         switch (target) {
             case SHARED:
                 return MapUtils.of("signingEscapePath", writer -> {
@@ -247,6 +238,10 @@ public final class AddS3Config implements TypeScriptIntegration {
                     (m, s, o) -> MapUtils.of(
                         "session", Symbol.builder()
                             .name("[() => this, CreateSessionCommand]")
+                            .addReference(Symbol.builder()
+                                .name("CreateSessionCommand")
+                                .namespace("./src/commands/CreateSessionCommand", "/")
+                                .build())
                             .build()
                     )
                 )
