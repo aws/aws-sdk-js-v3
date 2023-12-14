@@ -14,9 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTagsForResourceRequest } from "../models/models_3";
-import { ListTagsForResourceResponse } from "../models/models_4";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { UpdateDashboardLinksRequest, UpdateDashboardLinksResponse } from "../models/models_4";
+import { de_UpdateDashboardLinksCommand, se_UpdateDashboardLinksCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -26,47 +25,49 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link UpdateDashboardLinksCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface UpdateDashboardLinksCommandInput extends UpdateDashboardLinksRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link UpdateDashboardLinksCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface UpdateDashboardLinksCommandOutput extends UpdateDashboardLinksResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Lists the tags assigned to a resource.</p>
+ * <p>Updates the linked analyses on a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListTagsForResourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListTagsForResourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateDashboardLinksCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateDashboardLinksCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ * const input = { // UpdateDashboardLinksRequest
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DashboardId: "STRING_VALUE", // required
+ *   LinkEntities: [ // LinkEntityArnList // required
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new UpdateDashboardLinksCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE", // required
- * //       Value: "STRING_VALUE", // required
- * //     },
- * //   ],
+ * // { // UpdateDashboardLinksResponse
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
+ * //   DashboardArn: "STRING_VALUE",
+ * //   LinkEntities: [ // LinkEntityArnList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param UpdateDashboardLinksCommandInput - {@link UpdateDashboardLinksCommandInput}
+ * @returns {@link UpdateDashboardLinksCommandOutput}
+ * @see {@link UpdateDashboardLinksCommandInput} for command's `input` shape.
+ * @see {@link UpdateDashboardLinksCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,6 +75,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * 			validated. You might not be authorized to carry out the request. Make sure that your
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
@@ -91,9 +95,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class ListTagsForResourceCommand extends $Command<
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+export class UpdateDashboardLinksCommand extends $Command<
+  UpdateDashboardLinksCommandInput,
+  UpdateDashboardLinksCommandOutput,
   QuickSightClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -108,7 +112,7 @@ export class ListTagsForResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: ListTagsForResourceCommandInput) {
+  constructor(readonly input: UpdateDashboardLinksCommandInput) {
     super();
   }
 
@@ -119,17 +123,17 @@ export class ListTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
+  ): Handler<UpdateDashboardLinksCommandInput, UpdateDashboardLinksCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateDashboardLinksCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListTagsForResourceCommand";
+    const commandName = "UpdateDashboardLinksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -138,7 +142,7 @@ export class ListTagsForResourceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "QuickSight_20180401",
-        operation: "ListTagsForResource",
+        operation: "UpdateDashboardLinks",
       },
     };
     const { requestHandler } = configuration;
@@ -152,14 +156,14 @@ export class ListTagsForResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTagsForResourceCommand(input, context);
+  private serialize(input: UpdateDashboardLinksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateDashboardLinksCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
-    return de_ListTagsForResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDashboardLinksCommandOutput> {
+    return de_UpdateDashboardLinksCommand(output, context);
   }
 }

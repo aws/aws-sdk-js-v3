@@ -421,6 +421,10 @@ import {
 } from "./commands/UpdateAnalysisPermissionsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
+  UpdateDashboardLinksCommandInput,
+  UpdateDashboardLinksCommandOutput,
+} from "./commands/UpdateDashboardLinksCommand";
+import {
   UpdateDashboardPermissionsCommandInput,
   UpdateDashboardPermissionsCommandOutput,
 } from "./commands/UpdateDashboardPermissionsCommand";
@@ -656,6 +660,7 @@ export type ServiceInputTypes =
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
   | UpdateDashboardCommandInput
+  | UpdateDashboardLinksCommandInput
   | UpdateDashboardPermissionsCommandInput
   | UpdateDashboardPublishedVersionCommandInput
   | UpdateDataSetCommandInput
@@ -831,6 +836,7 @@ export type ServiceOutputTypes =
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
   | UpdateDashboardCommandOutput
+  | UpdateDashboardLinksCommandOutput
   | UpdateDashboardPermissionsCommandOutput
   | UpdateDashboardPublishedVersionCommandOutput
   | UpdateDataSetCommandOutput

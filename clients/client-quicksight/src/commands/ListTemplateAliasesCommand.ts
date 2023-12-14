@@ -14,7 +14,7 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_3";
+import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_4";
 import { de_ListTemplateAliasesCommand, se_ListTemplateAliasesCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

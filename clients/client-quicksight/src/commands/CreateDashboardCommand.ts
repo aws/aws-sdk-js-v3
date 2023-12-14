@@ -3147,6 +3147,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   ],
  *                 },
  *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: { // SingleAxisOptions
+ *                   YAxisOptions: { // YAxisOptions
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
  *                 DefaultSeriesSettings: { // LineChartDefaultSeriesSettings
  *                   AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                   LineStyleSettings: { // LineChartLineStyleSettings
@@ -3685,6 +3690,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     Label: "<DimensionFieldList>",
  *                   },
  *                 },
+ *                 SortConfiguration: { // ScatterPlotSortConfiguration
+ *                   ScatterPlotLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
  *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 YAxisLabelOptions: "<ChartAxisLabelOptions>",
@@ -3723,6 +3731,11 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 SecondaryYAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: {
+ *                   YAxisOptions: {
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
  *                 BarDataLabels: "<DataLabelOptions>",
@@ -4641,6 +4654,9 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       },
  *     ],
  *   },
+ *   LinkEntities: [ // LinkEntityArnList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateDashboardCommand(input);
  * const response = await client.send(command);

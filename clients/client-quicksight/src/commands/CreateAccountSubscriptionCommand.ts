@@ -39,8 +39,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @public
  * <p>Creates an Amazon QuickSight account, or subscribes to Amazon QuickSight Q.</p>
  *          <p>The Amazon Web Services Region for the account is derived from what is configured in the
- *           CLI or SDK. This operation isn't supported in the US East (Ohio) Region, South America (Sao Paulo) Region, or Asia
- *             Pacific (Singapore) Region.  </p>
+ *           CLI or SDK.</p>
  *          <p>Before you use this operation, make sure that you can connect to an existing Amazon Web Services account. If you don't have an Amazon Web Services account, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/setting-up-aws-sign-up.html">Sign
  *                 up for Amazon Web Services</a> in the <i>Amazon QuickSight User
  *                 Guide</i>. The person who signs up for Amazon QuickSight needs to have the

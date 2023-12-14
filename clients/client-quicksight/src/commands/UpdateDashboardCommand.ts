@@ -3132,6 +3132,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                   ],
  *                 },
  *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: { // SingleAxisOptions
+ *                   YAxisOptions: { // YAxisOptions
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
  *                 DefaultSeriesSettings: { // LineChartDefaultSeriesSettings
  *                   AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                   LineStyleSettings: { // LineChartLineStyleSettings
@@ -3670,6 +3675,9 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                     Label: "<DimensionFieldList>",
  *                   },
  *                 },
+ *                 SortConfiguration: { // ScatterPlotSortConfiguration
+ *                   ScatterPlotLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
  *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 YAxisLabelOptions: "<ChartAxisLabelOptions>",
@@ -3708,6 +3716,11 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 SecondaryYAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: {
+ *                   YAxisOptions: {
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
  *                 BarDataLabels: "<DataLabelOptions>",

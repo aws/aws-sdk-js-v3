@@ -89,6 +89,9 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastPublishedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     LinkEntities: [ // LinkEntityArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",

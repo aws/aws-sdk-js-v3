@@ -77,6 +77,111 @@ import {
 
 /**
  * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateAliasesRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateAliasesResponse {
+  /**
+   * @public
+   * <p>A structure containing the list of the template's aliases.</p>
+   */
+  TemplateAliasList?: TemplateAlias[];
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplatesRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
  * <p>The template summary.</p>
  */
 export interface TemplateSummary {
@@ -2384,6 +2489,58 @@ export interface UpdateDashboardResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardLinksRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that contains the dashboard whose links you want to update.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * @public
+   * <p> list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+   */
+  LinkEntities: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardLinksResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   */
+  DashboardArn?: string;
+
+  /**
+   * @public
+   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+   */
+  LinkEntities?: string[];
 }
 
 /**

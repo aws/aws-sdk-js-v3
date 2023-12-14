@@ -12,16 +12,11 @@ import {
   ResourceStatus,
   Sheet,
 } from "./models_0";
-import {
-  AnalysisDefinition,
-  AnalysisSummary,
-  AnonymousUserEmbeddingExperienceConfiguration,
-  DashboardVisualId,
-  FilterOperator,
-} from "./models_1";
+import { AnalysisDefinition, AnalysisSummary, FilterOperator } from "./models_1";
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportFormat,
@@ -43,6 +38,9 @@ import {
   AssignmentStatus,
   AuthorizedTargetsByService,
   BookmarksConfigurations,
+  CategoryFilterFunction,
+  CategoryFilterType,
+  CollectiveConstant,
   ColumnDataSubType,
   ColumnDataType,
   ColumnGroup,
@@ -50,6 +48,7 @@ import {
   ConstantType,
   DashboardPublishOptions,
   DashboardVersionDefinition,
+  DashboardVisualId,
   DataAggregation,
   DataSetConfiguration,
   DataSetImportMode,
@@ -87,15 +86,102 @@ import {
   ThemeConfiguration,
   TopicCalculatedField,
   TopicCalculatedFieldFilterSensitiveLog,
-  TopicCategoryFilter,
-  TopicCategoryFilterFilterSensitiveLog,
   TopicColumn,
   TopicColumnFilterSensitiveLog,
-  TopicRangeFilterConstant,
   TopicTimeGranularity,
   VpcConnectionProperties,
 } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A constant used in a category filter.</p>
+ */
+export interface TopicCategoryFilterConstant {
+  /**
+   * @public
+   * <p>The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are <code>SINGULAR</code> and <code>COLLECTIVE</code>.</p>
+   */
+  ConstantType?: ConstantType;
+
+  /**
+   * @public
+   * <p>A singular constant used in a category filter. This element is used to specify a single value for the constant.</p>
+   */
+  SingularConstant?: string;
+
+  /**
+   * @public
+   * <p>A collective constant used in a category filter. This element is used to specify a list of values for the constant.</p>
+   */
+  CollectiveConstant?: CollectiveConstant;
+}
+
+/**
+ * @public
+ * <p>A structure that represents a category filter.</p>
+ */
+export interface TopicCategoryFilter {
+  /**
+   * @public
+   * <p>The category filter function. Valid values for this structure are <code>EXACT</code> and <code>CONTAINS</code>.</p>
+   */
+  CategoryFilterFunction?: CategoryFilterFunction;
+
+  /**
+   * @public
+   * <p>The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.</p>
+   */
+  CategoryFilterType?: CategoryFilterType;
+
+  /**
+   * @public
+   * <p>The constant used in a category filter.</p>
+   */
+  Constant?: TopicCategoryFilterConstant;
+
+  /**
+   * @public
+   * <p>A Boolean value that indicates if the filter is inverse.</p>
+   */
+  Inverse?: boolean;
+}
+
+/**
+ * @public
+ * <p>A structure that represents a range constant.</p>
+ */
+export interface RangeConstant {
+  /**
+   * @public
+   * <p>The minimum value for a range constant.</p>
+   */
+  Minimum?: string;
+
+  /**
+   * @public
+   * <p>The maximum value for a range constant.</p>
+   */
+  Maximum?: string;
+}
+
+/**
+ * @public
+ * <p>A constant value that is used in a range filter to specify the endpoints of the range.</p>
+ */
+export interface TopicRangeFilterConstant {
+  /**
+   * @public
+   * <p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>
+   */
+  ConstantType?: ConstantType;
+
+  /**
+   * @public
+   * <p>The value of the constant that is used to specify the endpoints of a range filter.</p>
+   */
+  RangeConstant?: RangeConstant;
+}
 
 /**
  * @public
@@ -1120,6 +1206,12 @@ export interface Dashboard {
    * <p>The last time that this dashboard was updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+   */
+  LinkEntities?: string[];
 }
 
 /**
@@ -8980,109 +9072,26 @@ export interface ListTagsForResourceRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
+export const TopicCategoryFilterConstantFilterSensitiveLog = (obj: TopicCategoryFilterConstant): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export interface ListTemplateAliasesRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
+export const TopicCategoryFilterFilterSensitiveLog = (obj: TopicCategoryFilter): any => ({
+  ...obj,
+  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface ListTemplateAliasesResponse {
-  /**
-   * @public
-   * <p>A structure containing the list of the template's aliases.</p>
-   */
-  TemplateAliasList?: TemplateAlias[];
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTemplatesRequest {
-  /**
-   * @public
-   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * @public
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
+export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilterConstant): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -1362,6 +1362,14 @@ UpdateDashboard
 </details>
 <details>
 <summary>
+UpdateDashboardLinks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDashboardLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardLinksCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateDashboardPermissions
 </summary>
 

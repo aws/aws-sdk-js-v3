@@ -671,6 +671,11 @@ import {
   UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import {
+  UpdateDashboardLinksCommand,
+  UpdateDashboardLinksCommandInput,
+  UpdateDashboardLinksCommandOutput,
+} from "./commands/UpdateDashboardLinksCommand";
+import {
   UpdateDashboardPermissionsCommand,
   UpdateDashboardPermissionsCommandInput,
   UpdateDashboardPermissionsCommandOutput,
@@ -931,6 +936,7 @@ const commands = {
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
   UpdateDashboardCommand,
+  UpdateDashboardLinksCommand,
   UpdateDashboardPermissionsCommand,
   UpdateDashboardPublishedVersionCommand,
   UpdateDataSetCommand,
@@ -3172,6 +3178,23 @@ export interface QuickSight {
     args: UpdateDashboardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDashboardLinksCommand}
+   */
+  updateDashboardLinks(
+    args: UpdateDashboardLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDashboardLinksCommandOutput>;
+  updateDashboardLinks(
+    args: UpdateDashboardLinksCommandInput,
+    cb: (err: any, data?: UpdateDashboardLinksCommandOutput) => void
+  ): void;
+  updateDashboardLinks(
+    args: UpdateDashboardLinksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDashboardLinksCommandOutput) => void
   ): void;
 
   /**

@@ -441,6 +441,44 @@ export interface ComboChartFieldWells {
 
 /**
  * @public
+ * @enum
+ */
+export const SingleYAxisOption = {
+  PRIMARY_Y_AXIS: "PRIMARY_Y_AXIS",
+} as const;
+
+/**
+ * @public
+ */
+export type SingleYAxisOption = (typeof SingleYAxisOption)[keyof typeof SingleYAxisOption];
+
+/**
+ * @public
+ * <p>The options that are available for a single Y axis in a chart.</p>
+ */
+export interface YAxisOptions {
+  /**
+   * @public
+   * <p>The Y axis type to be used in the chart.</p>
+   *          <p>If you choose <code>PRIMARY_Y_AXIS</code>, the primary Y Axis is located on the leftmost vertical axis of the chart.</p>
+   */
+  YAxis: SingleYAxisOption | undefined;
+}
+
+/**
+ * @public
+ * <p>The settings of a chart's single axis configuration.</p>
+ */
+export interface SingleAxisOptions {
+  /**
+   * @public
+   * <p>The Y axis options of a single axis configuration.</p>
+   */
+  YAxisOptions?: YAxisOptions;
+}
+
+/**
+ * @public
  * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
  */
 export interface ComboChartSortConfiguration {
@@ -541,6 +579,12 @@ export interface ComboChartConfiguration {
    * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.</p>
    */
   SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * @public
+   * <p>The settings of a chart's single axis configuration.</p>
+   */
+  SingleAxisOptions?: SingleAxisOptions;
 
   /**
    * @public
@@ -4154,6 +4198,12 @@ export interface LineChartConfiguration {
 
   /**
    * @public
+   * <p>The settings of a chart's single axis configuration.</p>
+   */
+  SingleAxisOptions?: SingleAxisOptions;
+
+  /**
+   * @public
    * <p>The options that determine the default presentation of all line series in <code>LineChartVisual</code>.</p>
    */
   DefaultSeriesSettings?: LineChartDefaultSeriesSettings;
@@ -6052,6 +6102,18 @@ export interface ScatterPlotFieldWells {
 
 /**
  * @public
+ * <p>The sort configuration of a scatter plot.</p>
+ */
+export interface ScatterPlotSortConfiguration {
+  /**
+   * @public
+   * <p>The limit configuration of the visual display for an axis.</p>
+   */
+  ScatterPlotLimitConfiguration?: ItemsLimitConfiguration;
+}
+
+/**
+ * @public
  * <p>The configuration of a scatter plot.</p>
  */
 export interface ScatterPlotConfiguration {
@@ -6060,6 +6122,12 @@ export interface ScatterPlotConfiguration {
    * <p>The field wells of the visual.</p>
    */
   FieldWells?: ScatterPlotFieldWells;
+
+  /**
+   * @public
+   * <p>The sort configuration of a scatter plot.</p>
+   */
+  SortConfiguration?: ScatterPlotSortConfiguration;
 
   /**
    * @public
@@ -7826,92 +7894,6 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
    *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
    */
   InitialDashboardId: string | undefined;
-}
-
-/**
- * @public
- * <p>A structure that contains the following elements:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you want to embed.</p>
- *             </li>
- *             <li>
- *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to embed.</p>
- *             </li>
- *             <li>
- *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
- *             </li>
- *          </ul>
- *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
- */
-export interface DashboardVisualId {
-  /**
-   * @public
-   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
-   */
-  SheetId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
-   */
-  VisualId: string | undefined;
-}
-
-/**
- * @public
- * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
- */
-export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
-  /**
-   * @public
-   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
-   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialDashboardVisualId: DashboardVisualId | undefined;
-}
-
-/**
- * @public
- * <p>The settings that you want to use with the Q search bar.</p>
- */
-export interface AnonymousUserQSearchBarEmbeddingConfiguration {
-  /**
-   * @public
-   * <p>The QuickSight Q topic ID of the topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this topic pre-selected.</p>
-   *          <p>The Amazon Resource Name (ARN) of this Q topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialTopicId: string | undefined;
-}
-
-/**
- * @public
- * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
- */
-export interface AnonymousUserEmbeddingExperienceConfiguration {
-  /**
-   * @public
-   * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
-   */
-  Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
-
-  /**
-   * @public
-   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
-   */
-  DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration;
-
-  /**
-   * @public
-   * <p>The Q search bar that you want to use for anonymous user embedding.</p>
-   */
-  QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
 }
 
 /**

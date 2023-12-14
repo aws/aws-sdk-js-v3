@@ -143,6 +143,7 @@ export * from "./UpdateAccountSettingsCommand";
 export * from "./UpdateAnalysisCommand";
 export * from "./UpdateAnalysisPermissionsCommand";
 export * from "./UpdateDashboardCommand";
+export * from "./UpdateDashboardLinksCommand";
 export * from "./UpdateDashboardPermissionsCommand";
 export * from "./UpdateDashboardPublishedVersionCommand";
 export * from "./UpdateDataSetCommand";

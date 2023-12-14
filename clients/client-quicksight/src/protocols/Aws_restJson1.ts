@@ -400,6 +400,10 @@ import {
 } from "../commands/UpdateAnalysisPermissionsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "../commands/UpdateDashboardCommand";
 import {
+  UpdateDashboardLinksCommandInput,
+  UpdateDashboardLinksCommandOutput,
+} from "../commands/UpdateDashboardLinksCommand";
+import {
   UpdateDashboardPermissionsCommandInput,
   UpdateDashboardPermissionsCommandOutput,
 } from "../commands/UpdateDashboardPermissionsCommand";
@@ -712,9 +716,6 @@ import {
   AnalysisSourceTemplate,
   AnalysisSummary,
   AnonymousUserDashboardEmbeddingConfiguration,
-  AnonymousUserDashboardVisualEmbeddingConfiguration,
-  AnonymousUserEmbeddingExperienceConfiguration,
-  AnonymousUserQSearchBarEmbeddingConfiguration,
   ArcAxisConfiguration,
   ArcAxisDisplayRange,
   ArcConfiguration,
@@ -751,7 +752,6 @@ import {
   CustomContentConfiguration,
   CustomContentVisual,
   CustomNarrativeOptions,
-  DashboardVisualId,
   DataBarsOptions,
   DataColor,
   DataFieldSeriesItem,
@@ -887,6 +887,7 @@ import {
   ScatterPlotCategoricallyAggregatedFieldWells,
   ScatterPlotConfiguration,
   ScatterPlotFieldWells,
+  ScatterPlotSortConfiguration,
   ScatterPlotUnaggregatedFieldWells,
   ScatterPlotVisual,
   SecondaryValueOptions,
@@ -895,6 +896,7 @@ import {
   SheetDefinition,
   ShortFormatText,
   SimpleClusterMarker,
+  SingleAxisOptions,
   SubtotalOptions,
   TableAggregatedFieldWells,
   TableBorderOptions,
@@ -955,9 +957,13 @@ import {
   WordCloudOptions,
   WordCloudSortConfiguration,
   WordCloudVisual,
+  YAxisOptions,
 } from "../models/models_1";
 import {
   _Parameters,
+  AnonymousUserDashboardVisualEmbeddingConfiguration,
+  AnonymousUserEmbeddingExperienceConfiguration,
+  AnonymousUserQSearchBarEmbeddingConfiguration,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
   AssetBundleExportJobAnalysisPropertyToOverride,
@@ -1035,6 +1041,7 @@ import {
   DashboardSourceEntity,
   DashboardSourceTemplate,
   DashboardVersionDefinition,
+  DashboardVisualId,
   DashboardVisualPublishOptions,
   DataAggregation,
   DatabricksParameters,
@@ -1092,7 +1099,6 @@ import {
   PreconditionNotMetException,
   PrestoParameters,
   ProjectOperation,
-  RangeConstant,
   RdsParameters,
   RedshiftIAMParameters,
   RedshiftParameters,
@@ -1139,10 +1145,7 @@ import {
   TileLayoutStyle,
   TileStyle,
   TopicCalculatedField,
-  TopicCategoryFilter,
-  TopicCategoryFilterConstant,
   TopicColumn,
-  TopicRangeFilterConstant,
   TransformOperation,
   TrinoParameters,
   TwitterParameters,
@@ -1184,6 +1187,7 @@ import {
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
   QuickSightUserNotFoundException,
+  RangeConstant,
   RefreshConfiguration,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
@@ -1203,12 +1207,15 @@ import {
   TemplateVersion,
   Theme,
   ThemeVersion,
+  TopicCategoryFilter,
+  TopicCategoryFilterConstant,
   TopicDateRangeFilter,
   TopicDetails,
   TopicFilter,
   TopicNamedEntity,
   TopicNumericEqualityFilter,
   TopicNumericRangeFilter,
+  TopicRangeFilterConstant,
   TopicRefreshSchedule,
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
@@ -1431,6 +1438,7 @@ export const se_CreateDashboardCommand = async (
       DashboardPublishOptions: (_) => _json(_),
       Definition: (_) => se_DashboardVersionDefinition(_, context),
       FolderArns: (_) => _json(_),
+      LinkEntities: (_) => _json(_),
       LinkSharingConfiguration: (_) => _json(_),
       Name: [],
       Parameters: (_) => se__Parameters(_, context),
@@ -6651,6 +6659,46 @@ export const se_UpdateDashboardCommand = async (
       ThemeArn: [],
       ValidationStrategy: (_) => _json(_),
       VersionDescription: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1UpdateDashboardLinksCommand
+ */
+export const se_UpdateDashboardLinksCommand = async (
+  input: UpdateDashboardLinksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LinkEntities: (_) => _json(_),
     })
   );
   return new __HttpRequest({
@@ -17754,6 +17802,73 @@ const de_UpdateDashboardCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDashboardLinksCommand
+ */
+export const de_UpdateDashboardLinksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDashboardLinksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateDashboardLinksCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DashboardArn: __expectString,
+    LinkEntities: _json,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDashboardLinksCommandError
+ */
+const de_UpdateDashboardLinksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDashboardLinksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateDashboardPermissionsCommand
  */
 export const de_UpdateDashboardPermissionsCommand = async (
@@ -20747,6 +20862,7 @@ const se_ComboChartConfiguration = (input: ComboChartConfiguration, context: __S
     ReferenceLines: (_) => se_ReferenceLineList(_, context),
     SecondaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
     SecondaryYAxisLabelOptions: _json,
+    SingleAxisOptions: _json,
     SortConfiguration: (_) => se_ComboChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
     VisualPalette: _json,
@@ -22530,6 +22646,7 @@ const se_LineChartConfiguration = (input: LineChartConfiguration, context: __Ser
     SecondaryYAxisDisplayOptions: (_) => se_LineSeriesAxisDisplayOptions(_, context),
     SecondaryYAxisLabelOptions: _json,
     Series: _json,
+    SingleAxisOptions: _json,
     SmallMultiplesOptions: _json,
     SortConfiguration: (_) => se_LineChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
@@ -22593,6 +22710,8 @@ const se_LineSeriesAxisDisplayOptions = (input: LineSeriesAxisDisplayOptions, co
     MissingDataConfigurations: _json,
   });
 };
+
+// se_LinkEntityArnList omitted.
 
 // se_LinkSharingConfiguration omitted.
 
@@ -23590,6 +23709,7 @@ const se_ScatterPlotConfiguration = (input: ScatterPlotConfiguration, context: _
     DataLabels: _json,
     FieldWells: (_) => se_ScatterPlotFieldWells(_, context),
     Legend: _json,
+    SortConfiguration: _json,
     Tooltip: (_) => se_TooltipOptions(_, context),
     VisualPalette: _json,
     XAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
@@ -23608,6 +23728,8 @@ const se_ScatterPlotFieldWells = (input: ScatterPlotFieldWells, context: __Serde
     ScatterPlotUnaggregatedFieldWells: (_) => se_ScatterPlotUnaggregatedFieldWells(_, context),
   });
 };
+
+// se_ScatterPlotSortConfiguration omitted.
 
 /**
  * serializeAws_restJson1ScatterPlotUnaggregatedFieldWells
@@ -23817,6 +23939,8 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 // se_ShortFormatText omitted.
 
 // se_SimpleClusterMarker omitted.
+
+// se_SingleAxisOptions omitted.
 
 // se_SliderControlDisplayOptions omitted.
 
@@ -24729,6 +24853,8 @@ const se_WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): an
   });
 };
 
+// se_YAxisOptions omitted.
+
 // de_AccountCustomization omitted.
 
 // de_AccountInfo omitted.
@@ -25612,6 +25738,7 @@ const de_ComboChartConfiguration = (output: any, context: __SerdeContext): Combo
     ReferenceLines: (_: any) => de_ReferenceLineList(_, context),
     SecondaryYAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
     SecondaryYAxisLabelOptions: _json,
+    SingleAxisOptions: _json,
     SortConfiguration: (_: any) => de_ComboChartSortConfiguration(_, context),
     Tooltip: (_: any) => de_TooltipOptions(_, context),
     VisualPalette: _json,
@@ -25814,6 +25941,7 @@ const de_Dashboard = (output: any, context: __SerdeContext): Dashboard => {
     DashboardId: __expectString,
     LastPublishedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LinkEntities: _json,
     Name: __expectString,
     Version: (_: any) => de_DashboardVersion(_, context),
   }) as any;
@@ -27687,6 +27815,7 @@ const de_LineChartConfiguration = (output: any, context: __SerdeContext): LineCh
     SecondaryYAxisDisplayOptions: (_: any) => de_LineSeriesAxisDisplayOptions(_, context),
     SecondaryYAxisLabelOptions: _json,
     Series: _json,
+    SingleAxisOptions: _json,
     SmallMultiplesOptions: _json,
     SortConfiguration: (_: any) => de_LineChartSortConfiguration(_, context),
     Tooltip: (_: any) => de_TooltipOptions(_, context),
@@ -27750,6 +27879,8 @@ const de_LineSeriesAxisDisplayOptions = (output: any, context: __SerdeContext): 
     MissingDataConfigurations: _json,
   }) as any;
 };
+
+// de_LinkEntityArnList omitted.
 
 // de_LinkSharingConfiguration omitted.
 
@@ -28776,6 +28907,7 @@ const de_ScatterPlotConfiguration = (output: any, context: __SerdeContext): Scat
     DataLabels: _json,
     FieldWells: (_: any) => de_ScatterPlotFieldWells(_, context),
     Legend: _json,
+    SortConfiguration: _json,
     Tooltip: (_: any) => de_TooltipOptions(_, context),
     VisualPalette: _json,
     XAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
@@ -28795,6 +28927,8 @@ const de_ScatterPlotFieldWells = (output: any, context: __SerdeContext): Scatter
     ScatterPlotUnaggregatedFieldWells: (_: any) => de_ScatterPlotUnaggregatedFieldWells(_, context),
   }) as any;
 };
+
+// de_ScatterPlotSortConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ScatterPlotUnaggregatedFieldWells
@@ -29012,6 +29146,8 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 // de_SignupResponse omitted.
 
 // de_SimpleClusterMarker omitted.
+
+// de_SingleAxisOptions omitted.
 
 // de_SliderControlDisplayOptions omitted.
 
@@ -30233,6 +30369,8 @@ const de_WordCloudVisual = (output: any, context: __SerdeContext): WordCloudVisu
     VisualId: __expectString,
   }) as any;
 };
+
+// de_YAxisOptions omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

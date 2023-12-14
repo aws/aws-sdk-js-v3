@@ -22,8 +22,100 @@ import {
   ResourceStatus,
   TimeGranularity,
 } from "./models_0";
-import { AnalysisDefinition, AnalysisSourceEntity, DataSetReference, SheetDefinition } from "./models_1";
+import {
+  AnalysisDefinition,
+  AnalysisSourceEntity,
+  AnonymousUserDashboardEmbeddingConfiguration,
+  DataSetReference,
+  SheetDefinition,
+} from "./models_1";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A structure that contains the following elements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you want to embed.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to embed.</p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+ */
+export interface DashboardVisualId {
+  /**
+   * @public
+   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
+   */
+  SheetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
+   */
+  VisualId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
+ */
+export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
+  /**
+   * @public
+   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
+   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialDashboardVisualId: DashboardVisualId | undefined;
+}
+
+/**
+ * @public
+ * <p>The settings that you want to use with the Q search bar.</p>
+ */
+export interface AnonymousUserQSearchBarEmbeddingConfiguration {
+  /**
+   * @public
+   * <p>The QuickSight Q topic ID of the topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this topic pre-selected.</p>
+   *          <p>The Amazon Resource Name (ARN) of this Q topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialTopicId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
+ */
+export interface AnonymousUserEmbeddingExperienceConfiguration {
+  /**
+   * @public
+   * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
+   */
+  Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
+
+  /**
+   * @public
+   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
+   */
+  DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration;
+
+  /**
+   * @public
+   * <p>The Q search bar that you want to use for anonymous user embedding.</p>
+   */
+  QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
+}
 
 /**
  * @public
@@ -160,7 +252,7 @@ export interface SnapshotS3DestinationConfiguration {
    * @public
    * <p>A structure that contains details about the Amazon S3 bucket that the generated dashboard snapshot is saved in.</p>
    */
-  BucketConfiguration?: S3BucketConfiguration;
+  BucketConfiguration: S3BucketConfiguration | undefined;
 }
 
 /**
@@ -5047,6 +5139,12 @@ export interface CreateDashboardRequest {
    * <p>A structure that contains the permissions of a shareable link to the dashboard.</p>
    */
   LinkSharingConfiguration?: LinkSharingConfiguration;
+
+  /**
+   * @public
+   * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
+   */
+  LinkEntities?: string[];
 }
 
 /**
@@ -8861,96 +8959,6 @@ export interface DataAggregation {
 }
 
 /**
- * @public
- * <p>A constant used in a category filter.</p>
- */
-export interface TopicCategoryFilterConstant {
-  /**
-   * @public
-   * <p>The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are <code>SINGULAR</code> and <code>COLLECTIVE</code>.</p>
-   */
-  ConstantType?: ConstantType;
-
-  /**
-   * @public
-   * <p>A singular constant used in a category filter. This element is used to specify a single value for the constant.</p>
-   */
-  SingularConstant?: string;
-
-  /**
-   * @public
-   * <p>A collective constant used in a category filter. This element is used to specify a list of values for the constant.</p>
-   */
-  CollectiveConstant?: CollectiveConstant;
-}
-
-/**
- * @public
- * <p>A structure that represents a category filter.</p>
- */
-export interface TopicCategoryFilter {
-  /**
-   * @public
-   * <p>The category filter function. Valid values for this structure are <code>EXACT</code> and <code>CONTAINS</code>.</p>
-   */
-  CategoryFilterFunction?: CategoryFilterFunction;
-
-  /**
-   * @public
-   * <p>The category filter type. This element is used to specify whether a filter is a simple category filter or an inverse category filter.</p>
-   */
-  CategoryFilterType?: CategoryFilterType;
-
-  /**
-   * @public
-   * <p>The constant used in a category filter.</p>
-   */
-  Constant?: TopicCategoryFilterConstant;
-
-  /**
-   * @public
-   * <p>A Boolean value that indicates if the filter is inverse.</p>
-   */
-  Inverse?: boolean;
-}
-
-/**
- * @public
- * <p>A structure that represents a range constant.</p>
- */
-export interface RangeConstant {
-  /**
-   * @public
-   * <p>The minimum value for a range constant.</p>
-   */
-  Minimum?: string;
-
-  /**
-   * @public
-   * <p>The maximum value for a range constant.</p>
-   */
-  Maximum?: string;
-}
-
-/**
- * @public
- * <p>A constant value that is used in a range filter to specify the endpoints of the range.</p>
- */
-export interface TopicRangeFilterConstant {
-  /**
-   * @public
-   * <p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>
-   */
-  ConstantType?: ConstantType;
-
-  /**
-   * @public
-   * <p>The value of the constant that is used to specify the endpoints of a range filter.</p>
-   */
-  RangeConstant?: RangeConstant;
-}
-
-/**
  * @internal
  */
 export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
@@ -9274,26 +9282,4 @@ export const TopicCalculatedFieldFilterSensitiveLog = (obj: TopicCalculatedField
 export const TopicColumnFilterSensitiveLog = (obj: TopicColumn): any => ({
   ...obj,
   ...(obj.SemanticType && { SemanticType: SemanticTypeFilterSensitiveLog(obj.SemanticType) }),
-});
-
-/**
- * @internal
- */
-export const TopicCategoryFilterConstantFilterSensitiveLog = (obj: TopicCategoryFilterConstant): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TopicCategoryFilterFilterSensitiveLog = (obj: TopicCategoryFilter): any => ({
-  ...obj,
-  ...(obj.Constant && { Constant: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicRangeFilterConstantFilterSensitiveLog = (obj: TopicRangeFilterConstant): any => ({
-  ...obj,
 });
