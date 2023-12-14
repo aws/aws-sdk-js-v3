@@ -16,8 +16,8 @@ export { STSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export * from "./defaultRoleAssumers";
+
+import "@aws-sdk/util-endpoints";
 
 export { STSServiceException } from "./models/STSServiceException";
