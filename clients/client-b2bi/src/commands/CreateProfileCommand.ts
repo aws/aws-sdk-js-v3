@@ -42,7 +42,8 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
 
 /**
  * @public
- * <p>Creates a customer profile. You can have up to five customer profiles, each representing a distinct private network. Profiles contain basic information about you and your business.</p>
+ * <p>Creates a customer profile. You can have up to five customer profiles, each representing a distinct private network. A profile is the mechanism used to create the concept of
+ *    a private network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

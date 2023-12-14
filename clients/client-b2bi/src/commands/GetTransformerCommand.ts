@@ -37,7 +37,9 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
 
 /**
  * @public
- * <p>Retrieves the details for the transformer specified by the transformer ID. Transformers describe how to process the incoming EDI (electronic data interchange) documents, and extract the necessary information.</p>
+ * <p>Retrieves the details for the transformer specified by the transformer ID. A transformer
+ *    describes how to process the incoming EDI documents and extract the necessary
+ *    information to the output file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

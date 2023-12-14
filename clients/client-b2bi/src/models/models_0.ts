@@ -117,6 +117,9 @@ export type X12Version = (typeof X12Version)[keyof typeof X12Version];
 /**
  * @public
  * <p>A structure that contains the X12 transaction set and version. The X12 structure is used when the system transforms an EDI (electronic data interchange) file.</p>
+ *          <note>
+ *             <p>If an EDI input file contains more than one transaction, each transaction must have the same transaction set and version, for example 214/4010. If not, the transformer cannot parse the file.</p>
+ *          </note>
  */
 export interface X12Details {
   /**
@@ -202,7 +205,7 @@ export interface EdiConfiguration {
 
 /**
  * @public
- * <p>A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. Capabilities contain the information necessary to process incoming EDI (electronic data interchange) documents.</p>
+ * <p>A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  */
 export type CapabilityConfiguration = CapabilityConfiguration.EdiMember | CapabilityConfiguration.$UnknownMember;
 
@@ -600,7 +603,7 @@ export interface ListCapabilitiesRequest {
 
 /**
  * @public
- * <p>Returns the capability summary details. Capabilities contain the information necessary to process incoming EDI (electronic data interchange) documents.</p>
+ * <p>Returns the capability summary details. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  */
 export interface CapabilitySummary {
   /**
@@ -1034,7 +1037,8 @@ export interface ListPartnershipsRequest {
 
 /**
  * @public
- * <p>A structure that contains the details for a partnership. Partnerships link trading partners with your profile and a specific transformer, so that the EDI (electronic data interchange) documents that they upload to Amazon S3 can be processed according to their specifications.</p>
+ * <p>A structure that contains the details for a partnership. A partnership represents the connection between you and your trading partner. It ties
+ *    together a profile and one or more trading capabilities.</p>
  */
 export interface PartnershipSummary {
   /**
@@ -1413,7 +1417,8 @@ export interface ListProfilesRequest {
 
 /**
  * @public
- * <p>Contains the details for a profile. Profiles contain basic information about you and your business.</p>
+ * <p>Contains the details for a profile. A profile is the mechanism used to create the concept of
+ *    a private network.</p>
  */
 export interface ProfileSummary {
   /**
@@ -1654,7 +1659,7 @@ export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
 export interface TestMappingRequest {
   /**
    * @public
-   * <p>Specify the EDI (electronic data interchange) file that is used as input for the transform.</p>
+   * <p>Specify the contents of the EDI (electronic data interchange) XML or JSON file that is used as input for the transform.</p>
    */
   inputFileContent: string | undefined;
 
@@ -1951,7 +1956,9 @@ export interface ListTransformersRequest {
 
 /**
  * @public
- * <p>Contains the details for a transformer object. Transformers describe how to process the incoming EDI (electronic data interchange) documents, and extract the necessary information.</p>
+ * <p>Contains the details for a transformer object. A transformer
+ *    describes how to process the incoming EDI documents and extract the necessary
+ *    information to the output file.</p>
  */
 export interface TransformerSummary {
   /**

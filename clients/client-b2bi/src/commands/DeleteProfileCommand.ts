@@ -37,7 +37,8 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the specified profile. Profiles contain basic information about you and your business.</p>
+ * <p>Deletes the specified profile. A profile is the mechanism used to create the concept of
+ *    a private network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

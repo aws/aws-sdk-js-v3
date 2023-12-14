@@ -37,7 +37,7 @@ export interface ListCapabilitiesCommandOutput extends ListCapabilitiesResponse,
 
 /**
  * @public
- * <p>Lists the capabilities associated with your Amazon Web Services account for your current or specified region. Capabilities contain the information necessary to process incoming EDI (electronic data interchange) documents.</p>
+ * <p>Lists the capabilities associated with your Amazon Web Services account for your current or specified region. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

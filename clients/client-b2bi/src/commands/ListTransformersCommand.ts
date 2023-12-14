@@ -37,7 +37,9 @@ export interface ListTransformersCommandOutput extends ListTransformersResponse,
 
 /**
  * @public
- * <p>Lists the available transformers. Transformers describe how to process the incoming EDI (electronic data interchange) documents, and extract the necessary information.</p>
+ * <p>Lists the available transformers. A transformer
+ *    describes how to process the incoming EDI documents and extract the necessary
+ *    information to the output file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

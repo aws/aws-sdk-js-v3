@@ -38,7 +38,7 @@ export interface UpdateCapabilityCommandOutput extends UpdateCapabilityResponse,
 /**
  * @public
  * <p>Updates some of the parameters for a capability, based on the specified parameters.
- *       Capabilities contain the information necessary to process incoming EDI (electronic data interchange) documents.</p>
+ *       A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

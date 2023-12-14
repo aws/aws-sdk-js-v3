@@ -37,7 +37,9 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
 
 /**
  * @public
- * <p>Creates a transformer. Transformers describe how to process the incoming EDI (electronic data interchange) documents, and extract the necessary information.</p>
+ * <p>Creates a transformer. A transformer
+ *    describes how to process the incoming EDI documents and extract the necessary
+ *    information to the output file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

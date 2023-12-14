@@ -37,7 +37,7 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
 
 /**
  * @public
- * <p>Instantiates a capability based on the specified parameters. Capabilities contain the information necessary to process incoming EDI (electronic data interchange) documents.</p>
+ * <p>Instantiates a capability based on the specified parameters. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

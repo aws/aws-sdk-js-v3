@@ -37,7 +37,9 @@ export interface UpdateTransformerCommandOutput extends UpdateTransformerRespons
 
 /**
  * @public
- * <p>Updates the specified parameters for a transformer. Transformers describe how to process the incoming EDI (electronic data interchange) documents, and extract the necessary information.</p>
+ * <p>Updates the specified parameters for a transformer. A transformer
+ *    describes how to process the incoming EDI documents and extract the necessary
+ *    information to the output file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

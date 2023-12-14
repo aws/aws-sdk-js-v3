@@ -37,7 +37,8 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
 
 /**
  * @public
- * <p>Lists the profiles associated with your Amazon Web Services account for your current or specified region. Profiles contain basic information about you and your business.</p>
+ * <p>Lists the profiles associated with your Amazon Web Services account for your current or specified region. A profile is the mechanism used to create the concept of
+ *    a private network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
