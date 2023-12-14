@@ -576,8 +576,8 @@ export interface CreateLandingZoneInput {
 
   /**
    * @public
-   * <p>The manifest.yaml file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>. </p>
+   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
    */
   manifest: __DocumentType | undefined;
 
@@ -709,7 +709,7 @@ export interface LandingZoneDetail {
 
   /**
    * @public
-   * <p>The landing zone <code>manifest.yaml</code> text file that specifies the landing zone configurations. </p>
+   * <p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>
    */
   manifest: __DocumentType | undefined;
 
@@ -952,8 +952,8 @@ export interface UpdateLandingZoneInput {
 
   /**
    * @public
-   * <p>The <code>manifest.yaml</code> file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>.</p>
+   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>.</p>
    */
   manifest: __DocumentType | undefined;
 
