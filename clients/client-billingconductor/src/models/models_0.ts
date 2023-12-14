@@ -539,6 +539,27 @@ export interface AssociateResourceResponseElement {
 
 /**
  * @public
+ * <p>The key-value pair that represents the attribute by which the
+ *                 <code>BillingGroupCostReportResults</code> are grouped. For example, if you want a
+ *             service-level breakdown for Amazon Simple Storage Service (Amazon S3) of the billing group, the attribute will be a key-value pair
+ *             of <code>"PRODUCT_NAME"</code> and <code>"S3"</code>.</p>
+ */
+export interface Attribute {
+  /**
+   * @public
+   * <p>The key in a key-value pair that describes the margin summary.</p>
+   */
+  Key?: string;
+
+  /**
+   * @public
+   * <p>The value in a key-value pair that describes the margin summary.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
  * <p>The preferences and settings that will be used to compute the Amazon Web Services charges for a billing group.</p>
  */
 export interface ComputationPreference {
@@ -1371,9 +1392,7 @@ export interface DeleteCustomLineItemInput {
 export interface DeleteCustomLineItemOutput {
   /**
    * @public
-   * <p>
-   *       Then ARN of the deleted custom line item.
-   *     </p>
+   * <p>The ARN of the deleted custom line item. </p>
    */
   Arn?: string;
 }
@@ -2087,6 +2106,146 @@ export interface UpdateCustomLineItemOutput {
    *     </p>
    */
   AssociationSize?: number;
+}
+
+/**
+ * @public
+ * <p>A time range for which the margin summary is effective. The time range can be up to 12 months.</p>
+ */
+export interface BillingPeriodRange {
+  /**
+   * @public
+   * <p>The inclusive start billing period that defines a billing period range for the margin summary.</p>
+   */
+  InclusiveStartBillingPeriod: string | undefined;
+
+  /**
+   * @public
+   * <p>The exclusive end billing period that defines a billing period range for the margin summary. For example, if you choose a billing period that starts in October 2023 and ends in December 2023, the margin summary will only include data from October 2023 and November 2023.</p>
+   */
+  ExclusiveEndBillingPeriod: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupByAttributeName = {
+  BILLING_PERIOD: "BILLING_PERIOD",
+  PRODUCT_NAME: "PRODUCT_NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupByAttributeName = (typeof GroupByAttributeName)[keyof typeof GroupByAttributeName];
+
+/**
+ * @public
+ */
+export interface GetBillingGroupCostReportInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Number (ARN) that uniquely identifies the billing group.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * @public
+   * <p>A time range for which the margin summary is effective. You can specify up to 12 months.</p>
+   */
+  BillingPeriodRange?: BillingPeriodRange;
+
+  /**
+   * @public
+   * <p>A list of strings that specify the attributes that are used to break down costs in the
+   *       margin summary reports for the billing group. For example, you can view your costs by the
+   *       Amazon Web Service name or the billing period.</p>
+   */
+  GroupBy?: GroupByAttributeName[];
+
+  /**
+   * @public
+   * <p>The maximum number of margin summary reports to retrieve.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The pagination token used on subsequent calls to get reports.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A paginated call to retrieve a list of summary reports of actual Amazon Web Services charges and the
+ *             calculated Amazon Web Services charges, broken down by attributes.</p>
+ */
+export interface BillingGroupCostReportResultElement {
+  /**
+   * @public
+   * <p>The Amazon Resource Number (ARN) that uniquely identifies the billing group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The actual Amazon Web Services charges for the billing group.</p>
+   */
+  AWSCost?: string;
+
+  /**
+   * @public
+   * <p>The hypothetical Amazon Web Services charges based on the associated pricing plan of a billing group.</p>
+   */
+  ProformaCost?: string;
+
+  /**
+   * @public
+   * <p>The billing group margin.</p>
+   */
+  Margin?: string;
+
+  /**
+   * @public
+   * <p>The percentage of the billing group margin.</p>
+   */
+  MarginPercentage?: string;
+
+  /**
+   * @public
+   * <p>The displayed currency.</p>
+   */
+  Currency?: string;
+
+  /**
+   * @public
+   * <p>The list of key-value pairs that represent the attributes by which the
+   *                 <code>BillingGroupCostReportResults</code> are grouped. For example, if you want the
+   *                 Amazon S3 service-level breakdown of a billing group for November 2023, the
+   *             attributes list will contain a key-value pair of <code>"PRODUCT_NAME"</code> and
+   *                 <code>"S3"</code> and a key-value pair of <code>"BILLING_PERIOD"</code> and
+   *                 <code>"Nov 2023"</code>.</p>
+   */
+  Attributes?: Attribute[];
+}
+
+/**
+ * @public
+ */
+export interface GetBillingGroupCostReportOutput {
+  /**
+   * @public
+   * <p>The list of margin summary reports.</p>
+   */
+  BillingGroupCostReportResults?: BillingGroupCostReportResultElement[];
+
+  /**
+   * @public
+   * <p>The pagination token used on subsequent calls to get reports.</p>
+   */
+  NextToken?: string;
 }
 
 /**

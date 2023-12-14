@@ -60,6 +60,10 @@ import {
   DisassociatePricingRulesCommandOutput,
 } from "../commands/DisassociatePricingRulesCommand";
 import {
+  GetBillingGroupCostReportCommandInput,
+  GetBillingGroupCostReportCommandOutput,
+} from "../commands/GetBillingGroupCostReportCommand";
+import {
   ListAccountAssociationsCommandInput,
   ListAccountAssociationsCommandOutput,
 } from "../commands/ListAccountAssociationsCommand";
@@ -108,6 +112,7 @@ import {
   AccessDeniedException,
   AccountGrouping,
   BillingGroupStatus,
+  BillingPeriodRange,
   ComputationPreference,
   ConflictException,
   CreateFreeTierConfig,
@@ -118,6 +123,7 @@ import {
   CustomLineItemListElement,
   CustomLineItemPercentageChargeDetails,
   CustomLineItemVersionListElement,
+  GroupByAttributeName,
   InternalServerException,
   LineItemFilter,
   LineItemFilterValue,
@@ -591,6 +597,40 @@ export const se_DisassociatePricingRulesCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1GetBillingGroupCostReportCommand
+ */
+export const se_GetBillingGroupCostReportCommand = async (
+  input: GetBillingGroupCostReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-billing-group-cost-report";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Arn: [],
+      BillingPeriodRange: (_) => _json(_),
+      GroupBy: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2011,6 +2051,66 @@ const de_DisassociatePricingRulesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetBillingGroupCostReportCommand
+ */
+export const de_GetBillingGroupCostReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBillingGroupCostReportCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetBillingGroupCostReportCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BillingGroupCostReportResults: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetBillingGroupCostReportCommandError
+ */
+const de_GetBillingGroupCostReportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBillingGroupCostReportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.billingconductor#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.billingconductor#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.billingconductor#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.billingconductor#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.billingconductor#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListAccountAssociationsCommand
  */
 export const de_ListAccountAssociationsCommand = async (
@@ -3216,6 +3316,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_BillingGroupStatusList omitted.
 
+// se_BillingPeriodRange omitted.
+
 // se_ComputationPreference omitted.
 
 // se_CreateFreeTierConfig omitted.
@@ -3267,6 +3369,8 @@ const se_CustomLineItemPercentageChargeDetails = (
     PercentageValue: __serializeFloat,
   });
 };
+
+// se_GroupByAttributesList omitted.
 
 // se_LineItemFilter omitted.
 
@@ -3356,9 +3460,17 @@ const se_UpdateCustomLineItemPercentageChargeDetails = (
 
 // de_AssociateResourcesResponseList omitted.
 
+// de_Attribute omitted.
+
+// de_AttributesList omitted.
+
 // de_BillingGroupCostReportElement omitted.
 
 // de_BillingGroupCostReportList omitted.
+
+// de_BillingGroupCostReportResultElement omitted.
+
+// de_BillingGroupCostReportResultsList omitted.
 
 // de_BillingGroupList omitted.
 

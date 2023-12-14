@@ -1,3 +1,4 @@
+export * from "./GetBillingGroupCostReportPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAccountAssociationsPaginator";

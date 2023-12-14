@@ -41,9 +41,9 @@ export interface CreateCustomLineItemCommandOutput extends CreateCustomLineItemO
 
 /**
  * @public
- * <p>
- *       Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.
- *     </p>
+ * <p>Creates a custom line item that can be used to create a one-time fixed charge that can be
+ *       applied to a single billing group for the current or previous billing period. The one-time
+ *       fixed charge is either a fee or discount. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
