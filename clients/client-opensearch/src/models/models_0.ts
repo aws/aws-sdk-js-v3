@@ -396,19 +396,19 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * @public
- * <p>Information about the AWS S3 Glue Data Catalog.</p>
+ * <p>Information about the Amazon S3 Glue Data Catalog.</p>
  */
 export interface S3GlueDataCatalog {
   /**
    * @public
-   * <p>The role ARN for the AWS S3 Glue Data Catalog.</p>
+   * <p>>The Amazon Resource Name (ARN) for the S3 Glue Data Catalog.</p>
    */
   RoleArn?: string;
 }
 
 /**
  * @public
- * <p>Information about the data source.</p>
+ * <p>The type of data source.</p>
  */
 export type DataSourceType = DataSourceType.S3GlueDataCatalogMember | DataSourceType.$UnknownMember;
 
@@ -418,7 +418,7 @@ export type DataSourceType = DataSourceType.S3GlueDataCatalogMember | DataSource
 export namespace DataSourceType {
   /**
    * @public
-   * <p>The data source for the AWS S3 Glue Data Catalog.</p>
+   * <p>An Amazon S3 data source.</p>
    */
   export interface S3GlueDataCatalogMember {
     S3GlueDataCatalog: S3GlueDataCatalog;
@@ -452,13 +452,13 @@ export namespace DataSourceType {
 export interface AddDataSourceRequest {
   /**
    * @public
-   * <p>The name of the domain.</p>
+   * <p>The name of the domain to add the data source to.</p>
    */
   DomainName: string | undefined;
 
   /**
    * @public
-   * <p>The name of the data source.</p>
+   * <p>A name for the data source.</p>
    */
   Name: string | undefined;
 
@@ -482,7 +482,7 @@ export interface AddDataSourceRequest {
 export interface AddDataSourceResponse {
   /**
    * @public
-   * <p>A message associated with the data source.</p>
+   * <p>A message associated with creation of the data source.</p>
    */
   Message?: string;
 }
@@ -1651,23 +1651,13 @@ export interface DomainEndpointOptions {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy which
+   *                   <b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy that
    *      supports TLS version 1.0 to TLS version 1.2</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy which
+   *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy that
    *      supports only TLS version 1.2</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Policy-Min-TLS-1-0-2023-10:</b> TLS security policy which
-   *      supports TLS version 1.0 to TLS version 1.3</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Policy-Min-TLS-1-2-2023-10:</b> TLS security policy which
-   *      supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites</p>
    *             </li>
    *          </ul>
    */
@@ -2983,7 +2973,7 @@ export interface DeleteDataSourceRequest {
 
   /**
    * @public
-   * <p>The name of the data source.</p>
+   * <p>The name of the data source to delete.</p>
    */
   Name: string | undefined;
 }
@@ -2995,7 +2985,7 @@ export interface DeleteDataSourceRequest {
 export interface DeleteDataSourceResponse {
   /**
    * @public
-   * <p>A message associated with the initiated request.</p>
+   * <p>A message associated with deletion of the data source.</p>
    */
   Message?: string;
 }
@@ -5367,7 +5357,7 @@ export interface GetDataSourceRequest {
 
   /**
    * @public
-   * <p>The name of the data source.</p>
+   * <p>The name of the data source to get information about.</p>
    */
   Name: string | undefined;
 }
@@ -5804,7 +5794,7 @@ export interface ListDataSourcesRequest {
 
 /**
  * @public
- * <p>Details about the data sources.</p>
+ * <p>Details about a direct-query data source.</p>
  */
 export interface DataSourceDetails {
   /**
@@ -5833,7 +5823,7 @@ export interface DataSourceDetails {
 export interface ListDataSourcesResponse {
   /**
    * @public
-   * <p>A list of the data sources.</p>
+   * <p>A list of data sources associated with specified domain.</p>
    */
   DataSources?: DataSourceDetails[];
 }
@@ -6758,7 +6748,7 @@ export interface UpdateDataSourceRequest {
 
   /**
    * @public
-   * <p>The name of the data source.</p>
+   * <p>The name of the data source to modify.</p>
    */
   Name: string | undefined;
 
@@ -6770,7 +6760,7 @@ export interface UpdateDataSourceRequest {
 
   /**
    * @public
-   * <p>A description of the data source.</p>
+   * <p>A new description of the data source.</p>
    */
   Description?: string;
 }
@@ -6782,7 +6772,7 @@ export interface UpdateDataSourceRequest {
 export interface UpdateDataSourceResponse {
   /**
    * @public
-   * <p>A message associated with the data source.</p>
+   * <p>A message associated with the updated data source.</p>
    */
   Message?: string;
 }

@@ -37,7 +37,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
 
 /**
  * @public
- * <p>Describes the data source details.</p>
+ * <p>Retrieves information about a direct query data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
