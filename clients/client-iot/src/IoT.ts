@@ -99,6 +99,11 @@ import {
   CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
 import {
+  CreateCertificateProviderCommand,
+  CreateCertificateProviderCommandInput,
+  CreateCertificateProviderCommandOutput,
+} from "./commands/CreateCertificateProviderCommand";
+import {
   CreateCustomMetricCommand,
   CreateCustomMetricCommandInput,
   CreateCustomMetricCommandOutput,
@@ -250,6 +255,11 @@ import {
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
+import {
+  DeleteCertificateProviderCommand,
+  DeleteCertificateProviderCommandInput,
+  DeleteCertificateProviderCommandOutput,
+} from "./commands/DeleteCertificateProviderCommand";
 import {
   DeleteCustomMetricCommand,
   DeleteCustomMetricCommandInput,
@@ -427,6 +437,11 @@ import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
+import {
+  DescribeCertificateProviderCommand,
+  DescribeCertificateProviderCommandInput,
+  DescribeCertificateProviderCommandOutput,
+} from "./commands/DescribeCertificateProviderCommand";
 import {
   DescribeCustomMetricCommand,
   DescribeCustomMetricCommandInput,
@@ -710,6 +725,11 @@ import {
   ListCACertificatesCommandInput,
   ListCACertificatesCommandOutput,
 } from "./commands/ListCACertificatesCommand";
+import {
+  ListCertificateProvidersCommand,
+  ListCertificateProvidersCommandInput,
+  ListCertificateProvidersCommandOutput,
+} from "./commands/ListCertificateProvidersCommand";
 import {
   ListCertificatesByCACommand,
   ListCertificatesByCACommandInput,
@@ -1087,6 +1107,11 @@ import {
   UpdateCertificateCommandOutput,
 } from "./commands/UpdateCertificateCommand";
 import {
+  UpdateCertificateProviderCommand,
+  UpdateCertificateProviderCommandInput,
+  UpdateCertificateProviderCommandOutput,
+} from "./commands/UpdateCertificateProviderCommand";
+import {
   UpdateCustomMetricCommand,
   UpdateCustomMetricCommandInput,
   UpdateCustomMetricCommandOutput,
@@ -1211,6 +1236,7 @@ const commands = {
   CreateAuthorizerCommand,
   CreateBillingGroupCommand,
   CreateCertificateFromCsrCommand,
+  CreateCertificateProviderCommand,
   CreateCustomMetricCommand,
   CreateDimensionCommand,
   CreateDomainConfigurationCommand,
@@ -1243,6 +1269,7 @@ const commands = {
   DeleteBillingGroupCommand,
   DeleteCACertificateCommand,
   DeleteCertificateCommand,
+  DeleteCertificateProviderCommand,
   DeleteCustomMetricCommand,
   DeleteDimensionCommand,
   DeleteDomainConfigurationCommand,
@@ -1280,6 +1307,7 @@ const commands = {
   DescribeBillingGroupCommand,
   DescribeCACertificateCommand,
   DescribeCertificateCommand,
+  DescribeCertificateProviderCommand,
   DescribeCustomMetricCommand,
   DescribeDefaultAuthorizerCommand,
   DescribeDetectMitigationActionsTaskCommand,
@@ -1339,6 +1367,7 @@ const commands = {
   ListAuthorizersCommand,
   ListBillingGroupsCommand,
   ListCACertificatesCommand,
+  ListCertificateProvidersCommand,
   ListCertificatesCommand,
   ListCertificatesByCACommand,
   ListCustomMetricsCommand,
@@ -1419,6 +1448,7 @@ const commands = {
   UpdateBillingGroupCommand,
   UpdateCACertificateCommand,
   UpdateCertificateCommand,
+  UpdateCertificateProviderCommand,
   UpdateCustomMetricCommand,
   UpdateDimensionCommand,
   UpdateDomainConfigurationCommand,
@@ -1767,6 +1797,23 @@ export interface IoT {
     args: CreateCertificateFromCsrCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCertificateFromCsrCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCertificateProviderCommand}
+   */
+  createCertificateProvider(
+    args: CreateCertificateProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCertificateProviderCommandOutput>;
+  createCertificateProvider(
+    args: CreateCertificateProviderCommandInput,
+    cb: (err: any, data?: CreateCertificateProviderCommandOutput) => void
+  ): void;
+  createCertificateProvider(
+    args: CreateCertificateProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCertificateProviderCommandOutput) => void
   ): void;
 
   /**
@@ -2266,6 +2313,23 @@ export interface IoT {
     args: DeleteCertificateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCertificateProviderCommand}
+   */
+  deleteCertificateProvider(
+    args: DeleteCertificateProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCertificateProviderCommandOutput>;
+  deleteCertificateProvider(
+    args: DeleteCertificateProviderCommandInput,
+    cb: (err: any, data?: DeleteCertificateProviderCommandOutput) => void
+  ): void;
+  deleteCertificateProvider(
+    args: DeleteCertificateProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCertificateProviderCommandOutput) => void
   ): void;
 
   /**
@@ -2850,6 +2914,23 @@ export interface IoT {
     args: DescribeCertificateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCertificateProviderCommand}
+   */
+  describeCertificateProvider(
+    args: DescribeCertificateProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCertificateProviderCommandOutput>;
+  describeCertificateProvider(
+    args: DescribeCertificateProviderCommandInput,
+    cb: (err: any, data?: DescribeCertificateProviderCommandOutput) => void
+  ): void;
+  describeCertificateProvider(
+    args: DescribeCertificateProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCertificateProviderCommandOutput) => void
   ): void;
 
   /**
@@ -3778,6 +3859,23 @@ export interface IoT {
     args: ListCACertificatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCACertificatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCertificateProvidersCommand}
+   */
+  listCertificateProviders(
+    args: ListCertificateProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCertificateProvidersCommandOutput>;
+  listCertificateProviders(
+    args: ListCertificateProvidersCommandInput,
+    cb: (err: any, data?: ListCertificateProvidersCommandOutput) => void
+  ): void;
+  listCertificateProviders(
+    args: ListCertificateProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCertificateProvidersCommandOutput) => void
   ): void;
 
   /**
@@ -5060,6 +5158,23 @@ export interface IoT {
     args: UpdateCertificateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCertificateProviderCommand}
+   */
+  updateCertificateProvider(
+    args: UpdateCertificateProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCertificateProviderCommandOutput>;
+  updateCertificateProvider(
+    args: UpdateCertificateProviderCommandInput,
+    cb: (err: any, data?: UpdateCertificateProviderCommandOutput) => void
+  ): void;
+  updateCertificateProvider(
+    args: UpdateCertificateProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCertificateProviderCommandOutput) => void
   ): void;
 
   /**

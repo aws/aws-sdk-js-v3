@@ -2103,8 +2103,7 @@ export interface MetricToRetain {
 
   /**
    * @public
-   * <p>Value added in both Behavior and AdditionalMetricsToRetainV2 to indicate if Device
-   *             Defender Detect should export the corresponding metrics.</p>
+   * <p>The value indicates exporting metrics related to the <code>MetricToRetain </code> when it's true.</p>
    */
   exportMetric?: boolean;
 }
@@ -3998,6 +3997,74 @@ export interface CreateCertificateFromCsrResponse {
    * <p>The certificate data, in PEM format.</p>
    */
   certificatePem?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateProviderOperation = {
+  CreateCertificateFromCsr: "CreateCertificateFromCsr",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateProviderOperation =
+  (typeof CertificateProviderOperation)[keyof typeof CertificateProviderOperation];
+
+/**
+ * @public
+ */
+export interface CreateCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the Lambda function that defines the authentication logic.</p>
+   */
+  lambdaFunctionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of the operations that the certificate provider will use to generate certificates.
+   *          Valid value: <code>CreateCertificateFromCsr</code>.</p>
+   */
+  accountDefaultForOperations: CertificateProviderOperation[] | undefined;
+
+  /**
+   * @public
+   * <p>A string that you can optionally pass in the <code>CreateCertificateProvider</code> request to make sure
+   *          the request is idempotent.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>Metadata which can be used to manage the certificate provider.</p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateCertificateProviderResponse {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
 }
 
 /**
@@ -7588,6 +7655,22 @@ export interface DeleteCertificateRequest {
 /**
  * @public
  */
+export interface DeleteCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateProviderResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteCustomMetricRequest {
   /**
    * @public
@@ -7597,43 +7680,6 @@ export interface DeleteCustomMetricRequest {
    */
   metricName: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteCustomMetricResponse {}
-
-/**
- * @public
- */
-export interface DeleteDimensionRequest {
-  /**
-   * @public
-   * <p>The unique identifier for the dimension that you want to delete.</p>
-   */
-  name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDimensionResponse {}
-
-/**
- * @public
- */
-export interface DeleteDomainConfigurationRequest {
-  /**
-   * @public
-   * <p>The name of the domain configuration to be deleted.</p>
-   */
-  domainConfigurationName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDomainConfigurationResponse {}
 
 /**
  * @internal

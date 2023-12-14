@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/models_1";
-import { de_DeleteDomainConfigurationCommand, se_DeleteDomainConfigurationCommand } from "../protocols/Aws_restJson1";
+import { UpdateCertificateProviderRequest, UpdateCertificateProviderResponse } from "../models/models_2";
+import { de_UpdateCertificateProviderCommand, se_UpdateCertificateProviderCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,39 +25,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDomainConfigurationCommand}.
+ * The input for {@link UpdateCertificateProviderCommand}.
  */
-export interface DeleteDomainConfigurationCommandInput extends DeleteDomainConfigurationRequest {}
+export interface UpdateCertificateProviderCommandInput extends UpdateCertificateProviderRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDomainConfigurationCommand}.
+ * The output of {@link UpdateCertificateProviderCommand}.
  */
-export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConfigurationResponse, __MetadataBearer {}
+export interface UpdateCertificateProviderCommandOutput extends UpdateCertificateProviderResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes the specified domain configuration.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDomainConfiguration</a> action.</p>
+ * <p>Updates a certificate provider.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCertificateProvider</a> action.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateCertificateProviderCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateCertificateProviderCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = { // DeleteDomainConfigurationRequest
- *   domainConfigurationName: "STRING_VALUE", // required
+ * const input = { // UpdateCertificateProviderRequest
+ *   certificateProviderName: "STRING_VALUE", // required
+ *   lambdaFunctionArn: "STRING_VALUE",
+ *   accountDefaultForOperations: [ // CertificateProviderAccountDefaultForOperations
+ *     "CreateCertificateFromCsr",
+ *   ],
  * };
- * const command = new DeleteDomainConfigurationCommand(input);
+ * const command = new UpdateCertificateProviderCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateCertificateProviderResponse
+ * //   certificateProviderName: "STRING_VALUE",
+ * //   certificateProviderArn: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteDomainConfigurationCommandInput - {@link DeleteDomainConfigurationCommandInput}
- * @returns {@link DeleteDomainConfigurationCommandOutput}
- * @see {@link DeleteDomainConfigurationCommandInput} for command's `input` shape.
- * @see {@link DeleteDomainConfigurationCommandOutput} for command's `response` shape.
+ * @param UpdateCertificateProviderCommandInput - {@link UpdateCertificateProviderCommandInput}
+ * @returns {@link UpdateCertificateProviderCommandOutput}
+ * @see {@link UpdateCertificateProviderCommandInput} for command's `input` shape.
+ * @see {@link UpdateCertificateProviderCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -82,9 +90,9 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
-export class DeleteDomainConfigurationCommand extends $Command<
-  DeleteDomainConfigurationCommandInput,
-  DeleteDomainConfigurationCommandOutput,
+export class UpdateCertificateProviderCommand extends $Command<
+  UpdateCertificateProviderCommandInput,
+  UpdateCertificateProviderCommandOutput,
   IoTClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -99,7 +107,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteDomainConfigurationCommandInput) {
+  constructor(readonly input: UpdateCertificateProviderCommandInput) {
     super();
   }
 
@@ -110,17 +118,17 @@ export class DeleteDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteDomainConfigurationCommandInput, DeleteDomainConfigurationCommandOutput> {
+  ): Handler<UpdateCertificateProviderCommandInput, UpdateCertificateProviderCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteDomainConfigurationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateCertificateProviderCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTClient";
-    const commandName = "DeleteDomainConfigurationCommand";
+    const commandName = "UpdateCertificateProviderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -129,7 +137,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSIotService",
-        operation: "DeleteDomainConfiguration",
+        operation: "UpdateCertificateProvider",
       },
     };
     const { requestHandler } = configuration;
@@ -143,8 +151,8 @@ export class DeleteDomainConfigurationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteDomainConfigurationCommand(input, context);
+  private serialize(input: UpdateCertificateProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateCertificateProviderCommand(input, context);
   }
 
   /**
@@ -153,7 +161,7 @@ export class DeleteDomainConfigurationCommand extends $Command<
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DeleteDomainConfigurationCommandOutput> {
-    return de_DeleteDomainConfigurationCommand(output, context);
+  ): Promise<UpdateCertificateProviderCommandOutput> {
+    return de_UpdateCertificateProviderCommand(output, context);
   }
 }

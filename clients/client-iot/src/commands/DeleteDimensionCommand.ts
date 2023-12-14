@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/models_0";
+import { DeleteDimensionRequest, DeleteDimensionResponse } from "../models/models_1";
 import { de_DeleteDimensionCommand, se_DeleteDimensionCommand } from "../protocols/Aws_restJson1";
 
 /**

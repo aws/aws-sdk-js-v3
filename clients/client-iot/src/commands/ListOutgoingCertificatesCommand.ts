@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListOutgoingCertificatesRequest, ListOutgoingCertificatesResponse } from "../models/models_1";
+import { ListOutgoingCertificatesRequest } from "../models/models_1";
+import { ListOutgoingCertificatesResponse } from "../models/models_2";
 import { de_ListOutgoingCertificatesCommand, se_ListOutgoingCertificatesCommand } from "../protocols/Aws_restJson1";
 
 /**

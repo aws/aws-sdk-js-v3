@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListPackagesRequest, ListPackagesResponse } from "../models/models_1";
+import { ListPackagesRequest, ListPackagesResponse } from "../models/models_2";
 import { de_ListPackagesCommand, se_ListPackagesCommand } from "../protocols/Aws_restJson1";
 
 /**

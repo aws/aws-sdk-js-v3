@@ -33,6 +33,7 @@ import {
   AwsJobPresignedUrlConfig,
   Behavior,
   BillingGroupProperties,
+  CertificateProviderOperation,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
@@ -67,6 +68,43 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteCustomMetricResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDimensionRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the dimension that you want to delete.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDimensionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDomainConfigurationRequest {
+  /**
+   * @public
+   * <p>The name of the domain configuration to be deleted.</p>
+   */
+  domainConfigurationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainConfigurationResponse {}
 
 /**
  * @public
@@ -1373,6 +1411,59 @@ export interface DescribeCertificateResponse {
    * <p>The description of the certificate.</p>
    */
   certificateDescription?: CertificateDescription;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateProviderResponse {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
+
+  /**
+   * @public
+   * <p>The Lambda function ARN that's associated with the certificate provider.</p>
+   */
+  lambdaFunctionArn?: string;
+
+  /**
+   * @public
+   * <p>A list of the operations that the certificate provider will use to generate certificates.
+   *          Valid value: <code>CreateCertificateFromCsr</code>.</p>
+   */
+  accountDefaultForOperations?: CertificateProviderOperation[];
+
+  /**
+   * @public
+   * <p>The date-time string that indicates when the certificate provider was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * @public
+   * <p>The date-time string that indicates when the certificate provider was last updated.</p>
+   */
+  lastModifiedDate?: Date;
 }
 
 /**
@@ -5974,6 +6065,58 @@ export interface ListCACertificatesResponse {
 
 /**
  * @public
+ */
+export interface ListCertificateProvidersRequest {
+  /**
+   * @public
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Returns the list of certificate providers in ascending alphabetical order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ * <p>The certificate provider summary.</p>
+ */
+export interface CertificateProviderSummary {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateProvidersResponse {
+  /**
+   * @public
+   * <p>The list of certificate providers in your Amazon Web Services account.</p>
+   */
+  certificateProviders?: CertificateProviderSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  * <p>The input for the ListCertificates operation.</p>
  */
 export interface ListCertificatesRequest {
@@ -7324,256 +7467,6 @@ export interface ListOutgoingCertificatesRequest {
    *          order, based on the creation date.</p>
    */
   ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>A certificate that has been transferred but not yet accepted.</p>
- */
-export interface OutgoingCertificate {
-  /**
-   * @public
-   * <p>The certificate ARN.</p>
-   */
-  certificateArn?: string;
-
-  /**
-   * @public
-   * <p>The certificate ID.</p>
-   */
-  certificateId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account to which the transfer was made.</p>
-   */
-  transferredTo?: string;
-
-  /**
-   * @public
-   * <p>The date the transfer was initiated.</p>
-   */
-  transferDate?: Date;
-
-  /**
-   * @public
-   * <p>The transfer message.</p>
-   */
-  transferMessage?: string;
-
-  /**
-   * @public
-   * <p>The certificate creation date.</p>
-   */
-  creationDate?: Date;
-}
-
-/**
- * @public
- * <p>The output from the ListOutgoingCertificates operation.</p>
- */
-export interface ListOutgoingCertificatesResponse {
-  /**
-   * @public
-   * <p>The certificates that are being transferred but not yet accepted.</p>
-   */
-  outgoingCertificates?: OutgoingCertificate[];
-
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- */
-export interface ListPackagesRequest {
-  /**
-   * @public
-   * <p>The maximum number of results returned at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>A summary of information about a software package.</p>
- */
-export interface PackageSummary {
-  /**
-   * @public
-   * <p>The name for the target software package.</p>
-   */
-  packageName?: string;
-
-  /**
-   * @public
-   * <p>The name of the default package version.</p>
-   */
-  defaultVersionName?: string;
-
-  /**
-   * @public
-   * <p>The date that the package was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * @public
-   * <p>The date that the package was last updated.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-/**
- * @public
- */
-export interface ListPackagesResponse {
-  /**
-   * @public
-   * <p>The software package summary.</p>
-   */
-  packageSummaries?: PackageSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPackageVersionsRequest {
-  /**
-   * @public
-   * <p>The name of the target software package.</p>
-   */
-  packageName: string | undefined;
-
-  /**
-   * @public
-   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
-   */
-  status?: PackageVersionStatus;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>A summary of information about a package version.</p>
- */
-export interface PackageVersionSummary {
-  /**
-   * @public
-   * <p>The name of the associated software package.</p>
-   */
-  packageName?: string;
-
-  /**
-   * @public
-   * <p>The name of the target package version.</p>
-   */
-  versionName?: string;
-
-  /**
-   * @public
-   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
-   */
-  status?: PackageVersionStatus;
-
-  /**
-   * @public
-   * <p>The date that the package version was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * @public
-   * <p>The date that the package version was last updated.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-/**
- * @public
- */
-export interface ListPackageVersionsResponse {
-  /**
-   * @public
-   * <p>Lists the package versions associated to the package.</p>
-   */
-  packageVersionSummaries?: PackageVersionSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>The input for the ListPolicies operation.</p>
- */
-export interface ListPoliciesRequest {
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * @public
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * @public
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>The output from the ListPolicies operation.</p>
- */
-export interface ListPoliciesResponse {
-  /**
-   * @public
-   * <p>The descriptions of the policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
-   * @public
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
 }
 
 /**

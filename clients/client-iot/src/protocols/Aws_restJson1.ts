@@ -89,6 +89,10 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "../commands/CreateCertificateFromCsrCommand";
+import {
+  CreateCertificateProviderCommandInput,
+  CreateCertificateProviderCommandOutput,
+} from "../commands/CreateCertificateProviderCommand";
 import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "../commands/CreateCustomMetricCommand";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "../commands/CreateDimensionCommand";
 import {
@@ -166,6 +170,10 @@ import {
   DeleteCACertificateCommandOutput,
 } from "../commands/DeleteCACertificateCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
+import {
+  DeleteCertificateProviderCommandInput,
+  DeleteCertificateProviderCommandOutput,
+} from "../commands/DeleteCertificateProviderCommand";
 import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "../commands/DeleteCustomMetricCommand";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "../commands/DeleteDimensionCommand";
 import {
@@ -260,6 +268,10 @@ import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "../commands/DescribeCertificateCommand";
+import {
+  DescribeCertificateProviderCommandInput,
+  DescribeCertificateProviderCommandOutput,
+} from "../commands/DescribeCertificateProviderCommand";
 import {
   DescribeCustomMetricCommandInput,
   DescribeCustomMetricCommandOutput,
@@ -412,6 +424,10 @@ import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "../comm
 import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "../commands/ListAuthorizersCommand";
 import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "../commands/ListBillingGroupsCommand";
 import { ListCACertificatesCommandInput, ListCACertificatesCommandOutput } from "../commands/ListCACertificatesCommand";
+import {
+  ListCertificateProvidersCommandInput,
+  ListCertificateProvidersCommandOutput,
+} from "../commands/ListCertificateProvidersCommand";
 import {
   ListCertificatesByCACommandInput,
   ListCertificatesByCACommandOutput,
@@ -645,6 +661,10 @@ import {
   UpdateCACertificateCommandOutput,
 } from "../commands/UpdateCACertificateCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "../commands/UpdateCertificateCommand";
+import {
+  UpdateCertificateProviderCommandInput,
+  UpdateCertificateProviderCommandOutput,
+} from "../commands/UpdateCertificateProviderCommand";
 import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "../commands/UpdateCustomMetricCommand";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "../commands/UpdateDimensionCommand";
 import {
@@ -742,6 +762,7 @@ import {
   Behavior,
   BehaviorCriteria,
   BillingGroupProperties,
+  CertificateProviderOperation,
   CertificateStateException,
   CertificateValidationException,
   CloudwatchAlarmAction,
@@ -879,9 +900,6 @@ import {
   NotConfiguredException,
   OTAUpdateInfo,
   OTAUpdateSummary,
-  OutgoingCertificate,
-  PackageSummary,
-  PackageVersionSummary,
   PercentPair,
   RegistrationConfig,
   RoleAliasDescription,
@@ -904,6 +922,9 @@ import {
   LoggingOptionsPayload,
   LogTarget,
   MqttContext,
+  OutgoingCertificate,
+  PackageSummary,
+  PackageVersionSummary,
   PolicyVersion,
   ProvisioningTemplateSummary,
   ProvisioningTemplateVersionSummary,
@@ -1556,6 +1577,48 @@ export const se_CreateCertificateFromCsrCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1CreateCertificateProviderCommand
+ */
+export const se_CreateCertificateProviderCommand = async (
+  input: CreateCertificateProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/certificate-providers/{certificateProviderName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "certificateProviderName",
+    () => input.certificateProviderName!,
+    "{certificateProviderName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountDefaultForOperations: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      lambdaFunctionArn: [],
+      tags: (_) => _json(_),
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2719,6 +2782,38 @@ export const se_DeleteCertificateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteCertificateProviderCommand
+ */
+export const se_DeleteCertificateProviderCommand = async (
+  input: DeleteCertificateProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/certificate-providers/{certificateProviderName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "certificateProviderName",
+    () => input.certificateProviderName!,
+    "{certificateProviderName}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DeleteCustomMetricCommand
  */
 export const se_DeleteCustomMetricCommand = async (
@@ -3775,6 +3870,38 @@ export const se_DescribeCertificateCommand = async (
     "certificateId",
     () => input.certificateId!,
     "{certificateId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeCertificateProviderCommand
+ */
+export const se_DescribeCertificateProviderCommand = async (
+  input: DescribeCertificateProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/certificate-providers/{certificateProviderName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "certificateProviderName",
+    () => input.certificateProviderName!,
+    "{certificateProviderName}",
     false
   );
   let body: any;
@@ -5441,6 +5568,33 @@ export const se_ListCACertificatesCommand = async (
     marker: [, input.marker!],
     isAscendingOrder: [() => input.ascendingOrder !== void 0, () => input.ascendingOrder!.toString()],
     templateName: [, input.templateName!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListCertificateProvidersCommand
+ */
+export const se_ListCertificateProvidersCommand = async (
+  input: ListCertificateProvidersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/certificate-providers";
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    isAscendingOrder: [() => input.ascendingOrder !== void 0, () => input.ascendingOrder!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -7991,6 +8145,46 @@ export const se_UpdateCertificateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateCertificateProviderCommand
+ */
+export const se_UpdateCertificateProviderCommand = async (
+  input: UpdateCertificateProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/certificate-providers/{certificateProviderName}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "certificateProviderName",
+    () => input.certificateProviderName!,
+    "{certificateProviderName}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountDefaultForOperations: (_) => _json(_),
+      lambdaFunctionArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateCustomMetricCommand
  */
 export const se_UpdateCustomMetricCommand = async (
@@ -9911,6 +10105,72 @@ const de_CreateCertificateFromCsrCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iot#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iot#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateCertificateProviderCommand
+ */
+export const de_CreateCertificateProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCertificateProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateCertificateProviderCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    certificateProviderArn: __expectString,
+    certificateProviderName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCertificateProviderCommandError
+ */
+const de_CreateCertificateProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCertificateProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iot#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.iot#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -11917,6 +12177,67 @@ const de_DeleteCertificateCommandError = async (
     case "CertificateStateException":
     case "com.amazonaws.iot#CertificateStateException":
       throw await de_CertificateStateExceptionRes(parsedOutput, context);
+    case "DeleteConflictException":
+    case "com.amazonaws.iot#DeleteConflictException":
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iot#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iot#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteCertificateProviderCommand
+ */
+export const de_DeleteCertificateProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCertificateProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteCertificateProviderCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCertificateProviderCommandError
+ */
+const de_DeleteCertificateProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCertificateProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot#DeleteConflictException":
       throw await de_DeleteConflictExceptionRes(parsedOutput, context);
@@ -14005,6 +14326,73 @@ const de_DescribeCertificateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iot#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iot#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeCertificateProviderCommand
+ */
+export const de_DescribeCertificateProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCertificateProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeCertificateProviderCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountDefaultForOperations: _json,
+    certificateProviderArn: __expectString,
+    certificateProviderName: __expectString,
+    creationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lambdaFunctionArn: __expectString,
+    lastModifiedDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeCertificateProviderCommandError
+ */
+const de_DescribeCertificateProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCertificateProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -17607,6 +17995,66 @@ const de_ListCACertificatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCACertificatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iot#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iot#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCertificateProvidersCommand
+ */
+export const de_ListCertificateProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCertificateProvidersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCertificateProvidersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    certificateProviders: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCertificateProvidersCommandError
+ */
+const de_ListCertificateProvidersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCertificateProvidersCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -22317,6 +22765,69 @@ const de_UpdateCertificateCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateCertificateProviderCommand
+ */
+export const de_UpdateCertificateProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCertificateProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateCertificateProviderCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    certificateProviderArn: __expectString,
+    certificateProviderName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCertificateProviderCommandError
+ */
+const de_UpdateCertificateProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCertificateProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iot#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iot#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateCustomMetricCommand
  */
 export const de_UpdateCustomMetricCommand = async (
@@ -24429,6 +24940,8 @@ const se_Behaviors = (input: Behavior[], context: __SerdeContext): any => {
 
 // se_BucketsAggregationType omitted.
 
+// se_CertificateProviderAccountDefaultForOperations omitted.
+
 // se_Cidrs omitted.
 
 // se_ClientProperties omitted.
@@ -25286,6 +25799,12 @@ const de_CertificateDescription = (output: any, context: __SerdeContext): Certif
     validity: (_: any) => de_CertificateValidity(_, context),
   }) as any;
 };
+
+// de_CertificateProviderAccountDefaultForOperations omitted.
+
+// de_CertificateProviders omitted.
+
+// de_CertificateProviderSummary omitted.
 
 /**
  * deserializeAws_restJson1Certificates

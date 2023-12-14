@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCustomMetricRequest, DeleteCustomMetricResponse } from "../models/models_0";
+import { DeleteCustomMetricRequest } from "../models/models_0";
+import { DeleteCustomMetricResponse } from "../models/models_1";
 import { de_DeleteCustomMetricCommand, se_DeleteCustomMetricCommand } from "../protocols/Aws_restJson1";
 
 /**
