@@ -199,6 +199,9 @@ export class WriteGetObjectResponseCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "WriteGetObjectResponse",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: WriteGetObjectResponseCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

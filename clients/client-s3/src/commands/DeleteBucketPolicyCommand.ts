@@ -192,6 +192,9 @@ export class DeleteBucketPolicyCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketPolicy",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketPolicyCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

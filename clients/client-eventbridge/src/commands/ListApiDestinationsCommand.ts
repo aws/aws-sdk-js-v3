@@ -132,6 +132,9 @@ export class ListApiDestinationsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "ListApiDestinations",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListApiDestinationsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

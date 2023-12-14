@@ -166,6 +166,9 @@ export class GetPublicAccessBlockCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetPublicAccessBlock",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetPublicAccessBlockCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

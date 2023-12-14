@@ -237,6 +237,9 @@ export class GetObjectAclCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObjectAcl",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectAclCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

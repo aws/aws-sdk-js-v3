@@ -285,6 +285,9 @@ export class ListObjectsV2Command extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "ListObjectsV2",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListObjectsV2Command.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

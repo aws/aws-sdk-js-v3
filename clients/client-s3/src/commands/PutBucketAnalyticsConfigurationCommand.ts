@@ -261,6 +261,9 @@ export class PutBucketAnalyticsConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketAnalyticsConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketAnalyticsConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

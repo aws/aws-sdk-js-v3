@@ -249,6 +249,9 @@ export class PutBucketCorsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketCors",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketCorsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

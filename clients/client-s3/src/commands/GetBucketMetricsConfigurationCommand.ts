@@ -183,6 +183,9 @@ export class GetBucketMetricsConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketMetricsConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketMetricsConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

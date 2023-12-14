@@ -302,6 +302,9 @@ export class PutBucketWebsiteCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketWebsite",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketWebsiteCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

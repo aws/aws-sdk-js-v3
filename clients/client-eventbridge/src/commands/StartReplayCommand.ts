@@ -148,6 +148,9 @@ export class StartReplayCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "StartReplay",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: StartReplayCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

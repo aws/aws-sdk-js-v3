@@ -146,6 +146,9 @@ export class PutObjectRetentionCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutObjectRetention",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutObjectRetentionCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

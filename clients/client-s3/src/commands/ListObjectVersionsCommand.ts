@@ -263,6 +263,9 @@ export class ListObjectVersionsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "ListObjectVersions",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListObjectVersionsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

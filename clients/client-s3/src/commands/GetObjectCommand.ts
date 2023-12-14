@@ -403,6 +403,9 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetObject",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetObjectCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

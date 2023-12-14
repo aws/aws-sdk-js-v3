@@ -353,6 +353,9 @@ export class CompleteMultipartUploadCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "CompleteMultipartUpload",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: CompleteMultipartUploadCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

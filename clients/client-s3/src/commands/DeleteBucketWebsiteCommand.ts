@@ -157,6 +157,9 @@ export class DeleteBucketWebsiteCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketWebsite",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketWebsiteCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

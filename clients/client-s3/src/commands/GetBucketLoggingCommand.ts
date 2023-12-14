@@ -160,6 +160,9 @@ export class GetBucketLoggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketLogging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketLoggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

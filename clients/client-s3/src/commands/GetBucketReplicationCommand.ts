@@ -245,6 +245,9 @@ export class GetBucketReplicationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketReplication",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketReplicationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

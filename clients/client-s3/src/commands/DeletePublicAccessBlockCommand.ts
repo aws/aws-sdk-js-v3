@@ -150,6 +150,9 @@ export class DeletePublicAccessBlockCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeletePublicAccessBlock",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeletePublicAccessBlockCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

@@ -165,6 +165,9 @@ export class GetBucketVersioningCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketVersioning",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketVersioningCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

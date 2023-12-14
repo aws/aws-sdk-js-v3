@@ -309,6 +309,9 @@ export class CreateBucketCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "CreateBucket",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: CreateBucketCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

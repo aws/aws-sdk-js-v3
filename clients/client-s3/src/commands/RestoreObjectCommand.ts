@@ -497,6 +497,9 @@ export class RestoreObjectCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "RestoreObject",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: RestoreObjectCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

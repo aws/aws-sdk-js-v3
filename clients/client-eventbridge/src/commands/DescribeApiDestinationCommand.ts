@@ -128,6 +128,9 @@ export class DescribeApiDestinationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "DescribeApiDestination",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DescribeApiDestinationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

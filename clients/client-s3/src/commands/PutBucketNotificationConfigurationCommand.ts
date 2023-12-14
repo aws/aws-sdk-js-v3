@@ -259,6 +259,9 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketNotificationConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketNotificationConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

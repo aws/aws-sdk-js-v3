@@ -194,6 +194,9 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketMetricsConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketMetricsConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

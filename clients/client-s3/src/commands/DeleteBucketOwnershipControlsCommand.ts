@@ -144,6 +144,9 @@ export class DeleteBucketOwnershipControlsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketOwnershipControls",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketOwnershipControlsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

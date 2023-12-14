@@ -166,6 +166,9 @@ export class GetBucketLocationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketLocation",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketLocationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

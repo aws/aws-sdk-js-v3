@@ -180,6 +180,9 @@ export class DeleteObjectTaggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteObjectTagging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteObjectTaggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

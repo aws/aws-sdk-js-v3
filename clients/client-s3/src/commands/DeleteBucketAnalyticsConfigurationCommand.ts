@@ -154,6 +154,9 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketAnalyticsConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketAnalyticsConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

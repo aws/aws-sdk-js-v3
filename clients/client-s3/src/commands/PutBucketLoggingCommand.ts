@@ -267,6 +267,9 @@ export class PutBucketLoggingCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketLogging",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketLoggingCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

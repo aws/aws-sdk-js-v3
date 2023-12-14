@@ -213,6 +213,10 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketIntelligentTieringConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions:
+            PutBucketIntelligentTieringConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

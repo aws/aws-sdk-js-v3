@@ -133,6 +133,9 @@ export class UpdateArchiveCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "UpdateArchive",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: UpdateArchiveCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

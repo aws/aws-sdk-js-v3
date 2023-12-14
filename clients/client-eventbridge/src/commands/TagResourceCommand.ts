@@ -142,6 +142,9 @@ export class TagResourceCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "TagResource",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: TagResourceCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

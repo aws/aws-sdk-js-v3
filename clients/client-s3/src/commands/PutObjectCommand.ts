@@ -459,6 +459,9 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutObject",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutObjectCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

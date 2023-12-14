@@ -158,6 +158,9 @@ export class DeleteBucketReplicationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "DeleteBucketReplication",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: DeleteBucketReplicationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

@@ -211,6 +211,9 @@ export class AbortMultipartUploadCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "AbortMultipartUpload",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: AbortMultipartUploadCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

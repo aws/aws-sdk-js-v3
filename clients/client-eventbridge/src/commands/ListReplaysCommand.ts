@@ -132,6 +132,9 @@ export class ListReplaysCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "ListReplays",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: ListReplaysCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

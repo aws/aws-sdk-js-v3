@@ -157,6 +157,9 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketAccelerateConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketAccelerateConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

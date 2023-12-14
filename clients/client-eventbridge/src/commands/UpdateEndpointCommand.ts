@@ -165,6 +165,9 @@ export class UpdateEndpointCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSEvents",
         operation: "UpdateEndpoint",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: UpdateEndpointCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

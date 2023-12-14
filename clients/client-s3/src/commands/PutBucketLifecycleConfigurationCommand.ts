@@ -314,6 +314,9 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketLifecycleConfiguration",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketLifecycleConfigurationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

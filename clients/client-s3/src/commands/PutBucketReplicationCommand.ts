@@ -292,6 +292,9 @@ export class PutBucketReplicationCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "PutBucketReplication",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: PutBucketReplicationCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;

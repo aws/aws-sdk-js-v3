@@ -149,6 +149,9 @@ export class GetBucketOwnershipControlsCommand extends $Command<
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonS3",
         operation: "GetBucketOwnershipControls",
+        endpointRuleSet: {
+          getEndpointParameterInstructions: GetBucketOwnershipControlsCommand.getEndpointParameterInstructions,
+        },
       },
     };
     const { requestHandler } = configuration;
