@@ -60,6 +60,12 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  *   Name: "STRING_VALUE",
  *   PlayerSessionCreationPolicy: "ACCEPT_ALL" || "DENY_ALL",
  *   ProtectionPolicy: "NoProtection" || "FullProtection",
+ *   GameProperties: [ // GamePropertyList
+ *     { // GameProperty
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateGameSessionCommand(input);
  * const response = await client.send(command);

@@ -329,6 +329,18 @@ export interface UpdateGameSessionInput {
    *          </ul>
    */
   ProtectionPolicy?: ProtectionPolicy;
+
+  /**
+   * @public
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
+   *         You can use this parameter to modify game properties in an active game session.
+   *         This action adds new properties and modifies existing properties.
+   *         There is no way to delete properties.
+   *         For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update the value of a game property</a>.
+   *       </p>
+   */
+  GameProperties?: GameProperty[];
 }
 
 /**
@@ -498,7 +510,8 @@ export interface UpdateMatchmakingConfigurationInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <code>GameSession</code> object that is
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
    */

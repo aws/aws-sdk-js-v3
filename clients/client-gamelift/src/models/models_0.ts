@@ -2877,11 +2877,15 @@ export interface CreateGameServerGroupOutput {
 
 /**
  * @public
- * <p>Set of key-value pairs that contain information about a game session. When included in
- *             a game session request, these properties communicate details to be used when setting up
- *             the new game session. For example, a game property might specify a game mode, level, or
- *             map. Game properties are passed to the game server process when initiating a new game
- *             session. For more information, see the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create"> Amazon GameLift Developer Guide</a>.</p>
+ * <p>This key-value pair can store custom data about a game session.
+ *         For example, you might use a <code>GameProperty</code> to track a game session's map, level of difficulty, or remaining time.
+ *         The difficulty level could be specified like this: <code>\{"Key": "difficulty", "Value":"Novice"\}</code>.
+ *       </p>
+ *          <p>
+ *           You can set game properties when creating a game session. You can also modify game properties of an active game session. When searching for game sessions, you can filter on game property keys and values. You can't delete game properties from a game session.
+ *       </p>
+ *          <p>For examples of working with game properties, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties">Create a game session with properties</a>.
+ *       </p>
  */
 export interface GameProperty {
   /**
@@ -2930,7 +2934,10 @@ export interface CreateGameSessionInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
+   *           For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-create">Create a game session with custom properties</a>.
+   *         </p>
    */
   GameProperties?: GameProperty[];
 
@@ -3116,7 +3123,8 @@ export interface GameSession {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    */
   GameProperties?: GameProperty[];
 
@@ -3715,7 +3723,8 @@ export interface CreateMatchmakingConfigurationInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <code>GameSession</code> object that is
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
    */
@@ -3872,7 +3881,8 @@ export interface MatchmakingConfiguration {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <code>GameSession</code> object that is
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
@@ -5466,18 +5476,19 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT -- The server process did not call
-   *                     InitSDK() within the time expected. Check your game session log to see why
-   *                     InitSDK() was not called in time.</p>
+   *                         <code>InitSDK()</code> within the time expected (5 minutes). Check your game
+   *                     session log to see why <code>InitSDK()</code> was not called in time.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_PROCESS_READY_TIMEOUT -- The server process did not call
-   *                     ProcessReady() within the time expected after calling InitSDK(). Check your game
-   *                     session log to see why ProcessReady() was not called in time.</p>
+   *                         <code>ProcessReady()</code> within the time expected  (5 minutes) after
+   *                     calling <code>InitSDK()</code>. Check your game session log to see why
+   *                         <code>ProcessReady()</code> was not called in time.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_CRASHED -- The server process exited without calling
-   *                     ProcessEnding(). Check your game session log to see why ProcessEnding() was not
-   *                     called.</p>
+   *                         <code>ProcessEnding()</code>. Check your game session log to see why
+   *                         <code>ProcessEnding()</code> was not called.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_TERMINATED_UNHEALTHY -- The server process did not report a
@@ -5487,13 +5498,14 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_FORCE_TERMINATED -- The server process did not exit cleanly
-   *                     after OnProcessTerminate() was sent within the time expected. Check your game
-   *                     session log to see why termination took longer than expected.</p>
+   *                     within the time expected after <code>OnProcessTerminate()</code> was sent. Check
+   *                     your game session log to see why termination took longer than expected.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_PROCESS_EXIT_TIMEOUT -- The server process did not exit cleanly
-   *                     within the time expected after calling ProcessEnding(). Check your game session
-   *                     log to see why termination took longer than expected.</p>
+   *                     within the time expected (30 seconds) after calling
+   *                     <code>ProcessEnding()</code>. Check your game session log to see why termination
+   *                     took longer than expected.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -5502,8 +5514,9 @@ export interface Event {
    *          <ul>
    *             <li>
    *                <p>GAME_SESSION_ACTIVATION_TIMEOUT -- GameSession failed to activate within the
-   *                     expected time. Check your game session log to see why ActivateGameSession() took
-   *                     longer to complete than expected.</p>
+   *                     expected time. Check your game session log to see why
+   *                         <code>ActivateGameSession()</code> took longer to complete than
+   *                     expected.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -6289,7 +6302,8 @@ export interface GameSessionPlacement {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    */
   GameProperties?: GameProperty[];
 
@@ -9010,7 +9024,8 @@ export interface StartGameSessionPlacementInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    */
   GameProperties?: GameProperty[];
 
