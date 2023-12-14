@@ -1,5 +1,4 @@
 // smithy-typescript generated code
-import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
@@ -296,7 +295,6 @@ export class AssumeRoleCommand extends $Command<
   ): Handler<AssumeRoleCommandInput, AssumeRoleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getEndpointPlugin(configuration, AssumeRoleCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
