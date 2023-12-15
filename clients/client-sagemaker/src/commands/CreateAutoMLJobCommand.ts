@@ -46,7 +46,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *             non-tabular problem types such as image or text classification, and text generation
  *             (LLMs fine-tuning).</p>
  *             <p>Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to
- *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
+ *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
  *          </note>
  *          <p>You can find the best-performing model after you run an AutoML job by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a> (recommended) or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>.</p>
  * @example
@@ -78,7 +78,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *   },
  *   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  *   },
  *   AutoMLJobConfig: { // AutoMLJobConfig
  *     CompletionCriteria: { // AutoMLJobCompletionCriteria
@@ -98,9 +98,6 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *         ],
  *       },
  *     },
- *     DataSplitConfig: { // AutoMLDataSplitConfig
- *       ValidationFraction: Number("float"),
- *     },
  *     CandidateGenerationConfig: { // AutoMLCandidateGenerationConfig
  *       FeatureSpecificationS3Uri: "STRING_VALUE",
  *       AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
@@ -110,6 +107,9 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *           ],
  *         },
  *       ],
+ *     },
+ *     DataSplitConfig: { // AutoMLDataSplitConfig
+ *       ValidationFraction: Number("float"),
  *     },
  *     Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
  *   },

@@ -48,7 +48,7 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *             non-tabular problem types such as image or text classification, and text generation
  *             (LLMs fine-tuning).</p>
  *             <p>Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to
- *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
+ *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
  *          </note>
  *          <p>For the list of available problem types supported by <code>CreateAutoMLJobV2</code>, see
  *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html">AutoMLProblemTypeConfig</a>.</p>
@@ -95,28 +95,6 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *       ContentColumn: "STRING_VALUE", // required
  *       TargetLabelColumn: "STRING_VALUE", // required
  *     },
- *     TabularJobConfig: { // TabularJobConfig
- *       CandidateGenerationConfig: { // CandidateGenerationConfig
- *         AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
- *           { // AutoMLAlgorithmConfig
- *             AutoMLAlgorithms: [ // AutoMLAlgorithms // required
- *               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
- *             ],
- *           },
- *         ],
- *       },
- *       CompletionCriteria: {
- *         MaxCandidates: Number("int"),
- *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
- *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
- *       },
- *       FeatureSpecificationS3Uri: "STRING_VALUE",
- *       Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
- *       GenerateCandidateDefinitionsOnly: true || false,
- *       ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
- *       TargetAttributeName: "STRING_VALUE", // required
- *       SampleWeightAttributeName: "STRING_VALUE",
- *     },
  *     TimeSeriesForecastingJobConfig: { // TimeSeriesForecastingJobConfig
  *       FeatureSpecificationS3Uri: "STRING_VALUE",
  *       CompletionCriteria: {
@@ -153,6 +131,28 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *         },
  *       ],
  *     },
+ *     TabularJobConfig: { // TabularJobConfig
+ *       CandidateGenerationConfig: { // CandidateGenerationConfig
+ *         AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
+ *           { // AutoMLAlgorithmConfig
+ *             AutoMLAlgorithms: [ // AutoMLAlgorithms // required
+ *               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       CompletionCriteria: {
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *       FeatureSpecificationS3Uri: "STRING_VALUE",
+ *       Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
+ *       GenerateCandidateDefinitionsOnly: true || false,
+ *       ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ *       TargetAttributeName: "STRING_VALUE", // required
+ *       SampleWeightAttributeName: "STRING_VALUE",
+ *     },
  *     TextGenerationJobConfig: { // TextGenerationJobConfig
  *       CompletionCriteria: {
  *         MaxCandidates: Number("int"),
@@ -162,6 +162,9 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *       BaseModelName: "STRING_VALUE",
  *       TextGenerationHyperParameters: { // TextGenerationHyperParameters
  *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ModelAccessConfig: { // ModelAccessConfig
+ *         AcceptEula: true || false, // required
  *       },
  *     },
  *   },
@@ -185,7 +188,7 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *     },
  *   },
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  *   },
  *   ModelDeployConfig: { // ModelDeployConfig
  *     AutoGenerateEndpointName: true || false,

@@ -47,7 +47,7 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * const input = { // UpdateArtifactRequest
  *   ArtifactArn: "STRING_VALUE", // required
  *   ArtifactName: "STRING_VALUE",
- *   Properties: { // LineageEntityParameters
+ *   Properties: { // ArtifactProperties
  *     "<keys>": "STRING_VALUE",
  *   },
  *   PropertiesToRemove: [ // ListLineageEntityParameterKey

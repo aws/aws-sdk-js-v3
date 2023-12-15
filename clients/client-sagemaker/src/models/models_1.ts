@@ -1223,15 +1223,15 @@ export interface UserSettings {
 
   /**
    * @public
-   * <p>The settings for the JupyterLab application.</p>
-   */
-  JupyterLabAppSettings?: JupyterLabAppSettings;
-
-  /**
-   * @public
    * <p>The Code Editor application settings.</p>
    */
   CodeEditorAppSettings?: CodeEditorAppSettings;
+
+  /**
+   * @public
+   * <p>The settings for the JupyterLab application.</p>
+   */
+  JupyterLabAppSettings?: JupyterLabAppSettings;
 
   /**
    * @public
@@ -1380,6 +1380,12 @@ export interface CreateDomainRequest {
 
   /**
    * @public
+   * <p>A collection of <code>Domain</code> settings.</p>
+   */
+  DomainSettings?: DomainSettings;
+
+  /**
+   * @public
    * <p>The VPC subnets that the domain uses for communication.</p>
    */
   SubnetIds: string[] | undefined;
@@ -1443,12 +1449,6 @@ export interface CreateDomainRequest {
    *                 <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
-
-  /**
-   * @public
-   * <p>A collection of <code>Domain</code> settings.</p>
-   */
-  DomainSettings?: DomainSettings;
 
   /**
    * @public
@@ -1762,16 +1762,16 @@ export interface DeploymentConfig {
 
   /**
    * @public
+   * <p>Specifies a rolling deployment strategy for updating a SageMaker endpoint.</p>
+   */
+  RollingUpdatePolicy?: RollingUpdatePolicy;
+
+  /**
+   * @public
    * <p>Automatic rollback configuration for handling endpoint deployment failures and
    *             recovery.</p>
    */
   AutoRollbackConfiguration?: AutoRollbackConfig;
-
-  /**
-   * @public
-   * <p>Specifies a rolling deployment strategy for updating a SageMaker endpoint.</p>
-   */
-  RollingUpdatePolicy?: RollingUpdatePolicy;
 }
 
 /**
@@ -2416,13 +2416,13 @@ export interface FeatureDefinition {
    *          of the following: <code>is_deleted</code>, <code>write_time</code>,
    *             <code>api_invocation_time</code>.</p>
    */
-  FeatureName?: string;
+  FeatureName: string | undefined;
 
   /**
    * @public
    * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
    */
-  FeatureType?: FeatureType;
+  FeatureType: FeatureType | undefined;
 
   /**
    * @public
@@ -2523,6 +2523,7 @@ export interface S3StorageConfig {
  * @enum
  */
 export const TableFormat = {
+  DEFAULT: "Default",
   GLUE: "Glue",
   ICEBERG: "Iceberg",
 } as const;
@@ -3714,7 +3715,7 @@ export interface CreateFlowDefinitionRequest {
    * @public
    * <p>An object containing information about the tasks the human reviewers will perform.</p>
    */
-  HumanLoopConfig: HumanLoopConfig | undefined;
+  HumanLoopConfig?: HumanLoopConfig;
 
   /**
    * @public
@@ -4560,6 +4561,17 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * @public
+   * <p>The configuration for the hyperparameter tuning resources, including the compute
+   *             instances and storage volumes, used for training jobs launched by the tuning job. By
+   *             default, storage volumes hold model artifacts and incremental states. Choose
+   *                 <code>File</code> for <code>TrainingInputMode</code> in the
+   *                 <code>AlgorithmSpecification</code> parameter to additionally store training data in
+   *             the storage volume (optional).</p>
+   */
+  HyperParameterTuningResourceConfig?: HyperParameterTuningResourceConfig;
+
+  /**
+   * @public
    * <p>Specifies a limit to how long a model hyperparameter training job can run. It also
    *             specifies how long a managed spot training job has to complete. When the job reaches the
    *             time limit, SageMaker ends the training job. Use this API to cap model training costs.</p>
@@ -4606,17 +4618,6 @@ export interface HyperParameterTrainingJobDefinition {
    *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
-
-  /**
-   * @public
-   * <p>The configuration for the hyperparameter tuning resources, including the compute
-   *             instances and storage volumes, used for training jobs launched by the tuning job. By
-   *             default, storage volumes hold model artifacts and incremental states. Choose
-   *                 <code>File</code> for <code>TrainingInputMode</code> in the
-   *                 <code>AlgorithmSpecification</code> parameter to additionally store training data in
-   *             the storage volume (optional).</p>
-   */
-  HyperParameterTuningResourceConfig?: HyperParameterTuningResourceConfig;
 
   /**
    * @public
@@ -5786,19 +5787,19 @@ export interface RecommendationJobContainerConfig {
 
   /**
    * @public
-   * <p>Specifies the name and shape of the expected data inputs for your trained model with a JSON dictionary form.
-   *          This field is used for optimizing your model using SageMaker Neo. For more information, see
-   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.</p>
-   */
-  DataInputConfig?: string;
-
-  /**
-   * @public
    * <p>The endpoint type to receive recommendations for. By default this is null, and the results of
    *          the inference recommendation job return a combined list of both real-time and serverless benchmarks.
    *          By specifying a value for this field, you can receive a longer list of benchmarks for the desired endpoint type.</p>
    */
   SupportedEndpointType?: RecommendationJobSupportedEndpointType;
+
+  /**
+   * @public
+   * <p>Specifies the name and shape of the expected data inputs for your trained model with a JSON dictionary form.
+   *          This field is used for optimizing your model using SageMaker Neo. For more information, see
+   *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.</p>
+   */
+  DataInputConfig?: string;
 
   /**
    * @public
@@ -5832,6 +5833,12 @@ export interface EndpointInputConfiguration {
 
   /**
    * @public
+   * <p>Specifies the serverless configuration for an endpoint variant.</p>
+   */
+  ServerlessConfig?: ProductionVariantServerlessConfig;
+
+  /**
+   * @public
    * <p>The inference specification name in the model package version.</p>
    */
   InferenceSpecificationName?: string;
@@ -5841,12 +5848,6 @@ export interface EndpointInputConfiguration {
    * <p> The parameter you want to benchmark against.</p>
    */
   EnvironmentParameterRanges?: EnvironmentParameterRanges;
-
-  /**
-   * @public
-   * <p>Specifies the serverless configuration for an endpoint variant.</p>
-   */
-  ServerlessConfig?: ProductionVariantServerlessConfig;
 }
 
 /**
@@ -5858,7 +5859,7 @@ export interface EndpointInfo {
    * @public
    * <p>The name of a customer's endpoint.</p>
    */
-  EndpointName: string | undefined;
+  EndpointName?: string;
 }
 
 /**
@@ -6001,6 +6002,12 @@ export interface RecommendationJobInputConfig {
 
   /**
    * @public
+   * <p>The name of the created model.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * @public
    * <p>Specifies the maximum duration of the job, in seconds. The maximum value is 18,000 seconds.</p>
    */
   JobDurationInSeconds?: number;
@@ -6083,12 +6090,6 @@ export interface RecommendationJobInputConfig {
    * <p>Inference Recommender provisions SageMaker endpoints with access to VPC in the inference recommendation job.</p>
    */
   VpcConfig?: RecommendationJobVpcConfig;
-
-  /**
-   * @public
-   * <p>The name of the created model.</p>
-   */
-  ModelName?: string;
 }
 
 /**
@@ -9456,20 +9457,6 @@ export interface CreateModelPackageInput {
 
   /**
    * @public
-   * <p>The metadata properties associated with the model package versions.</p>
-   */
-  CustomerMetadataProperties?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
-   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
-   *         </p>
-   */
-  DriftCheckBaselines?: DriftCheckBaselines;
-
-  /**
-   * @public
    * <p>The machine learning domain of your model package and its components. Common
    *             machine learning domains include computer vision and natural language processing.</p>
    */
@@ -9494,6 +9481,20 @@ export interface CreateModelPackageInput {
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax">InvokeEndpoint</a> call.</p>
    */
   SamplePayloadUrl?: string;
+
+  /**
+   * @public
+   * <p>The metadata properties associated with the model package versions.</p>
+   */
+  CustomerMetadataProperties?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
+   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
+   *         </p>
+   */
+  DriftCheckBaselines?: DriftCheckBaselines;
 
   /**
    * @public
@@ -10561,6 +10562,10 @@ export interface CreatePresignedDomainUrlRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>app:CodeEditor:relative/path</code>: Directs users to the relative path in the Code Editor, based on Code-OSS, Visual Studio Code - Open Source application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>app:Canvas:relative/path</code>: Directs users to the relative path in the Canvas application.</p>
    *             </li>
    *          </ul>
@@ -11469,27 +11474,27 @@ export interface SpaceSettings {
 
   /**
    * @public
-   * <p>The settings for the JupyterLab application.</p>
-   */
-  JupyterLabAppSettings?: SpaceJupyterLabAppSettings;
-
-  /**
-   * @public
    * <p>The Code Editor application settings.</p>
    */
   CodeEditorAppSettings?: SpaceCodeEditorAppSettings;
 
   /**
    * @public
-   * <p>The storage settings for a private space.</p>
+   * <p>The settings for the JupyterLab application.</p>
    */
-  SpaceStorageSettings?: SpaceStorageSettings;
+  JupyterLabAppSettings?: SpaceJupyterLabAppSettings;
 
   /**
    * @public
    * <p>The type of app created within the space.</p>
    */
   AppType?: AppType;
+
+  /**
+   * @public
+   * <p>The storage settings for a private space.</p>
+   */
+  SpaceStorageSettings?: SpaceStorageSettings;
 
   /**
    * @public
@@ -11558,12 +11563,6 @@ export interface CreateSpaceRequest {
 
   /**
    * @public
-   * <p>The name of the space that appears in the SageMaker Studio UI.</p>
-   */
-  SpaceDisplayName?: string;
-
-  /**
-   * @public
    * <p>A collection of ownership settings.</p>
    */
   OwnershipSettings?: OwnershipSettings;
@@ -11573,6 +11572,12 @@ export interface CreateSpaceRequest {
    * <p>A collection of space sharing settings.</p>
    */
   SpaceSharingSettings?: SpaceSharingSettings;
+
+  /**
+   * @public
+   * <p>The name of the space that appears in the SageMaker Studio UI.</p>
+   */
+  SpaceDisplayName?: string;
 }
 
 /**
@@ -11595,6 +11600,8 @@ export const StudioLifecycleConfigAppType = {
   JupyterLab: "JupyterLab",
   JupyterServer: "JupyterServer",
   KernelGateway: "KernelGateway",
+  Savitur: "Savitur",
+  VSCode: "VSCode",
 } as const;
 
 /**

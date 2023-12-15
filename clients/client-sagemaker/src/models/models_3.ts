@@ -126,9 +126,9 @@ import {
   PipelineExecutionStatus,
   ProductionVariantSummary,
   ProfilerRuleConfiguration,
-  ProfilerRuleEvaluationStatus,
   RecommendationJobStatus,
   RecommendationMetrics,
+  RuleEvaluationStatus,
   ScheduleStatus,
   SourceIpConfig,
   TensorBoardOutputConfig,
@@ -138,6 +138,42 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_2";
+
+/**
+ * @public
+ * <p>Information about the status of the rule evaluation.</p>
+ */
+export interface ProfilerRuleEvaluationStatus {
+  /**
+   * @public
+   * <p>The name of the rule configuration.</p>
+   */
+  RuleConfigurationName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
+   */
+  RuleEvaluationJobArn?: string;
+
+  /**
+   * @public
+   * <p>Status of the rule evaluation.</p>
+   */
+  RuleEvaluationStatus?: RuleEvaluationStatus;
+
+  /**
+   * @public
+   * <p>Details from the rule evaluation.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * @public
+   * <p>Timestamp when the rule evaluation status was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
 
 /**
  * @public
@@ -166,6 +202,7 @@ export const SecondaryStatus = {
   LAUNCHING_ML_INSTANCES: "LaunchingMLInstances",
   MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
   MAX_WAIT_TIME_EXCEEDED: "MaxWaitTimeExceeded",
+  PENDING: "Pending",
   PREPARING_TRAINING_STACK: "PreparingTrainingStack",
   RESTARTING: "Restarting",
   STARTING: "Starting",
@@ -678,6 +715,12 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * @public
+   * <p>The status of the warm pool associated with the training job.</p>
+   */
+  WarmPoolStatus?: WarmPoolStatus;
+
+  /**
+   * @public
    * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has access
    *             to. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html">Protect Training Jobs by Using an Amazon
    *                 Virtual Private Cloud</a>.</p>
@@ -875,22 +918,16 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * @public
-   * <p>The number of times to retry the job when the job fails due to an
-   *                 <code>InternalServerError</code>.</p>
-   */
-  RetryStrategy?: RetryStrategy;
-
-  /**
-   * @public
    * <p>The environment variables to set in the Docker container.</p>
    */
   Environment?: Record<string, string>;
 
   /**
    * @public
-   * <p>The status of the warm pool associated with the training job.</p>
+   * <p>The number of times to retry the job when the job fails due to an
+   *                 <code>InternalServerError</code>.</p>
    */
-  WarmPoolStatus?: WarmPoolStatus;
+  RetryStrategy?: RetryStrategy;
 
   /**
    * @public
@@ -3914,6 +3951,8 @@ export const ResourceType = {
   FEATURE_GROUP: "FeatureGroup",
   FEATURE_METADATA: "FeatureMetadata",
   HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
+  IMAGE: "Image",
+  IMAGE_VERSION: "ImageVersion",
   MODEL: "Model",
   MODEL_CARD: "ModelCard",
   MODEL_PACKAGE: "ModelPackage",
@@ -4311,12 +4350,6 @@ export interface HyperParameterTuningJobSearchEntity {
 
   /**
    * @public
-   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
    * <p>Information about either a current or completed hyperparameter tuning job.</p>
    */
   TuningJobCompletionDetails?: HyperParameterTuningJobCompletionDetails;
@@ -4326,6 +4359,12 @@ export interface HyperParameterTuningJobSearchEntity {
    * <p>The total amount of resources consumed by a hyperparameter tuning job.</p>
    */
   ConsumedResources?: HyperParameterTuningJobConsumedResources;
+
+  /**
+   * @public
+   * <p>The tags associated with a hyperparameter tuning job. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   */
+  Tags?: Tag[];
 }
 
 /**
@@ -4926,6 +4965,12 @@ export interface RecommendationJobInferenceBenchmark {
 
   /**
    * @public
+   * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
+   */
+  EndpointMetrics?: InferenceMetrics;
+
+  /**
+   * @public
    * <p>The endpoint configuration made by Inference Recommender during a recommendation job.</p>
    */
   EndpointConfiguration?: EndpointOutputConfiguration;
@@ -4941,12 +4986,6 @@ export interface RecommendationJobInferenceBenchmark {
    * <p>The reason why a benchmark failed.</p>
    */
   FailureReason?: string;
-
-  /**
-   * @public
-   * <p>The metrics for an existing endpoint compared in an Inference Recommender job.</p>
-   */
-  EndpointMetrics?: InferenceMetrics;
 
   /**
    * @public
@@ -7286,7 +7325,7 @@ export interface ListFeatureGroupsResponse {
    * @public
    * <p>A token to resume pagination of <code>ListFeatureGroups</code> results.</p>
    */
-  NextToken: string | undefined;
+  NextToken?: string;
 }
 
 /**
@@ -11114,6 +11153,12 @@ export interface PipelineExecutionStepMetadata {
 
   /**
    * @public
+   * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
+   */
+  EMR?: EMRStepMetadata;
+
+  /**
+   * @public
    * <p>The configurations and outcomes of the check step execution. This includes: </p>
    *          <ul>
    *             <li>
@@ -11181,12 +11226,6 @@ export interface PipelineExecutionStepMetadata {
 
   /**
    * @public
-   * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
-   */
-  EMR?: EMRStepMetadata;
-
-  /**
-   * @public
    * <p>The configurations and outcomes of a Fail step execution.</p>
    */
   Fail?: FailStepMetadata;
@@ -11196,16 +11235,4 @@ export interface PipelineExecutionStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the AutoML job that was run by this step.</p>
    */
   AutoMLJob?: AutoMLJobStepMetadata;
-}
-
-/**
- * @public
- * <p>The ARN from an execution of the current pipeline.</p>
- */
-export interface SelectiveExecutionResult {
-  /**
-   * @public
-   * <p>The ARN from an execution of the current pipeline.</p>
-   */
-  SourcePipelineExecutionArn?: string;
 }

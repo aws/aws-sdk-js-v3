@@ -65,7 +65,6 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //       CacheHitResult: { // CacheHitResult
  * //         SourcePipelineExecutionArn: "STRING_VALUE",
  * //       },
- * //       AttemptCount: Number("int"),
  * //       FailureReason: "STRING_VALUE",
  * //       Metadata: { // PipelineExecutionStepMetadata
  * //         TrainingJob: { // TrainingJobStepMetadata
@@ -108,6 +107,12 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //             },
  * //           ],
  * //         },
+ * //         EMR: { // EMRStepMetadata
+ * //           ClusterId: "STRING_VALUE",
+ * //           StepId: "STRING_VALUE",
+ * //           StepName: "STRING_VALUE",
+ * //           LogFilePath: "STRING_VALUE",
+ * //         },
  * //         QualityCheck: { // QualityCheckStepMetadata
  * //           CheckType: "STRING_VALUE",
  * //           BaselineUsedForDriftCheckStatistics: "STRING_VALUE",
@@ -130,12 +135,6 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //           SkipCheck: true || false,
  * //           RegisterNewBaseline: true || false,
  * //         },
- * //         EMR: { // EMRStepMetadata
- * //           ClusterId: "STRING_VALUE",
- * //           StepId: "STRING_VALUE",
- * //           StepName: "STRING_VALUE",
- * //           LogFilePath: "STRING_VALUE",
- * //         },
  * //         Fail: { // FailStepMetadata
  * //           ErrorMessage: "STRING_VALUE",
  * //         },
@@ -143,6 +142,7 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
  * //           Arn: "STRING_VALUE",
  * //         },
  * //       },
+ * //       AttemptCount: Number("int"),
  * //       SelectiveExecutionResult: { // SelectiveExecutionResult
  * //         SourcePipelineExecutionArn: "STRING_VALUE",
  * //       },

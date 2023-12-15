@@ -311,6 +311,11 @@ import {
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
 import {
+  DeleteCompilationJobCommand,
+  DeleteCompilationJobCommandInput,
+  DeleteCompilationJobCommandOutput,
+} from "./commands/DeleteCompilationJobCommand";
+import {
   DeleteContextCommand,
   DeleteContextCommandInput,
   DeleteContextCommandOutput,
@@ -1530,6 +1535,7 @@ const commands = {
   DeleteAssociationCommand,
   DeleteClusterCommand,
   DeleteCodeRepositoryCommand,
+  DeleteCompilationJobCommand,
   DeleteContextCommand,
   DeleteDataQualityJobDefinitionCommand,
   DeleteDeviceFleetCommand,
@@ -2813,6 +2819,23 @@ export interface SageMaker {
     args: DeleteCodeRepositoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCodeRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCompilationJobCommand}
+   */
+  deleteCompilationJob(
+    args: DeleteCompilationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCompilationJobCommandOutput>;
+  deleteCompilationJob(
+    args: DeleteCompilationJobCommandInput,
+    cb: (err: any, data?: DeleteCompilationJobCommandOutput) => void
+  ): void;
+  deleteCompilationJob(
+    args: DeleteCompilationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCompilationJobCommandOutput) => void
   ): void;
 
   /**

@@ -60,11 +60,11 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * //     { // AppDetails
  * //       DomainId: "STRING_VALUE",
  * //       UserProfileName: "STRING_VALUE",
- * //       AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway" || "JupyterLab" || "CodeEditor",
+ * //       SpaceName: "STRING_VALUE",
+ * //       AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local",
  * //       AppName: "STRING_VALUE",
  * //       Status: "Deleted" || "Deleting" || "Failed" || "InService" || "Pending",
  * //       CreationTime: new Date("TIMESTAMP"),
- * //       SpaceName: "STRING_VALUE",
  * //       ResourceSpec: { // ResourceSpec
  * //         SageMakerImageArn: "STRING_VALUE",
  * //         SageMakerImageVersionArn: "STRING_VALUE",

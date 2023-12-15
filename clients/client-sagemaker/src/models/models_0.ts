@@ -104,6 +104,7 @@ export const AssociationEdgeType = {
   CONTRIBUTED_TO: "ContributedTo",
   DERIVED_FROM: "DerivedFrom",
   PRODUCED: "Produced",
+  SAME_AS: "SameAs",
 } as const;
 
 /**
@@ -433,6 +434,16 @@ export const ProductionVariantInstanceType = {
   ML_C7G_8XLARGE: "ml.c7g.8xlarge",
   ML_C7G_LARGE: "ml.c7g.large",
   ML_C7G_XLARGE: "ml.c7g.xlarge",
+  ML_C7I_12XLARGE: "ml.c7i.12xlarge",
+  ML_C7I_16XLARGE: "ml.c7i.16xlarge",
+  ML_C7I_24XLARGE: "ml.c7i.24xlarge",
+  ML_C7I_2XLARGE: "ml.c7i.2xlarge",
+  ML_C7I_48XLARGE: "ml.c7i.48xlarge",
+  ML_C7I_4XLARGE: "ml.c7i.4xlarge",
+  ML_C7I_8XLARGE: "ml.c7i.8xlarge",
+  ML_C7I_LARGE: "ml.c7i.large",
+  ML_C7I_XLARGE: "ml.c7i.xlarge",
+  ML_DL1_24XLARGE: "ml.dl1.24xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
@@ -486,6 +497,15 @@ export const ProductionVariantInstanceType = {
   ML_M6G_8XLARGE: "ml.m6g.8xlarge",
   ML_M6G_LARGE: "ml.m6g.large",
   ML_M6G_XLARGE: "ml.m6g.xlarge",
+  ML_M7I_12XLARGE: "ml.m7i.12xlarge",
+  ML_M7I_16XLARGE: "ml.m7i.16xlarge",
+  ML_M7I_24XLARGE: "ml.m7i.24xlarge",
+  ML_M7I_2XLARGE: "ml.m7i.2xlarge",
+  ML_M7I_48XLARGE: "ml.m7i.48xlarge",
+  ML_M7I_4XLARGE: "ml.m7i.4xlarge",
+  ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_LARGE: "ml.m7i.large",
+  ML_M7I_XLARGE: "ml.m7i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
   ML_P2_8XLARGE: "ml.p2.8xlarge",
   ML_P2_XLARGE: "ml.p2.xlarge",
@@ -521,10 +541,20 @@ export const ProductionVariantInstanceType = {
   ML_R6G_8XLARGE: "ml.r6g.8xlarge",
   ML_R6G_LARGE: "ml.r6g.large",
   ML_R6G_XLARGE: "ml.r6g.xlarge",
+  ML_R7I_12XLARGE: "ml.r7i.12xlarge",
+  ML_R7I_16XLARGE: "ml.r7i.16xlarge",
+  ML_R7I_24XLARGE: "ml.r7i.24xlarge",
+  ML_R7I_2XLARGE: "ml.r7i.2xlarge",
+  ML_R7I_48XLARGE: "ml.r7i.48xlarge",
+  ML_R7I_4XLARGE: "ml.r7i.4xlarge",
+  ML_R7I_8XLARGE: "ml.r7i.8xlarge",
+  ML_R7I_LARGE: "ml.r7i.large",
+  ML_R7I_XLARGE: "ml.r7i.xlarge",
   ML_T2_2XLARGE: "ml.t2.2xlarge",
   ML_T2_LARGE: "ml.t2.large",
   ML_T2_MEDIUM: "ml.t2.medium",
   ML_T2_XLARGE: "ml.t2.xlarge",
+  ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
 } as const;
@@ -1496,14 +1526,12 @@ export interface OutputDataConfig {
    *          </ul>
    *          <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
    *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
-   *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
-   *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
-   *             policy with an <code>s3:PutObject</code> permission that only allows objects with
-   *             server-side encryption, set the condition key of
-   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
-   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
-   *          </p>
+   *             SageMaker uses the default KMS key for Amazon S3 for your role's account.
+   *
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. If the output
+   *             data is stored in Amazon S3 Express One Zone, it is encrypted with server-side
+   *             encryption with Amazon S3 managed keys (SSE-S3). KMS key is not supported for Amazon S3 Express One Zone</p>
    *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
    *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see
@@ -1547,6 +1575,14 @@ export const TrainingInstanceType = {
   ML_C5_4XLARGE: "ml.c5.4xlarge",
   ML_C5_9XLARGE: "ml.c5.9xlarge",
   ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
@@ -1572,6 +1608,15 @@ export const TrainingInstanceType = {
   ML_M5_4XLARGE: "ml.m5.4xlarge",
   ML_M5_LARGE: "ml.m5.large",
   ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
   ML_P2_8XLARGE: "ml.p2.8xlarge",
   ML_P2_XLARGE: "ml.p2.xlarge",
@@ -1579,6 +1624,7 @@ export const TrainingInstanceType = {
   ML_P3_16XLARGE: "ml.p3.16xlarge",
   ML_P3_2XLARGE: "ml.p3.2xlarge",
   ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
@@ -1715,16 +1761,16 @@ export interface ResourceConfig {
 
   /**
    * @public
-   * <p>The configuration of a heterogeneous cluster in JSON format.</p>
-   */
-  InstanceGroups?: InstanceGroup[];
-
-  /**
-   * @public
    * <p>The duration of time in seconds to retain configured resources in a warm pool for
    *             subsequent training jobs.</p>
    */
   KeepAlivePeriodInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The configuration of a heterogeneous cluster in JSON format.</p>
+   */
+  InstanceGroups?: InstanceGroup[];
 }
 
 /**
@@ -3813,13 +3859,21 @@ export interface AnnotationConsolidationConfig {
  * @enum
  */
 export const AppType = {
+  Canvas: "Canvas",
   CodeEditor: "CodeEditor",
+  DatasetManager: "DatasetManager",
+  DetailedProfiler: "DetailedProfiler",
   JupyterLab: "JupyterLab",
   JupyterServer: "JupyterServer",
   KernelGateway: "KernelGateway",
+  Local: "Local",
+  RSession: "RSession",
   RSessionGateway: "RSessionGateway",
   RStudioServerPro: "RStudioServerPro",
+  SageMakerLite: "SageMakerLite",
+  Savitur: "Savitur",
   TensorBoard: "TensorBoard",
+  VSCode: "VSCode",
 } as const;
 
 /**
@@ -3922,7 +3976,7 @@ export interface ResourceSpec {
 
   /**
    * @public
-   * <p>The SageMakerImageVersionAlias.</p>
+   * <p>The SageMakerImageVersionAlias of the image to launch with. This value is in SemVer 2.0.0 versioning format.</p>
    */
   SageMakerImageVersionAlias?: string;
 
@@ -3982,6 +4036,12 @@ export interface AppDetails {
 
   /**
    * @public
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
+
+  /**
+   * @public
    * <p>The type of app.</p>
    */
   AppType?: AppType;
@@ -4003,12 +4063,6 @@ export interface AppDetails {
    * <p>The creation time.</p>
    */
   CreationTime?: Date;
-
-  /**
-   * @public
-   * <p>The name of the space.</p>
-   */
-  SpaceName?: string;
 
   /**
    * @public
@@ -4044,18 +4098,6 @@ export interface ContainerConfig {
 
 /**
  * @public
- * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.</p>
- */
-export interface JupyterLabAppImageConfig {
-  /**
-   * @public
-   * <p>The configuration used to run the application image container.</p>
-   */
-  ContainerConfig?: ContainerConfig;
-}
-
-/**
- * @public
  * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
  */
 export interface FileSystemConfig {
@@ -4077,6 +4119,24 @@ export interface FileSystemConfig {
    * <p>The default POSIX group ID (GID). If not specified, defaults to <code>100</code>.</p>
    */
   DefaultGid?: number;
+}
+
+/**
+ * @public
+ * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.</p>
+ */
+export interface JupyterLabAppImageConfig {
+  /**
+   * @public
+   * <p>The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.</p>
+   */
+  FileSystemConfig?: FileSystemConfig;
+
+  /**
+   * @public
+   * <p>The configuration used to run the application image container.</p>
+   */
+  ContainerConfig?: ContainerConfig;
 }
 
 /**
@@ -4907,6 +4967,17 @@ export interface MetricDatum {
 
   /**
    * @public
+   * <p>The name of the standard metric. </p>
+   *          <note>
+   *             <p>For definitions of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-metrics">
+   *                   <code>Autopilot candidate metrics</code>
+   *                </a>.</p>
+   *          </note>
+   */
+  StandardMetricName?: AutoMLMetricExtendedEnum;
+
+  /**
+   * @public
    * <p>The value of the metric.</p>
    */
   Value?: number;
@@ -4916,17 +4987,6 @@ export interface MetricDatum {
    * <p>The dataset split from which the AutoML job produced the metric.</p>
    */
   Set?: MetricSetSource;
-
-  /**
-   * @public
-   * <p>The name of the standard metric. </p>
-   *          <note>
-   *             <p>For definitions of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-metrics">
-   *                   <code>Autopilot candidate metrics</code>
-   *                </a>.</p>
-   *          </note>
-   */
-  StandardMetricName?: AutoMLMetricExtendedEnum;
 }
 
 /**
@@ -5382,7 +5442,7 @@ export interface AutoMLChannel {
    * @public
    * <p>The data source for an AutoML channel.</p>
    */
-  DataSource: AutoMLDataSource | undefined;
+  DataSource?: AutoMLDataSource;
 
   /**
    * @public
@@ -5656,16 +5716,16 @@ export interface AutoMLJobConfig {
 
   /**
    * @public
+   * <p>The configuration for generating a candidate for an AutoML job (optional). </p>
+   */
+  CandidateGenerationConfig?: AutoMLCandidateGenerationConfig;
+
+  /**
+   * @public
    * <p>The configuration for splitting the input training dataset.</p>
    *          <p>Type: AutoMLDataSplitConfig</p>
    */
   DataSplitConfig?: AutoMLDataSplitConfig;
-
-  /**
-   * @public
-   * <p>The configuration for generating a candidate for an AutoML job (optional). </p>
-   */
-  CandidateGenerationConfig?: AutoMLCandidateGenerationConfig;
 
   /**
    * @public
@@ -6155,6 +6215,24 @@ export interface TextClassificationJobConfig {
 
 /**
  * @public
+ * <p>The access configuration file for the ML model. You can explicitly accept the model
+ *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. For more
+ *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a>.</p>
+ */
+export interface ModelAccessConfig {
+  /**
+   * @public
+   * <p>Specifies agreement to the model end-user license agreement (EULA). The
+   *          <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in
+   *          order to accept the EULA that this model requires. You are responsible for reviewing and
+   *          complying with any applicable license terms and making sure they are acceptable for your
+   *          use case before downloading or using a model.</p>
+   */
+  AcceptEula: boolean | undefined;
+}
+
+/**
+ * @public
  * <p>The collection of settings used by an AutoML job V2 for the text generation problem
  *          type.</p>
  *          <note>
@@ -6220,6 +6298,14 @@ export interface TextGenerationJobConfig {
    *          </p>
    */
   TextGenerationHyperParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The access configuration file for the ML model. You can explicitly accept the model
+   *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. For more
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a>.</p>
+   */
+  ModelAccessConfig?: ModelAccessConfig;
 }
 
 /**
@@ -6487,8 +6573,8 @@ export namespace AutoMLProblemTypeConfig {
   export interface ImageClassificationJobConfigMember {
     ImageClassificationJobConfig: ImageClassificationJobConfig;
     TextClassificationJobConfig?: never;
-    TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig?: never;
+    TabularJobConfig?: never;
     TextGenerationJobConfig?: never;
     $unknown?: never;
   }
@@ -6501,22 +6587,8 @@ export namespace AutoMLProblemTypeConfig {
   export interface TextClassificationJobConfigMember {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig: TextClassificationJobConfig;
+    TimeSeriesForecastingJobConfig?: never;
     TabularJobConfig?: never;
-    TimeSeriesForecastingJobConfig?: never;
-    TextGenerationJobConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   * <p>Settings used to configure an AutoML job V2 for the tabular problem type (regression,
-   *          classification).</p>
-   */
-  export interface TabularJobConfigMember {
-    ImageClassificationJobConfig?: never;
-    TextClassificationJobConfig?: never;
-    TabularJobConfig: TabularJobConfig;
-    TimeSeriesForecastingJobConfig?: never;
     TextGenerationJobConfig?: never;
     $unknown?: never;
   }
@@ -6529,8 +6601,22 @@ export namespace AutoMLProblemTypeConfig {
   export interface TimeSeriesForecastingJobConfigMember {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig?: never;
-    TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig: TimeSeriesForecastingJobConfig;
+    TabularJobConfig?: never;
+    TextGenerationJobConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Settings used to configure an AutoML job V2 for the tabular problem type (regression,
+   *          classification).</p>
+   */
+  export interface TabularJobConfigMember {
+    ImageClassificationJobConfig?: never;
+    TextClassificationJobConfig?: never;
+    TimeSeriesForecastingJobConfig?: never;
+    TabularJobConfig: TabularJobConfig;
     TextGenerationJobConfig?: never;
     $unknown?: never;
   }
@@ -6548,8 +6634,8 @@ export namespace AutoMLProblemTypeConfig {
   export interface TextGenerationJobConfigMember {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig?: never;
-    TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig?: never;
+    TabularJobConfig?: never;
     TextGenerationJobConfig: TextGenerationJobConfig;
     $unknown?: never;
   }
@@ -6560,8 +6646,8 @@ export namespace AutoMLProblemTypeConfig {
   export interface $UnknownMember {
     ImageClassificationJobConfig?: never;
     TextClassificationJobConfig?: never;
-    TabularJobConfig?: never;
     TimeSeriesForecastingJobConfig?: never;
+    TabularJobConfig?: never;
     TextGenerationJobConfig?: never;
     $unknown: [string, any];
   }
@@ -6569,8 +6655,8 @@ export namespace AutoMLProblemTypeConfig {
   export interface Visitor<T> {
     ImageClassificationJobConfig: (value: ImageClassificationJobConfig) => T;
     TextClassificationJobConfig: (value: TextClassificationJobConfig) => T;
-    TabularJobConfig: (value: TabularJobConfig) => T;
     TimeSeriesForecastingJobConfig: (value: TimeSeriesForecastingJobConfig) => T;
+    TabularJobConfig: (value: TabularJobConfig) => T;
     TextGenerationJobConfig: (value: TextGenerationJobConfig) => T;
     _: (name: string, value: any) => T;
   }
@@ -6580,9 +6666,9 @@ export namespace AutoMLProblemTypeConfig {
       return visitor.ImageClassificationJobConfig(value.ImageClassificationJobConfig);
     if (value.TextClassificationJobConfig !== undefined)
       return visitor.TextClassificationJobConfig(value.TextClassificationJobConfig);
-    if (value.TabularJobConfig !== undefined) return visitor.TabularJobConfig(value.TabularJobConfig);
     if (value.TimeSeriesForecastingJobConfig !== undefined)
       return visitor.TimeSeriesForecastingJobConfig(value.TimeSeriesForecastingJobConfig);
+    if (value.TabularJobConfig !== undefined) return visitor.TabularJobConfig(value.TabularJobConfig);
     if (value.TextGenerationJobConfig !== undefined)
       return visitor.TextGenerationJobConfig(value.TextGenerationJobConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -6846,8 +6932,11 @@ export interface Autotune {
  * @enum
  */
 export const AwsManagedHumanLoopRequestSource = {
+  BEDROCK_MODEL_EVALUATION: "AWS/Bedrock/ModelEvaluation",
+  HANDSHAKE_VERIFY_IDENTITY: "AWS/Handshake/VerifyIdentity",
   REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3: "AWS/Rekognition/DetectModerationLabels/Image/V3",
   TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1: "AWS/Textract/AnalyzeDocument/Forms/V1",
+  TEXTRACT_ANALYZE_EXPENSE: "AWS/Textract/AnalyzeExpense",
 } as const;
 
 /**
@@ -7729,15 +7818,15 @@ export interface CanvasAppSettings {
 
   /**
    * @public
-   * <p>The settings for document querying.</p>
-   */
-  KendraSettings?: KendraSettings;
-
-  /**
-   * @public
    * <p>The model deployment settings for the SageMaker Canvas application.</p>
    */
   DirectDeploySettings?: DirectDeploySettings;
+
+  /**
+   * @public
+   * <p>The settings for document querying.</p>
+   */
+  KendraSettings?: KendraSettings;
 }
 
 /**
@@ -7767,6 +7856,7 @@ export interface CaptureContentTypeHeader {
  */
 export const CaptureMode = {
   INPUT: "Input",
+  INPUT_AND_OUTPUT: "InputAndOutput",
   OUTPUT: "Output",
 } as const;
 
@@ -9041,18 +9131,21 @@ export const TargetDevice = {
   LAMBDA: "lambda",
   ML_C4: "ml_c4",
   ML_C5: "ml_c5",
+  ML_C6G: "ml_c6g",
   ML_EIA2: "ml_eia2",
   ML_G4DN: "ml_g4dn",
   ML_INF1: "ml_inf1",
   ML_INF2: "ml_inf2",
   ML_M4: "ml_m4",
   ML_M5: "ml_m5",
+  ML_M6G: "ml_m6g",
   ML_P2: "ml_p2",
   ML_P3: "ml_p3",
   ML_TRN1: "ml_trn1",
   QCS603: "qcs603",
   QCS605: "qcs605",
   RASP3B: "rasp3b",
+  RASP4B: "rasp4b",
   RK3288: "rk3288",
   RK3399: "rk3399",
   SBE_C: "sbe_c",
@@ -9352,24 +9445,6 @@ export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof Mo
 
 /**
  * @public
- * <p>The access configuration file for the ML model. You can explicitly accept the model
- *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. For more
- *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a>.</p>
- */
-export interface ModelAccessConfig {
-  /**
-   * @public
-   * <p>Specifies agreement to the model end-user license agreement (EULA). The
-   *          <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in
-   *          order to accept the EULA that this model requires. You are responsible for reviewing and
-   *          complying with any applicable license terms and making sure they are acceptable for your
-   *          use case before downloading or using a model.</p>
-   */
-  AcceptEula: boolean | undefined;
-}
-
-/**
- * @public
  * @enum
  */
 export const S3ModelDataType = {
@@ -9498,7 +9573,7 @@ export interface ModelDataSource {
    * @public
    * <p>Specifies the S3 location of ML model data to deploy.</p>
    */
-  S3DataSource: S3ModelDataSource | undefined;
+  S3DataSource?: S3ModelDataSource;
 }
 
 /**
@@ -9619,6 +9694,17 @@ export interface ContainerDefinition {
 
   /**
    * @public
+   * <p>Specifies the location of ML model data to deploy.</p>
+   *          <note>
+   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with SageMaker
+   *                 batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
+   *                 Marketplace.</p>
+   *          </note>
+   */
+  ModelDataSource?: ModelDataSource;
+
+  /**
+   * @public
    * <p>The environment variables to set in the Docker container. Each key and value in the
    *                 <code>Environment</code> string to string map can have length of up to 1024. We
    *             support up to 16 entries in the map. </p>
@@ -9643,17 +9729,6 @@ export interface ContainerDefinition {
    * <p>Specifies additional configuration for multi-model endpoints.</p>
    */
   MultiModelConfig?: MultiModelConfig;
-
-  /**
-   * @public
-   * <p>Specifies the location of ML model data to deploy.</p>
-   *          <note>
-   *             <p>Currently you cannot use <code>ModelDataSource</code> in conjunction with SageMaker
-   *                 batch transform, SageMaker serverless endpoints, SageMaker multi-model endpoints, and SageMaker
-   *                 Marketplace.</p>
-   *          </note>
-   */
-  ModelDataSource?: ModelDataSource;
 }
 
 /**
@@ -10283,6 +10358,13 @@ export interface CreateAppRequest {
 
   /**
    * @public
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
+   *             must be set.</p>
+   */
+  SpaceName?: string;
+
+  /**
+   * @public
    * <p>The type of app.</p>
    */
   AppType: AppType | undefined;
@@ -10310,13 +10392,6 @@ export interface CreateAppRequest {
    *          </note>
    */
   ResourceSpec?: ResourceSpec;
-
-  /**
-   * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *             must be set.</p>
-   */
-  SpaceName?: string;
 }
 
 /**

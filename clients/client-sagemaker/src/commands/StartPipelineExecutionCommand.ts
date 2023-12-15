@@ -81,6 +81,10 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
  * @throws {@link ResourceLimitExceeded} (client fault)
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>

@@ -59,8 +59,8 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *   FeatureGroupName: "STRING_VALUE", // required
  *   FeatureAdditions: [ // FeatureAdditions
  *     { // FeatureDefinition
- *       FeatureName: "STRING_VALUE",
- *       FeatureType: "Integral" || "Fractional" || "String",
+ *       FeatureName: "STRING_VALUE", // required
+ *       FeatureType: "Integral" || "Fractional" || "String", // required
  *       CollectionType: "List" || "Set" || "Vector",
  *       CollectionConfig: { // CollectionConfig Union: only one key present
  *         VectorConfig: { // VectorConfig
@@ -89,6 +89,10 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * @see {@link UpdateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateFeatureGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
+ *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>

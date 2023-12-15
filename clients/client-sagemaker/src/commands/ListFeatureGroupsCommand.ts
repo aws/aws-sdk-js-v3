@@ -70,7 +70,7 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * //       },
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE", // required
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

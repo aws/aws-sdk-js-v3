@@ -62,9 +62,8 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * //       Status: "Deleting" || "Failed" || "InService" || "Pending" || "Updating" || "Update_Failed" || "Delete_Failed",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
- * //       SpaceDisplayName: "STRING_VALUE",
  * //       SpaceSettingsSummary: { // SpaceSettingsSummary
- * //         AppType: "JupyterServer" || "KernelGateway" || "TensorBoard" || "RStudioServerPro" || "RSessionGateway" || "JupyterLab" || "CodeEditor",
+ * //         AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local",
  * //         SpaceStorageSettings: { // SpaceStorageSettings
  * //           EbsStorageSettings: { // EbsStorageSettings
  * //             EbsVolumeSizeInGb: Number("int"), // required
@@ -77,6 +76,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * //       OwnershipSettingsSummary: { // OwnershipSettingsSummary
  * //         OwnerUserProfileName: "STRING_VALUE",
  * //       },
+ * //       SpaceDisplayName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

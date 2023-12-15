@@ -1253,7 +1253,7 @@ export interface OidcMemberDefinition {
    *             user groups in your OIDC IdP. Each user group is
    *             made up of a group of private workers.</p>
    */
-  Groups: string[] | undefined;
+  Groups?: string[];
 }
 
 /**
@@ -1560,6 +1560,13 @@ export interface DeleteAppRequest {
 
   /**
    * @public
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
+   *             must be set.</p>
+   */
+  SpaceName?: string;
+
+  /**
+   * @public
    * <p>The type of app.</p>
    */
   AppType: AppType | undefined;
@@ -1569,13 +1576,6 @@ export interface DeleteAppRequest {
    * <p>The name of the app.</p>
    */
   AppName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *             must be set.</p>
-   */
-  SpaceName?: string;
 }
 
 /**
@@ -1682,6 +1682,17 @@ export interface DeleteCodeRepositoryInput {
    * <p>The name of the Git repository to delete.</p>
    */
   CodeRepositoryName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCompilationJobRequest {
+  /**
+   * @public
+   * <p>The name of the compilation job to delete.</p>
+   */
+  CompilationJobName: string | undefined;
 }
 
 /**
@@ -2751,6 +2762,12 @@ export interface DescribeAppRequest {
 
   /**
    * @public
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
+
+  /**
+   * @public
    * <p>The type of app.</p>
    */
   AppType: AppType | undefined;
@@ -2760,12 +2777,6 @@ export interface DescribeAppRequest {
    * <p>The name of the app.</p>
    */
   AppName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the space.</p>
-   */
-  SpaceName?: string;
 }
 
 /**
@@ -2804,6 +2815,13 @@ export interface DescribeAppResponse {
 
   /**
    * @public
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
+   *             must be set.</p>
+   */
+  SpaceName?: string;
+
+  /**
+   * @public
    * <p>The status.</p>
    */
   Status?: AppStatus;
@@ -2837,13 +2855,6 @@ export interface DescribeAppResponse {
    * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
    */
   ResourceSpec?: ResourceSpec;
-
-  /**
-   * @public
-   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code>
-   *             must be set.</p>
-   */
-  SpaceName?: string;
 }
 
 /**
@@ -3232,6 +3243,12 @@ export interface DescribeAutoMLJobV2Response {
 
   /**
    * @public
+   * <p>Returns the name of the problem type configuration set for the AutoML job V2.</p>
+   */
+  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName;
+
+  /**
+   * @public
    * <p>Returns the creation time of the AutoML job V2.</p>
    */
   CreationTime: Date | undefined;
@@ -3281,6 +3298,18 @@ export interface DescribeAutoMLJobV2Response {
 
   /**
    * @public
+   * <p>The artifacts that are generated during an AutoML job.</p>
+   */
+  AutoMLJobArtifacts?: AutoMLJobArtifacts;
+
+  /**
+   * @public
+   * <p>Returns the resolved attributes used by the AutoML job V2.</p>
+   */
+  ResolvedAttributes?: AutoMLResolvedAttributes;
+
+  /**
+   * @public
    * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
    *          that endpoint if deployed automatically.</p>
    */
@@ -3304,24 +3333,6 @@ export interface DescribeAutoMLJobV2Response {
    * <p>Returns the security configuration for traffic encryption or Amazon VPC settings.</p>
    */
   SecurityConfig?: AutoMLSecurityConfig;
-
-  /**
-   * @public
-   * <p>The artifacts that are generated during an AutoML job.</p>
-   */
-  AutoMLJobArtifacts?: AutoMLJobArtifacts;
-
-  /**
-   * @public
-   * <p>Returns the resolved attributes used by the AutoML job V2.</p>
-   */
-  ResolvedAttributes?: AutoMLResolvedAttributes;
-
-  /**
-   * @public
-   * <p>Returns the name of the problem type configuration set for the AutoML job V2.</p>
-   */
-  AutoMLProblemTypeConfigName?: AutoMLProblemTypeConfigName;
 }
 
 /**
@@ -4057,7 +4068,7 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.</p>
+   * <p>The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.</p>
    */
   SingleSignOnApplicationArn?: string;
 
@@ -4087,6 +4098,13 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
+   * <p>The ID of the security group that authorizes traffic between the
+   *                 <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
+   */
+  SecurityGroupIdForDomainBoundary?: string;
+
+  /**
+   * @public
    * <p>The domain's authentication mode.</p>
    */
   AuthMode?: AuthMode;
@@ -4098,6 +4116,12 @@ export interface DescribeDomainResponse {
    *        </p>
    */
   DefaultUserSettings?: UserSettings;
+
+  /**
+   * @public
+   * <p>A collection of <code>Domain</code> settings.</p>
+   */
+  DomainSettings?: DomainSettings;
 
   /**
    * @public
@@ -4152,12 +4176,6 @@ export interface DescribeDomainResponse {
 
   /**
    * @public
-   * <p>A collection of <code>Domain</code> settings.</p>
-   */
-  DomainSettings?: DomainSettings;
-
-  /**
-   * @public
    * <p>The entity that creates and manages the required security groups for inter-app
    *             communication in <code>VPCOnly</code> mode. Required when
    *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
@@ -4165,13 +4183,6 @@ export interface DescribeDomainResponse {
    *             provided.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
-
-  /**
-   * @public
-   * <p>The ID of the security group that authorizes traffic between the
-   *                 <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
-   */
-  SecurityGroupIdForDomainBoundary?: string;
 
   /**
    * @public
@@ -4777,7 +4788,7 @@ export interface DescribeEndpointOutput {
    * @public
    * <p>The name of the endpoint configuration associated with this endpoint.</p>
    */
-  EndpointConfigName: string | undefined;
+  EndpointConfigName?: string;
 
   /**
    * @public
@@ -5510,7 +5521,7 @@ export interface DescribeFlowDefinitionResponse {
    * @public
    * <p>An object containing information about who works on the task, the workforce task price, and other task details.</p>
    */
-  HumanLoopConfig: HumanLoopConfig | undefined;
+  HumanLoopConfig?: HumanLoopConfig;
 
   /**
    * @public
@@ -6062,6 +6073,8 @@ export interface HyperParameterTuningJobConsumedResources {
  */
 export const HyperParameterTuningJobStatus = {
   COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
   FAILED: "Failed",
   IN_PROGRESS: "InProgress",
   STOPPED: "Stopped",
@@ -6277,6 +6290,12 @@ export interface DescribeHyperParameterTuningJobResponse {
 
   /**
    * @public
+   * <p>A flag to indicate if autotune is enabled for the hyperparameter tuning job.</p>
+   */
+  Autotune?: Autotune;
+
+  /**
+   * @public
    * <p>If the tuning job failed, the reason it failed.</p>
    */
   FailureReason?: string;
@@ -6295,12 +6314,6 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>The total resources consumed by your hyperparameter tuning job.</p>
    */
   ConsumedResources?: HyperParameterTuningJobConsumedResources;
-
-  /**
-   * @public
-   * <p>A flag to indicate if autotune is enabled for the hyperparameter tuning job.</p>
-   */
-  Autotune?: Autotune;
 }
 
 /**
@@ -7262,6 +7275,12 @@ export interface ModelConfiguration {
 export interface InferenceRecommendation {
   /**
    * @public
+   * <p>The recommendation ID which uniquely identifies each recommendation.</p>
+   */
+  RecommendationId?: string;
+
+  /**
+   * @public
    * <p>The metrics used to decide what recommendation to make.</p>
    */
   Metrics: RecommendationMetrics | undefined;
@@ -7277,12 +7296,6 @@ export interface InferenceRecommendation {
    * <p>Defines the model configuration.</p>
    */
   ModelConfiguration: ModelConfiguration | undefined;
-
-  /**
-   * @public
-   * <p>The recommendation ID which uniquely identifies each recommendation.</p>
-   */
-  RecommendationId?: string;
 
   /**
    * @public
@@ -7303,6 +7316,8 @@ export interface InferenceRecommendation {
  */
 export const RecommendationJobStatus = {
   COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
   PENDING: "PENDING",
@@ -8454,20 +8469,6 @@ export interface DescribeModelPackageOutput {
 
   /**
    * @public
-   * <p>The metadata properties associated with the model package versions.</p>
-   */
-  CustomerMetadataProperties?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
-   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
-   *         </p>
-   */
-  DriftCheckBaselines?: DriftCheckBaselines;
-
-  /**
-   * @public
    * <p>The machine learning domain of the model package you specified. Common machine
    *             learning domains include computer vision and natural language processing.</p>
    */
@@ -8486,6 +8487,20 @@ export interface DescribeModelPackageOutput {
    *             gzip compressed tar archive (.tar.gz suffix).</p>
    */
   SamplePayloadUrl?: string;
+
+  /**
+   * @public
+   * <p>The metadata properties associated with the model package versions.</p>
+   */
+  CustomerMetadataProperties?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.
+   *             For more information, see the topic on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection">Drift Detection against Previous Baselines in SageMaker Pipelines</a> in the <i>Amazon SageMaker Developer Guide</i>.
+   *         </p>
+   */
+  DriftCheckBaselines?: DriftCheckBaselines;
 
   /**
    * @public
@@ -9126,6 +9141,7 @@ export interface DescribePipelineRequest {
  */
 export const PipelineStatus = {
   ACTIVE: "Active",
+  DELETING: "Deleting",
 } as const;
 
 /**
@@ -9826,6 +9842,24 @@ export interface DescribeSpaceResponse {
 
   /**
    * @public
+   * <p>The collection of ownership settings for a space.</p>
+   */
+  OwnershipSettings?: OwnershipSettings;
+
+  /**
+   * @public
+   * <p>The collection of space sharing settings for a space.</p>
+   */
+  SpaceSharingSettings?: SpaceSharingSettings;
+
+  /**
+   * @public
+   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
+   */
+  SpaceDisplayName?: string;
+
+  /**
+   * @public
    * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.</p>
    *          <p>The following application types are supported:</p>
    *          <ul>
@@ -9837,27 +9871,13 @@ export interface DescribeSpaceResponse {
    *                <p>JupyterLab: <code>&redirect=JupyterLab</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>Code Editor, based on Code-OSS, Visual Studio Code - Open Source: <code>&redirect=CodeEditor</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   Url?: string;
-
-  /**
-   * @public
-   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
-   */
-  SpaceDisplayName?: string;
-
-  /**
-   * @public
-   * <p>The collection of ownership settings for a space.</p>
-   */
-  OwnershipSettings?: OwnershipSettings;
-
-  /**
-   * @public
-   * <p>The collection of space sharing settings for a space.</p>
-   */
-  SpaceSharingSettings?: SpaceSharingSettings;
 }
 
 /**
@@ -10003,42 +10023,6 @@ export interface MetricData {
    * <p>The date and time that the algorithm emitted the metric.</p>
    */
   Timestamp?: Date;
-}
-
-/**
- * @public
- * <p>Information about the status of the rule evaluation.</p>
- */
-export interface ProfilerRuleEvaluationStatus {
-  /**
-   * @public
-   * <p>The name of the rule configuration.</p>
-   */
-  RuleConfigurationName?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
-   */
-  RuleEvaluationJobArn?: string;
-
-  /**
-   * @public
-   * <p>Status of the rule evaluation.</p>
-   */
-  RuleEvaluationStatus?: RuleEvaluationStatus;
-
-  /**
-   * @public
-   * <p>Details from the rule evaluation.</p>
-   */
-  StatusDetails?: string;
-
-  /**
-   * @public
-   * <p>Timestamp when the rule evaluation status was last modified.</p>
-   */
-  LastModifiedTime?: Date;
 }
 
 /**

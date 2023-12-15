@@ -64,6 +64,10 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * @see {@link PutModelPackageGroupPolicyCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *

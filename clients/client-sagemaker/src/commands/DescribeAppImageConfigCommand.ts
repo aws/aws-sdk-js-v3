@@ -68,6 +68,11 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  * //     },
  * //   },
  * //   JupyterLabAppImageConfig: { // JupyterLabAppImageConfig
+ * //     FileSystemConfig: {
+ * //       MountPath: "STRING_VALUE",
+ * //       DefaultUid: Number("int"),
+ * //       DefaultGid: Number("int"),
+ * //     },
  * //     ContainerConfig: { // ContainerConfig
  * //       ContainerArguments: [ // CustomImageContainerArguments
  * //         "STRING_VALUE",

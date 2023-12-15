@@ -85,7 +85,7 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * //     { // Edge
  * //       SourceArn: "STRING_VALUE",
  * //       DestinationArn: "STRING_VALUE",
- * //       AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ * //       AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced" || "SameAs",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -55,7 +55,7 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
  *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
  *   NameContains: "STRING_VALUE",
- *   StatusEquals: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
+ *   StatusEquals: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "DELETED",
  *   SortBy: "Name" || "CreationTime" || "Status",
  *   SortOrder: "Ascending" || "Descending",
  *   NextToken: "STRING_VALUE",
@@ -72,7 +72,7 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * //       JobDescription: "STRING_VALUE", // required
  * //       JobType: "Default" || "Advanced", // required
  * //       JobArn: "STRING_VALUE", // required
- * //       Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED", // required
+ * //       Status: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "DELETED", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       CompletionTime: new Date("TIMESTAMP"),
  * //       RoleArn: "STRING_VALUE", // required

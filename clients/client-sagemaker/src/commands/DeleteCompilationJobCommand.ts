@@ -14,8 +14,8 @@ import {
   SMITHY_CONTEXT_KEY,
 } from "@smithy/types";
 
-import { DeleteAppRequest } from "../models/models_2";
-import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_json1_1";
+import { DeleteCompilationJobRequest } from "../models/models_2";
+import { de_DeleteCompilationJobCommand, se_DeleteCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
@@ -25,46 +25,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAppCommand}.
+ * The input for {@link DeleteCompilationJobCommand}.
  */
-export interface DeleteAppCommandInput extends DeleteAppRequest {}
+export interface DeleteCompilationJobCommandInput extends DeleteCompilationJobRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAppCommand}.
+ * The output of {@link DeleteCompilationJobCommand}.
  */
-export interface DeleteAppCommandOutput extends __MetadataBearer {}
+export interface DeleteCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Used to stop and delete an app.</p>
+ * <p>Deletes the specified compilation job. This action deletes only the compilation job
+ *             resource in Amazon SageMaker. It doesn't delete other resources that are related to
+ *             that job, such as the model artifacts that the job creates, the compilation logs in
+ *                 CloudWatch, the compiled model, or the IAM role.</p>
+ *          <p>You can delete a compilation job only if its current status is <code>COMPLETED</code>,
+ *                 <code>FAILED</code>, or <code>STOPPED</code>. If the job status is
+ *                 <code>STARTING</code> or <code>INPROGRESS</code>, stop the job, and then delete it
+ *             after its status becomes <code>STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, DeleteAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, DeleteAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, DeleteCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const input = { // DeleteAppRequest
- *   DomainId: "STRING_VALUE", // required
- *   UserProfileName: "STRING_VALUE",
- *   SpaceName: "STRING_VALUE",
- *   AppType: "JupyterServer" || "KernelGateway" || "DetailedProfiler" || "TensorBoard" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab" || "RStudioServerPro" || "RSession" || "RSessionGateway" || "Canvas" || "DatasetManager" || "SageMakerLite" || "Local", // required
- *   AppName: "STRING_VALUE", // required
+ * const input = { // DeleteCompilationJobRequest
+ *   CompilationJobName: "STRING_VALUE", // required
  * };
- * const command = new DeleteAppCommand(input);
+ * const command = new DeleteCompilationJobCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteAppCommandInput - {@link DeleteAppCommandInput}
- * @returns {@link DeleteAppCommandOutput}
- * @see {@link DeleteAppCommandInput} for command's `input` shape.
- * @see {@link DeleteAppCommandOutput} for command's `response` shape.
+ * @param DeleteCompilationJobCommandInput - {@link DeleteCompilationJobCommandInput}
+ * @returns {@link DeleteCompilationJobCommandOutput}
+ * @see {@link DeleteCompilationJobCommandInput} for command's `input` shape.
+ * @see {@link DeleteCompilationJobCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
- *
- * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
@@ -73,9 +73,9 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class DeleteAppCommand extends $Command<
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput,
+export class DeleteCompilationJobCommand extends $Command<
+  DeleteCompilationJobCommandInput,
+  DeleteCompilationJobCommandOutput,
   SageMakerClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -90,7 +90,7 @@ export class DeleteAppCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DeleteAppCommandInput) {
+  constructor(readonly input: DeleteCompilationJobCommandInput) {
     super();
   }
 
@@ -101,15 +101,17 @@ export class DeleteAppCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteAppCommandInput, DeleteAppCommandOutput> {
+  ): Handler<DeleteCompilationJobCommandInput, DeleteCompilationJobCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteAppCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeleteCompilationJobCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "DeleteAppCommand";
+    const commandName = "DeleteCompilationJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -118,7 +120,7 @@ export class DeleteAppCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "SageMaker",
-        operation: "DeleteApp",
+        operation: "DeleteCompilationJob",
       },
     };
     const { requestHandler } = configuration;
@@ -132,14 +134,14 @@ export class DeleteAppCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DeleteAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteAppCommand(input, context);
+  private serialize(input: DeleteCompilationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteCompilationJobCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAppCommandOutput> {
-    return de_DeleteAppCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCompilationJobCommandOutput> {
+    return de_DeleteCompilationJobCommand(output, context);
   }
 }

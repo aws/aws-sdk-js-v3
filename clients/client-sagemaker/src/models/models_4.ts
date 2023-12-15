@@ -144,7 +144,6 @@ import {
   ResourceType,
   SecondaryStatus,
   SecondaryStatusTransition,
-  SelectiveExecutionResult,
   SortBy,
   SortOrder,
   TransformJobStatus,
@@ -157,6 +156,18 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ * <p>The ARN from an execution of the current pipeline.</p>
+ */
+export interface SelectiveExecutionResult {
+  /**
+   * @public
+   * <p>The ARN from an execution of the current pipeline.</p>
+   */
+  SourcePipelineExecutionArn?: string;
+}
 
 /**
  * @public
@@ -225,12 +236,6 @@ export interface PipelineExecutionStep {
 
   /**
    * @public
-   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
-   */
-  AttemptCount?: number;
-
-  /**
-   * @public
    * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
    */
   FailureReason?: string;
@@ -240,6 +245,12 @@ export interface PipelineExecutionStep {
    * <p>Metadata to run the pipeline step.</p>
    */
   Metadata?: PipelineExecutionStepMetadata;
+
+  /**
+   * @public
+   * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
+   */
+  AttemptCount?: number;
 
   /**
    * @public
@@ -1020,12 +1031,6 @@ export interface SpaceDetails {
 
   /**
    * @public
-   * <p>The name of the space that appears in the Studio UI.</p>
-   */
-  SpaceDisplayName?: string;
-
-  /**
-   * @public
    * <p>Specifies summary information about the space settings.</p>
    */
   SpaceSettingsSummary?: SpaceSettingsSummary;
@@ -1041,6 +1046,12 @@ export interface SpaceDetails {
    * <p>Specifies summary information about the ownership settings.</p>
    */
   OwnershipSettingsSummary?: OwnershipSettingsSummary;
+
+  /**
+   * @public
+   * <p>The name of the space that appears in the Studio UI.</p>
+   */
+  SpaceDisplayName?: string;
 }
 
 /**
@@ -2628,6 +2639,12 @@ export interface TransformJob {
 
   /**
    * @public
+   * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
+   */
+  DataCaptureConfig?: BatchDataCaptureConfig;
+
+  /**
+   * @public
    * <p>Describes the resources, including ML instance types and ML instance count, to use for
    *             transform job.</p>
    */
@@ -2707,12 +2724,6 @@ export interface TransformJob {
    * <p>A list of tags associated with the transform job.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
-   */
-  DataCaptureConfig?: BatchDataCaptureConfig;
 }
 
 /**
@@ -3455,15 +3466,15 @@ export interface PipelineExecution {
 
   /**
    * @public
-   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
-   */
-  PipelineParameters?: Parameter[];
-
-  /**
-   * @public
    * <p>The selective execution configuration applied to the pipeline run.</p>
    */
   SelectiveExecutionConfig?: SelectiveExecutionConfig;
+
+  /**
+   * @public
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   */
+  PipelineParameters?: Parameter[];
 }
 
 /**
@@ -4892,15 +4903,15 @@ export interface SearchRecord {
 
   /**
    * @public
-   * <p>The properties of a project.</p>
-   */
-  Project?: Project;
-
-  /**
-   * @public
    * <p>The feature metadata used to search through the features.</p>
    */
   FeatureMetadata?: FeatureMetadata;
+
+  /**
+   * @public
+   * <p>The properties of a project.</p>
+   */
+  Project?: Project;
 
   /**
    * @public
@@ -4910,15 +4921,15 @@ export interface SearchRecord {
 
   /**
    * @public
-   * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
-   */
-  Model?: ModelDashboardModel;
-
-  /**
-   * @public
    * <p>An Amazon SageMaker Model Card that documents details about a machine learning model.</p>
    */
   ModelCard?: ModelCard;
+
+  /**
+   * @public
+   * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
+   */
+  Model?: ModelDashboardModel;
 }
 
 /**
@@ -5679,12 +5690,6 @@ export interface UpdateDomainRequest {
 
   /**
    * @public
-   * <p>The default settings used to create a space within the Domain.</p>
-   */
-  DefaultSpaceSettings?: DefaultSpaceSettings;
-
-  /**
-   * @public
    * <p>The entity that creates and manages the required security groups for inter-app
    *             communication in <code>VPCOnly</code> mode. Required when
    *                 <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
@@ -5693,6 +5698,12 @@ export interface UpdateDomainRequest {
    *                 <code>Service</code>.</p>
    */
   AppSecurityGroupManagement?: AppSecurityGroupManagement;
+
+  /**
+   * @public
+   * <p>The default settings used to create a space within the Domain.</p>
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings;
 
   /**
    * @public

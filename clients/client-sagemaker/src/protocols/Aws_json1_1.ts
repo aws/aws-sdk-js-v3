@@ -185,6 +185,10 @@ import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "../commands/DeleteCodeRepositoryCommand";
+import {
+  DeleteCompilationJobCommandInput,
+  DeleteCompilationJobCommandOutput,
+} from "../commands/DeleteCompilationJobCommand";
 import { DeleteContextCommandInput, DeleteContextCommandOutput } from "../commands/DeleteContextCommand";
 import {
   DeleteDataQualityJobDefinitionCommandInput,
@@ -1334,6 +1338,7 @@ import {
   DeleteClusterRequest,
   DeleteClusterResponse,
   DeleteCodeRepositoryInput,
+  DeleteCompilationJobRequest,
   DeleteContextRequest,
   DeleteContextResponse,
   DeleteDataQualityJobDefinitionRequest,
@@ -1545,7 +1550,6 @@ import {
   ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerRuleConfiguration,
-  ProfilerRuleEvaluationStatus,
   RealTimeInferenceRecommendation,
   RecommendationMetrics,
   ResolvedAttributes,
@@ -1780,6 +1784,7 @@ import {
   PredefinedMetricSpecification,
   ProcessingJobStepMetadata,
   ProductionVariantServerlessUpdateConfig,
+  ProfilerRuleEvaluationStatus,
   PropertyNameQuery,
   PropertyNameSuggestion,
   QualityCheckStepMetadata,
@@ -1790,7 +1795,6 @@ import {
   ScalingPolicyMetric,
   ScalingPolicyObjective,
   SecondaryStatusTransition,
-  SelectiveExecutionResult,
   SuggestionQuery,
   TargetTrackingScalingPolicyConfiguration,
   TrainingJobStepMetadata,
@@ -1883,6 +1887,7 @@ import {
   SearchRecord,
   SearchRequest,
   SearchResponse,
+  SelectiveExecutionResult,
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
@@ -2879,6 +2884,19 @@ export const se_DeleteCodeRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteCodeRepository");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteCompilationJobCommand
+ */
+export const se_DeleteCompilationJobCommand = async (
+  input: DeleteCompilationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteCompilationJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8321,6 +8339,9 @@ const de_CreatePipelineCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await de_ResourceLimitExceededRes(parsedOutput, context);
@@ -9028,12 +9049,18 @@ const de_DeleteAlgorithmCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -9301,6 +9328,49 @@ const de_DeleteCodeRepositoryCommandError = async (
     parsedBody,
     errorCode,
   });
+};
+
+/**
+ * deserializeAws_json1_1DeleteCompilationJobCommand
+ */
+export const de_DeleteCompilationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCompilationJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteCompilationJobCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCompilationJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCompilationJobCommandError
+ */
+const de_DeleteCompilationJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCompilationJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -10586,6 +10656,9 @@ const de_DeletePipelineCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -13664,6 +13737,9 @@ const de_DescribeUserProfileCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -17351,12 +17427,18 @@ const de_PutModelPackageGroupPolicyCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -17616,6 +17698,9 @@ const de_SendPipelineExecutionStepFailureCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await de_ResourceLimitExceededRes(parsedOutput, context);
@@ -17665,6 +17750,9 @@ const de_SendPipelineExecutionStepSuccessCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await de_ResourceLimitExceededRes(parsedOutput, context);
@@ -17886,6 +17974,9 @@ const de_StartPipelineExecutionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await de_ResourceLimitExceededRes(parsedOutput, context);
@@ -18353,6 +18444,9 @@ const de_StopPipelineExecutionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -18723,12 +18817,18 @@ const de_UpdateCodeRepositoryCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -19086,6 +19186,9 @@ const de_UpdateFeatureGroupCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -19511,12 +19614,18 @@ const de_UpdateModelPackageCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -19742,6 +19851,9 @@ const de_UpdatePipelineCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -19788,6 +19900,9 @@ const de_UpdatePipelineExecutionCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -19833,12 +19948,18 @@ const de_UpdateProjectCommandError = async (
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -19926,6 +20047,9 @@ const de_UpdateTrainingJobCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemaker#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
@@ -20267,6 +20391,8 @@ const de_ResourceNotFoundRes = async (parsedOutput: any, context: __SerdeContext
 // se_AnnotationConsolidationConfig omitted.
 
 // se_AppSpecification omitted.
+
+// se_ArtifactProperties omitted.
 
 // se_ArtifactSource omitted.
 
@@ -20934,6 +21060,8 @@ const se_DataQualityJobInput = (input: DataQualityJobInput, context: __SerdeCont
 // se_DeleteClusterRequest omitted.
 
 // se_DeleteCodeRepositoryInput omitted.
+
+// se_DeleteCompilationJobRequest omitted.
 
 // se_DeleteContextRequest omitted.
 
@@ -30165,6 +30293,7 @@ const de_JsonContentTypes = (output: any, context: __SerdeContext): string[] => 
 const de_JupyterLabAppImageConfig = (output: any, context: __SerdeContext): JupyterLabAppImageConfig => {
   return take(output, {
     ContainerConfig: (_: any) => de_ContainerConfig(_, context),
+    FileSystemConfig: (_: any) => de_FileSystemConfig(_, context),
   }) as any;
 };
 
@@ -35079,6 +35208,7 @@ const de_TextGenerationJobConfig = (output: any, context: __SerdeContext): TextG
   return take(output, {
     BaseModelName: __expectString,
     CompletionCriteria: (_: any) => de_AutoMLJobCompletionCriteria(_, context),
+    ModelAccessConfig: (_: any) => de_ModelAccessConfig(_, context),
     TextGenerationHyperParameters: (_: any) => de_TextGenerationHyperParameters(_, context),
   }) as any;
 };

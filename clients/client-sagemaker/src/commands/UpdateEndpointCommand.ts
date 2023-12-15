@@ -86,13 +86,6 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *       TerminationWaitInSeconds: Number("int"),
  *       MaximumExecutionTimeoutInSeconds: Number("int"),
  *     },
- *     AutoRollbackConfiguration: { // AutoRollbackConfig
- *       Alarms: [ // AlarmList
- *         { // Alarm
- *           AlarmName: "STRING_VALUE",
- *         },
- *       ],
- *     },
  *     RollingUpdatePolicy: { // RollingUpdatePolicy
  *       MaximumBatchSize: {
  *         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
@@ -104,6 +97,13 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *         Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
  *         Value: Number("int"), // required
  *       },
+ *     },
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *   },
  *   RetainDeploymentConfig: true || false,

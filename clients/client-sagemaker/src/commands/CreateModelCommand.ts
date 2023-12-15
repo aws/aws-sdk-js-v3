@@ -76,14 +76,6 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *     },
  *     Mode: "SingleModel" || "MultiModel",
  *     ModelDataUrl: "STRING_VALUE",
- *     Environment: { // EnvironmentMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     ModelPackageName: "STRING_VALUE",
- *     InferenceSpecificationName: "STRING_VALUE",
- *     MultiModelConfig: { // MultiModelConfig
- *       ModelCacheSetting: "Enabled" || "Disabled",
- *     },
  *     ModelDataSource: { // ModelDataSource
  *       S3DataSource: { // S3ModelDataSource
  *         S3Uri: "STRING_VALUE", // required
@@ -93,6 +85,14 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *           AcceptEula: true || false, // required
  *         },
  *       },
+ *     },
+ *     Environment: { // EnvironmentMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     ModelPackageName: "STRING_VALUE",
+ *     InferenceSpecificationName: "STRING_VALUE",
+ *     MultiModelConfig: { // MultiModelConfig
+ *       ModelCacheSetting: "Enabled" || "Disabled",
  *     },
  *   },
  *   Containers: [ // ContainerDefinitionList
@@ -107,14 +107,6 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *       },
  *       Mode: "SingleModel" || "MultiModel",
  *       ModelDataUrl: "STRING_VALUE",
- *       Environment: {
- *         "<keys>": "STRING_VALUE",
- *       },
- *       ModelPackageName: "STRING_VALUE",
- *       InferenceSpecificationName: "STRING_VALUE",
- *       MultiModelConfig: {
- *         ModelCacheSetting: "Enabled" || "Disabled",
- *       },
  *       ModelDataSource: {
  *         S3DataSource: {
  *           S3Uri: "STRING_VALUE", // required
@@ -124,6 +116,14 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *             AcceptEula: true || false, // required
  *           },
  *         },
+ *       },
+ *       Environment: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ModelPackageName: "STRING_VALUE",
+ *       InferenceSpecificationName: "STRING_VALUE",
+ *       MultiModelConfig: {
+ *         ModelCacheSetting: "Enabled" || "Disabled",
  *       },
  *     },
  *   ],

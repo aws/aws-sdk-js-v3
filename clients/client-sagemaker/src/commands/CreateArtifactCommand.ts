@@ -60,7 +60,7 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  *     ],
  *   },
  *   ArtifactType: "STRING_VALUE", // required
- *   Properties: { // LineageEntityParameters
+ *   Properties: { // ArtifactProperties
  *     "<keys>": "STRING_VALUE",
  *   },
  *   MetadataProperties: { // MetadataProperties

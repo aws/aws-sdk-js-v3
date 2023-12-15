@@ -54,7 +54,7 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  *         ClientId: "STRING_VALUE", // required
  *       },
  *       OidcMemberDefinition: { // OidcMemberDefinition
- *         Groups: [ // Groups // required
+ *         Groups: [ // Groups
  *           "STRING_VALUE",
  *         ],
  *       },
@@ -78,7 +78,7 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * //           ClientId: "STRING_VALUE", // required
  * //         },
  * //         OidcMemberDefinition: { // OidcMemberDefinition
- * //           Groups: [ // Groups // required
+ * //           Groups: [ // Groups
  * //             "STRING_VALUE",
  * //           ],
  * //         },

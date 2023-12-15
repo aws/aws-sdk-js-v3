@@ -51,7 +51,7 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  * const input = { // AddAssociationRequest
  *   SourceArn: "STRING_VALUE", // required
  *   DestinationArn: "STRING_VALUE", // required
- *   AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ *   AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced" || "SameAs",
  * };
  * const command = new AddAssociationCommand(input);
  * const response = await client.send(command);

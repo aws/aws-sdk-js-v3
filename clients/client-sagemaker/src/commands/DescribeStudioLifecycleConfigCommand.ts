@@ -60,7 +60,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   StudioLifecycleConfigContent: "STRING_VALUE",
- * //   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway" || "JupyterLab" || "CodeEditor",
+ * //   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway" || "VSCode" || "Savitur" || "CodeEditor" || "JupyterLab",
  * // };
  *
  * ```

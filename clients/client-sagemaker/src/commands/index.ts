@@ -67,6 +67,7 @@ export * from "./DeleteArtifactCommand";
 export * from "./DeleteAssociationCommand";
 export * from "./DeleteClusterCommand";
 export * from "./DeleteCodeRepositoryCommand";
+export * from "./DeleteCompilationJobCommand";
 export * from "./DeleteContextCommand";
 export * from "./DeleteDataQualityJobDefinitionCommand";
 export * from "./DeleteDeviceFleetCommand";

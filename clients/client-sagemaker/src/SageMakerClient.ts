@@ -206,6 +206,10 @@ import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
+import {
+  DeleteCompilationJobCommandInput,
+  DeleteCompilationJobCommandOutput,
+} from "./commands/DeleteCompilationJobCommand";
 import { DeleteContextCommandInput, DeleteContextCommandOutput } from "./commands/DeleteContextCommand";
 import {
   DeleteDataQualityJobDefinitionCommandInput,
@@ -931,6 +935,7 @@ export type ServiceInputTypes =
   | DeleteAssociationCommandInput
   | DeleteClusterCommandInput
   | DeleteCodeRepositoryCommandInput
+  | DeleteCompilationJobCommandInput
   | DeleteContextCommandInput
   | DeleteDataQualityJobDefinitionCommandInput
   | DeleteDeviceFleetCommandInput
@@ -1253,6 +1258,7 @@ export type ServiceOutputTypes =
   | DeleteAssociationCommandOutput
   | DeleteClusterCommandOutput
   | DeleteCodeRepositoryCommandOutput
+  | DeleteCompilationJobCommandOutput
   | DeleteContextCommandOutput
   | DeleteDataQualityJobDefinitionCommandOutput
   | DeleteDeviceFleetCommandOutput

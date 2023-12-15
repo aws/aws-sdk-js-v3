@@ -61,7 +61,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
  *   CreationTimeBefore: new Date("TIMESTAMP"),
  *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
  *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
- *   StatusEquals: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping",
+ *   StatusEquals: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Deleting" || "DeleteFailed",
  * };
  * const command = new ListHyperParameterTuningJobsCommand(input);
  * const response = await client.send(command);
@@ -70,7 +70,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
  * //     { // HyperParameterTuningJobSummary
  * //       HyperParameterTuningJobName: "STRING_VALUE", // required
  * //       HyperParameterTuningJobArn: "STRING_VALUE", // required
- * //       HyperParameterTuningJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
+ * //       HyperParameterTuningJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Deleting" || "DeleteFailed", // required
  * //       Strategy: "Bayesian" || "Random" || "Hyperband" || "Grid", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       HyperParameterTuningEndTime: new Date("TIMESTAMP"),

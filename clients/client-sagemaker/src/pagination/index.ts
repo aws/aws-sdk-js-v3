@@ -21,6 +21,7 @@ export * from "./ListEdgePackagingJobsPaginator";
 export * from "./ListEndpointConfigsPaginator";
 export * from "./ListEndpointsPaginator";
 export * from "./ListExperimentsPaginator";
+export * from "./ListFeatureGroupsPaginator";
 export * from "./ListFlowDefinitionsPaginator";
 export * from "./ListHumanTaskUisPaginator";
 export * from "./ListHyperParameterTuningJobsPaginator";

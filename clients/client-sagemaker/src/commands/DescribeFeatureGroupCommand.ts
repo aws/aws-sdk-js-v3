@@ -59,8 +59,8 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * //   EventTimeFeatureName: "STRING_VALUE", // required
  * //   FeatureDefinitions: [ // FeatureDefinitions // required
  * //     { // FeatureDefinition
- * //       FeatureName: "STRING_VALUE",
- * //       FeatureType: "Integral" || "Fractional" || "String",
+ * //       FeatureName: "STRING_VALUE", // required
+ * //       FeatureType: "Integral" || "Fractional" || "String", // required
  * //       CollectionType: "List" || "Set" || "Vector",
  * //       CollectionConfig: { // CollectionConfig Union: only one key present
  * //         VectorConfig: { // VectorConfig
@@ -94,7 +94,7 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * //       Catalog: "STRING_VALUE", // required
  * //       Database: "STRING_VALUE", // required
  * //     },
- * //     TableFormat: "Glue" || "Iceberg",
+ * //     TableFormat: "Default" || "Glue" || "Iceberg",
  * //   },
  * //   RoleArn: "STRING_VALUE",
  * //   FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
