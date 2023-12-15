@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
+
 import {
   ActiveTrustedSigners,
   Aliases,

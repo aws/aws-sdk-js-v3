@@ -194,8 +194,8 @@ export const se_BuildSuggestersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BuildSuggestersRequest(input, context),
-    Action: "BuildSuggesters",
-    Version: "2013-01-01",
+    [_A]: _BS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -211,8 +211,8 @@ export const se_CreateDomainCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDomainRequest(input, context),
-    Action: "CreateDomain",
-    Version: "2013-01-01",
+    [_A]: _CD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -228,8 +228,8 @@ export const se_DefineAnalysisSchemeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DefineAnalysisSchemeRequest(input, context),
-    Action: "DefineAnalysisScheme",
-    Version: "2013-01-01",
+    [_A]: _DAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -245,8 +245,8 @@ export const se_DefineExpressionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DefineExpressionRequest(input, context),
-    Action: "DefineExpression",
-    Version: "2013-01-01",
+    [_A]: _DE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -262,8 +262,8 @@ export const se_DefineIndexFieldCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DefineIndexFieldRequest(input, context),
-    Action: "DefineIndexField",
-    Version: "2013-01-01",
+    [_A]: _DIF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -279,8 +279,8 @@ export const se_DefineSuggesterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DefineSuggesterRequest(input, context),
-    Action: "DefineSuggester",
-    Version: "2013-01-01",
+    [_A]: _DS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -296,8 +296,8 @@ export const se_DeleteAnalysisSchemeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAnalysisSchemeRequest(input, context),
-    Action: "DeleteAnalysisScheme",
-    Version: "2013-01-01",
+    [_A]: _DASe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -313,8 +313,8 @@ export const se_DeleteDomainCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDomainRequest(input, context),
-    Action: "DeleteDomain",
-    Version: "2013-01-01",
+    [_A]: _DD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -330,8 +330,8 @@ export const se_DeleteExpressionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteExpressionRequest(input, context),
-    Action: "DeleteExpression",
-    Version: "2013-01-01",
+    [_A]: _DEe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -347,8 +347,8 @@ export const se_DeleteIndexFieldCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteIndexFieldRequest(input, context),
-    Action: "DeleteIndexField",
-    Version: "2013-01-01",
+    [_A]: _DIFe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -364,8 +364,8 @@ export const se_DeleteSuggesterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSuggesterRequest(input, context),
-    Action: "DeleteSuggester",
-    Version: "2013-01-01",
+    [_A]: _DSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -381,8 +381,8 @@ export const se_DescribeAnalysisSchemesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAnalysisSchemesRequest(input, context),
-    Action: "DescribeAnalysisSchemes",
-    Version: "2013-01-01",
+    [_A]: _DASes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -398,8 +398,8 @@ export const se_DescribeAvailabilityOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAvailabilityOptionsRequest(input, context),
-    Action: "DescribeAvailabilityOptions",
-    Version: "2013-01-01",
+    [_A]: _DAO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -415,8 +415,8 @@ export const se_DescribeDomainEndpointOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDomainEndpointOptionsRequest(input, context),
-    Action: "DescribeDomainEndpointOptions",
-    Version: "2013-01-01",
+    [_A]: _DDEO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -432,8 +432,8 @@ export const se_DescribeDomainsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDomainsRequest(input, context),
-    Action: "DescribeDomains",
-    Version: "2013-01-01",
+    [_A]: _DDe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -449,8 +449,8 @@ export const se_DescribeExpressionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeExpressionsRequest(input, context),
-    Action: "DescribeExpressions",
-    Version: "2013-01-01",
+    [_A]: _DEes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -466,8 +466,8 @@ export const se_DescribeIndexFieldsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeIndexFieldsRequest(input, context),
-    Action: "DescribeIndexFields",
-    Version: "2013-01-01",
+    [_A]: _DIFes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -483,8 +483,8 @@ export const se_DescribeScalingParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeScalingParametersRequest(input, context),
-    Action: "DescribeScalingParameters",
-    Version: "2013-01-01",
+    [_A]: _DSP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -500,8 +500,8 @@ export const se_DescribeServiceAccessPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeServiceAccessPoliciesRequest(input, context),
-    Action: "DescribeServiceAccessPolicies",
-    Version: "2013-01-01",
+    [_A]: _DSAP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -517,8 +517,8 @@ export const se_DescribeSuggestersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeSuggestersRequest(input, context),
-    Action: "DescribeSuggesters",
-    Version: "2013-01-01",
+    [_A]: _DSes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -534,8 +534,8 @@ export const se_IndexDocumentsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_IndexDocumentsRequest(input, context),
-    Action: "IndexDocuments",
-    Version: "2013-01-01",
+    [_A]: _ID,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -549,8 +549,8 @@ export const se_ListDomainNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "ListDomainNames",
-    Version: "2013-01-01",
+    [_A]: _LDN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -566,8 +566,8 @@ export const se_UpdateAvailabilityOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAvailabilityOptionsRequest(input, context),
-    Action: "UpdateAvailabilityOptions",
-    Version: "2013-01-01",
+    [_A]: _UAO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -583,8 +583,8 @@ export const se_UpdateDomainEndpointOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateDomainEndpointOptionsRequest(input, context),
-    Action: "UpdateDomainEndpointOptions",
-    Version: "2013-01-01",
+    [_A]: _UDEO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -600,8 +600,8 @@ export const se_UpdateScalingParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateScalingParametersRequest(input, context),
-    Action: "UpdateScalingParameters",
-    Version: "2013-01-01",
+    [_A]: _USP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -617,8 +617,8 @@ export const se_UpdateServiceAccessPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateServiceAccessPoliciesRequest(input, context),
-    Action: "UpdateServiceAccessPolicies",
-    Version: "2013-01-01",
+    [_A]: _USAP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2216,20 +2216,20 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const se_AnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Synonyms != null) {
-    entries["Synonyms"] = input.Synonyms;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.Stopwords != null) {
-    entries["Stopwords"] = input.Stopwords;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
-  if (input.StemmingDictionary != null) {
-    entries["StemmingDictionary"] = input.StemmingDictionary;
+  if (input[_SD] != null) {
+    entries[_SD] = input[_SD];
   }
-  if (input.JapaneseTokenizationDictionary != null) {
-    entries["JapaneseTokenizationDictionary"] = input.JapaneseTokenizationDictionary;
+  if (input[_JTD] != null) {
+    entries[_JTD] = input[_JTD];
   }
-  if (input.AlgorithmicStemming != null) {
-    entries["AlgorithmicStemming"] = input.AlgorithmicStemming;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
   return entries;
 };
@@ -2239,14 +2239,14 @@ const se_AnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): an
  */
 const se_AnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AnalysisSchemeName != null) {
-    entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
+  if (input[_ASN] != null) {
+    entries[_ASN] = input[_ASN];
   }
-  if (input.AnalysisSchemeLanguage != null) {
-    entries["AnalysisSchemeLanguage"] = input.AnalysisSchemeLanguage;
+  if (input[_ASL] != null) {
+    entries[_ASL] = input[_ASL];
   }
-  if (input.AnalysisOptions != null) {
-    const memberEntries = se_AnalysisOptions(input.AnalysisOptions, context);
+  if (input[_AO] != null) {
+    const memberEntries = se_AnalysisOptions(input[_AO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisOptions.${key}`;
       entries[loc] = value;
@@ -2260,8 +2260,8 @@ const se_AnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any 
  */
 const se_BuildSuggestersRequest = (input: BuildSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
   return entries;
 };
@@ -2271,8 +2271,8 @@ const se_BuildSuggestersRequest = (input: BuildSuggestersRequest, context: __Ser
  */
 const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
   return entries;
 };
@@ -2282,20 +2282,20 @@ const se_CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeCont
  */
 const se_DateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceFields != null) {
-    entries["SourceFields"] = input.SourceFields;
+  if (input[_SF] != null) {
+    entries[_SF] = input[_SF];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
   return entries;
 };
@@ -2305,23 +2305,23 @@ const se_DateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): 
  */
 const se_DateOptions = (input: DateOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.SortEnabled != null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
   return entries;
 };
@@ -2331,11 +2331,11 @@ const se_DateOptions = (input: DateOptions, context: __SerdeContext): any => {
  */
 const se_DefineAnalysisSchemeRequest = (input: DefineAnalysisSchemeRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.AnalysisScheme != null) {
-    const memberEntries = se_AnalysisScheme(input.AnalysisScheme, context);
+  if (input[_ASn] != null) {
+    const memberEntries = se_AnalysisScheme(input[_ASn], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisScheme.${key}`;
       entries[loc] = value;
@@ -2349,11 +2349,11 @@ const se_DefineAnalysisSchemeRequest = (input: DefineAnalysisSchemeRequest, cont
  */
 const se_DefineExpressionRequest = (input: DefineExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.Expression != null) {
-    const memberEntries = se_Expression(input.Expression, context);
+  if (input[_E] != null) {
+    const memberEntries = se_Expression(input[_E], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Expression.${key}`;
       entries[loc] = value;
@@ -2367,11 +2367,11 @@ const se_DefineExpressionRequest = (input: DefineExpressionRequest, context: __S
  */
 const se_DefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.IndexField != null) {
-    const memberEntries = se_IndexField(input.IndexField, context);
+  if (input[_IF] != null) {
+    const memberEntries = se_IndexField(input[_IF], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IndexField.${key}`;
       entries[loc] = value;
@@ -2385,11 +2385,11 @@ const se_DefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __S
  */
 const se_DefineSuggesterRequest = (input: DefineSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.Suggester != null) {
-    const memberEntries = se_Suggester(input.Suggester, context);
+  if (input[_Su] != null) {
+    const memberEntries = se_Suggester(input[_Su], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Suggester.${key}`;
       entries[loc] = value;
@@ -2403,11 +2403,11 @@ const se_DefineSuggesterRequest = (input: DefineSuggesterRequest, context: __Ser
  */
 const se_DeleteAnalysisSchemeRequest = (input: DeleteAnalysisSchemeRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.AnalysisSchemeName != null) {
-    entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
+  if (input[_ASN] != null) {
+    entries[_ASN] = input[_ASN];
   }
   return entries;
 };
@@ -2417,8 +2417,8 @@ const se_DeleteAnalysisSchemeRequest = (input: DeleteAnalysisSchemeRequest, cont
  */
 const se_DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
   return entries;
 };
@@ -2428,11 +2428,11 @@ const se_DeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeCont
  */
 const se_DeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.ExpressionName != null) {
-    entries["ExpressionName"] = input.ExpressionName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -2442,11 +2442,11 @@ const se_DeleteExpressionRequest = (input: DeleteExpressionRequest, context: __S
  */
 const se_DeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.IndexFieldName != null) {
-    entries["IndexFieldName"] = input.IndexFieldName;
+  if (input[_IFN] != null) {
+    entries[_IFN] = input[_IFN];
   }
   return entries;
 };
@@ -2456,11 +2456,11 @@ const se_DeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __S
  */
 const se_DeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.SuggesterName != null) {
-    entries["SuggesterName"] = input.SuggesterName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -2470,12 +2470,12 @@ const se_DeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __Ser
  */
 const se_DescribeAnalysisSchemesRequest = (input: DescribeAnalysisSchemesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.AnalysisSchemeNames != null) {
-    const memberEntries = se_StandardNameList(input.AnalysisSchemeNames, context);
-    if (input.AnalysisSchemeNames?.length === 0) {
+  if (input[_ASNn] != null) {
+    const memberEntries = se_StandardNameList(input[_ASNn], context);
+    if (input[_ASNn]?.length === 0) {
       entries.AnalysisSchemeNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2483,8 +2483,8 @@ const se_DescribeAnalysisSchemesRequest = (input: DescribeAnalysisSchemesRequest
       entries[loc] = value;
     });
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2497,11 +2497,11 @@ const se_DescribeAvailabilityOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2514,11 +2514,11 @@ const se_DescribeDomainEndpointOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2528,9 +2528,9 @@ const se_DescribeDomainEndpointOptionsRequest = (
  */
 const se_DescribeDomainsRequest = (input: DescribeDomainsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainNames != null) {
-    const memberEntries = se_DomainNameList(input.DomainNames, context);
-    if (input.DomainNames?.length === 0) {
+  if (input[_DNo] != null) {
+    const memberEntries = se_DomainNameList(input[_DNo], context);
+    if (input[_DNo]?.length === 0) {
       entries.DomainNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2546,12 +2546,12 @@ const se_DescribeDomainsRequest = (input: DescribeDomainsRequest, context: __Ser
  */
 const se_DescribeExpressionsRequest = (input: DescribeExpressionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.ExpressionNames != null) {
-    const memberEntries = se_StandardNameList(input.ExpressionNames, context);
-    if (input.ExpressionNames?.length === 0) {
+  if (input[_ENx] != null) {
+    const memberEntries = se_StandardNameList(input[_ENx], context);
+    if (input[_ENx]?.length === 0) {
       entries.ExpressionNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2559,8 +2559,8 @@ const se_DescribeExpressionsRequest = (input: DescribeExpressionsRequest, contex
       entries[loc] = value;
     });
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2570,12 +2570,12 @@ const se_DescribeExpressionsRequest = (input: DescribeExpressionsRequest, contex
  */
 const se_DescribeIndexFieldsRequest = (input: DescribeIndexFieldsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.FieldNames != null) {
-    const memberEntries = se_DynamicFieldNameList(input.FieldNames, context);
-    if (input.FieldNames?.length === 0) {
+  if (input[_FN] != null) {
+    const memberEntries = se_DynamicFieldNameList(input[_FN], context);
+    if (input[_FN]?.length === 0) {
       entries.FieldNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2583,8 +2583,8 @@ const se_DescribeIndexFieldsRequest = (input: DescribeIndexFieldsRequest, contex
       entries[loc] = value;
     });
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2594,8 +2594,8 @@ const se_DescribeIndexFieldsRequest = (input: DescribeIndexFieldsRequest, contex
  */
 const se_DescribeScalingParametersRequest = (input: DescribeScalingParametersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
   return entries;
 };
@@ -2608,11 +2608,11 @@ const se_DescribeServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2622,12 +2622,12 @@ const se_DescribeServiceAccessPoliciesRequest = (
  */
 const se_DescribeSuggestersRequest = (input: DescribeSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.SuggesterNames != null) {
-    const memberEntries = se_StandardNameList(input.SuggesterNames, context);
-    if (input.SuggesterNames?.length === 0) {
+  if (input[_SNu] != null) {
+    const memberEntries = se_StandardNameList(input[_SNu], context);
+    if (input[_SNu]?.length === 0) {
       entries.SuggesterNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2635,8 +2635,8 @@ const se_DescribeSuggestersRequest = (input: DescribeSuggestersRequest, context:
       entries[loc] = value;
     });
   }
-  if (input.Deployed != null) {
-    entries["Deployed"] = input.Deployed;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -2646,14 +2646,14 @@ const se_DescribeSuggestersRequest = (input: DescribeSuggestersRequest, context:
  */
 const se_DocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.FuzzyMatching != null) {
-    entries["FuzzyMatching"] = input.FuzzyMatching;
+  if (input[_FM] != null) {
+    entries[_FM] = input[_FM];
   }
-  if (input.SortExpression != null) {
-    entries["SortExpression"] = input.SortExpression;
+  if (input[_SEor] != null) {
+    entries[_SEor] = input[_SEor];
   }
   return entries;
 };
@@ -2663,11 +2663,11 @@ const se_DocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: _
  */
 const se_DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnforceHTTPS != null) {
-    entries["EnforceHTTPS"] = input.EnforceHTTPS;
+  if (input[_EHTTPS] != null) {
+    entries[_EHTTPS] = input[_EHTTPS];
   }
-  if (input.TLSSecurityPolicy != null) {
-    entries["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
+  if (input[_TLSSP] != null) {
+    entries[_TLSSP] = input[_TLSSP];
   }
   return entries;
 };
@@ -2693,20 +2693,20 @@ const se_DomainNameList = (input: string[], context: __SerdeContext): any => {
  */
 const se_DoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
+  if (input[_DV] != null) {
+    entries[_DV] = __serializeFloat(input[_DV]);
   }
-  if (input.SourceFields != null) {
-    entries["SourceFields"] = input.SourceFields;
+  if (input[_SF] != null) {
+    entries[_SF] = input[_SF];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
   return entries;
 };
@@ -2716,23 +2716,23 @@ const se_DoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContex
  */
 const se_DoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
+  if (input[_DV] != null) {
+    entries[_DV] = __serializeFloat(input[_DV]);
   }
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.SortEnabled != null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
   return entries;
 };
@@ -2758,11 +2758,11 @@ const se_DynamicFieldNameList = (input: string[], context: __SerdeContext): any 
  */
 const se_Expression = (input: Expression, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExpressionName != null) {
-    entries["ExpressionName"] = input.ExpressionName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.ExpressionValue != null) {
-    entries["ExpressionValue"] = input.ExpressionValue;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
   return entries;
 };
@@ -2772,8 +2772,8 @@ const se_Expression = (input: Expression, context: __SerdeContext): any => {
  */
 const se_IndexDocumentsRequest = (input: IndexDocumentsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
   return entries;
 };
@@ -2783,84 +2783,84 @@ const se_IndexDocumentsRequest = (input: IndexDocumentsRequest, context: __Serde
  */
 const se_IndexField = (input: IndexField, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IndexFieldName != null) {
-    entries["IndexFieldName"] = input.IndexFieldName;
+  if (input[_IFN] != null) {
+    entries[_IFN] = input[_IFN];
   }
-  if (input.IndexFieldType != null) {
-    entries["IndexFieldType"] = input.IndexFieldType;
+  if (input[_IFT] != null) {
+    entries[_IFT] = input[_IFT];
   }
-  if (input.IntOptions != null) {
-    const memberEntries = se_IntOptions(input.IntOptions, context);
+  if (input[_IO] != null) {
+    const memberEntries = se_IntOptions(input[_IO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DoubleOptions != null) {
-    const memberEntries = se_DoubleOptions(input.DoubleOptions, context);
+  if (input[_DO] != null) {
+    const memberEntries = se_DoubleOptions(input[_DO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LiteralOptions != null) {
-    const memberEntries = se_LiteralOptions(input.LiteralOptions, context);
+  if (input[_LO] != null) {
+    const memberEntries = se_LiteralOptions(input[_LO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TextOptions != null) {
-    const memberEntries = se_TextOptions(input.TextOptions, context);
+  if (input[_TO] != null) {
+    const memberEntries = se_TextOptions(input[_TO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DateOptions != null) {
-    const memberEntries = se_DateOptions(input.DateOptions, context);
+  if (input[_DOa] != null) {
+    const memberEntries = se_DateOptions(input[_DOa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LatLonOptions != null) {
-    const memberEntries = se_LatLonOptions(input.LatLonOptions, context);
+  if (input[_LLO] != null) {
+    const memberEntries = se_LatLonOptions(input[_LLO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LatLonOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.IntArrayOptions != null) {
-    const memberEntries = se_IntArrayOptions(input.IntArrayOptions, context);
+  if (input[_IAO] != null) {
+    const memberEntries = se_IntArrayOptions(input[_IAO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DoubleArrayOptions != null) {
-    const memberEntries = se_DoubleArrayOptions(input.DoubleArrayOptions, context);
+  if (input[_DAOo] != null) {
+    const memberEntries = se_DoubleArrayOptions(input[_DAOo], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LiteralArrayOptions != null) {
-    const memberEntries = se_LiteralArrayOptions(input.LiteralArrayOptions, context);
+  if (input[_LAO] != null) {
+    const memberEntries = se_LiteralArrayOptions(input[_LAO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TextArrayOptions != null) {
-    const memberEntries = se_TextArrayOptions(input.TextArrayOptions, context);
+  if (input[_TAO] != null) {
+    const memberEntries = se_TextArrayOptions(input[_TAO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DateArrayOptions != null) {
-    const memberEntries = se_DateArrayOptions(input.DateArrayOptions, context);
+  if (input[_DAOa] != null) {
+    const memberEntries = se_DateArrayOptions(input[_DAOa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateArrayOptions.${key}`;
       entries[loc] = value;
@@ -2874,20 +2874,20 @@ const se_IndexField = (input: IndexField, context: __SerdeContext): any => {
  */
 const se_IntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceFields != null) {
-    entries["SourceFields"] = input.SourceFields;
+  if (input[_SF] != null) {
+    entries[_SF] = input[_SF];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
   return entries;
 };
@@ -2897,23 +2897,23 @@ const se_IntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): an
  */
 const se_IntOptions = (input: IntOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.SortEnabled != null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
   return entries;
 };
@@ -2923,23 +2923,23 @@ const se_IntOptions = (input: IntOptions, context: __SerdeContext): any => {
  */
 const se_LatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.SortEnabled != null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
   return entries;
 };
@@ -2949,20 +2949,20 @@ const se_LatLonOptions = (input: LatLonOptions, context: __SerdeContext): any =>
  */
 const se_LiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceFields != null) {
-    entries["SourceFields"] = input.SourceFields;
+  if (input[_SF] != null) {
+    entries[_SF] = input[_SF];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
   return entries;
 };
@@ -2972,23 +2972,23 @@ const se_LiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeCont
  */
 const se_LiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.FacetEnabled != null) {
-    entries["FacetEnabled"] = input.FacetEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.SearchEnabled != null) {
-    entries["SearchEnabled"] = input.SearchEnabled;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.SortEnabled != null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
   return entries;
 };
@@ -2998,14 +2998,14 @@ const se_LiteralOptions = (input: LiteralOptions, context: __SerdeContext): any 
  */
 const se_ScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DesiredInstanceType != null) {
-    entries["DesiredInstanceType"] = input.DesiredInstanceType;
+  if (input[_DIT] != null) {
+    entries[_DIT] = input[_DIT];
   }
-  if (input.DesiredReplicationCount != null) {
-    entries["DesiredReplicationCount"] = input.DesiredReplicationCount;
+  if (input[_DRC] != null) {
+    entries[_DRC] = input[_DRC];
   }
-  if (input.DesiredPartitionCount != null) {
-    entries["DesiredPartitionCount"] = input.DesiredPartitionCount;
+  if (input[_DPC] != null) {
+    entries[_DPC] = input[_DPC];
   }
   return entries;
 };
@@ -3031,11 +3031,11 @@ const se_StandardNameList = (input: string[], context: __SerdeContext): any => {
  */
 const se_Suggester = (input: Suggester, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SuggesterName != null) {
-    entries["SuggesterName"] = input.SuggesterName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.DocumentSuggesterOptions != null) {
-    const memberEntries = se_DocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
+  if (input[_DSO] != null) {
+    const memberEntries = se_DocumentSuggesterOptions(input[_DSO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DocumentSuggesterOptions.${key}`;
       entries[loc] = value;
@@ -3049,20 +3049,20 @@ const se_Suggester = (input: Suggester, context: __SerdeContext): any => {
  */
 const se_TextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceFields != null) {
-    entries["SourceFields"] = input.SourceFields;
+  if (input[_SF] != null) {
+    entries[_SF] = input[_SF];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.HighlightEnabled != null) {
-    entries["HighlightEnabled"] = input.HighlightEnabled;
+  if (input[_HE] != null) {
+    entries[_HE] = input[_HE];
   }
-  if (input.AnalysisScheme != null) {
-    entries["AnalysisScheme"] = input.AnalysisScheme;
+  if (input[_ASn] != null) {
+    entries[_ASn] = input[_ASn];
   }
   return entries;
 };
@@ -3072,23 +3072,23 @@ const se_TextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): 
  */
 const se_TextOptions = (input: TextOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.SourceField != null) {
-    entries["SourceField"] = input.SourceField;
+  if (input[_SFo] != null) {
+    entries[_SFo] = input[_SFo];
   }
-  if (input.ReturnEnabled != null) {
-    entries["ReturnEnabled"] = input.ReturnEnabled;
+  if (input[_RE] != null) {
+    entries[_RE] = input[_RE];
   }
-  if (input.SortEnabled != null) {
-    entries["SortEnabled"] = input.SortEnabled;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
-  if (input.HighlightEnabled != null) {
-    entries["HighlightEnabled"] = input.HighlightEnabled;
+  if (input[_HE] != null) {
+    entries[_HE] = input[_HE];
   }
-  if (input.AnalysisScheme != null) {
-    entries["AnalysisScheme"] = input.AnalysisScheme;
+  if (input[_ASn] != null) {
+    entries[_ASn] = input[_ASn];
   }
   return entries;
 };
@@ -3098,11 +3098,11 @@ const se_TextOptions = (input: TextOptions, context: __SerdeContext): any => {
  */
 const se_UpdateAvailabilityOptionsRequest = (input: UpdateAvailabilityOptionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
   return entries;
 };
@@ -3115,11 +3115,11 @@ const se_UpdateDomainEndpointOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.DomainEndpointOptions != null) {
-    const memberEntries = se_DomainEndpointOptions(input.DomainEndpointOptions, context);
+  if (input[_DEO] != null) {
+    const memberEntries = se_DomainEndpointOptions(input[_DEO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainEndpointOptions.${key}`;
       entries[loc] = value;
@@ -3133,11 +3133,11 @@ const se_UpdateDomainEndpointOptionsRequest = (
  */
 const se_UpdateScalingParametersRequest = (input: UpdateScalingParametersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.ScalingParameters != null) {
-    const memberEntries = se_ScalingParameters(input.ScalingParameters, context);
+  if (input[_SP] != null) {
+    const memberEntries = se_ScalingParameters(input[_SP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingParameters.${key}`;
       entries[loc] = value;
@@ -3154,11 +3154,11 @@ const se_UpdateServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName != null) {
-    entries["DomainName"] = input.DomainName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.AccessPolicies != null) {
-    entries["AccessPolicies"] = input.AccessPolicies;
+  if (input[_AP] != null) {
+    entries[_AP] = input[_AP];
   }
   return entries;
 };
@@ -3168,11 +3168,11 @@ const se_UpdateServiceAccessPoliciesRequest = (
  */
 const de_AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = __expectString(output["Options"]);
+  if (output[_O] != null) {
+    contents[_O] = __expectString(output[_O]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -3182,20 +3182,20 @@ const de_AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPo
  */
 const de_AnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
   const contents: any = {};
-  if (output["Synonyms"] !== undefined) {
-    contents.Synonyms = __expectString(output["Synonyms"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Stopwords"] !== undefined) {
-    contents.Stopwords = __expectString(output["Stopwords"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["StemmingDictionary"] !== undefined) {
-    contents.StemmingDictionary = __expectString(output["StemmingDictionary"]);
+  if (output[_SD] != null) {
+    contents[_SD] = __expectString(output[_SD]);
   }
-  if (output["JapaneseTokenizationDictionary"] !== undefined) {
-    contents.JapaneseTokenizationDictionary = __expectString(output["JapaneseTokenizationDictionary"]);
+  if (output[_JTD] != null) {
+    contents[_JTD] = __expectString(output[_JTD]);
   }
-  if (output["AlgorithmicStemming"] !== undefined) {
-    contents.AlgorithmicStemming = __expectString(output["AlgorithmicStemming"]);
+  if (output[_AS] != null) {
+    contents[_AS] = __expectString(output[_AS]);
   }
   return contents;
 };
@@ -3205,14 +3205,14 @@ const de_AnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptio
  */
 const de_AnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
   const contents: any = {};
-  if (output["AnalysisSchemeName"] !== undefined) {
-    contents.AnalysisSchemeName = __expectString(output["AnalysisSchemeName"]);
+  if (output[_ASN] != null) {
+    contents[_ASN] = __expectString(output[_ASN]);
   }
-  if (output["AnalysisSchemeLanguage"] !== undefined) {
-    contents.AnalysisSchemeLanguage = __expectString(output["AnalysisSchemeLanguage"]);
+  if (output[_ASL] != null) {
+    contents[_ASL] = __expectString(output[_ASL]);
   }
-  if (output["AnalysisOptions"] !== undefined) {
-    contents.AnalysisOptions = de_AnalysisOptions(output["AnalysisOptions"], context);
+  if (output[_AO] != null) {
+    contents[_AO] = de_AnalysisOptions(output[_AO], context);
   }
   return contents;
 };
@@ -3222,11 +3222,11 @@ const de_AnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme
  */
 const de_AnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = de_AnalysisScheme(output["Options"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_AnalysisScheme(output[_O], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -3247,11 +3247,11 @@ const de_AnalysisSchemeStatusList = (output: any, context: __SerdeContext): Anal
  */
 const de_AvailabilityOptionsStatus = (output: any, context: __SerdeContext): AvailabilityOptionsStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = __parseBoolean(output["Options"]);
+  if (output[_O] != null) {
+    contents[_O] = __parseBoolean(output[_O]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -3261,11 +3261,11 @@ const de_AvailabilityOptionsStatus = (output: any, context: __SerdeContext): Ava
  */
 const de_BaseException = (output: any, context: __SerdeContext): BaseException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -3276,9 +3276,9 @@ const de_BaseException = (output: any, context: __SerdeContext): BaseException =
 const de_BuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
   const contents: any = {};
   if (output.FieldNames === "") {
-    contents.FieldNames = [];
-  } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
-    contents.FieldNames = de_FieldNameList(__getArrayIfSingleItem(output["FieldNames"]["member"]), context);
+    contents[_FN] = [];
+  } else if (output[_FN] != null && output[_FN][_m] != null) {
+    contents[_FN] = de_FieldNameList(__getArrayIfSingleItem(output[_FN][_m]), context);
   }
   return contents;
 };
@@ -3288,8 +3288,8 @@ const de_BuildSuggestersResponse = (output: any, context: __SerdeContext): Build
  */
 const de_CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
   const contents: any = {};
-  if (output["DomainStatus"] !== undefined) {
-    contents.DomainStatus = de_DomainStatus(output["DomainStatus"], context);
+  if (output[_DSo] != null) {
+    contents[_DSo] = de_DomainStatus(output[_DSo], context);
   }
   return contents;
 };
@@ -3299,20 +3299,20 @@ const de_CreateDomainResponse = (output: any, context: __SerdeContext): CreateDo
  */
 const de_DateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = __expectString(output["SourceFields"]);
+  if (output[_SF] != null) {
+    contents[_SF] = __expectString(output[_SF]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
   return contents;
 };
@@ -3322,23 +3322,23 @@ const de_DateArrayOptions = (output: any, context: __SerdeContext): DateArrayOpt
  */
 const de_DateOptions = (output: any, context: __SerdeContext): DateOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
+  if (output[_SEo] != null) {
+    contents[_SEo] = __parseBoolean(output[_SEo]);
   }
   return contents;
 };
@@ -3348,8 +3348,8 @@ const de_DateOptions = (output: any, context: __SerdeContext): DateOptions => {
  */
 const de_DefineAnalysisSchemeResponse = (output: any, context: __SerdeContext): DefineAnalysisSchemeResponse => {
   const contents: any = {};
-  if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = de_AnalysisSchemeStatus(output["AnalysisScheme"], context);
+  if (output[_ASn] != null) {
+    contents[_ASn] = de_AnalysisSchemeStatus(output[_ASn], context);
   }
   return contents;
 };
@@ -3359,8 +3359,8 @@ const de_DefineAnalysisSchemeResponse = (output: any, context: __SerdeContext): 
  */
 const de_DefineExpressionResponse = (output: any, context: __SerdeContext): DefineExpressionResponse => {
   const contents: any = {};
-  if (output["Expression"] !== undefined) {
-    contents.Expression = de_ExpressionStatus(output["Expression"], context);
+  if (output[_E] != null) {
+    contents[_E] = de_ExpressionStatus(output[_E], context);
   }
   return contents;
 };
@@ -3370,8 +3370,8 @@ const de_DefineExpressionResponse = (output: any, context: __SerdeContext): Defi
  */
 const de_DefineIndexFieldResponse = (output: any, context: __SerdeContext): DefineIndexFieldResponse => {
   const contents: any = {};
-  if (output["IndexField"] !== undefined) {
-    contents.IndexField = de_IndexFieldStatus(output["IndexField"], context);
+  if (output[_IF] != null) {
+    contents[_IF] = de_IndexFieldStatus(output[_IF], context);
   }
   return contents;
 };
@@ -3381,8 +3381,8 @@ const de_DefineIndexFieldResponse = (output: any, context: __SerdeContext): Defi
  */
 const de_DefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
   const contents: any = {};
-  if (output["Suggester"] !== undefined) {
-    contents.Suggester = de_SuggesterStatus(output["Suggester"], context);
+  if (output[_Su] != null) {
+    contents[_Su] = de_SuggesterStatus(output[_Su], context);
   }
   return contents;
 };
@@ -3392,8 +3392,8 @@ const de_DefineSuggesterResponse = (output: any, context: __SerdeContext): Defin
  */
 const de_DeleteAnalysisSchemeResponse = (output: any, context: __SerdeContext): DeleteAnalysisSchemeResponse => {
   const contents: any = {};
-  if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = de_AnalysisSchemeStatus(output["AnalysisScheme"], context);
+  if (output[_ASn] != null) {
+    contents[_ASn] = de_AnalysisSchemeStatus(output[_ASn], context);
   }
   return contents;
 };
@@ -3403,8 +3403,8 @@ const de_DeleteAnalysisSchemeResponse = (output: any, context: __SerdeContext): 
  */
 const de_DeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
   const contents: any = {};
-  if (output["DomainStatus"] !== undefined) {
-    contents.DomainStatus = de_DomainStatus(output["DomainStatus"], context);
+  if (output[_DSo] != null) {
+    contents[_DSo] = de_DomainStatus(output[_DSo], context);
   }
   return contents;
 };
@@ -3414,8 +3414,8 @@ const de_DeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDo
  */
 const de_DeleteExpressionResponse = (output: any, context: __SerdeContext): DeleteExpressionResponse => {
   const contents: any = {};
-  if (output["Expression"] !== undefined) {
-    contents.Expression = de_ExpressionStatus(output["Expression"], context);
+  if (output[_E] != null) {
+    contents[_E] = de_ExpressionStatus(output[_E], context);
   }
   return contents;
 };
@@ -3425,8 +3425,8 @@ const de_DeleteExpressionResponse = (output: any, context: __SerdeContext): Dele
  */
 const de_DeleteIndexFieldResponse = (output: any, context: __SerdeContext): DeleteIndexFieldResponse => {
   const contents: any = {};
-  if (output["IndexField"] !== undefined) {
-    contents.IndexField = de_IndexFieldStatus(output["IndexField"], context);
+  if (output[_IF] != null) {
+    contents[_IF] = de_IndexFieldStatus(output[_IF], context);
   }
   return contents;
 };
@@ -3436,8 +3436,8 @@ const de_DeleteIndexFieldResponse = (output: any, context: __SerdeContext): Dele
  */
 const de_DeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
   const contents: any = {};
-  if (output["Suggester"] !== undefined) {
-    contents.Suggester = de_SuggesterStatus(output["Suggester"], context);
+  if (output[_Su] != null) {
+    contents[_Su] = de_SuggesterStatus(output[_Su], context);
   }
   return contents;
 };
@@ -3448,12 +3448,9 @@ const de_DeleteSuggesterResponse = (output: any, context: __SerdeContext): Delet
 const de_DescribeAnalysisSchemesResponse = (output: any, context: __SerdeContext): DescribeAnalysisSchemesResponse => {
   const contents: any = {};
   if (output.AnalysisSchemes === "") {
-    contents.AnalysisSchemes = [];
-  } else if (output["AnalysisSchemes"] !== undefined && output["AnalysisSchemes"]["member"] !== undefined) {
-    contents.AnalysisSchemes = de_AnalysisSchemeStatusList(
-      __getArrayIfSingleItem(output["AnalysisSchemes"]["member"]),
-      context
-    );
+    contents[_ASna] = [];
+  } else if (output[_ASna] != null && output[_ASna][_m] != null) {
+    contents[_ASna] = de_AnalysisSchemeStatusList(__getArrayIfSingleItem(output[_ASna][_m]), context);
   }
   return contents;
 };
@@ -3466,8 +3463,8 @@ const de_DescribeAvailabilityOptionsResponse = (
   context: __SerdeContext
 ): DescribeAvailabilityOptionsResponse => {
   const contents: any = {};
-  if (output["AvailabilityOptions"] !== undefined) {
-    contents.AvailabilityOptions = de_AvailabilityOptionsStatus(output["AvailabilityOptions"], context);
+  if (output[_AOv] != null) {
+    contents[_AOv] = de_AvailabilityOptionsStatus(output[_AOv], context);
   }
   return contents;
 };
@@ -3480,8 +3477,8 @@ const de_DescribeDomainEndpointOptionsResponse = (
   context: __SerdeContext
 ): DescribeDomainEndpointOptionsResponse => {
   const contents: any = {};
-  if (output["DomainEndpointOptions"] !== undefined) {
-    contents.DomainEndpointOptions = de_DomainEndpointOptionsStatus(output["DomainEndpointOptions"], context);
+  if (output[_DEO] != null) {
+    contents[_DEO] = de_DomainEndpointOptionsStatus(output[_DEO], context);
   }
   return contents;
 };
@@ -3492,12 +3489,9 @@ const de_DescribeDomainEndpointOptionsResponse = (
 const de_DescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
   const contents: any = {};
   if (output.DomainStatusList === "") {
-    contents.DomainStatusList = [];
-  } else if (output["DomainStatusList"] !== undefined && output["DomainStatusList"]["member"] !== undefined) {
-    contents.DomainStatusList = de_DomainStatusList(
-      __getArrayIfSingleItem(output["DomainStatusList"]["member"]),
-      context
-    );
+    contents[_DSL] = [];
+  } else if (output[_DSL] != null && output[_DSL][_m] != null) {
+    contents[_DSL] = de_DomainStatusList(__getArrayIfSingleItem(output[_DSL][_m]), context);
   }
   return contents;
 };
@@ -3508,9 +3502,9 @@ const de_DescribeDomainsResponse = (output: any, context: __SerdeContext): Descr
 const de_DescribeExpressionsResponse = (output: any, context: __SerdeContext): DescribeExpressionsResponse => {
   const contents: any = {};
   if (output.Expressions === "") {
-    contents.Expressions = [];
-  } else if (output["Expressions"] !== undefined && output["Expressions"]["member"] !== undefined) {
-    contents.Expressions = de_ExpressionStatusList(__getArrayIfSingleItem(output["Expressions"]["member"]), context);
+    contents[_Ex] = [];
+  } else if (output[_Ex] != null && output[_Ex][_m] != null) {
+    contents[_Ex] = de_ExpressionStatusList(__getArrayIfSingleItem(output[_Ex][_m]), context);
   }
   return contents;
 };
@@ -3521,9 +3515,9 @@ const de_DescribeExpressionsResponse = (output: any, context: __SerdeContext): D
 const de_DescribeIndexFieldsResponse = (output: any, context: __SerdeContext): DescribeIndexFieldsResponse => {
   const contents: any = {};
   if (output.IndexFields === "") {
-    contents.IndexFields = [];
-  } else if (output["IndexFields"] !== undefined && output["IndexFields"]["member"] !== undefined) {
-    contents.IndexFields = de_IndexFieldStatusList(__getArrayIfSingleItem(output["IndexFields"]["member"]), context);
+    contents[_IFn] = [];
+  } else if (output[_IFn] != null && output[_IFn][_m] != null) {
+    contents[_IFn] = de_IndexFieldStatusList(__getArrayIfSingleItem(output[_IFn][_m]), context);
   }
   return contents;
 };
@@ -3536,8 +3530,8 @@ const de_DescribeScalingParametersResponse = (
   context: __SerdeContext
 ): DescribeScalingParametersResponse => {
   const contents: any = {};
-  if (output["ScalingParameters"] !== undefined) {
-    contents.ScalingParameters = de_ScalingParametersStatus(output["ScalingParameters"], context);
+  if (output[_SP] != null) {
+    contents[_SP] = de_ScalingParametersStatus(output[_SP], context);
   }
   return contents;
 };
@@ -3550,8 +3544,8 @@ const de_DescribeServiceAccessPoliciesResponse = (
   context: __SerdeContext
 ): DescribeServiceAccessPoliciesResponse => {
   const contents: any = {};
-  if (output["AccessPolicies"] !== undefined) {
-    contents.AccessPolicies = de_AccessPoliciesStatus(output["AccessPolicies"], context);
+  if (output[_AP] != null) {
+    contents[_AP] = de_AccessPoliciesStatus(output[_AP], context);
   }
   return contents;
 };
@@ -3562,9 +3556,9 @@ const de_DescribeServiceAccessPoliciesResponse = (
 const de_DescribeSuggestersResponse = (output: any, context: __SerdeContext): DescribeSuggestersResponse => {
   const contents: any = {};
   if (output.Suggesters === "") {
-    contents.Suggesters = [];
-  } else if (output["Suggesters"] !== undefined && output["Suggesters"]["member"] !== undefined) {
-    contents.Suggesters = de_SuggesterStatusList(__getArrayIfSingleItem(output["Suggesters"]["member"]), context);
+    contents[_Sug] = [];
+  } else if (output[_Sug] != null && output[_Sug][_m] != null) {
+    contents[_Sug] = de_SuggesterStatusList(__getArrayIfSingleItem(output[_Sug][_m]), context);
   }
   return contents;
 };
@@ -3574,11 +3568,11 @@ const de_DescribeSuggestersResponse = (output: any, context: __SerdeContext): De
  */
 const de_DisabledOperationException = (output: any, context: __SerdeContext): DisabledOperationException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -3588,14 +3582,14 @@ const de_DisabledOperationException = (output: any, context: __SerdeContext): Di
  */
 const de_DocumentSuggesterOptions = (output: any, context: __SerdeContext): DocumentSuggesterOptions => {
   const contents: any = {};
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["FuzzyMatching"] !== undefined) {
-    contents.FuzzyMatching = __expectString(output["FuzzyMatching"]);
+  if (output[_FM] != null) {
+    contents[_FM] = __expectString(output[_FM]);
   }
-  if (output["SortExpression"] !== undefined) {
-    contents.SortExpression = __expectString(output["SortExpression"]);
+  if (output[_SEor] != null) {
+    contents[_SEor] = __expectString(output[_SEor]);
   }
   return contents;
 };
@@ -3605,11 +3599,11 @@ const de_DocumentSuggesterOptions = (output: any, context: __SerdeContext): Docu
  */
 const de_DomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
   const contents: any = {};
-  if (output["EnforceHTTPS"] !== undefined) {
-    contents.EnforceHTTPS = __parseBoolean(output["EnforceHTTPS"]);
+  if (output[_EHTTPS] != null) {
+    contents[_EHTTPS] = __parseBoolean(output[_EHTTPS]);
   }
-  if (output["TLSSecurityPolicy"] !== undefined) {
-    contents.TLSSecurityPolicy = __expectString(output["TLSSecurityPolicy"]);
+  if (output[_TLSSP] != null) {
+    contents[_TLSSP] = __expectString(output[_TLSSP]);
   }
   return contents;
 };
@@ -3619,11 +3613,11 @@ const de_DomainEndpointOptions = (output: any, context: __SerdeContext): DomainE
  */
 const de_DomainEndpointOptionsStatus = (output: any, context: __SerdeContext): DomainEndpointOptionsStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = de_DomainEndpointOptions(output["Options"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_DomainEndpointOptions(output[_O], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -3646,44 +3640,44 @@ const de_DomainNameMap = (output: any, context: __SerdeContext): Record<string, 
  */
 const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
   const contents: any = {};
-  if (output["DomainId"] !== undefined) {
-    contents.DomainId = __expectString(output["DomainId"]);
+  if (output[_DI] != null) {
+    contents[_DI] = __expectString(output[_DI]);
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Created"] !== undefined) {
-    contents.Created = __parseBoolean(output["Created"]);
+  if (output[_Cr] != null) {
+    contents[_Cr] = __parseBoolean(output[_Cr]);
   }
-  if (output["Deleted"] !== undefined) {
-    contents.Deleted = __parseBoolean(output["Deleted"]);
+  if (output[_De] != null) {
+    contents[_De] = __parseBoolean(output[_De]);
   }
-  if (output["DocService"] !== undefined) {
-    contents.DocService = de_ServiceEndpoint(output["DocService"], context);
+  if (output[_DSoc] != null) {
+    contents[_DSoc] = de_ServiceEndpoint(output[_DSoc], context);
   }
-  if (output["SearchService"] !== undefined) {
-    contents.SearchService = de_ServiceEndpoint(output["SearchService"], context);
+  if (output[_SS] != null) {
+    contents[_SS] = de_ServiceEndpoint(output[_SS], context);
   }
-  if (output["RequiresIndexDocuments"] !== undefined) {
-    contents.RequiresIndexDocuments = __parseBoolean(output["RequiresIndexDocuments"]);
+  if (output[_RID] != null) {
+    contents[_RID] = __parseBoolean(output[_RID]);
   }
-  if (output["Processing"] !== undefined) {
-    contents.Processing = __parseBoolean(output["Processing"]);
+  if (output[_P] != null) {
+    contents[_P] = __parseBoolean(output[_P]);
   }
-  if (output["SearchInstanceType"] !== undefined) {
-    contents.SearchInstanceType = __expectString(output["SearchInstanceType"]);
+  if (output[_SIT] != null) {
+    contents[_SIT] = __expectString(output[_SIT]);
   }
-  if (output["SearchPartitionCount"] !== undefined) {
-    contents.SearchPartitionCount = __strictParseInt32(output["SearchPartitionCount"]) as number;
+  if (output[_SPC] != null) {
+    contents[_SPC] = __strictParseInt32(output[_SPC]) as number;
   }
-  if (output["SearchInstanceCount"] !== undefined) {
-    contents.SearchInstanceCount = __strictParseInt32(output["SearchInstanceCount"]) as number;
+  if (output[_SIC] != null) {
+    contents[_SIC] = __strictParseInt32(output[_SIC]) as number;
   }
-  if (output["Limits"] !== undefined) {
-    contents.Limits = de_Limits(output["Limits"], context);
+  if (output[_L] != null) {
+    contents[_L] = de_Limits(output[_L], context);
   }
   return contents;
 };
@@ -3704,20 +3698,20 @@ const de_DomainStatusList = (output: any, context: __SerdeContext): DomainStatus
  */
 const de_DoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __strictParseFloat(output["DefaultValue"]) as number;
+  if (output[_DV] != null) {
+    contents[_DV] = __strictParseFloat(output[_DV]) as number;
   }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = __expectString(output["SourceFields"]);
+  if (output[_SF] != null) {
+    contents[_SF] = __expectString(output[_SF]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
   return contents;
 };
@@ -3727,23 +3721,23 @@ const de_DoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArra
  */
 const de_DoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __strictParseFloat(output["DefaultValue"]) as number;
+  if (output[_DV] != null) {
+    contents[_DV] = __strictParseFloat(output[_DV]) as number;
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
+  if (output[_SEo] != null) {
+    contents[_SEo] = __parseBoolean(output[_SEo]);
   }
   return contents;
 };
@@ -3753,11 +3747,11 @@ const de_DoubleOptions = (output: any, context: __SerdeContext): DoubleOptions =
  */
 const de_Expression = (output: any, context: __SerdeContext): Expression => {
   const contents: any = {};
-  if (output["ExpressionName"] !== undefined) {
-    contents.ExpressionName = __expectString(output["ExpressionName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["ExpressionValue"] !== undefined) {
-    contents.ExpressionValue = __expectString(output["ExpressionValue"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
   return contents;
 };
@@ -3767,11 +3761,11 @@ const de_Expression = (output: any, context: __SerdeContext): Expression => {
  */
 const de_ExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = de_Expression(output["Options"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_Expression(output[_O], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -3804,9 +3798,9 @@ const de_FieldNameList = (output: any, context: __SerdeContext): string[] => {
 const de_IndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
   const contents: any = {};
   if (output.FieldNames === "") {
-    contents.FieldNames = [];
-  } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
-    contents.FieldNames = de_FieldNameList(__getArrayIfSingleItem(output["FieldNames"]["member"]), context);
+    contents[_FN] = [];
+  } else if (output[_FN] != null && output[_FN][_m] != null) {
+    contents[_FN] = de_FieldNameList(__getArrayIfSingleItem(output[_FN][_m]), context);
   }
   return contents;
 };
@@ -3816,44 +3810,44 @@ const de_IndexDocumentsResponse = (output: any, context: __SerdeContext): IndexD
  */
 const de_IndexField = (output: any, context: __SerdeContext): IndexField => {
   const contents: any = {};
-  if (output["IndexFieldName"] !== undefined) {
-    contents.IndexFieldName = __expectString(output["IndexFieldName"]);
+  if (output[_IFN] != null) {
+    contents[_IFN] = __expectString(output[_IFN]);
   }
-  if (output["IndexFieldType"] !== undefined) {
-    contents.IndexFieldType = __expectString(output["IndexFieldType"]);
+  if (output[_IFT] != null) {
+    contents[_IFT] = __expectString(output[_IFT]);
   }
-  if (output["IntOptions"] !== undefined) {
-    contents.IntOptions = de_IntOptions(output["IntOptions"], context);
+  if (output[_IO] != null) {
+    contents[_IO] = de_IntOptions(output[_IO], context);
   }
-  if (output["DoubleOptions"] !== undefined) {
-    contents.DoubleOptions = de_DoubleOptions(output["DoubleOptions"], context);
+  if (output[_DO] != null) {
+    contents[_DO] = de_DoubleOptions(output[_DO], context);
   }
-  if (output["LiteralOptions"] !== undefined) {
-    contents.LiteralOptions = de_LiteralOptions(output["LiteralOptions"], context);
+  if (output[_LO] != null) {
+    contents[_LO] = de_LiteralOptions(output[_LO], context);
   }
-  if (output["TextOptions"] !== undefined) {
-    contents.TextOptions = de_TextOptions(output["TextOptions"], context);
+  if (output[_TO] != null) {
+    contents[_TO] = de_TextOptions(output[_TO], context);
   }
-  if (output["DateOptions"] !== undefined) {
-    contents.DateOptions = de_DateOptions(output["DateOptions"], context);
+  if (output[_DOa] != null) {
+    contents[_DOa] = de_DateOptions(output[_DOa], context);
   }
-  if (output["LatLonOptions"] !== undefined) {
-    contents.LatLonOptions = de_LatLonOptions(output["LatLonOptions"], context);
+  if (output[_LLO] != null) {
+    contents[_LLO] = de_LatLonOptions(output[_LLO], context);
   }
-  if (output["IntArrayOptions"] !== undefined) {
-    contents.IntArrayOptions = de_IntArrayOptions(output["IntArrayOptions"], context);
+  if (output[_IAO] != null) {
+    contents[_IAO] = de_IntArrayOptions(output[_IAO], context);
   }
-  if (output["DoubleArrayOptions"] !== undefined) {
-    contents.DoubleArrayOptions = de_DoubleArrayOptions(output["DoubleArrayOptions"], context);
+  if (output[_DAOo] != null) {
+    contents[_DAOo] = de_DoubleArrayOptions(output[_DAOo], context);
   }
-  if (output["LiteralArrayOptions"] !== undefined) {
-    contents.LiteralArrayOptions = de_LiteralArrayOptions(output["LiteralArrayOptions"], context);
+  if (output[_LAO] != null) {
+    contents[_LAO] = de_LiteralArrayOptions(output[_LAO], context);
   }
-  if (output["TextArrayOptions"] !== undefined) {
-    contents.TextArrayOptions = de_TextArrayOptions(output["TextArrayOptions"], context);
+  if (output[_TAO] != null) {
+    contents[_TAO] = de_TextArrayOptions(output[_TAO], context);
   }
-  if (output["DateArrayOptions"] !== undefined) {
-    contents.DateArrayOptions = de_DateArrayOptions(output["DateArrayOptions"], context);
+  if (output[_DAOa] != null) {
+    contents[_DAOa] = de_DateArrayOptions(output[_DAOa], context);
   }
   return contents;
 };
@@ -3863,11 +3857,11 @@ const de_IndexField = (output: any, context: __SerdeContext): IndexField => {
  */
 const de_IndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = de_IndexField(output["Options"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_IndexField(output[_O], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -3888,20 +3882,20 @@ const de_IndexFieldStatusList = (output: any, context: __SerdeContext): IndexFie
  */
 const de_IntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
+  if (output[_DV] != null) {
+    contents[_DV] = __strictParseLong(output[_DV]) as number;
   }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = __expectString(output["SourceFields"]);
+  if (output[_SF] != null) {
+    contents[_SF] = __expectString(output[_SF]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
   return contents;
 };
@@ -3911,11 +3905,11 @@ const de_IntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptio
  */
 const de_InternalException = (output: any, context: __SerdeContext): InternalException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -3925,23 +3919,23 @@ const de_InternalException = (output: any, context: __SerdeContext): InternalExc
  */
 const de_IntOptions = (output: any, context: __SerdeContext): IntOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
+  if (output[_DV] != null) {
+    contents[_DV] = __strictParseLong(output[_DV]) as number;
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
+  if (output[_SEo] != null) {
+    contents[_SEo] = __parseBoolean(output[_SEo]);
   }
   return contents;
 };
@@ -3951,11 +3945,11 @@ const de_IntOptions = (output: any, context: __SerdeContext): IntOptions => {
  */
 const de_InvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -3965,23 +3959,23 @@ const de_InvalidTypeException = (output: any, context: __SerdeContext): InvalidT
  */
 const de_LatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
+  if (output[_SEo] != null) {
+    contents[_SEo] = __parseBoolean(output[_SEo]);
   }
   return contents;
 };
@@ -3991,11 +3985,11 @@ const de_LatLonOptions = (output: any, context: __SerdeContext): LatLonOptions =
  */
 const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -4005,11 +3999,11 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
  */
 const de_Limits = (output: any, context: __SerdeContext): Limits => {
   const contents: any = {};
-  if (output["MaximumReplicationCount"] !== undefined) {
-    contents.MaximumReplicationCount = __strictParseInt32(output["MaximumReplicationCount"]) as number;
+  if (output[_MRC] != null) {
+    contents[_MRC] = __strictParseInt32(output[_MRC]) as number;
   }
-  if (output["MaximumPartitionCount"] !== undefined) {
-    contents.MaximumPartitionCount = __strictParseInt32(output["MaximumPartitionCount"]) as number;
+  if (output[_MPC] != null) {
+    contents[_MPC] = __strictParseInt32(output[_MPC]) as number;
   }
   return contents;
 };
@@ -4020,9 +4014,9 @@ const de_Limits = (output: any, context: __SerdeContext): Limits => {
 const de_ListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
   const contents: any = {};
   if (output.DomainNames === "") {
-    contents.DomainNames = {};
-  } else if (output["DomainNames"] !== undefined && output["DomainNames"]["entry"] !== undefined) {
-    contents.DomainNames = de_DomainNameMap(__getArrayIfSingleItem(output["DomainNames"]["entry"]), context);
+    contents[_DNo] = {};
+  } else if (output[_DNo] != null && output[_DNo][_e] != null) {
+    contents[_DNo] = de_DomainNameMap(__getArrayIfSingleItem(output[_DNo][_e]), context);
   }
   return contents;
 };
@@ -4032,20 +4026,20 @@ const de_ListDomainNamesResponse = (output: any, context: __SerdeContext): ListD
  */
 const de_LiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = __expectString(output["SourceFields"]);
+  if (output[_SF] != null) {
+    contents[_SF] = __expectString(output[_SF]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
   return contents;
 };
@@ -4055,23 +4049,23 @@ const de_LiteralArrayOptions = (output: any, context: __SerdeContext): LiteralAr
  */
 const de_LiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
+  if (output[_SEo] != null) {
+    contents[_SEo] = __parseBoolean(output[_SEo]);
   }
   return contents;
 };
@@ -4081,20 +4075,20 @@ const de_LiteralOptions = (output: any, context: __SerdeContext): LiteralOptions
  */
 const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
   const contents: any = {};
-  if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
+  if (output[_CDr] != null) {
+    contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
-  if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
+  if (output[_UD] != null) {
+    contents[_UD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UD]));
   }
-  if (output["UpdateVersion"] !== undefined) {
-    contents.UpdateVersion = __strictParseInt32(output["UpdateVersion"]) as number;
+  if (output[_UV] != null) {
+    contents[_UV] = __strictParseInt32(output[_UV]) as number;
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Stat] != null) {
+    contents[_Stat] = __expectString(output[_Stat]);
   }
-  if (output["PendingDeletion"] !== undefined) {
-    contents.PendingDeletion = __parseBoolean(output["PendingDeletion"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __parseBoolean(output[_PD]);
   }
   return contents;
 };
@@ -4104,11 +4098,11 @@ const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => 
  */
 const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext): ResourceAlreadyExistsException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -4118,11 +4112,11 @@ const de_ResourceAlreadyExistsException = (output: any, context: __SerdeContext)
  */
 const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -4132,14 +4126,14 @@ const de_ResourceNotFoundException = (output: any, context: __SerdeContext): Res
  */
 const de_ScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
   const contents: any = {};
-  if (output["DesiredInstanceType"] !== undefined) {
-    contents.DesiredInstanceType = __expectString(output["DesiredInstanceType"]);
+  if (output[_DIT] != null) {
+    contents[_DIT] = __expectString(output[_DIT]);
   }
-  if (output["DesiredReplicationCount"] !== undefined) {
-    contents.DesiredReplicationCount = __strictParseInt32(output["DesiredReplicationCount"]) as number;
+  if (output[_DRC] != null) {
+    contents[_DRC] = __strictParseInt32(output[_DRC]) as number;
   }
-  if (output["DesiredPartitionCount"] !== undefined) {
-    contents.DesiredPartitionCount = __strictParseInt32(output["DesiredPartitionCount"]) as number;
+  if (output[_DPC] != null) {
+    contents[_DPC] = __strictParseInt32(output[_DPC]) as number;
   }
   return contents;
 };
@@ -4149,11 +4143,11 @@ const de_ScalingParameters = (output: any, context: __SerdeContext): ScalingPara
  */
 const de_ScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = de_ScalingParameters(output["Options"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_ScalingParameters(output[_O], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -4163,8 +4157,8 @@ const de_ScalingParametersStatus = (output: any, context: __SerdeContext): Scali
  */
 const de_ServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
   const contents: any = {};
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_En] != null) {
+    contents[_En] = __expectString(output[_En]);
   }
   return contents;
 };
@@ -4174,11 +4168,11 @@ const de_ServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoi
  */
 const de_Suggester = (output: any, context: __SerdeContext): Suggester => {
   const contents: any = {};
-  if (output["SuggesterName"] !== undefined) {
-    contents.SuggesterName = __expectString(output["SuggesterName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["DocumentSuggesterOptions"] !== undefined) {
-    contents.DocumentSuggesterOptions = de_DocumentSuggesterOptions(output["DocumentSuggesterOptions"], context);
+  if (output[_DSO] != null) {
+    contents[_DSO] = de_DocumentSuggesterOptions(output[_DSO], context);
   }
   return contents;
 };
@@ -4188,11 +4182,11 @@ const de_Suggester = (output: any, context: __SerdeContext): Suggester => {
  */
 const de_SuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
   const contents: any = {};
-  if (output["Options"] !== undefined) {
-    contents.Options = de_Suggester(output["Options"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_Suggester(output[_O], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = de_OptionStatus(output["Status"], context);
+  if (output[_Sta] != null) {
+    contents[_Sta] = de_OptionStatus(output[_Sta], context);
   }
   return contents;
 };
@@ -4213,20 +4207,20 @@ const de_SuggesterStatusList = (output: any, context: __SerdeContext): Suggester
  */
 const de_TextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceFields"] !== undefined) {
-    contents.SourceFields = __expectString(output["SourceFields"]);
+  if (output[_SF] != null) {
+    contents[_SF] = __expectString(output[_SF]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["HighlightEnabled"] !== undefined) {
-    contents.HighlightEnabled = __parseBoolean(output["HighlightEnabled"]);
+  if (output[_HE] != null) {
+    contents[_HE] = __parseBoolean(output[_HE]);
   }
-  if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = __expectString(output["AnalysisScheme"]);
+  if (output[_ASn] != null) {
+    contents[_ASn] = __expectString(output[_ASn]);
   }
   return contents;
 };
@@ -4236,23 +4230,23 @@ const de_TextArrayOptions = (output: any, context: __SerdeContext): TextArrayOpt
  */
 const de_TextOptions = (output: any, context: __SerdeContext): TextOptions => {
   const contents: any = {};
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["SourceField"] !== undefined) {
-    contents.SourceField = __expectString(output["SourceField"]);
+  if (output[_SFo] != null) {
+    contents[_SFo] = __expectString(output[_SFo]);
   }
-  if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __parseBoolean(output[_RE]);
   }
-  if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
+  if (output[_SEo] != null) {
+    contents[_SEo] = __parseBoolean(output[_SEo]);
   }
-  if (output["HighlightEnabled"] !== undefined) {
-    contents.HighlightEnabled = __parseBoolean(output["HighlightEnabled"]);
+  if (output[_HE] != null) {
+    contents[_HE] = __parseBoolean(output[_HE]);
   }
-  if (output["AnalysisScheme"] !== undefined) {
-    contents.AnalysisScheme = __expectString(output["AnalysisScheme"]);
+  if (output[_ASn] != null) {
+    contents[_ASn] = __expectString(output[_ASn]);
   }
   return contents;
 };
@@ -4265,8 +4259,8 @@ const de_UpdateAvailabilityOptionsResponse = (
   context: __SerdeContext
 ): UpdateAvailabilityOptionsResponse => {
   const contents: any = {};
-  if (output["AvailabilityOptions"] !== undefined) {
-    contents.AvailabilityOptions = de_AvailabilityOptionsStatus(output["AvailabilityOptions"], context);
+  if (output[_AOv] != null) {
+    contents[_AOv] = de_AvailabilityOptionsStatus(output[_AOv], context);
   }
   return contents;
 };
@@ -4279,8 +4273,8 @@ const de_UpdateDomainEndpointOptionsResponse = (
   context: __SerdeContext
 ): UpdateDomainEndpointOptionsResponse => {
   const contents: any = {};
-  if (output["DomainEndpointOptions"] !== undefined) {
-    contents.DomainEndpointOptions = de_DomainEndpointOptionsStatus(output["DomainEndpointOptions"], context);
+  if (output[_DEO] != null) {
+    contents[_DEO] = de_DomainEndpointOptionsStatus(output[_DEO], context);
   }
   return contents;
 };
@@ -4290,8 +4284,8 @@ const de_UpdateDomainEndpointOptionsResponse = (
  */
 const de_UpdateScalingParametersResponse = (output: any, context: __SerdeContext): UpdateScalingParametersResponse => {
   const contents: any = {};
-  if (output["ScalingParameters"] !== undefined) {
-    contents.ScalingParameters = de_ScalingParametersStatus(output["ScalingParameters"], context);
+  if (output[_SP] != null) {
+    contents[_SP] = de_ScalingParametersStatus(output[_SP], context);
   }
   return contents;
 };
@@ -4304,8 +4298,8 @@ const de_UpdateServiceAccessPoliciesResponse = (
   context: __SerdeContext
 ): UpdateServiceAccessPoliciesResponse => {
   const contents: any = {};
-  if (output["AccessPolicies"] !== undefined) {
-    contents.AccessPolicies = de_AccessPoliciesStatus(output["AccessPolicies"], context);
+  if (output[_AP] != null) {
+    contents[_AP] = de_AccessPoliciesStatus(output[_AP], context);
   }
   return contents;
 };
@@ -4315,11 +4309,11 @@ const de_UpdateServiceAccessPoliciesResponse = (
  */
 const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -4364,6 +4358,125 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+// HttpRpcProtocolGenerator
+const _ = "2013-01-01";
+const _A = "Action";
+const _AO = "AnalysisOptions";
+const _AOv = "AvailabilityOptions";
+const _AP = "AccessPolicies";
+const _ARN = "ARN";
+const _AS = "AlgorithmicStemming";
+const _ASL = "AnalysisSchemeLanguage";
+const _ASN = "AnalysisSchemeName";
+const _ASNn = "AnalysisSchemeNames";
+const _ASn = "AnalysisScheme";
+const _ASna = "AnalysisSchemes";
+const _BS = "BuildSuggesters";
+const _C = "Code";
+const _CD = "CreateDomain";
+const _CDr = "CreationDate";
+const _Cr = "Created";
+const _D = "Deployed";
+const _DAO = "DescribeAvailabilityOptions";
+const _DAOa = "DateArrayOptions";
+const _DAOo = "DoubleArrayOptions";
+const _DAS = "DefineAnalysisScheme";
+const _DASe = "DeleteAnalysisScheme";
+const _DASes = "DescribeAnalysisSchemes";
+const _DD = "DeleteDomain";
+const _DDEO = "DescribeDomainEndpointOptions";
+const _DDe = "DescribeDomains";
+const _DE = "DefineExpression";
+const _DEO = "DomainEndpointOptions";
+const _DEe = "DeleteExpression";
+const _DEes = "DescribeExpressions";
+const _DI = "DomainId";
+const _DIF = "DefineIndexField";
+const _DIFe = "DeleteIndexField";
+const _DIFes = "DescribeIndexFields";
+const _DIT = "DesiredInstanceType";
+const _DN = "DomainName";
+const _DNo = "DomainNames";
+const _DO = "DoubleOptions";
+const _DOa = "DateOptions";
+const _DPC = "DesiredPartitionCount";
+const _DRC = "DesiredReplicationCount";
+const _DS = "DefineSuggester";
+const _DSAP = "DescribeServiceAccessPolicies";
+const _DSL = "DomainStatusList";
+const _DSO = "DocumentSuggesterOptions";
+const _DSP = "DescribeScalingParameters";
+const _DSe = "DeleteSuggester";
+const _DSes = "DescribeSuggesters";
+const _DSo = "DomainStatus";
+const _DSoc = "DocService";
+const _DV = "DefaultValue";
+const _De = "Deleted";
+const _E = "Expression";
+const _EHTTPS = "EnforceHTTPS";
+const _EN = "ExpressionName";
+const _ENx = "ExpressionNames";
+const _EV = "ExpressionValue";
+const _En = "Endpoint";
+const _Ex = "Expressions";
+const _FE = "FacetEnabled";
+const _FM = "FuzzyMatching";
+const _FN = "FieldNames";
+const _HE = "HighlightEnabled";
+const _IAO = "IntArrayOptions";
+const _ID = "IndexDocuments";
+const _IF = "IndexField";
+const _IFN = "IndexFieldName";
+const _IFT = "IndexFieldType";
+const _IFn = "IndexFields";
+const _IO = "IntOptions";
+const _JTD = "JapaneseTokenizationDictionary";
+const _L = "Limits";
+const _LAO = "LiteralArrayOptions";
+const _LDN = "ListDomainNames";
+const _LLO = "LatLonOptions";
+const _LO = "LiteralOptions";
+const _M = "Message";
+const _MAZ = "MultiAZ";
+const _MPC = "MaximumPartitionCount";
+const _MRC = "MaximumReplicationCount";
+const _O = "Options";
+const _P = "Processing";
+const _PD = "PendingDeletion";
+const _RE = "ReturnEnabled";
+const _RID = "RequiresIndexDocuments";
+const _S = "Synonyms";
+const _SD = "StemmingDictionary";
+const _SE = "SearchEnabled";
+const _SEo = "SortEnabled";
+const _SEor = "SortExpression";
+const _SF = "SourceFields";
+const _SFo = "SourceField";
+const _SIC = "SearchInstanceCount";
+const _SIT = "SearchInstanceType";
+const _SN = "SuggesterName";
+const _SNu = "SuggesterNames";
+const _SP = "ScalingParameters";
+const _SPC = "SearchPartitionCount";
+const _SS = "SearchService";
+const _St = "Stopwords";
+const _Sta = "Status";
+const _Stat = "State";
+const _Su = "Suggester";
+const _Sug = "Suggesters";
+const _TAO = "TextArrayOptions";
+const _TLSSP = "TLSSecurityPolicy";
+const _TO = "TextOptions";
+const _UAO = "UpdateAvailabilityOptions";
+const _UD = "UpdateDate";
+const _UDEO = "UpdateDomainEndpointOptions";
+const _USAP = "UpdateServiceAccessPolicies";
+const _USP = "UpdateScalingParameters";
+const _UV = "UpdateVersion";
+const _V = "Version";
+const _e = "entry";
+const _m = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -4413,3 +4526,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
+
+// AwsQuery

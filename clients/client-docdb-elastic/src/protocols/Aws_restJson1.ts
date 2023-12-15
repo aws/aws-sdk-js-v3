@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -67,11 +68,11 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster";
+  b.bp("/cluster");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -89,15 +90,8 @@ export const se_CreateClusterCommand = async (
       vpcSecurityGroupIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -107,11 +101,11 @@ export const se_CreateClusterSnapshotCommand = async (
   input: CreateClusterSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshot";
+  b.bp("/cluster-snapshot");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -120,15 +114,8 @@ export const se_CreateClusterSnapshotCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -138,20 +125,13 @@ export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster/{clusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterArn", () => input.clusterArn!, "{clusterArn}", false);
+  b.bp("/cluster/{clusterArn}");
+  b.p("clusterArn", () => input.clusterArn!, "{clusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -161,21 +141,13 @@ export const se_DeleteClusterSnapshotCommand = async (
   input: DeleteClusterSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshot/{snapshotArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
+  b.bp("/cluster-snapshot/{snapshotArn}");
+  b.p("snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -185,20 +157,13 @@ export const se_GetClusterCommand = async (
   input: GetClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster/{clusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterArn", () => input.clusterArn!, "{clusterArn}", false);
+  b.bp("/cluster/{clusterArn}");
+  b.p("clusterArn", () => input.clusterArn!, "{clusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -208,21 +173,13 @@ export const se_GetClusterSnapshotCommand = async (
   input: GetClusterSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshot/{snapshotArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
+  b.bp("/cluster-snapshot/{snapshotArn}");
+  b.p("snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -232,24 +189,16 @@ export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters";
+  b.bp("/clusters");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -259,25 +208,17 @@ export const se_ListClusterSnapshotsCommand = async (
   input: ListClusterSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshots";
+  b.bp("/cluster-snapshots");
   const query: any = map({
-    clusterArn: [, input.clusterArn!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_cA]: [, input[_cA]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -287,20 +228,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,13 +244,12 @@ export const se_RestoreClusterFromSnapshotCommand = async (
   input: RestoreClusterFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-snapshot/{snapshotArn}/restore";
-  resolvedPath = __resolvedPath(resolvedPath, input, "snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
+  b.bp("/cluster-snapshot/{snapshotArn}/restore");
+  b.p("snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -327,15 +260,8 @@ export const se_RestoreClusterFromSnapshotCommand = async (
       vpcSecurityGroupIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -345,27 +271,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -375,27 +294,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -405,12 +316,12 @@ export const se_UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster/{clusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterArn", () => input.clusterArn!, "{clusterArn}", false);
+  b.bp("/cluster/{clusterArn}");
+  b.p("clusterArn", () => input.clusterArn!, "{clusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -424,15 +335,8 @@ export const se_UpdateClusterCommand = async (
       vpcSecurityGroupIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1312,10 +1216,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1391,6 +1292,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cA = "clusterArn";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1441,3 +1350,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -67,27 +68,19 @@ export const se_BatchGetTokenBalanceCommand = async (
   input: BatchGetTokenBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batch-get-token-balance";
+  b.bp("/batch-get-token-balance");
   let body: any;
   body = JSON.stringify(
     take(input, {
       getTokenBalanceInputs: (_) => se_GetTokenBalanceInputList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -97,26 +90,19 @@ export const se_GetAssetContractCommand = async (
   input: GetAssetContractCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-asset-contract";
+  b.bp("/get-asset-contract");
   let body: any;
   body = JSON.stringify(
     take(input, {
       contractIdentifier: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -126,11 +112,11 @@ export const se_GetTokenBalanceCommand = async (
   input: GetTokenBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-token-balance";
+  b.bp("/get-token-balance");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -139,15 +125,8 @@ export const se_GetTokenBalanceCommand = async (
       tokenIdentifier: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -157,11 +136,11 @@ export const se_GetTransactionCommand = async (
   input: GetTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-transaction";
+  b.bp("/get-transaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -169,15 +148,8 @@ export const se_GetTransactionCommand = async (
       transactionHash: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -187,11 +159,11 @@ export const se_ListAssetContractsCommand = async (
   input: ListAssetContractsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-asset-contracts";
+  b.bp("/list-asset-contracts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -200,15 +172,8 @@ export const se_ListAssetContractsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -218,11 +183,11 @@ export const se_ListTokenBalancesCommand = async (
   input: ListTokenBalancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-token-balances";
+  b.bp("/list-token-balances");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -232,15 +197,8 @@ export const se_ListTokenBalancesCommand = async (
       tokenFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -250,12 +208,11 @@ export const se_ListTransactionEventsCommand = async (
   input: ListTransactionEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-transaction-events";
+  b.bp("/list-transaction-events");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -265,15 +222,8 @@ export const se_ListTransactionEventsCommand = async (
       transactionHash: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -283,11 +233,11 @@ export const se_ListTransactionsCommand = async (
   input: ListTransactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-transactions";
+  b.bp("/list-transactions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -300,15 +250,8 @@ export const se_ListTransactionsCommand = async (
       toBlockchainInstant: (_) => se_BlockchainInstant(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -836,10 +779,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -904,10 +844,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1161,6 +1098,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1211,3 +1152,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

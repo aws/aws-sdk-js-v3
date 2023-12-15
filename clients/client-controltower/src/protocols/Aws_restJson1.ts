@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -77,11 +78,11 @@ export const se_CreateLandingZoneCommand = async (
   input: CreateLandingZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-landingzone";
+  b.bp("/create-landingzone");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -90,15 +91,8 @@ export const se_CreateLandingZoneCommand = async (
       version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -108,26 +102,19 @@ export const se_DeleteLandingZoneCommand = async (
   input: DeleteLandingZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-landingzone";
+  b.bp("/delete-landingzone");
   let body: any;
   body = JSON.stringify(
     take(input, {
       landingZoneIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -137,11 +124,11 @@ export const se_DisableControlCommand = async (
   input: DisableControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disable-control";
+  b.bp("/disable-control");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -149,15 +136,8 @@ export const se_DisableControlCommand = async (
       targetIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -167,11 +147,11 @@ export const se_EnableControlCommand = async (
   input: EnableControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enable-control";
+  b.bp("/enable-control");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -181,15 +161,8 @@ export const se_EnableControlCommand = async (
       targetIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -199,26 +172,19 @@ export const se_GetControlOperationCommand = async (
   input: GetControlOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-control-operation";
+  b.bp("/get-control-operation");
   let body: any;
   body = JSON.stringify(
     take(input, {
       operationIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -228,26 +194,19 @@ export const se_GetEnabledControlCommand = async (
   input: GetEnabledControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-enabled-control";
+  b.bp("/get-enabled-control");
   let body: any;
   body = JSON.stringify(
     take(input, {
       enabledControlIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -257,26 +216,19 @@ export const se_GetLandingZoneCommand = async (
   input: GetLandingZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-landingzone";
+  b.bp("/get-landingzone");
   let body: any;
   body = JSON.stringify(
     take(input, {
       landingZoneIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -286,27 +238,19 @@ export const se_GetLandingZoneOperationCommand = async (
   input: GetLandingZoneOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-landingzone-operation";
+  b.bp("/get-landingzone-operation");
   let body: any;
   body = JSON.stringify(
     take(input, {
       operationIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -316,11 +260,11 @@ export const se_ListEnabledControlsCommand = async (
   input: ListEnabledControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-enabled-controls";
+  b.bp("/list-enabled-controls");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -329,15 +273,8 @@ export const se_ListEnabledControlsCommand = async (
       targetIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -347,11 +284,11 @@ export const se_ListLandingZonesCommand = async (
   input: ListLandingZonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-landingzones";
+  b.bp("/list-landingzones");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -359,15 +296,8 @@ export const se_ListLandingZonesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -377,20 +307,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -400,26 +323,19 @@ export const se_ResetLandingZoneCommand = async (
   input: ResetLandingZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reset-landingzone";
+  b.bp("/reset-landingzone");
   let body: any;
   body = JSON.stringify(
     take(input, {
       landingZoneIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -429,27 +345,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -459,27 +368,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -489,12 +390,11 @@ export const se_UpdateEnabledControlCommand = async (
   input: UpdateEnabledControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-enabled-control";
+  b.bp("/update-enabled-control");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -502,15 +402,8 @@ export const se_UpdateEnabledControlCommand = async (
       parameters: (_) => se_EnabledControlParameters(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -520,11 +413,11 @@ export const se_UpdateLandingZoneCommand = async (
   input: UpdateLandingZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-landingzone";
+  b.bp("/update-landingzone");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -533,15 +426,8 @@ export const se_UpdateLandingZoneCommand = async (
       version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1593,10 +1479,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1799,6 +1682,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1849,3 +1737,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { AccelerationSettings, Endpoint, HopDestination } from "./models_0";
+
 import {
   Job,
   JobStatus,

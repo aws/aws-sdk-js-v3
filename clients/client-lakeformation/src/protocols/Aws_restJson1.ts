@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -226,11 +227,11 @@ export const se_AddLFTagsToResourceCommand = async (
   input: AddLFTagsToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AddLFTagsToResource";
+  b.bp("/AddLFTagsToResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -239,15 +240,8 @@ export const se_AddLFTagsToResourceCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -257,12 +251,11 @@ export const se_AssumeDecoratedRoleWithSAMLCommand = async (
   input: AssumeDecoratedRoleWithSAMLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssumeDecoratedRoleWithSAML";
+  b.bp("/AssumeDecoratedRoleWithSAML");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -272,15 +265,8 @@ export const se_AssumeDecoratedRoleWithSAMLCommand = async (
       SAMLAssertion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -290,11 +276,11 @@ export const se_BatchGrantPermissionsCommand = async (
   input: BatchGrantPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGrantPermissions";
+  b.bp("/BatchGrantPermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -302,15 +288,8 @@ export const se_BatchGrantPermissionsCommand = async (
       Entries: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -320,12 +299,11 @@ export const se_BatchRevokePermissionsCommand = async (
   input: BatchRevokePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchRevokePermissions";
+  b.bp("/BatchRevokePermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -333,15 +311,8 @@ export const se_BatchRevokePermissionsCommand = async (
       Entries: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -351,26 +322,19 @@ export const se_CancelTransactionCommand = async (
   input: CancelTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelTransaction";
+  b.bp("/CancelTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -380,26 +344,19 @@ export const se_CommitTransactionCommand = async (
   input: CommitTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CommitTransaction";
+  b.bp("/CommitTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -409,26 +366,19 @@ export const se_CreateDataCellsFilterCommand = async (
   input: CreateDataCellsFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateDataCellsFilter";
+  b.bp("/CreateDataCellsFilter");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TableData: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -438,13 +388,11 @@ export const se_CreateLakeFormationIdentityCenterConfigurationCommand = async (
   input: CreateLakeFormationIdentityCenterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/CreateLakeFormationIdentityCenterConfiguration";
+  b.bp("/CreateLakeFormationIdentityCenterConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -453,15 +401,8 @@ export const se_CreateLakeFormationIdentityCenterConfigurationCommand = async (
       InstanceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -471,12 +412,11 @@ export const se_CreateLakeFormationOptInCommand = async (
   input: CreateLakeFormationOptInCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLakeFormationOptIn";
+  b.bp("/CreateLakeFormationOptIn");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -484,15 +424,8 @@ export const se_CreateLakeFormationOptInCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -502,11 +435,11 @@ export const se_CreateLFTagCommand = async (
   input: CreateLFTagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLFTag";
+  b.bp("/CreateLFTag");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -515,15 +448,8 @@ export const se_CreateLFTagCommand = async (
       TagValues: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -533,11 +459,11 @@ export const se_DeleteDataCellsFilterCommand = async (
   input: DeleteDataCellsFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteDataCellsFilter";
+  b.bp("/DeleteDataCellsFilter");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -547,15 +473,8 @@ export const se_DeleteDataCellsFilterCommand = async (
       TableName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -565,28 +484,19 @@ export const se_DeleteLakeFormationIdentityCenterConfigurationCommand = async (
   input: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/DeleteLakeFormationIdentityCenterConfiguration";
+  b.bp("/DeleteLakeFormationIdentityCenterConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
       CatalogId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -596,12 +506,11 @@ export const se_DeleteLakeFormationOptInCommand = async (
   input: DeleteLakeFormationOptInCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLakeFormationOptIn";
+  b.bp("/DeleteLakeFormationOptIn");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -609,15 +518,8 @@ export const se_DeleteLakeFormationOptInCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -627,11 +529,11 @@ export const se_DeleteLFTagCommand = async (
   input: DeleteLFTagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLFTag";
+  b.bp("/DeleteLFTag");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -639,15 +541,8 @@ export const se_DeleteLFTagCommand = async (
       TagKey: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -657,11 +552,11 @@ export const se_DeleteObjectsOnCancelCommand = async (
   input: DeleteObjectsOnCancelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteObjectsOnCancel";
+  b.bp("/DeleteObjectsOnCancel");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -672,15 +567,8 @@ export const se_DeleteObjectsOnCancelCommand = async (
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -690,26 +578,19 @@ export const se_DeregisterResourceCommand = async (
   input: DeregisterResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeregisterResource";
+  b.bp("/DeregisterResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ResourceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -719,28 +600,19 @@ export const se_DescribeLakeFormationIdentityCenterConfigurationCommand = async 
   input: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/DescribeLakeFormationIdentityCenterConfiguration";
+  b.bp("/DescribeLakeFormationIdentityCenterConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
       CatalogId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -750,26 +622,19 @@ export const se_DescribeResourceCommand = async (
   input: DescribeResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeResource";
+  b.bp("/DescribeResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ResourceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -779,26 +644,19 @@ export const se_DescribeTransactionCommand = async (
   input: DescribeTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeTransaction";
+  b.bp("/DescribeTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -808,26 +666,19 @@ export const se_ExtendTransactionCommand = async (
   input: ExtendTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExtendTransaction";
+  b.bp("/ExtendTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -837,11 +688,11 @@ export const se_GetDataCellsFilterCommand = async (
   input: GetDataCellsFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataCellsFilter";
+  b.bp("/GetDataCellsFilter");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -851,15 +702,8 @@ export const se_GetDataCellsFilterCommand = async (
       TableName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -869,26 +713,19 @@ export const se_GetDataLakeSettingsCommand = async (
   input: GetDataLakeSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDataLakeSettings";
+  b.bp("/GetDataLakeSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
       CatalogId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -898,12 +735,11 @@ export const se_GetEffectivePermissionsForPathCommand = async (
   input: GetEffectivePermissionsForPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetEffectivePermissionsForPath";
+  b.bp("/GetEffectivePermissionsForPath");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -913,15 +749,8 @@ export const se_GetEffectivePermissionsForPathCommand = async (
       ResourceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -931,11 +760,11 @@ export const se_GetLFTagCommand = async (
   input: GetLFTagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLFTag";
+  b.bp("/GetLFTag");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -943,15 +772,8 @@ export const se_GetLFTagCommand = async (
       TagKey: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -961,11 +783,11 @@ export const se_GetQueryStateCommand = async (
   input: GetQueryStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetQueryState";
+  b.bp("/GetQueryState");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -979,15 +801,9 @@ export const se_GetQueryStateCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -997,11 +813,11 @@ export const se_GetQueryStatisticsCommand = async (
   input: GetQueryStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetQueryStatistics";
+  b.bp("/GetQueryStatistics");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1015,15 +831,9 @@ export const se_GetQueryStatisticsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1033,11 +843,11 @@ export const se_GetResourceLFTagsCommand = async (
   input: GetResourceLFTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetResourceLFTags";
+  b.bp("/GetResourceLFTags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1046,15 +856,8 @@ export const se_GetResourceLFTagsCommand = async (
       ShowAssignedLFTags: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1064,11 +867,11 @@ export const se_GetTableObjectsCommand = async (
   input: GetTableObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTableObjects";
+  b.bp("/GetTableObjects");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1082,15 +885,8 @@ export const se_GetTableObjectsCommand = async (
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1100,12 +896,11 @@ export const se_GetTemporaryGluePartitionCredentialsCommand = async (
   input: GetTemporaryGluePartitionCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGluePartitionCredentials";
+  b.bp("/GetTemporaryGluePartitionCredentials");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1117,15 +912,8 @@ export const se_GetTemporaryGluePartitionCredentialsCommand = async (
       TableArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1135,12 +923,11 @@ export const se_GetTemporaryGlueTableCredentialsCommand = async (
   input: GetTemporaryGlueTableCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGlueTableCredentials";
+  b.bp("/GetTemporaryGlueTableCredentials");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1151,15 +938,8 @@ export const se_GetTemporaryGlueTableCredentialsCommand = async (
       TableArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1169,11 +949,11 @@ export const se_GetWorkUnitResultsCommand = async (
   input: GetWorkUnitResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkUnitResults";
+  b.bp("/GetWorkUnitResults");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1189,15 +969,9 @@ export const se_GetWorkUnitResultsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1207,11 +981,11 @@ export const se_GetWorkUnitsCommand = async (
   input: GetWorkUnitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkUnits";
+  b.bp("/GetWorkUnits");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1227,15 +1001,9 @@ export const se_GetWorkUnitsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1245,11 +1013,11 @@ export const se_GrantPermissionsCommand = async (
   input: GrantPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GrantPermissions";
+  b.bp("/GrantPermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1260,15 +1028,8 @@ export const se_GrantPermissionsCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1278,11 +1039,11 @@ export const se_ListDataCellsFilterCommand = async (
   input: ListDataCellsFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListDataCellsFilter";
+  b.bp("/ListDataCellsFilter");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1291,15 +1052,8 @@ export const se_ListDataCellsFilterCommand = async (
       Table: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1309,12 +1063,11 @@ export const se_ListLakeFormationOptInsCommand = async (
   input: ListLakeFormationOptInsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLakeFormationOptIns";
+  b.bp("/ListLakeFormationOptIns");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1324,15 +1077,8 @@ export const se_ListLakeFormationOptInsCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1342,11 +1088,11 @@ export const se_ListLFTagsCommand = async (
   input: ListLFTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLFTags";
+  b.bp("/ListLFTags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1356,15 +1102,8 @@ export const se_ListLFTagsCommand = async (
       ResourceShareType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1374,11 +1113,11 @@ export const se_ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListPermissions";
+  b.bp("/ListPermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1391,15 +1130,8 @@ export const se_ListPermissionsCommand = async (
       ResourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1409,11 +1141,11 @@ export const se_ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListResources";
+  b.bp("/ListResources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1422,15 +1154,8 @@ export const se_ListResourcesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1440,12 +1165,11 @@ export const se_ListTableStorageOptimizersCommand = async (
   input: ListTableStorageOptimizersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTableStorageOptimizers";
+  b.bp("/ListTableStorageOptimizers");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1457,15 +1181,8 @@ export const se_ListTableStorageOptimizersCommand = async (
       TableName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1475,11 +1192,11 @@ export const se_ListTransactionsCommand = async (
   input: ListTransactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTransactions";
+  b.bp("/ListTransactions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1489,15 +1206,8 @@ export const se_ListTransactionsCommand = async (
       StatusFilter: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1507,11 +1217,11 @@ export const se_PutDataLakeSettingsCommand = async (
   input: PutDataLakeSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutDataLakeSettings";
+  b.bp("/PutDataLakeSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1519,15 +1229,8 @@ export const se_PutDataLakeSettingsCommand = async (
       DataLakeSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1537,11 +1240,11 @@ export const se_RegisterResourceCommand = async (
   input: RegisterResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RegisterResource";
+  b.bp("/RegisterResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1552,15 +1255,8 @@ export const se_RegisterResourceCommand = async (
       WithFederation: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1570,12 +1266,11 @@ export const se_RemoveLFTagsFromResourceCommand = async (
   input: RemoveLFTagsFromResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RemoveLFTagsFromResource";
+  b.bp("/RemoveLFTagsFromResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1584,15 +1279,8 @@ export const se_RemoveLFTagsFromResourceCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1602,11 +1290,11 @@ export const se_RevokePermissionsCommand = async (
   input: RevokePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RevokePermissions";
+  b.bp("/RevokePermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1617,15 +1305,8 @@ export const se_RevokePermissionsCommand = async (
       Resource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1635,12 +1316,11 @@ export const se_SearchDatabasesByLFTagsCommand = async (
   input: SearchDatabasesByLFTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SearchDatabasesByLFTags";
+  b.bp("/SearchDatabasesByLFTags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1650,15 +1330,8 @@ export const se_SearchDatabasesByLFTagsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1668,11 +1341,11 @@ export const se_SearchTablesByLFTagsCommand = async (
   input: SearchTablesByLFTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SearchTablesByLFTags";
+  b.bp("/SearchTablesByLFTags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1682,15 +1355,8 @@ export const se_SearchTablesByLFTagsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1700,11 +1366,11 @@ export const se_StartQueryPlanningCommand = async (
   input: StartQueryPlanningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartQueryPlanning";
+  b.bp("/StartQueryPlanning");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1719,15 +1385,9 @@ export const se_StartQueryPlanningCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1737,26 +1397,19 @@ export const se_StartTransactionCommand = async (
   input: StartTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartTransaction";
+  b.bp("/StartTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TransactionType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1766,26 +1419,19 @@ export const se_UpdateDataCellsFilterCommand = async (
   input: UpdateDataCellsFilterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateDataCellsFilter";
+  b.bp("/UpdateDataCellsFilter");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TableData: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1795,13 +1441,11 @@ export const se_UpdateLakeFormationIdentityCenterConfigurationCommand = async (
   input: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/UpdateLakeFormationIdentityCenterConfiguration";
+  b.bp("/UpdateLakeFormationIdentityCenterConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1810,15 +1454,8 @@ export const se_UpdateLakeFormationIdentityCenterConfigurationCommand = async (
       ExternalFiltering: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1828,11 +1465,11 @@ export const se_UpdateLFTagCommand = async (
   input: UpdateLFTagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLFTag";
+  b.bp("/UpdateLFTag");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1842,15 +1479,8 @@ export const se_UpdateLFTagCommand = async (
       TagValuesToDelete: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1860,11 +1490,11 @@ export const se_UpdateResourceCommand = async (
   input: UpdateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateResource";
+  b.bp("/UpdateResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1874,15 +1504,8 @@ export const se_UpdateResourceCommand = async (
       WithFederation: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1892,11 +1515,11 @@ export const se_UpdateTableObjectsCommand = async (
   input: UpdateTableObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateTableObjects";
+  b.bp("/UpdateTableObjects");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1907,15 +1530,8 @@ export const se_UpdateTableObjectsCommand = async (
       WriteOperations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1925,12 +1541,11 @@ export const se_UpdateTableStorageOptimizerCommand = async (
   input: UpdateTableStorageOptimizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateTableStorageOptimizer";
+  b.bp("/UpdateTableStorageOptimizer");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1940,15 +1555,8 @@ export const se_UpdateTableStorageOptimizerCommand = async (
       TableName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5787,6 +5395,8 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -5837,3 +5447,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

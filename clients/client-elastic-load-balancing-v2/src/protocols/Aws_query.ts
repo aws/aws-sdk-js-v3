@@ -319,8 +319,8 @@ export const se_AddListenerCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddListenerCertificatesInput(input, context),
-    Action: "AddListenerCertificates",
-    Version: "2015-12-01",
+    [_A]: _ALC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -336,8 +336,8 @@ export const se_AddTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsInput(input, context),
-    Action: "AddTags",
-    Version: "2015-12-01",
+    [_A]: _AT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -353,8 +353,8 @@ export const se_AddTrustStoreRevocationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTrustStoreRevocationsInput(input, context),
-    Action: "AddTrustStoreRevocations",
-    Version: "2015-12-01",
+    [_A]: _ATSR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -370,8 +370,8 @@ export const se_CreateListenerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateListenerInput(input, context),
-    Action: "CreateListener",
-    Version: "2015-12-01",
+    [_A]: _CL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -387,8 +387,8 @@ export const se_CreateLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoadBalancerInput(input, context),
-    Action: "CreateLoadBalancer",
-    Version: "2015-12-01",
+    [_A]: _CLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -404,8 +404,8 @@ export const se_CreateRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateRuleInput(input, context),
-    Action: "CreateRule",
-    Version: "2015-12-01",
+    [_A]: _CR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -421,8 +421,8 @@ export const se_CreateTargetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateTargetGroupInput(input, context),
-    Action: "CreateTargetGroup",
-    Version: "2015-12-01",
+    [_A]: _CTG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -438,8 +438,8 @@ export const se_CreateTrustStoreCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateTrustStoreInput(input, context),
-    Action: "CreateTrustStore",
-    Version: "2015-12-01",
+    [_A]: _CTS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -455,8 +455,8 @@ export const se_DeleteListenerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteListenerInput(input, context),
-    Action: "DeleteListener",
-    Version: "2015-12-01",
+    [_A]: _DL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -472,8 +472,8 @@ export const se_DeleteLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoadBalancerInput(input, context),
-    Action: "DeleteLoadBalancer",
-    Version: "2015-12-01",
+    [_A]: _DLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -489,8 +489,8 @@ export const se_DeleteRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRuleInput(input, context),
-    Action: "DeleteRule",
-    Version: "2015-12-01",
+    [_A]: _DR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -506,8 +506,8 @@ export const se_DeleteTargetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteTargetGroupInput(input, context),
-    Action: "DeleteTargetGroup",
-    Version: "2015-12-01",
+    [_A]: _DTG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -523,8 +523,8 @@ export const se_DeleteTrustStoreCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteTrustStoreInput(input, context),
-    Action: "DeleteTrustStore",
-    Version: "2015-12-01",
+    [_A]: _DTS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -540,8 +540,8 @@ export const se_DeregisterTargetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeregisterTargetsInput(input, context),
-    Action: "DeregisterTargets",
-    Version: "2015-12-01",
+    [_A]: _DT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -557,8 +557,8 @@ export const se_DescribeAccountLimitsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
-    Action: "DescribeAccountLimits",
-    Version: "2015-12-01",
+    [_A]: _DAL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -574,8 +574,8 @@ export const se_DescribeListenerCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeListenerCertificatesInput(input, context),
-    Action: "DescribeListenerCertificates",
-    Version: "2015-12-01",
+    [_A]: _DLC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -591,8 +591,8 @@ export const se_DescribeListenersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeListenersInput(input, context),
-    Action: "DescribeListeners",
-    Version: "2015-12-01",
+    [_A]: _DLe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -608,8 +608,8 @@ export const se_DescribeLoadBalancerAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerAttributesInput(input, context),
-    Action: "DescribeLoadBalancerAttributes",
-    Version: "2015-12-01",
+    [_A]: _DLBA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -625,8 +625,8 @@ export const se_DescribeLoadBalancersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancersInput(input, context),
-    Action: "DescribeLoadBalancers",
-    Version: "2015-12-01",
+    [_A]: _DLBe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -642,8 +642,8 @@ export const se_DescribeRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeRulesInput(input, context),
-    Action: "DescribeRules",
-    Version: "2015-12-01",
+    [_A]: _DRe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -659,8 +659,8 @@ export const se_DescribeSSLPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeSSLPoliciesInput(input, context),
-    Action: "DescribeSSLPolicies",
-    Version: "2015-12-01",
+    [_A]: _DSSLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -676,8 +676,8 @@ export const se_DescribeTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTagsInput(input, context),
-    Action: "DescribeTags",
-    Version: "2015-12-01",
+    [_A]: _DTe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -693,8 +693,8 @@ export const se_DescribeTargetGroupAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTargetGroupAttributesInput(input, context),
-    Action: "DescribeTargetGroupAttributes",
-    Version: "2015-12-01",
+    [_A]: _DTGA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -710,8 +710,8 @@ export const se_DescribeTargetGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTargetGroupsInput(input, context),
-    Action: "DescribeTargetGroups",
-    Version: "2015-12-01",
+    [_A]: _DTGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -727,8 +727,8 @@ export const se_DescribeTargetHealthCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTargetHealthInput(input, context),
-    Action: "DescribeTargetHealth",
-    Version: "2015-12-01",
+    [_A]: _DTH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -744,8 +744,8 @@ export const se_DescribeTrustStoreAssociationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTrustStoreAssociationsInput(input, context),
-    Action: "DescribeTrustStoreAssociations",
-    Version: "2015-12-01",
+    [_A]: _DTSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -761,8 +761,8 @@ export const se_DescribeTrustStoreRevocationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTrustStoreRevocationsInput(input, context),
-    Action: "DescribeTrustStoreRevocations",
-    Version: "2015-12-01",
+    [_A]: _DTSR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -778,8 +778,8 @@ export const se_DescribeTrustStoresCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTrustStoresInput(input, context),
-    Action: "DescribeTrustStores",
-    Version: "2015-12-01",
+    [_A]: _DTSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -795,8 +795,8 @@ export const se_GetTrustStoreCaCertificatesBundleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTrustStoreCaCertificatesBundleInput(input, context),
-    Action: "GetTrustStoreCaCertificatesBundle",
-    Version: "2015-12-01",
+    [_A]: _GTSCCB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -812,8 +812,8 @@ export const se_GetTrustStoreRevocationContentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTrustStoreRevocationContentInput(input, context),
-    Action: "GetTrustStoreRevocationContent",
-    Version: "2015-12-01",
+    [_A]: _GTSRC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -829,8 +829,8 @@ export const se_ModifyListenerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyListenerInput(input, context),
-    Action: "ModifyListener",
-    Version: "2015-12-01",
+    [_A]: _ML,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -846,8 +846,8 @@ export const se_ModifyLoadBalancerAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyLoadBalancerAttributesInput(input, context),
-    Action: "ModifyLoadBalancerAttributes",
-    Version: "2015-12-01",
+    [_A]: _MLBA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -863,8 +863,8 @@ export const se_ModifyRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyRuleInput(input, context),
-    Action: "ModifyRule",
-    Version: "2015-12-01",
+    [_A]: _MR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -880,8 +880,8 @@ export const se_ModifyTargetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyTargetGroupInput(input, context),
-    Action: "ModifyTargetGroup",
-    Version: "2015-12-01",
+    [_A]: _MTG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -897,8 +897,8 @@ export const se_ModifyTargetGroupAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyTargetGroupAttributesInput(input, context),
-    Action: "ModifyTargetGroupAttributes",
-    Version: "2015-12-01",
+    [_A]: _MTGA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -914,8 +914,8 @@ export const se_ModifyTrustStoreCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyTrustStoreInput(input, context),
-    Action: "ModifyTrustStore",
-    Version: "2015-12-01",
+    [_A]: _MTS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -931,8 +931,8 @@ export const se_RegisterTargetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterTargetsInput(input, context),
-    Action: "RegisterTargets",
-    Version: "2015-12-01",
+    [_A]: _RT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -948,8 +948,8 @@ export const se_RemoveListenerCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveListenerCertificatesInput(input, context),
-    Action: "RemoveListenerCertificates",
-    Version: "2015-12-01",
+    [_A]: _RLC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -965,8 +965,8 @@ export const se_RemoveTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsInput(input, context),
-    Action: "RemoveTags",
-    Version: "2015-12-01",
+    [_A]: _RTe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -982,8 +982,8 @@ export const se_RemoveTrustStoreRevocationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTrustStoreRevocationsInput(input, context),
-    Action: "RemoveTrustStoreRevocations",
-    Version: "2015-12-01",
+    [_A]: _RTSR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -999,8 +999,8 @@ export const se_SetIpAddressTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIpAddressTypeInput(input, context),
-    Action: "SetIpAddressType",
-    Version: "2015-12-01",
+    [_A]: _SIAT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1016,8 +1016,8 @@ export const se_SetRulePrioritiesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetRulePrioritiesInput(input, context),
-    Action: "SetRulePriorities",
-    Version: "2015-12-01",
+    [_A]: _SRP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1033,8 +1033,8 @@ export const se_SetSecurityGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetSecurityGroupsInput(input, context),
-    Action: "SetSecurityGroups",
-    Version: "2015-12-01",
+    [_A]: _SSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1050,8 +1050,8 @@ export const se_SetSubnetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetSubnetsInput(input, context),
-    Action: "SetSubnets",
-    Version: "2015-12-01",
+    [_A]: _SS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -4258,45 +4258,45 @@ const de_UnsupportedProtocolExceptionRes = async (
  */
 const se_Action = (input: Action, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.AuthenticateOidcConfig != null) {
-    const memberEntries = se_AuthenticateOidcActionConfig(input.AuthenticateOidcConfig, context);
+  if (input[_AOC] != null) {
+    const memberEntries = se_AuthenticateOidcActionConfig(input[_AOC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AuthenticateOidcConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AuthenticateCognitoConfig != null) {
-    const memberEntries = se_AuthenticateCognitoActionConfig(input.AuthenticateCognitoConfig, context);
+  if (input[_ACC] != null) {
+    const memberEntries = se_AuthenticateCognitoActionConfig(input[_ACC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AuthenticateCognitoConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Order != null) {
-    entries["Order"] = input.Order;
+  if (input[_O] != null) {
+    entries[_O] = input[_O];
   }
-  if (input.RedirectConfig != null) {
-    const memberEntries = se_RedirectActionConfig(input.RedirectConfig, context);
+  if (input[_RC] != null) {
+    const memberEntries = se_RedirectActionConfig(input[_RC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RedirectConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FixedResponseConfig != null) {
-    const memberEntries = se_FixedResponseActionConfig(input.FixedResponseConfig, context);
+  if (input[_FRC] != null) {
+    const memberEntries = se_FixedResponseActionConfig(input[_FRC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FixedResponseConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ForwardConfig != null) {
-    const memberEntries = se_ForwardActionConfig(input.ForwardConfig, context);
+  if (input[_FC] != null) {
+    const memberEntries = se_ForwardActionConfig(input[_FC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ForwardConfig.${key}`;
       entries[loc] = value;
@@ -4329,12 +4329,12 @@ const se_Actions = (input: Action[], context: __SerdeContext): any => {
  */
 const se_AddListenerCertificatesInput = (input: AddListenerCertificatesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
-  if (input.Certificates != null) {
-    const memberEntries = se_CertificateList(input.Certificates, context);
-    if (input.Certificates?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_CertificateList(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Certificates = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4350,9 +4350,9 @@ const se_AddListenerCertificatesInput = (input: AddListenerCertificatesInput, co
  */
 const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArns != null) {
-    const memberEntries = se_ResourceArns(input.ResourceArns, context);
-    if (input.ResourceArns?.length === 0) {
+  if (input[_RA] != null) {
+    const memberEntries = se_ResourceArns(input[_RA], context);
+    if (input[_RA]?.length === 0) {
       entries.ResourceArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4360,9 +4360,9 @@ const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4378,12 +4378,12 @@ const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
  */
 const se_AddTrustStoreRevocationsInput = (input: AddTrustStoreRevocationsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.RevocationContents != null) {
-    const memberEntries = se_RevocationContents(input.RevocationContents, context);
-    if (input.RevocationContents?.length === 0) {
+  if (input[_RCe] != null) {
+    const memberEntries = se_RevocationContents(input[_RCe], context);
+    if (input[_RCe]?.length === 0) {
       entries.RevocationContents = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4434,36 +4434,33 @@ const se_AuthenticateCognitoActionAuthenticationRequestExtraParams = (
  */
 const se_AuthenticateCognitoActionConfig = (input: AuthenticateCognitoActionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserPoolArn != null) {
-    entries["UserPoolArn"] = input.UserPoolArn;
+  if (input[_UPA] != null) {
+    entries[_UPA] = input[_UPA];
   }
-  if (input.UserPoolClientId != null) {
-    entries["UserPoolClientId"] = input.UserPoolClientId;
+  if (input[_UPCI] != null) {
+    entries[_UPCI] = input[_UPCI];
   }
-  if (input.UserPoolDomain != null) {
-    entries["UserPoolDomain"] = input.UserPoolDomain;
+  if (input[_UPD] != null) {
+    entries[_UPD] = input[_UPD];
   }
-  if (input.SessionCookieName != null) {
-    entries["SessionCookieName"] = input.SessionCookieName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.Scope != null) {
-    entries["Scope"] = input.Scope;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.SessionTimeout != null) {
-    entries["SessionTimeout"] = input.SessionTimeout;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.AuthenticationRequestExtraParams != null) {
-    const memberEntries = se_AuthenticateCognitoActionAuthenticationRequestExtraParams(
-      input.AuthenticationRequestExtraParams,
-      context
-    );
+  if (input[_AREP] != null) {
+    const memberEntries = se_AuthenticateCognitoActionAuthenticationRequestExtraParams(input[_AREP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AuthenticationRequestExtraParams.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OnUnauthenticatedRequest != null) {
-    entries["OnUnauthenticatedRequest"] = input.OnUnauthenticatedRequest;
+  if (input[_OUR] != null) {
+    entries[_OUR] = input[_OUR];
   }
   return entries;
 };
@@ -4492,48 +4489,45 @@ const se_AuthenticateOidcActionAuthenticationRequestExtraParams = (
  */
 const se_AuthenticateOidcActionConfig = (input: AuthenticateOidcActionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Issuer != null) {
-    entries["Issuer"] = input.Issuer;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.AuthorizationEndpoint != null) {
-    entries["AuthorizationEndpoint"] = input.AuthorizationEndpoint;
+  if (input[_AE] != null) {
+    entries[_AE] = input[_AE];
   }
-  if (input.TokenEndpoint != null) {
-    entries["TokenEndpoint"] = input.TokenEndpoint;
+  if (input[_TE] != null) {
+    entries[_TE] = input[_TE];
   }
-  if (input.UserInfoEndpoint != null) {
-    entries["UserInfoEndpoint"] = input.UserInfoEndpoint;
+  if (input[_UIE] != null) {
+    entries[_UIE] = input[_UIE];
   }
-  if (input.ClientId != null) {
-    entries["ClientId"] = input.ClientId;
+  if (input[_CI] != null) {
+    entries[_CI] = input[_CI];
   }
-  if (input.ClientSecret != null) {
-    entries["ClientSecret"] = input.ClientSecret;
+  if (input[_CS] != null) {
+    entries[_CS] = input[_CS];
   }
-  if (input.SessionCookieName != null) {
-    entries["SessionCookieName"] = input.SessionCookieName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.Scope != null) {
-    entries["Scope"] = input.Scope;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.SessionTimeout != null) {
-    entries["SessionTimeout"] = input.SessionTimeout;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.AuthenticationRequestExtraParams != null) {
-    const memberEntries = se_AuthenticateOidcActionAuthenticationRequestExtraParams(
-      input.AuthenticationRequestExtraParams,
-      context
-    );
+  if (input[_AREP] != null) {
+    const memberEntries = se_AuthenticateOidcActionAuthenticationRequestExtraParams(input[_AREP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AuthenticationRequestExtraParams.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OnUnauthenticatedRequest != null) {
-    entries["OnUnauthenticatedRequest"] = input.OnUnauthenticatedRequest;
+  if (input[_OUR] != null) {
+    entries[_OUR] = input[_OUR];
   }
-  if (input.UseExistingClientSecret != null) {
-    entries["UseExistingClientSecret"] = input.UseExistingClientSecret;
+  if (input[_UECS] != null) {
+    entries[_UECS] = input[_UECS];
   }
   return entries;
 };
@@ -4543,11 +4537,11 @@ const se_AuthenticateOidcActionConfig = (input: AuthenticateOidcActionConfig, co
  */
 const se_Certificate = (input: Certificate, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CertificateArn != null) {
-    entries["CertificateArn"] = input.CertificateArn;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.IsDefault != null) {
-    entries["IsDefault"] = input.IsDefault;
+  if (input[_ID] != null) {
+    entries[_ID] = input[_ID];
   }
   return entries;
 };
@@ -4576,21 +4570,21 @@ const se_CertificateList = (input: Certificate[], context: __SerdeContext): any 
  */
 const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.Protocol != null) {
-    entries["Protocol"] = input.Protocol;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.SslPolicy != null) {
-    entries["SslPolicy"] = input.SslPolicy;
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
   }
-  if (input.Certificates != null) {
-    const memberEntries = se_CertificateList(input.Certificates, context);
-    if (input.Certificates?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_CertificateList(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Certificates = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4598,9 +4592,9 @@ const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.DefaultActions != null) {
-    const memberEntries = se_Actions(input.DefaultActions, context);
-    if (input.DefaultActions?.length === 0) {
+  if (input[_DA] != null) {
+    const memberEntries = se_Actions(input[_DA], context);
+    if (input[_DA]?.length === 0) {
       entries.DefaultActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4608,9 +4602,9 @@ const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.AlpnPolicy != null) {
-    const memberEntries = se_AlpnPolicyName(input.AlpnPolicy, context);
-    if (input.AlpnPolicy?.length === 0) {
+  if (input[_AP] != null) {
+    const memberEntries = se_AlpnPolicyName(input[_AP], context);
+    if (input[_AP]?.length === 0) {
       entries.AlpnPolicy = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4618,9 +4612,9 @@ const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4628,8 +4622,8 @@ const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.MutualAuthentication != null) {
-    const memberEntries = se_MutualAuthenticationAttributes(input.MutualAuthentication, context);
+  if (input[_MA] != null) {
+    const memberEntries = se_MutualAuthenticationAttributes(input[_MA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MutualAuthentication.${key}`;
       entries[loc] = value;
@@ -4643,12 +4637,12 @@ const se_CreateListenerInput = (input: CreateListenerInput, context: __SerdeCont
  */
 const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Subnets != null) {
-    const memberEntries = se_Subnets(input.Subnets, context);
-    if (input.Subnets?.length === 0) {
+  if (input[_Su] != null) {
+    const memberEntries = se_Subnets(input[_Su], context);
+    if (input[_Su]?.length === 0) {
       entries.Subnets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4656,9 +4650,9 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
       entries[loc] = value;
     });
   }
-  if (input.SubnetMappings != null) {
-    const memberEntries = se_SubnetMappings(input.SubnetMappings, context);
-    if (input.SubnetMappings?.length === 0) {
+  if (input[_SM] != null) {
+    const memberEntries = se_SubnetMappings(input[_SM], context);
+    if (input[_SM]?.length === 0) {
       entries.SubnetMappings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4666,9 +4660,9 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroups != null) {
-    const memberEntries = se_SecurityGroups(input.SecurityGroups, context);
-    if (input.SecurityGroups?.length === 0) {
+  if (input[_SG] != null) {
+    const memberEntries = se_SecurityGroups(input[_SG], context);
+    if (input[_SG]?.length === 0) {
       entries.SecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4676,12 +4670,12 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
       entries[loc] = value;
     });
   }
-  if (input.Scheme != null) {
-    entries["Scheme"] = input.Scheme;
+  if (input[_Sc] != null) {
+    entries[_Sc] = input[_Sc];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4689,14 +4683,14 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
       entries[loc] = value;
     });
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.IpAddressType != null) {
-    entries["IpAddressType"] = input.IpAddressType;
+  if (input[_IAT] != null) {
+    entries[_IAT] = input[_IAT];
   }
-  if (input.CustomerOwnedIpv4Pool != null) {
-    entries["CustomerOwnedIpv4Pool"] = input.CustomerOwnedIpv4Pool;
+  if (input[_COIP] != null) {
+    entries[_COIP] = input[_COIP];
   }
   return entries;
 };
@@ -4706,12 +4700,12 @@ const se_CreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __S
  */
 const se_CreateRuleInput = (input: CreateRuleInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
-  if (input.Conditions != null) {
-    const memberEntries = se_RuleConditionList(input.Conditions, context);
-    if (input.Conditions?.length === 0) {
+  if (input[_Co] != null) {
+    const memberEntries = se_RuleConditionList(input[_Co], context);
+    if (input[_Co]?.length === 0) {
       entries.Conditions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4719,12 +4713,12 @@ const se_CreateRuleInput = (input: CreateRuleInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.Priority != null) {
-    entries["Priority"] = input.Priority;
+  if (input[_Pr] != null) {
+    entries[_Pr] = input[_Pr];
   }
-  if (input.Actions != null) {
-    const memberEntries = se_Actions(input.Actions, context);
-    if (input.Actions?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_Actions(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Actions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4732,9 +4726,9 @@ const se_CreateRuleInput = (input: CreateRuleInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4750,58 +4744,58 @@ const se_CreateRuleInput = (input: CreateRuleInput, context: __SerdeContext): an
  */
 const se_CreateTargetGroupInput = (input: CreateTargetGroupInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Protocol != null) {
-    entries["Protocol"] = input.Protocol;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.ProtocolVersion != null) {
-    entries["ProtocolVersion"] = input.ProtocolVersion;
+  if (input[_PV] != null) {
+    entries[_PV] = input[_PV];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.VpcId != null) {
-    entries["VpcId"] = input.VpcId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
-  if (input.HealthCheckProtocol != null) {
-    entries["HealthCheckProtocol"] = input.HealthCheckProtocol;
+  if (input[_HCP] != null) {
+    entries[_HCP] = input[_HCP];
   }
-  if (input.HealthCheckPort != null) {
-    entries["HealthCheckPort"] = input.HealthCheckPort;
+  if (input[_HCPe] != null) {
+    entries[_HCPe] = input[_HCPe];
   }
-  if (input.HealthCheckEnabled != null) {
-    entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
+  if (input[_HCE] != null) {
+    entries[_HCE] = input[_HCE];
   }
-  if (input.HealthCheckPath != null) {
-    entries["HealthCheckPath"] = input.HealthCheckPath;
+  if (input[_HCPea] != null) {
+    entries[_HCPea] = input[_HCPea];
   }
-  if (input.HealthCheckIntervalSeconds != null) {
-    entries["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
+  if (input[_HCIS] != null) {
+    entries[_HCIS] = input[_HCIS];
   }
-  if (input.HealthCheckTimeoutSeconds != null) {
-    entries["HealthCheckTimeoutSeconds"] = input.HealthCheckTimeoutSeconds;
+  if (input[_HCTS] != null) {
+    entries[_HCTS] = input[_HCTS];
   }
-  if (input.HealthyThresholdCount != null) {
-    entries["HealthyThresholdCount"] = input.HealthyThresholdCount;
+  if (input[_HTC] != null) {
+    entries[_HTC] = input[_HTC];
   }
-  if (input.UnhealthyThresholdCount != null) {
-    entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
+  if (input[_UTC] != null) {
+    entries[_UTC] = input[_UTC];
   }
-  if (input.Matcher != null) {
-    const memberEntries = se_Matcher(input.Matcher, context);
+  if (input[_M] != null) {
+    const memberEntries = se_Matcher(input[_M], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Matcher.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TargetType != null) {
-    entries["TargetType"] = input.TargetType;
+  if (input[_TT] != null) {
+    entries[_TT] = input[_TT];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4809,8 +4803,8 @@ const se_CreateTargetGroupInput = (input: CreateTargetGroupInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.IpAddressType != null) {
-    entries["IpAddressType"] = input.IpAddressType;
+  if (input[_IAT] != null) {
+    entries[_IAT] = input[_IAT];
   }
   return entries;
 };
@@ -4820,21 +4814,21 @@ const se_CreateTargetGroupInput = (input: CreateTargetGroupInput, context: __Ser
  */
 const se_CreateTrustStoreInput = (input: CreateTrustStoreInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.CaCertificatesBundleS3Bucket != null) {
-    entries["CaCertificatesBundleS3Bucket"] = input.CaCertificatesBundleS3Bucket;
+  if (input[_CCBSB] != null) {
+    entries[_CCBSB] = input[_CCBSB];
   }
-  if (input.CaCertificatesBundleS3Key != null) {
-    entries["CaCertificatesBundleS3Key"] = input.CaCertificatesBundleS3Key;
+  if (input[_CCBSK] != null) {
+    entries[_CCBSK] = input[_CCBSK];
   }
-  if (input.CaCertificatesBundleS3ObjectVersion != null) {
-    entries["CaCertificatesBundleS3ObjectVersion"] = input.CaCertificatesBundleS3ObjectVersion;
+  if (input[_CCBSOV] != null) {
+    entries[_CCBSOV] = input[_CCBSOV];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4850,8 +4844,8 @@ const se_CreateTrustStoreInput = (input: CreateTrustStoreInput, context: __Serde
  */
 const se_DeleteListenerInput = (input: DeleteListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
   return entries;
 };
@@ -4861,8 +4855,8 @@ const se_DeleteListenerInput = (input: DeleteListenerInput, context: __SerdeCont
  */
 const se_DeleteLoadBalancerInput = (input: DeleteLoadBalancerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
   return entries;
 };
@@ -4872,8 +4866,8 @@ const se_DeleteLoadBalancerInput = (input: DeleteLoadBalancerInput, context: __S
  */
 const se_DeleteRuleInput = (input: DeleteRuleInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleArn != null) {
-    entries["RuleArn"] = input.RuleArn;
+  if (input[_RAu] != null) {
+    entries[_RAu] = input[_RAu];
   }
   return entries;
 };
@@ -4883,8 +4877,8 @@ const se_DeleteRuleInput = (input: DeleteRuleInput, context: __SerdeContext): an
  */
 const se_DeleteTargetGroupInput = (input: DeleteTargetGroupInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
   return entries;
 };
@@ -4894,8 +4888,8 @@ const se_DeleteTargetGroupInput = (input: DeleteTargetGroupInput, context: __Ser
  */
 const se_DeleteTrustStoreInput = (input: DeleteTrustStoreInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
   return entries;
 };
@@ -4905,12 +4899,12 @@ const se_DeleteTrustStoreInput = (input: DeleteTrustStoreInput, context: __Serde
  */
 const se_DeregisterTargetsInput = (input: DeregisterTargetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.Targets != null) {
-    const memberEntries = se_TargetDescriptions(input.Targets, context);
-    if (input.Targets?.length === 0) {
+  if (input[_Tar] != null) {
+    const memberEntries = se_TargetDescriptions(input[_Tar], context);
+    if (input[_Tar]?.length === 0) {
       entries.Targets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4926,11 +4920,11 @@ const se_DeregisterTargetsInput = (input: DeregisterTargetsInput, context: __Ser
  */
 const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -4943,14 +4937,14 @@ const se_DescribeListenerCertificatesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -4960,12 +4954,12 @@ const se_DescribeListenerCertificatesInput = (
  */
 const se_DescribeListenersInput = (input: DescribeListenersInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.ListenerArns != null) {
-    const memberEntries = se_ListenerArns(input.ListenerArns, context);
-    if (input.ListenerArns?.length === 0) {
+  if (input[_LAi] != null) {
+    const memberEntries = se_ListenerArns(input[_LAi], context);
+    if (input[_LAi]?.length === 0) {
       entries.ListenerArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4973,11 +4967,11 @@ const se_DescribeListenersInput = (input: DescribeListenersInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -4990,8 +4984,8 @@ const se_DescribeLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
   return entries;
 };
@@ -5001,9 +4995,9 @@ const se_DescribeLoadBalancerAttributesInput = (
  */
 const se_DescribeLoadBalancersInput = (input: DescribeLoadBalancersInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArns != null) {
-    const memberEntries = se_LoadBalancerArns(input.LoadBalancerArns, context);
-    if (input.LoadBalancerArns?.length === 0) {
+  if (input[_LBAo] != null) {
+    const memberEntries = se_LoadBalancerArns(input[_LBAo], context);
+    if (input[_LBAo]?.length === 0) {
       entries.LoadBalancerArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5011,9 +5005,9 @@ const se_DescribeLoadBalancersInput = (input: DescribeLoadBalancersInput, contex
       entries[loc] = value;
     });
   }
-  if (input.Names != null) {
-    const memberEntries = se_LoadBalancerNames(input.Names, context);
-    if (input.Names?.length === 0) {
+  if (input[_Na] != null) {
+    const memberEntries = se_LoadBalancerNames(input[_Na], context);
+    if (input[_Na]?.length === 0) {
       entries.Names = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5021,11 +5015,11 @@ const se_DescribeLoadBalancersInput = (input: DescribeLoadBalancersInput, contex
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -5035,12 +5029,12 @@ const se_DescribeLoadBalancersInput = (input: DescribeLoadBalancersInput, contex
  */
 const se_DescribeRulesInput = (input: DescribeRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
-  if (input.RuleArns != null) {
-    const memberEntries = se_RuleArns(input.RuleArns, context);
-    if (input.RuleArns?.length === 0) {
+  if (input[_RAul] != null) {
+    const memberEntries = se_RuleArns(input[_RAul], context);
+    if (input[_RAul]?.length === 0) {
       entries.RuleArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5048,11 +5042,11 @@ const se_DescribeRulesInput = (input: DescribeRulesInput, context: __SerdeContex
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -5062,9 +5056,9 @@ const se_DescribeRulesInput = (input: DescribeRulesInput, context: __SerdeContex
  */
 const se_DescribeSSLPoliciesInput = (input: DescribeSSLPoliciesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Names != null) {
-    const memberEntries = se_SslPolicyNames(input.Names, context);
-    if (input.Names?.length === 0) {
+  if (input[_Na] != null) {
+    const memberEntries = se_SslPolicyNames(input[_Na], context);
+    if (input[_Na]?.length === 0) {
       entries.Names = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5072,14 +5066,14 @@ const se_DescribeSSLPoliciesInput = (input: DescribeSSLPoliciesInput, context: _
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
-  if (input.LoadBalancerType != null) {
-    entries["LoadBalancerType"] = input.LoadBalancerType;
+  if (input[_LBT] != null) {
+    entries[_LBT] = input[_LBT];
   }
   return entries;
 };
@@ -5089,9 +5083,9 @@ const se_DescribeSSLPoliciesInput = (input: DescribeSSLPoliciesInput, context: _
  */
 const se_DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArns != null) {
-    const memberEntries = se_ResourceArns(input.ResourceArns, context);
-    if (input.ResourceArns?.length === 0) {
+  if (input[_RA] != null) {
+    const memberEntries = se_ResourceArns(input[_RA], context);
+    if (input[_RA]?.length === 0) {
       entries.ResourceArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5110,8 +5104,8 @@ const se_DescribeTargetGroupAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
   return entries;
 };
@@ -5121,12 +5115,12 @@ const se_DescribeTargetGroupAttributesInput = (
  */
 const se_DescribeTargetGroupsInput = (input: DescribeTargetGroupsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.TargetGroupArns != null) {
-    const memberEntries = se_TargetGroupArns(input.TargetGroupArns, context);
-    if (input.TargetGroupArns?.length === 0) {
+  if (input[_TGAa] != null) {
+    const memberEntries = se_TargetGroupArns(input[_TGAa], context);
+    if (input[_TGAa]?.length === 0) {
       entries.TargetGroupArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5134,9 +5128,9 @@ const se_DescribeTargetGroupsInput = (input: DescribeTargetGroupsInput, context:
       entries[loc] = value;
     });
   }
-  if (input.Names != null) {
-    const memberEntries = se_TargetGroupNames(input.Names, context);
-    if (input.Names?.length === 0) {
+  if (input[_Na] != null) {
+    const memberEntries = se_TargetGroupNames(input[_Na], context);
+    if (input[_Na]?.length === 0) {
       entries.Names = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5144,11 +5138,11 @@ const se_DescribeTargetGroupsInput = (input: DescribeTargetGroupsInput, context:
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -5158,12 +5152,12 @@ const se_DescribeTargetGroupsInput = (input: DescribeTargetGroupsInput, context:
  */
 const se_DescribeTargetHealthInput = (input: DescribeTargetHealthInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.Targets != null) {
-    const memberEntries = se_TargetDescriptions(input.Targets, context);
-    if (input.Targets?.length === 0) {
+  if (input[_Tar] != null) {
+    const memberEntries = se_TargetDescriptions(input[_Tar], context);
+    if (input[_Tar]?.length === 0) {
       entries.Targets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5171,9 +5165,9 @@ const se_DescribeTargetHealthInput = (input: DescribeTargetHealthInput, context:
       entries[loc] = value;
     });
   }
-  if (input.Include != null) {
-    const memberEntries = se_ListOfDescribeTargetHealthIncludeOptions(input.Include, context);
-    if (input.Include?.length === 0) {
+  if (input[_In] != null) {
+    const memberEntries = se_ListOfDescribeTargetHealthIncludeOptions(input[_In], context);
+    if (input[_In]?.length === 0) {
       entries.Include = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5192,14 +5186,14 @@ const se_DescribeTrustStoreAssociationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -5212,12 +5206,12 @@ const se_DescribeTrustStoreRevocationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.RevocationIds != null) {
-    const memberEntries = se_RevocationIds(input.RevocationIds, context);
-    if (input.RevocationIds?.length === 0) {
+  if (input[_RI] != null) {
+    const memberEntries = se_RevocationIds(input[_RI], context);
+    if (input[_RI]?.length === 0) {
       entries.RevocationIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5225,11 +5219,11 @@ const se_DescribeTrustStoreRevocationsInput = (
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -5239,9 +5233,9 @@ const se_DescribeTrustStoreRevocationsInput = (
  */
 const se_DescribeTrustStoresInput = (input: DescribeTrustStoresInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TrustStoreArns != null) {
-    const memberEntries = se_TrustStoreArns(input.TrustStoreArns, context);
-    if (input.TrustStoreArns?.length === 0) {
+  if (input[_TSAr] != null) {
+    const memberEntries = se_TrustStoreArns(input[_TSAr], context);
+    if (input[_TSAr]?.length === 0) {
       entries.TrustStoreArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5249,9 +5243,9 @@ const se_DescribeTrustStoresInput = (input: DescribeTrustStoresInput, context: _
       entries[loc] = value;
     });
   }
-  if (input.Names != null) {
-    const memberEntries = se_TrustStoreNames(input.Names, context);
-    if (input.Names?.length === 0) {
+  if (input[_Na] != null) {
+    const memberEntries = se_TrustStoreNames(input[_Na], context);
+    if (input[_Na]?.length === 0) {
       entries.Names = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5259,11 +5253,11 @@ const se_DescribeTrustStoresInput = (input: DescribeTrustStoresInput, context: _
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -5273,14 +5267,14 @@ const se_DescribeTrustStoresInput = (input: DescribeTrustStoresInput, context: _
  */
 const se_FixedResponseActionConfig = (input: FixedResponseActionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MessageBody != null) {
-    entries["MessageBody"] = input.MessageBody;
+  if (input[_MB] != null) {
+    entries[_MB] = input[_MB];
   }
-  if (input.StatusCode != null) {
-    entries["StatusCode"] = input.StatusCode;
+  if (input[_SC] != null) {
+    entries[_SC] = input[_SC];
   }
-  if (input.ContentType != null) {
-    entries["ContentType"] = input.ContentType;
+  if (input[_CT] != null) {
+    entries[_CT] = input[_CT];
   }
   return entries;
 };
@@ -5290,9 +5284,9 @@ const se_FixedResponseActionConfig = (input: FixedResponseActionConfig, context:
  */
 const se_ForwardActionConfig = (input: ForwardActionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroups != null) {
-    const memberEntries = se_TargetGroupList(input.TargetGroups, context);
-    if (input.TargetGroups?.length === 0) {
+  if (input[_TG] != null) {
+    const memberEntries = se_TargetGroupList(input[_TG], context);
+    if (input[_TG]?.length === 0) {
       entries.TargetGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5300,8 +5294,8 @@ const se_ForwardActionConfig = (input: ForwardActionConfig, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.TargetGroupStickinessConfig != null) {
-    const memberEntries = se_TargetGroupStickinessConfig(input.TargetGroupStickinessConfig, context);
+  if (input[_TGSC] != null) {
+    const memberEntries = se_TargetGroupStickinessConfig(input[_TGSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupStickinessConfig.${key}`;
       entries[loc] = value;
@@ -5318,8 +5312,8 @@ const se_GetTrustStoreCaCertificatesBundleInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
   return entries;
 };
@@ -5332,11 +5326,11 @@ const se_GetTrustStoreRevocationContentInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.RevocationId != null) {
-    entries["RevocationId"] = input.RevocationId;
+  if (input[_RIe] != null) {
+    entries[_RIe] = input[_RIe];
   }
   return entries;
 };
@@ -5346,9 +5340,9 @@ const se_GetTrustStoreRevocationContentInput = (
  */
 const se_HostHeaderConditionConfig = (input: HostHeaderConditionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Values != null) {
-    const memberEntries = se_ListOfString(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_ListOfString(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5364,12 +5358,12 @@ const se_HostHeaderConditionConfig = (input: HostHeaderConditionConfig, context:
  */
 const se_HttpHeaderConditionConfig = (input: HttpHeaderConditionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.HttpHeaderName != null) {
-    entries["HttpHeaderName"] = input.HttpHeaderName;
+  if (input[_HHN] != null) {
+    entries[_HHN] = input[_HHN];
   }
-  if (input.Values != null) {
-    const memberEntries = se_ListOfString(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_ListOfString(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5385,9 +5379,9 @@ const se_HttpHeaderConditionConfig = (input: HttpHeaderConditionConfig, context:
  */
 const se_HttpRequestMethodConditionConfig = (input: HttpRequestMethodConditionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Values != null) {
-    const memberEntries = se_ListOfString(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_ListOfString(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5470,11 +5464,11 @@ const se_LoadBalancerArns = (input: string[], context: __SerdeContext): any => {
  */
 const se_LoadBalancerAttribute = (input: LoadBalancerAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -5519,11 +5513,11 @@ const se_LoadBalancerNames = (input: string[], context: __SerdeContext): any => 
  */
 const se_Matcher = (input: Matcher, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.HttpCode != null) {
-    entries["HttpCode"] = input.HttpCode;
+  if (input[_HC] != null) {
+    entries[_HC] = input[_HC];
   }
-  if (input.GrpcCode != null) {
-    entries["GrpcCode"] = input.GrpcCode;
+  if (input[_GC] != null) {
+    entries[_GC] = input[_GC];
   }
   return entries;
 };
@@ -5533,21 +5527,21 @@ const se_Matcher = (input: Matcher, context: __SerdeContext): any => {
  */
 const se_ModifyListenerInput = (input: ModifyListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.Protocol != null) {
-    entries["Protocol"] = input.Protocol;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.SslPolicy != null) {
-    entries["SslPolicy"] = input.SslPolicy;
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
   }
-  if (input.Certificates != null) {
-    const memberEntries = se_CertificateList(input.Certificates, context);
-    if (input.Certificates?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_CertificateList(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Certificates = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5555,9 +5549,9 @@ const se_ModifyListenerInput = (input: ModifyListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.DefaultActions != null) {
-    const memberEntries = se_Actions(input.DefaultActions, context);
-    if (input.DefaultActions?.length === 0) {
+  if (input[_DA] != null) {
+    const memberEntries = se_Actions(input[_DA], context);
+    if (input[_DA]?.length === 0) {
       entries.DefaultActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5565,9 +5559,9 @@ const se_ModifyListenerInput = (input: ModifyListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.AlpnPolicy != null) {
-    const memberEntries = se_AlpnPolicyName(input.AlpnPolicy, context);
-    if (input.AlpnPolicy?.length === 0) {
+  if (input[_AP] != null) {
+    const memberEntries = se_AlpnPolicyName(input[_AP], context);
+    if (input[_AP]?.length === 0) {
       entries.AlpnPolicy = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5575,8 +5569,8 @@ const se_ModifyListenerInput = (input: ModifyListenerInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.MutualAuthentication != null) {
-    const memberEntries = se_MutualAuthenticationAttributes(input.MutualAuthentication, context);
+  if (input[_MA] != null) {
+    const memberEntries = se_MutualAuthenticationAttributes(input[_MA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MutualAuthentication.${key}`;
       entries[loc] = value;
@@ -5593,12 +5587,12 @@ const se_ModifyLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_LoadBalancerAttributes(input.Attributes, context);
-    if (input.Attributes?.length === 0) {
+  if (input[_At] != null) {
+    const memberEntries = se_LoadBalancerAttributes(input[_At], context);
+    if (input[_At]?.length === 0) {
       entries.Attributes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5614,12 +5608,12 @@ const se_ModifyLoadBalancerAttributesInput = (
  */
 const se_ModifyRuleInput = (input: ModifyRuleInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleArn != null) {
-    entries["RuleArn"] = input.RuleArn;
+  if (input[_RAu] != null) {
+    entries[_RAu] = input[_RAu];
   }
-  if (input.Conditions != null) {
-    const memberEntries = se_RuleConditionList(input.Conditions, context);
-    if (input.Conditions?.length === 0) {
+  if (input[_Co] != null) {
+    const memberEntries = se_RuleConditionList(input[_Co], context);
+    if (input[_Co]?.length === 0) {
       entries.Conditions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5627,9 +5621,9 @@ const se_ModifyRuleInput = (input: ModifyRuleInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.Actions != null) {
-    const memberEntries = se_Actions(input.Actions, context);
-    if (input.Actions?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_Actions(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Actions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5645,12 +5639,12 @@ const se_ModifyRuleInput = (input: ModifyRuleInput, context: __SerdeContext): an
  */
 const se_ModifyTargetGroupAttributesInput = (input: ModifyTargetGroupAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_TargetGroupAttributes(input.Attributes, context);
-    if (input.Attributes?.length === 0) {
+  if (input[_At] != null) {
+    const memberEntries = se_TargetGroupAttributes(input[_At], context);
+    if (input[_At]?.length === 0) {
       entries.Attributes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5666,35 +5660,35 @@ const se_ModifyTargetGroupAttributesInput = (input: ModifyTargetGroupAttributesI
  */
 const se_ModifyTargetGroupInput = (input: ModifyTargetGroupInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.HealthCheckProtocol != null) {
-    entries["HealthCheckProtocol"] = input.HealthCheckProtocol;
+  if (input[_HCP] != null) {
+    entries[_HCP] = input[_HCP];
   }
-  if (input.HealthCheckPort != null) {
-    entries["HealthCheckPort"] = input.HealthCheckPort;
+  if (input[_HCPe] != null) {
+    entries[_HCPe] = input[_HCPe];
   }
-  if (input.HealthCheckPath != null) {
-    entries["HealthCheckPath"] = input.HealthCheckPath;
+  if (input[_HCPea] != null) {
+    entries[_HCPea] = input[_HCPea];
   }
-  if (input.HealthCheckEnabled != null) {
-    entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
+  if (input[_HCE] != null) {
+    entries[_HCE] = input[_HCE];
   }
-  if (input.HealthCheckIntervalSeconds != null) {
-    entries["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
+  if (input[_HCIS] != null) {
+    entries[_HCIS] = input[_HCIS];
   }
-  if (input.HealthCheckTimeoutSeconds != null) {
-    entries["HealthCheckTimeoutSeconds"] = input.HealthCheckTimeoutSeconds;
+  if (input[_HCTS] != null) {
+    entries[_HCTS] = input[_HCTS];
   }
-  if (input.HealthyThresholdCount != null) {
-    entries["HealthyThresholdCount"] = input.HealthyThresholdCount;
+  if (input[_HTC] != null) {
+    entries[_HTC] = input[_HTC];
   }
-  if (input.UnhealthyThresholdCount != null) {
-    entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
+  if (input[_UTC] != null) {
+    entries[_UTC] = input[_UTC];
   }
-  if (input.Matcher != null) {
-    const memberEntries = se_Matcher(input.Matcher, context);
+  if (input[_M] != null) {
+    const memberEntries = se_Matcher(input[_M], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Matcher.${key}`;
       entries[loc] = value;
@@ -5708,17 +5702,17 @@ const se_ModifyTargetGroupInput = (input: ModifyTargetGroupInput, context: __Ser
  */
 const se_ModifyTrustStoreInput = (input: ModifyTrustStoreInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.CaCertificatesBundleS3Bucket != null) {
-    entries["CaCertificatesBundleS3Bucket"] = input.CaCertificatesBundleS3Bucket;
+  if (input[_CCBSB] != null) {
+    entries[_CCBSB] = input[_CCBSB];
   }
-  if (input.CaCertificatesBundleS3Key != null) {
-    entries["CaCertificatesBundleS3Key"] = input.CaCertificatesBundleS3Key;
+  if (input[_CCBSK] != null) {
+    entries[_CCBSK] = input[_CCBSK];
   }
-  if (input.CaCertificatesBundleS3ObjectVersion != null) {
-    entries["CaCertificatesBundleS3ObjectVersion"] = input.CaCertificatesBundleS3ObjectVersion;
+  if (input[_CCBSOV] != null) {
+    entries[_CCBSOV] = input[_CCBSOV];
   }
   return entries;
 };
@@ -5728,14 +5722,14 @@ const se_ModifyTrustStoreInput = (input: ModifyTrustStoreInput, context: __Serde
  */
 const se_MutualAuthenticationAttributes = (input: MutualAuthenticationAttributes, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Mode != null) {
-    entries["Mode"] = input.Mode;
+  if (input[_Mo] != null) {
+    entries[_Mo] = input[_Mo];
   }
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.IgnoreClientCertificateExpiry != null) {
-    entries["IgnoreClientCertificateExpiry"] = input.IgnoreClientCertificateExpiry;
+  if (input[_ICCE] != null) {
+    entries[_ICCE] = input[_ICCE];
   }
   return entries;
 };
@@ -5745,9 +5739,9 @@ const se_MutualAuthenticationAttributes = (input: MutualAuthenticationAttributes
  */
 const se_PathPatternConditionConfig = (input: PathPatternConditionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Values != null) {
-    const memberEntries = se_ListOfString(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_ListOfString(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5763,9 +5757,9 @@ const se_PathPatternConditionConfig = (input: PathPatternConditionConfig, contex
  */
 const se_QueryStringConditionConfig = (input: QueryStringConditionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Values != null) {
-    const memberEntries = se_QueryStringKeyValuePairList(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_QueryStringKeyValuePairList(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5781,11 +5775,11 @@ const se_QueryStringConditionConfig = (input: QueryStringConditionConfig, contex
  */
 const se_QueryStringKeyValuePair = (input: QueryStringKeyValuePair, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -5814,23 +5808,23 @@ const se_QueryStringKeyValuePairList = (input: QueryStringKeyValuePair[], contex
  */
 const se_RedirectActionConfig = (input: RedirectActionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Protocol != null) {
-    entries["Protocol"] = input.Protocol;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.Host != null) {
-    entries["Host"] = input.Host;
+  if (input[_H] != null) {
+    entries[_H] = input[_H];
   }
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
-  if (input.Query != null) {
-    entries["Query"] = input.Query;
+  if (input[_Q] != null) {
+    entries[_Q] = input[_Q];
   }
-  if (input.StatusCode != null) {
-    entries["StatusCode"] = input.StatusCode;
+  if (input[_SC] != null) {
+    entries[_SC] = input[_SC];
   }
   return entries;
 };
@@ -5840,12 +5834,12 @@ const se_RedirectActionConfig = (input: RedirectActionConfig, context: __SerdeCo
  */
 const se_RegisterTargetsInput = (input: RegisterTargetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.Targets != null) {
-    const memberEntries = se_TargetDescriptions(input.Targets, context);
-    if (input.Targets?.length === 0) {
+  if (input[_Tar] != null) {
+    const memberEntries = se_TargetDescriptions(input[_Tar], context);
+    if (input[_Tar]?.length === 0) {
       entries.Targets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5861,12 +5855,12 @@ const se_RegisterTargetsInput = (input: RegisterTargetsInput, context: __SerdeCo
  */
 const se_RemoveListenerCertificatesInput = (input: RemoveListenerCertificatesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListenerArn != null) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input[_LA] != null) {
+    entries[_LA] = input[_LA];
   }
-  if (input.Certificates != null) {
-    const memberEntries = se_CertificateList(input.Certificates, context);
-    if (input.Certificates?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_CertificateList(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Certificates = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5882,9 +5876,9 @@ const se_RemoveListenerCertificatesInput = (input: RemoveListenerCertificatesInp
  */
 const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArns != null) {
-    const memberEntries = se_ResourceArns(input.ResourceArns, context);
-    if (input.ResourceArns?.length === 0) {
+  if (input[_RA] != null) {
+    const memberEntries = se_ResourceArns(input[_RA], context);
+    if (input[_RA]?.length === 0) {
       entries.ResourceArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5892,9 +5886,9 @@ const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_TagKeys(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_TagKeys(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5910,12 +5904,12 @@ const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): an
  */
 const se_RemoveTrustStoreRevocationsInput = (input: RemoveTrustStoreRevocationsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TrustStoreArn != null) {
-    entries["TrustStoreArn"] = input.TrustStoreArn;
+  if (input[_TSA] != null) {
+    entries[_TSA] = input[_TSA];
   }
-  if (input.RevocationIds != null) {
-    const memberEntries = se_RevocationIds(input.RevocationIds, context);
-    if (input.RevocationIds?.length === 0) {
+  if (input[_RI] != null) {
+    const memberEntries = se_RevocationIds(input[_RI], context);
+    if (input[_RI]?.length === 0) {
       entries.RevocationIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5947,17 +5941,17 @@ const se_ResourceArns = (input: string[], context: __SerdeContext): any => {
  */
 const se_RevocationContent = (input: RevocationContent, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.S3Bucket != null) {
-    entries["S3Bucket"] = input.S3Bucket;
+  if (input[_SB] != null) {
+    entries[_SB] = input[_SB];
   }
-  if (input.S3Key != null) {
-    entries["S3Key"] = input.S3Key;
+  if (input[_SK] != null) {
+    entries[_SK] = input[_SK];
   }
-  if (input.S3ObjectVersion != null) {
-    entries["S3ObjectVersion"] = input.S3ObjectVersion;
+  if (input[_SOV] != null) {
+    entries[_SOV] = input[_SOV];
   }
-  if (input.RevocationType != null) {
-    entries["RevocationType"] = input.RevocationType;
+  if (input[_RTev] != null) {
+    entries[_RTev] = input[_RTev];
   }
   return entries;
 };
@@ -6018,12 +6012,12 @@ const se_RuleArns = (input: string[], context: __SerdeContext): any => {
  */
 const se_RuleCondition = (input: RuleCondition, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Field != null) {
-    entries["Field"] = input.Field;
+  if (input[_F] != null) {
+    entries[_F] = input[_F];
   }
-  if (input.Values != null) {
-    const memberEntries = se_ListOfString(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_ListOfString(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6031,43 +6025,43 @@ const se_RuleCondition = (input: RuleCondition, context: __SerdeContext): any =>
       entries[loc] = value;
     });
   }
-  if (input.HostHeaderConfig != null) {
-    const memberEntries = se_HostHeaderConditionConfig(input.HostHeaderConfig, context);
+  if (input[_HHC] != null) {
+    const memberEntries = se_HostHeaderConditionConfig(input[_HHC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HostHeaderConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PathPatternConfig != null) {
-    const memberEntries = se_PathPatternConditionConfig(input.PathPatternConfig, context);
+  if (input[_PPC] != null) {
+    const memberEntries = se_PathPatternConditionConfig(input[_PPC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PathPatternConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.HttpHeaderConfig != null) {
-    const memberEntries = se_HttpHeaderConditionConfig(input.HttpHeaderConfig, context);
+  if (input[_HHCt] != null) {
+    const memberEntries = se_HttpHeaderConditionConfig(input[_HHCt], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HttpHeaderConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.QueryStringConfig != null) {
-    const memberEntries = se_QueryStringConditionConfig(input.QueryStringConfig, context);
+  if (input[_QSC] != null) {
+    const memberEntries = se_QueryStringConditionConfig(input[_QSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `QueryStringConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.HttpRequestMethodConfig != null) {
-    const memberEntries = se_HttpRequestMethodConditionConfig(input.HttpRequestMethodConfig, context);
+  if (input[_HRMC] != null) {
+    const memberEntries = se_HttpRequestMethodConditionConfig(input[_HRMC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HttpRequestMethodConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SourceIpConfig != null) {
-    const memberEntries = se_SourceIpConditionConfig(input.SourceIpConfig, context);
+  if (input[_SIC] != null) {
+    const memberEntries = se_SourceIpConditionConfig(input[_SIC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceIpConfig.${key}`;
       entries[loc] = value;
@@ -6119,11 +6113,11 @@ const se_RulePriorityList = (input: RulePriorityPair[], context: __SerdeContext)
  */
 const se_RulePriorityPair = (input: RulePriorityPair, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleArn != null) {
-    entries["RuleArn"] = input.RuleArn;
+  if (input[_RAu] != null) {
+    entries[_RAu] = input[_RAu];
   }
-  if (input.Priority != null) {
-    entries["Priority"] = input.Priority;
+  if (input[_Pr] != null) {
+    entries[_Pr] = input[_Pr];
   }
   return entries;
 };
@@ -6149,11 +6143,11 @@ const se_SecurityGroups = (input: string[], context: __SerdeContext): any => {
  */
 const se_SetIpAddressTypeInput = (input: SetIpAddressTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.IpAddressType != null) {
-    entries["IpAddressType"] = input.IpAddressType;
+  if (input[_IAT] != null) {
+    entries[_IAT] = input[_IAT];
   }
   return entries;
 };
@@ -6163,9 +6157,9 @@ const se_SetIpAddressTypeInput = (input: SetIpAddressTypeInput, context: __Serde
  */
 const se_SetRulePrioritiesInput = (input: SetRulePrioritiesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RulePriorities != null) {
-    const memberEntries = se_RulePriorityList(input.RulePriorities, context);
-    if (input.RulePriorities?.length === 0) {
+  if (input[_RP] != null) {
+    const memberEntries = se_RulePriorityList(input[_RP], context);
+    if (input[_RP]?.length === 0) {
       entries.RulePriorities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6181,12 +6175,12 @@ const se_SetRulePrioritiesInput = (input: SetRulePrioritiesInput, context: __Ser
  */
 const se_SetSecurityGroupsInput = (input: SetSecurityGroupsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.SecurityGroups != null) {
-    const memberEntries = se_SecurityGroups(input.SecurityGroups, context);
-    if (input.SecurityGroups?.length === 0) {
+  if (input[_SG] != null) {
+    const memberEntries = se_SecurityGroups(input[_SG], context);
+    if (input[_SG]?.length === 0) {
       entries.SecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6194,9 +6188,8 @@ const se_SetSecurityGroupsInput = (input: SetSecurityGroupsInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic != null) {
-    entries["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] =
-      input.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+  if (input[_ESGIROPLT] != null) {
+    entries[_ESGIROPLT] = input[_ESGIROPLT];
   }
   return entries;
 };
@@ -6206,12 +6199,12 @@ const se_SetSecurityGroupsInput = (input: SetSecurityGroupsInput, context: __Ser
  */
 const se_SetSubnetsInput = (input: SetSubnetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerArn != null) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
   }
-  if (input.Subnets != null) {
-    const memberEntries = se_Subnets(input.Subnets, context);
-    if (input.Subnets?.length === 0) {
+  if (input[_Su] != null) {
+    const memberEntries = se_Subnets(input[_Su], context);
+    if (input[_Su]?.length === 0) {
       entries.Subnets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6219,9 +6212,9 @@ const se_SetSubnetsInput = (input: SetSubnetsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.SubnetMappings != null) {
-    const memberEntries = se_SubnetMappings(input.SubnetMappings, context);
-    if (input.SubnetMappings?.length === 0) {
+  if (input[_SM] != null) {
+    const memberEntries = se_SubnetMappings(input[_SM], context);
+    if (input[_SM]?.length === 0) {
       entries.SubnetMappings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6229,8 +6222,8 @@ const se_SetSubnetsInput = (input: SetSubnetsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.IpAddressType != null) {
-    entries["IpAddressType"] = input.IpAddressType;
+  if (input[_IAT] != null) {
+    entries[_IAT] = input[_IAT];
   }
   return entries;
 };
@@ -6240,9 +6233,9 @@ const se_SetSubnetsInput = (input: SetSubnetsInput, context: __SerdeContext): an
  */
 const se_SourceIpConditionConfig = (input: SourceIpConditionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Values != null) {
-    const memberEntries = se_ListOfString(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_ListOfString(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6274,17 +6267,17 @@ const se_SslPolicyNames = (input: string[], context: __SerdeContext): any => {
  */
 const se_SubnetMapping = (input: SubnetMapping, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubnetId != null) {
-    entries["SubnetId"] = input.SubnetId;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
-  if (input.AllocationId != null) {
-    entries["AllocationId"] = input.AllocationId;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.PrivateIPv4Address != null) {
-    entries["PrivateIPv4Address"] = input.PrivateIPv4Address;
+  if (input[_PIPA] != null) {
+    entries[_PIPA] = input[_PIPA];
   }
-  if (input.IPv6Address != null) {
-    entries["IPv6Address"] = input.IPv6Address;
+  if (input[_IPA] != null) {
+    entries[_IPA] = input[_IPA];
   }
   return entries;
 };
@@ -6329,11 +6322,11 @@ const se_Subnets = (input: string[], context: __SerdeContext): any => {
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -6378,14 +6371,14 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TargetDescription = (input: TargetDescription, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Id != null) {
-    entries["Id"] = input.Id;
+  if (input[_Id] != null) {
+    entries[_Id] = input[_Id];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZ] != null) {
+    entries[_AZ] = input[_AZ];
   }
   return entries;
 };
@@ -6430,11 +6423,11 @@ const se_TargetGroupArns = (input: string[], context: __SerdeContext): any => {
  */
 const se_TargetGroupAttribute = (input: TargetGroupAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -6498,11 +6491,11 @@ const se_TargetGroupNames = (input: string[], context: __SerdeContext): any => {
  */
 const se_TargetGroupStickinessConfig = (input: TargetGroupStickinessConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.DurationSeconds != null) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
   }
   return entries;
 };
@@ -6512,11 +6505,11 @@ const se_TargetGroupStickinessConfig = (input: TargetGroupStickinessConfig, cont
  */
 const se_TargetGroupTuple = (input: TargetGroupTuple, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupArn != null) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
+  if (input[_TGA] != null) {
+    entries[_TGA] = input[_TGA];
   }
-  if (input.Weight != null) {
-    entries["Weight"] = input.Weight;
+  if (input[_W] != null) {
+    entries[_W] = input[_W];
   }
   return entries;
 };
@@ -6558,32 +6551,29 @@ const se_TrustStoreNames = (input: string[], context: __SerdeContext): any => {
  */
 const de_Action = (output: any, context: __SerdeContext): Action => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["TargetGroupArn"] !== undefined) {
-    contents.TargetGroupArn = __expectString(output["TargetGroupArn"]);
+  if (output[_TGA] != null) {
+    contents[_TGA] = __expectString(output[_TGA]);
   }
-  if (output["AuthenticateOidcConfig"] !== undefined) {
-    contents.AuthenticateOidcConfig = de_AuthenticateOidcActionConfig(output["AuthenticateOidcConfig"], context);
+  if (output[_AOC] != null) {
+    contents[_AOC] = de_AuthenticateOidcActionConfig(output[_AOC], context);
   }
-  if (output["AuthenticateCognitoConfig"] !== undefined) {
-    contents.AuthenticateCognitoConfig = de_AuthenticateCognitoActionConfig(
-      output["AuthenticateCognitoConfig"],
-      context
-    );
+  if (output[_ACC] != null) {
+    contents[_ACC] = de_AuthenticateCognitoActionConfig(output[_ACC], context);
   }
-  if (output["Order"] !== undefined) {
-    contents.Order = __strictParseInt32(output["Order"]) as number;
+  if (output[_O] != null) {
+    contents[_O] = __strictParseInt32(output[_O]) as number;
   }
-  if (output["RedirectConfig"] !== undefined) {
-    contents.RedirectConfig = de_RedirectActionConfig(output["RedirectConfig"], context);
+  if (output[_RC] != null) {
+    contents[_RC] = de_RedirectActionConfig(output[_RC], context);
   }
-  if (output["FixedResponseConfig"] !== undefined) {
-    contents.FixedResponseConfig = de_FixedResponseActionConfig(output["FixedResponseConfig"], context);
+  if (output[_FRC] != null) {
+    contents[_FRC] = de_FixedResponseActionConfig(output[_FRC], context);
   }
-  if (output["ForwardConfig"] !== undefined) {
-    contents.ForwardConfig = de_ForwardActionConfig(output["ForwardConfig"], context);
+  if (output[_FC] != null) {
+    contents[_FC] = de_ForwardActionConfig(output[_FC], context);
   }
   return contents;
 };
@@ -6605,9 +6595,9 @@ const de_Actions = (output: any, context: __SerdeContext): Action[] => {
 const de_AddListenerCertificatesOutput = (output: any, context: __SerdeContext): AddListenerCertificatesOutput => {
   const contents: any = {};
   if (output.Certificates === "") {
-    contents.Certificates = [];
-  } else if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
-    contents.Certificates = de_CertificateList(__getArrayIfSingleItem(output["Certificates"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_m]), context);
   }
   return contents;
 };
@@ -6626,12 +6616,9 @@ const de_AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput =
 const de_AddTrustStoreRevocationsOutput = (output: any, context: __SerdeContext): AddTrustStoreRevocationsOutput => {
   const contents: any = {};
   if (output.TrustStoreRevocations === "") {
-    contents.TrustStoreRevocations = [];
-  } else if (output["TrustStoreRevocations"] !== undefined && output["TrustStoreRevocations"]["member"] !== undefined) {
-    contents.TrustStoreRevocations = de_TrustStoreRevocations(
-      __getArrayIfSingleItem(output["TrustStoreRevocations"]["member"]),
-      context
-    );
+    contents[_TSR] = [];
+  } else if (output[_TSR] != null && output[_TSR][_m] != null) {
+    contents[_TSR] = de_TrustStoreRevocations(__getArrayIfSingleItem(output[_TSR][_m]), context);
   }
   return contents;
 };
@@ -6641,8 +6628,8 @@ const de_AddTrustStoreRevocationsOutput = (output: any, context: __SerdeContext)
  */
 const de_AllocationIdNotFoundException = (output: any, context: __SerdeContext): AllocationIdNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -6663,8 +6650,8 @@ const de_AlpnPolicyName = (output: any, context: __SerdeContext): string[] => {
  */
 const de_ALPNPolicyNotSupportedException = (output: any, context: __SerdeContext): ALPNPolicyNotSupportedException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -6674,11 +6661,11 @@ const de_ALPNPolicyNotSupportedException = (output: any, context: __SerdeContext
  */
 const de_AnomalyDetection = (output: any, context: __SerdeContext): AnomalyDetection => {
   const contents: any = {};
-  if (output["Result"] !== undefined) {
-    contents.Result = __expectString(output["Result"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
-  if (output["MitigationInEffect"] !== undefined) {
-    contents.MitigationInEffect = __expectString(output["MitigationInEffect"]);
+  if (output[_MIE] != null) {
+    contents[_MIE] = __expectString(output[_MIE]);
   }
   return contents;
 };
@@ -6704,37 +6691,34 @@ const de_AuthenticateCognitoActionAuthenticationRequestExtraParams = (
  */
 const de_AuthenticateCognitoActionConfig = (output: any, context: __SerdeContext): AuthenticateCognitoActionConfig => {
   const contents: any = {};
-  if (output["UserPoolArn"] !== undefined) {
-    contents.UserPoolArn = __expectString(output["UserPoolArn"]);
+  if (output[_UPA] != null) {
+    contents[_UPA] = __expectString(output[_UPA]);
   }
-  if (output["UserPoolClientId"] !== undefined) {
-    contents.UserPoolClientId = __expectString(output["UserPoolClientId"]);
+  if (output[_UPCI] != null) {
+    contents[_UPCI] = __expectString(output[_UPCI]);
   }
-  if (output["UserPoolDomain"] !== undefined) {
-    contents.UserPoolDomain = __expectString(output["UserPoolDomain"]);
+  if (output[_UPD] != null) {
+    contents[_UPD] = __expectString(output[_UPD]);
   }
-  if (output["SessionCookieName"] !== undefined) {
-    contents.SessionCookieName = __expectString(output["SessionCookieName"]);
+  if (output[_SCN] != null) {
+    contents[_SCN] = __expectString(output[_SCN]);
   }
-  if (output["Scope"] !== undefined) {
-    contents.Scope = __expectString(output["Scope"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["SessionTimeout"] !== undefined) {
-    contents.SessionTimeout = __strictParseLong(output["SessionTimeout"]) as number;
+  if (output[_ST] != null) {
+    contents[_ST] = __strictParseLong(output[_ST]) as number;
   }
   if (output.AuthenticationRequestExtraParams === "") {
-    contents.AuthenticationRequestExtraParams = {};
-  } else if (
-    output["AuthenticationRequestExtraParams"] !== undefined &&
-    output["AuthenticationRequestExtraParams"]["entry"] !== undefined
-  ) {
-    contents.AuthenticationRequestExtraParams = de_AuthenticateCognitoActionAuthenticationRequestExtraParams(
-      __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
+    contents[_AREP] = {};
+  } else if (output[_AREP] != null && output[_AREP][_e] != null) {
+    contents[_AREP] = de_AuthenticateCognitoActionAuthenticationRequestExtraParams(
+      __getArrayIfSingleItem(output[_AREP][_e]),
       context
     );
   }
-  if (output["OnUnauthenticatedRequest"] !== undefined) {
-    contents.OnUnauthenticatedRequest = __expectString(output["OnUnauthenticatedRequest"]);
+  if (output[_OUR] != null) {
+    contents[_OUR] = __expectString(output[_OUR]);
   }
   return contents;
 };
@@ -6760,49 +6744,46 @@ const de_AuthenticateOidcActionAuthenticationRequestExtraParams = (
  */
 const de_AuthenticateOidcActionConfig = (output: any, context: __SerdeContext): AuthenticateOidcActionConfig => {
   const contents: any = {};
-  if (output["Issuer"] !== undefined) {
-    contents.Issuer = __expectString(output["Issuer"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["AuthorizationEndpoint"] !== undefined) {
-    contents.AuthorizationEndpoint = __expectString(output["AuthorizationEndpoint"]);
+  if (output[_AE] != null) {
+    contents[_AE] = __expectString(output[_AE]);
   }
-  if (output["TokenEndpoint"] !== undefined) {
-    contents.TokenEndpoint = __expectString(output["TokenEndpoint"]);
+  if (output[_TE] != null) {
+    contents[_TE] = __expectString(output[_TE]);
   }
-  if (output["UserInfoEndpoint"] !== undefined) {
-    contents.UserInfoEndpoint = __expectString(output["UserInfoEndpoint"]);
+  if (output[_UIE] != null) {
+    contents[_UIE] = __expectString(output[_UIE]);
   }
-  if (output["ClientId"] !== undefined) {
-    contents.ClientId = __expectString(output["ClientId"]);
+  if (output[_CI] != null) {
+    contents[_CI] = __expectString(output[_CI]);
   }
-  if (output["ClientSecret"] !== undefined) {
-    contents.ClientSecret = __expectString(output["ClientSecret"]);
+  if (output[_CS] != null) {
+    contents[_CS] = __expectString(output[_CS]);
   }
-  if (output["SessionCookieName"] !== undefined) {
-    contents.SessionCookieName = __expectString(output["SessionCookieName"]);
+  if (output[_SCN] != null) {
+    contents[_SCN] = __expectString(output[_SCN]);
   }
-  if (output["Scope"] !== undefined) {
-    contents.Scope = __expectString(output["Scope"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["SessionTimeout"] !== undefined) {
-    contents.SessionTimeout = __strictParseLong(output["SessionTimeout"]) as number;
+  if (output[_ST] != null) {
+    contents[_ST] = __strictParseLong(output[_ST]) as number;
   }
   if (output.AuthenticationRequestExtraParams === "") {
-    contents.AuthenticationRequestExtraParams = {};
-  } else if (
-    output["AuthenticationRequestExtraParams"] !== undefined &&
-    output["AuthenticationRequestExtraParams"]["entry"] !== undefined
-  ) {
-    contents.AuthenticationRequestExtraParams = de_AuthenticateOidcActionAuthenticationRequestExtraParams(
-      __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
+    contents[_AREP] = {};
+  } else if (output[_AREP] != null && output[_AREP][_e] != null) {
+    contents[_AREP] = de_AuthenticateOidcActionAuthenticationRequestExtraParams(
+      __getArrayIfSingleItem(output[_AREP][_e]),
       context
     );
   }
-  if (output["OnUnauthenticatedRequest"] !== undefined) {
-    contents.OnUnauthenticatedRequest = __expectString(output["OnUnauthenticatedRequest"]);
+  if (output[_OUR] != null) {
+    contents[_OUR] = __expectString(output[_OUR]);
   }
-  if (output["UseExistingClientSecret"] !== undefined) {
-    contents.UseExistingClientSecret = __parseBoolean(output["UseExistingClientSecret"]);
+  if (output[_UECS] != null) {
+    contents[_UECS] = __parseBoolean(output[_UECS]);
   }
   return contents;
 };
@@ -6812,22 +6793,19 @@ const de_AuthenticateOidcActionConfig = (output: any, context: __SerdeContext): 
  */
 const de_AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   const contents: any = {};
-  if (output["ZoneName"] !== undefined) {
-    contents.ZoneName = __expectString(output["ZoneName"]);
+  if (output[_ZN] != null) {
+    contents[_ZN] = __expectString(output[_ZN]);
   }
-  if (output["SubnetId"] !== undefined) {
-    contents.SubnetId = __expectString(output["SubnetId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["OutpostId"] !== undefined) {
-    contents.OutpostId = __expectString(output["OutpostId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   if (output.LoadBalancerAddresses === "") {
-    contents.LoadBalancerAddresses = [];
-  } else if (output["LoadBalancerAddresses"] !== undefined && output["LoadBalancerAddresses"]["member"] !== undefined) {
-    contents.LoadBalancerAddresses = de_LoadBalancerAddresses(
-      __getArrayIfSingleItem(output["LoadBalancerAddresses"]["member"]),
-      context
-    );
+    contents[_LBAoa] = [];
+  } else if (output[_LBAoa] != null && output[_LBAoa][_m] != null) {
+    contents[_LBAoa] = de_LoadBalancerAddresses(__getArrayIfSingleItem(output[_LBAoa][_m]), context);
   }
   return contents;
 };
@@ -6840,8 +6818,8 @@ const de_AvailabilityZoneNotSupportedException = (
   context: __SerdeContext
 ): AvailabilityZoneNotSupportedException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -6865,8 +6843,8 @@ const de_CaCertificatesBundleNotFoundException = (
   context: __SerdeContext
 ): CaCertificatesBundleNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -6876,11 +6854,11 @@ const de_CaCertificatesBundleNotFoundException = (
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {};
-  if (output["CertificateArn"] !== undefined) {
-    contents.CertificateArn = __expectString(output["CertificateArn"]);
+  if (output[_CA] != null) {
+    contents[_CA] = __expectString(output[_CA]);
   }
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = __parseBoolean(output["IsDefault"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
   }
   return contents;
 };
@@ -6901,8 +6879,8 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
  */
 const de_CertificateNotFoundException = (output: any, context: __SerdeContext): CertificateNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -6912,11 +6890,11 @@ const de_CertificateNotFoundException = (output: any, context: __SerdeContext): 
  */
 const de_Cipher = (output: any, context: __SerdeContext): Cipher => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt32(output["Priority"]) as number;
+  if (output[_Pr] != null) {
+    contents[_Pr] = __strictParseInt32(output[_Pr]) as number;
   }
   return contents;
 };
@@ -6938,9 +6916,9 @@ const de_Ciphers = (output: any, context: __SerdeContext): Cipher[] => {
 const de_CreateListenerOutput = (output: any, context: __SerdeContext): CreateListenerOutput => {
   const contents: any = {};
   if (output.Listeners === "") {
-    contents.Listeners = [];
-  } else if (output["Listeners"] !== undefined && output["Listeners"]["member"] !== undefined) {
-    contents.Listeners = de_Listeners(__getArrayIfSingleItem(output["Listeners"]["member"]), context);
+    contents[_L] = [];
+  } else if (output[_L] != null && output[_L][_m] != null) {
+    contents[_L] = de_Listeners(__getArrayIfSingleItem(output[_L][_m]), context);
   }
   return contents;
 };
@@ -6951,9 +6929,9 @@ const de_CreateListenerOutput = (output: any, context: __SerdeContext): CreateLi
 const de_CreateLoadBalancerOutput = (output: any, context: __SerdeContext): CreateLoadBalancerOutput => {
   const contents: any = {};
   if (output.LoadBalancers === "") {
-    contents.LoadBalancers = [];
-  } else if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
-    contents.LoadBalancers = de_LoadBalancers(__getArrayIfSingleItem(output["LoadBalancers"]["member"]), context);
+    contents[_LB] = [];
+  } else if (output[_LB] != null && output[_LB][_m] != null) {
+    contents[_LB] = de_LoadBalancers(__getArrayIfSingleItem(output[_LB][_m]), context);
   }
   return contents;
 };
@@ -6964,9 +6942,9 @@ const de_CreateLoadBalancerOutput = (output: any, context: __SerdeContext): Crea
 const de_CreateRuleOutput = (output: any, context: __SerdeContext): CreateRuleOutput => {
   const contents: any = {};
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
-    contents.Rules = de_Rules(__getArrayIfSingleItem(output["Rules"]["member"]), context);
+    contents[_Ru] = [];
+  } else if (output[_Ru] != null && output[_Ru][_m] != null) {
+    contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
   }
   return contents;
 };
@@ -6977,9 +6955,9 @@ const de_CreateRuleOutput = (output: any, context: __SerdeContext): CreateRuleOu
 const de_CreateTargetGroupOutput = (output: any, context: __SerdeContext): CreateTargetGroupOutput => {
   const contents: any = {};
   if (output.TargetGroups === "") {
-    contents.TargetGroups = [];
-  } else if (output["TargetGroups"] !== undefined && output["TargetGroups"]["member"] !== undefined) {
-    contents.TargetGroups = de_TargetGroups(__getArrayIfSingleItem(output["TargetGroups"]["member"]), context);
+    contents[_TG] = [];
+  } else if (output[_TG] != null && output[_TG][_m] != null) {
+    contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_TG][_m]), context);
   }
   return contents;
 };
@@ -6990,9 +6968,9 @@ const de_CreateTargetGroupOutput = (output: any, context: __SerdeContext): Creat
 const de_CreateTrustStoreOutput = (output: any, context: __SerdeContext): CreateTrustStoreOutput => {
   const contents: any = {};
   if (output.TrustStores === "") {
-    contents.TrustStores = [];
-  } else if (output["TrustStores"] !== undefined && output["TrustStores"]["member"] !== undefined) {
-    contents.TrustStores = de_TrustStores(__getArrayIfSingleItem(output["TrustStores"]["member"]), context);
+    contents[_TS] = [];
+  } else if (output[_TS] != null && output[_TS][_m] != null) {
+    contents[_TS] = de_TrustStores(__getArrayIfSingleItem(output[_TS][_m]), context);
   }
   return contents;
 };
@@ -7051,12 +7029,12 @@ const de_DeregisterTargetsOutput = (output: any, context: __SerdeContext): Dereg
 const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
   const contents: any = {};
   if (output.Limits === "") {
-    contents.Limits = [];
-  } else if (output["Limits"] !== undefined && output["Limits"]["member"] !== undefined) {
-    contents.Limits = de_Limits(__getArrayIfSingleItem(output["Limits"]["member"]), context);
+    contents[_Li] = [];
+  } else if (output[_Li] != null && output[_Li][_m] != null) {
+    contents[_Li] = de_Limits(__getArrayIfSingleItem(output[_Li][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7070,12 +7048,12 @@ const de_DescribeListenerCertificatesOutput = (
 ): DescribeListenerCertificatesOutput => {
   const contents: any = {};
   if (output.Certificates === "") {
-    contents.Certificates = [];
-  } else if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
-    contents.Certificates = de_CertificateList(__getArrayIfSingleItem(output["Certificates"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7086,12 +7064,12 @@ const de_DescribeListenerCertificatesOutput = (
 const de_DescribeListenersOutput = (output: any, context: __SerdeContext): DescribeListenersOutput => {
   const contents: any = {};
   if (output.Listeners === "") {
-    contents.Listeners = [];
-  } else if (output["Listeners"] !== undefined && output["Listeners"]["member"] !== undefined) {
-    contents.Listeners = de_Listeners(__getArrayIfSingleItem(output["Listeners"]["member"]), context);
+    contents[_L] = [];
+  } else if (output[_L] != null && output[_L][_m] != null) {
+    contents[_L] = de_Listeners(__getArrayIfSingleItem(output[_L][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7105,9 +7083,9 @@ const de_DescribeLoadBalancerAttributesOutput = (
 ): DescribeLoadBalancerAttributesOutput => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = [];
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["member"] !== undefined) {
-    contents.Attributes = de_LoadBalancerAttributes(__getArrayIfSingleItem(output["Attributes"]["member"]), context);
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_LoadBalancerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -7118,12 +7096,12 @@ const de_DescribeLoadBalancerAttributesOutput = (
 const de_DescribeLoadBalancersOutput = (output: any, context: __SerdeContext): DescribeLoadBalancersOutput => {
   const contents: any = {};
   if (output.LoadBalancers === "") {
-    contents.LoadBalancers = [];
-  } else if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
-    contents.LoadBalancers = de_LoadBalancers(__getArrayIfSingleItem(output["LoadBalancers"]["member"]), context);
+    contents[_LB] = [];
+  } else if (output[_LB] != null && output[_LB][_m] != null) {
+    contents[_LB] = de_LoadBalancers(__getArrayIfSingleItem(output[_LB][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7134,12 +7112,12 @@ const de_DescribeLoadBalancersOutput = (output: any, context: __SerdeContext): D
 const de_DescribeRulesOutput = (output: any, context: __SerdeContext): DescribeRulesOutput => {
   const contents: any = {};
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
-    contents.Rules = de_Rules(__getArrayIfSingleItem(output["Rules"]["member"]), context);
+    contents[_Ru] = [];
+  } else if (output[_Ru] != null && output[_Ru][_m] != null) {
+    contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7150,12 +7128,12 @@ const de_DescribeRulesOutput = (output: any, context: __SerdeContext): DescribeR
 const de_DescribeSSLPoliciesOutput = (output: any, context: __SerdeContext): DescribeSSLPoliciesOutput => {
   const contents: any = {};
   if (output.SslPolicies === "") {
-    contents.SslPolicies = [];
-  } else if (output["SslPolicies"] !== undefined && output["SslPolicies"]["member"] !== undefined) {
-    contents.SslPolicies = de_SslPolicies(__getArrayIfSingleItem(output["SslPolicies"]["member"]), context);
+    contents[_SPs] = [];
+  } else if (output[_SPs] != null && output[_SPs][_m] != null) {
+    contents[_SPs] = de_SslPolicies(__getArrayIfSingleItem(output[_SPs][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7166,9 +7144,9 @@ const de_DescribeSSLPoliciesOutput = (output: any, context: __SerdeContext): Des
 const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   const contents: any = {};
   if (output.TagDescriptions === "") {
-    contents.TagDescriptions = [];
-  } else if (output["TagDescriptions"] !== undefined && output["TagDescriptions"]["member"] !== undefined) {
-    contents.TagDescriptions = de_TagDescriptions(__getArrayIfSingleItem(output["TagDescriptions"]["member"]), context);
+    contents[_TD] = [];
+  } else if (output[_TD] != null && output[_TD][_m] != null) {
+    contents[_TD] = de_TagDescriptions(__getArrayIfSingleItem(output[_TD][_m]), context);
   }
   return contents;
 };
@@ -7182,9 +7160,9 @@ const de_DescribeTargetGroupAttributesOutput = (
 ): DescribeTargetGroupAttributesOutput => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = [];
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["member"] !== undefined) {
-    contents.Attributes = de_TargetGroupAttributes(__getArrayIfSingleItem(output["Attributes"]["member"]), context);
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_TargetGroupAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -7195,12 +7173,12 @@ const de_DescribeTargetGroupAttributesOutput = (
 const de_DescribeTargetGroupsOutput = (output: any, context: __SerdeContext): DescribeTargetGroupsOutput => {
   const contents: any = {};
   if (output.TargetGroups === "") {
-    contents.TargetGroups = [];
-  } else if (output["TargetGroups"] !== undefined && output["TargetGroups"]["member"] !== undefined) {
-    contents.TargetGroups = de_TargetGroups(__getArrayIfSingleItem(output["TargetGroups"]["member"]), context);
+    contents[_TG] = [];
+  } else if (output[_TG] != null && output[_TG][_m] != null) {
+    contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_TG][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7211,15 +7189,9 @@ const de_DescribeTargetGroupsOutput = (output: any, context: __SerdeContext): De
 const de_DescribeTargetHealthOutput = (output: any, context: __SerdeContext): DescribeTargetHealthOutput => {
   const contents: any = {};
   if (output.TargetHealthDescriptions === "") {
-    contents.TargetHealthDescriptions = [];
-  } else if (
-    output["TargetHealthDescriptions"] !== undefined &&
-    output["TargetHealthDescriptions"]["member"] !== undefined
-  ) {
-    contents.TargetHealthDescriptions = de_TargetHealthDescriptions(
-      __getArrayIfSingleItem(output["TargetHealthDescriptions"]["member"]),
-      context
-    );
+    contents[_THD] = [];
+  } else if (output[_THD] != null && output[_THD][_m] != null) {
+    contents[_THD] = de_TargetHealthDescriptions(__getArrayIfSingleItem(output[_THD][_m]), context);
   }
   return contents;
 };
@@ -7233,18 +7205,12 @@ const de_DescribeTrustStoreAssociationsOutput = (
 ): DescribeTrustStoreAssociationsOutput => {
   const contents: any = {};
   if (output.TrustStoreAssociations === "") {
-    contents.TrustStoreAssociations = [];
-  } else if (
-    output["TrustStoreAssociations"] !== undefined &&
-    output["TrustStoreAssociations"]["member"] !== undefined
-  ) {
-    contents.TrustStoreAssociations = de_TrustStoreAssociations(
-      __getArrayIfSingleItem(output["TrustStoreAssociations"]["member"]),
-      context
-    );
+    contents[_TSAru] = [];
+  } else if (output[_TSAru] != null && output[_TSAru][_m] != null) {
+    contents[_TSAru] = de_TrustStoreAssociations(__getArrayIfSingleItem(output[_TSAru][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7254,17 +7220,17 @@ const de_DescribeTrustStoreAssociationsOutput = (
  */
 const de_DescribeTrustStoreRevocation = (output: any, context: __SerdeContext): DescribeTrustStoreRevocation => {
   const contents: any = {};
-  if (output["TrustStoreArn"] !== undefined) {
-    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  if (output[_TSA] != null) {
+    contents[_TSA] = __expectString(output[_TSA]);
   }
-  if (output["RevocationId"] !== undefined) {
-    contents.RevocationId = __strictParseLong(output["RevocationId"]) as number;
+  if (output[_RIe] != null) {
+    contents[_RIe] = __strictParseLong(output[_RIe]) as number;
   }
-  if (output["RevocationType"] !== undefined) {
-    contents.RevocationType = __expectString(output["RevocationType"]);
+  if (output[_RTev] != null) {
+    contents[_RTev] = __expectString(output[_RTev]);
   }
-  if (output["NumberOfRevokedEntries"] !== undefined) {
-    contents.NumberOfRevokedEntries = __strictParseLong(output["NumberOfRevokedEntries"]) as number;
+  if (output[_NORE] != null) {
+    contents[_NORE] = __strictParseLong(output[_NORE]) as number;
   }
   return contents;
 };
@@ -7292,15 +7258,12 @@ const de_DescribeTrustStoreRevocationsOutput = (
 ): DescribeTrustStoreRevocationsOutput => {
   const contents: any = {};
   if (output.TrustStoreRevocations === "") {
-    contents.TrustStoreRevocations = [];
-  } else if (output["TrustStoreRevocations"] !== undefined && output["TrustStoreRevocations"]["member"] !== undefined) {
-    contents.TrustStoreRevocations = de_DescribeTrustStoreRevocationResponse(
-      __getArrayIfSingleItem(output["TrustStoreRevocations"]["member"]),
-      context
-    );
+    contents[_TSR] = [];
+  } else if (output[_TSR] != null && output[_TSR][_m] != null) {
+    contents[_TSR] = de_DescribeTrustStoreRevocationResponse(__getArrayIfSingleItem(output[_TSR][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7311,12 +7274,12 @@ const de_DescribeTrustStoreRevocationsOutput = (
 const de_DescribeTrustStoresOutput = (output: any, context: __SerdeContext): DescribeTrustStoresOutput => {
   const contents: any = {};
   if (output.TrustStores === "") {
-    contents.TrustStores = [];
-  } else if (output["TrustStores"] !== undefined && output["TrustStores"]["member"] !== undefined) {
-    contents.TrustStores = de_TrustStores(__getArrayIfSingleItem(output["TrustStores"]["member"]), context);
+    contents[_TS] = [];
+  } else if (output[_TS] != null && output[_TS][_m] != null) {
+    contents[_TS] = de_TrustStores(__getArrayIfSingleItem(output[_TS][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -7326,8 +7289,8 @@ const de_DescribeTrustStoresOutput = (output: any, context: __SerdeContext): Des
  */
 const de_DuplicateListenerException = (output: any, context: __SerdeContext): DuplicateListenerException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7340,8 +7303,8 @@ const de_DuplicateLoadBalancerNameException = (
   context: __SerdeContext
 ): DuplicateLoadBalancerNameException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7351,8 +7314,8 @@ const de_DuplicateLoadBalancerNameException = (
  */
 const de_DuplicateTagKeysException = (output: any, context: __SerdeContext): DuplicateTagKeysException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7365,8 +7328,8 @@ const de_DuplicateTargetGroupNameException = (
   context: __SerdeContext
 ): DuplicateTargetGroupNameException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7379,8 +7342,8 @@ const de_DuplicateTrustStoreNameException = (
   context: __SerdeContext
 ): DuplicateTrustStoreNameException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7390,14 +7353,14 @@ const de_DuplicateTrustStoreNameException = (
  */
 const de_FixedResponseActionConfig = (output: any, context: __SerdeContext): FixedResponseActionConfig => {
   const contents: any = {};
-  if (output["MessageBody"] !== undefined) {
-    contents.MessageBody = __expectString(output["MessageBody"]);
+  if (output[_MB] != null) {
+    contents[_MB] = __expectString(output[_MB]);
   }
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = __expectString(output["StatusCode"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["ContentType"] !== undefined) {
-    contents.ContentType = __expectString(output["ContentType"]);
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   return contents;
 };
@@ -7408,15 +7371,12 @@ const de_FixedResponseActionConfig = (output: any, context: __SerdeContext): Fix
 const de_ForwardActionConfig = (output: any, context: __SerdeContext): ForwardActionConfig => {
   const contents: any = {};
   if (output.TargetGroups === "") {
-    contents.TargetGroups = [];
-  } else if (output["TargetGroups"] !== undefined && output["TargetGroups"]["member"] !== undefined) {
-    contents.TargetGroups = de_TargetGroupList(__getArrayIfSingleItem(output["TargetGroups"]["member"]), context);
+    contents[_TG] = [];
+  } else if (output[_TG] != null && output[_TG][_m] != null) {
+    contents[_TG] = de_TargetGroupList(__getArrayIfSingleItem(output[_TG][_m]), context);
   }
-  if (output["TargetGroupStickinessConfig"] !== undefined) {
-    contents.TargetGroupStickinessConfig = de_TargetGroupStickinessConfig(
-      output["TargetGroupStickinessConfig"],
-      context
-    );
+  if (output[_TGSC] != null) {
+    contents[_TGSC] = de_TargetGroupStickinessConfig(output[_TGSC], context);
   }
   return contents;
 };
@@ -7429,8 +7389,8 @@ const de_GetTrustStoreCaCertificatesBundleOutput = (
   context: __SerdeContext
 ): GetTrustStoreCaCertificatesBundleOutput => {
   const contents: any = {};
-  if (output["Location"] !== undefined) {
-    contents.Location = __expectString(output["Location"]);
+  if (output[_Lo] != null) {
+    contents[_Lo] = __expectString(output[_Lo]);
   }
   return contents;
 };
@@ -7443,8 +7403,8 @@ const de_GetTrustStoreRevocationContentOutput = (
   context: __SerdeContext
 ): GetTrustStoreRevocationContentOutput => {
   const contents: any = {};
-  if (output["Location"] !== undefined) {
-    contents.Location = __expectString(output["Location"]);
+  if (output[_Lo] != null) {
+    contents[_Lo] = __expectString(output[_Lo]);
   }
   return contents;
 };
@@ -7454,8 +7414,8 @@ const de_GetTrustStoreRevocationContentOutput = (
  */
 const de_HealthUnavailableException = (output: any, context: __SerdeContext): HealthUnavailableException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7466,9 +7426,9 @@ const de_HealthUnavailableException = (output: any, context: __SerdeContext): He
 const de_HostHeaderConditionConfig = (output: any, context: __SerdeContext): HostHeaderConditionConfig => {
   const contents: any = {};
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_ListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
 };
@@ -7478,13 +7438,13 @@ const de_HostHeaderConditionConfig = (output: any, context: __SerdeContext): Hos
  */
 const de_HttpHeaderConditionConfig = (output: any, context: __SerdeContext): HttpHeaderConditionConfig => {
   const contents: any = {};
-  if (output["HttpHeaderName"] !== undefined) {
-    contents.HttpHeaderName = __expectString(output["HttpHeaderName"]);
+  if (output[_HHN] != null) {
+    contents[_HHN] = __expectString(output[_HHN]);
   }
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_ListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
 };
@@ -7498,9 +7458,9 @@ const de_HttpRequestMethodConditionConfig = (
 ): HttpRequestMethodConditionConfig => {
   const contents: any = {};
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_ListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
 };
@@ -7510,8 +7470,8 @@ const de_HttpRequestMethodConditionConfig = (
  */
 const de_IncompatibleProtocolsException = (output: any, context: __SerdeContext): IncompatibleProtocolsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7524,8 +7484,8 @@ const de_InvalidCaCertificatesBundleException = (
   context: __SerdeContext
 ): InvalidCaCertificatesBundleException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7538,8 +7498,8 @@ const de_InvalidConfigurationRequestException = (
   context: __SerdeContext
 ): InvalidConfigurationRequestException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7552,8 +7512,8 @@ const de_InvalidLoadBalancerActionException = (
   context: __SerdeContext
 ): InvalidLoadBalancerActionException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7566,8 +7526,8 @@ const de_InvalidRevocationContentException = (
   context: __SerdeContext
 ): InvalidRevocationContentException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7577,8 +7537,8 @@ const de_InvalidRevocationContentException = (
  */
 const de_InvalidSchemeException = (output: any, context: __SerdeContext): InvalidSchemeException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7588,8 +7548,8 @@ const de_InvalidSchemeException = (output: any, context: __SerdeContext): Invali
  */
 const de_InvalidSecurityGroupException = (output: any, context: __SerdeContext): InvalidSecurityGroupException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7599,8 +7559,8 @@ const de_InvalidSecurityGroupException = (output: any, context: __SerdeContext):
  */
 const de_InvalidSubnetException = (output: any, context: __SerdeContext): InvalidSubnetException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7610,8 +7570,8 @@ const de_InvalidSubnetException = (output: any, context: __SerdeContext): Invali
  */
 const de_InvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7621,11 +7581,11 @@ const de_InvalidTargetException = (output: any, context: __SerdeContext): Invali
  */
 const de_Limit = (output: any, context: __SerdeContext): Limit => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Max"] !== undefined) {
-    contents.Max = __expectString(output["Max"]);
+  if (output[_Max] != null) {
+    contents[_Max] = __expectString(output[_Max]);
   }
   return contents;
 };
@@ -7646,38 +7606,38 @@ const de_Limits = (output: any, context: __SerdeContext): Limit[] => {
  */
 const de_Listener = (output: any, context: __SerdeContext): Listener => {
   const contents: any = {};
-  if (output["ListenerArn"] !== undefined) {
-    contents.ListenerArn = __expectString(output["ListenerArn"]);
+  if (output[_LA] != null) {
+    contents[_LA] = __expectString(output[_LA]);
   }
-  if (output["LoadBalancerArn"] !== undefined) {
-    contents.LoadBalancerArn = __expectString(output["LoadBalancerArn"]);
+  if (output[_LBA] != null) {
+    contents[_LBA] = __expectString(output[_LBA]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_Po] != null) {
+    contents[_Po] = __strictParseInt32(output[_Po]) as number;
   }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Certificates === "") {
-    contents.Certificates = [];
-  } else if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
-    contents.Certificates = de_CertificateList(__getArrayIfSingleItem(output["Certificates"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output["SslPolicy"] !== undefined) {
-    contents.SslPolicy = __expectString(output["SslPolicy"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
   if (output.DefaultActions === "") {
-    contents.DefaultActions = [];
-  } else if (output["DefaultActions"] !== undefined && output["DefaultActions"]["member"] !== undefined) {
-    contents.DefaultActions = de_Actions(__getArrayIfSingleItem(output["DefaultActions"]["member"]), context);
+    contents[_DA] = [];
+  } else if (output[_DA] != null && output[_DA][_m] != null) {
+    contents[_DA] = de_Actions(__getArrayIfSingleItem(output[_DA][_m]), context);
   }
   if (output.AlpnPolicy === "") {
-    contents.AlpnPolicy = [];
-  } else if (output["AlpnPolicy"] !== undefined && output["AlpnPolicy"]["member"] !== undefined) {
-    contents.AlpnPolicy = de_AlpnPolicyName(__getArrayIfSingleItem(output["AlpnPolicy"]["member"]), context);
+    contents[_AP] = [];
+  } else if (output[_AP] != null && output[_AP][_m] != null) {
+    contents[_AP] = de_AlpnPolicyName(__getArrayIfSingleItem(output[_AP][_m]), context);
   }
-  if (output["MutualAuthentication"] !== undefined) {
-    contents.MutualAuthentication = de_MutualAuthenticationAttributes(output["MutualAuthentication"], context);
+  if (output[_MA] != null) {
+    contents[_MA] = de_MutualAuthenticationAttributes(output[_MA], context);
   }
   return contents;
 };
@@ -7687,8 +7647,8 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
  */
 const de_ListenerNotFoundException = (output: any, context: __SerdeContext): ListenerNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7720,56 +7680,51 @@ const de_ListOfString = (output: any, context: __SerdeContext): string[] => {
  */
 const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   const contents: any = {};
-  if (output["LoadBalancerArn"] !== undefined) {
-    contents.LoadBalancerArn = __expectString(output["LoadBalancerArn"]);
+  if (output[_LBA] != null) {
+    contents[_LBA] = __expectString(output[_LBA]);
   }
-  if (output["DNSName"] !== undefined) {
-    contents.DNSName = __expectString(output["DNSName"]);
+  if (output[_DNSN] != null) {
+    contents[_DNSN] = __expectString(output[_DNSN]);
   }
-  if (output["CanonicalHostedZoneId"] !== undefined) {
-    contents.CanonicalHostedZoneId = __expectString(output["CanonicalHostedZoneId"]);
+  if (output[_CHZI] != null) {
+    contents[_CHZI] = __expectString(output[_CHZI]);
   }
-  if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
+  if (output[_LBN] != null) {
+    contents[_LBN] = __expectString(output[_LBN]);
   }
-  if (output["Scheme"] !== undefined) {
-    contents.Scheme = __expectString(output["Scheme"]);
+  if (output[_Sc] != null) {
+    contents[_Sc] = __expectString(output[_Sc]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = de_LoadBalancerState(output["State"], context);
+  if (output[_St] != null) {
+    contents[_St] = de_LoadBalancerState(output[_St], context);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
+    contents[_AZv] = [];
+  } else if (output[_AZv] != null && output[_AZv][_m] != null) {
+    contents[_AZv] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZv][_m]), context);
   }
   if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = de_SecurityGroups(__getArrayIfSingleItem(output["SecurityGroups"]["member"]), context);
+    contents[_SG] = [];
+  } else if (output[_SG] != null && output[_SG][_m] != null) {
+    contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_m]), context);
   }
-  if (output["IpAddressType"] !== undefined) {
-    contents.IpAddressType = __expectString(output["IpAddressType"]);
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
   }
-  if (output["CustomerOwnedIpv4Pool"] !== undefined) {
-    contents.CustomerOwnedIpv4Pool = __expectString(output["CustomerOwnedIpv4Pool"]);
+  if (output[_COIP] != null) {
+    contents[_COIP] = __expectString(output[_COIP]);
   }
-  if (output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] !== undefined) {
-    contents.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = __expectString(
-      output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"]
-    );
+  if (output[_ESGIROPLT] != null) {
+    contents[_ESGIROPLT] = __expectString(output[_ESGIROPLT]);
   }
   return contents;
 };
@@ -7779,17 +7734,17 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
  */
 const de_LoadBalancerAddress = (output: any, context: __SerdeContext): LoadBalancerAddress => {
   const contents: any = {};
-  if (output["IpAddress"] !== undefined) {
-    contents.IpAddress = __expectString(output["IpAddress"]);
+  if (output[_IA] != null) {
+    contents[_IA] = __expectString(output[_IA]);
   }
-  if (output["AllocationId"] !== undefined) {
-    contents.AllocationId = __expectString(output["AllocationId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
-  if (output["PrivateIPv4Address"] !== undefined) {
-    contents.PrivateIPv4Address = __expectString(output["PrivateIPv4Address"]);
+  if (output[_PIPA] != null) {
+    contents[_PIPA] = __expectString(output[_PIPA]);
   }
-  if (output["IPv6Address"] !== undefined) {
-    contents.IPv6Address = __expectString(output["IPv6Address"]);
+  if (output[_IPA] != null) {
+    contents[_IPA] = __expectString(output[_IPA]);
   }
   return contents;
 };
@@ -7821,11 +7776,11 @@ const de_LoadBalancerArns = (output: any, context: __SerdeContext): string[] => 
  */
 const de_LoadBalancerAttribute = (output: any, context: __SerdeContext): LoadBalancerAttribute => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -7846,8 +7801,8 @@ const de_LoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBa
  */
 const de_LoadBalancerNotFoundException = (output: any, context: __SerdeContext): LoadBalancerNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -7868,11 +7823,11 @@ const de_LoadBalancers = (output: any, context: __SerdeContext): LoadBalancer[] 
  */
 const de_LoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_Cod] != null) {
+    contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output["Reason"] !== undefined) {
-    contents.Reason = __expectString(output["Reason"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
   return contents;
 };
@@ -7882,11 +7837,11 @@ const de_LoadBalancerState = (output: any, context: __SerdeContext): LoadBalance
  */
 const de_Matcher = (output: any, context: __SerdeContext): Matcher => {
   const contents: any = {};
-  if (output["HttpCode"] !== undefined) {
-    contents.HttpCode = __expectString(output["HttpCode"]);
+  if (output[_HC] != null) {
+    contents[_HC] = __expectString(output[_HC]);
   }
-  if (output["GrpcCode"] !== undefined) {
-    contents.GrpcCode = __expectString(output["GrpcCode"]);
+  if (output[_GC] != null) {
+    contents[_GC] = __expectString(output[_GC]);
   }
   return contents;
 };
@@ -7897,9 +7852,9 @@ const de_Matcher = (output: any, context: __SerdeContext): Matcher => {
 const de_ModifyListenerOutput = (output: any, context: __SerdeContext): ModifyListenerOutput => {
   const contents: any = {};
   if (output.Listeners === "") {
-    contents.Listeners = [];
-  } else if (output["Listeners"] !== undefined && output["Listeners"]["member"] !== undefined) {
-    contents.Listeners = de_Listeners(__getArrayIfSingleItem(output["Listeners"]["member"]), context);
+    contents[_L] = [];
+  } else if (output[_L] != null && output[_L][_m] != null) {
+    contents[_L] = de_Listeners(__getArrayIfSingleItem(output[_L][_m]), context);
   }
   return contents;
 };
@@ -7913,9 +7868,9 @@ const de_ModifyLoadBalancerAttributesOutput = (
 ): ModifyLoadBalancerAttributesOutput => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = [];
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["member"] !== undefined) {
-    contents.Attributes = de_LoadBalancerAttributes(__getArrayIfSingleItem(output["Attributes"]["member"]), context);
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_LoadBalancerAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -7926,9 +7881,9 @@ const de_ModifyLoadBalancerAttributesOutput = (
 const de_ModifyRuleOutput = (output: any, context: __SerdeContext): ModifyRuleOutput => {
   const contents: any = {};
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
-    contents.Rules = de_Rules(__getArrayIfSingleItem(output["Rules"]["member"]), context);
+    contents[_Ru] = [];
+  } else if (output[_Ru] != null && output[_Ru][_m] != null) {
+    contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
   }
   return contents;
 };
@@ -7942,9 +7897,9 @@ const de_ModifyTargetGroupAttributesOutput = (
 ): ModifyTargetGroupAttributesOutput => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = [];
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["member"] !== undefined) {
-    contents.Attributes = de_TargetGroupAttributes(__getArrayIfSingleItem(output["Attributes"]["member"]), context);
+    contents[_At] = [];
+  } else if (output[_At] != null && output[_At][_m] != null) {
+    contents[_At] = de_TargetGroupAttributes(__getArrayIfSingleItem(output[_At][_m]), context);
   }
   return contents;
 };
@@ -7955,9 +7910,9 @@ const de_ModifyTargetGroupAttributesOutput = (
 const de_ModifyTargetGroupOutput = (output: any, context: __SerdeContext): ModifyTargetGroupOutput => {
   const contents: any = {};
   if (output.TargetGroups === "") {
-    contents.TargetGroups = [];
-  } else if (output["TargetGroups"] !== undefined && output["TargetGroups"]["member"] !== undefined) {
-    contents.TargetGroups = de_TargetGroups(__getArrayIfSingleItem(output["TargetGroups"]["member"]), context);
+    contents[_TG] = [];
+  } else if (output[_TG] != null && output[_TG][_m] != null) {
+    contents[_TG] = de_TargetGroups(__getArrayIfSingleItem(output[_TG][_m]), context);
   }
   return contents;
 };
@@ -7968,9 +7923,9 @@ const de_ModifyTargetGroupOutput = (output: any, context: __SerdeContext): Modif
 const de_ModifyTrustStoreOutput = (output: any, context: __SerdeContext): ModifyTrustStoreOutput => {
   const contents: any = {};
   if (output.TrustStores === "") {
-    contents.TrustStores = [];
-  } else if (output["TrustStores"] !== undefined && output["TrustStores"]["member"] !== undefined) {
-    contents.TrustStores = de_TrustStores(__getArrayIfSingleItem(output["TrustStores"]["member"]), context);
+    contents[_TS] = [];
+  } else if (output[_TS] != null && output[_TS][_m] != null) {
+    contents[_TS] = de_TrustStores(__getArrayIfSingleItem(output[_TS][_m]), context);
   }
   return contents;
 };
@@ -7980,14 +7935,14 @@ const de_ModifyTrustStoreOutput = (output: any, context: __SerdeContext): Modify
  */
 const de_MutualAuthenticationAttributes = (output: any, context: __SerdeContext): MutualAuthenticationAttributes => {
   const contents: any = {};
-  if (output["Mode"] !== undefined) {
-    contents.Mode = __expectString(output["Mode"]);
+  if (output[_Mo] != null) {
+    contents[_Mo] = __expectString(output[_Mo]);
   }
-  if (output["TrustStoreArn"] !== undefined) {
-    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  if (output[_TSA] != null) {
+    contents[_TSA] = __expectString(output[_TSA]);
   }
-  if (output["IgnoreClientCertificateExpiry"] !== undefined) {
-    contents.IgnoreClientCertificateExpiry = __parseBoolean(output["IgnoreClientCertificateExpiry"]);
+  if (output[_ICCE] != null) {
+    contents[_ICCE] = __parseBoolean(output[_ICCE]);
   }
   return contents;
 };
@@ -7997,8 +7952,8 @@ const de_MutualAuthenticationAttributes = (output: any, context: __SerdeContext)
  */
 const de_OperationNotPermittedException = (output: any, context: __SerdeContext): OperationNotPermittedException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8009,9 +7964,9 @@ const de_OperationNotPermittedException = (output: any, context: __SerdeContext)
 const de_PathPatternConditionConfig = (output: any, context: __SerdeContext): PathPatternConditionConfig => {
   const contents: any = {};
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_ListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
 };
@@ -8021,8 +7976,8 @@ const de_PathPatternConditionConfig = (output: any, context: __SerdeContext): Pa
  */
 const de_PriorityInUseException = (output: any, context: __SerdeContext): PriorityInUseException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8033,9 +7988,9 @@ const de_PriorityInUseException = (output: any, context: __SerdeContext): Priori
 const de_QueryStringConditionConfig = (output: any, context: __SerdeContext): QueryStringConditionConfig => {
   const contents: any = {};
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_QueryStringKeyValuePairList(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_QueryStringKeyValuePairList(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
 };
@@ -8045,11 +8000,11 @@ const de_QueryStringConditionConfig = (output: any, context: __SerdeContext): Qu
  */
 const de_QueryStringKeyValuePair = (output: any, context: __SerdeContext): QueryStringKeyValuePair => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -8070,23 +8025,23 @@ const de_QueryStringKeyValuePairList = (output: any, context: __SerdeContext): Q
  */
 const de_RedirectActionConfig = (output: any, context: __SerdeContext): RedirectActionConfig => {
   const contents: any = {};
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __expectString(output["Port"]);
+  if (output[_Po] != null) {
+    contents[_Po] = __expectString(output[_Po]);
   }
-  if (output["Host"] !== undefined) {
-    contents.Host = __expectString(output["Host"]);
+  if (output[_H] != null) {
+    contents[_H] = __expectString(output[_H]);
   }
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
-  if (output["Query"] !== undefined) {
-    contents.Query = __expectString(output["Query"]);
+  if (output[_Q] != null) {
+    contents[_Q] = __expectString(output[_Q]);
   }
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = __expectString(output["StatusCode"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
   return contents;
 };
@@ -8134,8 +8089,8 @@ const de_RemoveTrustStoreRevocationsOutput = (
  */
 const de_ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8148,8 +8103,8 @@ const de_RevocationContentNotFoundException = (
   context: __SerdeContext
 ): RevocationContentNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8159,8 +8114,8 @@ const de_RevocationContentNotFoundException = (
  */
 const de_RevocationIdNotFoundException = (output: any, context: __SerdeContext): RevocationIdNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8170,24 +8125,24 @@ const de_RevocationIdNotFoundException = (output: any, context: __SerdeContext):
  */
 const de_Rule = (output: any, context: __SerdeContext): Rule => {
   const contents: any = {};
-  if (output["RuleArn"] !== undefined) {
-    contents.RuleArn = __expectString(output["RuleArn"]);
+  if (output[_RAu] != null) {
+    contents[_RAu] = __expectString(output[_RAu]);
   }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = __expectString(output["Priority"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
   if (output.Conditions === "") {
-    contents.Conditions = [];
-  } else if (output["Conditions"] !== undefined && output["Conditions"]["member"] !== undefined) {
-    contents.Conditions = de_RuleConditionList(__getArrayIfSingleItem(output["Conditions"]["member"]), context);
+    contents[_Co] = [];
+  } else if (output[_Co] != null && output[_Co][_m] != null) {
+    contents[_Co] = de_RuleConditionList(__getArrayIfSingleItem(output[_Co][_m]), context);
   }
   if (output.Actions === "") {
-    contents.Actions = [];
-  } else if (output["Actions"] !== undefined && output["Actions"]["member"] !== undefined) {
-    contents.Actions = de_Actions(__getArrayIfSingleItem(output["Actions"]["member"]), context);
+    contents[_Ac] = [];
+  } else if (output[_Ac] != null && output[_Ac][_m] != null) {
+    contents[_Ac] = de_Actions(__getArrayIfSingleItem(output[_Ac][_m]), context);
   }
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = __parseBoolean(output["IsDefault"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
   }
   return contents;
 };
@@ -8197,31 +8152,31 @@ const de_Rule = (output: any, context: __SerdeContext): Rule => {
  */
 const de_RuleCondition = (output: any, context: __SerdeContext): RuleCondition => {
   const contents: any = {};
-  if (output["Field"] !== undefined) {
-    contents.Field = __expectString(output["Field"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_ListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
-  if (output["HostHeaderConfig"] !== undefined) {
-    contents.HostHeaderConfig = de_HostHeaderConditionConfig(output["HostHeaderConfig"], context);
+  if (output[_HHC] != null) {
+    contents[_HHC] = de_HostHeaderConditionConfig(output[_HHC], context);
   }
-  if (output["PathPatternConfig"] !== undefined) {
-    contents.PathPatternConfig = de_PathPatternConditionConfig(output["PathPatternConfig"], context);
+  if (output[_PPC] != null) {
+    contents[_PPC] = de_PathPatternConditionConfig(output[_PPC], context);
   }
-  if (output["HttpHeaderConfig"] !== undefined) {
-    contents.HttpHeaderConfig = de_HttpHeaderConditionConfig(output["HttpHeaderConfig"], context);
+  if (output[_HHCt] != null) {
+    contents[_HHCt] = de_HttpHeaderConditionConfig(output[_HHCt], context);
   }
-  if (output["QueryStringConfig"] !== undefined) {
-    contents.QueryStringConfig = de_QueryStringConditionConfig(output["QueryStringConfig"], context);
+  if (output[_QSC] != null) {
+    contents[_QSC] = de_QueryStringConditionConfig(output[_QSC], context);
   }
-  if (output["HttpRequestMethodConfig"] !== undefined) {
-    contents.HttpRequestMethodConfig = de_HttpRequestMethodConditionConfig(output["HttpRequestMethodConfig"], context);
+  if (output[_HRMC] != null) {
+    contents[_HRMC] = de_HttpRequestMethodConditionConfig(output[_HRMC], context);
   }
-  if (output["SourceIpConfig"] !== undefined) {
-    contents.SourceIpConfig = de_SourceIpConditionConfig(output["SourceIpConfig"], context);
+  if (output[_SIC] != null) {
+    contents[_SIC] = de_SourceIpConditionConfig(output[_SIC], context);
   }
   return contents;
 };
@@ -8242,8 +8197,8 @@ const de_RuleConditionList = (output: any, context: __SerdeContext): RuleConditi
  */
 const de_RuleNotFoundException = (output: any, context: __SerdeContext): RuleNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8275,8 +8230,8 @@ const de_SecurityGroups = (output: any, context: __SerdeContext): string[] => {
  */
 const de_SetIpAddressTypeOutput = (output: any, context: __SerdeContext): SetIpAddressTypeOutput => {
   const contents: any = {};
-  if (output["IpAddressType"] !== undefined) {
-    contents.IpAddressType = __expectString(output["IpAddressType"]);
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
   }
   return contents;
 };
@@ -8287,9 +8242,9 @@ const de_SetIpAddressTypeOutput = (output: any, context: __SerdeContext): SetIpA
 const de_SetRulePrioritiesOutput = (output: any, context: __SerdeContext): SetRulePrioritiesOutput => {
   const contents: any = {};
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
-    contents.Rules = de_Rules(__getArrayIfSingleItem(output["Rules"]["member"]), context);
+    contents[_Ru] = [];
+  } else if (output[_Ru] != null && output[_Ru][_m] != null) {
+    contents[_Ru] = de_Rules(__getArrayIfSingleItem(output[_Ru][_m]), context);
   }
   return contents;
 };
@@ -8300,17 +8255,12 @@ const de_SetRulePrioritiesOutput = (output: any, context: __SerdeContext): SetRu
 const de_SetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSecurityGroupsOutput => {
   const contents: any = {};
   if (output.SecurityGroupIds === "") {
-    contents.SecurityGroupIds = [];
-  } else if (output["SecurityGroupIds"] !== undefined && output["SecurityGroupIds"]["member"] !== undefined) {
-    contents.SecurityGroupIds = de_SecurityGroups(
-      __getArrayIfSingleItem(output["SecurityGroupIds"]["member"]),
-      context
-    );
+    contents[_SGI] = [];
+  } else if (output[_SGI] != null && output[_SGI][_m] != null) {
+    contents[_SGI] = de_SecurityGroups(__getArrayIfSingleItem(output[_SGI][_m]), context);
   }
-  if (output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] !== undefined) {
-    contents.EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = __expectString(
-      output["EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic"]
-    );
+  if (output[_ESGIROPLT] != null) {
+    contents[_ESGIROPLT] = __expectString(output[_ESGIROPLT]);
   }
   return contents;
 };
@@ -8321,15 +8271,12 @@ const de_SetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSe
 const de_SetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOutput => {
   const contents: any = {};
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
+    contents[_AZv] = [];
+  } else if (output[_AZv] != null && output[_AZv][_m] != null) {
+    contents[_AZv] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZv][_m]), context);
   }
-  if (output["IpAddressType"] !== undefined) {
-    contents.IpAddressType = __expectString(output["IpAddressType"]);
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
   }
   return contents;
 };
@@ -8340,9 +8287,9 @@ const de_SetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOu
 const de_SourceIpConditionConfig = (output: any, context: __SerdeContext): SourceIpConditionConfig => {
   const contents: any = {};
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_ListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Va] = [];
+  } else if (output[_Va] != null && output[_Va][_m] != null) {
+    contents[_Va] = de_ListOfString(__getArrayIfSingleItem(output[_Va][_m]), context);
   }
   return contents;
 };
@@ -8364,28 +8311,22 @@ const de_SslPolicies = (output: any, context: __SerdeContext): SslPolicy[] => {
 const de_SslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
   const contents: any = {};
   if (output.SslProtocols === "") {
-    contents.SslProtocols = [];
-  } else if (output["SslProtocols"] !== undefined && output["SslProtocols"]["member"] !== undefined) {
-    contents.SslProtocols = de_SslProtocols(__getArrayIfSingleItem(output["SslProtocols"]["member"]), context);
+    contents[_SPsl] = [];
+  } else if (output[_SPsl] != null && output[_SPsl][_m] != null) {
+    contents[_SPsl] = de_SslProtocols(__getArrayIfSingleItem(output[_SPsl][_m]), context);
   }
   if (output.Ciphers === "") {
-    contents.Ciphers = [];
-  } else if (output["Ciphers"] !== undefined && output["Ciphers"]["member"] !== undefined) {
-    contents.Ciphers = de_Ciphers(__getArrayIfSingleItem(output["Ciphers"]["member"]), context);
+    contents[_Ci] = [];
+  } else if (output[_Ci] != null && output[_Ci][_m] != null) {
+    contents[_Ci] = de_Ciphers(__getArrayIfSingleItem(output[_Ci][_m]), context);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   if (output.SupportedLoadBalancerTypes === "") {
-    contents.SupportedLoadBalancerTypes = [];
-  } else if (
-    output["SupportedLoadBalancerTypes"] !== undefined &&
-    output["SupportedLoadBalancerTypes"]["member"] !== undefined
-  ) {
-    contents.SupportedLoadBalancerTypes = de_ListOfString(
-      __getArrayIfSingleItem(output["SupportedLoadBalancerTypes"]["member"]),
-      context
-    );
+    contents[_SLBT] = [];
+  } else if (output[_SLBT] != null && output[_SLBT][_m] != null) {
+    contents[_SLBT] = de_ListOfString(__getArrayIfSingleItem(output[_SLBT][_m]), context);
   }
   return contents;
 };
@@ -8395,8 +8336,8 @@ const de_SslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
  */
 const de_SSLPolicyNotFoundException = (output: any, context: __SerdeContext): SSLPolicyNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8417,8 +8358,8 @@ const de_SslProtocols = (output: any, context: __SerdeContext): string[] => {
  */
 const de_SubnetNotFoundException = (output: any, context: __SerdeContext): SubnetNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8428,11 +8369,11 @@ const de_SubnetNotFoundException = (output: any, context: __SerdeContext): Subne
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -8442,13 +8383,13 @@ const de_Tag = (output: any, context: __SerdeContext): Tag => {
  */
 const de_TagDescription = (output: any, context: __SerdeContext): TagDescription => {
   const contents: any = {};
-  if (output["ResourceArn"] !== undefined) {
-    contents.ResourceArn = __expectString(output["ResourceArn"]);
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectString(output[_RAe]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_Ta] = [];
+  } else if (output[_Ta] != null && output[_Ta][_m] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Ta][_m]), context);
   }
   return contents;
 };
@@ -8480,14 +8421,14 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TargetDescription = (output: any, context: __SerdeContext): TargetDescription => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_Po] != null) {
+    contents[_Po] = __strictParseInt32(output[_Po]) as number;
   }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  if (output[_AZ] != null) {
+    contents[_AZ] = __expectString(output[_AZ]);
   }
   return contents;
 };
@@ -8497,64 +8438,61 @@ const de_TargetDescription = (output: any, context: __SerdeContext): TargetDescr
  */
 const de_TargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
   const contents: any = {};
-  if (output["TargetGroupArn"] !== undefined) {
-    contents.TargetGroupArn = __expectString(output["TargetGroupArn"]);
+  if (output[_TGA] != null) {
+    contents[_TGA] = __expectString(output[_TGA]);
   }
-  if (output["TargetGroupName"] !== undefined) {
-    contents.TargetGroupName = __expectString(output["TargetGroupName"]);
+  if (output[_TGN] != null) {
+    contents[_TGN] = __expectString(output[_TGN]);
   }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_Po] != null) {
+    contents[_Po] = __strictParseInt32(output[_Po]) as number;
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["HealthCheckProtocol"] !== undefined) {
-    contents.HealthCheckProtocol = __expectString(output["HealthCheckProtocol"]);
+  if (output[_HCP] != null) {
+    contents[_HCP] = __expectString(output[_HCP]);
   }
-  if (output["HealthCheckPort"] !== undefined) {
-    contents.HealthCheckPort = __expectString(output["HealthCheckPort"]);
+  if (output[_HCPe] != null) {
+    contents[_HCPe] = __expectString(output[_HCPe]);
   }
-  if (output["HealthCheckEnabled"] !== undefined) {
-    contents.HealthCheckEnabled = __parseBoolean(output["HealthCheckEnabled"]);
+  if (output[_HCE] != null) {
+    contents[_HCE] = __parseBoolean(output[_HCE]);
   }
-  if (output["HealthCheckIntervalSeconds"] !== undefined) {
-    contents.HealthCheckIntervalSeconds = __strictParseInt32(output["HealthCheckIntervalSeconds"]) as number;
+  if (output[_HCIS] != null) {
+    contents[_HCIS] = __strictParseInt32(output[_HCIS]) as number;
   }
-  if (output["HealthCheckTimeoutSeconds"] !== undefined) {
-    contents.HealthCheckTimeoutSeconds = __strictParseInt32(output["HealthCheckTimeoutSeconds"]) as number;
+  if (output[_HCTS] != null) {
+    contents[_HCTS] = __strictParseInt32(output[_HCTS]) as number;
   }
-  if (output["HealthyThresholdCount"] !== undefined) {
-    contents.HealthyThresholdCount = __strictParseInt32(output["HealthyThresholdCount"]) as number;
+  if (output[_HTC] != null) {
+    contents[_HTC] = __strictParseInt32(output[_HTC]) as number;
   }
-  if (output["UnhealthyThresholdCount"] !== undefined) {
-    contents.UnhealthyThresholdCount = __strictParseInt32(output["UnhealthyThresholdCount"]) as number;
+  if (output[_UTC] != null) {
+    contents[_UTC] = __strictParseInt32(output[_UTC]) as number;
   }
-  if (output["HealthCheckPath"] !== undefined) {
-    contents.HealthCheckPath = __expectString(output["HealthCheckPath"]);
+  if (output[_HCPea] != null) {
+    contents[_HCPea] = __expectString(output[_HCPea]);
   }
-  if (output["Matcher"] !== undefined) {
-    contents.Matcher = de_Matcher(output["Matcher"], context);
+  if (output[_M] != null) {
+    contents[_M] = de_Matcher(output[_M], context);
   }
   if (output.LoadBalancerArns === "") {
-    contents.LoadBalancerArns = [];
-  } else if (output["LoadBalancerArns"] !== undefined && output["LoadBalancerArns"]["member"] !== undefined) {
-    contents.LoadBalancerArns = de_LoadBalancerArns(
-      __getArrayIfSingleItem(output["LoadBalancerArns"]["member"]),
-      context
-    );
+    contents[_LBAo] = [];
+  } else if (output[_LBAo] != null && output[_LBAo][_m] != null) {
+    contents[_LBAo] = de_LoadBalancerArns(__getArrayIfSingleItem(output[_LBAo][_m]), context);
   }
-  if (output["TargetType"] !== undefined) {
-    contents.TargetType = __expectString(output["TargetType"]);
+  if (output[_TT] != null) {
+    contents[_TT] = __expectString(output[_TT]);
   }
-  if (output["ProtocolVersion"] !== undefined) {
-    contents.ProtocolVersion = __expectString(output["ProtocolVersion"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["IpAddressType"] !== undefined) {
-    contents.IpAddressType = __expectString(output["IpAddressType"]);
+  if (output[_IAT] != null) {
+    contents[_IAT] = __expectString(output[_IAT]);
   }
   return contents;
 };
@@ -8567,8 +8505,8 @@ const de_TargetGroupAssociationLimitException = (
   context: __SerdeContext
 ): TargetGroupAssociationLimitException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8578,11 +8516,11 @@ const de_TargetGroupAssociationLimitException = (
  */
 const de_TargetGroupAttribute = (output: any, context: __SerdeContext): TargetGroupAttribute => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -8614,8 +8552,8 @@ const de_TargetGroupList = (output: any, context: __SerdeContext): TargetGroupTu
  */
 const de_TargetGroupNotFoundException = (output: any, context: __SerdeContext): TargetGroupNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8636,11 +8574,11 @@ const de_TargetGroups = (output: any, context: __SerdeContext): TargetGroup[] =>
  */
 const de_TargetGroupStickinessConfig = (output: any, context: __SerdeContext): TargetGroupStickinessConfig => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["DurationSeconds"] !== undefined) {
-    contents.DurationSeconds = __strictParseInt32(output["DurationSeconds"]) as number;
+  if (output[_DS] != null) {
+    contents[_DS] = __strictParseInt32(output[_DS]) as number;
   }
   return contents;
 };
@@ -8650,11 +8588,11 @@ const de_TargetGroupStickinessConfig = (output: any, context: __SerdeContext): T
  */
 const de_TargetGroupTuple = (output: any, context: __SerdeContext): TargetGroupTuple => {
   const contents: any = {};
-  if (output["TargetGroupArn"] !== undefined) {
-    contents.TargetGroupArn = __expectString(output["TargetGroupArn"]);
+  if (output[_TGA] != null) {
+    contents[_TGA] = __expectString(output[_TGA]);
   }
-  if (output["Weight"] !== undefined) {
-    contents.Weight = __strictParseInt32(output["Weight"]) as number;
+  if (output[_W] != null) {
+    contents[_W] = __strictParseInt32(output[_W]) as number;
   }
   return contents;
 };
@@ -8664,14 +8602,14 @@ const de_TargetGroupTuple = (output: any, context: __SerdeContext): TargetGroupT
  */
 const de_TargetHealth = (output: any, context: __SerdeContext): TargetHealth => {
   const contents: any = {};
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Reason"] !== undefined) {
-    contents.Reason = __expectString(output["Reason"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -8681,17 +8619,17 @@ const de_TargetHealth = (output: any, context: __SerdeContext): TargetHealth => 
  */
 const de_TargetHealthDescription = (output: any, context: __SerdeContext): TargetHealthDescription => {
   const contents: any = {};
-  if (output["Target"] !== undefined) {
-    contents.Target = de_TargetDescription(output["Target"], context);
+  if (output[_Targ] != null) {
+    contents[_Targ] = de_TargetDescription(output[_Targ], context);
   }
-  if (output["HealthCheckPort"] !== undefined) {
-    contents.HealthCheckPort = __expectString(output["HealthCheckPort"]);
+  if (output[_HCPe] != null) {
+    contents[_HCPe] = __expectString(output[_HCPe]);
   }
-  if (output["TargetHealth"] !== undefined) {
-    contents.TargetHealth = de_TargetHealth(output["TargetHealth"], context);
+  if (output[_TH] != null) {
+    contents[_TH] = de_TargetHealth(output[_TH], context);
   }
-  if (output["AnomalyDetection"] !== undefined) {
-    contents.AnomalyDetection = de_AnomalyDetection(output["AnomalyDetection"], context);
+  if (output[_AD] != null) {
+    contents[_AD] = de_AnomalyDetection(output[_AD], context);
   }
   return contents;
 };
@@ -8712,8 +8650,8 @@ const de_TargetHealthDescriptions = (output: any, context: __SerdeContext): Targ
  */
 const de_TooManyActionsException = (output: any, context: __SerdeContext): TooManyActionsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8723,8 +8661,8 @@ const de_TooManyActionsException = (output: any, context: __SerdeContext): TooMa
  */
 const de_TooManyCertificatesException = (output: any, context: __SerdeContext): TooManyCertificatesException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8734,8 +8672,8 @@ const de_TooManyCertificatesException = (output: any, context: __SerdeContext): 
  */
 const de_TooManyListenersException = (output: any, context: __SerdeContext): TooManyListenersException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8745,8 +8683,8 @@ const de_TooManyListenersException = (output: any, context: __SerdeContext): Too
  */
 const de_TooManyLoadBalancersException = (output: any, context: __SerdeContext): TooManyLoadBalancersException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8759,8 +8697,8 @@ const de_TooManyRegistrationsForTargetIdException = (
   context: __SerdeContext
 ): TooManyRegistrationsForTargetIdException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8770,8 +8708,8 @@ const de_TooManyRegistrationsForTargetIdException = (
  */
 const de_TooManyRulesException = (output: any, context: __SerdeContext): TooManyRulesException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8781,8 +8719,8 @@ const de_TooManyRulesException = (output: any, context: __SerdeContext): TooMany
  */
 const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8792,8 +8730,8 @@ const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyT
  */
 const de_TooManyTargetGroupsException = (output: any, context: __SerdeContext): TooManyTargetGroupsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8803,8 +8741,8 @@ const de_TooManyTargetGroupsException = (output: any, context: __SerdeContext): 
  */
 const de_TooManyTargetsException = (output: any, context: __SerdeContext): TooManyTargetsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8817,8 +8755,8 @@ const de_TooManyTrustStoreRevocationEntriesException = (
   context: __SerdeContext
 ): TooManyTrustStoreRevocationEntriesException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8828,8 +8766,8 @@ const de_TooManyTrustStoreRevocationEntriesException = (
  */
 const de_TooManyTrustStoresException = (output: any, context: __SerdeContext): TooManyTrustStoresException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8842,8 +8780,8 @@ const de_TooManyUniqueTargetGroupsPerLoadBalancerException = (
   context: __SerdeContext
 ): TooManyUniqueTargetGroupsPerLoadBalancerException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8853,20 +8791,20 @@ const de_TooManyUniqueTargetGroupsPerLoadBalancerException = (
  */
 const de_TrustStore = (output: any, context: __SerdeContext): TrustStore => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["TrustStoreArn"] !== undefined) {
-    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  if (output[_TSA] != null) {
+    contents[_TSA] = __expectString(output[_TSA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["NumberOfCaCertificates"] !== undefined) {
-    contents.NumberOfCaCertificates = __strictParseInt32(output["NumberOfCaCertificates"]) as number;
+  if (output[_NOCC] != null) {
+    contents[_NOCC] = __strictParseInt32(output[_NOCC]) as number;
   }
-  if (output["TotalRevokedEntries"] !== undefined) {
-    contents.TotalRevokedEntries = __strictParseLong(output["TotalRevokedEntries"]) as number;
+  if (output[_TRE] != null) {
+    contents[_TRE] = __strictParseLong(output[_TRE]) as number;
   }
   return contents;
 };
@@ -8876,8 +8814,8 @@ const de_TrustStore = (output: any, context: __SerdeContext): TrustStore => {
  */
 const de_TrustStoreAssociation = (output: any, context: __SerdeContext): TrustStoreAssociation => {
   const contents: any = {};
-  if (output["ResourceArn"] !== undefined) {
-    contents.ResourceArn = __expectString(output["ResourceArn"]);
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectString(output[_RAe]);
   }
   return contents;
 };
@@ -8898,8 +8836,8 @@ const de_TrustStoreAssociations = (output: any, context: __SerdeContext): TrustS
  */
 const de_TrustStoreInUseException = (output: any, context: __SerdeContext): TrustStoreInUseException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8909,8 +8847,8 @@ const de_TrustStoreInUseException = (output: any, context: __SerdeContext): Trus
  */
 const de_TrustStoreNotFoundException = (output: any, context: __SerdeContext): TrustStoreNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8920,8 +8858,8 @@ const de_TrustStoreNotFoundException = (output: any, context: __SerdeContext): T
  */
 const de_TrustStoreNotReadyException = (output: any, context: __SerdeContext): TrustStoreNotReadyException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8931,17 +8869,17 @@ const de_TrustStoreNotReadyException = (output: any, context: __SerdeContext): T
  */
 const de_TrustStoreRevocation = (output: any, context: __SerdeContext): TrustStoreRevocation => {
   const contents: any = {};
-  if (output["TrustStoreArn"] !== undefined) {
-    contents.TrustStoreArn = __expectString(output["TrustStoreArn"]);
+  if (output[_TSA] != null) {
+    contents[_TSA] = __expectString(output[_TSA]);
   }
-  if (output["RevocationId"] !== undefined) {
-    contents.RevocationId = __strictParseLong(output["RevocationId"]) as number;
+  if (output[_RIe] != null) {
+    contents[_RIe] = __strictParseLong(output[_RIe]) as number;
   }
-  if (output["RevocationType"] !== undefined) {
-    contents.RevocationType = __expectString(output["RevocationType"]);
+  if (output[_RTev] != null) {
+    contents[_RTev] = __expectString(output[_RTev]);
   }
-  if (output["NumberOfRevokedEntries"] !== undefined) {
-    contents.NumberOfRevokedEntries = __strictParseLong(output["NumberOfRevokedEntries"]) as number;
+  if (output[_NORE] != null) {
+    contents[_NORE] = __strictParseLong(output[_NORE]) as number;
   }
   return contents;
 };
@@ -8973,8 +8911,8 @@ const de_TrustStores = (output: any, context: __SerdeContext): TrustStore[] => {
  */
 const de_UnsupportedProtocolException = (output: any, context: __SerdeContext): UnsupportedProtocolException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -9019,6 +8957,216 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+// HttpRpcProtocolGenerator
+const _ = "2015-12-01";
+const _A = "Action";
+const _ACC = "AuthenticateCognitoConfig";
+const _AD = "AnomalyDetection";
+const _AE = "AuthorizationEndpoint";
+const _AI = "AllocationId";
+const _ALC = "AddListenerCertificates";
+const _AOC = "AuthenticateOidcConfig";
+const _AP = "AlpnPolicy";
+const _AREP = "AuthenticationRequestExtraParams";
+const _AT = "AddTags";
+const _ATSR = "AddTrustStoreRevocations";
+const _AZ = "AvailabilityZone";
+const _AZv = "AvailabilityZones";
+const _Ac = "Actions";
+const _At = "Attributes";
+const _C = "Certificates";
+const _CA = "CertificateArn";
+const _CCBSB = "CaCertificatesBundleS3Bucket";
+const _CCBSK = "CaCertificatesBundleS3Key";
+const _CCBSOV = "CaCertificatesBundleS3ObjectVersion";
+const _CHZI = "CanonicalHostedZoneId";
+const _CI = "ClientId";
+const _CL = "CreateListener";
+const _CLB = "CreateLoadBalancer";
+const _COIP = "CustomerOwnedIpv4Pool";
+const _CR = "CreateRule";
+const _CS = "ClientSecret";
+const _CT = "ContentType";
+const _CTG = "CreateTargetGroup";
+const _CTS = "CreateTrustStore";
+const _CTr = "CreatedTime";
+const _Ci = "Ciphers";
+const _Co = "Conditions";
+const _Cod = "Code";
+const _D = "Description";
+const _DA = "DefaultActions";
+const _DAL = "DescribeAccountLimits";
+const _DL = "DeleteListener";
+const _DLB = "DeleteLoadBalancer";
+const _DLBA = "DescribeLoadBalancerAttributes";
+const _DLBe = "DescribeLoadBalancers";
+const _DLC = "DescribeListenerCertificates";
+const _DLe = "DescribeListeners";
+const _DNSN = "DNSName";
+const _DR = "DeleteRule";
+const _DRe = "DescribeRules";
+const _DS = "DurationSeconds";
+const _DSSLP = "DescribeSSLPolicies";
+const _DT = "DeregisterTargets";
+const _DTG = "DeleteTargetGroup";
+const _DTGA = "DescribeTargetGroupAttributes";
+const _DTGe = "DescribeTargetGroups";
+const _DTH = "DescribeTargetHealth";
+const _DTS = "DeleteTrustStore";
+const _DTSA = "DescribeTrustStoreAssociations";
+const _DTSR = "DescribeTrustStoreRevocations";
+const _DTSe = "DescribeTrustStores";
+const _DTe = "DescribeTags";
+const _E = "Enabled";
+const _ESGIROPLT = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic";
+const _F = "Field";
+const _FC = "ForwardConfig";
+const _FRC = "FixedResponseConfig";
+const _GC = "GrpcCode";
+const _GTSCCB = "GetTrustStoreCaCertificatesBundle";
+const _GTSRC = "GetTrustStoreRevocationContent";
+const _H = "Host";
+const _HC = "HttpCode";
+const _HCE = "HealthCheckEnabled";
+const _HCIS = "HealthCheckIntervalSeconds";
+const _HCP = "HealthCheckProtocol";
+const _HCPe = "HealthCheckPort";
+const _HCPea = "HealthCheckPath";
+const _HCTS = "HealthCheckTimeoutSeconds";
+const _HHC = "HostHeaderConfig";
+const _HHCt = "HttpHeaderConfig";
+const _HHN = "HttpHeaderName";
+const _HRMC = "HttpRequestMethodConfig";
+const _HTC = "HealthyThresholdCount";
+const _I = "Issuer";
+const _IA = "IpAddress";
+const _IAT = "IpAddressType";
+const _ICCE = "IgnoreClientCertificateExpiry";
+const _ID = "IsDefault";
+const _IPA = "IPv6Address";
+const _Id = "Id";
+const _In = "Include";
+const _K = "Key";
+const _L = "Listeners";
+const _LA = "ListenerArn";
+const _LAi = "ListenerArns";
+const _LB = "LoadBalancers";
+const _LBA = "LoadBalancerArn";
+const _LBAo = "LoadBalancerArns";
+const _LBAoa = "LoadBalancerAddresses";
+const _LBN = "LoadBalancerName";
+const _LBT = "LoadBalancerType";
+const _Li = "Limits";
+const _Lo = "Location";
+const _M = "Matcher";
+const _MA = "MutualAuthentication";
+const _MB = "MessageBody";
+const _MIE = "MitigationInEffect";
+const _ML = "ModifyListener";
+const _MLBA = "ModifyLoadBalancerAttributes";
+const _MR = "ModifyRule";
+const _MTG = "ModifyTargetGroup";
+const _MTGA = "ModifyTargetGroupAttributes";
+const _MTS = "ModifyTrustStore";
+const _Ma = "Marker";
+const _Max = "Max";
+const _Me = "Message";
+const _Mo = "Mode";
+const _N = "Name";
+const _NM = "NextMarker";
+const _NOCC = "NumberOfCaCertificates";
+const _NORE = "NumberOfRevokedEntries";
+const _Na = "Names";
+const _O = "Order";
+const _OI = "OutpostId";
+const _OUR = "OnUnauthenticatedRequest";
+const _P = "Protocol";
+const _PIPA = "PrivateIPv4Address";
+const _PPC = "PathPatternConfig";
+const _PS = "PageSize";
+const _PV = "ProtocolVersion";
+const _Pa = "Path";
+const _Po = "Port";
+const _Pr = "Priority";
+const _Q = "Query";
+const _QSC = "QueryStringConfig";
+const _R = "Result";
+const _RA = "ResourceArns";
+const _RAe = "ResourceArn";
+const _RAu = "RuleArn";
+const _RAul = "RuleArns";
+const _RC = "RedirectConfig";
+const _RCe = "RevocationContents";
+const _RI = "RevocationIds";
+const _RIe = "RevocationId";
+const _RLC = "RemoveListenerCertificates";
+const _RP = "RulePriorities";
+const _RT = "RegisterTargets";
+const _RTSR = "RemoveTrustStoreRevocations";
+const _RTe = "RemoveTags";
+const _RTev = "RevocationType";
+const _Re = "Reason";
+const _Ru = "Rules";
+const _S = "Scope";
+const _SB = "S3Bucket";
+const _SC = "StatusCode";
+const _SCN = "SessionCookieName";
+const _SG = "SecurityGroups";
+const _SGI = "SecurityGroupIds";
+const _SI = "SubnetId";
+const _SIAT = "SetIpAddressType";
+const _SIC = "SourceIpConfig";
+const _SK = "S3Key";
+const _SLBT = "SupportedLoadBalancerTypes";
+const _SM = "SubnetMappings";
+const _SOV = "S3ObjectVersion";
+const _SP = "SslPolicy";
+const _SPs = "SslPolicies";
+const _SPsl = "SslProtocols";
+const _SRP = "SetRulePriorities";
+const _SS = "SetSubnets";
+const _SSG = "SetSecurityGroups";
+const _ST = "SessionTimeout";
+const _Sc = "Scheme";
+const _St = "State";
+const _Sta = "Status";
+const _Su = "Subnets";
+const _T = "Type";
+const _TD = "TagDescriptions";
+const _TE = "TokenEndpoint";
+const _TG = "TargetGroups";
+const _TGA = "TargetGroupArn";
+const _TGAa = "TargetGroupArns";
+const _TGN = "TargetGroupName";
+const _TGSC = "TargetGroupStickinessConfig";
+const _TH = "TargetHealth";
+const _THD = "TargetHealthDescriptions";
+const _TK = "TagKeys";
+const _TRE = "TotalRevokedEntries";
+const _TS = "TrustStores";
+const _TSA = "TrustStoreArn";
+const _TSAr = "TrustStoreArns";
+const _TSAru = "TrustStoreAssociations";
+const _TSR = "TrustStoreRevocations";
+const _TT = "TargetType";
+const _Ta = "Tags";
+const _Tar = "Targets";
+const _Targ = "Target";
+const _UECS = "UseExistingClientSecret";
+const _UIE = "UserInfoEndpoint";
+const _UPA = "UserPoolArn";
+const _UPCI = "UserPoolClientId";
+const _UPD = "UserPoolDomain";
+const _UTC = "UnhealthyThresholdCount";
+const _V = "Version";
+const _VI = "VpcId";
+const _Va = "Values";
+const _Val = "Value";
+const _W = "Weight";
+const _ZN = "ZoneName";
+const _e = "entry";
+const _m = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -9068,3 +9216,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
+
+// AwsQuery

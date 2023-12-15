@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -94,35 +95,20 @@ export const se_AssociateResourceCommand = async (
   input: AssociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}/associate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupIdentifier",
-    () => input.GroupIdentifier!,
-    "{GroupIdentifier}",
-    false
-  );
+  b.bp("/group/{GroupIdentifier}/associate");
+  b.p("GroupIdentifier", () => input.GroupIdentifier!, "{GroupIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ResourceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -132,11 +118,11 @@ export const se_CreateCanaryCommand = async (
   input: CreateCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary";
+  b.bp("/canary");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -154,15 +140,8 @@ export const se_CreateCanaryCommand = async (
       VpcConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -172,11 +151,11 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group";
+  b.bp("/group");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -184,15 +163,8 @@ export const se_CreateGroupCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -202,24 +174,16 @@ export const se_DeleteCanaryCommand = async (
   input: DeleteCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/canary/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   const query: any = map({
-    deleteLambda: [() => input.DeleteLambda !== void 0, () => input.DeleteLambda!.toString()],
+    [_dL]: [() => input.DeleteLambda !== void 0, () => input[_DL]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -229,27 +193,13 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupIdentifier",
-    () => input.GroupIdentifier!,
-    "{GroupIdentifier}",
-    false
-  );
+  b.bp("/group/{GroupIdentifier}");
+  b.p("GroupIdentifier", () => input.GroupIdentifier!, "{GroupIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -259,11 +209,11 @@ export const se_DescribeCanariesCommand = async (
   input: DescribeCanariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries";
+  b.bp("/canaries");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -272,15 +222,8 @@ export const se_DescribeCanariesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -290,11 +233,11 @@ export const se_DescribeCanariesLastRunCommand = async (
   input: DescribeCanariesLastRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries/last-run";
+  b.bp("/canaries/last-run");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -303,15 +246,8 @@ export const se_DescribeCanariesLastRunCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -321,11 +257,11 @@ export const se_DescribeRuntimeVersionsCommand = async (
   input: DescribeRuntimeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runtime-versions";
+  b.bp("/runtime-versions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -333,15 +269,8 @@ export const se_DescribeRuntimeVersionsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -351,35 +280,20 @@ export const se_DisassociateResourceCommand = async (
   input: DisassociateResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}/disassociate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupIdentifier",
-    () => input.GroupIdentifier!,
-    "{GroupIdentifier}",
-    false
-  );
+  b.bp("/group/{GroupIdentifier}/disassociate");
+  b.p("GroupIdentifier", () => input.GroupIdentifier!, "{GroupIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ResourceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -389,20 +303,13 @@ export const se_GetCanaryCommand = async (
   input: GetCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/canary/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -412,12 +319,12 @@ export const se_GetCanaryRunsCommand = async (
   input: GetCanaryRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/runs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/canary/{Name}/runs");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -425,15 +332,8 @@ export const se_GetCanaryRunsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -443,27 +343,13 @@ export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupIdentifier",
-    () => input.GroupIdentifier!,
-    "{GroupIdentifier}",
-    false
-  );
+  b.bp("/group/{GroupIdentifier}");
+  b.p("GroupIdentifier", () => input.GroupIdentifier!, "{GroupIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -473,13 +359,12 @@ export const se_ListAssociatedGroupsCommand = async (
   input: ListAssociatedGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource/{ResourceArn}/groups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resource/{ResourceArn}/groups");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -487,15 +372,8 @@ export const se_ListAssociatedGroupsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -505,20 +383,12 @@ export const se_ListGroupResourcesCommand = async (
   input: ListGroupResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/group/{GroupIdentifier}/resources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupIdentifier",
-    () => input.GroupIdentifier!,
-    "{GroupIdentifier}",
-    false
-  );
+  b.bp("/group/{GroupIdentifier}/resources");
+  b.p("GroupIdentifier", () => input.GroupIdentifier!, "{GroupIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -526,15 +396,8 @@ export const se_ListGroupResourcesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -544,11 +407,11 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/groups";
+  b.bp("/groups");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -556,15 +419,8 @@ export const se_ListGroupsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -574,20 +430,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -597,20 +446,13 @@ export const se_StartCanaryCommand = async (
   input: StartCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/canary/{Name}/start");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -620,20 +462,13 @@ export const se_StopCanaryCommand = async (
   input: StopCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/canary/{Name}/stop");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -643,27 +478,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -673,27 +501,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -703,12 +523,12 @@ export const se_UpdateCanaryCommand = async (
   input: UpdateCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/canary/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -725,15 +545,8 @@ export const se_UpdateCanaryCommand = async (
       VpcConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2290,6 +2103,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _DL = "DeleteLambda";
+const _TK = "TagKeys";
+const _dL = "deleteLambda";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2340,3 +2159,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

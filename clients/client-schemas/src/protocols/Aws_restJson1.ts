@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -99,11 +100,11 @@ export const se_CreateDiscovererCommand = async (
   input: CreateDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
+  b.bp("/v1/discoverers");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -113,15 +114,8 @@ export const se_CreateDiscovererCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -131,20 +125,12 @@ export const se_CreateRegistryCommand = async (
   input: CreateRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -152,15 +138,8 @@ export const se_CreateRegistryCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -170,22 +149,13 @@ export const se_CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -195,15 +165,8 @@ export const se_CreateSchemaCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -213,28 +176,13 @@ export const se_DeleteDiscovererCommand = async (
   input: DeleteDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DiscovererId",
-    () => input.DiscovererId!,
-    "{DiscovererId}",
-    false
-  );
+  b.bp("/v1/discoverers/id/{DiscovererId}");
+  b.p("DiscovererId", () => input.DiscovererId!, "{DiscovererId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -244,28 +192,13 @@ export const se_DeleteRegistryCommand = async (
   input: DeleteRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -275,23 +208,15 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/policy";
+  b.bp("/v1/policy");
   const query: any = map({
-    registryName: [, input.RegistryName!],
+    [_rN]: [, input[_RN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -301,30 +226,14 @@ export const se_DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -334,38 +243,15 @@ export const se_DeleteSchemaVersionCommand = async (
   input: DeleteSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SchemaVersion",
-    () => input.SchemaVersion!,
-    "{SchemaVersion}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.p("SchemaVersion", () => input.SchemaVersion!, "{SchemaVersion}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -375,35 +261,18 @@ export const se_DescribeCodeBindingCommand = async (
   input: DescribeCodeBindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Language", () => input.Language!, "{Language}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}");
+  b.p("Language", () => input.Language!, "{Language}", false);
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
-    schemaVersion: [, input.SchemaVersion!],
+    [_sV]: [, input[_SV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -413,28 +282,13 @@ export const se_DescribeDiscovererCommand = async (
   input: DescribeDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DiscovererId",
-    () => input.DiscovererId!,
-    "{DiscovererId}",
-    false
-  );
+  b.bp("/v1/discoverers/id/{DiscovererId}");
+  b.p("DiscovererId", () => input.DiscovererId!, "{DiscovererId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -444,28 +298,13 @@ export const se_DescribeRegistryCommand = async (
   input: DescribeRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -475,34 +314,17 @@ export const se_DescribeSchemaCommand = async (
   input: DescribeSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
-    schemaVersion: [, input.SchemaVersion!],
+    [_sV]: [, input[_SV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -512,35 +334,18 @@ export const se_ExportSchemaCommand = async (
   input: ExportSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
-    schemaVersion: [, input.SchemaVersion!],
-    type: [, __expectNonNull(input.Type!, `Type`)],
+    [_sV]: [, input[_SV]!],
+    [_t]: [, __expectNonNull(input[_T]!, `Type`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -550,35 +355,18 @@ export const se_GetCodeBindingSourceCommand = async (
   input: GetCodeBindingSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Language", () => input.Language!, "{Language}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source");
+  b.p("Language", () => input.Language!, "{Language}", false);
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
-    schemaVersion: [, input.SchemaVersion!],
+    [_sV]: [, input[_SV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -588,11 +376,11 @@ export const se_GetDiscoveredSchemaCommand = async (
   input: GetDiscoveredSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discover";
+  b.bp("/v1/discover");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -600,15 +388,8 @@ export const se_GetDiscoveredSchemaCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -618,23 +399,15 @@ export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/policy";
+  b.bp("/v1/policy");
   const query: any = map({
-    registryName: [, input.RegistryName!],
+    [_rN]: [, input[_RN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -644,26 +417,18 @@ export const se_ListDiscoverersCommand = async (
   input: ListDiscoverersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
+  b.bp("/v1/discoverers");
   const query: any = map({
-    discovererIdPrefix: [, input.DiscovererIdPrefix!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    nextToken: [, input.NextToken!],
-    sourceArnPrefix: [, input.SourceArnPrefix!],
+    [_dIP]: [, input[_DIP]!],
+    [_l]: [() => input.Limit !== void 0, () => input[_L]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sAP]: [, input[_SAP]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -673,26 +438,18 @@ export const se_ListRegistriesCommand = async (
   input: ListRegistriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries";
+  b.bp("/v1/registries");
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    nextToken: [, input.NextToken!],
-    registryNamePrefix: [, input.RegistryNamePrefix!],
-    scope: [, input.Scope!],
+    [_l]: [() => input.Limit !== void 0, () => input[_L]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_rNP]: [, input[_RNP]!],
+    [_s]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -702,35 +459,18 @@ export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}/schemas");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    nextToken: [, input.NextToken!],
-    schemaNamePrefix: [, input.SchemaNamePrefix!],
+    [_l]: [() => input.Limit !== void 0, () => input[_L]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_sNP]: [, input[_SNP]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -740,35 +480,18 @@ export const se_ListSchemaVersionsCommand = async (
   input: ListSchemaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    nextToken: [, input.NextToken!],
+    [_l]: [() => input.Limit !== void 0, () => input[_L]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -778,20 +501,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -801,35 +517,18 @@ export const se_PutCodeBindingCommand = async (
   input: PutCodeBindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Language", () => input.Language!, "{Language}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}");
+  b.p("Language", () => input.Language!, "{Language}", false);
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
-    schemaVersion: [, input.SchemaVersion!],
+    [_sV]: [, input[_SV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -839,13 +538,13 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/policy";
+  b.bp("/v1/policy");
   const query: any = map({
-    registryName: [, input.RegistryName!],
+    [_rN]: [, input[_RN]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -854,16 +553,8 @@ export const se_PutResourcePolicyCommand = async (
       RevisionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -873,35 +564,18 @@ export const se_SearchSchemasCommand = async (
   input: SearchSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/search";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}/schemas/search");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
   const query: any = map({
-    keywords: [, __expectNonNull(input.Keywords!, `Keywords`)],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    nextToken: [, input.NextToken!],
+    [_k]: [, __expectNonNull(input[_K]!, `Keywords`)],
+    [_l]: [() => input.Limit !== void 0, () => input[_L]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -911,28 +585,13 @@ export const se_StartDiscovererCommand = async (
   input: StartDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}/start";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DiscovererId",
-    () => input.DiscovererId!,
-    "{DiscovererId}",
-    false
-  );
+  b.bp("/v1/discoverers/id/{DiscovererId}/start");
+  b.p("DiscovererId", () => input.DiscovererId!, "{DiscovererId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -942,28 +601,13 @@ export const se_StopDiscovererCommand = async (
   input: StopDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}/stop";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DiscovererId",
-    () => input.DiscovererId!,
-    "{DiscovererId}",
-    false
-  );
+  b.bp("/v1/discoverers/id/{DiscovererId}/stop");
+  b.p("DiscovererId", () => input.DiscovererId!, "{DiscovererId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -973,27 +617,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1003,27 +640,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1033,20 +662,12 @@ export const se_UpdateDiscovererCommand = async (
   input: UpdateDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DiscovererId",
-    () => input.DiscovererId!,
-    "{DiscovererId}",
-    false
-  );
+  b.bp("/v1/discoverers/id/{DiscovererId}");
+  b.p("DiscovererId", () => input.DiscovererId!, "{DiscovererId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1054,15 +675,8 @@ export const se_UpdateDiscovererCommand = async (
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1072,35 +686,20 @@ export const se_UpdateRegistryCommand = async (
   input: UpdateRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
+  b.bp("/v1/registries/name/{RegistryName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1110,22 +709,13 @@ export const se_UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RegistryName",
-    () => input.RegistryName!,
-    "{RegistryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
+  b.bp("/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}");
+  b.p("RegistryName", () => input.RegistryName!, "{RegistryName}", false);
+  b.p("SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1135,15 +725,8 @@ export const se_UpdateSchemaCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3418,6 +3001,32 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _DIP = "DiscovererIdPrefix";
+const _K = "Keywords";
+const _L = "Limit";
+const _NT = "NextToken";
+const _RN = "RegistryName";
+const _RNP = "RegistryNamePrefix";
+const _S = "Scope";
+const _SAP = "SourceArnPrefix";
+const _SNP = "SchemaNamePrefix";
+const _SV = "SchemaVersion";
+const _T = "Type";
+const _TK = "TagKeys";
+const _dIP = "discovererIdPrefix";
+const _k = "keywords";
+const _l = "limit";
+const _nT = "nextToken";
+const _rN = "registryName";
+const _rNP = "registryNamePrefix";
+const _s = "scope";
+const _sAP = "sourceArnPrefix";
+const _sNP = "schemaNamePrefix";
+const _sV = "schemaVersion";
+const _t = "type";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -3468,3 +3077,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

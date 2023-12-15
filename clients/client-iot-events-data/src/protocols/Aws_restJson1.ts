@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -77,26 +78,19 @@ export const se_BatchAcknowledgeAlarmCommand = async (
   input: BatchAcknowledgeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/acknowledge";
+  b.bp("/alarms/acknowledge");
   let body: any;
   body = JSON.stringify(
     take(input, {
       acknowledgeActionRequests: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -106,26 +100,19 @@ export const se_BatchDeleteDetectorCommand = async (
   input: BatchDeleteDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/delete";
+  b.bp("/detectors/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       detectors: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -135,26 +122,19 @@ export const se_BatchDisableAlarmCommand = async (
   input: BatchDisableAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/disable";
+  b.bp("/alarms/disable");
   let body: any;
   body = JSON.stringify(
     take(input, {
       disableActionRequests: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -164,26 +144,19 @@ export const se_BatchEnableAlarmCommand = async (
   input: BatchEnableAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/enable";
+  b.bp("/alarms/enable");
   let body: any;
   body = JSON.stringify(
     take(input, {
       enableActionRequests: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -193,26 +166,19 @@ export const se_BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/inputs/messages";
+  b.bp("/inputs/messages");
   let body: any;
   body = JSON.stringify(
     take(input, {
       messages: (_) => se_Messages(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -222,26 +188,19 @@ export const se_BatchResetAlarmCommand = async (
   input: BatchResetAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/reset";
+  b.bp("/alarms/reset");
   let body: any;
   body = JSON.stringify(
     take(input, {
       resetActionRequests: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -251,26 +210,19 @@ export const se_BatchSnoozeAlarmCommand = async (
   input: BatchSnoozeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/snooze";
+  b.bp("/alarms/snooze");
   let body: any;
   body = JSON.stringify(
     take(input, {
       snoozeActionRequests: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -280,26 +232,19 @@ export const se_BatchUpdateDetectorCommand = async (
   input: BatchUpdateDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors";
+  b.bp("/detectors");
   let body: any;
   body = JSON.stringify(
     take(input, {
       detectors: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -309,32 +254,16 @@ export const se_DescribeAlarmCommand = async (
   input: DescribeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/{alarmModelName}/keyValues";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "alarmModelName",
-    () => input.alarmModelName!,
-    "{alarmModelName}",
-    false
-  );
+  b.bp("/alarms/{alarmModelName}/keyValues");
+  b.p("alarmModelName", () => input.alarmModelName!, "{alarmModelName}", false);
   const query: any = map({
-    keyValue: [, input.keyValue!],
+    [_kV]: [, input[_kV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -344,32 +273,16 @@ export const se_DescribeDetectorCommand = async (
   input: DescribeDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/{detectorModelName}/keyValues";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "detectorModelName",
-    () => input.detectorModelName!,
-    "{detectorModelName}",
-    false
-  );
+  b.bp("/detectors/{detectorModelName}/keyValues");
+  b.p("detectorModelName", () => input.detectorModelName!, "{detectorModelName}", false);
   const query: any = map({
-    keyValue: [, input.keyValue!],
+    [_kV]: [, input[_kV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -379,32 +292,17 @@ export const se_ListAlarmsCommand = async (
   input: ListAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/{alarmModelName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "alarmModelName",
-    () => input.alarmModelName!,
-    "{alarmModelName}",
-    false
-  );
+  b.bp("/alarms/{alarmModelName}");
+  b.p("alarmModelName", () => input.alarmModelName!, "{alarmModelName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -414,34 +312,18 @@ export const se_ListDetectorsCommand = async (
   input: ListDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/{detectorModelName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "detectorModelName",
-    () => input.detectorModelName!,
-    "{detectorModelName}",
-    false
-  );
+  b.bp("/detectors/{detectorModelName}");
+  b.p("detectorModelName", () => input.detectorModelName!, "{detectorModelName}", false);
   const query: any = map({
-    stateName: [, input.stateName!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_sN]: [, input[_sN]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1468,6 +1350,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _kV = "keyValue";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _sN = "stateName";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1518,3 +1406,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

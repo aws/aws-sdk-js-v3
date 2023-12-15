@@ -349,8 +349,8 @@ export const se_AbortEnvironmentUpdateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AbortEnvironmentUpdateMessage(input, context),
-    Action: "AbortEnvironmentUpdate",
-    Version: "2010-12-01",
+    [_A]: _AEU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -366,8 +366,8 @@ export const se_ApplyEnvironmentManagedActionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ApplyEnvironmentManagedActionRequest(input, context),
-    Action: "ApplyEnvironmentManagedAction",
-    Version: "2010-12-01",
+    [_A]: _AEMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -383,8 +383,8 @@ export const se_AssociateEnvironmentOperationsRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssociateEnvironmentOperationsRoleMessage(input, context),
-    Action: "AssociateEnvironmentOperationsRole",
-    Version: "2010-12-01",
+    [_A]: _AEOR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -400,8 +400,8 @@ export const se_CheckDNSAvailabilityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CheckDNSAvailabilityMessage(input, context),
-    Action: "CheckDNSAvailability",
-    Version: "2010-12-01",
+    [_A]: _CDNSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -417,8 +417,8 @@ export const se_ComposeEnvironmentsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ComposeEnvironmentsMessage(input, context),
-    Action: "ComposeEnvironments",
-    Version: "2010-12-01",
+    [_A]: _CE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -434,8 +434,8 @@ export const se_CreateApplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateApplicationMessage(input, context),
-    Action: "CreateApplication",
-    Version: "2010-12-01",
+    [_A]: _CA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -451,8 +451,8 @@ export const se_CreateApplicationVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateApplicationVersionMessage(input, context),
-    Action: "CreateApplicationVersion",
-    Version: "2010-12-01",
+    [_A]: _CAV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -468,8 +468,8 @@ export const se_CreateConfigurationTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationTemplateMessage(input, context),
-    Action: "CreateConfigurationTemplate",
-    Version: "2010-12-01",
+    [_A]: _CCT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -485,8 +485,8 @@ export const se_CreateEnvironmentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateEnvironmentMessage(input, context),
-    Action: "CreateEnvironment",
-    Version: "2010-12-01",
+    [_A]: _CEr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -502,8 +502,8 @@ export const se_CreatePlatformVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePlatformVersionRequest(input, context),
-    Action: "CreatePlatformVersion",
-    Version: "2010-12-01",
+    [_A]: _CPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -517,8 +517,8 @@ export const se_CreateStorageLocationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "CreateStorageLocation",
-    Version: "2010-12-01",
+    [_A]: _CSL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -534,8 +534,8 @@ export const se_DeleteApplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteApplicationMessage(input, context),
-    Action: "DeleteApplication",
-    Version: "2010-12-01",
+    [_A]: _DA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -551,8 +551,8 @@ export const se_DeleteApplicationVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteApplicationVersionMessage(input, context),
-    Action: "DeleteApplicationVersion",
-    Version: "2010-12-01",
+    [_A]: _DAV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -568,8 +568,8 @@ export const se_DeleteConfigurationTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationTemplateMessage(input, context),
-    Action: "DeleteConfigurationTemplate",
-    Version: "2010-12-01",
+    [_A]: _DCT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -585,8 +585,8 @@ export const se_DeleteEnvironmentConfigurationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteEnvironmentConfigurationMessage(input, context),
-    Action: "DeleteEnvironmentConfiguration",
-    Version: "2010-12-01",
+    [_A]: _DEC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -602,8 +602,8 @@ export const se_DeletePlatformVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeletePlatformVersionRequest(input, context),
-    Action: "DeletePlatformVersion",
-    Version: "2010-12-01",
+    [_A]: _DPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -617,8 +617,8 @@ export const se_DescribeAccountAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "DescribeAccountAttributes",
-    Version: "2010-12-01",
+    [_A]: _DAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -634,8 +634,8 @@ export const se_DescribeApplicationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeApplicationsMessage(input, context),
-    Action: "DescribeApplications",
-    Version: "2010-12-01",
+    [_A]: _DAe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -651,8 +651,8 @@ export const se_DescribeApplicationVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeApplicationVersionsMessage(input, context),
-    Action: "DescribeApplicationVersions",
-    Version: "2010-12-01",
+    [_A]: _DAVe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -668,8 +668,8 @@ export const se_DescribeConfigurationOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeConfigurationOptionsMessage(input, context),
-    Action: "DescribeConfigurationOptions",
-    Version: "2010-12-01",
+    [_A]: _DCO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -685,8 +685,8 @@ export const se_DescribeConfigurationSettingsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeConfigurationSettingsMessage(input, context),
-    Action: "DescribeConfigurationSettings",
-    Version: "2010-12-01",
+    [_A]: _DCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -702,8 +702,8 @@ export const se_DescribeEnvironmentHealthCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEnvironmentHealthRequest(input, context),
-    Action: "DescribeEnvironmentHealth",
-    Version: "2010-12-01",
+    [_A]: _DEH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -719,8 +719,8 @@ export const se_DescribeEnvironmentManagedActionHistoryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEnvironmentManagedActionHistoryRequest(input, context),
-    Action: "DescribeEnvironmentManagedActionHistory",
-    Version: "2010-12-01",
+    [_A]: _DEMAH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -736,8 +736,8 @@ export const se_DescribeEnvironmentManagedActionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEnvironmentManagedActionsRequest(input, context),
-    Action: "DescribeEnvironmentManagedActions",
-    Version: "2010-12-01",
+    [_A]: _DEMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -753,8 +753,8 @@ export const se_DescribeEnvironmentResourcesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEnvironmentResourcesMessage(input, context),
-    Action: "DescribeEnvironmentResources",
-    Version: "2010-12-01",
+    [_A]: _DER,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -770,8 +770,8 @@ export const se_DescribeEnvironmentsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEnvironmentsMessage(input, context),
-    Action: "DescribeEnvironments",
-    Version: "2010-12-01",
+    [_A]: _DE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -787,8 +787,8 @@ export const se_DescribeEventsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventsMessage(input, context),
-    Action: "DescribeEvents",
-    Version: "2010-12-01",
+    [_A]: _DEe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -804,8 +804,8 @@ export const se_DescribeInstancesHealthCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeInstancesHealthRequest(input, context),
-    Action: "DescribeInstancesHealth",
-    Version: "2010-12-01",
+    [_A]: _DIH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -821,8 +821,8 @@ export const se_DescribePlatformVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribePlatformVersionRequest(input, context),
-    Action: "DescribePlatformVersion",
-    Version: "2010-12-01",
+    [_A]: _DPVe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -838,8 +838,8 @@ export const se_DisassociateEnvironmentOperationsRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DisassociateEnvironmentOperationsRoleMessage(input, context),
-    Action: "DisassociateEnvironmentOperationsRole",
-    Version: "2010-12-01",
+    [_A]: _DEOR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -853,8 +853,8 @@ export const se_ListAvailableSolutionStacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "ListAvailableSolutionStacks",
-    Version: "2010-12-01",
+    [_A]: _LASS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -870,8 +870,8 @@ export const se_ListPlatformBranchesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPlatformBranchesRequest(input, context),
-    Action: "ListPlatformBranches",
-    Version: "2010-12-01",
+    [_A]: _LPB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -887,8 +887,8 @@ export const se_ListPlatformVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPlatformVersionsRequest(input, context),
-    Action: "ListPlatformVersions",
-    Version: "2010-12-01",
+    [_A]: _LPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -904,8 +904,8 @@ export const se_ListTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceMessage(input, context),
-    Action: "ListTagsForResource",
-    Version: "2010-12-01",
+    [_A]: _LTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -921,8 +921,8 @@ export const se_RebuildEnvironmentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebuildEnvironmentMessage(input, context),
-    Action: "RebuildEnvironment",
-    Version: "2010-12-01",
+    [_A]: _RE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -938,8 +938,8 @@ export const se_RequestEnvironmentInfoCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RequestEnvironmentInfoMessage(input, context),
-    Action: "RequestEnvironmentInfo",
-    Version: "2010-12-01",
+    [_A]: _REI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -955,8 +955,8 @@ export const se_RestartAppServerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestartAppServerMessage(input, context),
-    Action: "RestartAppServer",
-    Version: "2010-12-01",
+    [_A]: _RAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -972,8 +972,8 @@ export const se_RetrieveEnvironmentInfoCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RetrieveEnvironmentInfoMessage(input, context),
-    Action: "RetrieveEnvironmentInfo",
-    Version: "2010-12-01",
+    [_A]: _REIe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -989,8 +989,8 @@ export const se_SwapEnvironmentCNAMEsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SwapEnvironmentCNAMEsMessage(input, context),
-    Action: "SwapEnvironmentCNAMEs",
-    Version: "2010-12-01",
+    [_A]: _SECNAME,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1006,8 +1006,8 @@ export const se_TerminateEnvironmentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TerminateEnvironmentMessage(input, context),
-    Action: "TerminateEnvironment",
-    Version: "2010-12-01",
+    [_A]: _TE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1023,8 +1023,8 @@ export const se_UpdateApplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateApplicationMessage(input, context),
-    Action: "UpdateApplication",
-    Version: "2010-12-01",
+    [_A]: _UA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1040,8 +1040,8 @@ export const se_UpdateApplicationResourceLifecycleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateApplicationResourceLifecycleMessage(input, context),
-    Action: "UpdateApplicationResourceLifecycle",
-    Version: "2010-12-01",
+    [_A]: _UARL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1057,8 +1057,8 @@ export const se_UpdateApplicationVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateApplicationVersionMessage(input, context),
-    Action: "UpdateApplicationVersion",
-    Version: "2010-12-01",
+    [_A]: _UAV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1074,8 +1074,8 @@ export const se_UpdateConfigurationTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationTemplateMessage(input, context),
-    Action: "UpdateConfigurationTemplate",
-    Version: "2010-12-01",
+    [_A]: _UCT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1091,8 +1091,8 @@ export const se_UpdateEnvironmentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateEnvironmentMessage(input, context),
-    Action: "UpdateEnvironment",
-    Version: "2010-12-01",
+    [_A]: _UE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1108,8 +1108,8 @@ export const se_UpdateTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateTagsForResourceMessage(input, context),
-    Action: "UpdateTagsForResource",
-    Version: "2010-12-01",
+    [_A]: _UTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1125,8 +1125,8 @@ export const se_ValidateConfigurationSettingsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ValidateConfigurationSettingsMessage(input, context),
-    Action: "ValidateConfigurationSettings",
-    Version: "2010-12-01",
+    [_A]: _VCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3581,11 +3581,11 @@ const de_TooManyTagsExceptionRes = async (
  */
 const se_AbortEnvironmentUpdateMessage = (input: AbortEnvironmentUpdateMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -3614,11 +3614,11 @@ const se_ApplicationResourceLifecycleConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceRole != null) {
-    entries["ServiceRole"] = input.ServiceRole;
+  if (input[_SR] != null) {
+    entries[_SR] = input[_SR];
   }
-  if (input.VersionLifecycleConfig != null) {
-    const memberEntries = se_ApplicationVersionLifecycleConfig(input.VersionLifecycleConfig, context);
+  if (input[_VLC] != null) {
+    const memberEntries = se_ApplicationVersionLifecycleConfig(input[_VLC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLifecycleConfig.${key}`;
       entries[loc] = value;
@@ -3635,15 +3635,15 @@ const se_ApplicationVersionLifecycleConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxCountRule != null) {
-    const memberEntries = se_MaxCountRule(input.MaxCountRule, context);
+  if (input[_MCR] != null) {
+    const memberEntries = se_MaxCountRule(input[_MCR], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MaxCountRule.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaxAgeRule != null) {
-    const memberEntries = se_MaxAgeRule(input.MaxAgeRule, context);
+  if (input[_MAR] != null) {
+    const memberEntries = se_MaxAgeRule(input[_MAR], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MaxAgeRule.${key}`;
       entries[loc] = value;
@@ -3660,14 +3660,14 @@ const se_ApplyEnvironmentManagedActionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.ActionId != null) {
-    entries["ActionId"] = input.ActionId;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -3680,11 +3680,11 @@ const se_AssociateEnvironmentOperationsRoleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.OperationsRole != null) {
-    entries["OperationsRole"] = input.OperationsRole;
+  if (input[_OR] != null) {
+    entries[_OR] = input[_OR];
   }
   return entries;
 };
@@ -3694,20 +3694,20 @@ const se_AssociateEnvironmentOperationsRoleMessage = (
  */
 const se_BuildConfiguration = (input: BuildConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ArtifactName != null) {
-    entries["ArtifactName"] = input.ArtifactName;
+  if (input[_AN] != null) {
+    entries[_AN] = input[_AN];
   }
-  if (input.CodeBuildServiceRole != null) {
-    entries["CodeBuildServiceRole"] = input.CodeBuildServiceRole;
+  if (input[_CBSR] != null) {
+    entries[_CBSR] = input[_CBSR];
   }
-  if (input.ComputeType != null) {
-    entries["ComputeType"] = input.ComputeType;
+  if (input[_CT] != null) {
+    entries[_CT] = input[_CT];
   }
-  if (input.Image != null) {
-    entries["Image"] = input.Image;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.TimeoutInMinutes != null) {
-    entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
+  if (input[_TIM] != null) {
+    entries[_TIM] = input[_TIM];
   }
   return entries;
 };
@@ -3717,8 +3717,8 @@ const se_BuildConfiguration = (input: BuildConfiguration, context: __SerdeContex
  */
 const se_CheckDNSAvailabilityMessage = (input: CheckDNSAvailabilityMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CNAMEPrefix != null) {
-    entries["CNAMEPrefix"] = input.CNAMEPrefix;
+  if (input[_CNAMEP] != null) {
+    entries[_CNAMEP] = input[_CNAMEP];
   }
   return entries;
 };
@@ -3728,15 +3728,15 @@ const se_CheckDNSAvailabilityMessage = (input: CheckDNSAvailabilityMessage, cont
  */
 const se_ComposeEnvironmentsMessage = (input: ComposeEnvironmentsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.VersionLabels != null) {
-    const memberEntries = se_VersionLabels(input.VersionLabels, context);
-    if (input.VersionLabels?.length === 0) {
+  if (input[_VL] != null) {
+    const memberEntries = se_VersionLabels(input[_VL], context);
+    if (input[_VL]?.length === 0) {
       entries.VersionLabels = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3752,17 +3752,17 @@ const se_ComposeEnvironmentsMessage = (input: ComposeEnvironmentsMessage, contex
  */
 const se_ConfigurationOptionSetting = (input: ConfigurationOptionSetting, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.OptionName != null) {
-    entries["OptionName"] = input.OptionName;
+  if (input[_ON] != null) {
+    entries[_ON] = input[_ON];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -3791,22 +3791,22 @@ const se_ConfigurationOptionSettingsList = (input: ConfigurationOptionSetting[],
  */
 const se_CreateApplicationMessage = (input: CreateApplicationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.ResourceLifecycleConfig != null) {
-    const memberEntries = se_ApplicationResourceLifecycleConfig(input.ResourceLifecycleConfig, context);
+  if (input[_RLC] != null) {
+    const memberEntries = se_ApplicationResourceLifecycleConfig(input[_RLC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceLifecycleConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_Tags(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3822,45 +3822,45 @@ const se_CreateApplicationMessage = (input: CreateApplicationMessage, context: _
  */
 const se_CreateApplicationVersionMessage = (input: CreateApplicationVersionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.SourceBuildInformation != null) {
-    const memberEntries = se_SourceBuildInformation(input.SourceBuildInformation, context);
+  if (input[_SBI] != null) {
+    const memberEntries = se_SourceBuildInformation(input[_SBI], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceBuildInformation.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SourceBundle != null) {
-    const memberEntries = se_S3Location(input.SourceBundle, context);
+  if (input[_SB] != null) {
+    const memberEntries = se_S3Location(input[_SB], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceBundle.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.BuildConfiguration != null) {
-    const memberEntries = se_BuildConfiguration(input.BuildConfiguration, context);
+  if (input[_BC] != null) {
+    const memberEntries = se_BuildConfiguration(input[_BC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BuildConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AutoCreateApplication != null) {
-    entries["AutoCreateApplication"] = input.AutoCreateApplication;
+  if (input[_ACA] != null) {
+    entries[_ACA] = input[_ACA];
   }
-  if (input.Process != null) {
-    entries["Process"] = input.Process;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_Tags(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3879,34 +3879,34 @@ const se_CreateConfigurationTemplateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.SolutionStackName != null) {
-    entries["SolutionStackName"] = input.SolutionStackName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.SourceConfiguration != null) {
-    const memberEntries = se_SourceConfiguration(input.SourceConfiguration, context);
+  if (input[_SC] != null) {
+    const memberEntries = se_SourceConfiguration(input[_SC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_ConfigurationOptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_ConfigurationOptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3914,9 +3914,9 @@ const se_CreateConfigurationTemplateMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_Tags(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3932,31 +3932,31 @@ const se_CreateConfigurationTemplateMessage = (
  */
 const se_CreateEnvironmentMessage = (input: CreateEnvironmentMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.CNAMEPrefix != null) {
-    entries["CNAMEPrefix"] = input.CNAMEPrefix;
+  if (input[_CNAMEP] != null) {
+    entries[_CNAMEP] = input[_CNAMEP];
   }
-  if (input.Tier != null) {
-    const memberEntries = se_EnvironmentTier(input.Tier, context);
+  if (input[_Ti] != null) {
+    const memberEntries = se_EnvironmentTier(input[_Ti], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tier.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_Tags(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3964,21 +3964,21 @@ const se_CreateEnvironmentMessage = (input: CreateEnvironmentMessage, context: _
       entries[loc] = value;
     });
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.SolutionStackName != null) {
-    entries["SolutionStackName"] = input.SolutionStackName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_ConfigurationOptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_ConfigurationOptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3986,9 +3986,9 @@ const se_CreateEnvironmentMessage = (input: CreateEnvironmentMessage, context: _
       entries[loc] = value;
     });
   }
-  if (input.OptionsToRemove != null) {
-    const memberEntries = se_OptionsSpecifierList(input.OptionsToRemove, context);
-    if (input.OptionsToRemove?.length === 0) {
+  if (input[_OTR] != null) {
+    const memberEntries = se_OptionsSpecifierList(input[_OTR], context);
+    if (input[_OTR]?.length === 0) {
       entries.OptionsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3996,8 +3996,8 @@ const se_CreateEnvironmentMessage = (input: CreateEnvironmentMessage, context: _
       entries[loc] = value;
     });
   }
-  if (input.OperationsRole != null) {
-    entries["OperationsRole"] = input.OperationsRole;
+  if (input[_OR] != null) {
+    entries[_OR] = input[_OR];
   }
   return entries;
 };
@@ -4007,25 +4007,25 @@ const se_CreateEnvironmentMessage = (input: CreateEnvironmentMessage, context: _
  */
 const se_CreatePlatformVersionRequest = (input: CreatePlatformVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PlatformName != null) {
-    entries["PlatformName"] = input.PlatformName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.PlatformVersion != null) {
-    entries["PlatformVersion"] = input.PlatformVersion;
+  if (input[_PV] != null) {
+    entries[_PV] = input[_PV];
   }
-  if (input.PlatformDefinitionBundle != null) {
-    const memberEntries = se_S3Location(input.PlatformDefinitionBundle, context);
+  if (input[_PDB] != null) {
+    const memberEntries = se_S3Location(input[_PDB], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PlatformDefinitionBundle.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_ConfigurationOptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_ConfigurationOptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4033,9 +4033,9 @@ const se_CreatePlatformVersionRequest = (input: CreatePlatformVersionRequest, co
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_Tags(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4051,11 +4051,11 @@ const se_CreatePlatformVersionRequest = (input: CreatePlatformVersionRequest, co
  */
 const se_DeleteApplicationMessage = (input: DeleteApplicationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TerminateEnvByForce != null) {
-    entries["TerminateEnvByForce"] = input.TerminateEnvByForce;
+  if (input[_TEBF] != null) {
+    entries[_TEBF] = input[_TEBF];
   }
   return entries;
 };
@@ -4065,14 +4065,14 @@ const se_DeleteApplicationMessage = (input: DeleteApplicationMessage, context: _
  */
 const se_DeleteApplicationVersionMessage = (input: DeleteApplicationVersionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.DeleteSourceBundle != null) {
-    entries["DeleteSourceBundle"] = input.DeleteSourceBundle;
+  if (input[_DSB] != null) {
+    entries[_DSB] = input[_DSB];
   }
   return entries;
 };
@@ -4085,11 +4085,11 @@ const se_DeleteConfigurationTemplateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -4102,11 +4102,11 @@ const se_DeleteEnvironmentConfigurationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -4116,8 +4116,8 @@ const se_DeleteEnvironmentConfigurationMessage = (
  */
 const se_DeletePlatformVersionRequest = (input: DeletePlatformVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -4127,9 +4127,9 @@ const se_DeletePlatformVersionRequest = (input: DeletePlatformVersionRequest, co
  */
 const se_DescribeApplicationsMessage = (input: DescribeApplicationsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationNames != null) {
-    const memberEntries = se_ApplicationNamesList(input.ApplicationNames, context);
-    if (input.ApplicationNames?.length === 0) {
+  if (input[_ANpp] != null) {
+    const memberEntries = se_ApplicationNamesList(input[_ANpp], context);
+    if (input[_ANpp]?.length === 0) {
       entries.ApplicationNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4148,12 +4148,12 @@ const se_DescribeApplicationVersionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.VersionLabels != null) {
-    const memberEntries = se_VersionLabelsList(input.VersionLabels, context);
-    if (input.VersionLabels?.length === 0) {
+  if (input[_VL] != null) {
+    const memberEntries = se_VersionLabelsList(input[_VL], context);
+    if (input[_VL]?.length === 0) {
       entries.VersionLabels = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4161,11 +4161,11 @@ const se_DescribeApplicationVersionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4178,24 +4178,24 @@ const se_DescribeConfigurationOptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.SolutionStackName != null) {
-    entries["SolutionStackName"] = input.SolutionStackName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Options != null) {
-    const memberEntries = se_OptionsSpecifierList(input.Options, context);
-    if (input.Options?.length === 0) {
+  if (input[_O] != null) {
+    const memberEntries = se_OptionsSpecifierList(input[_O], context);
+    if (input[_O]?.length === 0) {
       entries.Options = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4214,14 +4214,14 @@ const se_DescribeConfigurationSettingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -4231,15 +4231,15 @@ const se_DescribeConfigurationSettingsMessage = (
  */
 const se_DescribeEnvironmentHealthRequest = (input: DescribeEnvironmentHealthRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.AttributeNames != null) {
-    const memberEntries = se_EnvironmentHealthAttributes(input.AttributeNames, context);
-    if (input.AttributeNames?.length === 0) {
+  if (input[_ANt] != null) {
+    const memberEntries = se_EnvironmentHealthAttributes(input[_ANt], context);
+    if (input[_ANt]?.length === 0) {
       entries.AttributeNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4258,17 +4258,17 @@ const se_DescribeEnvironmentManagedActionHistoryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -4281,14 +4281,14 @@ const se_DescribeEnvironmentManagedActionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
   return entries;
 };
@@ -4301,11 +4301,11 @@ const se_DescribeEnvironmentResourcesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -4315,15 +4315,15 @@ const se_DescribeEnvironmentResourcesMessage = (
  */
 const se_DescribeEnvironmentsMessage = (input: DescribeEnvironmentsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.EnvironmentIds != null) {
-    const memberEntries = se_EnvironmentIdList(input.EnvironmentIds, context);
-    if (input.EnvironmentIds?.length === 0) {
+  if (input[_EIn] != null) {
+    const memberEntries = se_EnvironmentIdList(input[_EIn], context);
+    if (input[_EIn]?.length === 0) {
       entries.EnvironmentIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4331,9 +4331,9 @@ const se_DescribeEnvironmentsMessage = (input: DescribeEnvironmentsMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.EnvironmentNames != null) {
-    const memberEntries = se_EnvironmentNamesList(input.EnvironmentNames, context);
-    if (input.EnvironmentNames?.length === 0) {
+  if (input[_ENn] != null) {
+    const memberEntries = se_EnvironmentNamesList(input[_ENn], context);
+    if (input[_ENn]?.length === 0) {
       entries.EnvironmentNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4341,17 +4341,17 @@ const se_DescribeEnvironmentsMessage = (input: DescribeEnvironmentsMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.IncludeDeleted != null) {
-    entries["IncludeDeleted"] = input.IncludeDeleted;
+  if (input[_ID] != null) {
+    entries[_ID] = input[_ID];
   }
-  if (input.IncludedDeletedBackTo != null) {
-    entries["IncludedDeletedBackTo"] = input.IncludedDeletedBackTo.toISOString().split(".")[0] + "Z";
+  if (input[_IDBT] != null) {
+    entries[_IDBT] = input[_IDBT].toISOString().split(".")[0] + "Z";
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4361,41 +4361,41 @@ const se_DescribeEnvironmentsMessage = (input: DescribeEnvironmentsMessage, cont
  */
 const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.RequestId != null) {
-    entries["RequestId"] = input.RequestId;
+  if (input[_RI] != null) {
+    entries[_RI] = input[_RI];
   }
-  if (input.Severity != null) {
-    entries["Severity"] = input.Severity;
+  if (input[_Se] != null) {
+    entries[_Se] = input[_Se];
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4405,15 +4405,15 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
  */
 const se_DescribeInstancesHealthRequest = (input: DescribeInstancesHealthRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.AttributeNames != null) {
-    const memberEntries = se_InstancesHealthAttributes(input.AttributeNames, context);
-    if (input.AttributeNames?.length === 0) {
+  if (input[_ANt] != null) {
+    const memberEntries = se_InstancesHealthAttributes(input[_ANt], context);
+    if (input[_ANt]?.length === 0) {
       entries.AttributeNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4421,8 +4421,8 @@ const se_DescribeInstancesHealthRequest = (input: DescribeInstancesHealthRequest
       entries[loc] = value;
     });
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4432,8 +4432,8 @@ const se_DescribeInstancesHealthRequest = (input: DescribeInstancesHealthRequest
  */
 const se_DescribePlatformVersionRequest = (input: DescribePlatformVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -4446,8 +4446,8 @@ const se_DisassociateEnvironmentOperationsRoleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -4505,14 +4505,14 @@ const se_EnvironmentNamesList = (input: string[], context: __SerdeContext): any 
  */
 const se_EnvironmentTier = (input: EnvironmentTier, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_Na] != null) {
+    entries[_Na] = input[_Na];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_Ty] != null) {
+    entries[_Ty] = input[_Ty];
   }
-  if (input.Version != null) {
-    entries["Version"] = input.Version;
+  if (input[_V] != null) {
+    entries[_V] = input[_V];
   }
   return entries;
 };
@@ -4538,9 +4538,9 @@ const se_InstancesHealthAttributes = (input: InstancesHealthAttribute[], context
  */
 const se_ListPlatformBranchesRequest = (input: ListPlatformBranchesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Filters != null) {
-    const memberEntries = se_SearchFilters(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_SearchFilters(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4548,11 +4548,11 @@ const se_ListPlatformBranchesRequest = (input: ListPlatformBranchesRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4562,9 +4562,9 @@ const se_ListPlatformBranchesRequest = (input: ListPlatformBranchesRequest, cont
  */
 const se_ListPlatformVersionsRequest = (input: ListPlatformVersionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Filters != null) {
-    const memberEntries = se_PlatformFilters(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_PlatformFilters(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4572,11 +4572,11 @@ const se_ListPlatformVersionsRequest = (input: ListPlatformVersionsRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4586,8 +4586,8 @@ const se_ListPlatformVersionsRequest = (input: ListPlatformVersionsRequest, cont
  */
 const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
   return entries;
 };
@@ -4597,14 +4597,14 @@ const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, contex
  */
 const se_MaxAgeRule = (input: MaxAgeRule, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.MaxAgeInDays != null) {
-    entries["MaxAgeInDays"] = input.MaxAgeInDays;
+  if (input[_MAID] != null) {
+    entries[_MAID] = input[_MAID];
   }
-  if (input.DeleteSourceFromS3 != null) {
-    entries["DeleteSourceFromS3"] = input.DeleteSourceFromS3;
+  if (input[_DSFS] != null) {
+    entries[_DSFS] = input[_DSFS];
   }
   return entries;
 };
@@ -4614,14 +4614,14 @@ const se_MaxAgeRule = (input: MaxAgeRule, context: __SerdeContext): any => {
  */
 const se_MaxCountRule = (input: MaxCountRule, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.MaxCount != null) {
-    entries["MaxCount"] = input.MaxCount;
+  if (input[_MC] != null) {
+    entries[_MC] = input[_MC];
   }
-  if (input.DeleteSourceFromS3 != null) {
-    entries["DeleteSourceFromS3"] = input.DeleteSourceFromS3;
+  if (input[_DSFS] != null) {
+    entries[_DSFS] = input[_DSFS];
   }
   return entries;
 };
@@ -4631,14 +4631,14 @@ const se_MaxCountRule = (input: MaxCountRule, context: __SerdeContext): any => {
  */
 const se_OptionSpecification = (input: OptionSpecification, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.OptionName != null) {
-    entries["OptionName"] = input.OptionName;
+  if (input[_ON] != null) {
+    entries[_ON] = input[_ON];
   }
   return entries;
 };
@@ -4667,15 +4667,15 @@ const se_OptionsSpecifierList = (input: OptionSpecification[], context: __SerdeC
  */
 const se_PlatformFilter = (input: PlatformFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_Ty] != null) {
+    entries[_Ty] = input[_Ty];
   }
-  if (input.Operator != null) {
-    entries["Operator"] = input.Operator;
+  if (input[_Op] != null) {
+    entries[_Op] = input[_Op];
   }
-  if (input.Values != null) {
-    const memberEntries = se_PlatformFilterValueList(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Val] != null) {
+    const memberEntries = se_PlatformFilterValueList(input[_Val], context);
+    if (input[_Val]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4726,11 +4726,11 @@ const se_PlatformFilterValueList = (input: string[], context: __SerdeContext): a
  */
 const se_RebuildEnvironmentMessage = (input: RebuildEnvironmentMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -4740,14 +4740,14 @@ const se_RebuildEnvironmentMessage = (input: RebuildEnvironmentMessage, context:
  */
 const se_RequestEnvironmentInfoMessage = (input: RequestEnvironmentInfoMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.InfoType != null) {
-    entries["InfoType"] = input.InfoType;
+  if (input[_IT] != null) {
+    entries[_IT] = input[_IT];
   }
   return entries;
 };
@@ -4757,11 +4757,11 @@ const se_RequestEnvironmentInfoMessage = (input: RequestEnvironmentInfoMessage, 
  */
 const se_RestartAppServerMessage = (input: RestartAppServerMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
   return entries;
 };
@@ -4771,14 +4771,14 @@ const se_RestartAppServerMessage = (input: RestartAppServerMessage, context: __S
  */
 const se_RetrieveEnvironmentInfoMessage = (input: RetrieveEnvironmentInfoMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.InfoType != null) {
-    entries["InfoType"] = input.InfoType;
+  if (input[_IT] != null) {
+    entries[_IT] = input[_IT];
   }
   return entries;
 };
@@ -4788,11 +4788,11 @@ const se_RetrieveEnvironmentInfoMessage = (input: RetrieveEnvironmentInfoMessage
  */
 const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.S3Bucket != null) {
-    entries["S3Bucket"] = input.S3Bucket;
+  if (input[_SBu] != null) {
+    entries[_SBu] = input[_SBu];
   }
-  if (input.S3Key != null) {
-    entries["S3Key"] = input.S3Key;
+  if (input[_SK] != null) {
+    entries[_SK] = input[_SK];
   }
   return entries;
 };
@@ -4802,15 +4802,15 @@ const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
  */
 const se_SearchFilter = (input: SearchFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Attribute != null) {
-    entries["Attribute"] = input.Attribute;
+  if (input[_At] != null) {
+    entries[_At] = input[_At];
   }
-  if (input.Operator != null) {
-    entries["Operator"] = input.Operator;
+  if (input[_Op] != null) {
+    entries[_Op] = input[_Op];
   }
-  if (input.Values != null) {
-    const memberEntries = se_SearchFilterValues(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Val] != null) {
+    const memberEntries = se_SearchFilterValues(input[_Val], context);
+    if (input[_Val]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4861,14 +4861,14 @@ const se_SearchFilterValues = (input: string[], context: __SerdeContext): any =>
  */
 const se_SourceBuildInformation = (input: SourceBuildInformation, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.SourceRepository != null) {
-    entries["SourceRepository"] = input.SourceRepository;
+  if (input[_SRo] != null) {
+    entries[_SRo] = input[_SRo];
   }
-  if (input.SourceLocation != null) {
-    entries["SourceLocation"] = input.SourceLocation;
+  if (input[_SL] != null) {
+    entries[_SL] = input[_SL];
   }
   return entries;
 };
@@ -4878,11 +4878,11 @@ const se_SourceBuildInformation = (input: SourceBuildInformation, context: __Ser
  */
 const se_SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -4892,17 +4892,17 @@ const se_SourceConfiguration = (input: SourceConfiguration, context: __SerdeCont
  */
 const se_SwapEnvironmentCNAMEsMessage = (input: SwapEnvironmentCNAMEsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceEnvironmentId != null) {
-    entries["SourceEnvironmentId"] = input.SourceEnvironmentId;
+  if (input[_SEI] != null) {
+    entries[_SEI] = input[_SEI];
   }
-  if (input.SourceEnvironmentName != null) {
-    entries["SourceEnvironmentName"] = input.SourceEnvironmentName;
+  if (input[_SEN] != null) {
+    entries[_SEN] = input[_SEN];
   }
-  if (input.DestinationEnvironmentId != null) {
-    entries["DestinationEnvironmentId"] = input.DestinationEnvironmentId;
+  if (input[_DEI] != null) {
+    entries[_DEI] = input[_DEI];
   }
-  if (input.DestinationEnvironmentName != null) {
-    entries["DestinationEnvironmentName"] = input.DestinationEnvironmentName;
+  if (input[_DEN] != null) {
+    entries[_DEN] = input[_DEN];
   }
   return entries;
 };
@@ -4912,11 +4912,11 @@ const se_SwapEnvironmentCNAMEsMessage = (input: SwapEnvironmentCNAMEsMessage, co
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -4980,17 +4980,17 @@ const se_Tags = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TerminateEnvironmentMessage = (input: TerminateEnvironmentMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.TerminateResources != null) {
-    entries["TerminateResources"] = input.TerminateResources;
+  if (input[_TR] != null) {
+    entries[_TR] = input[_TR];
   }
-  if (input.ForceTerminate != null) {
-    entries["ForceTerminate"] = input.ForceTerminate;
+  if (input[_FT] != null) {
+    entries[_FT] = input[_FT];
   }
   return entries;
 };
@@ -5000,11 +5000,11 @@ const se_TerminateEnvironmentMessage = (input: TerminateEnvironmentMessage, cont
  */
 const se_UpdateApplicationMessage = (input: UpdateApplicationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -5017,11 +5017,11 @@ const se_UpdateApplicationResourceLifecycleMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.ResourceLifecycleConfig != null) {
-    const memberEntries = se_ApplicationResourceLifecycleConfig(input.ResourceLifecycleConfig, context);
+  if (input[_RLC] != null) {
+    const memberEntries = se_ApplicationResourceLifecycleConfig(input[_RLC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceLifecycleConfig.${key}`;
       entries[loc] = value;
@@ -5035,14 +5035,14 @@ const se_UpdateApplicationResourceLifecycleMessage = (
  */
 const se_UpdateApplicationVersionMessage = (input: UpdateApplicationVersionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -5055,18 +5055,18 @@ const se_UpdateConfigurationTemplateMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_ConfigurationOptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_ConfigurationOptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5074,9 +5074,9 @@ const se_UpdateConfigurationTemplateMessage = (
       entries[loc] = value;
     });
   }
-  if (input.OptionsToRemove != null) {
-    const memberEntries = se_OptionsSpecifierList(input.OptionsToRemove, context);
-    if (input.OptionsToRemove?.length === 0) {
+  if (input[_OTR] != null) {
+    const memberEntries = se_OptionsSpecifierList(input[_OTR], context);
+    if (input[_OTR]?.length === 0) {
       entries.OptionsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5092,43 +5092,43 @@ const se_UpdateConfigurationTemplateMessage = (
  */
 const se_UpdateEnvironmentMessage = (input: UpdateEnvironmentMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.EnvironmentId != null) {
-    entries["EnvironmentId"] = input.EnvironmentId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tier != null) {
-    const memberEntries = se_EnvironmentTier(input.Tier, context);
+  if (input[_Ti] != null) {
+    const memberEntries = se_EnvironmentTier(input[_Ti], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tier.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.VersionLabel != null) {
-    entries["VersionLabel"] = input.VersionLabel;
+  if (input[_VLe] != null) {
+    entries[_VLe] = input[_VLe];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.SolutionStackName != null) {
-    entries["SolutionStackName"] = input.SolutionStackName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.PlatformArn != null) {
-    entries["PlatformArn"] = input.PlatformArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_ConfigurationOptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_ConfigurationOptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5136,9 +5136,9 @@ const se_UpdateEnvironmentMessage = (input: UpdateEnvironmentMessage, context: _
       entries[loc] = value;
     });
   }
-  if (input.OptionsToRemove != null) {
-    const memberEntries = se_OptionsSpecifierList(input.OptionsToRemove, context);
-    if (input.OptionsToRemove?.length === 0) {
+  if (input[_OTR] != null) {
+    const memberEntries = se_OptionsSpecifierList(input[_OTR], context);
+    if (input[_OTR]?.length === 0) {
       entries.OptionsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5154,12 +5154,12 @@ const se_UpdateEnvironmentMessage = (input: UpdateEnvironmentMessage, context: _
  */
 const se_UpdateTagsForResourceMessage = (input: UpdateTagsForResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.TagsToAdd != null) {
-    const memberEntries = se_TagList(input.TagsToAdd, context);
-    if (input.TagsToAdd?.length === 0) {
+  if (input[_TTA] != null) {
+    const memberEntries = se_TagList(input[_TTA], context);
+    if (input[_TTA]?.length === 0) {
       entries.TagsToAdd = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5167,9 +5167,9 @@ const se_UpdateTagsForResourceMessage = (input: UpdateTagsForResourceMessage, co
       entries[loc] = value;
     });
   }
-  if (input.TagsToRemove != null) {
-    const memberEntries = se_TagKeyList(input.TagsToRemove, context);
-    if (input.TagsToRemove?.length === 0) {
+  if (input[_TTR] != null) {
+    const memberEntries = se_TagKeyList(input[_TTR], context);
+    if (input[_TTR]?.length === 0) {
       entries.TagsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5188,18 +5188,18 @@ const se_ValidateConfigurationSettingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ApplicationName != null) {
-    entries["ApplicationName"] = input.ApplicationName;
+  if (input[_ANp] != null) {
+    entries[_ANp] = input[_ANp];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.EnvironmentName != null) {
-    entries["EnvironmentName"] = input.EnvironmentName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_ConfigurationOptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_ConfigurationOptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5247,42 +5247,33 @@ const se_VersionLabelsList = (input: string[], context: __SerdeContext): any => 
  */
 const de_ApplicationDescription = (output: any, context: __SerdeContext): ApplicationDescription => {
   const contents: any = {};
-  if (output["ApplicationArn"] !== undefined) {
-    contents.ApplicationArn = __expectString(output["ApplicationArn"]);
+  if (output[_AA] != null) {
+    contents[_AA] = __expectString(output[_AA]);
   }
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = __expectString(output["ApplicationName"]);
+  if (output[_ANp] != null) {
+    contents[_ANp] = __expectString(output[_ANp]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
+  if (output[_DC] != null) {
+    contents[_DC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DC]));
   }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
+  if (output[_DU] != null) {
+    contents[_DU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DU]));
   }
   if (output.Versions === "") {
-    contents.Versions = [];
-  } else if (output["Versions"] !== undefined && output["Versions"]["member"] !== undefined) {
-    contents.Versions = de_VersionLabelsList(__getArrayIfSingleItem(output["Versions"]["member"]), context);
+    contents[_Ve] = [];
+  } else if (output[_Ve] != null && output[_Ve][_m] != null) {
+    contents[_Ve] = de_VersionLabelsList(__getArrayIfSingleItem(output[_Ve][_m]), context);
   }
   if (output.ConfigurationTemplates === "") {
-    contents.ConfigurationTemplates = [];
-  } else if (
-    output["ConfigurationTemplates"] !== undefined &&
-    output["ConfigurationTemplates"]["member"] !== undefined
-  ) {
-    contents.ConfigurationTemplates = de_ConfigurationTemplateNamesList(
-      __getArrayIfSingleItem(output["ConfigurationTemplates"]["member"]),
-      context
-    );
+    contents[_CTo] = [];
+  } else if (output[_CTo] != null && output[_CTo][_m] != null) {
+    contents[_CTo] = de_ConfigurationTemplateNamesList(__getArrayIfSingleItem(output[_CTo][_m]), context);
   }
-  if (output["ResourceLifecycleConfig"] !== undefined) {
-    contents.ResourceLifecycleConfig = de_ApplicationResourceLifecycleConfig(
-      output["ResourceLifecycleConfig"],
-      context
-    );
+  if (output[_RLC] != null) {
+    contents[_RLC] = de_ApplicationResourceLifecycleConfig(output[_RLC], context);
   }
   return contents;
 };
@@ -5303,8 +5294,8 @@ const de_ApplicationDescriptionList = (output: any, context: __SerdeContext): Ap
  */
 const de_ApplicationDescriptionMessage = (output: any, context: __SerdeContext): ApplicationDescriptionMessage => {
   const contents: any = {};
-  if (output["Application"] !== undefined) {
-    contents.Application = de_ApplicationDescription(output["Application"], context);
+  if (output[_Ap] != null) {
+    contents[_Ap] = de_ApplicationDescription(output[_Ap], context);
   }
   return contents;
 };
@@ -5315,12 +5306,9 @@ const de_ApplicationDescriptionMessage = (output: any, context: __SerdeContext):
 const de_ApplicationDescriptionsMessage = (output: any, context: __SerdeContext): ApplicationDescriptionsMessage => {
   const contents: any = {};
   if (output.Applications === "") {
-    contents.Applications = [];
-  } else if (output["Applications"] !== undefined && output["Applications"]["member"] !== undefined) {
-    contents.Applications = de_ApplicationDescriptionList(
-      __getArrayIfSingleItem(output["Applications"]["member"]),
-      context
-    );
+    contents[_App] = [];
+  } else if (output[_App] != null && output[_App][_m] != null) {
+    contents[_App] = de_ApplicationDescriptionList(__getArrayIfSingleItem(output[_App][_m]), context);
   }
   return contents;
 };
@@ -5330,17 +5318,17 @@ const de_ApplicationDescriptionsMessage = (output: any, context: __SerdeContext)
  */
 const de_ApplicationMetrics = (output: any, context: __SerdeContext): ApplicationMetrics => {
   const contents: any = {};
-  if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt32(output["Duration"]) as number;
+  if (output[_Du] != null) {
+    contents[_Du] = __strictParseInt32(output[_Du]) as number;
   }
-  if (output["RequestCount"] !== undefined) {
-    contents.RequestCount = __strictParseInt32(output["RequestCount"]) as number;
+  if (output[_RC] != null) {
+    contents[_RC] = __strictParseInt32(output[_RC]) as number;
   }
-  if (output["StatusCodes"] !== undefined) {
-    contents.StatusCodes = de_StatusCodes(output["StatusCodes"], context);
+  if (output[_SCt] != null) {
+    contents[_SCt] = de_StatusCodes(output[_SCt], context);
   }
-  if (output["Latency"] !== undefined) {
-    contents.Latency = de_Latency(output["Latency"], context);
+  if (output[_L] != null) {
+    contents[_L] = de_Latency(output[_L], context);
   }
   return contents;
 };
@@ -5353,11 +5341,11 @@ const de_ApplicationResourceLifecycleConfig = (
   context: __SerdeContext
 ): ApplicationResourceLifecycleConfig => {
   const contents: any = {};
-  if (output["ServiceRole"] !== undefined) {
-    contents.ServiceRole = __expectString(output["ServiceRole"]);
+  if (output[_SR] != null) {
+    contents[_SR] = __expectString(output[_SR]);
   }
-  if (output["VersionLifecycleConfig"] !== undefined) {
-    contents.VersionLifecycleConfig = de_ApplicationVersionLifecycleConfig(output["VersionLifecycleConfig"], context);
+  if (output[_VLC] != null) {
+    contents[_VLC] = de_ApplicationVersionLifecycleConfig(output[_VLC], context);
   }
   return contents;
 };
@@ -5370,14 +5358,11 @@ const de_ApplicationResourceLifecycleDescriptionMessage = (
   context: __SerdeContext
 ): ApplicationResourceLifecycleDescriptionMessage => {
   const contents: any = {};
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = __expectString(output["ApplicationName"]);
+  if (output[_ANp] != null) {
+    contents[_ANp] = __expectString(output[_ANp]);
   }
-  if (output["ResourceLifecycleConfig"] !== undefined) {
-    contents.ResourceLifecycleConfig = de_ApplicationResourceLifecycleConfig(
-      output["ResourceLifecycleConfig"],
-      context
-    );
+  if (output[_RLC] != null) {
+    contents[_RLC] = de_ApplicationResourceLifecycleConfig(output[_RLC], context);
   }
   return contents;
 };
@@ -5387,35 +5372,35 @@ const de_ApplicationResourceLifecycleDescriptionMessage = (
  */
 const de_ApplicationVersionDescription = (output: any, context: __SerdeContext): ApplicationVersionDescription => {
   const contents: any = {};
-  if (output["ApplicationVersionArn"] !== undefined) {
-    contents.ApplicationVersionArn = __expectString(output["ApplicationVersionArn"]);
+  if (output[_AVA] != null) {
+    contents[_AVA] = __expectString(output[_AVA]);
   }
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = __expectString(output["ApplicationName"]);
+  if (output[_ANp] != null) {
+    contents[_ANp] = __expectString(output[_ANp]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["VersionLabel"] !== undefined) {
-    contents.VersionLabel = __expectString(output["VersionLabel"]);
+  if (output[_VLe] != null) {
+    contents[_VLe] = __expectString(output[_VLe]);
   }
-  if (output["SourceBuildInformation"] !== undefined) {
-    contents.SourceBuildInformation = de_SourceBuildInformation(output["SourceBuildInformation"], context);
+  if (output[_SBI] != null) {
+    contents[_SBI] = de_SourceBuildInformation(output[_SBI], context);
   }
-  if (output["BuildArn"] !== undefined) {
-    contents.BuildArn = __expectString(output["BuildArn"]);
+  if (output[_BA] != null) {
+    contents[_BA] = __expectString(output[_BA]);
   }
-  if (output["SourceBundle"] !== undefined) {
-    contents.SourceBundle = de_S3Location(output["SourceBundle"], context);
+  if (output[_SB] != null) {
+    contents[_SB] = de_S3Location(output[_SB], context);
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
+  if (output[_DC] != null) {
+    contents[_DC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DC]));
   }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
+  if (output[_DU] != null) {
+    contents[_DU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DU]));
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -5442,8 +5427,8 @@ const de_ApplicationVersionDescriptionMessage = (
   context: __SerdeContext
 ): ApplicationVersionDescriptionMessage => {
   const contents: any = {};
-  if (output["ApplicationVersion"] !== undefined) {
-    contents.ApplicationVersion = de_ApplicationVersionDescription(output["ApplicationVersion"], context);
+  if (output[_AV] != null) {
+    contents[_AV] = de_ApplicationVersionDescription(output[_AV], context);
   }
   return contents;
 };
@@ -5457,15 +5442,12 @@ const de_ApplicationVersionDescriptionsMessage = (
 ): ApplicationVersionDescriptionsMessage => {
   const contents: any = {};
   if (output.ApplicationVersions === "") {
-    contents.ApplicationVersions = [];
-  } else if (output["ApplicationVersions"] !== undefined && output["ApplicationVersions"]["member"] !== undefined) {
-    contents.ApplicationVersions = de_ApplicationVersionDescriptionList(
-      __getArrayIfSingleItem(output["ApplicationVersions"]["member"]),
-      context
-    );
+    contents[_AVp] = [];
+  } else if (output[_AVp] != null && output[_AVp][_m] != null) {
+    contents[_AVp] = de_ApplicationVersionDescriptionList(__getArrayIfSingleItem(output[_AVp][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5478,11 +5460,11 @@ const de_ApplicationVersionLifecycleConfig = (
   context: __SerdeContext
 ): ApplicationVersionLifecycleConfig => {
   const contents: any = {};
-  if (output["MaxCountRule"] !== undefined) {
-    contents.MaxCountRule = de_MaxCountRule(output["MaxCountRule"], context);
+  if (output[_MCR] != null) {
+    contents[_MCR] = de_MaxCountRule(output[_MCR], context);
   }
-  if (output["MaxAgeRule"] !== undefined) {
-    contents.MaxAgeRule = de_MaxAgeRule(output["MaxAgeRule"], context);
+  if (output[_MAR] != null) {
+    contents[_MAR] = de_MaxAgeRule(output[_MAR], context);
   }
   return contents;
 };
@@ -5495,17 +5477,17 @@ const de_ApplyEnvironmentManagedActionResult = (
   context: __SerdeContext
 ): ApplyEnvironmentManagedActionResult => {
   const contents: any = {};
-  if (output["ActionId"] !== undefined) {
-    contents.ActionId = __expectString(output["ActionId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
-  if (output["ActionDescription"] !== undefined) {
-    contents.ActionDescription = __expectString(output["ActionDescription"]);
+  if (output[_AD] != null) {
+    contents[_AD] = __expectString(output[_AD]);
   }
-  if (output["ActionType"] !== undefined) {
-    contents.ActionType = __expectString(output["ActionType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -5515,8 +5497,8 @@ const de_ApplyEnvironmentManagedActionResult = (
  */
 const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
   return contents;
 };
@@ -5559,8 +5541,8 @@ const de_AvailableSolutionStackNamesList = (output: any, context: __SerdeContext
  */
 const de_Builder = (output: any, context: __SerdeContext): Builder => {
   const contents: any = {};
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   return contents;
 };
@@ -5584,11 +5566,11 @@ const de_CheckDNSAvailabilityResultMessage = (
   context: __SerdeContext
 ): CheckDNSAvailabilityResultMessage => {
   const contents: any = {};
-  if (output["Available"] !== undefined) {
-    contents.Available = __parseBoolean(output["Available"]);
+  if (output[_Av] != null) {
+    contents[_Av] = __parseBoolean(output[_Av]);
   }
-  if (output["FullyQualifiedCNAME"] !== undefined) {
-    contents.FullyQualifiedCNAME = __expectString(output["FullyQualifiedCNAME"]);
+  if (output[_FQCNAME] != null) {
+    contents[_FQCNAME] = __expectString(output[_FQCNAME]);
   }
   return contents;
 };
@@ -5601,8 +5583,8 @@ const de_CodeBuildNotInServiceRegionException = (
   context: __SerdeContext
 ): CodeBuildNotInServiceRegionException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5612,43 +5594,40 @@ const de_CodeBuildNotInServiceRegionException = (
  */
 const de_ConfigurationOptionDescription = (output: any, context: __SerdeContext): ConfigurationOptionDescription => {
   const contents: any = {};
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["ChangeSeverity"] !== undefined) {
-    contents.ChangeSeverity = __expectString(output["ChangeSeverity"]);
+  if (output[_CS] != null) {
+    contents[_CS] = __expectString(output[_CS]);
   }
-  if (output["UserDefined"] !== undefined) {
-    contents.UserDefined = __parseBoolean(output["UserDefined"]);
+  if (output[_UD] != null) {
+    contents[_UD] = __parseBoolean(output[_UD]);
   }
-  if (output["ValueType"] !== undefined) {
-    contents.ValueType = __expectString(output["ValueType"]);
+  if (output[_VT] != null) {
+    contents[_VT] = __expectString(output[_VT]);
   }
   if (output.ValueOptions === "") {
-    contents.ValueOptions = [];
-  } else if (output["ValueOptions"] !== undefined && output["ValueOptions"]["member"] !== undefined) {
-    contents.ValueOptions = de_ConfigurationOptionPossibleValues(
-      __getArrayIfSingleItem(output["ValueOptions"]["member"]),
-      context
-    );
+    contents[_VO] = [];
+  } else if (output[_VO] != null && output[_VO][_m] != null) {
+    contents[_VO] = de_ConfigurationOptionPossibleValues(__getArrayIfSingleItem(output[_VO][_m]), context);
   }
-  if (output["MinValue"] !== undefined) {
-    contents.MinValue = __strictParseInt32(output["MinValue"]) as number;
+  if (output[_MV] != null) {
+    contents[_MV] = __strictParseInt32(output[_MV]) as number;
   }
-  if (output["MaxValue"] !== undefined) {
-    contents.MaxValue = __strictParseInt32(output["MaxValue"]) as number;
+  if (output[_MVa] != null) {
+    contents[_MVa] = __strictParseInt32(output[_MVa]) as number;
   }
-  if (output["MaxLength"] !== undefined) {
-    contents.MaxLength = __strictParseInt32(output["MaxLength"]) as number;
+  if (output[_ML] != null) {
+    contents[_ML] = __strictParseInt32(output[_ML]) as number;
   }
-  if (output["Regex"] !== undefined) {
-    contents.Regex = de_OptionRestrictionRegex(output["Regex"], context);
+  if (output[_R] != null) {
+    contents[_R] = de_OptionRestrictionRegex(output[_R], context);
   }
   return contents;
 };
@@ -5683,19 +5662,16 @@ const de_ConfigurationOptionPossibleValues = (output: any, context: __SerdeConte
  */
 const de_ConfigurationOptionsDescription = (output: any, context: __SerdeContext): ConfigurationOptionsDescription => {
   const contents: any = {};
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = __expectString(output["SolutionStackName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = __expectString(output["PlatformArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
   if (output.Options === "") {
-    contents.Options = [];
-  } else if (output["Options"] !== undefined && output["Options"]["member"] !== undefined) {
-    contents.Options = de_ConfigurationOptionDescriptionsList(
-      __getArrayIfSingleItem(output["Options"]["member"]),
-      context
-    );
+    contents[_O] = [];
+  } else if (output[_O] != null && output[_O][_m] != null) {
+    contents[_O] = de_ConfigurationOptionDescriptionsList(__getArrayIfSingleItem(output[_O][_m]), context);
   }
   return contents;
 };
@@ -5705,17 +5681,17 @@ const de_ConfigurationOptionsDescription = (output: any, context: __SerdeContext
  */
 const de_ConfigurationOptionSetting = (output: any, context: __SerdeContext): ConfigurationOptionSetting => {
   const contents: any = {};
-  if (output["ResourceName"] !== undefined) {
-    contents.ResourceName = __expectString(output["ResourceName"]);
+  if (output[_RN] != null) {
+    contents[_RN] = __expectString(output[_RN]);
   }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["OptionName"] !== undefined) {
-    contents.OptionName = __expectString(output["OptionName"]);
+  if (output[_ON] != null) {
+    contents[_ON] = __expectString(output[_ON]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -5739,40 +5715,37 @@ const de_ConfigurationSettingsDescription = (
   context: __SerdeContext
 ): ConfigurationSettingsDescription => {
   const contents: any = {};
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = __expectString(output["SolutionStackName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = __expectString(output["PlatformArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = __expectString(output["ApplicationName"]);
+  if (output[_ANp] != null) {
+    contents[_ANp] = __expectString(output[_ANp]);
   }
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = __expectString(output["EnvironmentName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["DeploymentStatus"] !== undefined) {
-    contents.DeploymentStatus = __expectString(output["DeploymentStatus"]);
+  if (output[_DS] != null) {
+    contents[_DS] = __expectString(output[_DS]);
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
+  if (output[_DC] != null) {
+    contents[_DC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DC]));
   }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
+  if (output[_DU] != null) {
+    contents[_DU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DU]));
   }
   if (output.OptionSettings === "") {
-    contents.OptionSettings = [];
-  } else if (output["OptionSettings"] !== undefined && output["OptionSettings"]["member"] !== undefined) {
-    contents.OptionSettings = de_ConfigurationOptionSettingsList(
-      __getArrayIfSingleItem(output["OptionSettings"]["member"]),
-      context
-    );
+    contents[_OS] = [];
+  } else if (output[_OS] != null && output[_OS][_m] != null) {
+    contents[_OS] = de_ConfigurationOptionSettingsList(__getArrayIfSingleItem(output[_OS][_m]), context);
   }
   return contents;
 };
@@ -5800,12 +5773,9 @@ const de_ConfigurationSettingsDescriptions = (
 ): ConfigurationSettingsDescriptions => {
   const contents: any = {};
   if (output.ConfigurationSettings === "") {
-    contents.ConfigurationSettings = [];
-  } else if (output["ConfigurationSettings"] !== undefined && output["ConfigurationSettings"]["member"] !== undefined) {
-    contents.ConfigurationSettings = de_ConfigurationSettingsDescriptionList(
-      __getArrayIfSingleItem(output["ConfigurationSettings"]["member"]),
-      context
-    );
+    contents[_CSo] = [];
+  } else if (output[_CSo] != null && output[_CSo][_m] != null) {
+    contents[_CSo] = de_ConfigurationSettingsDescriptionList(__getArrayIfSingleItem(output[_CSo][_m]), context);
   }
   return contents;
 };
@@ -5819,9 +5789,9 @@ const de_ConfigurationSettingsValidationMessages = (
 ): ConfigurationSettingsValidationMessages => {
   const contents: any = {};
   if (output.Messages === "") {
-    contents.Messages = [];
-  } else if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
-    contents.Messages = de_ValidationMessagesList(__getArrayIfSingleItem(output["Messages"]["member"]), context);
+    contents[_M] = [];
+  } else if (output[_M] != null && output[_M][_m] != null) {
+    contents[_M] = de_ValidationMessagesList(__getArrayIfSingleItem(output[_M][_m]), context);
   }
   return contents;
 };
@@ -5842,29 +5812,29 @@ const de_ConfigurationTemplateNamesList = (output: any, context: __SerdeContext)
  */
 const de_CPUUtilization = (output: any, context: __SerdeContext): CPUUtilization => {
   const contents: any = {};
-  if (output["User"] !== undefined) {
-    contents.User = __strictParseFloat(output["User"]) as number;
+  if (output[_U] != null) {
+    contents[_U] = __strictParseFloat(output[_U]) as number;
   }
-  if (output["Nice"] !== undefined) {
-    contents.Nice = __strictParseFloat(output["Nice"]) as number;
+  if (output[_Ni] != null) {
+    contents[_Ni] = __strictParseFloat(output[_Ni]) as number;
   }
-  if (output["System"] !== undefined) {
-    contents.System = __strictParseFloat(output["System"]) as number;
+  if (output[_Sy] != null) {
+    contents[_Sy] = __strictParseFloat(output[_Sy]) as number;
   }
-  if (output["Idle"] !== undefined) {
-    contents.Idle = __strictParseFloat(output["Idle"]) as number;
+  if (output[_Id] != null) {
+    contents[_Id] = __strictParseFloat(output[_Id]) as number;
   }
-  if (output["IOWait"] !== undefined) {
-    contents.IOWait = __strictParseFloat(output["IOWait"]) as number;
+  if (output[_IOW] != null) {
+    contents[_IOW] = __strictParseFloat(output[_IOW]) as number;
   }
-  if (output["IRQ"] !== undefined) {
-    contents.IRQ = __strictParseFloat(output["IRQ"]) as number;
+  if (output[_IRQ] != null) {
+    contents[_IRQ] = __strictParseFloat(output[_IRQ]) as number;
   }
-  if (output["SoftIRQ"] !== undefined) {
-    contents.SoftIRQ = __strictParseFloat(output["SoftIRQ"]) as number;
+  if (output[_SIRQ] != null) {
+    contents[_SIRQ] = __strictParseFloat(output[_SIRQ]) as number;
   }
-  if (output["Privileged"] !== undefined) {
-    contents.Privileged = __strictParseFloat(output["Privileged"]) as number;
+  if (output[_Pr] != null) {
+    contents[_Pr] = __strictParseFloat(output[_Pr]) as number;
   }
   return contents;
 };
@@ -5874,11 +5844,11 @@ const de_CPUUtilization = (output: any, context: __SerdeContext): CPUUtilization
  */
 const de_CreatePlatformVersionResult = (output: any, context: __SerdeContext): CreatePlatformVersionResult => {
   const contents: any = {};
-  if (output["PlatformSummary"] !== undefined) {
-    contents.PlatformSummary = de_PlatformSummary(output["PlatformSummary"], context);
+  if (output[_PS] != null) {
+    contents[_PS] = de_PlatformSummary(output[_PS], context);
   }
-  if (output["Builder"] !== undefined) {
-    contents.Builder = de_Builder(output["Builder"], context);
+  if (output[_B] != null) {
+    contents[_B] = de_Builder(output[_B], context);
   }
   return contents;
 };
@@ -5891,8 +5861,8 @@ const de_CreateStorageLocationResultMessage = (
   context: __SerdeContext
 ): CreateStorageLocationResultMessage => {
   const contents: any = {};
-  if (output["S3Bucket"] !== undefined) {
-    contents.S3Bucket = __expectString(output["S3Bucket"]);
+  if (output[_SBu] != null) {
+    contents[_SBu] = __expectString(output[_SBu]);
   }
   return contents;
 };
@@ -5902,11 +5872,11 @@ const de_CreateStorageLocationResultMessage = (
  */
 const de_CustomAmi = (output: any, context: __SerdeContext): CustomAmi => {
   const contents: any = {};
-  if (output["VirtualizationType"] !== undefined) {
-    contents.VirtualizationType = __expectString(output["VirtualizationType"]);
+  if (output[_VTi] != null) {
+    contents[_VTi] = __expectString(output[_VTi]);
   }
-  if (output["ImageId"] !== undefined) {
-    contents.ImageId = __expectString(output["ImageId"]);
+  if (output[_II] != null) {
+    contents[_II] = __expectString(output[_II]);
   }
   return contents;
 };
@@ -5927,8 +5897,8 @@ const de_CustomAmiList = (output: any, context: __SerdeContext): CustomAmi[] => 
  */
 const de_DeletePlatformVersionResult = (output: any, context: __SerdeContext): DeletePlatformVersionResult => {
   const contents: any = {};
-  if (output["PlatformSummary"] !== undefined) {
-    contents.PlatformSummary = de_PlatformSummary(output["PlatformSummary"], context);
+  if (output[_PS] != null) {
+    contents[_PS] = de_PlatformSummary(output[_PS], context);
   }
   return contents;
 };
@@ -5938,17 +5908,17 @@ const de_DeletePlatformVersionResult = (output: any, context: __SerdeContext): D
  */
 const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
   const contents: any = {};
-  if (output["VersionLabel"] !== undefined) {
-    contents.VersionLabel = __expectString(output["VersionLabel"]);
+  if (output[_VLe] != null) {
+    contents[_VLe] = __expectString(output[_VLe]);
   }
-  if (output["DeploymentId"] !== undefined) {
-    contents.DeploymentId = __strictParseLong(output["DeploymentId"]) as number;
+  if (output[_DI] != null) {
+    contents[_DI] = __strictParseLong(output[_DI]) as number;
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["DeploymentTime"] !== undefined) {
-    contents.DeploymentTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeploymentTime"]));
+  if (output[_DT] != null) {
+    contents[_DT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DT]));
   }
   return contents;
 };
@@ -5958,8 +5928,8 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
  */
 const de_DescribeAccountAttributesResult = (output: any, context: __SerdeContext): DescribeAccountAttributesResult => {
   const contents: any = {};
-  if (output["ResourceQuotas"] !== undefined) {
-    contents.ResourceQuotas = de_ResourceQuotas(output["ResourceQuotas"], context);
+  if (output[_RQ] != null) {
+    contents[_RQ] = de_ResourceQuotas(output[_RQ], context);
   }
   return contents;
 };
@@ -5969,31 +5939,31 @@ const de_DescribeAccountAttributesResult = (output: any, context: __SerdeContext
  */
 const de_DescribeEnvironmentHealthResult = (output: any, context: __SerdeContext): DescribeEnvironmentHealthResult => {
   const contents: any = {};
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = __expectString(output["EnvironmentName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = __expectString(output["HealthStatus"]);
+  if (output[_HS] != null) {
+    contents[_HS] = __expectString(output[_HS]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Color"] !== undefined) {
-    contents.Color = __expectString(output["Color"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   if (output.Causes === "") {
-    contents.Causes = [];
-  } else if (output["Causes"] !== undefined && output["Causes"]["member"] !== undefined) {
-    contents.Causes = de_Causes(__getArrayIfSingleItem(output["Causes"]["member"]), context);
+    contents[_Ca] = [];
+  } else if (output[_Ca] != null && output[_Ca][_m] != null) {
+    contents[_Ca] = de_Causes(__getArrayIfSingleItem(output[_Ca][_m]), context);
   }
-  if (output["ApplicationMetrics"] !== undefined) {
-    contents.ApplicationMetrics = de_ApplicationMetrics(output["ApplicationMetrics"], context);
+  if (output[_AM] != null) {
+    contents[_AM] = de_ApplicationMetrics(output[_AM], context);
   }
-  if (output["InstancesHealth"] !== undefined) {
-    contents.InstancesHealth = de_InstanceHealthSummary(output["InstancesHealth"], context);
+  if (output[_IH] != null) {
+    contents[_IH] = de_InstanceHealthSummary(output[_IH], context);
   }
-  if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RefreshedAt"]));
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RAe]));
   }
   return contents;
 };
@@ -6007,18 +5977,12 @@ const de_DescribeEnvironmentManagedActionHistoryResult = (
 ): DescribeEnvironmentManagedActionHistoryResult => {
   const contents: any = {};
   if (output.ManagedActionHistoryItems === "") {
-    contents.ManagedActionHistoryItems = [];
-  } else if (
-    output["ManagedActionHistoryItems"] !== undefined &&
-    output["ManagedActionHistoryItems"]["member"] !== undefined
-  ) {
-    contents.ManagedActionHistoryItems = de_ManagedActionHistoryItems(
-      __getArrayIfSingleItem(output["ManagedActionHistoryItems"]["member"]),
-      context
-    );
+    contents[_MAHI] = [];
+  } else if (output[_MAHI] != null && output[_MAHI][_m] != null) {
+    contents[_MAHI] = de_ManagedActionHistoryItems(__getArrayIfSingleItem(output[_MAHI][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6032,9 +5996,9 @@ const de_DescribeEnvironmentManagedActionsResult = (
 ): DescribeEnvironmentManagedActionsResult => {
   const contents: any = {};
   if (output.ManagedActions === "") {
-    contents.ManagedActions = [];
-  } else if (output["ManagedActions"] !== undefined && output["ManagedActions"]["member"] !== undefined) {
-    contents.ManagedActions = de_ManagedActions(__getArrayIfSingleItem(output["ManagedActions"]["member"]), context);
+    contents[_MA] = [];
+  } else if (output[_MA] != null && output[_MA][_m] != null) {
+    contents[_MA] = de_ManagedActions(__getArrayIfSingleItem(output[_MA][_m]), context);
   }
   return contents;
 };
@@ -6045,18 +6009,15 @@ const de_DescribeEnvironmentManagedActionsResult = (
 const de_DescribeInstancesHealthResult = (output: any, context: __SerdeContext): DescribeInstancesHealthResult => {
   const contents: any = {};
   if (output.InstanceHealthList === "") {
-    contents.InstanceHealthList = [];
-  } else if (output["InstanceHealthList"] !== undefined && output["InstanceHealthList"]["member"] !== undefined) {
-    contents.InstanceHealthList = de_InstanceHealthList(
-      __getArrayIfSingleItem(output["InstanceHealthList"]["member"]),
-      context
-    );
+    contents[_IHL] = [];
+  } else if (output[_IHL] != null && output[_IHL][_m] != null) {
+    contents[_IHL] = de_InstanceHealthList(__getArrayIfSingleItem(output[_IHL][_m]), context);
   }
-  if (output["RefreshedAt"] !== undefined) {
-    contents.RefreshedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RefreshedAt"]));
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RAe]));
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6066,8 +6027,8 @@ const de_DescribeInstancesHealthResult = (output: any, context: __SerdeContext):
  */
 const de_DescribePlatformVersionResult = (output: any, context: __SerdeContext): DescribePlatformVersionResult => {
   const contents: any = {};
-  if (output["PlatformDescription"] !== undefined) {
-    contents.PlatformDescription = de_PlatformDescription(output["PlatformDescription"], context);
+  if (output[_PD] != null) {
+    contents[_PD] = de_PlatformDescription(output[_PD], context);
   }
   return contents;
 };
@@ -6080,8 +6041,8 @@ const de_ElasticBeanstalkServiceException = (
   context: __SerdeContext
 ): ElasticBeanstalkServiceException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6091,73 +6052,70 @@ const de_ElasticBeanstalkServiceException = (
  */
 const de_EnvironmentDescription = (output: any, context: __SerdeContext): EnvironmentDescription => {
   const contents: any = {};
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = __expectString(output["EnvironmentName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["EnvironmentId"] !== undefined) {
-    contents.EnvironmentId = __expectString(output["EnvironmentId"]);
+  if (output[_EI] != null) {
+    contents[_EI] = __expectString(output[_EI]);
   }
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = __expectString(output["ApplicationName"]);
+  if (output[_ANp] != null) {
+    contents[_ANp] = __expectString(output[_ANp]);
   }
-  if (output["VersionLabel"] !== undefined) {
-    contents.VersionLabel = __expectString(output["VersionLabel"]);
+  if (output[_VLe] != null) {
+    contents[_VLe] = __expectString(output[_VLe]);
   }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = __expectString(output["SolutionStackName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = __expectString(output["PlatformArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["EndpointURL"] !== undefined) {
-    contents.EndpointURL = __expectString(output["EndpointURL"]);
+  if (output[_EURL] != null) {
+    contents[_EURL] = __expectString(output[_EURL]);
   }
-  if (output["CNAME"] !== undefined) {
-    contents.CNAME = __expectString(output["CNAME"]);
+  if (output[_CNAME] != null) {
+    contents[_CNAME] = __expectString(output[_CNAME]);
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
+  if (output[_DC] != null) {
+    contents[_DC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DC]));
   }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
+  if (output[_DU] != null) {
+    contents[_DU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DU]));
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["AbortableOperationInProgress"] !== undefined) {
-    contents.AbortableOperationInProgress = __parseBoolean(output["AbortableOperationInProgress"]);
+  if (output[_AOIP] != null) {
+    contents[_AOIP] = __parseBoolean(output[_AOIP]);
   }
-  if (output["Health"] !== undefined) {
-    contents.Health = __expectString(output["Health"]);
+  if (output[_H] != null) {
+    contents[_H] = __expectString(output[_H]);
   }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = __expectString(output["HealthStatus"]);
+  if (output[_HS] != null) {
+    contents[_HS] = __expectString(output[_HS]);
   }
-  if (output["Resources"] !== undefined) {
-    contents.Resources = de_EnvironmentResourcesDescription(output["Resources"], context);
+  if (output[_Re] != null) {
+    contents[_Re] = de_EnvironmentResourcesDescription(output[_Re], context);
   }
-  if (output["Tier"] !== undefined) {
-    contents.Tier = de_EnvironmentTier(output["Tier"], context);
+  if (output[_Ti] != null) {
+    contents[_Ti] = de_EnvironmentTier(output[_Ti], context);
   }
   if (output.EnvironmentLinks === "") {
-    contents.EnvironmentLinks = [];
-  } else if (output["EnvironmentLinks"] !== undefined && output["EnvironmentLinks"]["member"] !== undefined) {
-    contents.EnvironmentLinks = de_EnvironmentLinks(
-      __getArrayIfSingleItem(output["EnvironmentLinks"]["member"]),
-      context
-    );
+    contents[_EL] = [];
+  } else if (output[_EL] != null && output[_EL][_m] != null) {
+    contents[_EL] = de_EnvironmentLinks(__getArrayIfSingleItem(output[_EL][_m]), context);
   }
-  if (output["EnvironmentArn"] !== undefined) {
-    contents.EnvironmentArn = __expectString(output["EnvironmentArn"]);
+  if (output[_EA] != null) {
+    contents[_EA] = __expectString(output[_EA]);
   }
-  if (output["OperationsRole"] !== undefined) {
-    contents.OperationsRole = __expectString(output["OperationsRole"]);
+  if (output[_OR] != null) {
+    contents[_OR] = __expectString(output[_OR]);
   }
   return contents;
 };
@@ -6179,15 +6137,12 @@ const de_EnvironmentDescriptionsList = (output: any, context: __SerdeContext): E
 const de_EnvironmentDescriptionsMessage = (output: any, context: __SerdeContext): EnvironmentDescriptionsMessage => {
   const contents: any = {};
   if (output.Environments === "") {
-    contents.Environments = [];
-  } else if (output["Environments"] !== undefined && output["Environments"]["member"] !== undefined) {
-    contents.Environments = de_EnvironmentDescriptionsList(
-      __getArrayIfSingleItem(output["Environments"]["member"]),
-      context
-    );
+    contents[_En] = [];
+  } else if (output[_En] != null && output[_En][_m] != null) {
+    contents[_En] = de_EnvironmentDescriptionsList(__getArrayIfSingleItem(output[_En][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6197,17 +6152,17 @@ const de_EnvironmentDescriptionsMessage = (output: any, context: __SerdeContext)
  */
 const de_EnvironmentInfoDescription = (output: any, context: __SerdeContext): EnvironmentInfoDescription => {
   const contents: any = {};
-  if (output["InfoType"] !== undefined) {
-    contents.InfoType = __expectString(output["InfoType"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __expectString(output[_IT]);
   }
-  if (output["Ec2InstanceId"] !== undefined) {
-    contents.Ec2InstanceId = __expectString(output["Ec2InstanceId"]);
+  if (output[_EII] != null) {
+    contents[_EII] = __expectString(output[_EII]);
   }
-  if (output["SampleTimestamp"] !== undefined) {
-    contents.SampleTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SampleTimestamp"]));
+  if (output[_STa] != null) {
+    contents[_STa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STa]));
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -6228,11 +6183,11 @@ const de_EnvironmentInfoDescriptionList = (output: any, context: __SerdeContext)
  */
 const de_EnvironmentLink = (output: any, context: __SerdeContext): EnvironmentLink => {
   const contents: any = {};
-  if (output["LinkName"] !== undefined) {
-    contents.LinkName = __expectString(output["LinkName"]);
+  if (output[_LN] != null) {
+    contents[_LN] = __expectString(output[_LN]);
   }
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = __expectString(output["EnvironmentName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
   return contents;
 };
@@ -6253,52 +6208,43 @@ const de_EnvironmentLinks = (output: any, context: __SerdeContext): EnvironmentL
  */
 const de_EnvironmentResourceDescription = (output: any, context: __SerdeContext): EnvironmentResourceDescription => {
   const contents: any = {};
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = __expectString(output["EnvironmentName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
   if (output.AutoScalingGroups === "") {
-    contents.AutoScalingGroups = [];
-  } else if (output["AutoScalingGroups"] !== undefined && output["AutoScalingGroups"]["member"] !== undefined) {
-    contents.AutoScalingGroups = de_AutoScalingGroupList(
-      __getArrayIfSingleItem(output["AutoScalingGroups"]["member"]),
-      context
-    );
+    contents[_ASG] = [];
+  } else if (output[_ASG] != null && output[_ASG][_m] != null) {
+    contents[_ASG] = de_AutoScalingGroupList(__getArrayIfSingleItem(output[_ASG][_m]), context);
   }
   if (output.Instances === "") {
-    contents.Instances = [];
-  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = de_InstanceList(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+    contents[_In] = [];
+  } else if (output[_In] != null && output[_In][_m] != null) {
+    contents[_In] = de_InstanceList(__getArrayIfSingleItem(output[_In][_m]), context);
   }
   if (output.LaunchConfigurations === "") {
-    contents.LaunchConfigurations = [];
-  } else if (output["LaunchConfigurations"] !== undefined && output["LaunchConfigurations"]["member"] !== undefined) {
-    contents.LaunchConfigurations = de_LaunchConfigurationList(
-      __getArrayIfSingleItem(output["LaunchConfigurations"]["member"]),
-      context
-    );
+    contents[_LC] = [];
+  } else if (output[_LC] != null && output[_LC][_m] != null) {
+    contents[_LC] = de_LaunchConfigurationList(__getArrayIfSingleItem(output[_LC][_m]), context);
   }
   if (output.LaunchTemplates === "") {
-    contents.LaunchTemplates = [];
-  } else if (output["LaunchTemplates"] !== undefined && output["LaunchTemplates"]["member"] !== undefined) {
-    contents.LaunchTemplates = de_LaunchTemplateList(
-      __getArrayIfSingleItem(output["LaunchTemplates"]["member"]),
-      context
-    );
+    contents[_LT] = [];
+  } else if (output[_LT] != null && output[_LT][_m] != null) {
+    contents[_LT] = de_LaunchTemplateList(__getArrayIfSingleItem(output[_LT][_m]), context);
   }
   if (output.LoadBalancers === "") {
-    contents.LoadBalancers = [];
-  } else if (output["LoadBalancers"] !== undefined && output["LoadBalancers"]["member"] !== undefined) {
-    contents.LoadBalancers = de_LoadBalancerList(__getArrayIfSingleItem(output["LoadBalancers"]["member"]), context);
+    contents[_LB] = [];
+  } else if (output[_LB] != null && output[_LB][_m] != null) {
+    contents[_LB] = de_LoadBalancerList(__getArrayIfSingleItem(output[_LB][_m]), context);
   }
   if (output.Triggers === "") {
-    contents.Triggers = [];
-  } else if (output["Triggers"] !== undefined && output["Triggers"]["member"] !== undefined) {
-    contents.Triggers = de_TriggerList(__getArrayIfSingleItem(output["Triggers"]["member"]), context);
+    contents[_Tr] = [];
+  } else if (output[_Tr] != null && output[_Tr][_m] != null) {
+    contents[_Tr] = de_TriggerList(__getArrayIfSingleItem(output[_Tr][_m]), context);
   }
   if (output.Queues === "") {
-    contents.Queues = [];
-  } else if (output["Queues"] !== undefined && output["Queues"]["member"] !== undefined) {
-    contents.Queues = de_QueueList(__getArrayIfSingleItem(output["Queues"]["member"]), context);
+    contents[_Q] = [];
+  } else if (output[_Q] != null && output[_Q][_m] != null) {
+    contents[_Q] = de_QueueList(__getArrayIfSingleItem(output[_Q][_m]), context);
   }
   return contents;
 };
@@ -6311,8 +6257,8 @@ const de_EnvironmentResourceDescriptionsMessage = (
   context: __SerdeContext
 ): EnvironmentResourceDescriptionsMessage => {
   const contents: any = {};
-  if (output["EnvironmentResources"] !== undefined) {
-    contents.EnvironmentResources = de_EnvironmentResourceDescription(output["EnvironmentResources"], context);
+  if (output[_ER] != null) {
+    contents[_ER] = de_EnvironmentResourceDescription(output[_ER], context);
   }
   return contents;
 };
@@ -6322,8 +6268,8 @@ const de_EnvironmentResourceDescriptionsMessage = (
  */
 const de_EnvironmentResourcesDescription = (output: any, context: __SerdeContext): EnvironmentResourcesDescription => {
   const contents: any = {};
-  if (output["LoadBalancer"] !== undefined) {
-    contents.LoadBalancer = de_LoadBalancerDescription(output["LoadBalancer"], context);
+  if (output[_LBo] != null) {
+    contents[_LBo] = de_LoadBalancerDescription(output[_LBo], context);
   }
   return contents;
 };
@@ -6333,14 +6279,14 @@ const de_EnvironmentResourcesDescription = (output: any, context: __SerdeContext
  */
 const de_EnvironmentTier = (output: any, context: __SerdeContext): EnvironmentTier => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __expectString(output["Version"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -6350,32 +6296,32 @@ const de_EnvironmentTier = (output: any, context: __SerdeContext): EnvironmentTi
  */
 const de_EventDescription = (output: any, context: __SerdeContext): EventDescription => {
   const contents: any = {};
-  if (output["EventDate"] !== undefined) {
-    contents.EventDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EventDate"]));
+  if (output[_ED] != null) {
+    contents[_ED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ED]));
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["ApplicationName"] !== undefined) {
-    contents.ApplicationName = __expectString(output["ApplicationName"]);
+  if (output[_ANp] != null) {
+    contents[_ANp] = __expectString(output[_ANp]);
   }
-  if (output["VersionLabel"] !== undefined) {
-    contents.VersionLabel = __expectString(output["VersionLabel"]);
+  if (output[_VLe] != null) {
+    contents[_VLe] = __expectString(output[_VLe]);
   }
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["EnvironmentName"] !== undefined) {
-    contents.EnvironmentName = __expectString(output["EnvironmentName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = __expectString(output["PlatformArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
-  if (output["RequestId"] !== undefined) {
-    contents.RequestId = __expectString(output["RequestId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
-  if (output["Severity"] !== undefined) {
-    contents.Severity = __expectString(output["Severity"]);
+  if (output[_Se] != null) {
+    contents[_Se] = __expectString(output[_Se]);
   }
   return contents;
 };
@@ -6397,12 +6343,12 @@ const de_EventDescriptionList = (output: any, context: __SerdeContext): EventDes
 const de_EventDescriptionsMessage = (output: any, context: __SerdeContext): EventDescriptionsMessage => {
   const contents: any = {};
   if (output.Events === "") {
-    contents.Events = [];
-  } else if (output["Events"] !== undefined && output["Events"]["member"] !== undefined) {
-    contents.Events = de_EventDescriptionList(__getArrayIfSingleItem(output["Events"]["member"]), context);
+    contents[_Ev] = [];
+  } else if (output[_Ev] != null && output[_Ev][_m] != null) {
+    contents[_Ev] = de_EventDescriptionList(__getArrayIfSingleItem(output[_Ev][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6412,8 +6358,8 @@ const de_EventDescriptionsMessage = (output: any, context: __SerdeContext): Even
  */
 const de_Instance = (output: any, context: __SerdeContext): Instance => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id_] != null) {
+    contents[_Id_] = __expectString(output[_Id_]);
   }
   return contents;
 };
@@ -6434,29 +6380,29 @@ const de_InstanceHealthList = (output: any, context: __SerdeContext): SingleInst
  */
 const de_InstanceHealthSummary = (output: any, context: __SerdeContext): InstanceHealthSummary => {
   const contents: any = {};
-  if (output["NoData"] !== undefined) {
-    contents.NoData = __strictParseInt32(output["NoData"]) as number;
+  if (output[_ND] != null) {
+    contents[_ND] = __strictParseInt32(output[_ND]) as number;
   }
-  if (output["Unknown"] !== undefined) {
-    contents.Unknown = __strictParseInt32(output["Unknown"]) as number;
+  if (output[_Un] != null) {
+    contents[_Un] = __strictParseInt32(output[_Un]) as number;
   }
-  if (output["Pending"] !== undefined) {
-    contents.Pending = __strictParseInt32(output["Pending"]) as number;
+  if (output[_Pe] != null) {
+    contents[_Pe] = __strictParseInt32(output[_Pe]) as number;
   }
-  if (output["Ok"] !== undefined) {
-    contents.Ok = __strictParseInt32(output["Ok"]) as number;
+  if (output[_Ok] != null) {
+    contents[_Ok] = __strictParseInt32(output[_Ok]) as number;
   }
-  if (output["Info"] !== undefined) {
-    contents.Info = __strictParseInt32(output["Info"]) as number;
+  if (output[_Inf] != null) {
+    contents[_Inf] = __strictParseInt32(output[_Inf]) as number;
   }
-  if (output["Warning"] !== undefined) {
-    contents.Warning = __strictParseInt32(output["Warning"]) as number;
+  if (output[_W] != null) {
+    contents[_W] = __strictParseInt32(output[_W]) as number;
   }
-  if (output["Degraded"] !== undefined) {
-    contents.Degraded = __strictParseInt32(output["Degraded"]) as number;
+  if (output[_De] != null) {
+    contents[_De] = __strictParseInt32(output[_De]) as number;
   }
-  if (output["Severe"] !== undefined) {
-    contents.Severe = __strictParseInt32(output["Severe"]) as number;
+  if (output[_Sev] != null) {
+    contents[_Sev] = __strictParseInt32(output[_Sev]) as number;
   }
   return contents;
 };
@@ -6477,8 +6423,8 @@ const de_InstanceList = (output: any, context: __SerdeContext): Instance[] => {
  */
 const de_InsufficientPrivilegesException = (output: any, context: __SerdeContext): InsufficientPrivilegesException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6488,8 +6434,8 @@ const de_InsufficientPrivilegesException = (output: any, context: __SerdeContext
  */
 const de_InvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6499,29 +6445,29 @@ const de_InvalidRequestException = (output: any, context: __SerdeContext): Inval
  */
 const de_Latency = (output: any, context: __SerdeContext): Latency => {
   const contents: any = {};
-  if (output["P999"] !== undefined) {
-    contents.P999 = __strictParseFloat(output["P999"]) as number;
+  if (output[_P_] != null) {
+    contents[_P_] = __strictParseFloat(output[_P_]) as number;
   }
-  if (output["P99"] !== undefined) {
-    contents.P99 = __strictParseFloat(output["P99"]) as number;
+  if (output[_P__] != null) {
+    contents[_P__] = __strictParseFloat(output[_P__]) as number;
   }
-  if (output["P95"] !== undefined) {
-    contents.P95 = __strictParseFloat(output["P95"]) as number;
+  if (output[_P___] != null) {
+    contents[_P___] = __strictParseFloat(output[_P___]) as number;
   }
-  if (output["P90"] !== undefined) {
-    contents.P90 = __strictParseFloat(output["P90"]) as number;
+  if (output[_P____] != null) {
+    contents[_P____] = __strictParseFloat(output[_P____]) as number;
   }
-  if (output["P85"] !== undefined) {
-    contents.P85 = __strictParseFloat(output["P85"]) as number;
+  if (output[_P_____] != null) {
+    contents[_P_____] = __strictParseFloat(output[_P_____]) as number;
   }
-  if (output["P75"] !== undefined) {
-    contents.P75 = __strictParseFloat(output["P75"]) as number;
+  if (output[_P______] != null) {
+    contents[_P______] = __strictParseFloat(output[_P______]) as number;
   }
-  if (output["P50"] !== undefined) {
-    contents.P50 = __strictParseFloat(output["P50"]) as number;
+  if (output[_P_______] != null) {
+    contents[_P_______] = __strictParseFloat(output[_P_______]) as number;
   }
-  if (output["P10"] !== undefined) {
-    contents.P10 = __strictParseFloat(output["P10"]) as number;
+  if (output[_P________] != null) {
+    contents[_P________] = __strictParseFloat(output[_P________]) as number;
   }
   return contents;
 };
@@ -6531,8 +6477,8 @@ const de_Latency = (output: any, context: __SerdeContext): Latency => {
  */
 const de_LaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
   return contents;
 };
@@ -6553,8 +6499,8 @@ const de_LaunchConfigurationList = (output: any, context: __SerdeContext): Launc
  */
 const de_LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id_] != null) {
+    contents[_Id_] = __expectString(output[_Id_]);
   }
   return contents;
 };
@@ -6579,20 +6525,14 @@ const de_ListAvailableSolutionStacksResultMessage = (
 ): ListAvailableSolutionStacksResultMessage => {
   const contents: any = {};
   if (output.SolutionStacks === "") {
-    contents.SolutionStacks = [];
-  } else if (output["SolutionStacks"] !== undefined && output["SolutionStacks"]["member"] !== undefined) {
-    contents.SolutionStacks = de_AvailableSolutionStackNamesList(
-      __getArrayIfSingleItem(output["SolutionStacks"]["member"]),
-      context
-    );
+    contents[_SS] = [];
+  } else if (output[_SS] != null && output[_SS][_m] != null) {
+    contents[_SS] = de_AvailableSolutionStackNamesList(__getArrayIfSingleItem(output[_SS][_m]), context);
   }
   if (output.SolutionStackDetails === "") {
-    contents.SolutionStackDetails = [];
-  } else if (output["SolutionStackDetails"] !== undefined && output["SolutionStackDetails"]["member"] !== undefined) {
-    contents.SolutionStackDetails = de_AvailableSolutionStackDetailsList(
-      __getArrayIfSingleItem(output["SolutionStackDetails"]["member"]),
-      context
-    );
+    contents[_SSD] = [];
+  } else if (output[_SSD] != null && output[_SSD][_m] != null) {
+    contents[_SSD] = de_AvailableSolutionStackDetailsList(__getArrayIfSingleItem(output[_SSD][_m]), context);
   }
   return contents;
 };
@@ -6602,11 +6542,11 @@ const de_ListAvailableSolutionStacksResultMessage = (
  */
 const de_Listener = (output: any, context: __SerdeContext): Listener => {
   const contents: any = {};
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_Pro] != null) {
+    contents[_Pro] = __expectString(output[_Pro]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_Po] != null) {
+    contents[_Po] = __strictParseInt32(output[_Po]) as number;
   }
   return contents;
 };
@@ -6617,18 +6557,12 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
 const de_ListPlatformBranchesResult = (output: any, context: __SerdeContext): ListPlatformBranchesResult => {
   const contents: any = {};
   if (output.PlatformBranchSummaryList === "") {
-    contents.PlatformBranchSummaryList = [];
-  } else if (
-    output["PlatformBranchSummaryList"] !== undefined &&
-    output["PlatformBranchSummaryList"]["member"] !== undefined
-  ) {
-    contents.PlatformBranchSummaryList = de_PlatformBranchSummaryList(
-      __getArrayIfSingleItem(output["PlatformBranchSummaryList"]["member"]),
-      context
-    );
+    contents[_PBSL] = [];
+  } else if (output[_PBSL] != null && output[_PBSL][_m] != null) {
+    contents[_PBSL] = de_PlatformBranchSummaryList(__getArrayIfSingleItem(output[_PBSL][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6639,15 +6573,12 @@ const de_ListPlatformBranchesResult = (output: any, context: __SerdeContext): Li
 const de_ListPlatformVersionsResult = (output: any, context: __SerdeContext): ListPlatformVersionsResult => {
   const contents: any = {};
   if (output.PlatformSummaryList === "") {
-    contents.PlatformSummaryList = [];
-  } else if (output["PlatformSummaryList"] !== undefined && output["PlatformSummaryList"]["member"] !== undefined) {
-    contents.PlatformSummaryList = de_PlatformSummaryList(
-      __getArrayIfSingleItem(output["PlatformSummaryList"]["member"]),
-      context
-    );
+    contents[_PSL] = [];
+  } else if (output[_PSL] != null && output[_PSL][_m] != null) {
+    contents[_PSL] = de_PlatformSummaryList(__getArrayIfSingleItem(output[_PSL][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -6668,8 +6599,8 @@ const de_LoadAverage = (output: any, context: __SerdeContext): number[] => {
  */
 const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
   return contents;
 };
@@ -6679,19 +6610,16 @@ const de_LoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => 
  */
 const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
   const contents: any = {};
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
+  if (output[_LBN] != null) {
+    contents[_LBN] = __expectString(output[_LBN]);
   }
-  if (output["Domain"] !== undefined) {
-    contents.Domain = __expectString(output["Domain"]);
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
   }
   if (output.Listeners === "") {
-    contents.Listeners = [];
-  } else if (output["Listeners"] !== undefined && output["Listeners"]["member"] !== undefined) {
-    contents.Listeners = de_LoadBalancerListenersDescription(
-      __getArrayIfSingleItem(output["Listeners"]["member"]),
-      context
-    );
+    contents[_Li] = [];
+  } else if (output[_Li] != null && output[_Li][_m] != null) {
+    contents[_Li] = de_LoadBalancerListenersDescription(__getArrayIfSingleItem(output[_Li][_m]), context);
   }
   return contents;
 };
@@ -6723,20 +6651,20 @@ const de_LoadBalancerListenersDescription = (output: any, context: __SerdeContex
  */
 const de_ManagedAction = (output: any, context: __SerdeContext): ManagedAction => {
   const contents: any = {};
-  if (output["ActionId"] !== undefined) {
-    contents.ActionId = __expectString(output["ActionId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
-  if (output["ActionDescription"] !== undefined) {
-    contents.ActionDescription = __expectString(output["ActionDescription"]);
+  if (output[_AD] != null) {
+    contents[_AD] = __expectString(output[_AD]);
   }
-  if (output["ActionType"] !== undefined) {
-    contents.ActionType = __expectString(output["ActionType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["WindowStartTime"] !== undefined) {
-    contents.WindowStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["WindowStartTime"]));
+  if (output[_WST] != null) {
+    contents[_WST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_WST]));
   }
   return contents;
 };
@@ -6746,29 +6674,29 @@ const de_ManagedAction = (output: any, context: __SerdeContext): ManagedAction =
  */
 const de_ManagedActionHistoryItem = (output: any, context: __SerdeContext): ManagedActionHistoryItem => {
   const contents: any = {};
-  if (output["ActionId"] !== undefined) {
-    contents.ActionId = __expectString(output["ActionId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
-  if (output["ActionType"] !== undefined) {
-    contents.ActionType = __expectString(output["ActionType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["ActionDescription"] !== undefined) {
-    contents.ActionDescription = __expectString(output["ActionDescription"]);
+  if (output[_AD] != null) {
+    contents[_AD] = __expectString(output[_AD]);
   }
-  if (output["FailureType"] !== undefined) {
-    contents.FailureType = __expectString(output["FailureType"]);
+  if (output[_FTa] != null) {
+    contents[_FTa] = __expectString(output[_FTa]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["FailureDescription"] !== undefined) {
-    contents.FailureDescription = __expectString(output["FailureDescription"]);
+  if (output[_FD] != null) {
+    contents[_FD] = __expectString(output[_FD]);
   }
-  if (output["ExecutedTime"] !== undefined) {
-    contents.ExecutedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ExecutedTime"]));
+  if (output[_ETx] != null) {
+    contents[_ETx] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ETx]));
   }
-  if (output["FinishedTime"] !== undefined) {
-    contents.FinishedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["FinishedTime"]));
+  if (output[_FTi] != null) {
+    contents[_FTi] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_FTi]));
   }
   return contents;
 };
@@ -6792,8 +6720,8 @@ const de_ManagedActionInvalidStateException = (
   context: __SerdeContext
 ): ManagedActionInvalidStateException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6814,14 +6742,14 @@ const de_ManagedActions = (output: any, context: __SerdeContext): ManagedAction[
  */
 const de_MaxAgeRule = (output: any, context: __SerdeContext): MaxAgeRule => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["MaxAgeInDays"] !== undefined) {
-    contents.MaxAgeInDays = __strictParseInt32(output["MaxAgeInDays"]) as number;
+  if (output[_MAID] != null) {
+    contents[_MAID] = __strictParseInt32(output[_MAID]) as number;
   }
-  if (output["DeleteSourceFromS3"] !== undefined) {
-    contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
+  if (output[_DSFS] != null) {
+    contents[_DSFS] = __parseBoolean(output[_DSFS]);
   }
   return contents;
 };
@@ -6831,14 +6759,14 @@ const de_MaxAgeRule = (output: any, context: __SerdeContext): MaxAgeRule => {
  */
 const de_MaxCountRule = (output: any, context: __SerdeContext): MaxCountRule => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["MaxCount"] !== undefined) {
-    contents.MaxCount = __strictParseInt32(output["MaxCount"]) as number;
+  if (output[_MC] != null) {
+    contents[_MC] = __strictParseInt32(output[_MC]) as number;
   }
-  if (output["DeleteSourceFromS3"] !== undefined) {
-    contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
+  if (output[_DSFS] != null) {
+    contents[_DSFS] = __parseBoolean(output[_DSFS]);
   }
   return contents;
 };
@@ -6848,8 +6776,8 @@ const de_MaxCountRule = (output: any, context: __SerdeContext): MaxCountRule => 
  */
 const de_OperationInProgressException = (output: any, context: __SerdeContext): OperationInProgressException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6859,11 +6787,11 @@ const de_OperationInProgressException = (output: any, context: __SerdeContext): 
  */
 const de_OptionRestrictionRegex = (output: any, context: __SerdeContext): OptionRestrictionRegex => {
   const contents: any = {};
-  if (output["Pattern"] !== undefined) {
-    contents.Pattern = __expectString(output["Pattern"]);
+  if (output[_Pa] != null) {
+    contents[_Pa] = __expectString(output[_Pa]);
   }
-  if (output["Label"] !== undefined) {
-    contents.Label = __expectString(output["Label"]);
+  if (output[_La] != null) {
+    contents[_La] = __expectString(output[_La]);
   }
   return contents;
 };
@@ -6873,25 +6801,22 @@ const de_OptionRestrictionRegex = (output: any, context: __SerdeContext): Option
  */
 const de_PlatformBranchSummary = (output: any, context: __SerdeContext): PlatformBranchSummary => {
   const contents: any = {};
-  if (output["PlatformName"] !== undefined) {
-    contents.PlatformName = __expectString(output["PlatformName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["BranchName"] !== undefined) {
-    contents.BranchName = __expectString(output["BranchName"]);
+  if (output[_BN] != null) {
+    contents[_BN] = __expectString(output[_BN]);
   }
-  if (output["LifecycleState"] !== undefined) {
-    contents.LifecycleState = __expectString(output["LifecycleState"]);
+  if (output[_LS] != null) {
+    contents[_LS] = __expectString(output[_LS]);
   }
-  if (output["BranchOrder"] !== undefined) {
-    contents.BranchOrder = __strictParseInt32(output["BranchOrder"]) as number;
+  if (output[_BO] != null) {
+    contents[_BO] = __strictParseInt32(output[_BO]) as number;
   }
   if (output.SupportedTierList === "") {
-    contents.SupportedTierList = [];
-  } else if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
-    contents.SupportedTierList = de_SupportedTierList(
-      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
-      context
-    );
+    contents[_STL] = [];
+  } else if (output[_STL] != null && output[_STL][_m] != null) {
+    contents[_STL] = de_SupportedTierList(__getArrayIfSingleItem(output[_STL][_m]), context);
   }
   return contents;
 };
@@ -6912,87 +6837,78 @@ const de_PlatformBranchSummaryList = (output: any, context: __SerdeContext): Pla
  */
 const de_PlatformDescription = (output: any, context: __SerdeContext): PlatformDescription => {
   const contents: any = {};
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = __expectString(output["PlatformArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
-  if (output["PlatformOwner"] !== undefined) {
-    contents.PlatformOwner = __expectString(output["PlatformOwner"]);
+  if (output[_PO] != null) {
+    contents[_PO] = __expectString(output[_PO]);
   }
-  if (output["PlatformName"] !== undefined) {
-    contents.PlatformName = __expectString(output["PlatformName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PlatformVersion"] !== undefined) {
-    contents.PlatformVersion = __expectString(output["PlatformVersion"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = __expectString(output["SolutionStackName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
-  if (output["PlatformStatus"] !== undefined) {
-    contents.PlatformStatus = __expectString(output["PlatformStatus"]);
+  if (output[_PSl] != null) {
+    contents[_PSl] = __expectString(output[_PSl]);
   }
-  if (output["DateCreated"] !== undefined) {
-    contents.DateCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateCreated"]));
+  if (output[_DC] != null) {
+    contents[_DC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DC]));
   }
-  if (output["DateUpdated"] !== undefined) {
-    contents.DateUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DateUpdated"]));
+  if (output[_DU] != null) {
+    contents[_DU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DU]));
   }
-  if (output["PlatformCategory"] !== undefined) {
-    contents.PlatformCategory = __expectString(output["PlatformCategory"]);
+  if (output[_PC] != null) {
+    contents[_PC] = __expectString(output[_PC]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Maintainer"] !== undefined) {
-    contents.Maintainer = __expectString(output["Maintainer"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
-  if (output["OperatingSystemName"] !== undefined) {
-    contents.OperatingSystemName = __expectString(output["OperatingSystemName"]);
+  if (output[_OSN] != null) {
+    contents[_OSN] = __expectString(output[_OSN]);
   }
-  if (output["OperatingSystemVersion"] !== undefined) {
-    contents.OperatingSystemVersion = __expectString(output["OperatingSystemVersion"]);
+  if (output[_OSV] != null) {
+    contents[_OSV] = __expectString(output[_OSV]);
   }
   if (output.ProgrammingLanguages === "") {
-    contents.ProgrammingLanguages = [];
-  } else if (output["ProgrammingLanguages"] !== undefined && output["ProgrammingLanguages"]["member"] !== undefined) {
-    contents.ProgrammingLanguages = de_PlatformProgrammingLanguages(
-      __getArrayIfSingleItem(output["ProgrammingLanguages"]["member"]),
-      context
-    );
+    contents[_PL] = [];
+  } else if (output[_PL] != null && output[_PL][_m] != null) {
+    contents[_PL] = de_PlatformProgrammingLanguages(__getArrayIfSingleItem(output[_PL][_m]), context);
   }
   if (output.Frameworks === "") {
-    contents.Frameworks = [];
-  } else if (output["Frameworks"] !== undefined && output["Frameworks"]["member"] !== undefined) {
-    contents.Frameworks = de_PlatformFrameworks(__getArrayIfSingleItem(output["Frameworks"]["member"]), context);
+    contents[_Fr] = [];
+  } else if (output[_Fr] != null && output[_Fr][_m] != null) {
+    contents[_Fr] = de_PlatformFrameworks(__getArrayIfSingleItem(output[_Fr][_m]), context);
   }
   if (output.CustomAmiList === "") {
-    contents.CustomAmiList = [];
-  } else if (output["CustomAmiList"] !== undefined && output["CustomAmiList"]["member"] !== undefined) {
-    contents.CustomAmiList = de_CustomAmiList(__getArrayIfSingleItem(output["CustomAmiList"]["member"]), context);
+    contents[_CAL] = [];
+  } else if (output[_CAL] != null && output[_CAL][_m] != null) {
+    contents[_CAL] = de_CustomAmiList(__getArrayIfSingleItem(output[_CAL][_m]), context);
   }
   if (output.SupportedTierList === "") {
-    contents.SupportedTierList = [];
-  } else if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
-    contents.SupportedTierList = de_SupportedTierList(
-      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
-      context
-    );
+    contents[_STL] = [];
+  } else if (output[_STL] != null && output[_STL][_m] != null) {
+    contents[_STL] = de_SupportedTierList(__getArrayIfSingleItem(output[_STL][_m]), context);
   }
   if (output.SupportedAddonList === "") {
-    contents.SupportedAddonList = [];
-  } else if (output["SupportedAddonList"] !== undefined && output["SupportedAddonList"]["member"] !== undefined) {
-    contents.SupportedAddonList = de_SupportedAddonList(
-      __getArrayIfSingleItem(output["SupportedAddonList"]["member"]),
-      context
-    );
+    contents[_SAL] = [];
+  } else if (output[_SAL] != null && output[_SAL][_m] != null) {
+    contents[_SAL] = de_SupportedAddonList(__getArrayIfSingleItem(output[_SAL][_m]), context);
   }
-  if (output["PlatformLifecycleState"] !== undefined) {
-    contents.PlatformLifecycleState = __expectString(output["PlatformLifecycleState"]);
+  if (output[_PLS] != null) {
+    contents[_PLS] = __expectString(output[_PLS]);
   }
-  if (output["PlatformBranchName"] !== undefined) {
-    contents.PlatformBranchName = __expectString(output["PlatformBranchName"]);
+  if (output[_PBN] != null) {
+    contents[_PBN] = __expectString(output[_PBN]);
   }
-  if (output["PlatformBranchLifecycleState"] !== undefined) {
-    contents.PlatformBranchLifecycleState = __expectString(output["PlatformBranchLifecycleState"]);
+  if (output[_PBLS] != null) {
+    contents[_PBLS] = __expectString(output[_PBLS]);
   }
   return contents;
 };
@@ -7002,11 +6918,11 @@ const de_PlatformDescription = (output: any, context: __SerdeContext): PlatformD
  */
 const de_PlatformFramework = (output: any, context: __SerdeContext): PlatformFramework => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __expectString(output["Version"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -7027,11 +6943,11 @@ const de_PlatformFrameworks = (output: any, context: __SerdeContext): PlatformFr
  */
 const de_PlatformProgrammingLanguage = (output: any, context: __SerdeContext): PlatformProgrammingLanguage => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __expectString(output["Version"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -7052,51 +6968,45 @@ const de_PlatformProgrammingLanguages = (output: any, context: __SerdeContext): 
  */
 const de_PlatformSummary = (output: any, context: __SerdeContext): PlatformSummary => {
   const contents: any = {};
-  if (output["PlatformArn"] !== undefined) {
-    contents.PlatformArn = __expectString(output["PlatformArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
-  if (output["PlatformOwner"] !== undefined) {
-    contents.PlatformOwner = __expectString(output["PlatformOwner"]);
+  if (output[_PO] != null) {
+    contents[_PO] = __expectString(output[_PO]);
   }
-  if (output["PlatformStatus"] !== undefined) {
-    contents.PlatformStatus = __expectString(output["PlatformStatus"]);
+  if (output[_PSl] != null) {
+    contents[_PSl] = __expectString(output[_PSl]);
   }
-  if (output["PlatformCategory"] !== undefined) {
-    contents.PlatformCategory = __expectString(output["PlatformCategory"]);
+  if (output[_PC] != null) {
+    contents[_PC] = __expectString(output[_PC]);
   }
-  if (output["OperatingSystemName"] !== undefined) {
-    contents.OperatingSystemName = __expectString(output["OperatingSystemName"]);
+  if (output[_OSN] != null) {
+    contents[_OSN] = __expectString(output[_OSN]);
   }
-  if (output["OperatingSystemVersion"] !== undefined) {
-    contents.OperatingSystemVersion = __expectString(output["OperatingSystemVersion"]);
+  if (output[_OSV] != null) {
+    contents[_OSV] = __expectString(output[_OSV]);
   }
   if (output.SupportedTierList === "") {
-    contents.SupportedTierList = [];
-  } else if (output["SupportedTierList"] !== undefined && output["SupportedTierList"]["member"] !== undefined) {
-    contents.SupportedTierList = de_SupportedTierList(
-      __getArrayIfSingleItem(output["SupportedTierList"]["member"]),
-      context
-    );
+    contents[_STL] = [];
+  } else if (output[_STL] != null && output[_STL][_m] != null) {
+    contents[_STL] = de_SupportedTierList(__getArrayIfSingleItem(output[_STL][_m]), context);
   }
   if (output.SupportedAddonList === "") {
-    contents.SupportedAddonList = [];
-  } else if (output["SupportedAddonList"] !== undefined && output["SupportedAddonList"]["member"] !== undefined) {
-    contents.SupportedAddonList = de_SupportedAddonList(
-      __getArrayIfSingleItem(output["SupportedAddonList"]["member"]),
-      context
-    );
+    contents[_SAL] = [];
+  } else if (output[_SAL] != null && output[_SAL][_m] != null) {
+    contents[_SAL] = de_SupportedAddonList(__getArrayIfSingleItem(output[_SAL][_m]), context);
   }
-  if (output["PlatformLifecycleState"] !== undefined) {
-    contents.PlatformLifecycleState = __expectString(output["PlatformLifecycleState"]);
+  if (output[_PLS] != null) {
+    contents[_PLS] = __expectString(output[_PLS]);
   }
-  if (output["PlatformVersion"] !== undefined) {
-    contents.PlatformVersion = __expectString(output["PlatformVersion"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["PlatformBranchName"] !== undefined) {
-    contents.PlatformBranchName = __expectString(output["PlatformBranchName"]);
+  if (output[_PBN] != null) {
+    contents[_PBN] = __expectString(output[_PBN]);
   }
-  if (output["PlatformBranchLifecycleState"] !== undefined) {
-    contents.PlatformBranchLifecycleState = __expectString(output["PlatformBranchLifecycleState"]);
+  if (output[_PBLS] != null) {
+    contents[_PBLS] = __expectString(output[_PBLS]);
   }
   return contents;
 };
@@ -7120,8 +7030,8 @@ const de_PlatformVersionStillReferencedException = (
   context: __SerdeContext
 ): PlatformVersionStillReferencedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7131,11 +7041,11 @@ const de_PlatformVersionStillReferencedException = (
  */
 const de_Queue = (output: any, context: __SerdeContext): Queue => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["URL"] !== undefined) {
-    contents.URL = __expectString(output["URL"]);
+  if (output[_URL] != null) {
+    contents[_URL] = __expectString(output[_URL]);
   }
   return contents;
 };
@@ -7156,8 +7066,8 @@ const de_QueueList = (output: any, context: __SerdeContext): Queue[] => {
  */
 const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7167,8 +7077,8 @@ const de_ResourceNotFoundException = (output: any, context: __SerdeContext): Res
  */
 const de_ResourceQuota = (output: any, context: __SerdeContext): ResourceQuota => {
   const contents: any = {};
-  if (output["Maximum"] !== undefined) {
-    contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
+  if (output[_Max] != null) {
+    contents[_Max] = __strictParseInt32(output[_Max]) as number;
   }
   return contents;
 };
@@ -7178,20 +7088,20 @@ const de_ResourceQuota = (output: any, context: __SerdeContext): ResourceQuota =
  */
 const de_ResourceQuotas = (output: any, context: __SerdeContext): ResourceQuotas => {
   const contents: any = {};
-  if (output["ApplicationQuota"] !== undefined) {
-    contents.ApplicationQuota = de_ResourceQuota(output["ApplicationQuota"], context);
+  if (output[_AQ] != null) {
+    contents[_AQ] = de_ResourceQuota(output[_AQ], context);
   }
-  if (output["ApplicationVersionQuota"] !== undefined) {
-    contents.ApplicationVersionQuota = de_ResourceQuota(output["ApplicationVersionQuota"], context);
+  if (output[_AVQ] != null) {
+    contents[_AVQ] = de_ResourceQuota(output[_AVQ], context);
   }
-  if (output["EnvironmentQuota"] !== undefined) {
-    contents.EnvironmentQuota = de_ResourceQuota(output["EnvironmentQuota"], context);
+  if (output[_EQ] != null) {
+    contents[_EQ] = de_ResourceQuota(output[_EQ], context);
   }
-  if (output["ConfigurationTemplateQuota"] !== undefined) {
-    contents.ConfigurationTemplateQuota = de_ResourceQuota(output["ConfigurationTemplateQuota"], context);
+  if (output[_CTQ] != null) {
+    contents[_CTQ] = de_ResourceQuota(output[_CTQ], context);
   }
-  if (output["CustomPlatformQuota"] !== undefined) {
-    contents.CustomPlatformQuota = de_ResourceQuota(output["CustomPlatformQuota"], context);
+  if (output[_CPQ] != null) {
+    contents[_CPQ] = de_ResourceQuota(output[_CPQ], context);
   }
   return contents;
 };
@@ -7201,13 +7111,13 @@ const de_ResourceQuotas = (output: any, context: __SerdeContext): ResourceQuotas
  */
 const de_ResourceTagsDescriptionMessage = (output: any, context: __SerdeContext): ResourceTagsDescriptionMessage => {
   const contents: any = {};
-  if (output["ResourceArn"] !== undefined) {
-    contents.ResourceArn = __expectString(output["ResourceArn"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
   if (output.ResourceTags === "") {
-    contents.ResourceTags = [];
-  } else if (output["ResourceTags"] !== undefined && output["ResourceTags"]["member"] !== undefined) {
-    contents.ResourceTags = de_TagList(__getArrayIfSingleItem(output["ResourceTags"]["member"]), context);
+    contents[_RT] = [];
+  } else if (output[_RT] != null && output[_RT][_m] != null) {
+    contents[_RT] = de_TagList(__getArrayIfSingleItem(output[_RT][_m]), context);
   }
   return contents;
 };
@@ -7220,8 +7130,8 @@ const de_ResourceTypeNotSupportedException = (
   context: __SerdeContext
 ): ResourceTypeNotSupportedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7235,12 +7145,9 @@ const de_RetrieveEnvironmentInfoResultMessage = (
 ): RetrieveEnvironmentInfoResultMessage => {
   const contents: any = {};
   if (output.EnvironmentInfo === "") {
-    contents.EnvironmentInfo = [];
-  } else if (output["EnvironmentInfo"] !== undefined && output["EnvironmentInfo"]["member"] !== undefined) {
-    contents.EnvironmentInfo = de_EnvironmentInfoDescriptionList(
-      __getArrayIfSingleItem(output["EnvironmentInfo"]["member"]),
-      context
-    );
+    contents[_EInv] = [];
+  } else if (output[_EInv] != null && output[_EInv][_m] != null) {
+    contents[_EInv] = de_EnvironmentInfoDescriptionList(__getArrayIfSingleItem(output[_EInv][_m]), context);
   }
   return contents;
 };
@@ -7250,11 +7157,11 @@ const de_RetrieveEnvironmentInfoResultMessage = (
  */
 const de_S3Location = (output: any, context: __SerdeContext): S3Location => {
   const contents: any = {};
-  if (output["S3Bucket"] !== undefined) {
-    contents.S3Bucket = __expectString(output["S3Bucket"]);
+  if (output[_SBu] != null) {
+    contents[_SBu] = __expectString(output[_SBu]);
   }
-  if (output["S3Key"] !== undefined) {
-    contents.S3Key = __expectString(output["S3Key"]);
+  if (output[_SK] != null) {
+    contents[_SK] = __expectString(output[_SK]);
   }
   return contents;
 };
@@ -7267,8 +7174,8 @@ const de_S3LocationNotInServiceRegionException = (
   context: __SerdeContext
 ): S3LocationNotInServiceRegionException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7278,8 +7185,8 @@ const de_S3LocationNotInServiceRegionException = (
  */
 const de_S3SubscriptionRequiredException = (output: any, context: __SerdeContext): S3SubscriptionRequiredException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7289,37 +7196,37 @@ const de_S3SubscriptionRequiredException = (output: any, context: __SerdeContext
  */
 const de_SingleInstanceHealth = (output: any, context: __SerdeContext): SingleInstanceHealth => {
   const contents: any = {};
-  if (output["InstanceId"] !== undefined) {
-    contents.InstanceId = __expectString(output["InstanceId"]);
+  if (output[_IIn] != null) {
+    contents[_IIn] = __expectString(output[_IIn]);
   }
-  if (output["HealthStatus"] !== undefined) {
-    contents.HealthStatus = __expectString(output["HealthStatus"]);
+  if (output[_HS] != null) {
+    contents[_HS] = __expectString(output[_HS]);
   }
-  if (output["Color"] !== undefined) {
-    contents.Color = __expectString(output["Color"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   if (output.Causes === "") {
-    contents.Causes = [];
-  } else if (output["Causes"] !== undefined && output["Causes"]["member"] !== undefined) {
-    contents.Causes = de_Causes(__getArrayIfSingleItem(output["Causes"]["member"]), context);
+    contents[_Ca] = [];
+  } else if (output[_Ca] != null && output[_Ca][_m] != null) {
+    contents[_Ca] = de_Causes(__getArrayIfSingleItem(output[_Ca][_m]), context);
   }
-  if (output["LaunchedAt"] !== undefined) {
-    contents.LaunchedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LaunchedAt"]));
+  if (output[_LA] != null) {
+    contents[_LA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LA]));
   }
-  if (output["ApplicationMetrics"] !== undefined) {
-    contents.ApplicationMetrics = de_ApplicationMetrics(output["ApplicationMetrics"], context);
+  if (output[_AM] != null) {
+    contents[_AM] = de_ApplicationMetrics(output[_AM], context);
   }
-  if (output["System"] !== undefined) {
-    contents.System = de_SystemStatus(output["System"], context);
+  if (output[_Sy] != null) {
+    contents[_Sy] = de_SystemStatus(output[_Sy], context);
   }
-  if (output["Deployment"] !== undefined) {
-    contents.Deployment = de_Deployment(output["Deployment"], context);
+  if (output[_Dep] != null) {
+    contents[_Dep] = de_Deployment(output[_Dep], context);
   }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  if (output[_AZ] != null) {
+    contents[_AZ] = __expectString(output[_AZ]);
   }
-  if (output["InstanceType"] !== undefined) {
-    contents.InstanceType = __expectString(output["InstanceType"]);
+  if (output[_ITn] != null) {
+    contents[_ITn] = __expectString(output[_ITn]);
   }
   return contents;
 };
@@ -7329,16 +7236,13 @@ const de_SingleInstanceHealth = (output: any, context: __SerdeContext): SingleIn
  */
 const de_SolutionStackDescription = (output: any, context: __SerdeContext): SolutionStackDescription => {
   const contents: any = {};
-  if (output["SolutionStackName"] !== undefined) {
-    contents.SolutionStackName = __expectString(output["SolutionStackName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
   if (output.PermittedFileTypes === "") {
-    contents.PermittedFileTypes = [];
-  } else if (output["PermittedFileTypes"] !== undefined && output["PermittedFileTypes"]["member"] !== undefined) {
-    contents.PermittedFileTypes = de_SolutionStackFileTypeList(
-      __getArrayIfSingleItem(output["PermittedFileTypes"]["member"]),
-      context
-    );
+    contents[_PFT] = [];
+  } else if (output[_PFT] != null && output[_PFT][_m] != null) {
+    contents[_PFT] = de_SolutionStackFileTypeList(__getArrayIfSingleItem(output[_PFT][_m]), context);
   }
   return contents;
 };
@@ -7359,14 +7263,14 @@ const de_SolutionStackFileTypeList = (output: any, context: __SerdeContext): str
  */
 const de_SourceBuildInformation = (output: any, context: __SerdeContext): SourceBuildInformation => {
   const contents: any = {};
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
-  if (output["SourceRepository"] !== undefined) {
-    contents.SourceRepository = __expectString(output["SourceRepository"]);
+  if (output[_SRo] != null) {
+    contents[_SRo] = __expectString(output[_SRo]);
   }
-  if (output["SourceLocation"] !== undefined) {
-    contents.SourceLocation = __expectString(output["SourceLocation"]);
+  if (output[_SL] != null) {
+    contents[_SL] = __expectString(output[_SL]);
   }
   return contents;
 };
@@ -7376,8 +7280,8 @@ const de_SourceBuildInformation = (output: any, context: __SerdeContext): Source
  */
 const de_SourceBundleDeletionException = (output: any, context: __SerdeContext): SourceBundleDeletionException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7387,17 +7291,17 @@ const de_SourceBundleDeletionException = (output: any, context: __SerdeContext):
  */
 const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
   const contents: any = {};
-  if (output["Status2xx"] !== undefined) {
-    contents.Status2xx = __strictParseInt32(output["Status2xx"]) as number;
+  if (output[_St] != null) {
+    contents[_St] = __strictParseInt32(output[_St]) as number;
   }
-  if (output["Status3xx"] !== undefined) {
-    contents.Status3xx = __strictParseInt32(output["Status3xx"]) as number;
+  if (output[_Sta] != null) {
+    contents[_Sta] = __strictParseInt32(output[_Sta]) as number;
   }
-  if (output["Status4xx"] !== undefined) {
-    contents.Status4xx = __strictParseInt32(output["Status4xx"]) as number;
+  if (output[_Stat] != null) {
+    contents[_Stat] = __strictParseInt32(output[_Stat]) as number;
   }
-  if (output["Status5xx"] !== undefined) {
-    contents.Status5xx = __strictParseInt32(output["Status5xx"]) as number;
+  if (output[_Statu] != null) {
+    contents[_Statu] = __strictParseInt32(output[_Statu]) as number;
   }
   return contents;
 };
@@ -7429,13 +7333,13 @@ const de_SupportedTierList = (output: any, context: __SerdeContext): string[] =>
  */
 const de_SystemStatus = (output: any, context: __SerdeContext): SystemStatus => {
   const contents: any = {};
-  if (output["CPUUtilization"] !== undefined) {
-    contents.CPUUtilization = de_CPUUtilization(output["CPUUtilization"], context);
+  if (output[_CPUU] != null) {
+    contents[_CPUU] = de_CPUUtilization(output[_CPUU], context);
   }
   if (output.LoadAverage === "") {
-    contents.LoadAverage = [];
-  } else if (output["LoadAverage"] !== undefined && output["LoadAverage"]["member"] !== undefined) {
-    contents.LoadAverage = de_LoadAverage(__getArrayIfSingleItem(output["LoadAverage"]["member"]), context);
+    contents[_LAo] = [];
+  } else if (output[_LAo] != null && output[_LAo][_m] != null) {
+    contents[_LAo] = de_LoadAverage(__getArrayIfSingleItem(output[_LAo][_m]), context);
   }
   return contents;
 };
@@ -7445,11 +7349,11 @@ const de_SystemStatus = (output: any, context: __SerdeContext): SystemStatus => 
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -7470,8 +7374,8 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TooManyApplicationsException = (output: any, context: __SerdeContext): TooManyApplicationsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7484,8 +7388,8 @@ const de_TooManyApplicationVersionsException = (
   context: __SerdeContext
 ): TooManyApplicationVersionsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7495,8 +7399,8 @@ const de_TooManyApplicationVersionsException = (
  */
 const de_TooManyBucketsException = (output: any, context: __SerdeContext): TooManyBucketsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7509,8 +7413,8 @@ const de_TooManyConfigurationTemplatesException = (
   context: __SerdeContext
 ): TooManyConfigurationTemplatesException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7520,8 +7424,8 @@ const de_TooManyConfigurationTemplatesException = (
  */
 const de_TooManyEnvironmentsException = (output: any, context: __SerdeContext): TooManyEnvironmentsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7531,8 +7435,8 @@ const de_TooManyEnvironmentsException = (output: any, context: __SerdeContext): 
  */
 const de_TooManyPlatformsException = (output: any, context: __SerdeContext): TooManyPlatformsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7542,8 +7446,8 @@ const de_TooManyPlatformsException = (output: any, context: __SerdeContext): Too
  */
 const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -7553,8 +7457,8 @@ const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyT
  */
 const de_Trigger = (output: any, context: __SerdeContext): Trigger => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
   return contents;
 };
@@ -7575,17 +7479,17 @@ const de_TriggerList = (output: any, context: __SerdeContext): Trigger[] => {
  */
 const de_ValidationMessage = (output: any, context: __SerdeContext): ValidationMessage => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["Severity"] !== undefined) {
-    contents.Severity = __expectString(output["Severity"]);
+  if (output[_Se] != null) {
+    contents[_Se] = __expectString(output[_Se]);
   }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["OptionName"] !== undefined) {
-    contents.OptionName = __expectString(output["OptionName"]);
+  if (output[_ON] != null) {
+    contents[_ON] = __expectString(output[_ON]);
   }
   return contents;
 };
@@ -7653,6 +7557,294 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
+// HttpRpcProtocolGenerator
+const _ = "2010-12-01";
+const _A = "Action";
+const _AA = "ApplicationArn";
+const _ACA = "AutoCreateApplication";
+const _AD = "ActionDescription";
+const _AEMA = "ApplyEnvironmentManagedAction";
+const _AEOR = "AssociateEnvironmentOperationsRole";
+const _AEU = "AbortEnvironmentUpdate";
+const _AI = "ActionId";
+const _AM = "ApplicationMetrics";
+const _AN = "ArtifactName";
+const _ANp = "ApplicationName";
+const _ANpp = "ApplicationNames";
+const _ANt = "AttributeNames";
+const _AOIP = "AbortableOperationInProgress";
+const _AQ = "ApplicationQuota";
+const _ARN = "ARN";
+const _ASG = "AutoScalingGroups";
+const _AT = "ActionType";
+const _AV = "ApplicationVersion";
+const _AVA = "ApplicationVersionArn";
+const _AVQ = "ApplicationVersionQuota";
+const _AVp = "ApplicationVersions";
+const _AZ = "AvailabilityZone";
+const _Ap = "Application";
+const _App = "Applications";
+const _At = "Attribute";
+const _Av = "Available";
+const _B = "Builder";
+const _BA = "BuildArn";
+const _BC = "BuildConfiguration";
+const _BN = "BranchName";
+const _BO = "BranchOrder";
+const _C = "Color";
+const _CA = "CreateApplication";
+const _CAL = "CustomAmiList";
+const _CAV = "CreateApplicationVersion";
+const _CBSR = "CodeBuildServiceRole";
+const _CCT = "CreateConfigurationTemplate";
+const _CDNSA = "CheckDNSAvailability";
+const _CE = "ComposeEnvironments";
+const _CEr = "CreateEnvironment";
+const _CNAME = "CNAME";
+const _CNAMEP = "CNAMEPrefix";
+const _CPQ = "CustomPlatformQuota";
+const _CPUU = "CPUUtilization";
+const _CPV = "CreatePlatformVersion";
+const _CS = "ChangeSeverity";
+const _CSL = "CreateStorageLocation";
+const _CSo = "ConfigurationSettings";
+const _CT = "ComputeType";
+const _CTQ = "ConfigurationTemplateQuota";
+const _CTo = "ConfigurationTemplates";
+const _Ca = "Causes";
+const _D = "Description";
+const _DA = "DeleteApplication";
+const _DAA = "DescribeAccountAttributes";
+const _DAV = "DeleteApplicationVersion";
+const _DAVe = "DescribeApplicationVersions";
+const _DAe = "DescribeApplications";
+const _DC = "DateCreated";
+const _DCO = "DescribeConfigurationOptions";
+const _DCS = "DescribeConfigurationSettings";
+const _DCT = "DeleteConfigurationTemplate";
+const _DE = "DescribeEnvironments";
+const _DEC = "DeleteEnvironmentConfiguration";
+const _DEH = "DescribeEnvironmentHealth";
+const _DEI = "DestinationEnvironmentId";
+const _DEMA = "DescribeEnvironmentManagedActions";
+const _DEMAH = "DescribeEnvironmentManagedActionHistory";
+const _DEN = "DestinationEnvironmentName";
+const _DEOR = "DisassociateEnvironmentOperationsRole";
+const _DER = "DescribeEnvironmentResources";
+const _DEe = "DescribeEvents";
+const _DI = "DeploymentId";
+const _DIH = "DescribeInstancesHealth";
+const _DPV = "DeletePlatformVersion";
+const _DPVe = "DescribePlatformVersion";
+const _DS = "DeploymentStatus";
+const _DSB = "DeleteSourceBundle";
+const _DSFS = "DeleteSourceFromS3";
+const _DT = "DeploymentTime";
+const _DU = "DateUpdated";
+const _DV = "DefaultValue";
+const _De = "Degraded";
+const _Dep = "Deployment";
+const _Do = "Domain";
+const _Du = "Duration";
+const _E = "Enabled";
+const _EA = "EnvironmentArn";
+const _ED = "EventDate";
+const _EI = "EnvironmentId";
+const _EII = "Ec2InstanceId";
+const _EIn = "EnvironmentIds";
+const _EInv = "EnvironmentInfo";
+const _EL = "EnvironmentLinks";
+const _EN = "EnvironmentName";
+const _ENn = "EnvironmentNames";
+const _EQ = "EnvironmentQuota";
+const _ER = "EnvironmentResources";
+const _ET = "EndTime";
+const _ETx = "ExecutedTime";
+const _EURL = "EndpointURL";
+const _En = "Environments";
+const _Ev = "Events";
+const _F = "Filters";
+const _FD = "FailureDescription";
+const _FQCNAME = "FullyQualifiedCNAME";
+const _FT = "ForceTerminate";
+const _FTa = "FailureType";
+const _FTi = "FinishedTime";
+const _Fr = "Frameworks";
+const _GN = "GroupName";
+const _H = "Health";
+const _HS = "HealthStatus";
+const _I = "Image";
+const _ID = "IncludeDeleted";
+const _IDBT = "IncludedDeletedBackTo";
+const _IH = "InstancesHealth";
+const _IHL = "InstanceHealthList";
+const _II = "ImageId";
+const _IIn = "InstanceId";
+const _IOW = "IOWait";
+const _IRQ = "IRQ";
+const _IT = "InfoType";
+const _ITn = "InstanceType";
+const _Id = "Idle";
+const _Id_ = "Id";
+const _In = "Instances";
+const _Inf = "Info";
+const _K = "Key";
+const _L = "Latency";
+const _LA = "LaunchedAt";
+const _LASS = "ListAvailableSolutionStacks";
+const _LAo = "LoadAverage";
+const _LB = "LoadBalancers";
+const _LBN = "LoadBalancerName";
+const _LBo = "LoadBalancer";
+const _LC = "LaunchConfigurations";
+const _LN = "LinkName";
+const _LPB = "ListPlatformBranches";
+const _LPV = "ListPlatformVersions";
+const _LS = "LifecycleState";
+const _LT = "LaunchTemplates";
+const _LTFR = "ListTagsForResource";
+const _La = "Label";
+const _Li = "Listeners";
+const _M = "Messages";
+const _MA = "ManagedActions";
+const _MAHI = "ManagedActionHistoryItems";
+const _MAID = "MaxAgeInDays";
+const _MAR = "MaxAgeRule";
+const _MC = "MaxCount";
+const _MCR = "MaxCountRule";
+const _MI = "MaxItems";
+const _ML = "MaxLength";
+const _MR = "MaxRecords";
+const _MV = "MinValue";
+const _MVa = "MaxValue";
+const _Ma = "Maintainer";
+const _Max = "Maximum";
+const _Me = "Message";
+const _N = "Namespace";
+const _ND = "NoData";
+const _NT = "NextToken";
+const _Na = "Name";
+const _Ni = "Nice";
+const _O = "Options";
+const _ON = "OptionName";
+const _OR = "OperationsRole";
+const _OS = "OptionSettings";
+const _OSN = "OperatingSystemName";
+const _OSV = "OperatingSystemVersion";
+const _OTR = "OptionsToRemove";
+const _Ok = "Ok";
+const _Op = "Operator";
+const _P = "Process";
+const _PA = "PlatformArn";
+const _PBLS = "PlatformBranchLifecycleState";
+const _PBN = "PlatformBranchName";
+const _PBSL = "PlatformBranchSummaryList";
+const _PC = "PlatformCategory";
+const _PD = "PlatformDescription";
+const _PDB = "PlatformDefinitionBundle";
+const _PFT = "PermittedFileTypes";
+const _PL = "ProgrammingLanguages";
+const _PLS = "PlatformLifecycleState";
+const _PN = "PlatformName";
+const _PO = "PlatformOwner";
+const _PS = "PlatformSummary";
+const _PSL = "PlatformSummaryList";
+const _PSl = "PlatformStatus";
+const _PV = "PlatformVersion";
+const _P_ = "P999";
+const _P__ = "P99";
+const _P___ = "P95";
+const _P____ = "P90";
+const _P_____ = "P85";
+const _P______ = "P75";
+const _P_______ = "P50";
+const _P________ = "P10";
+const _Pa = "Pattern";
+const _Pe = "Pending";
+const _Po = "Port";
+const _Pr = "Privileged";
+const _Pro = "Protocol";
+const _Q = "Queues";
+const _R = "Regex";
+const _RA = "ResourceArn";
+const _RAS = "RestartAppServer";
+const _RAe = "RefreshedAt";
+const _RC = "RequestCount";
+const _RE = "RebuildEnvironment";
+const _REI = "RequestEnvironmentInfo";
+const _REIe = "RetrieveEnvironmentInfo";
+const _RI = "RequestId";
+const _RLC = "ResourceLifecycleConfig";
+const _RN = "ResourceName";
+const _RQ = "ResourceQuotas";
+const _RT = "ResourceTags";
+const _Re = "Resources";
+const _S = "Status";
+const _SAL = "SupportedAddonList";
+const _SB = "SourceBundle";
+const _SBI = "SourceBuildInformation";
+const _SBu = "S3Bucket";
+const _SC = "SourceConfiguration";
+const _SCt = "StatusCodes";
+const _SECNAME = "SwapEnvironmentCNAMEs";
+const _SEI = "SourceEnvironmentId";
+const _SEN = "SourceEnvironmentName";
+const _SIRQ = "SoftIRQ";
+const _SK = "S3Key";
+const _SL = "SourceLocation";
+const _SR = "ServiceRole";
+const _SRo = "SourceRepository";
+const _SS = "SolutionStacks";
+const _SSD = "SolutionStackDetails";
+const _SSN = "SolutionStackName";
+const _ST = "StartTime";
+const _STL = "SupportedTierList";
+const _STa = "SampleTimestamp";
+const _STo = "SourceType";
+const _Se = "Severity";
+const _Sev = "Severe";
+const _St = "Status2xx";
+const _Sta = "Status3xx";
+const _Stat = "Status4xx";
+const _Statu = "Status5xx";
+const _Sy = "System";
+const _T = "Tags";
+const _TE = "TerminateEnvironment";
+const _TEBF = "TerminateEnvByForce";
+const _TIM = "TimeoutInMinutes";
+const _TN = "TemplateName";
+const _TR = "TerminateResources";
+const _TTA = "TagsToAdd";
+const _TTR = "TagsToRemove";
+const _Ti = "Tier";
+const _Tr = "Triggers";
+const _Ty = "Type";
+const _U = "User";
+const _UA = "UpdateApplication";
+const _UARL = "UpdateApplicationResourceLifecycle";
+const _UAV = "UpdateApplicationVersion";
+const _UCT = "UpdateConfigurationTemplate";
+const _UD = "UserDefined";
+const _UE = "UpdateEnvironment";
+const _URL = "URL";
+const _UTFR = "UpdateTagsForResource";
+const _Un = "Unknown";
+const _V = "Version";
+const _VCS = "ValidateConfigurationSettings";
+const _VL = "VersionLabels";
+const _VLC = "VersionLifecycleConfig";
+const _VLe = "VersionLabel";
+const _VO = "ValueOptions";
+const _VT = "ValueType";
+const _VTi = "VirtualizationType";
+const _Va = "Value";
+const _Val = "Values";
+const _Ve = "Versions";
+const _W = "Warning";
+const _WST = "WindowStartTime";
+const _m = "member";
+const _me = "message";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -7701,3 +7893,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
+
+// AwsQuery

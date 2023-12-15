@@ -29,6 +29,7 @@ import {
   StreamProcessorDataSharingPreference,
   Video,
 } from "./models_0";
+
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
 
 /**

@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
+
 import {
   ComputeConfig,
   Connection,

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -329,79 +330,59 @@ export const se_AllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AllQueryStringTypesInput";
+  b.bp("/AllQueryStringTypesInput");
   const query: any = map({
     ...convertMap(input.queryParamsMapOfStringList),
-    String: [, input.queryString!],
-    StringList: [
-      () => input.queryStringList !== void 0,
-      () => (input.queryStringList! || []).map((_entry) => _entry as any),
-    ],
-    StringSet: [
-      () => input.queryStringSet !== void 0,
-      () => (input.queryStringSet! || []).map((_entry) => _entry as any),
-    ],
-    Byte: [() => input.queryByte !== void 0, () => input.queryByte!.toString()],
-    Short: [() => input.queryShort !== void 0, () => input.queryShort!.toString()],
-    Integer: [() => input.queryInteger !== void 0, () => input.queryInteger!.toString()],
-    IntegerList: [
+    [_S]: [, input[_qS]!],
+    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
+    [_SS]: [() => input.queryStringSet !== void 0, () => (input[_qSS]! || []).map((_entry) => _entry as any)],
+    [_B]: [() => input.queryByte !== void 0, () => input[_qB]!.toString()],
+    [_Sh]: [() => input.queryShort !== void 0, () => input[_qSu]!.toString()],
+    [_I]: [() => input.queryInteger !== void 0, () => input[_qI]!.toString()],
+    [_IL]: [
       () => input.queryIntegerList !== void 0,
-      () => (input.queryIntegerList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    IntegerSet: [
+    [_IS]: [
       () => input.queryIntegerSet !== void 0,
-      () => (input.queryIntegerSet! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIS]! || []).map((_entry) => _entry.toString() as any),
     ],
-    Long: [() => input.queryLong !== void 0, () => input.queryLong!.toString()],
-    Float: [
+    [_L]: [() => input.queryLong !== void 0, () => input[_qL]!.toString()],
+    [_F]: [
       () => input.queryFloat !== void 0,
-      () => (input.queryFloat! % 1 == 0 ? input.queryFloat! + ".0" : input.queryFloat!.toString()),
+      () => (input[_qF]! % 1 == 0 ? input[_qF]! + ".0" : input[_qF]!.toString()),
     ],
-    Double: [
+    [_D]: [
       () => input.queryDouble !== void 0,
-      () => (input.queryDouble! % 1 == 0 ? input.queryDouble! + ".0" : input.queryDouble!.toString()),
+      () => (input[_qD]! % 1 == 0 ? input[_qD]! + ".0" : input[_qD]!.toString()),
     ],
-    DoubleList: [
+    [_DL]: [
       () => input.queryDoubleList !== void 0,
-      () =>
-        (input.queryDoubleList! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
+      () => (input[_qDL]! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
     ],
-    Boolean: [() => input.queryBoolean !== void 0, () => input.queryBoolean!.toString()],
-    BooleanList: [
+    [_Bo]: [() => input.queryBoolean !== void 0, () => input[_qBu]!.toString()],
+    [_BL]: [
       () => input.queryBooleanList !== void 0,
-      () => (input.queryBooleanList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qBL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    Timestamp: [
-      () => input.queryTimestamp !== void 0,
-      () => (input.queryTimestamp!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    TimestampList: [
+    [_T]: [() => input.queryTimestamp !== void 0, () => (input[_qT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_TL]: [
       () => input.queryTimestampList !== void 0,
-      () =>
-        (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
+      () => (input[_qTL]! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
     ],
-    Enum: [, input.queryEnum!],
-    EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
-    IntegerEnum: [() => input.queryIntegerEnum !== void 0, () => input.queryIntegerEnum!.toString()],
-    IntegerEnumList: [
+    [_E]: [, input[_qE]!],
+    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_IE]: [() => input.queryIntegerEnum !== void 0, () => input[_qIE]!.toString()],
+    [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
-      () => (input.queryIntegerEnumList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIEL]! || []).map((_entry) => _entry.toString() as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -411,26 +392,17 @@ export const se_ConstantAndVariableQueryStringCommand = async (
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantAndVariableQueryString";
+  b.bp("/ConstantAndVariableQueryString");
   const query: any = map({
-    foo: [, "bar"],
-    baz: [, input.baz!],
-    maybeSet: [, input.maybeSet!],
+    [_f]: [, "bar"],
+    [_b]: [, input[_b]!],
+    [_mS]: [, input[_mS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -440,26 +412,17 @@ export const se_ConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantQueryString/{hello}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "hello", () => input.hello!, "{hello}", false);
+  b.bp("/ConstantQueryString/{hello}");
+  b.p("hello", () => input.hello!, "{hello}", false);
   const query: any = map({
-    foo: [, "bar"],
-    hello: [, ""],
+    [_f]: [, "bar"],
+    [_h]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -469,22 +432,15 @@ export const se_DatetimeOffsetsCommand = async (
   input: DatetimeOffsetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DatetimeOffsets";
+  b.bp("/DatetimeOffsets");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -494,11 +450,11 @@ export const se_DocumentTypeCommand = async (
   input: DocumentTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DocumentType";
+  b.bp("/DocumentType");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -506,15 +462,8 @@ export const se_DocumentTypeCommand = async (
       stringValue: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -524,11 +473,11 @@ export const se_DocumentTypeAsPayloadCommand = async (
   input: DocumentTypeAsPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DocumentTypeAsPayload";
+  b.bp("/DocumentTypeAsPayload");
   let body: any;
   if (input.documentValue !== undefined) {
     if (input.documentValue === null) {
@@ -538,15 +487,8 @@ export const se_DocumentTypeAsPayloadCommand = async (
     }
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -556,23 +498,15 @@ export const se_EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EmptyInputAndEmptyOutput";
+  b.bp("/EmptyInputAndEmptyOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,11 +516,11 @@ export const se_EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointOperation";
+  b.bp("/EndpointOperation");
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -596,15 +530,9 @@ export const se_EndpointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -614,12 +542,11 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelOperation";
+  b.bp("/EndpointWithHostLabelOperation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -637,15 +564,9 @@ export const se_EndpointWithHostLabelOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -655,22 +576,15 @@ export const se_FractionalSecondsCommand = async (
   input: FractionalSecondsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FractionalSeconds";
+  b.bp("/FractionalSeconds");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -680,22 +594,15 @@ export const se_GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GreetingWithErrors";
+  b.bp("/GreetingWithErrors");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -705,22 +612,15 @@ export const se_HostWithPathOperationCommand = async (
   input: HostWithPathOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HostWithPathOperation";
+  b.bp("/HostWithPathOperation");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -730,26 +630,19 @@ export const se_HttpChecksumRequiredCommand = async (
   input: HttpChecksumRequiredCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpChecksumRequired";
+  b.bp("/HttpChecksumRequired");
   let body: any;
   body = JSON.stringify(
     take(input, {
       foo: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -759,24 +652,17 @@ export const se_HttpEnumPayloadCommand = async (
   input: HttpEnumPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "text/plain",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EnumPayload";
+  b.bp("/EnumPayload");
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -786,25 +672,18 @@ export const se_HttpPayloadTraitsCommand = async (
   input: HttpPayloadTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraits";
+  b.bp("/HttpPayloadTraits");
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -814,26 +693,18 @@ export const se_HttpPayloadTraitsWithMediaTypeCommand = async (
   input: HttpPayloadTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraitsWithMediaType";
+  b.bp("/HttpPayloadTraitsWithMediaType");
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -843,12 +714,11 @@ export const se_HttpPayloadWithStructureCommand = async (
   input: HttpPayloadWithStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
+  b.bp("/HttpPayloadWithStructure");
   let body: any;
   if (input.nested !== undefined) {
     body = _json(input.nested);
@@ -857,15 +727,8 @@ export const se_HttpPayloadWithStructureCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -875,11 +738,11 @@ export const se_HttpPayloadWithUnionCommand = async (
   input: HttpPayloadWithUnionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithUnion";
+  b.bp("/HttpPayloadWithUnion");
   let body: any;
   if (input.nested !== undefined) {
     body = _json(input.nested);
@@ -888,15 +751,8 @@ export const se_HttpPayloadWithUnionCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -906,26 +762,19 @@ export const se_HttpPrefixHeadersCommand = async (
   input: HttpPrefixHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
         acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
         return acc;
       }, {})),
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeaders";
+  b.bp("/HttpPrefixHeaders");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -935,23 +784,15 @@ export const se_HttpPrefixHeadersInResponseCommand = async (
   input: HttpPrefixHeadersInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeadersResponse";
+  b.bp("/HttpPrefixHeadersResponse");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -961,36 +802,14 @@ export const se_HttpRequestWithFloatLabelsCommand = async (
   input: HttpRequestWithFloatLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FloatHttpLabels/{float}/{double}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "float",
-    () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()),
-    "{float}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "double",
-    () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()),
-    "{double}",
-    false
-  );
+  b.bp("/FloatHttpLabels/{float}/{double}");
+  b.p("float", () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()), "{float}", false);
+  b.p("double", () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()), "{double}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1000,23 +819,14 @@ export const se_HttpRequestWithGreedyLabelInPathCommand = async (
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "foo", () => input.foo!, "{foo}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "baz", () => input.baz!, "{baz+}", true);
+  b.bp("/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}");
+  b.p("foo", () => input.foo!, "{foo}", false);
+  b.p("baz", () => input.baz!, "{baz+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1026,50 +836,20 @@ export const se_HttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "string", () => input.string!, "{string}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "short", () => input.short!.toString(), "{short}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "integer", () => input.integer!.toString(), "{integer}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "long", () => input.long!.toString(), "{long}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "float",
-    () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()),
-    "{float}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "double",
-    () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()),
-    "{double}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "boolean", () => input.boolean!.toString(), "{boolean}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "timestamp",
-    () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
-    "{timestamp}",
-    false
-  );
+  b.bp("/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}");
+  b.p("string", () => input.string!, "{string}", false);
+  b.p("short", () => input.short!.toString(), "{short}", false);
+  b.p("integer", () => input.integer!.toString(), "{integer}", false);
+  b.p("long", () => input.long!.toString(), "{long}", false);
+  b.p("float", () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()), "{float}", false);
+  b.p("double", () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()), "{double}", false);
+  b.p("boolean", () => input.boolean!.toString(), "{boolean}", false);
+  b.p("timestamp", () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(), "{timestamp}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1079,77 +859,46 @@ export const se_HttpRequestWithLabelsAndTimestampFormatCommand = async (
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp(
+    "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}"
+  );
+  b.p(
     "memberEpochSeconds",
     () => Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
     "{memberEpochSeconds}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "memberHttpDate",
-    () => __dateToUtcString(input.memberHttpDate!).toString(),
-    "{memberHttpDate}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("memberHttpDate", () => __dateToUtcString(input.memberHttpDate!).toString(), "{memberHttpDate}", false);
+  b.p(
     "memberDateTime",
     () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{memberDateTime}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p(
     "defaultFormat",
     () => (input.defaultFormat!.toISOString().split(".")[0] + "Z").toString(),
     "{defaultFormat}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p(
     "targetEpochSeconds",
     () => Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
     "{targetEpochSeconds}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "targetHttpDate",
-    () => __dateToUtcString(input.targetHttpDate!).toString(),
-    "{targetHttpDate}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("targetHttpDate", () => __dateToUtcString(input.targetHttpDate!).toString(), "{targetHttpDate}", false);
+  b.p(
     "targetDateTime",
     () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{targetDateTime}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1159,21 +908,13 @@ export const se_HttpRequestWithRegexLiteralCommand = async (
   input: HttpRequestWithRegexLiteralCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ReDosLiteral/{str}/(a+)+";
-  resolvedPath = __resolvedPath(resolvedPath, input, "str", () => input.str!, "{str}", false);
+  b.bp("/ReDosLiteral/{str}/(a+)+");
+  b.p("str", () => input.str!, "{str}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1183,22 +924,15 @@ export const se_HttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpResponseCode";
+  b.bp("/HttpResponseCode");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1208,24 +942,17 @@ export const se_HttpStringPayloadCommand = async (
   input: HttpStringPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "text/plain",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringPayload";
+  b.bp("/StringPayload");
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1235,23 +962,15 @@ export const se_IgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/IgnoreQueryParamsInResponse";
+  b.bp("/IgnoreQueryParamsInResponse");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1261,69 +980,58 @@ export const se_InputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-string": input.headerString!,
-    "x-byte": [() => isSerializableHeaderValue(input.headerByte), () => input.headerByte!.toString()],
-    "x-short": [() => isSerializableHeaderValue(input.headerShort), () => input.headerShort!.toString()],
-    "x-integer": [() => isSerializableHeaderValue(input.headerInteger), () => input.headerInteger!.toString()],
-    "x-long": [() => isSerializableHeaderValue(input.headerLong), () => input.headerLong!.toString()],
-    "x-float": [
-      () => isSerializableHeaderValue(input.headerFloat),
-      () => (input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString()),
+    [_xs]: input[_hS]!,
+    [_xb]: [() => isSerializableHeaderValue(input[_hB]), () => input[_hB]!.toString()],
+    [_xs_]: [() => isSerializableHeaderValue(input[_hSe]), () => input[_hSe]!.toString()],
+    [_xi]: [() => isSerializableHeaderValue(input[_hI]), () => input[_hI]!.toString()],
+    [_xl]: [() => isSerializableHeaderValue(input[_hL]), () => input[_hL]!.toString()],
+    [_xf_]: [
+      () => isSerializableHeaderValue(input[_hF]),
+      () => (input[_hF]! % 1 == 0 ? input[_hF]! + ".0" : input[_hF]!.toString()),
     ],
-    "x-double": [
-      () => isSerializableHeaderValue(input.headerDouble),
-      () => (input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString()),
+    [_xd]: [
+      () => isSerializableHeaderValue(input[_hD]),
+      () => (input[_hD]! % 1 == 0 ? input[_hD]! + ".0" : input[_hD]!.toString()),
     ],
-    "x-boolean1": [() => isSerializableHeaderValue(input.headerTrueBool), () => input.headerTrueBool!.toString()],
-    "x-boolean2": [() => isSerializableHeaderValue(input.headerFalseBool), () => input.headerFalseBool!.toString()],
-    "x-stringlist": [
-      () => isSerializableHeaderValue(input.headerStringList),
-      () => (input.headerStringList! || []).map((_entry) => _entry as any).join(", "),
+    [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
+    [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
+    [_xs__]: [
+      () => isSerializableHeaderValue(input[_hSL]),
+      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-stringset": [
-      () => isSerializableHeaderValue(input.headerStringSet),
-      () => (input.headerStringSet! || []).map((_entry) => _entry as any).join(", "),
+    [_xs___]: [
+      () => isSerializableHeaderValue(input[_hSS]),
+      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-integerlist": [
-      () => isSerializableHeaderValue(input.headerIntegerList),
-      () => (input.headerIntegerList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xi_]: [
+      () => isSerializableHeaderValue(input[_hIL]),
+      () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
-    "x-booleanlist": [
-      () => isSerializableHeaderValue(input.headerBooleanList),
-      () => (input.headerBooleanList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xb___]: [
+      () => isSerializableHeaderValue(input[_hBL]),
+      () => (input[_hBL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
-    "x-timestamplist": [
-      () => isSerializableHeaderValue(input.headerTimestampList),
-      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
+    [_xt]: [
+      () => isSerializableHeaderValue(input[_hTL]),
+      () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
-    "x-enum": input.headerEnum!,
-    "x-enumlist": [
-      () => isSerializableHeaderValue(input.headerEnumList),
-      () => (input.headerEnumList! || []).map((_entry) => _entry as any).join(", "),
+    [_xe]: input[_hE]!,
+    [_xe_]: [
+      () => isSerializableHeaderValue(input[_hEL]),
+      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-integerenum": [
-      () => isSerializableHeaderValue(input.headerIntegerEnum),
-      () => input.headerIntegerEnum!.toString(),
-    ],
-    "x-integerenumlist": [
-      () => isSerializableHeaderValue(input.headerIntegerEnumList),
-      () => (input.headerIntegerEnumList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
+    [_xi___]: [
+      () => isSerializableHeaderValue(input[_hIEL]),
+      () => (input[_hIEL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InputAndOutputWithHeaders";
+  b.bp("/InputAndOutputWithHeaders");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1333,26 +1041,19 @@ export const se_JsonBlobsCommand = async (
   input: JsonBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonBlobs";
+  b.bp("/JsonBlobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
       data: (_) => context.base64Encoder(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1362,11 +1063,11 @@ export const se_JsonEnumsCommand = async (
   input: JsonEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonEnums";
+  b.bp("/JsonEnums");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1378,15 +1079,8 @@ export const se_JsonEnumsCommand = async (
       fooEnumSet: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1396,11 +1090,11 @@ export const se_JsonIntEnumsCommand = async (
   input: JsonIntEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonIntEnums";
+  b.bp("/JsonIntEnums");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1412,15 +1106,8 @@ export const se_JsonIntEnumsCommand = async (
       integerEnumSet: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1430,11 +1117,11 @@ export const se_JsonListsCommand = async (
   input: JsonListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonLists";
+  b.bp("/JsonLists");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1450,15 +1137,8 @@ export const se_JsonListsCommand = async (
       timestampList: (_) => se_TimestampList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1468,11 +1148,11 @@ export const se_JsonMapsCommand = async (
   input: JsonMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonMaps";
+  b.bp("/JsonMaps");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1488,15 +1168,8 @@ export const se_JsonMapsCommand = async (
       sparseStructMap: (_) => se_SparseStructMap(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1506,11 +1179,11 @@ export const se_JsonTimestampsCommand = async (
   input: JsonTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonTimestamps";
+  b.bp("/JsonTimestamps");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1523,15 +1196,8 @@ export const se_JsonTimestampsCommand = async (
       normal: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1541,26 +1207,19 @@ export const se_JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonUnions";
+  b.bp("/JsonUnions");
   let body: any;
   body = JSON.stringify(
     take(input, {
       contents: (_) => se_MyUnion(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1570,23 +1229,15 @@ export const se_MalformedAcceptWithBodyCommand = async (
   input: MalformedAcceptWithBodyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithBody";
+  b.bp("/MalformedAcceptWithBody");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1596,23 +1247,15 @@ export const se_MalformedAcceptWithGenericStringCommand = async (
   input: MalformedAcceptWithGenericStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithGenericString";
+  b.bp("/MalformedAcceptWithGenericString");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1622,23 +1265,15 @@ export const se_MalformedAcceptWithPayloadCommand = async (
   input: MalformedAcceptWithPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedAcceptWithPayload";
+  b.bp("/MalformedAcceptWithPayload");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1648,26 +1283,19 @@ export const se_MalformedBlobCommand = async (
   input: MalformedBlobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedBlob";
+  b.bp("/MalformedBlob");
   let body: any;
   body = JSON.stringify(
     take(input, {
       blob: (_) => context.base64Encoder(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1677,23 +1305,15 @@ export const se_MalformedBooleanCommand = async (
   input: MalformedBooleanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    booleaninheader: [() => isSerializableHeaderValue(input.booleanInHeader), () => input.booleanInHeader!.toString()],
+    [_bo]: [() => isSerializableHeaderValue(input[_bIH]), () => input[_bIH]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedBoolean/{booleanInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "booleanInPath",
-    () => input.booleanInPath!.toString(),
-    "{booleanInPath}",
-    false
-  );
+  b.bp("/MalformedBoolean/{booleanInPath}");
+  b.p("booleanInPath", () => input.booleanInPath!.toString(), "{booleanInPath}", false);
   const query: any = map({
-    booleanInQuery: [() => input.booleanInQuery !== void 0, () => input.booleanInQuery!.toString()],
+    [_bIQ]: [() => input.booleanInQuery !== void 0, () => input[_bIQ]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1701,16 +1321,8 @@ export const se_MalformedBooleanCommand = async (
       booleanInBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1720,23 +1332,15 @@ export const se_MalformedByteCommand = async (
   input: MalformedByteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    byteinheader: [() => isSerializableHeaderValue(input.byteInHeader), () => input.byteInHeader!.toString()],
+    [_by]: [() => isSerializableHeaderValue(input[_bIHy]), () => input[_bIHy]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedByte/{byteInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "byteInPath",
-    () => input.byteInPath!.toString(),
-    "{byteInPath}",
-    false
-  );
+  b.bp("/MalformedByte/{byteInPath}");
+  b.p("byteInPath", () => input.byteInPath!.toString(), "{byteInPath}", false);
   const query: any = map({
-    byteInQuery: [() => input.byteInQuery !== void 0, () => input.byteInQuery!.toString()],
+    [_bIQy]: [() => input.byteInQuery !== void 0, () => input[_bIQy]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1744,16 +1348,8 @@ export const se_MalformedByteCommand = async (
       byteInBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1763,27 +1359,19 @@ export const se_MalformedContentTypeWithBodyCommand = async (
   input: MalformedContentTypeWithBodyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithBody";
+  b.bp("/MalformedContentTypeWithBody");
   let body: any;
   body = JSON.stringify(
     take(input, {
       hi: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1793,25 +1381,17 @@ export const se_MalformedContentTypeWithGenericStringCommand = async (
   input: MalformedContentTypeWithGenericStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "text/plain",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithGenericString";
+  b.bp("/MalformedContentTypeWithGenericString");
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1821,23 +1401,15 @@ export const se_MalformedContentTypeWithoutBodyCommand = async (
   input: MalformedContentTypeWithoutBodyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithoutBody";
+  b.bp("/MalformedContentTypeWithoutBody");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1847,25 +1419,17 @@ export const se_MalformedContentTypeWithPayloadCommand = async (
   input: MalformedContentTypeWithPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "image/jpeg",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedContentTypeWithPayload";
+  b.bp("/MalformedContentTypeWithPayload");
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1875,28 +1439,25 @@ export const se_MalformedDoubleCommand = async (
   input: MalformedDoubleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    doubleinheader: [
-      () => isSerializableHeaderValue(input.doubleInHeader),
-      () => (input.doubleInHeader! % 1 == 0 ? input.doubleInHeader! + ".0" : input.doubleInHeader!.toString()),
+    [_d]: [
+      () => isSerializableHeaderValue(input[_dIH]),
+      () => (input[_dIH]! % 1 == 0 ? input[_dIH]! + ".0" : input[_dIH]!.toString()),
     ],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedDouble/{doubleInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/MalformedDouble/{doubleInPath}");
+  b.p(
     "doubleInPath",
     () => (input.doubleInPath! % 1 == 0 ? input.doubleInPath! + ".0" : input.doubleInPath!.toString()),
     "{doubleInPath}",
     false
   );
   const query: any = map({
-    doubleInQuery: [
+    [_dIQ]: [
       () => input.doubleInQuery !== void 0,
-      () => (input.doubleInQuery! % 1 == 0 ? input.doubleInQuery! + ".0" : input.doubleInQuery!.toString()),
+      () => (input[_dIQ]! % 1 == 0 ? input[_dIQ]! + ".0" : input[_dIQ]!.toString()),
     ],
   });
   let body: any;
@@ -1905,16 +1466,8 @@ export const se_MalformedDoubleCommand = async (
       doubleInBody: (_) => __serializeFloat(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1924,28 +1477,25 @@ export const se_MalformedFloatCommand = async (
   input: MalformedFloatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    floatinheader: [
-      () => isSerializableHeaderValue(input.floatInHeader),
-      () => (input.floatInHeader! % 1 == 0 ? input.floatInHeader! + ".0" : input.floatInHeader!.toString()),
+    [_fl]: [
+      () => isSerializableHeaderValue(input[_fIH]),
+      () => (input[_fIH]! % 1 == 0 ? input[_fIH]! + ".0" : input[_fIH]!.toString()),
     ],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedFloat/{floatInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/MalformedFloat/{floatInPath}");
+  b.p(
     "floatInPath",
     () => (input.floatInPath! % 1 == 0 ? input.floatInPath! + ".0" : input.floatInPath!.toString()),
     "{floatInPath}",
     false
   );
   const query: any = map({
-    floatInQuery: [
+    [_fIQ]: [
       () => input.floatInQuery !== void 0,
-      () => (input.floatInQuery! % 1 == 0 ? input.floatInQuery! + ".0" : input.floatInQuery!.toString()),
+      () => (input[_fIQ]! % 1 == 0 ? input[_fIQ]! + ".0" : input[_fIQ]!.toString()),
     ],
   });
   let body: any;
@@ -1954,16 +1504,8 @@ export const se_MalformedFloatCommand = async (
       floatInBody: (_) => __serializeFloat(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1973,23 +1515,15 @@ export const se_MalformedIntegerCommand = async (
   input: MalformedIntegerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    integerinheader: [() => isSerializableHeaderValue(input.integerInHeader), () => input.integerInHeader!.toString()],
+    [_i]: [() => isSerializableHeaderValue(input[_iIH]), () => input[_iIH]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedInteger/{integerInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "integerInPath",
-    () => input.integerInPath!.toString(),
-    "{integerInPath}",
-    false
-  );
+  b.bp("/MalformedInteger/{integerInPath}");
+  b.p("integerInPath", () => input.integerInPath!.toString(), "{integerInPath}", false);
   const query: any = map({
-    integerInQuery: [() => input.integerInQuery !== void 0, () => input.integerInQuery!.toString()],
+    [_iIQ]: [() => input.integerInQuery !== void 0, () => input[_iIQ]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1997,16 +1531,8 @@ export const se_MalformedIntegerCommand = async (
       integerInBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2016,26 +1542,19 @@ export const se_MalformedListCommand = async (
   input: MalformedListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedList";
+  b.bp("/MalformedList");
   let body: any;
   body = JSON.stringify(
     take(input, {
       bodyList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2045,23 +1564,15 @@ export const se_MalformedLongCommand = async (
   input: MalformedLongCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    longinheader: [() => isSerializableHeaderValue(input.longInHeader), () => input.longInHeader!.toString()],
+    [_l]: [() => isSerializableHeaderValue(input[_lIH]), () => input[_lIH]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedLong/{longInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "longInPath",
-    () => input.longInPath!.toString(),
-    "{longInPath}",
-    false
-  );
+  b.bp("/MalformedLong/{longInPath}");
+  b.p("longInPath", () => input.longInPath!.toString(), "{longInPath}", false);
   const query: any = map({
-    longInQuery: [() => input.longInQuery !== void 0, () => input.longInQuery!.toString()],
+    [_lIQ]: [() => input.longInQuery !== void 0, () => input[_lIQ]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -2069,16 +1580,8 @@ export const se_MalformedLongCommand = async (
       longInBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2088,26 +1591,19 @@ export const se_MalformedMapCommand = async (
   input: MalformedMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedMap";
+  b.bp("/MalformedMap");
   let body: any;
   body = JSON.stringify(
     take(input, {
       bodyMap: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2117,11 +1613,11 @@ export const se_MalformedRequestBodyCommand = async (
   input: MalformedRequestBodyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedRequestBody";
+  b.bp("/MalformedRequestBody");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2129,15 +1625,8 @@ export const se_MalformedRequestBodyCommand = async (
       int: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2147,23 +1636,15 @@ export const se_MalformedShortCommand = async (
   input: MalformedShortCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    shortinheader: [() => isSerializableHeaderValue(input.shortInHeader), () => input.shortInHeader!.toString()],
+    [_s]: [() => isSerializableHeaderValue(input[_sIH]), () => input[_sIH]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedShort/{shortInPath}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "shortInPath",
-    () => input.shortInPath!.toString(),
-    "{shortInPath}",
-    false
-  );
+  b.bp("/MalformedShort/{shortInPath}");
+  b.p("shortInPath", () => input.shortInPath!.toString(), "{shortInPath}", false);
   const query: any = map({
-    shortInQuery: [() => input.shortInQuery !== void 0, () => input.shortInQuery!.toString()],
+    [_sIQ]: [() => input.shortInQuery !== void 0, () => input[_sIQ]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -2171,16 +1652,8 @@ export const se_MalformedShortCommand = async (
       shortInBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2190,24 +1663,17 @@ export const se_MalformedStringCommand = async (
   input: MalformedStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "amz-media-typed-header": [
-      () => isSerializableHeaderValue(input.blob),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.blob!))),
+    [_amth]: [
+      () => isSerializableHeaderValue(input[_bl]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_bl]!))),
     ],
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedString";
+  b.bp("/MalformedString");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2217,27 +1683,19 @@ export const se_MalformedTimestampBodyDateTimeCommand = async (
   input: MalformedTimestampBodyDateTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyDateTime";
+  b.bp("/MalformedTimestampBodyDateTime");
   let body: any;
   body = JSON.stringify(
     take(input, {
       timestamp: (_) => _.toISOString().split(".")[0] + "Z",
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2247,27 +1705,19 @@ export const se_MalformedTimestampBodyDefaultCommand = async (
   input: MalformedTimestampBodyDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyDefault";
+  b.bp("/MalformedTimestampBodyDefault");
   let body: any;
   body = JSON.stringify(
     take(input, {
       timestamp: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2277,27 +1727,19 @@ export const se_MalformedTimestampBodyHttpDateCommand = async (
   input: MalformedTimestampBodyHttpDateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampBodyHttpDate";
+  b.bp("/MalformedTimestampBodyHttpDate");
   let body: any;
   body = JSON.stringify(
     take(input, {
       timestamp: (_) => __dateToUtcString(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2307,25 +1749,14 @@ export const se_MalformedTimestampHeaderDateTimeCommand = async (
   input: MalformedTimestampHeaderDateTimeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    timestamp: [
-      () => isSerializableHeaderValue(input.timestamp),
-      () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_t]: [() => isSerializableHeaderValue(input[_t]), () => (input[_t]!.toISOString().split(".")[0] + "Z").toString()],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderDateTime";
+  b.bp("/MalformedTimestampHeaderDateTime");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2335,22 +1766,14 @@ export const se_MalformedTimestampHeaderDefaultCommand = async (
   input: MalformedTimestampHeaderDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    timestamp: [() => isSerializableHeaderValue(input.timestamp), () => __dateToUtcString(input.timestamp!).toString()],
+    [_t]: [() => isSerializableHeaderValue(input[_t]), () => __dateToUtcString(input[_t]!).toString()],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderDefault";
+  b.bp("/MalformedTimestampHeaderDefault");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2360,25 +1783,14 @@ export const se_MalformedTimestampHeaderEpochCommand = async (
   input: MalformedTimestampHeaderEpochCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    timestamp: [
-      () => isSerializableHeaderValue(input.timestamp),
-      () => Math.round(input.timestamp!.getTime() / 1000).toString(),
-    ],
+    [_t]: [() => isSerializableHeaderValue(input[_t]), () => Math.round(input[_t]!.getTime() / 1000).toString()],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampHeaderEpoch";
+  b.bp("/MalformedTimestampHeaderEpoch");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2388,29 +1800,13 @@ export const se_MalformedTimestampPathDefaultCommand = async (
   input: MalformedTimestampPathDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/MalformedTimestampPathDefault/{timestamp}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "timestamp",
-    () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
-    "{timestamp}",
-    false
-  );
+  b.bp("/MalformedTimestampPathDefault/{timestamp}");
+  b.p("timestamp", () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(), "{timestamp}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2420,28 +1816,13 @@ export const se_MalformedTimestampPathEpochCommand = async (
   input: MalformedTimestampPathEpochCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampPathEpoch/{timestamp}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "timestamp",
-    () => Math.round(input.timestamp!.getTime() / 1000).toString(),
-    "{timestamp}",
-    false
-  );
+  b.bp("/MalformedTimestampPathEpoch/{timestamp}");
+  b.p("timestamp", () => Math.round(input.timestamp!.getTime() / 1000).toString(), "{timestamp}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2451,29 +1832,13 @@ export const se_MalformedTimestampPathHttpDateCommand = async (
   input: MalformedTimestampPathHttpDateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/MalformedTimestampPathHttpDate/{timestamp}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "timestamp",
-    () => __dateToUtcString(input.timestamp!).toString(),
-    "{timestamp}",
-    false
-  );
+  b.bp("/MalformedTimestampPathHttpDate/{timestamp}");
+  b.p("timestamp", () => __dateToUtcString(input.timestamp!).toString(), "{timestamp}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2483,27 +1848,18 @@ export const se_MalformedTimestampQueryDefaultCommand = async (
   input: MalformedTimestampQueryDefaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryDefault";
+  b.bp("/MalformedTimestampQueryDefault");
   const query: any = map({
-    timestamp: [
+    [_t]: [
       __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_t]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2513,27 +1869,18 @@ export const se_MalformedTimestampQueryEpochCommand = async (
   input: MalformedTimestampQueryEpochCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryEpoch";
+  b.bp("/MalformedTimestampQueryEpoch");
   const query: any = map({
-    timestamp: [
+    [_t]: [
       __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => Math.round(input.timestamp!.getTime() / 1000).toString(),
+      () => Math.round(input[_t]!.getTime() / 1000).toString(),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2543,27 +1890,15 @@ export const se_MalformedTimestampQueryHttpDateCommand = async (
   input: MalformedTimestampQueryHttpDateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryHttpDate";
+  b.bp("/MalformedTimestampQueryHttpDate");
   const query: any = map({
-    timestamp: [
-      __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => __dateToUtcString(input.timestamp!).toString(),
-    ],
+    [_t]: [__expectNonNull(input.timestamp, `timestamp`) != null, () => __dateToUtcString(input[_t]!).toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2573,26 +1908,19 @@ export const se_MalformedUnionCommand = async (
   input: MalformedUnionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedUnion";
+  b.bp("/MalformedUnion");
   let body: any;
   body = JSON.stringify(
     take(input, {
       union: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2602,24 +1930,17 @@ export const se_MediaTypeHeaderCommand = async (
   input: MediaTypeHeaderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-json": [
-      () => isSerializableHeaderValue(input.json),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.json!))),
+    [_xj]: [
+      () => isSerializableHeaderValue(input[_j]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
     ],
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MediaTypeHeader";
+  b.bp("/MediaTypeHeader");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2629,22 +1950,15 @@ export const se_NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndNoOutput";
+  b.bp("/NoInputAndNoOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2654,23 +1968,15 @@ export const se_NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndOutputOutput";
+  b.bp("/NoInputAndOutputOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2680,24 +1986,19 @@ export const se_NullAndEmptyHeadersClientCommand = async (
   input: NullAndEmptyHeadersClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-a": input.a!,
-    "x-b": input.b!,
-    "x-c": [() => isSerializableHeaderValue(input.c), () => (input.c! || []).map((_entry) => _entry as any).join(", ")],
+    [_xa]: input[_a]!,
+    [_xb____]: input[_b_]!,
+    [_xc]: [
+      () => isSerializableHeaderValue(input[_c]),
+      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersClient";
+  b.bp("/NullAndEmptyHeadersClient");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2707,24 +2008,19 @@ export const se_NullAndEmptyHeadersServerCommand = async (
   input: NullAndEmptyHeadersServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-a": input.a!,
-    "x-b": input.b!,
-    "x-c": [() => isSerializableHeaderValue(input.c), () => (input.c! || []).map((_entry) => _entry as any).join(", ")],
+    [_xa]: input[_a]!,
+    [_xb____]: input[_b_]!,
+    [_xc]: [
+      () => isSerializableHeaderValue(input[_c]),
+      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersServer";
+  b.bp("/NullAndEmptyHeadersServer");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2734,25 +2030,16 @@ export const se_OmitsNullSerializesEmptyStringCommand = async (
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsNullSerializesEmptyString";
+  b.bp("/OmitsNullSerializesEmptyString");
   const query: any = map({
-    Null: [, input.nullValue!],
-    Empty: [, input.emptyString!],
+    [_N]: [, input[_nV]!],
+    [_Em]: [, input[_eS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2762,50 +2049,36 @@ export const se_OmitsSerializingEmptyListsCommand = async (
   input: OmitsSerializingEmptyListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsSerializingEmptyLists";
+  b.bp("/OmitsSerializingEmptyLists");
   const query: any = map({
-    StringList: [
-      () => input.queryStringList !== void 0,
-      () => (input.queryStringList! || []).map((_entry) => _entry as any),
-    ],
-    IntegerList: [
+    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
+    [_IL]: [
       () => input.queryIntegerList !== void 0,
-      () => (input.queryIntegerList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    DoubleList: [
+    [_DL]: [
       () => input.queryDoubleList !== void 0,
-      () =>
-        (input.queryDoubleList! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
+      () => (input[_qDL]! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
     ],
-    BooleanList: [
+    [_BL]: [
       () => input.queryBooleanList !== void 0,
-      () => (input.queryBooleanList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qBL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    TimestampList: [
+    [_TL]: [
       () => input.queryTimestampList !== void 0,
-      () =>
-        (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
+      () => (input[_qTL]! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
     ],
-    EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
-    IntegerEnumList: [
+    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
-      () => (input.queryIntegerEnumList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIEL]! || []).map((_entry) => _entry.toString() as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2815,26 +2088,19 @@ export const se_PostPlayerActionCommand = async (
   input: PostPlayerActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PostPlayerAction";
+  b.bp("/PostPlayerAction");
   let body: any;
   body = JSON.stringify(
     take(input, {
       action: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2844,26 +2110,19 @@ export const se_PostUnionWithJsonNameCommand = async (
   input: PostUnionWithJsonNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PostUnionWithJsonName";
+  b.bp("/PostUnionWithJsonName");
   let body: any;
   body = JSON.stringify(
     take(input, {
       value: (_) => se_UnionWithJsonName(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2873,29 +2132,20 @@ export const se_PutWithContentEncodingCommand = async (
   input: PutWithContentEncodingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "content-encoding": input.encoding!,
+    [_ce]: input[_e]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/requestcompression/putcontentwithencoding";
+  b.bp("/requestcompression/putcontentwithencoding");
   let body: any;
   body = JSON.stringify(
     take(input, {
       data: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2905,24 +2155,15 @@ export const se_QueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/QueryIdempotencyTokenAutoFill";
+  b.bp("/QueryIdempotencyTokenAutoFill");
   const query: any = map({
-    token: [, input.token ?? generateIdempotencyToken()],
+    [_to]: [, input[_to] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2932,24 +2173,16 @@ export const se_QueryParamsAsStringListMapCommand = async (
   input: QueryParamsAsStringListMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringListMap";
+  b.bp("/StringListMap");
   const query: any = map({
     ...convertMap(input.foo),
-    corge: [, input.qux!],
+    [_co]: [, input[_q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2959,24 +2192,16 @@ export const se_QueryPrecedenceCommand = async (
   input: QueryPrecedenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Precedence";
+  b.bp("/Precedence");
   const query: any = map({
     ...convertMap(input.baz),
-    bar: [, input.foo!],
+    [_ba]: [, input[_f]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2986,26 +2211,19 @@ export const se_RecursiveShapesCommand = async (
   input: RecursiveShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RecursiveShapes";
+  b.bp("/RecursiveShapes");
   let body: any;
   body = JSON.stringify(
     take(input, {
       nested: (_) => se_RecursiveShapesInputOutputNested1(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3015,13 +2233,12 @@ export const se_SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SimpleScalarProperties";
+  b.bp("/SimpleScalarProperties");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3036,15 +2253,8 @@ export const se_SimpleScalarPropertiesCommand = async (
       trueBooleanValue: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3054,25 +2264,18 @@ export const se_StreamingTraitsCommand = async (
   input: StreamingTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraits";
+  b.bp("/StreamingTraits");
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3082,26 +2285,18 @@ export const se_StreamingTraitsRequireLengthCommand = async (
   input: StreamingTraitsRequireLengthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraitsRequireLength";
+  b.bp("/StreamingTraitsRequireLength");
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3111,26 +2306,18 @@ export const se_StreamingTraitsWithMediaTypeCommand = async (
   input: StreamingTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraitsWithMediaType";
+  b.bp("/StreamingTraitsWithMediaType");
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3140,27 +2327,20 @@ export const se_TestBodyStructureCommand = async (
   input: TestBodyStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-test-id": input.testId!,
+    [_xati]: input[_tI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/body";
+  b.bp("/body");
   let body: any;
   body = JSON.stringify(
     take(input, {
       testConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3170,21 +2350,14 @@ export const se_TestNoPayloadCommand = async (
   input: TestNoPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-test-id": input.testId!,
+    [_xati]: input[_tI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/no_payload";
+  b.bp("/no_payload");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3194,24 +2367,17 @@ export const se_TestPayloadBlobCommand = async (
   input: TestPayloadBlobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/blob_payload";
+  b.bp("/blob_payload");
   let body: any;
   if (input.data !== undefined) {
     body = input.data;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3221,12 +2387,12 @@ export const se_TestPayloadStructureCommand = async (
   input: TestPayloadStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-test-id": input.testId!,
+    [_xati]: input[_tI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/payload";
+  b.bp("/payload");
   let body: any;
   if (input.payloadConfig !== undefined) {
     body = _json(input.payloadConfig);
@@ -3235,15 +2401,8 @@ export const se_TestPayloadStructureCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3253,49 +2412,26 @@ export const se_TimestampFormatHeadersCommand = async (
   input: TimestampFormatHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-memberepochseconds": [
-      () => isSerializableHeaderValue(input.memberEpochSeconds),
-      () => Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
+    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => Math.round(input[_mES]!.getTime() / 1000).toString()],
+    [_xm_]: [() => isSerializableHeaderValue(input[_mHD]), () => __dateToUtcString(input[_mHD]!).toString()],
+    [_xm__]: [
+      () => isSerializableHeaderValue(input[_mDT]),
+      () => (input[_mDT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-memberhttpdate": [
-      () => isSerializableHeaderValue(input.memberHttpDate),
-      () => __dateToUtcString(input.memberHttpDate!).toString(),
-    ],
-    "x-memberdatetime": [
-      () => isSerializableHeaderValue(input.memberDateTime),
-      () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-defaultformat": [
-      () => isSerializableHeaderValue(input.defaultFormat),
-      () => __dateToUtcString(input.defaultFormat!).toString(),
-    ],
-    "x-targetepochseconds": [
-      () => isSerializableHeaderValue(input.targetEpochSeconds),
-      () => Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
-    ],
-    "x-targethttpdate": [
-      () => isSerializableHeaderValue(input.targetHttpDate),
-      () => __dateToUtcString(input.targetHttpDate!).toString(),
-    ],
-    "x-targetdatetime": [
-      () => isSerializableHeaderValue(input.targetDateTime),
-      () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
+    [_xd_]: [() => isSerializableHeaderValue(input[_dF]), () => __dateToUtcString(input[_dF]!).toString()],
+    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => Math.round(input[_tES]!.getTime() / 1000).toString()],
+    [_xt__]: [() => isSerializableHeaderValue(input[_tHD]), () => __dateToUtcString(input[_tHD]!).toString()],
+    [_xt___]: [
+      () => isSerializableHeaderValue(input[_tDT]),
+      () => (input[_tDT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimestampFormatHeaders";
+  b.bp("/TimestampFormatHeaders");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3305,22 +2441,15 @@ export const se_UnitInputAndOutputCommand = async (
   input: UnitInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UnitInputAndOutput";
+  b.bp("/UnitInputAndOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3720,7 +2849,7 @@ export const de_GreetingWithErrorsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    greeting: [, output.headers["x-greeting"]],
+    [_g]: [, output.headers[_xg]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -3886,7 +3015,7 @@ export const de_HttpPayloadTraitsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -3925,7 +3054,7 @@ export const de_HttpPayloadTraitsWithMediaTypeCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -4040,7 +3169,7 @@ export const de_HttpPrefixHeadersCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
     fooMap: [
       ,
       Object.keys(output.headers)
@@ -4437,60 +3566,47 @@ export const de_InputAndOutputWithHeadersCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    headerString: [, output.headers["x-string"]],
-    headerByte: [() => void 0 !== output.headers["x-byte"], () => __strictParseByte(output.headers["x-byte"])],
-    headerShort: [() => void 0 !== output.headers["x-short"], () => __strictParseShort(output.headers["x-short"])],
-    headerInteger: [
-      () => void 0 !== output.headers["x-integer"],
-      () => __strictParseInt32(output.headers["x-integer"]),
+    [_hS]: [, output.headers[_xs]],
+    [_hB]: [() => void 0 !== output.headers[_xb], () => __strictParseByte(output.headers[_xb])],
+    [_hSe]: [() => void 0 !== output.headers[_xs_], () => __strictParseShort(output.headers[_xs_])],
+    [_hI]: [() => void 0 !== output.headers[_xi], () => __strictParseInt32(output.headers[_xi])],
+    [_hL]: [() => void 0 !== output.headers[_xl], () => __strictParseLong(output.headers[_xl])],
+    [_hF]: [() => void 0 !== output.headers[_xf_], () => __strictParseFloat(output.headers[_xf_])],
+    [_hD]: [() => void 0 !== output.headers[_xd], () => __strictParseDouble(output.headers[_xd])],
+    [_hTB]: [() => void 0 !== output.headers[_xb_], () => __parseBoolean(output.headers[_xb_])],
+    [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
+    [_hSL]: [
+      () => void 0 !== output.headers[_xs__],
+      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerLong: [() => void 0 !== output.headers["x-long"], () => __strictParseLong(output.headers["x-long"])],
-    headerFloat: [() => void 0 !== output.headers["x-float"], () => __strictParseFloat(output.headers["x-float"])],
-    headerDouble: [() => void 0 !== output.headers["x-double"], () => __strictParseDouble(output.headers["x-double"])],
-    headerTrueBool: [() => void 0 !== output.headers["x-boolean1"], () => __parseBoolean(output.headers["x-boolean1"])],
-    headerFalseBool: [
-      () => void 0 !== output.headers["x-boolean2"],
-      () => __parseBoolean(output.headers["x-boolean2"]),
+    [_hSS]: [
+      () => void 0 !== output.headers[_xs___],
+      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerStringList: [
-      () => void 0 !== output.headers["x-stringlist"],
-      () => (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hIL]: [
+      () => void 0 !== output.headers[_xi_],
+      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
-    headerStringSet: [
-      () => void 0 !== output.headers["x-stringset"],
-      () => (output.headers["x-stringset"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hBL]: [
+      () => void 0 !== output.headers[_xb___],
+      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
-    headerIntegerList: [
-      () => void 0 !== output.headers["x-integerlist"],
+    [_hTL]: [
+      () => void 0 !== output.headers[_xt],
       () =>
-        (output.headers["x-integerlist"] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
-    ],
-    headerBooleanList: [
-      () => void 0 !== output.headers["x-booleanlist"],
-      () => (output.headers["x-booleanlist"] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
-    ],
-    headerTimestampList: [
-      () => void 0 !== output.headers["x-timestamplist"],
-      () =>
-        __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
+        __splitEvery(output.headers[_xt] || "", ",", 2).map(
           (_entry) => __expectNonNull(__parseRfc7231DateTime(_entry.trim())) as any
         ),
     ],
-    headerEnum: [, output.headers["x-enum"]],
-    headerEnumList: [
-      () => void 0 !== output.headers["x-enumlist"],
-      () => (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hE]: [, output.headers[_xe]],
+    [_hEL]: [
+      () => void 0 !== output.headers[_xe_],
+      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerIntegerEnum: [
-      () => void 0 !== output.headers["x-integerenum"],
-      () => __strictParseInt32(output.headers["x-integerenum"]),
-    ],
-    headerIntegerEnumList: [
-      () => void 0 !== output.headers["x-integerenumlist"],
-      () =>
-        (output.headers["x-integerenumlist"] || "")
-          .split(",")
-          .map((_entry) => __strictParseInt32(_entry.trim()) as any),
+    [_hIE]: [() => void 0 !== output.headers[_xi__], () => __strictParseInt32(output.headers[_xi__])],
+    [_hIEL]: [
+      () => void 0 !== output.headers[_xi___],
+      () => (output.headers[_xi___] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
   });
   await collectBody(output.body, context);
@@ -6040,9 +5156,9 @@ export const de_MediaTypeHeaderCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    json: [
-      () => void 0 !== output.headers["x-json"],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers["x-json"])).toString("utf8")),
+    [_j]: [
+      () => void 0 !== output.headers[_xj],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -6155,11 +5271,11 @@ export const de_NullAndEmptyHeadersClientCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    a: [, output.headers["x-a"]],
-    b: [, output.headers["x-b"]],
-    c: [
-      () => void 0 !== output.headers["x-c"],
-      () => (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_a]: [, output.headers[_xa]],
+    [_b_]: [, output.headers[_xb____]],
+    [_c]: [
+      () => void 0 !== output.headers[_xc],
+      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -6198,11 +5314,11 @@ export const de_NullAndEmptyHeadersServerCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    a: [, output.headers["x-a"]],
-    b: [, output.headers["x-b"]],
-    c: [
-      () => void 0 !== output.headers["x-c"],
-      () => (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_a]: [, output.headers[_xa]],
+    [_b_]: [, output.headers[_xb____]],
+    [_c]: [
+      () => void 0 !== output.headers[_xc],
+      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -6586,7 +5702,7 @@ export const de_SimpleScalarPropertiesCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -6636,7 +5752,7 @@ export const de_StreamingTraitsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -6713,7 +5829,7 @@ export const de_StreamingTraitsWithMediaTypeCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -6753,7 +5869,7 @@ export const de_TestBodyStructureCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    testId: [, output.headers["x-amz-test-id"]],
+    [_tI]: [, output.headers[_xati]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -6795,7 +5911,7 @@ export const de_TestNoPayloadCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    testId: [, output.headers["x-amz-test-id"]],
+    [_tI]: [, output.headers[_xati]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -6833,7 +5949,7 @@ export const de_TestPayloadBlobCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.data = data;
@@ -6872,7 +5988,7 @@ export const de_TestPayloadStructureCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    testId: [, output.headers["x-amz-test-id"]],
+    [_tI]: [, output.headers[_xati]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = _json(data);
@@ -6911,33 +6027,24 @@ export const de_TimestampFormatHeadersCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    memberEpochSeconds: [
-      () => void 0 !== output.headers["x-memberepochseconds"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["x-memberepochseconds"])),
+    [_mES]: [() => void 0 !== output.headers[_xm], () => __expectNonNull(__parseEpochTimestamp(output.headers[_xm]))],
+    [_mHD]: [
+      () => void 0 !== output.headers[_xm_],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xm_])),
     ],
-    memberHttpDate: [
-      () => void 0 !== output.headers["x-memberhttpdate"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-memberhttpdate"])),
+    [_mDT]: [
+      () => void 0 !== output.headers[_xm__],
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers[_xm__])),
     ],
-    memberDateTime: [
-      () => void 0 !== output.headers["x-memberdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-memberdatetime"])),
+    [_dF]: [() => void 0 !== output.headers[_xd_], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xd_]))],
+    [_tES]: [() => void 0 !== output.headers[_xt_], () => __expectNonNull(__parseEpochTimestamp(output.headers[_xt_]))],
+    [_tHD]: [
+      () => void 0 !== output.headers[_xt__],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xt__])),
     ],
-    defaultFormat: [
-      () => void 0 !== output.headers["x-defaultformat"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-defaultformat"])),
-    ],
-    targetEpochSeconds: [
-      () => void 0 !== output.headers["x-targetepochseconds"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["x-targetepochseconds"])),
-    ],
-    targetHttpDate: [
-      () => void 0 !== output.headers["x-targethttpdate"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-targethttpdate"])),
-    ],
-    targetDateTime: [
-      () => void 0 !== output.headers["x-targetdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-targetdatetime"])),
+    [_tDT]: [
+      () => void 0 !== output.headers[_xt___],
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers[_xt___])),
     ],
   });
   await collectBody(output.body, context);
@@ -7007,7 +6114,7 @@ const throwDefaultError = withBaseException(__BaseException);
  */
 const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ComplexError> => {
   const contents: any = map({
-    Header: [, parsedOutput.headers["x-header"]],
+    [_H]: [, parsedOutput.headers[_xh]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -7576,6 +6683,153 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _B = "Byte";
+const _BL = "BooleanList";
+const _Bo = "Boolean";
+const _D = "Double";
+const _DL = "DoubleList";
+const _E = "Enum";
+const _EL = "EnumList";
+const _Em = "Empty";
+const _F = "Float";
+const _H = "Header";
+const _I = "Integer";
+const _IE = "IntegerEnum";
+const _IEL = "IntegerEnumList";
+const _IL = "IntegerList";
+const _IS = "IntegerSet";
+const _L = "Long";
+const _N = "Null";
+const _S = "String";
+const _SL = "StringList";
+const _SS = "StringSet";
+const _Sh = "Short";
+const _T = "Timestamp";
+const _TL = "TimestampList";
+const _a = "a";
+const _amth = "amz-media-typed-header";
+const _b = "baz";
+const _bIH = "booleanInHeader";
+const _bIHy = "byteInHeader";
+const _bIQ = "booleanInQuery";
+const _bIQy = "byteInQuery";
+const _b_ = "b";
+const _ba = "bar";
+const _bl = "blob";
+const _bo = "booleaninheader";
+const _by = "byteinheader";
+const _c = "c";
+const _cT = "contentType";
+const _ce = "content-encoding";
+const _co = "corge";
+const _ct = "content-type";
+const _d = "doubleinheader";
+const _dF = "defaultFormat";
+const _dIH = "doubleInHeader";
+const _dIQ = "doubleInQuery";
+const _e = "encoding";
+const _eS = "emptyString";
+const _f = "foo";
+const _fIH = "floatInHeader";
+const _fIQ = "floatInQuery";
+const _fl = "floatinheader";
+const _g = "greeting";
+const _h = "hello";
+const _hB = "headerByte";
+const _hBL = "headerBooleanList";
+const _hD = "headerDouble";
+const _hE = "headerEnum";
+const _hEL = "headerEnumList";
+const _hF = "headerFloat";
+const _hFB = "headerFalseBool";
+const _hI = "headerInteger";
+const _hIE = "headerIntegerEnum";
+const _hIEL = "headerIntegerEnumList";
+const _hIL = "headerIntegerList";
+const _hL = "headerLong";
+const _hS = "headerString";
+const _hSL = "headerStringList";
+const _hSS = "headerStringSet";
+const _hSe = "headerShort";
+const _hTB = "headerTrueBool";
+const _hTL = "headerTimestampList";
+const _i = "integerinheader";
+const _iIH = "integerInHeader";
+const _iIQ = "integerInQuery";
+const _j = "json";
+const _l = "longinheader";
+const _lIH = "longInHeader";
+const _lIQ = "longInQuery";
+const _mDT = "memberDateTime";
+const _mES = "memberEpochSeconds";
+const _mHD = "memberHttpDate";
+const _mS = "maybeSet";
+const _nV = "nullValue";
+const _q = "qux";
+const _qB = "queryByte";
+const _qBL = "queryBooleanList";
+const _qBu = "queryBoolean";
+const _qD = "queryDouble";
+const _qDL = "queryDoubleList";
+const _qE = "queryEnum";
+const _qEL = "queryEnumList";
+const _qF = "queryFloat";
+const _qI = "queryInteger";
+const _qIE = "queryIntegerEnum";
+const _qIEL = "queryIntegerEnumList";
+const _qIL = "queryIntegerList";
+const _qIS = "queryIntegerSet";
+const _qL = "queryLong";
+const _qS = "queryString";
+const _qSL = "queryStringList";
+const _qSS = "queryStringSet";
+const _qSu = "queryShort";
+const _qT = "queryTimestamp";
+const _qTL = "queryTimestampList";
+const _s = "shortinheader";
+const _sIH = "shortInHeader";
+const _sIQ = "shortInQuery";
+const _t = "timestamp";
+const _tDT = "targetDateTime";
+const _tES = "targetEpochSeconds";
+const _tHD = "targetHttpDate";
+const _tI = "testId";
+const _to = "token";
+const _xa = "x-a";
+const _xati = "x-amz-test-id";
+const _xb = "x-byte";
+const _xb_ = "x-boolean1";
+const _xb__ = "x-boolean2";
+const _xb___ = "x-booleanlist";
+const _xb____ = "x-b";
+const _xc = "x-c";
+const _xd = "x-double";
+const _xd_ = "x-defaultformat";
+const _xe = "x-enum";
+const _xe_ = "x-enumlist";
+const _xf = "x-foo";
+const _xf_ = "x-float";
+const _xg = "x-greeting";
+const _xh = "x-header";
+const _xi = "x-integer";
+const _xi_ = "x-integerlist";
+const _xi__ = "x-integerenum";
+const _xi___ = "x-integerenumlist";
+const _xj = "x-json";
+const _xl = "x-long";
+const _xm = "x-memberepochseconds";
+const _xm_ = "x-memberhttpdate";
+const _xm__ = "x-memberdatetime";
+const _xs = "x-string";
+const _xs_ = "x-short";
+const _xs__ = "x-stringlist";
+const _xs___ = "x-stringset";
+const _xt = "x-timestamplist";
+const _xt_ = "x-targetepochseconds";
+const _xt__ = "x-targethttpdate";
+const _xt___ = "x-targetdatetime";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -7626,3 +6880,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

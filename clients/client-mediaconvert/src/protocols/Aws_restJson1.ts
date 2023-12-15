@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -262,27 +263,19 @@ export const se_AssociateCertificateCommand = async (
   input: AssociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/certificates";
+  b.bp("/2017-08-29/certificates");
   let body: any;
   body = JSON.stringify(
     take(input, {
       arn: [, , `Arn`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -292,20 +285,13 @@ export const se_CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2017-08-29/jobs/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -315,11 +301,11 @@ export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs";
+  b.bp("/2017-08-29/jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -338,15 +324,8 @@ export const se_CreateJobCommand = async (
       userMetadata: [, (_) => _json(_), `UserMetadata`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -356,12 +335,11 @@ export const se_CreateJobTemplateCommand = async (
   input: CreateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates";
+  b.bp("/2017-08-29/jobTemplates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -377,15 +355,8 @@ export const se_CreateJobTemplateCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -395,11 +366,11 @@ export const se_CreatePresetCommand = async (
   input: CreatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets";
+  b.bp("/2017-08-29/presets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -410,15 +381,8 @@ export const se_CreatePresetCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -428,11 +392,11 @@ export const se_CreateQueueCommand = async (
   input: CreateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues";
+  b.bp("/2017-08-29/queues");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -444,15 +408,8 @@ export const se_CreateQueueCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -462,21 +419,13 @@ export const se_DeleteJobTemplateCommand = async (
   input: DeleteJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/jobTemplates/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -486,22 +435,15 @@ export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/policy";
+  b.bp("/2017-08-29/policy");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -511,21 +453,13 @@ export const se_DeletePresetCommand = async (
   input: DeletePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/presets/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -535,21 +469,13 @@ export const se_DeleteQueueCommand = async (
   input: DeleteQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/queues/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -559,11 +485,11 @@ export const se_DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/endpoints";
+  b.bp("/2017-08-29/endpoints");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -572,15 +498,8 @@ export const se_DescribeEndpointsCommand = async (
       nextToken: [, , `NextToken`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -590,41 +509,26 @@ export const se_DisassociateCertificateCommand = async (
   input: DisassociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/certificates/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/2017-08-29/certificates/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1GetJobCommand
  */
 export const se_GetJobCommand = async (input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2017-08-29/jobs/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -634,21 +538,13 @@ export const se_GetJobTemplateCommand = async (
   input: GetJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/jobTemplates/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -658,22 +554,15 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/policy";
+  b.bp("/2017-08-29/policy");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -683,21 +572,13 @@ export const se_GetPresetCommand = async (
   input: GetPresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/presets/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -707,21 +588,13 @@ export const se_GetQueueCommand = async (
   input: GetQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/queues/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -731,27 +604,19 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs";
+  b.bp("/2017-08-29/jobs");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
-    queue: [, input.Queue!],
-    status: [, input.Status!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
+    [_q]: [, input[_Q]!],
+    [_s]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -761,28 +626,19 @@ export const se_ListJobTemplatesCommand = async (
   input: ListJobTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates";
+  b.bp("/2017-08-29/jobTemplates");
   const query: any = map({
-    category: [, input.Category!],
-    listBy: [, input.ListBy!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
+    [_c]: [, input[_C]!],
+    [_lB]: [, input[_LB]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -792,27 +648,19 @@ export const se_ListPresetsCommand = async (
   input: ListPresetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets";
+  b.bp("/2017-08-29/presets");
   const query: any = map({
-    category: [, input.Category!],
-    listBy: [, input.ListBy!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
+    [_c]: [, input[_C]!],
+    [_lB]: [, input[_LB]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -822,26 +670,18 @@ export const se_ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues";
+  b.bp("/2017-08-29/queues");
   const query: any = map({
-    listBy: [, input.ListBy!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
+    [_lB]: [, input[_LB]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -851,20 +691,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/tags/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/2017-08-29/tags/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -874,26 +707,19 @@ export const se_PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/policy";
+  b.bp("/2017-08-29/policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
       policy: [, (_) => se_Policy(_, context), `Policy`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -903,11 +729,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/tags";
+  b.bp("/2017-08-29/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -915,15 +741,8 @@ export const se_TagResourceCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -933,27 +752,20 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/tags/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/2017-08-29/tags/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tagKeys: [, (_) => _json(_), `TagKeys`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -963,13 +775,12 @@ export const se_UpdateJobTemplateCommand = async (
   input: UpdateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/jobTemplates/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -983,15 +794,8 @@ export const se_UpdateJobTemplateCommand = async (
       statusUpdateInterval: [, , `StatusUpdateInterval`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1001,13 +805,12 @@ export const se_UpdatePresetCommand = async (
   input: UpdatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/presets/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1016,15 +819,8 @@ export const se_UpdatePresetCommand = async (
       settings: [, (_) => se_PresetSettings(_, context), `Settings`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1034,13 +830,12 @@ export const se_UpdateQueueCommand = async (
   input: UpdateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/queues/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1049,15 +844,8 @@ export const se_UpdateQueueCommand = async (
       status: [, , `Status`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -8780,6 +8568,22 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _C = "Category";
+const _LB = "ListBy";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _O = "Order";
+const _Q = "Queue";
+const _S = "Status";
+const _c = "category";
+const _lB = "listBy";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _o = "order";
+const _q = "queue";
+const _s = "status";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -8830,3 +8634,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

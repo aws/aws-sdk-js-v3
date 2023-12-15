@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -134,37 +135,21 @@ export const se_CloneBackendCommand = async (
   input: CloneBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/environments/{BackendEnvironmentName}/clone";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/environments/{BackendEnvironmentName}/clone");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       targetEnvironmentName: [, , `TargetEnvironmentName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -174,11 +159,11 @@ export const se_CreateBackendCommand = async (
   input: CreateBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend";
+  b.bp("/backend");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -189,15 +174,8 @@ export const se_CreateBackendCommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -207,12 +185,12 @@ export const se_CreateBackendAPICommand = async (
   input: CreateBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/api";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/api");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -221,15 +199,8 @@ export const se_CreateBackendAPICommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -239,12 +210,12 @@ export const se_CreateBackendAuthCommand = async (
   input: CreateBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/auth";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/auth");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -253,15 +224,8 @@ export const se_CreateBackendAuthCommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -271,27 +235,20 @@ export const se_CreateBackendConfigCommand = async (
   input: CreateBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/config");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       backendManagerAppId: [, , `BackendManagerAppId`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -301,12 +258,12 @@ export const se_CreateBackendStorageCommand = async (
   input: CreateBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/storage";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/storage");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -315,15 +272,8 @@ export const se_CreateBackendStorageCommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -333,21 +283,13 @@ export const se_CreateTokenCommand = async (
   input: CreateTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/challenge";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/challenge");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -357,30 +299,14 @@ export const se_DeleteBackendCommand = async (
   input: DeleteBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/environments/{BackendEnvironmentName}/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/environments/{BackendEnvironmentName}/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -390,22 +316,13 @@ export const se_DeleteBackendAPICommand = async (
   input: DeleteBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/api/{BackendEnvironmentName}/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/api/{BackendEnvironmentName}/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -413,15 +330,8 @@ export const se_DeleteBackendAPICommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -431,37 +341,21 @@ export const se_DeleteBackendAuthCommand = async (
   input: DeleteBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/auth/{BackendEnvironmentName}/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/auth/{BackendEnvironmentName}/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -471,22 +365,13 @@ export const se_DeleteBackendStorageCommand = async (
   input: DeleteBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/storage/{BackendEnvironmentName}/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/storage/{BackendEnvironmentName}/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -494,15 +379,8 @@ export const se_DeleteBackendStorageCommand = async (
       serviceName: [, , `ServiceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -512,23 +390,14 @@ export const se_DeleteTokenCommand = async (
   input: DeleteTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/challenge/{SessionId}/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "SessionId", () => input.SessionId!, "{SessionId}", false);
+  b.bp("/backend/{AppId}/challenge/{SessionId}/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("SessionId", () => input.SessionId!, "{SessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -538,37 +407,21 @@ export const se_GenerateBackendAPIModelsCommand = async (
   input: GenerateBackendAPIModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/api/{BackendEnvironmentName}/generateModels";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/api/{BackendEnvironmentName}/generateModels");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -578,27 +431,20 @@ export const se_GetBackendCommand = async (
   input: GetBackendCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/details";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/details");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       backendEnvironmentName: [, , `BackendEnvironmentName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -608,22 +454,13 @@ export const se_GetBackendAPICommand = async (
   input: GetBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/api/{BackendEnvironmentName}/details";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/api/{BackendEnvironmentName}/details");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -631,15 +468,8 @@ export const se_GetBackendAPICommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -649,37 +479,21 @@ export const se_GetBackendAPIModelsCommand = async (
   input: GetBackendAPIModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/api/{BackendEnvironmentName}/getModels";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/api/{BackendEnvironmentName}/getModels");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -689,37 +503,21 @@ export const se_GetBackendAuthCommand = async (
   input: GetBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/auth/{BackendEnvironmentName}/details";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/auth/{BackendEnvironmentName}/details");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -729,31 +527,15 @@ export const se_GetBackendJobCommand = async (
   input: GetBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -763,37 +545,21 @@ export const se_GetBackendStorageCommand = async (
   input: GetBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/storage/{BackendEnvironmentName}/details";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/storage/{BackendEnvironmentName}/details");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -803,22 +569,14 @@ export const se_GetTokenCommand = async (
   input: GetTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/challenge/{SessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "SessionId", () => input.SessionId!, "{SessionId}", false);
+  b.bp("/backend/{AppId}/challenge/{SessionId}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("SessionId", () => input.SessionId!, "{SessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -828,22 +586,13 @@ export const se_ImportBackendAuthCommand = async (
   input: ImportBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/auth/{BackendEnvironmentName}/import";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/auth/{BackendEnvironmentName}/import");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -853,15 +602,8 @@ export const se_ImportBackendAuthCommand = async (
       webClientId: [, , `WebClientId`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -871,22 +613,13 @@ export const se_ImportBackendStorageCommand = async (
   input: ImportBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/storage/{BackendEnvironmentName}/import";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/storage/{BackendEnvironmentName}/import");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -894,15 +627,8 @@ export const se_ImportBackendStorageCommand = async (
       serviceName: [, , `ServiceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -912,22 +638,13 @@ export const se_ListBackendJobsCommand = async (
   input: ListBackendJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/job/{BackendEnvironmentName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/job/{BackendEnvironmentName}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -938,15 +655,8 @@ export const se_ListBackendJobsCommand = async (
       status: [, , `Status`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -956,26 +666,19 @@ export const se_ListS3BucketsCommand = async (
   input: ListS3BucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/s3Buckets";
+  b.bp("/s3Buckets");
   let body: any;
   body = JSON.stringify(
     take(input, {
       nextToken: [, , `NextToken`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -985,27 +688,20 @@ export const se_RemoveAllBackendsCommand = async (
   input: RemoveAllBackendsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       cleanAmplifyApp: [, , `CleanAmplifyApp`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1015,21 +711,13 @@ export const se_RemoveBackendConfigCommand = async (
   input: RemoveBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/remove";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/config/remove");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1039,22 +727,13 @@ export const se_UpdateBackendAPICommand = async (
   input: UpdateBackendAPICommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/api/{BackendEnvironmentName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/api/{BackendEnvironmentName}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1062,15 +741,8 @@ export const se_UpdateBackendAPICommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1080,22 +752,13 @@ export const se_UpdateBackendAuthCommand = async (
   input: UpdateBackendAuthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/auth/{BackendEnvironmentName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/auth/{BackendEnvironmentName}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1103,15 +766,8 @@ export const se_UpdateBackendAuthCommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1121,28 +777,20 @@ export const se_UpdateBackendConfigCommand = async (
   input: UpdateBackendConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backend/{AppId}/config/update";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
+  b.bp("/backend/{AppId}/config/update");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       loginAuthConfig: [, (_) => se_LoginAuthConfigReqObj(_, context), `LoginAuthConfig`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1152,23 +800,14 @@ export const se_UpdateBackendJobCommand = async (
   input: UpdateBackendJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/backend/{AppId}/job/{BackendEnvironmentName}/{JobId}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1176,15 +815,8 @@ export const se_UpdateBackendJobCommand = async (
       status: [, , `Status`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1194,22 +826,13 @@ export const se_UpdateBackendStorageCommand = async (
   input: UpdateBackendStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backend/{AppId}/storage/{BackendEnvironmentName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AppId", () => input.AppId!, "{AppId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackendEnvironmentName",
-    () => input.BackendEnvironmentName!,
-    "{BackendEnvironmentName}",
-    false
-  );
+  b.bp("/backend/{AppId}/storage/{BackendEnvironmentName}");
+  b.p("AppId", () => input.AppId!, "{AppId}", false);
+  b.p("BackendEnvironmentName", () => input.BackendEnvironmentName!, "{BackendEnvironmentName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1217,15 +840,8 @@ export const se_UpdateBackendStorageCommand = async (
       resourceName: [, , `ResourceName`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3906,6 +3522,8 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -3956,3 +3574,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

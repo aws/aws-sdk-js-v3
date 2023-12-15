@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -222,14 +223,12 @@ export const se_AssociateTrackerConsumerCommand = async (
   input: AssociateTrackerConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/consumers";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/consumers");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -243,15 +242,9 @@ export const se_AssociateTrackerConsumerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -261,14 +254,12 @@ export const se_BatchDeleteDevicePositionHistoryCommand = async (
   input: BatchDeleteDevicePositionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/delete-positions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/delete-positions");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -282,15 +273,9 @@ export const se_BatchDeleteDevicePositionHistoryCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -300,21 +285,12 @@ export const se_BatchDeleteGeofenceCommand = async (
   input: BatchDeleteGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}/delete-geofences";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}/delete-geofences");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -328,15 +304,9 @@ export const se_BatchDeleteGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -346,21 +316,12 @@ export const se_BatchEvaluateGeofencesCommand = async (
   input: BatchEvaluateGeofencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}/positions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}/positions");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -374,15 +335,9 @@ export const se_BatchEvaluateGeofencesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -392,14 +347,12 @@ export const se_BatchGetDevicePositionCommand = async (
   input: BatchGetDevicePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/get-positions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/get-positions");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -413,15 +366,9 @@ export const se_BatchGetDevicePositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -431,21 +378,12 @@ export const se_BatchPutGeofenceCommand = async (
   input: BatchPutGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}/put-geofences";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}/put-geofences");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -459,15 +397,9 @@ export const se_BatchPutGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -477,14 +409,12 @@ export const se_BatchUpdateDevicePositionCommand = async (
   input: BatchUpdateDevicePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/positions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/positions");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -498,15 +428,9 @@ export const se_BatchUpdateDevicePositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -516,23 +440,14 @@ export const se_CalculateRouteCommand = async (
   input: CalculateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routes/v0/calculators/{CalculatorName}/calculate/route";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatorName",
-    () => input.CalculatorName!,
-    "{CalculatorName}",
-    false
-  );
+  b.bp("/routes/v0/calculators/{CalculatorName}/calculate/route");
+  b.p("CalculatorName", () => input.CalculatorName!, "{CalculatorName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -558,16 +473,9 @@ export const se_CalculateRouteCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -577,23 +485,14 @@ export const se_CalculateRouteMatrixCommand = async (
   input: CalculateRouteMatrixCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatorName",
-    () => input.CalculatorName!,
-    "{CalculatorName}",
-    false
-  );
+  b.bp("/routes/v0/calculators/{CalculatorName}/calculate/route-matrix");
+  b.p("CalculatorName", () => input.CalculatorName!, "{CalculatorName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -615,16 +514,9 @@ export const se_CalculateRouteMatrixCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -634,12 +526,11 @@ export const se_CreateGeofenceCollectionCommand = async (
   input: CreateGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/collections";
+  b.bp("/geofencing/v0/collections");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -658,15 +549,9 @@ export const se_CreateGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -676,11 +561,11 @@ export const se_CreateKeyCommand = async (
   input: CreateKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys";
+  b.bp("/metadata/v0/keys");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -699,15 +584,9 @@ export const se_CreateKeyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -717,11 +596,11 @@ export const se_CreateMapCommand = async (
   input: CreateMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps";
+  b.bp("/maps/v0/maps");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -739,15 +618,9 @@ export const se_CreateMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -757,11 +630,11 @@ export const se_CreatePlaceIndexCommand = async (
   input: CreatePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes";
+  b.bp("/places/v0/indexes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -780,15 +653,9 @@ export const se_CreatePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -798,11 +665,11 @@ export const se_CreateRouteCalculatorCommand = async (
   input: CreateRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators";
+  b.bp("/routes/v0/calculators");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -820,15 +687,9 @@ export const se_CreateRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -838,11 +699,11 @@ export const se_CreateTrackerCommand = async (
   input: CreateTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers";
+  b.bp("/tracking/v0/trackers");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -864,15 +725,9 @@ export const se_CreateTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -882,19 +737,10 @@ export const se_DeleteGeofenceCollectionCommand = async (
   input: DeleteGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -903,15 +749,9 @@ export const se_DeleteGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -921,11 +761,10 @@ export const se_DeleteKeyCommand = async (
   input: DeleteKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
+  b.bp("/metadata/v0/keys/{KeyName}");
+  b.p("KeyName", () => input.KeyName!, "{KeyName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -934,15 +773,9 @@ export const se_DeleteKeyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -952,10 +785,10 @@ export const se_DeleteMapCommand = async (
   input: DeleteMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
+  b.bp("/maps/v0/maps/{MapName}");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -964,15 +797,9 @@ export const se_DeleteMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -982,11 +809,10 @@ export const se_DeletePlaceIndexCommand = async (
   input: DeletePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.bp("/places/v0/indexes/{IndexName}");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -995,15 +821,9 @@ export const se_DeletePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1013,18 +833,10 @@ export const se_DeleteRouteCalculatorCommand = async (
   input: DeleteRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators/{CalculatorName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatorName",
-    () => input.CalculatorName!,
-    "{CalculatorName}",
-    false
-  );
+  b.bp("/routes/v0/calculators/{CalculatorName}");
+  b.p("CalculatorName", () => input.CalculatorName!, "{CalculatorName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1033,15 +845,9 @@ export const se_DeleteRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1051,11 +857,10 @@ export const se_DeleteTrackerCommand = async (
   input: DeleteTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1064,15 +869,9 @@ export const se_DeleteTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1082,19 +881,10 @@ export const se_DescribeGeofenceCollectionCommand = async (
   input: DescribeGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1103,15 +893,9 @@ export const se_DescribeGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1121,11 +905,10 @@ export const se_DescribeKeyCommand = async (
   input: DescribeKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
+  b.bp("/metadata/v0/keys/{KeyName}");
+  b.p("KeyName", () => input.KeyName!, "{KeyName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1134,15 +917,9 @@ export const se_DescribeKeyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1152,10 +929,10 @@ export const se_DescribeMapCommand = async (
   input: DescribeMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
+  b.bp("/maps/v0/maps/{MapName}");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1164,15 +941,9 @@ export const se_DescribeMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1182,11 +953,10 @@ export const se_DescribePlaceIndexCommand = async (
   input: DescribePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.bp("/places/v0/indexes/{IndexName}");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1195,15 +965,9 @@ export const se_DescribePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1213,18 +977,10 @@ export const se_DescribeRouteCalculatorCommand = async (
   input: DescribeRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators/{CalculatorName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatorName",
-    () => input.CalculatorName!,
-    "{CalculatorName}",
-    false
-  );
+  b.bp("/routes/v0/calculators/{CalculatorName}");
+  b.p("CalculatorName", () => input.CalculatorName!, "{CalculatorName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1233,15 +989,9 @@ export const se_DescribeRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1251,11 +1001,10 @@ export const se_DescribeTrackerCommand = async (
   input: DescribeTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1264,15 +1013,9 @@ export const se_DescribeTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1282,13 +1025,11 @@ export const se_DisassociateTrackerConsumerCommand = async (
   input: DisassociateTrackerConsumerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConsumerArn", () => input.ConsumerArn!, "{ConsumerArn}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/consumers/{ConsumerArn}");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.p("ConsumerArn", () => input.ConsumerArn!, "{ConsumerArn}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1297,15 +1038,9 @@ export const se_DisassociateTrackerConsumerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1315,13 +1050,11 @@ export const se_GetDevicePositionCommand = async (
   input: GetDevicePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/positions/latest");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.p("DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1330,15 +1063,9 @@ export const se_GetDevicePositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1348,15 +1075,13 @@ export const se_GetDevicePositionHistoryCommand = async (
   input: GetDevicePositionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/devices/{DeviceId}/list-positions");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.p("DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1373,15 +1098,9 @@ export const se_GetDevicePositionHistoryCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1391,20 +1110,11 @@ export const se_GetGeofenceCommand = async (
   input: GetGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "GeofenceId", () => input.GeofenceId!, "{GeofenceId}", false);
+  b.bp("/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
+  b.p("GeofenceId", () => input.GeofenceId!, "{GeofenceId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1413,15 +1123,9 @@ export const se_GetGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1431,23 +1135,14 @@ export const se_GetMapGlyphsCommand = async (
   input: GetMapGlyphsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "FontStack", () => input.FontStack!, "{FontStack}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FontUnicodeRange",
-    () => input.FontUnicodeRange!,
-    "{FontUnicodeRange}",
-    false
-  );
+  b.bp("/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
+  b.p("FontStack", () => input.FontStack!, "{FontStack}", false);
+  b.p("FontUnicodeRange", () => input.FontUnicodeRange!, "{FontUnicodeRange}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1457,16 +1152,9 @@ export const se_GetMapGlyphsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1476,15 +1164,13 @@ export const se_GetMapSpritesCommand = async (
   input: GetMapSpritesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/maps/v0/maps/{MapName}/sprites/{FileName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "FileName", () => input.FileName!, "{FileName}", false);
+  b.bp("/maps/v0/maps/{MapName}/sprites/{FileName}");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
+  b.p("FileName", () => input.FileName!, "{FileName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1494,16 +1180,9 @@ export const se_GetMapSpritesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1513,13 +1192,12 @@ export const se_GetMapStyleDescriptorCommand = async (
   input: GetMapStyleDescriptorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}/style-descriptor";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
+  b.bp("/maps/v0/maps/{MapName}/style-descriptor");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1529,16 +1207,9 @@ export const se_GetMapStyleDescriptorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1548,16 +1219,15 @@ export const se_GetMapTileCommand = async (
   input: GetMapTileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Z", () => input.Z!, "{Z}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "X", () => input.X!, "{X}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Y", () => input.Y!, "{Y}", false);
+  b.bp("/maps/v0/maps/{MapName}/tiles/{Z}/{X}/{Y}");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
+  b.p("Z", () => input.Z!, "{Z}", false);
+  b.p("X", () => input.X!, "{X}", false);
+  b.p("Y", () => input.Y!, "{Y}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1567,16 +1237,9 @@ export const se_GetMapTileCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1586,16 +1249,14 @@ export const se_GetPlaceCommand = async (
   input: GetPlaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/places/v0/indexes/{IndexName}/places/{PlaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "PlaceId", () => input.PlaceId!, "{PlaceId}", false);
+  b.bp("/places/v0/indexes/{IndexName}/places/{PlaceId}");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.p("PlaceId", () => input.PlaceId!, "{PlaceId}", false);
   const query: any = map({
-    language: [, input.Language!],
-    key: [, input.Key!],
+    [_l]: [, input[_L]!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1605,16 +1266,9 @@ export const se_GetPlaceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1624,14 +1278,12 @@ export const se_ListDevicePositionsCommand = async (
   input: ListDevicePositionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/list-positions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/list-positions");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1647,15 +1299,9 @@ export const se_ListDevicePositionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1665,12 +1311,11 @@ export const se_ListGeofenceCollectionsCommand = async (
   input: ListGeofenceCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/geofencing/v0/list-collections";
+  b.bp("/geofencing/v0/list-collections");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1685,15 +1330,9 @@ export const se_ListGeofenceCollectionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1703,21 +1342,12 @@ export const se_ListGeofencesCommand = async (
   input: ListGeofencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}/list-geofences";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}/list-geofences");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1732,15 +1362,9 @@ export const se_ListGeofencesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1750,11 +1374,11 @@ export const se_ListKeysCommand = async (
   input: ListKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/list-keys";
+  b.bp("/metadata/v0/list-keys");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1770,15 +1394,9 @@ export const se_ListKeysCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1788,11 +1406,11 @@ export const se_ListMapsCommand = async (
   input: ListMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/list-maps";
+  b.bp("/maps/v0/list-maps");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1807,15 +1425,9 @@ export const se_ListMapsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1825,12 +1437,11 @@ export const se_ListPlaceIndexesCommand = async (
   input: ListPlaceIndexesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/list-indexes";
+  b.bp("/places/v0/list-indexes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1845,15 +1456,9 @@ export const se_ListPlaceIndexesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1863,12 +1468,11 @@ export const se_ListRouteCalculatorsCommand = async (
   input: ListRouteCalculatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/list-calculators";
+  b.bp("/routes/v0/list-calculators");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1883,15 +1487,9 @@ export const se_ListRouteCalculatorsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1901,10 +1499,10 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1913,15 +1511,9 @@ export const se_ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1931,14 +1523,12 @@ export const se_ListTrackerConsumersCommand = async (
   input: ListTrackerConsumersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/tracking/v0/trackers/{TrackerName}/list-consumers";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}/list-consumers");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1953,15 +1543,9 @@ export const se_ListTrackerConsumersCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1971,12 +1555,11 @@ export const se_ListTrackersCommand = async (
   input: ListTrackersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/list-trackers";
+  b.bp("/tracking/v0/list-trackers");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1991,15 +1574,9 @@ export const se_ListTrackersCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2009,22 +1586,13 @@ export const se_PutGeofenceCommand = async (
   input: PutGeofenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "GeofenceId", () => input.GeofenceId!, "{GeofenceId}", false);
+  b.bp("/geofencing/v0/collections/{CollectionName}/geofences/{GeofenceId}");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
+  b.p("GeofenceId", () => input.GeofenceId!, "{GeofenceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2039,15 +1607,9 @@ export const se_PutGeofenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2057,16 +1619,14 @@ export const se_SearchPlaceIndexForPositionCommand = async (
   input: SearchPlaceIndexForPositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/places/v0/indexes/{IndexName}/search/position";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.bp("/places/v0/indexes/{IndexName}/search/position");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2083,16 +1643,9 @@ export const se_SearchPlaceIndexForPositionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2102,16 +1655,14 @@ export const se_SearchPlaceIndexForSuggestionsCommand = async (
   input: SearchPlaceIndexForSuggestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/places/v0/indexes/{IndexName}/search/suggestions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.bp("/places/v0/indexes/{IndexName}/search/suggestions");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2132,16 +1683,9 @@ export const se_SearchPlaceIndexForSuggestionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2151,16 +1695,14 @@ export const se_SearchPlaceIndexForTextCommand = async (
   input: SearchPlaceIndexForTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/places/v0/indexes/{IndexName}/search/text";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.bp("/places/v0/indexes/{IndexName}/search/text");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
   const query: any = map({
-    key: [, input.Key!],
+    [_k]: [, input[_K]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2181,16 +1723,9 @@ export const se_SearchPlaceIndexForTextCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2200,12 +1735,12 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2219,15 +1754,9 @@ export const se_TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2237,14 +1766,14 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
@@ -2255,16 +1784,9 @@ export const se_UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2274,21 +1796,12 @@ export const se_UpdateGeofenceCollectionCommand = async (
   input: UpdateGeofenceCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/geofencing/v0/collections/{CollectionName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionName",
-    () => input.CollectionName!,
-    "{CollectionName}",
-    false
-  );
+  b.bp("/geofencing/v0/collections/{CollectionName}");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2304,15 +1817,9 @@ export const se_UpdateGeofenceCollectionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2322,13 +1829,12 @@ export const se_UpdateKeyCommand = async (
   input: UpdateKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metadata/v0/keys/{KeyName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KeyName", () => input.KeyName!, "{KeyName}", false);
+  b.bp("/metadata/v0/keys/{KeyName}");
+  b.p("KeyName", () => input.KeyName!, "{KeyName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2346,15 +1852,9 @@ export const se_UpdateKeyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2364,12 +1864,12 @@ export const se_UpdateMapCommand = async (
   input: UpdateMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/maps/v0/maps/{MapName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MapName", () => input.MapName!, "{MapName}", false);
+  b.bp("/maps/v0/maps/{MapName}");
+  b.p("MapName", () => input.MapName!, "{MapName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2385,15 +1885,9 @@ export const se_UpdateMapCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2403,13 +1897,12 @@ export const se_UpdatePlaceIndexCommand = async (
   input: UpdatePlaceIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/places/v0/indexes/{IndexName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "IndexName", () => input.IndexName!, "{IndexName}", false);
+  b.bp("/places/v0/indexes/{IndexName}");
+  b.p("IndexName", () => input.IndexName!, "{IndexName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2425,15 +1918,9 @@ export const se_UpdatePlaceIndexCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2443,20 +1930,12 @@ export const se_UpdateRouteCalculatorCommand = async (
   input: UpdateRouteCalculatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routes/v0/calculators/{CalculatorName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatorName",
-    () => input.CalculatorName!,
-    "{CalculatorName}",
-    false
-  );
+  b.bp("/routes/v0/calculators/{CalculatorName}");
+  b.p("CalculatorName", () => input.CalculatorName!, "{CalculatorName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2471,15 +1950,9 @@ export const se_UpdateRouteCalculatorCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2489,13 +1962,12 @@ export const se_UpdateTrackerCommand = async (
   input: UpdateTrackerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tracking/v0/trackers/{TrackerName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  b.bp("/tracking/v0/trackers/{TrackerName}");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2514,15 +1986,9 @@ export const se_UpdateTrackerCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4439,8 +3905,8 @@ export const de_GetMapGlyphsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    CacheControl: [, output.headers["cache-control"]],
+    [_CT]: [, output.headers[_ct]],
+    [_CC]: [, output.headers[_cc]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -4497,8 +3963,8 @@ export const de_GetMapSpritesCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    CacheControl: [, output.headers["cache-control"]],
+    [_CT]: [, output.headers[_ct]],
+    [_CC]: [, output.headers[_cc]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -4555,8 +4021,8 @@ export const de_GetMapStyleDescriptorCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    CacheControl: [, output.headers["cache-control"]],
+    [_CT]: [, output.headers[_ct]],
+    [_CC]: [, output.headers[_cc]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -4613,8 +4079,8 @@ export const de_GetMapTileCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    CacheControl: [, output.headers["cache-control"]],
+    [_CT]: [, output.headers[_ct]],
+    [_CC]: [, output.headers[_cc]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Blob = data;
@@ -7126,6 +6592,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CC = "CacheControl";
+const _CT = "ContentType";
+const _K = "Key";
+const _L = "Language";
+const _TK = "TagKeys";
+const _cc = "cache-control";
+const _ct = "content-type";
+const _k = "key";
+const _l = "language";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -7176,3 +6654,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

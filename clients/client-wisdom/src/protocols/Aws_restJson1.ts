@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -152,11 +153,11 @@ export const se_CreateAssistantCommand = async (
   input: CreateAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants";
+  b.bp("/assistants");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -168,15 +169,8 @@ export const se_CreateAssistantCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -186,13 +180,12 @@ export const se_CreateAssistantAssociationCommand = async (
   input: CreateAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -202,15 +195,8 @@ export const se_CreateAssistantAssociationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -220,21 +206,12 @@ export const se_CreateContentCommand = async (
   input: CreateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -247,15 +224,8 @@ export const se_CreateContentCommand = async (
       uploadId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -265,11 +235,11 @@ export const se_CreateKnowledgeBaseCommand = async (
   input: CreateKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases";
+  b.bp("/knowledgeBases");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -283,15 +253,8 @@ export const se_CreateKnowledgeBaseCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -301,21 +264,12 @@ export const se_CreateQuickResponseCommand = async (
   input: CreateQuickResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/quickResponses";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -332,15 +286,8 @@ export const se_CreateQuickResponseCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -350,13 +297,12 @@ export const se_CreateSessionCommand = async (
   input: CreateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/sessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/sessions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -366,15 +312,8 @@ export const se_CreateSessionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -384,21 +323,13 @@ export const se_DeleteAssistantCommand = async (
   input: DeleteAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -408,30 +339,14 @@ export const se_DeleteAssistantAssociationCommand = async (
   input: DeleteAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/associations/{assistantAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "assistantAssociationId",
-    () => input.assistantAssociationId!,
-    "{assistantAssociationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations/{assistantAssociationId}");
+  b.p("assistantAssociationId", () => input.assistantAssociationId!, "{assistantAssociationId}", false);
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -441,30 +356,14 @@ export const se_DeleteContentCommand = async (
   input: DeleteContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -474,30 +373,14 @@ export const se_DeleteImportJobCommand = async (
   input: DeleteImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "importJobId", () => input.importJobId!, "{importJobId}", false);
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("importJobId", () => input.importJobId!, "{importJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -507,28 +390,13 @@ export const se_DeleteKnowledgeBaseCommand = async (
   input: DeleteKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -538,37 +406,14 @@ export const se_DeleteQuickResponseCommand = async (
   input: DeleteQuickResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "quickResponseId",
-    () => input.quickResponseId!,
-    "{quickResponseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -578,21 +423,13 @@ export const se_GetAssistantCommand = async (
   input: GetAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -602,30 +439,14 @@ export const se_GetAssistantAssociationCommand = async (
   input: GetAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/associations/{assistantAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "assistantAssociationId",
-    () => input.assistantAssociationId!,
-    "{assistantAssociationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations/{assistantAssociationId}");
+  b.p("assistantAssociationId", () => input.assistantAssociationId!, "{assistantAssociationId}", false);
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -635,30 +456,14 @@ export const se_GetContentCommand = async (
   input: GetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -668,30 +473,14 @@ export const se_GetContentSummaryCommand = async (
   input: GetContentSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary";
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary");
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -701,30 +490,14 @@ export const se_GetImportJobCommand = async (
   input: GetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "importJobId", () => input.importJobId!, "{importJobId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}");
+  b.p("importJobId", () => input.importJobId!, "{importJobId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -734,28 +507,13 @@ export const se_GetKnowledgeBaseCommand = async (
   input: GetKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -765,37 +523,14 @@ export const se_GetQuickResponseCommand = async (
   input: GetQuickResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "quickResponseId",
-    () => input.quickResponseId!,
-    "{quickResponseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}");
+  b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -805,28 +540,18 @@ export const se_GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/sessions/{sessionId}/recommendations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/recommendations");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    waitTimeSeconds: [() => input.waitTimeSeconds !== void 0, () => input.waitTimeSeconds!.toString()],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_wTS]: [() => input.waitTimeSeconds !== void 0, () => input[_wTS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -836,23 +561,14 @@ export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -862,26 +578,17 @@ export const se_ListAssistantAssociationsCommand = async (
   input: ListAssistantAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -891,24 +598,16 @@ export const se_ListAssistantsCommand = async (
   input: ListAssistantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants";
+  b.bp("/assistants");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -918,34 +617,17 @@ export const se_ListContentsCommand = async (
   input: ListContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -955,34 +637,17 @@ export const se_ListImportJobsCommand = async (
   input: ListImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/importJobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -992,24 +657,16 @@ export const se_ListKnowledgeBasesCommand = async (
   input: ListKnowledgeBasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases";
+  b.bp("/knowledgeBases");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1019,34 +676,17 @@ export const se_ListQuickResponsesCommand = async (
   input: ListQuickResponsesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/quickResponses";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1056,20 +696,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1079,30 +712,21 @@ export const se_NotifyRecommendationsReceivedCommand = async (
   input: NotifyRecommendationsReceivedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       recommendationIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1112,13 +736,12 @@ export const se_QueryAssistantCommand = async (
   input: QueryAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/query";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/query");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1127,15 +750,8 @@ export const se_QueryAssistantCommand = async (
       queryText: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1145,29 +761,13 @@ export const se_RemoveKnowledgeBaseTemplateUriCommand = async (
   input: RemoveKnowledgeBaseTemplateUriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/templateUri";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/templateUri");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1177,23 +777,15 @@ export const se_SearchContentCommand = async (
   input: SearchContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}/search";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/search");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1201,16 +793,8 @@ export const se_SearchContentCommand = async (
       searchExpression: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1220,24 +804,15 @@ export const se_SearchQuickResponsesCommand = async (
   input: SearchQuickResponsesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/search/quickResponses";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/search/quickResponses");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1246,16 +821,8 @@ export const se_SearchQuickResponsesCommand = async (
       searchExpression: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1265,16 +832,15 @@ export const se_SearchSessionsCommand = async (
   input: SearchSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/searchSessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/searchSessions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1282,16 +848,8 @@ export const se_SearchSessionsCommand = async (
       searchExpression: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1301,20 +859,12 @@ export const se_StartContentUploadCommand = async (
   input: StartContentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}/upload";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/upload");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1322,15 +872,8 @@ export const se_StartContentUploadCommand = async (
       presignedUrlTimeToLive: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1340,21 +883,12 @@ export const se_StartImportJobCommand = async (
   input: StartImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/importJobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1365,15 +899,8 @@ export const se_StartImportJobCommand = async (
       uploadId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1383,27 +910,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1413,27 +933,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1443,22 +955,13 @@ export const se_UpdateContentCommand = async (
   input: UpdateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1470,15 +973,8 @@ export const se_UpdateContentCommand = async (
       uploadId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1488,36 +984,20 @@ export const se_UpdateKnowledgeBaseTemplateUriCommand = async (
   input: UpdateKnowledgeBaseTemplateUriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/templateUri";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/templateUri");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       templateUri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1527,29 +1007,13 @@ export const se_UpdateQuickResponseCommand = async (
   input: UpdateQuickResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "quickResponseId",
-    () => input.quickResponseId!,
-    "{quickResponseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1567,15 +1031,8 @@ export const se_UpdateQuickResponseCommand = async (
       shortcutKey: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4321,6 +3778,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _wTS = "waitTimeSeconds";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -4371,3 +3834,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

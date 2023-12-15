@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -132,11 +133,11 @@ export const se_CreateIdMappingWorkflowCommand = async (
   input: CreateIdMappingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows";
+  b.bp("/idmappingworkflows");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -149,15 +150,8 @@ export const se_CreateIdMappingWorkflowCommand = async (
       workflowName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -167,11 +161,11 @@ export const se_CreateMatchingWorkflowCommand = async (
   input: CreateMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows";
+  b.bp("/matchingworkflows");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -185,15 +179,8 @@ export const se_CreateMatchingWorkflowCommand = async (
       workflowName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -203,11 +190,11 @@ export const se_CreateSchemaMappingCommand = async (
   input: CreateSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas";
+  b.bp("/schemas");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -217,15 +204,8 @@ export const se_CreateSchemaMappingCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -235,28 +215,13 @@ export const se_DeleteIdMappingWorkflowCommand = async (
   input: DeleteIdMappingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/idmappingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -266,28 +231,13 @@ export const se_DeleteMatchingWorkflowCommand = async (
   input: DeleteMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -297,20 +247,13 @@ export const se_DeleteSchemaMappingCommand = async (
   input: DeleteSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas/{schemaName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "schemaName", () => input.schemaName!, "{schemaName}", false);
+  b.bp("/schemas/{schemaName}");
+  b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -320,30 +263,14 @@ export const se_GetIdMappingJobCommand = async (
   input: GetIdMappingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/idmappingworkflows/{workflowName}/jobs/{jobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/idmappingworkflows/{workflowName}/jobs/{jobId}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -353,28 +280,13 @@ export const se_GetIdMappingWorkflowCommand = async (
   input: GetIdMappingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/idmappingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -384,35 +296,20 @@ export const se_GetMatchIdCommand = async (
   input: GetMatchIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}/matches";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}/matches");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       record: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -422,30 +319,14 @@ export const se_GetMatchingJobCommand = async (
   input: GetMatchingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/matchingworkflows/{workflowName}/jobs/{jobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/matchingworkflows/{workflowName}/jobs/{jobId}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -455,28 +336,13 @@ export const se_GetMatchingWorkflowCommand = async (
   input: GetMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -486,37 +352,14 @@ export const se_GetProviderServiceCommand = async (
   input: GetProviderServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/providerservices/{providerName}/{providerServiceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "providerName",
-    () => input.providerName!,
-    "{providerName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "providerServiceName",
-    () => input.providerServiceName!,
-    "{providerServiceName}",
-    false
-  );
+  b.bp("/providerservices/{providerName}/{providerServiceName}");
+  b.p("providerName", () => input.providerName!, "{providerName}", false);
+  b.p("providerServiceName", () => input.providerServiceName!, "{providerServiceName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -526,20 +369,13 @@ export const se_GetSchemaMappingCommand = async (
   input: GetSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas/{schemaName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "schemaName", () => input.schemaName!, "{schemaName}", false);
+  b.bp("/schemas/{schemaName}");
+  b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -549,33 +385,17 @@ export const se_ListIdMappingJobsCommand = async (
   input: ListIdMappingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows/{workflowName}/jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/idmappingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -585,24 +405,16 @@ export const se_ListIdMappingWorkflowsCommand = async (
   input: ListIdMappingWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows";
+  b.bp("/idmappingworkflows");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -612,33 +424,17 @@ export const se_ListMatchingJobsCommand = async (
   input: ListMatchingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}/jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -648,24 +444,16 @@ export const se_ListMatchingWorkflowsCommand = async (
   input: ListMatchingWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows";
+  b.bp("/matchingworkflows");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -675,25 +463,17 @@ export const se_ListProviderServicesCommand = async (
   input: ListProviderServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/providerservices";
+  b.bp("/providerservices");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    providerName: [, input.providerName!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_pN]: [, input[_pN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -703,24 +483,16 @@ export const se_ListSchemaMappingsCommand = async (
   input: ListSchemaMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas";
+  b.bp("/schemas");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -730,20 +502,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -753,28 +518,13 @@ export const se_StartIdMappingJobCommand = async (
   input: StartIdMappingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows/{workflowName}/jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/idmappingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -784,28 +534,13 @@ export const se_StartMatchingJobCommand = async (
   input: StartMatchingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}/jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -815,27 +550,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -845,27 +573,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -875,20 +595,12 @@ export const se_UpdateIdMappingWorkflowCommand = async (
   input: UpdateIdMappingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/idmappingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/idmappingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -899,15 +611,8 @@ export const se_UpdateIdMappingWorkflowCommand = async (
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -917,20 +622,12 @@ export const se_UpdateMatchingWorkflowCommand = async (
   input: UpdateMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -942,15 +639,8 @@ export const se_UpdateMatchingWorkflowCommand = async (
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -960,12 +650,12 @@ export const se_UpdateSchemaMappingCommand = async (
   input: UpdateSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas/{schemaName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "schemaName", () => input.schemaName!, "{schemaName}", false);
+  b.bp("/schemas/{schemaName}");
+  b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -973,15 +663,8 @@ export const se_UpdateSchemaMappingCommand = async (
       mappedInputFields: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3063,6 +2746,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _pN = "providerName";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -3113,3 +2802,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

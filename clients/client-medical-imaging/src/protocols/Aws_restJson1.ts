@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -100,22 +101,13 @@ export const se_CopyImageSetCommand = async (
   input: CopyImageSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sourceImageSetId",
-    () => input.sourceImageSetId!,
-    "{sourceImageSetId}",
-    false
-  );
+  b.bp("/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("sourceImageSetId", () => input.sourceImageSetId!, "{sourceImageSetId}", false);
   let body: any;
   if (input.copyImageSetInformation !== undefined) {
     body = _json(input.copyImageSetInformation);
@@ -131,15 +123,9 @@ export const se_CopyImageSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -149,11 +135,11 @@ export const se_CreateDatastoreCommand = async (
   input: CreateDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastore";
+  b.bp("/datastore");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -163,15 +149,8 @@ export const se_CreateDatastoreCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -181,20 +160,13 @@ export const se_DeleteDatastoreCommand = async (
   input: DeleteDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastore/{datastoreId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.bp("/datastore/{datastoreId}");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -204,13 +176,11 @@ export const se_DeleteImageSetCommand = async (
   input: DeleteImageSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "imageSetId", () => input.imageSetId!, "{imageSetId}", false);
+  b.bp("/datastore/{datastoreId}/imageSet/{imageSetId}/deleteImageSet");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -219,15 +189,9 @@ export const se_DeleteImageSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -237,20 +201,13 @@ export const se_GetDatastoreCommand = async (
   input: GetDatastoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastore/{datastoreId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.bp("/datastore/{datastoreId}");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -260,23 +217,14 @@ export const se_GetDICOMImportJobCommand = async (
   input: GetDICOMImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/getDICOMImportJob/datastore/{datastoreId}/job/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/getDICOMImportJob/datastore/{datastoreId}/job/{jobId}");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -286,15 +234,13 @@ export const se_GetImageFrameCommand = async (
   input: GetImageFrameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "imageSetId", () => input.imageSetId!, "{imageSetId}", false);
+  b.bp("/datastore/{datastoreId}/imageSet/{imageSetId}/getImageFrame");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   let body: any;
   if (input.imageFrameInformation !== undefined) {
     body = _json(input.imageFrameInformation);
@@ -310,15 +256,9 @@ export const se_GetImageFrameCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -328,15 +268,13 @@ export const se_GetImageSetCommand = async (
   input: GetImageSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "imageSetId", () => input.imageSetId!, "{imageSetId}", false);
+  b.bp("/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSet");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   const query: any = map({
-    version: [, input.versionId!],
+    [_v]: [, input[_vI]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -346,16 +284,9 @@ export const se_GetImageSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -365,15 +296,13 @@ export const se_GetImageSetMetadataCommand = async (
   input: GetImageSetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "imageSetId", () => input.imageSetId!, "{imageSetId}", false);
+  b.bp("/datastore/{datastoreId}/imageSet/{imageSetId}/getImageSetMetadata");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   const query: any = map({
-    version: [, input.versionId!],
+    [_v]: [, input[_vI]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -383,16 +312,9 @@ export const se_GetImageSetMetadataCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -402,25 +324,17 @@ export const se_ListDatastoresCommand = async (
   input: ListDatastoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastore";
+  b.bp("/datastore");
   const query: any = map({
-    datastoreStatus: [, input.datastoreStatus!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_dS]: [, input[_dS]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -430,28 +344,18 @@ export const se_ListDICOMImportJobsCommand = async (
   input: ListDICOMImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/listDICOMImportJobs/datastore/{datastoreId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.bp("/listDICOMImportJobs/datastore/{datastoreId}");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   const query: any = map({
-    jobStatus: [, input.jobStatus!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_jS]: [, input[_jS]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -461,16 +365,14 @@ export const se_ListImageSetVersionsCommand = async (
   input: ListImageSetVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "imageSetId", () => input.imageSetId!, "{imageSetId}", false);
+  b.bp("/datastore/{datastoreId}/imageSet/{imageSetId}/listImageSetVersions");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -480,16 +382,9 @@ export const se_ListImageSetVersionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -499,20 +394,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -522,16 +410,15 @@ export const se_SearchImageSetsCommand = async (
   input: SearchImageSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datastore/{datastoreId}/searchImageSets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.bp("/datastore/{datastoreId}/searchImageSets");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   if (input.searchCriteria !== undefined) {
@@ -548,16 +435,9 @@ export const se_SearchImageSetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -567,14 +447,12 @@ export const se_StartDICOMImportJobCommand = async (
   input: StartDICOMImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/startDICOMImportJob/datastore/{datastoreId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.bp("/startDICOMImportJob/datastore/{datastoreId}");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -585,15 +463,8 @@ export const se_StartDICOMImportJobCommand = async (
       outputS3Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -603,27 +474,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -633,27 +497,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -663,17 +519,15 @@ export const se_UpdateImageSetMetadataCommand = async (
   input: UpdateImageSetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datastoreId", () => input.datastoreId!, "{datastoreId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "imageSetId", () => input.imageSetId!, "{imageSetId}", false);
+  b.bp("/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata");
+  b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
+  b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   const query: any = map({
-    latestVersion: [, __expectNonNull(input.latestVersionId!, `latestVersionId`)],
+    [_lV]: [, __expectNonNull(input[_lVI]!, `latestVersionId`)],
   });
   let body: any;
   if (input.updateImageSetMetadataUpdates !== undefined) {
@@ -690,16 +544,9 @@ export const se_UpdateImageSetMetadataCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1093,7 +940,7 @@ export const de_GetImageFrameCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -1225,8 +1072,8 @@ export const de_GetImageSetMetadataCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
-    contentEncoding: [, output.headers["content-encoding"]],
+    [_cT]: [, output.headers[_ct]],
+    [_cE]: [, output.headers[_ce]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -2246,6 +2093,21 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cE = "contentEncoding";
+const _cT = "contentType";
+const _ce = "content-encoding";
+const _ct = "content-type";
+const _dS = "datastoreStatus";
+const _jS = "jobStatus";
+const _lV = "latestVersion";
+const _lVI = "latestVersionId";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _v = "version";
+const _vI = "versionId";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2296,3 +2158,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

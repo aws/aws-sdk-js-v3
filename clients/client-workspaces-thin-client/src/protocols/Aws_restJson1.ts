@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -74,11 +75,11 @@ export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments";
+  b.bp("/environments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -101,15 +102,9 @@ export const se_CreateEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -119,12 +114,12 @@ export const se_DeleteDeviceCommand = async (
   input: DeleteDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/devices/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -134,16 +129,9 @@ export const se_DeleteDeviceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -153,12 +141,12 @@ export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/environments/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -168,16 +156,9 @@ export const se_DeleteEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -187,12 +168,12 @@ export const se_DeregisterDeviceCommand = async (
   input: DeregisterDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deregister-device/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/deregister-device/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -207,15 +188,9 @@ export const se_DeregisterDeviceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -225,10 +200,10 @@ export const se_GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/devices/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -237,15 +212,9 @@ export const se_GetDeviceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -255,10 +224,10 @@ export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/environments/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -267,15 +236,9 @@ export const se_GetEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -285,10 +248,10 @@ export const se_GetSoftwareSetCommand = async (
   input: GetSoftwareSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/softwaresets/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/softwaresets/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -297,15 +260,9 @@ export const se_GetSoftwareSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -315,12 +272,12 @@ export const se_ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices";
+  b.bp("/devices");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -330,16 +287,9 @@ export const se_ListDevicesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -349,12 +299,12 @@ export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments";
+  b.bp("/environments");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -364,16 +314,9 @@ export const se_ListEnvironmentsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -383,12 +326,12 @@ export const se_ListSoftwareSetsCommand = async (
   input: ListSoftwareSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/softwaresets";
+  b.bp("/softwaresets");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -398,16 +341,9 @@ export const se_ListSoftwareSetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -417,10 +353,10 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -429,15 +365,9 @@ export const se_ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -447,12 +377,12 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -466,15 +396,9 @@ export const se_TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -484,14 +408,14 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
@@ -502,16 +426,9 @@ export const se_UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -521,12 +438,12 @@ export const se_UpdateDeviceCommand = async (
   input: UpdateDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/devices/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -543,15 +460,9 @@ export const se_UpdateDeviceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -561,12 +472,12 @@ export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/environments/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -586,15 +497,9 @@ export const se_UpdateEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -604,12 +509,12 @@ export const se_UpdateSoftwareSetCommand = async (
   input: UpdateSoftwareSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/softwaresets/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/softwaresets/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -623,15 +528,9 @@ export const se_UpdateSoftwareSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1593,10 +1492,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1618,10 +1514,7 @@ const de_InternalServiceExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1686,10 +1579,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1933,6 +1823,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cT = "clientToken";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1983,3 +1881,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

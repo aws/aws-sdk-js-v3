@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -83,20 +84,13 @@ export const se_CancelOrderCommand = async (
   input: CancelOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders/{OrderId}/cancel";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OrderId", () => input.OrderId!, "{OrderId}", false);
+  b.bp("/orders/{OrderId}/cancel");
+  b.p("OrderId", () => input.OrderId!, "{OrderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -106,11 +100,11 @@ export const se_CreateOrderCommand = async (
   input: CreateOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders";
+  b.bp("/orders");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -120,15 +114,8 @@ export const se_CreateOrderCommand = async (
       PaymentTerm: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -138,11 +125,11 @@ export const se_CreateOutpostCommand = async (
   input: CreateOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
+  b.bp("/outposts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -155,15 +142,8 @@ export const se_CreateOutpostCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -173,11 +153,11 @@ export const se_CreateSiteCommand = async (
   input: CreateSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites";
+  b.bp("/sites");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -190,15 +170,8 @@ export const se_CreateSiteCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -208,20 +181,13 @@ export const se_DeleteOutpostCommand = async (
   input: DeleteOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OutpostId", () => input.OutpostId!, "{OutpostId}", false);
+  b.bp("/outposts/{OutpostId}");
+  b.p("OutpostId", () => input.OutpostId!, "{OutpostId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -231,20 +197,13 @@ export const se_DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/sites/{SiteId}");
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -254,28 +213,13 @@ export const se_GetCatalogItemCommand = async (
   input: GetCatalogItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/catalog/item/{CatalogItemId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CatalogItemId",
-    () => input.CatalogItemId!,
-    "{CatalogItemId}",
-    false
-  );
+  b.bp("/catalog/item/{CatalogItemId}");
+  b.p("CatalogItemId", () => input.CatalogItemId!, "{CatalogItemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -285,28 +229,13 @@ export const se_GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connections/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/connections/{ConnectionId}");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -316,20 +245,13 @@ export const se_GetOrderCommand = async (
   input: GetOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders/{OrderId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OrderId", () => input.OrderId!, "{OrderId}", false);
+  b.bp("/orders/{OrderId}");
+  b.p("OrderId", () => input.OrderId!, "{OrderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -339,20 +261,13 @@ export const se_GetOutpostCommand = async (
   input: GetOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OutpostId", () => input.OutpostId!, "{OutpostId}", false);
+  b.bp("/outposts/{OutpostId}");
+  b.p("OutpostId", () => input.OutpostId!, "{OutpostId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -362,26 +277,17 @@ export const se_GetOutpostInstanceTypesCommand = async (
   input: GetOutpostInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostId}/instanceTypes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OutpostId", () => input.OutpostId!, "{OutpostId}", false);
+  b.bp("/outposts/{OutpostId}/instanceTypes");
+  b.p("OutpostId", () => input.OutpostId!, "{OutpostId}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -391,20 +297,13 @@ export const se_GetSiteCommand = async (
   input: GetSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/sites/{SiteId}");
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -414,24 +313,16 @@ export const se_GetSiteAddressCommand = async (
   input: GetSiteAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}/address";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/sites/{SiteId}/address");
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   const query: any = map({
-    AddressType: [, __expectNonNull(input.AddressType!, `AddressType`)],
+    [_AT]: [, __expectNonNull(input[_AT]!, `AddressType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -441,41 +332,19 @@ export const se_ListAssetsCommand = async (
   input: ListAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostIdentifier}/assets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OutpostIdentifier",
-    () => input.OutpostIdentifier!,
-    "{OutpostIdentifier}",
-    false
-  );
+  b.bp("/outposts/{OutpostIdentifier}/assets");
+  b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
   const query: any = map({
-    HostIdFilter: [
-      () => input.HostIdFilter !== void 0,
-      () => (input.HostIdFilter! || []).map((_entry) => _entry as any),
-    ],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
-    StatusFilter: [
-      () => input.StatusFilter !== void 0,
-      () => (input.StatusFilter! || []).map((_entry) => _entry as any),
-    ],
+    [_HIF]: [() => input.HostIdFilter !== void 0, () => (input[_HIF]! || []).map((_entry) => _entry as any)],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_SF]: [() => input.StatusFilter !== void 0, () => (input[_SF]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -485,36 +354,19 @@ export const se_ListCatalogItemsCommand = async (
   input: ListCatalogItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/catalog/items";
+  b.bp("/catalog/items");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    ItemClassFilter: [
-      () => input.ItemClassFilter !== void 0,
-      () => (input.ItemClassFilter! || []).map((_entry) => _entry as any),
-    ],
-    SupportedStorageFilter: [
-      () => input.SupportedStorageFilter !== void 0,
-      () => (input.SupportedStorageFilter! || []).map((_entry) => _entry as any),
-    ],
-    EC2FamilyFilter: [
-      () => input.EC2FamilyFilter !== void 0,
-      () => (input.EC2FamilyFilter! || []).map((_entry) => _entry as any),
-    ],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_ICF]: [() => input.ItemClassFilter !== void 0, () => (input[_ICF]! || []).map((_entry) => _entry as any)],
+    [_SSF]: [() => input.SupportedStorageFilter !== void 0, () => (input[_SSF]! || []).map((_entry) => _entry as any)],
+    [_ECFF]: [() => input.EC2FamilyFilter !== void 0, () => (input[_ECFF]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -524,25 +376,17 @@ export const se_ListOrdersCommand = async (
   input: ListOrdersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-orders";
+  b.bp("/list-orders");
   const query: any = map({
-    OutpostIdentifierFilter: [, input.OutpostIdentifierFilter!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_OIF]: [, input[_OIF]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -552,36 +396,22 @@ export const se_ListOutpostsCommand = async (
   input: ListOutpostsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
+  b.bp("/outposts");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    LifeCycleStatusFilter: [
-      () => input.LifeCycleStatusFilter !== void 0,
-      () => (input.LifeCycleStatusFilter! || []).map((_entry) => _entry as any),
-    ],
-    AvailabilityZoneFilter: [
-      () => input.AvailabilityZoneFilter !== void 0,
-      () => (input.AvailabilityZoneFilter! || []).map((_entry) => _entry as any),
-    ],
-    AvailabilityZoneIdFilter: [
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_LCSF]: [() => input.LifeCycleStatusFilter !== void 0, () => (input[_LCSF]! || []).map((_entry) => _entry as any)],
+    [_AZF]: [() => input.AvailabilityZoneFilter !== void 0, () => (input[_AZF]! || []).map((_entry) => _entry as any)],
+    [_AZIF]: [
       () => input.AvailabilityZoneIdFilter !== void 0,
-      () => (input.AvailabilityZoneIdFilter! || []).map((_entry) => _entry as any),
+      () => (input[_AZIF]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -591,36 +421,28 @@ export const se_ListSitesCommand = async (
   input: ListSitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites";
+  b.bp("/sites");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    OperatingAddressCountryCodeFilter: [
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_OACCF]: [
       () => input.OperatingAddressCountryCodeFilter !== void 0,
-      () => (input.OperatingAddressCountryCodeFilter! || []).map((_entry) => _entry as any),
+      () => (input[_OACCF]! || []).map((_entry) => _entry as any),
     ],
-    OperatingAddressStateOrRegionFilter: [
+    [_OASORF]: [
       () => input.OperatingAddressStateOrRegionFilter !== void 0,
-      () => (input.OperatingAddressStateOrRegionFilter! || []).map((_entry) => _entry as any),
+      () => (input[_OASORF]! || []).map((_entry) => _entry as any),
     ],
-    OperatingAddressCityFilter: [
+    [_OACF]: [
       () => input.OperatingAddressCityFilter !== void 0,
-      () => (input.OperatingAddressCityFilter! || []).map((_entry) => _entry as any),
+      () => (input[_OACF]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -630,20 +452,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -653,11 +468,11 @@ export const se_StartConnectionCommand = async (
   input: StartConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connections";
+  b.bp("/connections");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -667,15 +482,8 @@ export const se_StartConnectionCommand = async (
       NetworkInterfaceDeviceIndex: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -685,27 +493,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -715,27 +516,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -745,12 +538,12 @@ export const se_UpdateOutpostCommand = async (
   input: UpdateOutpostCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OutpostId", () => input.OutpostId!, "{OutpostId}", false);
+  b.bp("/outposts/{OutpostId}");
+  b.p("OutpostId", () => input.OutpostId!, "{OutpostId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -759,15 +552,8 @@ export const se_UpdateOutpostCommand = async (
       SupportedHardwareType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -777,12 +563,12 @@ export const se_UpdateSiteCommand = async (
   input: UpdateSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/sites/{SiteId}");
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -791,15 +577,8 @@ export const se_UpdateSiteCommand = async (
       Notes: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -809,12 +588,12 @@ export const se_UpdateSiteAddressCommand = async (
   input: UpdateSiteAddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}/address";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/sites/{SiteId}/address");
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -822,15 +601,8 @@ export const se_UpdateSiteAddressCommand = async (
       AddressType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -840,13 +612,12 @@ export const se_UpdateSiteRackPhysicalPropertiesCommand = async (
   input: UpdateSiteRackPhysicalPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites/{SiteId}/rackPhysicalProperties";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/sites/{SiteId}/rackPhysicalProperties");
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -861,15 +632,8 @@ export const se_UpdateSiteRackPhysicalPropertiesCommand = async (
       UplinkGbps: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2629,6 +2393,25 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _AT = "AddressType";
+const _AZF = "AvailabilityZoneFilter";
+const _AZIF = "AvailabilityZoneIdFilter";
+const _ECFF = "EC2FamilyFilter";
+const _HIF = "HostIdFilter";
+const _ICF = "ItemClassFilter";
+const _LCSF = "LifeCycleStatusFilter";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _OACCF = "OperatingAddressCountryCodeFilter";
+const _OACF = "OperatingAddressCityFilter";
+const _OASORF = "OperatingAddressStateOrRegionFilter";
+const _OIF = "OutpostIdentifierFilter";
+const _SF = "StatusFilter";
+const _SSF = "SupportedStorageFilter";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2679,3 +2462,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

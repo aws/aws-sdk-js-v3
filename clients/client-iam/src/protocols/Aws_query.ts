@@ -741,8 +741,8 @@ export const se_AddClientIDToOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddClientIDToOpenIDConnectProviderRequest(input, context),
-    Action: "AddClientIDToOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _ACIDTOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -758,8 +758,8 @@ export const se_AddRoleToInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddRoleToInstanceProfileRequest(input, context),
-    Action: "AddRoleToInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _ARTIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -775,8 +775,8 @@ export const se_AddUserToGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddUserToGroupRequest(input, context),
-    Action: "AddUserToGroup",
-    Version: "2010-05-08",
+    [_A]: _AUTG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -792,8 +792,8 @@ export const se_AttachGroupPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachGroupPolicyRequest(input, context),
-    Action: "AttachGroupPolicy",
-    Version: "2010-05-08",
+    [_A]: _AGP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -809,8 +809,8 @@ export const se_AttachRolePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachRolePolicyRequest(input, context),
-    Action: "AttachRolePolicy",
-    Version: "2010-05-08",
+    [_A]: _ARP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -826,8 +826,8 @@ export const se_AttachUserPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachUserPolicyRequest(input, context),
-    Action: "AttachUserPolicy",
-    Version: "2010-05-08",
+    [_A]: _AUP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -843,8 +843,8 @@ export const se_ChangePasswordCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ChangePasswordRequest(input, context),
-    Action: "ChangePassword",
-    Version: "2010-05-08",
+    [_A]: _CP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -860,8 +860,8 @@ export const se_CreateAccessKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAccessKeyRequest(input, context),
-    Action: "CreateAccessKey",
-    Version: "2010-05-08",
+    [_A]: _CAK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -877,8 +877,8 @@ export const se_CreateAccountAliasCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAccountAliasRequest(input, context),
-    Action: "CreateAccountAlias",
-    Version: "2010-05-08",
+    [_A]: _CAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -894,8 +894,8 @@ export const se_CreateGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateGroupRequest(input, context),
-    Action: "CreateGroup",
-    Version: "2010-05-08",
+    [_A]: _CG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -911,8 +911,8 @@ export const se_CreateInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateInstanceProfileRequest(input, context),
-    Action: "CreateInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _CIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -928,8 +928,8 @@ export const se_CreateLoginProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoginProfileRequest(input, context),
-    Action: "CreateLoginProfile",
-    Version: "2010-05-08",
+    [_A]: _CLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -945,8 +945,8 @@ export const se_CreateOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateOpenIDConnectProviderRequest(input, context),
-    Action: "CreateOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _COIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -962,8 +962,8 @@ export const se_CreatePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePolicyRequest(input, context),
-    Action: "CreatePolicy",
-    Version: "2010-05-08",
+    [_A]: _CPr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -979,8 +979,8 @@ export const se_CreatePolicyVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePolicyVersionRequest(input, context),
-    Action: "CreatePolicyVersion",
-    Version: "2010-05-08",
+    [_A]: _CPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -996,8 +996,8 @@ export const se_CreateRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateRoleRequest(input, context),
-    Action: "CreateRole",
-    Version: "2010-05-08",
+    [_A]: _CR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1013,8 +1013,8 @@ export const se_CreateSAMLProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateSAMLProviderRequest(input, context),
-    Action: "CreateSAMLProvider",
-    Version: "2010-05-08",
+    [_A]: _CSAMLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1030,8 +1030,8 @@ export const se_CreateServiceLinkedRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateServiceLinkedRoleRequest(input, context),
-    Action: "CreateServiceLinkedRole",
-    Version: "2010-05-08",
+    [_A]: _CSLR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1047,8 +1047,8 @@ export const se_CreateServiceSpecificCredentialCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateServiceSpecificCredentialRequest(input, context),
-    Action: "CreateServiceSpecificCredential",
-    Version: "2010-05-08",
+    [_A]: _CSSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1064,8 +1064,8 @@ export const se_CreateUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateUserRequest(input, context),
-    Action: "CreateUser",
-    Version: "2010-05-08",
+    [_A]: _CU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1081,8 +1081,8 @@ export const se_CreateVirtualMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateVirtualMFADeviceRequest(input, context),
-    Action: "CreateVirtualMFADevice",
-    Version: "2010-05-08",
+    [_A]: _CVMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1098,8 +1098,8 @@ export const se_DeactivateMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeactivateMFADeviceRequest(input, context),
-    Action: "DeactivateMFADevice",
-    Version: "2010-05-08",
+    [_A]: _DMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1115,8 +1115,8 @@ export const se_DeleteAccessKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAccessKeyRequest(input, context),
-    Action: "DeleteAccessKey",
-    Version: "2010-05-08",
+    [_A]: _DAK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1132,8 +1132,8 @@ export const se_DeleteAccountAliasCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAccountAliasRequest(input, context),
-    Action: "DeleteAccountAlias",
-    Version: "2010-05-08",
+    [_A]: _DAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1147,8 +1147,8 @@ export const se_DeleteAccountPasswordPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "DeleteAccountPasswordPolicy",
-    Version: "2010-05-08",
+    [_A]: _DAPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1164,8 +1164,8 @@ export const se_DeleteGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGroupRequest(input, context),
-    Action: "DeleteGroup",
-    Version: "2010-05-08",
+    [_A]: _DG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1181,8 +1181,8 @@ export const se_DeleteGroupPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGroupPolicyRequest(input, context),
-    Action: "DeleteGroupPolicy",
-    Version: "2010-05-08",
+    [_A]: _DGP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1198,8 +1198,8 @@ export const se_DeleteInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteInstanceProfileRequest(input, context),
-    Action: "DeleteInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _DIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1215,8 +1215,8 @@ export const se_DeleteLoginProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoginProfileRequest(input, context),
-    Action: "DeleteLoginProfile",
-    Version: "2010-05-08",
+    [_A]: _DLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1232,8 +1232,8 @@ export const se_DeleteOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteOpenIDConnectProviderRequest(input, context),
-    Action: "DeleteOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _DOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1249,8 +1249,8 @@ export const se_DeletePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeletePolicyRequest(input, context),
-    Action: "DeletePolicy",
-    Version: "2010-05-08",
+    [_A]: _DP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1266,8 +1266,8 @@ export const se_DeletePolicyVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeletePolicyVersionRequest(input, context),
-    Action: "DeletePolicyVersion",
-    Version: "2010-05-08",
+    [_A]: _DPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1283,8 +1283,8 @@ export const se_DeleteRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRoleRequest(input, context),
-    Action: "DeleteRole",
-    Version: "2010-05-08",
+    [_A]: _DR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1300,8 +1300,8 @@ export const se_DeleteRolePermissionsBoundaryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRolePermissionsBoundaryRequest(input, context),
-    Action: "DeleteRolePermissionsBoundary",
-    Version: "2010-05-08",
+    [_A]: _DRPB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1317,8 +1317,8 @@ export const se_DeleteRolePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteRolePolicyRequest(input, context),
-    Action: "DeleteRolePolicy",
-    Version: "2010-05-08",
+    [_A]: _DRP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1334,8 +1334,8 @@ export const se_DeleteSAMLProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSAMLProviderRequest(input, context),
-    Action: "DeleteSAMLProvider",
-    Version: "2010-05-08",
+    [_A]: _DSAMLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1351,8 +1351,8 @@ export const se_DeleteServerCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServerCertificateRequest(input, context),
-    Action: "DeleteServerCertificate",
-    Version: "2010-05-08",
+    [_A]: _DSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1368,8 +1368,8 @@ export const se_DeleteServiceLinkedRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServiceLinkedRoleRequest(input, context),
-    Action: "DeleteServiceLinkedRole",
-    Version: "2010-05-08",
+    [_A]: _DSLR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1385,8 +1385,8 @@ export const se_DeleteServiceSpecificCredentialCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServiceSpecificCredentialRequest(input, context),
-    Action: "DeleteServiceSpecificCredential",
-    Version: "2010-05-08",
+    [_A]: _DSSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1402,8 +1402,8 @@ export const se_DeleteSigningCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSigningCertificateRequest(input, context),
-    Action: "DeleteSigningCertificate",
-    Version: "2010-05-08",
+    [_A]: _DSCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1419,8 +1419,8 @@ export const se_DeleteSSHPublicKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSSHPublicKeyRequest(input, context),
-    Action: "DeleteSSHPublicKey",
-    Version: "2010-05-08",
+    [_A]: _DSSHPK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1436,8 +1436,8 @@ export const se_DeleteUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserRequest(input, context),
-    Action: "DeleteUser",
-    Version: "2010-05-08",
+    [_A]: _DU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1453,8 +1453,8 @@ export const se_DeleteUserPermissionsBoundaryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserPermissionsBoundaryRequest(input, context),
-    Action: "DeleteUserPermissionsBoundary",
-    Version: "2010-05-08",
+    [_A]: _DUPB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1470,8 +1470,8 @@ export const se_DeleteUserPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserPolicyRequest(input, context),
-    Action: "DeleteUserPolicy",
-    Version: "2010-05-08",
+    [_A]: _DUP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1487,8 +1487,8 @@ export const se_DeleteVirtualMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteVirtualMFADeviceRequest(input, context),
-    Action: "DeleteVirtualMFADevice",
-    Version: "2010-05-08",
+    [_A]: _DVMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1504,8 +1504,8 @@ export const se_DetachGroupPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachGroupPolicyRequest(input, context),
-    Action: "DetachGroupPolicy",
-    Version: "2010-05-08",
+    [_A]: _DGPe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1521,8 +1521,8 @@ export const se_DetachRolePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachRolePolicyRequest(input, context),
-    Action: "DetachRolePolicy",
-    Version: "2010-05-08",
+    [_A]: _DRPe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1538,8 +1538,8 @@ export const se_DetachUserPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachUserPolicyRequest(input, context),
-    Action: "DetachUserPolicy",
-    Version: "2010-05-08",
+    [_A]: _DUPe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1555,8 +1555,8 @@ export const se_EnableMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EnableMFADeviceRequest(input, context),
-    Action: "EnableMFADevice",
-    Version: "2010-05-08",
+    [_A]: _EMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1570,8 +1570,8 @@ export const se_GenerateCredentialReportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GenerateCredentialReport",
-    Version: "2010-05-08",
+    [_A]: _GCR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1587,8 +1587,8 @@ export const se_GenerateOrganizationsAccessReportCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GenerateOrganizationsAccessReportRequest(input, context),
-    Action: "GenerateOrganizationsAccessReport",
-    Version: "2010-05-08",
+    [_A]: _GOAR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1604,8 +1604,8 @@ export const se_GenerateServiceLastAccessedDetailsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GenerateServiceLastAccessedDetailsRequest(input, context),
-    Action: "GenerateServiceLastAccessedDetails",
-    Version: "2010-05-08",
+    [_A]: _GSLAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1621,8 +1621,8 @@ export const se_GetAccessKeyLastUsedCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetAccessKeyLastUsedRequest(input, context),
-    Action: "GetAccessKeyLastUsed",
-    Version: "2010-05-08",
+    [_A]: _GAKLU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1638,8 +1638,8 @@ export const se_GetAccountAuthorizationDetailsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetAccountAuthorizationDetailsRequest(input, context),
-    Action: "GetAccountAuthorizationDetails",
-    Version: "2010-05-08",
+    [_A]: _GAAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1653,8 +1653,8 @@ export const se_GetAccountPasswordPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GetAccountPasswordPolicy",
-    Version: "2010-05-08",
+    [_A]: _GAPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1668,8 +1668,8 @@ export const se_GetAccountSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GetAccountSummary",
-    Version: "2010-05-08",
+    [_A]: _GAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1685,8 +1685,8 @@ export const se_GetContextKeysForCustomPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetContextKeysForCustomPolicyRequest(input, context),
-    Action: "GetContextKeysForCustomPolicy",
-    Version: "2010-05-08",
+    [_A]: _GCKFCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1702,8 +1702,8 @@ export const se_GetContextKeysForPrincipalPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetContextKeysForPrincipalPolicyRequest(input, context),
-    Action: "GetContextKeysForPrincipalPolicy",
-    Version: "2010-05-08",
+    [_A]: _GCKFPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1717,8 +1717,8 @@ export const se_GetCredentialReportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GetCredentialReport",
-    Version: "2010-05-08",
+    [_A]: _GCRe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1734,8 +1734,8 @@ export const se_GetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetGroupRequest(input, context),
-    Action: "GetGroup",
-    Version: "2010-05-08",
+    [_A]: _GG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1751,8 +1751,8 @@ export const se_GetGroupPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetGroupPolicyRequest(input, context),
-    Action: "GetGroupPolicy",
-    Version: "2010-05-08",
+    [_A]: _GGP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1768,8 +1768,8 @@ export const se_GetInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetInstanceProfileRequest(input, context),
-    Action: "GetInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _GIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1785,8 +1785,8 @@ export const se_GetLoginProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetLoginProfileRequest(input, context),
-    Action: "GetLoginProfile",
-    Version: "2010-05-08",
+    [_A]: _GLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1802,8 +1802,8 @@ export const se_GetMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetMFADeviceRequest(input, context),
-    Action: "GetMFADevice",
-    Version: "2010-05-08",
+    [_A]: _GMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1819,8 +1819,8 @@ export const se_GetOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetOpenIDConnectProviderRequest(input, context),
-    Action: "GetOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _GOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1836,8 +1836,8 @@ export const se_GetOrganizationsAccessReportCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetOrganizationsAccessReportRequest(input, context),
-    Action: "GetOrganizationsAccessReport",
-    Version: "2010-05-08",
+    [_A]: _GOARe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1853,8 +1853,8 @@ export const se_GetPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetPolicyRequest(input, context),
-    Action: "GetPolicy",
-    Version: "2010-05-08",
+    [_A]: _GP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1870,8 +1870,8 @@ export const se_GetPolicyVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetPolicyVersionRequest(input, context),
-    Action: "GetPolicyVersion",
-    Version: "2010-05-08",
+    [_A]: _GPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1887,8 +1887,8 @@ export const se_GetRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetRoleRequest(input, context),
-    Action: "GetRole",
-    Version: "2010-05-08",
+    [_A]: _GR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1904,8 +1904,8 @@ export const se_GetRolePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetRolePolicyRequest(input, context),
-    Action: "GetRolePolicy",
-    Version: "2010-05-08",
+    [_A]: _GRP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1921,8 +1921,8 @@ export const se_GetSAMLProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSAMLProviderRequest(input, context),
-    Action: "GetSAMLProvider",
-    Version: "2010-05-08",
+    [_A]: _GSAMLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1938,8 +1938,8 @@ export const se_GetServerCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServerCertificateRequest(input, context),
-    Action: "GetServerCertificate",
-    Version: "2010-05-08",
+    [_A]: _GSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1955,8 +1955,8 @@ export const se_GetServiceLastAccessedDetailsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServiceLastAccessedDetailsRequest(input, context),
-    Action: "GetServiceLastAccessedDetails",
-    Version: "2010-05-08",
+    [_A]: _GSLADe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1972,8 +1972,8 @@ export const se_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServiceLastAccessedDetailsWithEntitiesRequest(input, context),
-    Action: "GetServiceLastAccessedDetailsWithEntities",
-    Version: "2010-05-08",
+    [_A]: _GSLADWE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1989,8 +1989,8 @@ export const se_GetServiceLinkedRoleDeletionStatusCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetServiceLinkedRoleDeletionStatusRequest(input, context),
-    Action: "GetServiceLinkedRoleDeletionStatus",
-    Version: "2010-05-08",
+    [_A]: _GSLRDS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2006,8 +2006,8 @@ export const se_GetSSHPublicKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSSHPublicKeyRequest(input, context),
-    Action: "GetSSHPublicKey",
-    Version: "2010-05-08",
+    [_A]: _GSSHPK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2023,8 +2023,8 @@ export const se_GetUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetUserRequest(input, context),
-    Action: "GetUser",
-    Version: "2010-05-08",
+    [_A]: _GU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2040,8 +2040,8 @@ export const se_GetUserPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetUserPolicyRequest(input, context),
-    Action: "GetUserPolicy",
-    Version: "2010-05-08",
+    [_A]: _GUP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2057,8 +2057,8 @@ export const se_ListAccessKeysCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAccessKeysRequest(input, context),
-    Action: "ListAccessKeys",
-    Version: "2010-05-08",
+    [_A]: _LAK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2074,8 +2074,8 @@ export const se_ListAccountAliasesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAccountAliasesRequest(input, context),
-    Action: "ListAccountAliases",
-    Version: "2010-05-08",
+    [_A]: _LAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2091,8 +2091,8 @@ export const se_ListAttachedGroupPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAttachedGroupPoliciesRequest(input, context),
-    Action: "ListAttachedGroupPolicies",
-    Version: "2010-05-08",
+    [_A]: _LAGP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2108,8 +2108,8 @@ export const se_ListAttachedRolePoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAttachedRolePoliciesRequest(input, context),
-    Action: "ListAttachedRolePolicies",
-    Version: "2010-05-08",
+    [_A]: _LARP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2125,8 +2125,8 @@ export const se_ListAttachedUserPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAttachedUserPoliciesRequest(input, context),
-    Action: "ListAttachedUserPolicies",
-    Version: "2010-05-08",
+    [_A]: _LAUP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2142,8 +2142,8 @@ export const se_ListEntitiesForPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListEntitiesForPolicyRequest(input, context),
-    Action: "ListEntitiesForPolicy",
-    Version: "2010-05-08",
+    [_A]: _LEFP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2159,8 +2159,8 @@ export const se_ListGroupPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListGroupPoliciesRequest(input, context),
-    Action: "ListGroupPolicies",
-    Version: "2010-05-08",
+    [_A]: _LGP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2176,8 +2176,8 @@ export const se_ListGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListGroupsRequest(input, context),
-    Action: "ListGroups",
-    Version: "2010-05-08",
+    [_A]: _LG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2193,8 +2193,8 @@ export const se_ListGroupsForUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListGroupsForUserRequest(input, context),
-    Action: "ListGroupsForUser",
-    Version: "2010-05-08",
+    [_A]: _LGFU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2210,8 +2210,8 @@ export const se_ListInstanceProfilesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListInstanceProfilesRequest(input, context),
-    Action: "ListInstanceProfiles",
-    Version: "2010-05-08",
+    [_A]: _LIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2227,8 +2227,8 @@ export const se_ListInstanceProfilesForRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListInstanceProfilesForRoleRequest(input, context),
-    Action: "ListInstanceProfilesForRole",
-    Version: "2010-05-08",
+    [_A]: _LIPFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2244,8 +2244,8 @@ export const se_ListInstanceProfileTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListInstanceProfileTagsRequest(input, context),
-    Action: "ListInstanceProfileTags",
-    Version: "2010-05-08",
+    [_A]: _LIPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2261,8 +2261,8 @@ export const se_ListMFADevicesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListMFADevicesRequest(input, context),
-    Action: "ListMFADevices",
-    Version: "2010-05-08",
+    [_A]: _LMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2278,8 +2278,8 @@ export const se_ListMFADeviceTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListMFADeviceTagsRequest(input, context),
-    Action: "ListMFADeviceTags",
-    Version: "2010-05-08",
+    [_A]: _LMFADT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2295,8 +2295,8 @@ export const se_ListOpenIDConnectProvidersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListOpenIDConnectProvidersRequest(input, context),
-    Action: "ListOpenIDConnectProviders",
-    Version: "2010-05-08",
+    [_A]: _LOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2312,8 +2312,8 @@ export const se_ListOpenIDConnectProviderTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListOpenIDConnectProviderTagsRequest(input, context),
-    Action: "ListOpenIDConnectProviderTags",
-    Version: "2010-05-08",
+    [_A]: _LOIDCPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2329,8 +2329,8 @@ export const se_ListPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPoliciesRequest(input, context),
-    Action: "ListPolicies",
-    Version: "2010-05-08",
+    [_A]: _LP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2346,8 +2346,8 @@ export const se_ListPoliciesGrantingServiceAccessCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPoliciesGrantingServiceAccessRequest(input, context),
-    Action: "ListPoliciesGrantingServiceAccess",
-    Version: "2010-05-08",
+    [_A]: _LPGSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2363,8 +2363,8 @@ export const se_ListPolicyTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPolicyTagsRequest(input, context),
-    Action: "ListPolicyTags",
-    Version: "2010-05-08",
+    [_A]: _LPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2380,8 +2380,8 @@ export const se_ListPolicyVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPolicyVersionsRequest(input, context),
-    Action: "ListPolicyVersions",
-    Version: "2010-05-08",
+    [_A]: _LPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2397,8 +2397,8 @@ export const se_ListRolePoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListRolePoliciesRequest(input, context),
-    Action: "ListRolePolicies",
-    Version: "2010-05-08",
+    [_A]: _LRP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2414,8 +2414,8 @@ export const se_ListRolesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListRolesRequest(input, context),
-    Action: "ListRoles",
-    Version: "2010-05-08",
+    [_A]: _LR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2431,8 +2431,8 @@ export const se_ListRoleTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListRoleTagsRequest(input, context),
-    Action: "ListRoleTags",
-    Version: "2010-05-08",
+    [_A]: _LRT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2448,8 +2448,8 @@ export const se_ListSAMLProvidersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSAMLProvidersRequest(input, context),
-    Action: "ListSAMLProviders",
-    Version: "2010-05-08",
+    [_A]: _LSAMLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2465,8 +2465,8 @@ export const se_ListSAMLProviderTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSAMLProviderTagsRequest(input, context),
-    Action: "ListSAMLProviderTags",
-    Version: "2010-05-08",
+    [_A]: _LSAMLPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2482,8 +2482,8 @@ export const se_ListServerCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListServerCertificatesRequest(input, context),
-    Action: "ListServerCertificates",
-    Version: "2010-05-08",
+    [_A]: _LSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2499,8 +2499,8 @@ export const se_ListServerCertificateTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListServerCertificateTagsRequest(input, context),
-    Action: "ListServerCertificateTags",
-    Version: "2010-05-08",
+    [_A]: _LSCT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2516,8 +2516,8 @@ export const se_ListServiceSpecificCredentialsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListServiceSpecificCredentialsRequest(input, context),
-    Action: "ListServiceSpecificCredentials",
-    Version: "2010-05-08",
+    [_A]: _LSSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2533,8 +2533,8 @@ export const se_ListSigningCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSigningCertificatesRequest(input, context),
-    Action: "ListSigningCertificates",
-    Version: "2010-05-08",
+    [_A]: _LSCi,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2550,8 +2550,8 @@ export const se_ListSSHPublicKeysCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSSHPublicKeysRequest(input, context),
-    Action: "ListSSHPublicKeys",
-    Version: "2010-05-08",
+    [_A]: _LSSHPK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2567,8 +2567,8 @@ export const se_ListUserPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListUserPoliciesRequest(input, context),
-    Action: "ListUserPolicies",
-    Version: "2010-05-08",
+    [_A]: _LUP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2584,8 +2584,8 @@ export const se_ListUsersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListUsersRequest(input, context),
-    Action: "ListUsers",
-    Version: "2010-05-08",
+    [_A]: _LU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2601,8 +2601,8 @@ export const se_ListUserTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListUserTagsRequest(input, context),
-    Action: "ListUserTags",
-    Version: "2010-05-08",
+    [_A]: _LUT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2618,8 +2618,8 @@ export const se_ListVirtualMFADevicesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListVirtualMFADevicesRequest(input, context),
-    Action: "ListVirtualMFADevices",
-    Version: "2010-05-08",
+    [_A]: _LVMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2635,8 +2635,8 @@ export const se_PutGroupPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutGroupPolicyRequest(input, context),
-    Action: "PutGroupPolicy",
-    Version: "2010-05-08",
+    [_A]: _PGP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2652,8 +2652,8 @@ export const se_PutRolePermissionsBoundaryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutRolePermissionsBoundaryRequest(input, context),
-    Action: "PutRolePermissionsBoundary",
-    Version: "2010-05-08",
+    [_A]: _PRPB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2669,8 +2669,8 @@ export const se_PutRolePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutRolePolicyRequest(input, context),
-    Action: "PutRolePolicy",
-    Version: "2010-05-08",
+    [_A]: _PRP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2686,8 +2686,8 @@ export const se_PutUserPermissionsBoundaryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutUserPermissionsBoundaryRequest(input, context),
-    Action: "PutUserPermissionsBoundary",
-    Version: "2010-05-08",
+    [_A]: _PUPB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2703,8 +2703,8 @@ export const se_PutUserPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutUserPolicyRequest(input, context),
-    Action: "PutUserPolicy",
-    Version: "2010-05-08",
+    [_A]: _PUP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2720,8 +2720,8 @@ export const se_RemoveClientIDFromOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveClientIDFromOpenIDConnectProviderRequest(input, context),
-    Action: "RemoveClientIDFromOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _RCIDFOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2737,8 +2737,8 @@ export const se_RemoveRoleFromInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveRoleFromInstanceProfileRequest(input, context),
-    Action: "RemoveRoleFromInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _RRFIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2754,8 +2754,8 @@ export const se_RemoveUserFromGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveUserFromGroupRequest(input, context),
-    Action: "RemoveUserFromGroup",
-    Version: "2010-05-08",
+    [_A]: _RUFG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2771,8 +2771,8 @@ export const se_ResetServiceSpecificCredentialCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetServiceSpecificCredentialRequest(input, context),
-    Action: "ResetServiceSpecificCredential",
-    Version: "2010-05-08",
+    [_A]: _RSSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2788,8 +2788,8 @@ export const se_ResyncMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResyncMFADeviceRequest(input, context),
-    Action: "ResyncMFADevice",
-    Version: "2010-05-08",
+    [_A]: _RMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2805,8 +2805,8 @@ export const se_SetDefaultPolicyVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetDefaultPolicyVersionRequest(input, context),
-    Action: "SetDefaultPolicyVersion",
-    Version: "2010-05-08",
+    [_A]: _SDPV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2822,8 +2822,8 @@ export const se_SetSecurityTokenServicePreferencesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetSecurityTokenServicePreferencesRequest(input, context),
-    Action: "SetSecurityTokenServicePreferences",
-    Version: "2010-05-08",
+    [_A]: _SSTSP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2839,8 +2839,8 @@ export const se_SimulateCustomPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SimulateCustomPolicyRequest(input, context),
-    Action: "SimulateCustomPolicy",
-    Version: "2010-05-08",
+    [_A]: _SCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2856,8 +2856,8 @@ export const se_SimulatePrincipalPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SimulatePrincipalPolicyRequest(input, context),
-    Action: "SimulatePrincipalPolicy",
-    Version: "2010-05-08",
+    [_A]: _SPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2873,8 +2873,8 @@ export const se_TagInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagInstanceProfileRequest(input, context),
-    Action: "TagInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _TIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2890,8 +2890,8 @@ export const se_TagMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagMFADeviceRequest(input, context),
-    Action: "TagMFADevice",
-    Version: "2010-05-08",
+    [_A]: _TMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2907,8 +2907,8 @@ export const se_TagOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagOpenIDConnectProviderRequest(input, context),
-    Action: "TagOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _TOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2924,8 +2924,8 @@ export const se_TagPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagPolicyRequest(input, context),
-    Action: "TagPolicy",
-    Version: "2010-05-08",
+    [_A]: _TP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2941,8 +2941,8 @@ export const se_TagRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagRoleRequest(input, context),
-    Action: "TagRole",
-    Version: "2010-05-08",
+    [_A]: _TR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2958,8 +2958,8 @@ export const se_TagSAMLProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagSAMLProviderRequest(input, context),
-    Action: "TagSAMLProvider",
-    Version: "2010-05-08",
+    [_A]: _TSAMLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2975,8 +2975,8 @@ export const se_TagServerCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagServerCertificateRequest(input, context),
-    Action: "TagServerCertificate",
-    Version: "2010-05-08",
+    [_A]: _TSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2992,8 +2992,8 @@ export const se_TagUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagUserRequest(input, context),
-    Action: "TagUser",
-    Version: "2010-05-08",
+    [_A]: _TU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3009,8 +3009,8 @@ export const se_UntagInstanceProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagInstanceProfileRequest(input, context),
-    Action: "UntagInstanceProfile",
-    Version: "2010-05-08",
+    [_A]: _UIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3026,8 +3026,8 @@ export const se_UntagMFADeviceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagMFADeviceRequest(input, context),
-    Action: "UntagMFADevice",
-    Version: "2010-05-08",
+    [_A]: _UMFAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3043,8 +3043,8 @@ export const se_UntagOpenIDConnectProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagOpenIDConnectProviderRequest(input, context),
-    Action: "UntagOpenIDConnectProvider",
-    Version: "2010-05-08",
+    [_A]: _UOIDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3060,8 +3060,8 @@ export const se_UntagPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagPolicyRequest(input, context),
-    Action: "UntagPolicy",
-    Version: "2010-05-08",
+    [_A]: _UP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3077,8 +3077,8 @@ export const se_UntagRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagRoleRequest(input, context),
-    Action: "UntagRole",
-    Version: "2010-05-08",
+    [_A]: _UR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3094,8 +3094,8 @@ export const se_UntagSAMLProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagSAMLProviderRequest(input, context),
-    Action: "UntagSAMLProvider",
-    Version: "2010-05-08",
+    [_A]: _USAMLP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3111,8 +3111,8 @@ export const se_UntagServerCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagServerCertificateRequest(input, context),
-    Action: "UntagServerCertificate",
-    Version: "2010-05-08",
+    [_A]: _USC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3128,8 +3128,8 @@ export const se_UntagUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagUserRequest(input, context),
-    Action: "UntagUser",
-    Version: "2010-05-08",
+    [_A]: _UU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3145,8 +3145,8 @@ export const se_UpdateAccessKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAccessKeyRequest(input, context),
-    Action: "UpdateAccessKey",
-    Version: "2010-05-08",
+    [_A]: _UAK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3162,8 +3162,8 @@ export const se_UpdateAccountPasswordPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAccountPasswordPolicyRequest(input, context),
-    Action: "UpdateAccountPasswordPolicy",
-    Version: "2010-05-08",
+    [_A]: _UAPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3179,8 +3179,8 @@ export const se_UpdateAssumeRolePolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAssumeRolePolicyRequest(input, context),
-    Action: "UpdateAssumeRolePolicy",
-    Version: "2010-05-08",
+    [_A]: _UARP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3196,8 +3196,8 @@ export const se_UpdateGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateGroupRequest(input, context),
-    Action: "UpdateGroup",
-    Version: "2010-05-08",
+    [_A]: _UG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3213,8 +3213,8 @@ export const se_UpdateLoginProfileCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateLoginProfileRequest(input, context),
-    Action: "UpdateLoginProfile",
-    Version: "2010-05-08",
+    [_A]: _ULP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3230,8 +3230,8 @@ export const se_UpdateOpenIDConnectProviderThumbprintCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateOpenIDConnectProviderThumbprintRequest(input, context),
-    Action: "UpdateOpenIDConnectProviderThumbprint",
-    Version: "2010-05-08",
+    [_A]: _UOIDCPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3247,8 +3247,8 @@ export const se_UpdateRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateRoleRequest(input, context),
-    Action: "UpdateRole",
-    Version: "2010-05-08",
+    [_A]: _URp,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3264,8 +3264,8 @@ export const se_UpdateRoleDescriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateRoleDescriptionRequest(input, context),
-    Action: "UpdateRoleDescription",
-    Version: "2010-05-08",
+    [_A]: _URD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3281,8 +3281,8 @@ export const se_UpdateSAMLProviderCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateSAMLProviderRequest(input, context),
-    Action: "UpdateSAMLProvider",
-    Version: "2010-05-08",
+    [_A]: _USAMLPp,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3298,8 +3298,8 @@ export const se_UpdateServerCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateServerCertificateRequest(input, context),
-    Action: "UpdateServerCertificate",
-    Version: "2010-05-08",
+    [_A]: _USCp,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3315,8 +3315,8 @@ export const se_UpdateServiceSpecificCredentialCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateServiceSpecificCredentialRequest(input, context),
-    Action: "UpdateServiceSpecificCredential",
-    Version: "2010-05-08",
+    [_A]: _USSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3332,8 +3332,8 @@ export const se_UpdateSigningCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateSigningCertificateRequest(input, context),
-    Action: "UpdateSigningCertificate",
-    Version: "2010-05-08",
+    [_A]: _USCpd,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3349,8 +3349,8 @@ export const se_UpdateSSHPublicKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateSSHPublicKeyRequest(input, context),
-    Action: "UpdateSSHPublicKey",
-    Version: "2010-05-08",
+    [_A]: _USSHPK,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3366,8 +3366,8 @@ export const se_UpdateUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateUserRequest(input, context),
-    Action: "UpdateUser",
-    Version: "2010-05-08",
+    [_A]: _UUp,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3383,8 +3383,8 @@ export const se_UploadServerCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UploadServerCertificateRequest(input, context),
-    Action: "UploadServerCertificate",
-    Version: "2010-05-08",
+    [_A]: _USCpl,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3400,8 +3400,8 @@ export const se_UploadSigningCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UploadSigningCertificateRequest(input, context),
-    Action: "UploadSigningCertificate",
-    Version: "2010-05-08",
+    [_A]: _USCplo,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3417,8 +3417,8 @@ export const se_UploadSSHPublicKeyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UploadSSHPublicKeyRequest(input, context),
-    Action: "UploadSSHPublicKey",
-    Version: "2010-05-08",
+    [_A]: _USSHPKp,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -12048,11 +12048,11 @@ const se_AddClientIDToOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
-  if (input.ClientID != null) {
-    entries["ClientID"] = input.ClientID;
+  if (input[_CID] != null) {
+    entries[_CID] = input[_CID];
   }
   return entries;
 };
@@ -12062,11 +12062,11 @@ const se_AddClientIDToOpenIDConnectProviderRequest = (
  */
 const se_AddRoleToInstanceProfileRequest = (input: AddRoleToInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -12076,11 +12076,11 @@ const se_AddRoleToInstanceProfileRequest = (input: AddRoleToInstanceProfileReque
  */
 const se_AddUserToGroupRequest = (input: AddUserToGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -12090,11 +12090,11 @@ const se_AddUserToGroupRequest = (input: AddUserToGroupRequest, context: __Serde
  */
 const se_AttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12104,11 +12104,11 @@ const se_AttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: _
  */
 const se_AttachRolePolicyRequest = (input: AttachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12118,11 +12118,11 @@ const se_AttachRolePolicyRequest = (input: AttachRolePolicyRequest, context: __S
  */
 const se_AttachUserPolicyRequest = (input: AttachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12132,11 +12132,11 @@ const se_AttachUserPolicyRequest = (input: AttachUserPolicyRequest, context: __S
  */
 const se_ChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OldPassword != null) {
-    entries["OldPassword"] = input.OldPassword;
+  if (input[_OP] != null) {
+    entries[_OP] = input[_OP];
   }
-  if (input.NewPassword != null) {
-    entries["NewPassword"] = input.NewPassword;
+  if (input[_NP] != null) {
+    entries[_NP] = input[_NP];
   }
   return entries;
 };
@@ -12162,12 +12162,12 @@ const se_clientIDListType = (input: string[], context: __SerdeContext): any => {
  */
 const se_ContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ContextKeyName != null) {
-    entries["ContextKeyName"] = input.ContextKeyName;
+  if (input[_CKN] != null) {
+    entries[_CKN] = input[_CKN];
   }
-  if (input.ContextKeyValues != null) {
-    const memberEntries = se_ContextKeyValueListType(input.ContextKeyValues, context);
-    if (input.ContextKeyValues?.length === 0) {
+  if (input[_CKV] != null) {
+    const memberEntries = se_ContextKeyValueListType(input[_CKV], context);
+    if (input[_CKV]?.length === 0) {
       entries.ContextKeyValues = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12175,8 +12175,8 @@ const se_ContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.ContextKeyType != null) {
-    entries["ContextKeyType"] = input.ContextKeyType;
+  if (input[_CKT] != null) {
+    entries[_CKT] = input[_CKT];
   }
   return entries;
 };
@@ -12221,8 +12221,8 @@ const se_ContextKeyValueListType = (input: string[], context: __SerdeContext): a
  */
 const se_CreateAccessKeyRequest = (input: CreateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -12232,8 +12232,8 @@ const se_CreateAccessKeyRequest = (input: CreateAccessKeyRequest, context: __Ser
  */
 const se_CreateAccountAliasRequest = (input: CreateAccountAliasRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccountAlias != null) {
-    entries["AccountAlias"] = input.AccountAlias;
+  if (input[_AA] != null) {
+    entries[_AA] = input[_AA];
   }
   return entries;
 };
@@ -12243,11 +12243,11 @@ const se_CreateAccountAliasRequest = (input: CreateAccountAliasRequest, context:
  */
 const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
   return entries;
 };
@@ -12257,15 +12257,15 @@ const se_CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContex
  */
 const se_CreateInstanceProfileRequest = (input: CreateInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12281,14 +12281,14 @@ const se_CreateInstanceProfileRequest = (input: CreateInstanceProfileRequest, co
  */
 const se_CreateLoginProfileRequest = (input: CreateLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Password != null) {
-    entries["Password"] = input.Password;
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
-  if (input.PasswordResetRequired != null) {
-    entries["PasswordResetRequired"] = input.PasswordResetRequired;
+  if (input[_PRR] != null) {
+    entries[_PRR] = input[_PRR];
   }
   return entries;
 };
@@ -12301,12 +12301,12 @@ const se_CreateOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Url != null) {
-    entries["Url"] = input.Url;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
-  if (input.ClientIDList != null) {
-    const memberEntries = se_clientIDListType(input.ClientIDList, context);
-    if (input.ClientIDList?.length === 0) {
+  if (input[_CIDL] != null) {
+    const memberEntries = se_clientIDListType(input[_CIDL], context);
+    if (input[_CIDL]?.length === 0) {
       entries.ClientIDList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12314,9 +12314,9 @@ const se_CreateOpenIDConnectProviderRequest = (
       entries[loc] = value;
     });
   }
-  if (input.ThumbprintList != null) {
-    const memberEntries = se_thumbprintListType(input.ThumbprintList, context);
-    if (input.ThumbprintList?.length === 0) {
+  if (input[_TL] != null) {
+    const memberEntries = se_thumbprintListType(input[_TL], context);
+    if (input[_TL]?.length === 0) {
       entries.ThumbprintList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12324,9 +12324,9 @@ const se_CreateOpenIDConnectProviderRequest = (
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12342,21 +12342,21 @@ const se_CreateOpenIDConnectProviderRequest = (
  */
 const se_CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.PolicyDocument != null) {
-    entries["PolicyDocument"] = input.PolicyDocument;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12372,14 +12372,14 @@ const se_CreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeCont
  */
 const se_CreatePolicyVersionRequest = (input: CreatePolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.PolicyDocument != null) {
-    entries["PolicyDocument"] = input.PolicyDocument;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
-  if (input.SetAsDefault != null) {
-    entries["SetAsDefault"] = input.SetAsDefault;
+  if (input[_SAD] != null) {
+    entries[_SAD] = input[_SAD];
   }
   return entries;
 };
@@ -12389,27 +12389,27 @@ const se_CreatePolicyVersionRequest = (input: CreatePolicyVersionRequest, contex
  */
 const se_CreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.AssumeRolePolicyDocument != null) {
-    entries["AssumeRolePolicyDocument"] = input.AssumeRolePolicyDocument;
+  if (input[_ARPD] != null) {
+    entries[_ARPD] = input[_ARPD];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.MaxSessionDuration != null) {
-    entries["MaxSessionDuration"] = input.MaxSessionDuration;
+  if (input[_MSD] != null) {
+    entries[_MSD] = input[_MSD];
   }
-  if (input.PermissionsBoundary != null) {
-    entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  if (input[_PB] != null) {
+    entries[_PB] = input[_PB];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12425,15 +12425,15 @@ const se_CreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext)
  */
 const se_CreateSAMLProviderRequest = (input: CreateSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLMetadataDocument != null) {
-    entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
+  if (input[_SAMLMD] != null) {
+    entries[_SAMLMD] = input[_SAMLMD];
   }
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12449,14 +12449,14 @@ const se_CreateSAMLProviderRequest = (input: CreateSAMLProviderRequest, context:
  */
 const se_CreateServiceLinkedRoleRequest = (input: CreateServiceLinkedRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AWSServiceName != null) {
-    entries["AWSServiceName"] = input.AWSServiceName;
+  if (input[_AWSSN] != null) {
+    entries[_AWSSN] = input[_AWSSN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.CustomSuffix != null) {
-    entries["CustomSuffix"] = input.CustomSuffix;
+  if (input[_CS] != null) {
+    entries[_CS] = input[_CS];
   }
   return entries;
 };
@@ -12469,11 +12469,11 @@ const se_CreateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.ServiceName != null) {
-    entries["ServiceName"] = input.ServiceName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -12483,18 +12483,18 @@ const se_CreateServiceSpecificCredentialRequest = (
  */
 const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PermissionsBoundary != null) {
-    entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  if (input[_PB] != null) {
+    entries[_PB] = input[_PB];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12510,15 +12510,15 @@ const se_CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext)
  */
 const se_CreateVirtualMFADeviceRequest = (input: CreateVirtualMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.VirtualMFADeviceName != null) {
-    entries["VirtualMFADeviceName"] = input.VirtualMFADeviceName;
+  if (input[_VMFADN] != null) {
+    entries[_VMFADN] = input[_VMFADN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12534,11 +12534,11 @@ const se_CreateVirtualMFADeviceRequest = (input: CreateVirtualMFADeviceRequest, 
  */
 const se_DeactivateMFADeviceRequest = (input: DeactivateMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
   return entries;
 };
@@ -12548,11 +12548,11 @@ const se_DeactivateMFADeviceRequest = (input: DeactivateMFADeviceRequest, contex
  */
 const se_DeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.AccessKeyId != null) {
-    entries["AccessKeyId"] = input.AccessKeyId;
+  if (input[_AKI] != null) {
+    entries[_AKI] = input[_AKI];
   }
   return entries;
 };
@@ -12562,8 +12562,8 @@ const se_DeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __Ser
  */
 const se_DeleteAccountAliasRequest = (input: DeleteAccountAliasRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccountAlias != null) {
-    entries["AccountAlias"] = input.AccountAlias;
+  if (input[_AA] != null) {
+    entries[_AA] = input[_AA];
   }
   return entries;
 };
@@ -12573,11 +12573,11 @@ const se_DeleteAccountAliasRequest = (input: DeleteAccountAliasRequest, context:
  */
 const se_DeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -12587,8 +12587,8 @@ const se_DeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: _
  */
 const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
   return entries;
 };
@@ -12598,8 +12598,8 @@ const se_DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContex
  */
 const se_DeleteInstanceProfileRequest = (input: DeleteInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
   return entries;
 };
@@ -12609,8 +12609,8 @@ const se_DeleteInstanceProfileRequest = (input: DeleteInstanceProfileRequest, co
  */
 const se_DeleteLoginProfileRequest = (input: DeleteLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -12623,8 +12623,8 @@ const se_DeleteOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
   return entries;
 };
@@ -12634,8 +12634,8 @@ const se_DeleteOpenIDConnectProviderRequest = (
  */
 const se_DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12645,11 +12645,11 @@ const se_DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeCont
  */
 const se_DeletePolicyVersionRequest = (input: DeletePolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
   return entries;
 };
@@ -12662,8 +12662,8 @@ const se_DeleteRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -12673,11 +12673,11 @@ const se_DeleteRolePermissionsBoundaryRequest = (
  */
 const se_DeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -12687,8 +12687,8 @@ const se_DeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __S
  */
 const se_DeleteRoleRequest = (input: DeleteRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -12698,8 +12698,8 @@ const se_DeleteRoleRequest = (input: DeleteRoleRequest, context: __SerdeContext)
  */
 const se_DeleteSAMLProviderRequest = (input: DeleteSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn != null) {
-    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  if (input[_SAMLPA] != null) {
+    entries[_SAMLPA] = input[_SAMLPA];
   }
   return entries;
 };
@@ -12709,8 +12709,8 @@ const se_DeleteSAMLProviderRequest = (input: DeleteSAMLProviderRequest, context:
  */
 const se_DeleteServerCertificateRequest = (input: DeleteServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
   return entries;
 };
@@ -12720,8 +12720,8 @@ const se_DeleteServerCertificateRequest = (input: DeleteServerCertificateRequest
  */
 const se_DeleteServiceLinkedRoleRequest = (input: DeleteServiceLinkedRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -12734,11 +12734,11 @@ const se_DeleteServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.ServiceSpecificCredentialId != null) {
-    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
+  if (input[_SSCI] != null) {
+    entries[_SSCI] = input[_SSCI];
   }
   return entries;
 };
@@ -12748,11 +12748,11 @@ const se_DeleteServiceSpecificCredentialRequest = (
  */
 const se_DeleteSigningCertificateRequest = (input: DeleteSigningCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.CertificateId != null) {
-    entries["CertificateId"] = input.CertificateId;
+  if (input[_CI] != null) {
+    entries[_CI] = input[_CI];
   }
   return entries;
 };
@@ -12762,11 +12762,11 @@ const se_DeleteSigningCertificateRequest = (input: DeleteSigningCertificateReque
  */
 const se_DeleteSSHPublicKeyRequest = (input: DeleteSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SSHPublicKeyId != null) {
-    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
+  if (input[_SSHPKI] != null) {
+    entries[_SSHPKI] = input[_SSHPKI];
   }
   return entries;
 };
@@ -12779,8 +12779,8 @@ const se_DeleteUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -12790,11 +12790,11 @@ const se_DeleteUserPermissionsBoundaryRequest = (
  */
 const se_DeleteUserPolicyRequest = (input: DeleteUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -12804,8 +12804,8 @@ const se_DeleteUserPolicyRequest = (input: DeleteUserPolicyRequest, context: __S
  */
 const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -12815,8 +12815,8 @@ const se_DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext)
  */
 const se_DeleteVirtualMFADeviceRequest = (input: DeleteVirtualMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
   return entries;
 };
@@ -12826,11 +12826,11 @@ const se_DeleteVirtualMFADeviceRequest = (input: DeleteVirtualMFADeviceRequest, 
  */
 const se_DetachGroupPolicyRequest = (input: DetachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12840,11 +12840,11 @@ const se_DetachGroupPolicyRequest = (input: DetachGroupPolicyRequest, context: _
  */
 const se_DetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12854,11 +12854,11 @@ const se_DetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __S
  */
 const se_DetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -12868,17 +12868,17 @@ const se_DetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __S
  */
 const se_EnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
-  if (input.AuthenticationCode1 != null) {
-    entries["AuthenticationCode1"] = input.AuthenticationCode1;
+  if (input[_AC] != null) {
+    entries[_AC] = input[_AC];
   }
-  if (input.AuthenticationCode2 != null) {
-    entries["AuthenticationCode2"] = input.AuthenticationCode2;
+  if (input[_ACu] != null) {
+    entries[_ACu] = input[_ACu];
   }
   return entries;
 };
@@ -12907,11 +12907,11 @@ const se_GenerateOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EntityPath != null) {
-    entries["EntityPath"] = input.EntityPath;
+  if (input[_EP] != null) {
+    entries[_EP] = input[_EP];
   }
-  if (input.OrganizationsPolicyId != null) {
-    entries["OrganizationsPolicyId"] = input.OrganizationsPolicyId;
+  if (input[_OPI] != null) {
+    entries[_OPI] = input[_OPI];
   }
   return entries;
 };
@@ -12924,11 +12924,11 @@ const se_GenerateServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.Granularity != null) {
-    entries["Granularity"] = input.Granularity;
+  if (input[_G] != null) {
+    entries[_G] = input[_G];
   }
   return entries;
 };
@@ -12938,8 +12938,8 @@ const se_GenerateServiceLastAccessedDetailsRequest = (
  */
 const se_GetAccessKeyLastUsedRequest = (input: GetAccessKeyLastUsedRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccessKeyId != null) {
-    entries["AccessKeyId"] = input.AccessKeyId;
+  if (input[_AKI] != null) {
+    entries[_AKI] = input[_AKI];
   }
   return entries;
 };
@@ -12952,9 +12952,9 @@ const se_GetAccountAuthorizationDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Filter != null) {
-    const memberEntries = se_entityListType(input.Filter, context);
-    if (input.Filter?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_entityListType(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filter = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -12962,11 +12962,11 @@ const se_GetAccountAuthorizationDetailsRequest = (
       entries[loc] = value;
     });
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -12979,9 +12979,9 @@ const se_GetContextKeysForCustomPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyInputList != null) {
-    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
-    if (input.PolicyInputList?.length === 0) {
+  if (input[_PIL] != null) {
+    const memberEntries = se_SimulationPolicyListType(input[_PIL], context);
+    if (input[_PIL]?.length === 0) {
       entries.PolicyInputList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13000,12 +13000,12 @@ const se_GetContextKeysForPrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicySourceArn != null) {
-    entries["PolicySourceArn"] = input.PolicySourceArn;
+  if (input[_PSA] != null) {
+    entries[_PSA] = input[_PSA];
   }
-  if (input.PolicyInputList != null) {
-    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
-    if (input.PolicyInputList?.length === 0) {
+  if (input[_PIL] != null) {
+    const memberEntries = se_SimulationPolicyListType(input[_PIL], context);
+    if (input[_PIL]?.length === 0) {
       entries.PolicyInputList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13021,11 +13021,11 @@ const se_GetContextKeysForPrincipalPolicyRequest = (
  */
 const se_GetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -13035,14 +13035,14 @@ const se_GetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __Serde
  */
 const se_GetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13052,8 +13052,8 @@ const se_GetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): an
  */
 const se_GetInstanceProfileRequest = (input: GetInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
   return entries;
 };
@@ -13063,8 +13063,8 @@ const se_GetInstanceProfileRequest = (input: GetInstanceProfileRequest, context:
  */
 const se_GetLoginProfileRequest = (input: GetLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -13074,11 +13074,11 @@ const se_GetLoginProfileRequest = (input: GetLoginProfileRequest, context: __Ser
  */
 const se_GetMFADeviceRequest = (input: GetMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -13088,8 +13088,8 @@ const se_GetMFADeviceRequest = (input: GetMFADeviceRequest, context: __SerdeCont
  */
 const se_GetOpenIDConnectProviderRequest = (input: GetOpenIDConnectProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
   return entries;
 };
@@ -13102,17 +13102,17 @@ const se_GetOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId != null) {
-    entries["JobId"] = input.JobId;
+  if (input[_JI] != null) {
+    entries[_JI] = input[_JI];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.SortKey != null) {
-    entries["SortKey"] = input.SortKey;
+  if (input[_SK] != null) {
+    entries[_SK] = input[_SK];
   }
   return entries;
 };
@@ -13122,8 +13122,8 @@ const se_GetOrganizationsAccessReportRequest = (
  */
 const se_GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
   return entries;
 };
@@ -13133,11 +13133,11 @@ const se_GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): 
  */
 const se_GetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
   return entries;
 };
@@ -13147,11 +13147,11 @@ const se_GetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __S
  */
 const se_GetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -13161,8 +13161,8 @@ const se_GetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeCo
  */
 const se_GetRoleRequest = (input: GetRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -13172,8 +13172,8 @@ const se_GetRoleRequest = (input: GetRoleRequest, context: __SerdeContext): any 
  */
 const se_GetSAMLProviderRequest = (input: GetSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn != null) {
-    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  if (input[_SAMLPA] != null) {
+    entries[_SAMLPA] = input[_SAMLPA];
   }
   return entries;
 };
@@ -13183,8 +13183,8 @@ const se_GetSAMLProviderRequest = (input: GetSAMLProviderRequest, context: __Ser
  */
 const se_GetServerCertificateRequest = (input: GetServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
   return entries;
 };
@@ -13197,14 +13197,14 @@ const se_GetServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId != null) {
-    entries["JobId"] = input.JobId;
+  if (input[_JI] != null) {
+    entries[_JI] = input[_JI];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -13217,17 +13217,17 @@ const se_GetServiceLastAccessedDetailsWithEntitiesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId != null) {
-    entries["JobId"] = input.JobId;
+  if (input[_JI] != null) {
+    entries[_JI] = input[_JI];
   }
-  if (input.ServiceNamespace != null) {
-    entries["ServiceNamespace"] = input.ServiceNamespace;
+  if (input[_SNer] != null) {
+    entries[_SNer] = input[_SNer];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -13240,8 +13240,8 @@ const se_GetServiceLinkedRoleDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeletionTaskId != null) {
-    entries["DeletionTaskId"] = input.DeletionTaskId;
+  if (input[_DTI] != null) {
+    entries[_DTI] = input[_DTI];
   }
   return entries;
 };
@@ -13251,14 +13251,14 @@ const se_GetServiceLinkedRoleDeletionStatusRequest = (
  */
 const se_GetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SSHPublicKeyId != null) {
-    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
+  if (input[_SSHPKI] != null) {
+    entries[_SSHPKI] = input[_SSHPKI];
   }
-  if (input.Encoding != null) {
-    entries["Encoding"] = input.Encoding;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -13268,11 +13268,11 @@ const se_GetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __Ser
  */
 const se_GetUserPolicyRequest = (input: GetUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -13282,8 +13282,8 @@ const se_GetUserPolicyRequest = (input: GetUserPolicyRequest, context: __SerdeCo
  */
 const se_GetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -13293,14 +13293,14 @@ const se_GetUserRequest = (input: GetUserRequest, context: __SerdeContext): any 
  */
 const se_ListAccessKeysRequest = (input: ListAccessKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13310,11 +13310,11 @@ const se_ListAccessKeysRequest = (input: ListAccessKeysRequest, context: __Serde
  */
 const se_ListAccountAliasesRequest = (input: ListAccountAliasesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13324,17 +13324,17 @@ const se_ListAccountAliasesRequest = (input: ListAccountAliasesRequest, context:
  */
 const se_ListAttachedGroupPoliciesRequest = (input: ListAttachedGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13344,17 +13344,17 @@ const se_ListAttachedGroupPoliciesRequest = (input: ListAttachedGroupPoliciesReq
  */
 const se_ListAttachedRolePoliciesRequest = (input: ListAttachedRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13364,17 +13364,17 @@ const se_ListAttachedRolePoliciesRequest = (input: ListAttachedRolePoliciesReque
  */
 const se_ListAttachedUserPoliciesRequest = (input: ListAttachedUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13384,23 +13384,23 @@ const se_ListAttachedUserPoliciesRequest = (input: ListAttachedUserPoliciesReque
  */
 const se_ListEntitiesForPolicyRequest = (input: ListEntitiesForPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.EntityFilter != null) {
-    entries["EntityFilter"] = input.EntityFilter;
+  if (input[_EF] != null) {
+    entries[_EF] = input[_EF];
   }
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.PolicyUsageFilter != null) {
-    entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
+  if (input[_PUF] != null) {
+    entries[_PUF] = input[_PUF];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13410,14 +13410,14 @@ const se_ListEntitiesForPolicyRequest = (input: ListEntitiesForPolicyRequest, co
  */
 const se_ListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13427,14 +13427,14 @@ const se_ListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: _
  */
 const se_ListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13444,14 +13444,14 @@ const se_ListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: _
  */
 const se_ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13464,14 +13464,14 @@ const se_ListInstanceProfilesForRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13481,14 +13481,14 @@ const se_ListInstanceProfilesForRoleRequest = (
  */
 const se_ListInstanceProfilesRequest = (input: ListInstanceProfilesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13498,14 +13498,14 @@ const se_ListInstanceProfilesRequest = (input: ListInstanceProfilesRequest, cont
  */
 const se_ListInstanceProfileTagsRequest = (input: ListInstanceProfileTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13515,14 +13515,14 @@ const se_ListInstanceProfileTagsRequest = (input: ListInstanceProfileTagsRequest
  */
 const se_ListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13532,14 +13532,14 @@ const se_ListMFADevicesRequest = (input: ListMFADevicesRequest, context: __Serde
  */
 const se_ListMFADeviceTagsRequest = (input: ListMFADeviceTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13563,14 +13563,14 @@ const se_ListOpenIDConnectProviderTagsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13583,15 +13583,15 @@ const se_ListPoliciesGrantingServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.ServiceNamespaces != null) {
-    const memberEntries = se_serviceNamespaceListType(input.ServiceNamespaces, context);
-    if (input.ServiceNamespaces?.length === 0) {
+  if (input[_SNerv] != null) {
+    const memberEntries = se_serviceNamespaceListType(input[_SNerv], context);
+    if (input[_SNerv]?.length === 0) {
       entries.ServiceNamespaces = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13607,23 +13607,23 @@ const se_ListPoliciesGrantingServiceAccessRequest = (
  */
 const se_ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Scope != null) {
-    entries["Scope"] = input.Scope;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.OnlyAttached != null) {
-    entries["OnlyAttached"] = input.OnlyAttached;
+  if (input[_OA] != null) {
+    entries[_OA] = input[_OA];
   }
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.PolicyUsageFilter != null) {
-    entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
+  if (input[_PUF] != null) {
+    entries[_PUF] = input[_PUF];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13633,14 +13633,14 @@ const se_ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeCont
  */
 const se_ListPolicyTagsRequest = (input: ListPolicyTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13650,14 +13650,14 @@ const se_ListPolicyTagsRequest = (input: ListPolicyTagsRequest, context: __Serde
  */
 const se_ListPolicyVersionsRequest = (input: ListPolicyVersionsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13667,14 +13667,14 @@ const se_ListPolicyVersionsRequest = (input: ListPolicyVersionsRequest, context:
  */
 const se_ListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13684,14 +13684,14 @@ const se_ListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __S
  */
 const se_ListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13701,14 +13701,14 @@ const se_ListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): 
  */
 const se_ListRoleTagsRequest = (input: ListRoleTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13726,14 +13726,14 @@ const se_ListSAMLProvidersRequest = (input: ListSAMLProvidersRequest, context: _
  */
 const se_ListSAMLProviderTagsRequest = (input: ListSAMLProviderTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn != null) {
-    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  if (input[_SAMLPA] != null) {
+    entries[_SAMLPA] = input[_SAMLPA];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13743,14 +13743,14 @@ const se_ListSAMLProviderTagsRequest = (input: ListSAMLProviderTagsRequest, cont
  */
 const se_ListServerCertificatesRequest = (input: ListServerCertificatesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13760,14 +13760,14 @@ const se_ListServerCertificatesRequest = (input: ListServerCertificatesRequest, 
  */
 const se_ListServerCertificateTagsRequest = (input: ListServerCertificateTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13780,11 +13780,11 @@ const se_ListServiceSpecificCredentialsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.ServiceName != null) {
-    entries["ServiceName"] = input.ServiceName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -13794,14 +13794,14 @@ const se_ListServiceSpecificCredentialsRequest = (
  */
 const se_ListSigningCertificatesRequest = (input: ListSigningCertificatesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13811,14 +13811,14 @@ const se_ListSigningCertificatesRequest = (input: ListSigningCertificatesRequest
  */
 const se_ListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13828,14 +13828,14 @@ const se_ListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: _
  */
 const se_ListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13845,14 +13845,14 @@ const se_ListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __S
  */
 const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix != null) {
-    entries["PathPrefix"] = input.PathPrefix;
+  if (input[_PP] != null) {
+    entries[_PP] = input[_PP];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13862,14 +13862,14 @@ const se_ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): 
  */
 const se_ListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13879,14 +13879,14 @@ const se_ListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeCont
  */
 const se_ListVirtualMFADevicesRequest = (input: ListVirtualMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AssignmentStatus != null) {
-    entries["AssignmentStatus"] = input.AssignmentStatus;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -13896,14 +13896,14 @@ const se_ListVirtualMFADevicesRequest = (input: ListVirtualMFADevicesRequest, co
  */
 const se_PutGroupPolicyRequest = (input: PutGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.PolicyDocument != null) {
-    entries["PolicyDocument"] = input.PolicyDocument;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
   return entries;
 };
@@ -13916,11 +13916,11 @@ const se_PutRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PermissionsBoundary != null) {
-    entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  if (input[_PB] != null) {
+    entries[_PB] = input[_PB];
   }
   return entries;
 };
@@ -13930,14 +13930,14 @@ const se_PutRolePermissionsBoundaryRequest = (
  */
 const se_PutRolePolicyRequest = (input: PutRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.PolicyDocument != null) {
-    entries["PolicyDocument"] = input.PolicyDocument;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
   return entries;
 };
@@ -13950,11 +13950,11 @@ const se_PutUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PermissionsBoundary != null) {
-    entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  if (input[_PB] != null) {
+    entries[_PB] = input[_PB];
   }
   return entries;
 };
@@ -13964,14 +13964,14 @@ const se_PutUserPermissionsBoundaryRequest = (
  */
 const se_PutUserPolicyRequest = (input: PutUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.PolicyDocument != null) {
-    entries["PolicyDocument"] = input.PolicyDocument;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
   return entries;
 };
@@ -13984,11 +13984,11 @@ const se_RemoveClientIDFromOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
-  if (input.ClientID != null) {
-    entries["ClientID"] = input.ClientID;
+  if (input[_CID] != null) {
+    entries[_CID] = input[_CID];
   }
   return entries;
 };
@@ -14001,11 +14001,11 @@ const se_RemoveRoleFromInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -14015,11 +14015,11 @@ const se_RemoveRoleFromInstanceProfileRequest = (
  */
 const se_RemoveUserFromGroupRequest = (input: RemoveUserFromGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
   return entries;
 };
@@ -14032,11 +14032,11 @@ const se_ResetServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.ServiceSpecificCredentialId != null) {
-    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
+  if (input[_SSCI] != null) {
+    entries[_SSCI] = input[_SSCI];
   }
   return entries;
 };
@@ -14062,17 +14062,17 @@ const se_ResourceNameListType = (input: string[], context: __SerdeContext): any 
  */
 const se_ResyncMFADeviceRequest = (input: ResyncMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
-  if (input.AuthenticationCode1 != null) {
-    entries["AuthenticationCode1"] = input.AuthenticationCode1;
+  if (input[_AC] != null) {
+    entries[_AC] = input[_AC];
   }
-  if (input.AuthenticationCode2 != null) {
-    entries["AuthenticationCode2"] = input.AuthenticationCode2;
+  if (input[_ACu] != null) {
+    entries[_ACu] = input[_ACu];
   }
   return entries;
 };
@@ -14098,11 +14098,11 @@ const se_serviceNamespaceListType = (input: string[], context: __SerdeContext): 
  */
 const se_SetDefaultPolicyVersionRequest = (input: SetDefaultPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
   return entries;
 };
@@ -14115,8 +14115,8 @@ const se_SetSecurityTokenServicePreferencesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalEndpointTokenVersion != null) {
-    entries["GlobalEndpointTokenVersion"] = input.GlobalEndpointTokenVersion;
+  if (input[_GETV] != null) {
+    entries[_GETV] = input[_GETV];
   }
   return entries;
 };
@@ -14126,9 +14126,9 @@ const se_SetSecurityTokenServicePreferencesRequest = (
  */
 const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyInputList != null) {
-    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
-    if (input.PolicyInputList?.length === 0) {
+  if (input[_PIL] != null) {
+    const memberEntries = se_SimulationPolicyListType(input[_PIL], context);
+    if (input[_PIL]?.length === 0) {
       entries.PolicyInputList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14136,9 +14136,9 @@ const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.PermissionsBoundaryPolicyInputList != null) {
-    const memberEntries = se_SimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
-    if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
+  if (input[_PBPIL] != null) {
+    const memberEntries = se_SimulationPolicyListType(input[_PBPIL], context);
+    if (input[_PBPIL]?.length === 0) {
       entries.PermissionsBoundaryPolicyInputList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14146,9 +14146,9 @@ const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.ActionNames != null) {
-    const memberEntries = se_ActionNameListType(input.ActionNames, context);
-    if (input.ActionNames?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_ActionNameListType(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.ActionNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14156,9 +14156,9 @@ const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.ResourceArns != null) {
-    const memberEntries = se_ResourceNameListType(input.ResourceArns, context);
-    if (input.ResourceArns?.length === 0) {
+  if (input[_RA] != null) {
+    const memberEntries = se_ResourceNameListType(input[_RA], context);
+    if (input[_RA]?.length === 0) {
       entries.ResourceArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14166,18 +14166,18 @@ const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.ResourcePolicy != null) {
-    entries["ResourcePolicy"] = input.ResourcePolicy;
+  if (input[_RP] != null) {
+    entries[_RP] = input[_RP];
   }
-  if (input.ResourceOwner != null) {
-    entries["ResourceOwner"] = input.ResourceOwner;
+  if (input[_RO] != null) {
+    entries[_RO] = input[_RO];
   }
-  if (input.CallerArn != null) {
-    entries["CallerArn"] = input.CallerArn;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.ContextEntries != null) {
-    const memberEntries = se_ContextEntryListType(input.ContextEntries, context);
-    if (input.ContextEntries?.length === 0) {
+  if (input[_CE] != null) {
+    const memberEntries = se_ContextEntryListType(input[_CE], context);
+    if (input[_CE]?.length === 0) {
       entries.ContextEntries = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14185,14 +14185,14 @@ const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, cont
       entries[loc] = value;
     });
   }
-  if (input.ResourceHandlingOption != null) {
-    entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
+  if (input[_RHO] != null) {
+    entries[_RHO] = input[_RHO];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -14202,12 +14202,12 @@ const se_SimulateCustomPolicyRequest = (input: SimulateCustomPolicyRequest, cont
  */
 const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicySourceArn != null) {
-    entries["PolicySourceArn"] = input.PolicySourceArn;
+  if (input[_PSA] != null) {
+    entries[_PSA] = input[_PSA];
   }
-  if (input.PolicyInputList != null) {
-    const memberEntries = se_SimulationPolicyListType(input.PolicyInputList, context);
-    if (input.PolicyInputList?.length === 0) {
+  if (input[_PIL] != null) {
+    const memberEntries = se_SimulationPolicyListType(input[_PIL], context);
+    if (input[_PIL]?.length === 0) {
       entries.PolicyInputList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14215,9 +14215,9 @@ const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest
       entries[loc] = value;
     });
   }
-  if (input.PermissionsBoundaryPolicyInputList != null) {
-    const memberEntries = se_SimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
-    if (input.PermissionsBoundaryPolicyInputList?.length === 0) {
+  if (input[_PBPIL] != null) {
+    const memberEntries = se_SimulationPolicyListType(input[_PBPIL], context);
+    if (input[_PBPIL]?.length === 0) {
       entries.PermissionsBoundaryPolicyInputList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14225,9 +14225,9 @@ const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest
       entries[loc] = value;
     });
   }
-  if (input.ActionNames != null) {
-    const memberEntries = se_ActionNameListType(input.ActionNames, context);
-    if (input.ActionNames?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_ActionNameListType(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.ActionNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14235,9 +14235,9 @@ const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest
       entries[loc] = value;
     });
   }
-  if (input.ResourceArns != null) {
-    const memberEntries = se_ResourceNameListType(input.ResourceArns, context);
-    if (input.ResourceArns?.length === 0) {
+  if (input[_RA] != null) {
+    const memberEntries = se_ResourceNameListType(input[_RA], context);
+    if (input[_RA]?.length === 0) {
       entries.ResourceArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14245,18 +14245,18 @@ const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest
       entries[loc] = value;
     });
   }
-  if (input.ResourcePolicy != null) {
-    entries["ResourcePolicy"] = input.ResourcePolicy;
+  if (input[_RP] != null) {
+    entries[_RP] = input[_RP];
   }
-  if (input.ResourceOwner != null) {
-    entries["ResourceOwner"] = input.ResourceOwner;
+  if (input[_RO] != null) {
+    entries[_RO] = input[_RO];
   }
-  if (input.CallerArn != null) {
-    entries["CallerArn"] = input.CallerArn;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.ContextEntries != null) {
-    const memberEntries = se_ContextEntryListType(input.ContextEntries, context);
-    if (input.ContextEntries?.length === 0) {
+  if (input[_CE] != null) {
+    const memberEntries = se_ContextEntryListType(input[_CE], context);
+    if (input[_CE]?.length === 0) {
       entries.ContextEntries = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14264,14 +14264,14 @@ const se_SimulatePrincipalPolicyRequest = (input: SimulatePrincipalPolicyRequest
       entries[loc] = value;
     });
   }
-  if (input.ResourceHandlingOption != null) {
-    entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
+  if (input[_RHO] != null) {
+    entries[_RHO] = input[_RHO];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -14297,11 +14297,11 @@ const se_SimulationPolicyListType = (input: string[], context: __SerdeContext): 
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -14311,12 +14311,12 @@ const se_Tag = (input: Tag, context: __SerdeContext): any => {
  */
 const se_TagInstanceProfileRequest = (input: TagInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14367,12 +14367,12 @@ const se_tagListType = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TagMFADeviceRequest = (input: TagMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14388,12 +14388,12 @@ const se_TagMFADeviceRequest = (input: TagMFADeviceRequest, context: __SerdeCont
  */
 const se_TagOpenIDConnectProviderRequest = (input: TagOpenIDConnectProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14409,12 +14409,12 @@ const se_TagOpenIDConnectProviderRequest = (input: TagOpenIDConnectProviderReque
  */
 const se_TagPolicyRequest = (input: TagPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14430,12 +14430,12 @@ const se_TagPolicyRequest = (input: TagPolicyRequest, context: __SerdeContext): 
  */
 const se_TagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14451,12 +14451,12 @@ const se_TagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any 
  */
 const se_TagSAMLProviderRequest = (input: TagSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn != null) {
-    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  if (input[_SAMLPA] != null) {
+    entries[_SAMLPA] = input[_SAMLPA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14472,12 +14472,12 @@ const se_TagSAMLProviderRequest = (input: TagSAMLProviderRequest, context: __Ser
  */
 const se_TagServerCertificateRequest = (input: TagServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14493,12 +14493,12 @@ const se_TagServerCertificateRequest = (input: TagServerCertificateRequest, cont
  */
 const se_TagUserRequest = (input: TagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14530,12 +14530,12 @@ const se_thumbprintListType = (input: string[], context: __SerdeContext): any =>
  */
 const se_UntagInstanceProfileRequest = (input: UntagInstanceProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceProfileName != null) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
+  if (input[_IPN] != null) {
+    entries[_IPN] = input[_IPN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14551,12 +14551,12 @@ const se_UntagInstanceProfileRequest = (input: UntagInstanceProfileRequest, cont
  */
 const se_UntagMFADeviceRequest = (input: UntagMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SNe] != null) {
+    entries[_SNe] = input[_SNe];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14575,12 +14575,12 @@ const se_UntagOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14596,12 +14596,12 @@ const se_UntagOpenIDConnectProviderRequest = (
  */
 const se_UntagPolicyRequest = (input: UntagPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn != null) {
-    entries["PolicyArn"] = input.PolicyArn;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14617,12 +14617,12 @@ const se_UntagPolicyRequest = (input: UntagPolicyRequest, context: __SerdeContex
  */
 const se_UntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14638,12 +14638,12 @@ const se_UntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): 
  */
 const se_UntagSAMLProviderRequest = (input: UntagSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn != null) {
-    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  if (input[_SAMLPA] != null) {
+    entries[_SAMLPA] = input[_SAMLPA];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14659,12 +14659,12 @@ const se_UntagSAMLProviderRequest = (input: UntagSAMLProviderRequest, context: _
  */
 const se_UntagServerCertificateRequest = (input: UntagServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14680,12 +14680,12 @@ const se_UntagServerCertificateRequest = (input: UntagServerCertificateRequest, 
  */
 const se_UntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14701,14 +14701,14 @@ const se_UntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): 
  */
 const se_UpdateAccessKeyRequest = (input: UpdateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.AccessKeyId != null) {
-    entries["AccessKeyId"] = input.AccessKeyId;
+  if (input[_AKI] != null) {
+    entries[_AKI] = input[_AKI];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
   return entries;
 };
@@ -14721,32 +14721,32 @@ const se_UpdateAccountPasswordPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MinimumPasswordLength != null) {
-    entries["MinimumPasswordLength"] = input.MinimumPasswordLength;
+  if (input[_MPL] != null) {
+    entries[_MPL] = input[_MPL];
   }
-  if (input.RequireSymbols != null) {
-    entries["RequireSymbols"] = input.RequireSymbols;
+  if (input[_RS] != null) {
+    entries[_RS] = input[_RS];
   }
-  if (input.RequireNumbers != null) {
-    entries["RequireNumbers"] = input.RequireNumbers;
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
-  if (input.RequireUppercaseCharacters != null) {
-    entries["RequireUppercaseCharacters"] = input.RequireUppercaseCharacters;
+  if (input[_RUC] != null) {
+    entries[_RUC] = input[_RUC];
   }
-  if (input.RequireLowercaseCharacters != null) {
-    entries["RequireLowercaseCharacters"] = input.RequireLowercaseCharacters;
+  if (input[_RLC] != null) {
+    entries[_RLC] = input[_RLC];
   }
-  if (input.AllowUsersToChangePassword != null) {
-    entries["AllowUsersToChangePassword"] = input.AllowUsersToChangePassword;
+  if (input[_AUTCP] != null) {
+    entries[_AUTCP] = input[_AUTCP];
   }
-  if (input.MaxPasswordAge != null) {
-    entries["MaxPasswordAge"] = input.MaxPasswordAge;
+  if (input[_MPA] != null) {
+    entries[_MPA] = input[_MPA];
   }
-  if (input.PasswordReusePrevention != null) {
-    entries["PasswordReusePrevention"] = input.PasswordReusePrevention;
+  if (input[_PRPa] != null) {
+    entries[_PRPa] = input[_PRPa];
   }
-  if (input.HardExpiry != null) {
-    entries["HardExpiry"] = input.HardExpiry;
+  if (input[_HE] != null) {
+    entries[_HE] = input[_HE];
   }
   return entries;
 };
@@ -14756,11 +14756,11 @@ const se_UpdateAccountPasswordPolicyRequest = (
  */
 const se_UpdateAssumeRolePolicyRequest = (input: UpdateAssumeRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.PolicyDocument != null) {
-    entries["PolicyDocument"] = input.PolicyDocument;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
   return entries;
 };
@@ -14770,14 +14770,14 @@ const se_UpdateAssumeRolePolicyRequest = (input: UpdateAssumeRolePolicyRequest, 
  */
 const se_UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName != null) {
-    entries["GroupName"] = input.GroupName;
+  if (input[_GN] != null) {
+    entries[_GN] = input[_GN];
   }
-  if (input.NewPath != null) {
-    entries["NewPath"] = input.NewPath;
+  if (input[_NPe] != null) {
+    entries[_NPe] = input[_NPe];
   }
-  if (input.NewGroupName != null) {
-    entries["NewGroupName"] = input.NewGroupName;
+  if (input[_NGN] != null) {
+    entries[_NGN] = input[_NGN];
   }
   return entries;
 };
@@ -14787,14 +14787,14 @@ const se_UpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContex
  */
 const se_UpdateLoginProfileRequest = (input: UpdateLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Password != null) {
-    entries["Password"] = input.Password;
+  if (input[_Pa] != null) {
+    entries[_Pa] = input[_Pa];
   }
-  if (input.PasswordResetRequired != null) {
-    entries["PasswordResetRequired"] = input.PasswordResetRequired;
+  if (input[_PRR] != null) {
+    entries[_PRR] = input[_PRR];
   }
   return entries;
 };
@@ -14807,12 +14807,12 @@ const se_UpdateOpenIDConnectProviderThumbprintRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn != null) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  if (input[_OIDCPA] != null) {
+    entries[_OIDCPA] = input[_OIDCPA];
   }
-  if (input.ThumbprintList != null) {
-    const memberEntries = se_thumbprintListType(input.ThumbprintList, context);
-    if (input.ThumbprintList?.length === 0) {
+  if (input[_TL] != null) {
+    const memberEntries = se_thumbprintListType(input[_TL], context);
+    if (input[_TL]?.length === 0) {
       entries.ThumbprintList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14828,11 +14828,11 @@ const se_UpdateOpenIDConnectProviderThumbprintRequest = (
  */
 const se_UpdateRoleDescriptionRequest = (input: UpdateRoleDescriptionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -14842,14 +14842,14 @@ const se_UpdateRoleDescriptionRequest = (input: UpdateRoleDescriptionRequest, co
  */
 const se_UpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName != null) {
-    entries["RoleName"] = input.RoleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.MaxSessionDuration != null) {
-    entries["MaxSessionDuration"] = input.MaxSessionDuration;
+  if (input[_MSD] != null) {
+    entries[_MSD] = input[_MSD];
   }
   return entries;
 };
@@ -14859,11 +14859,11 @@ const se_UpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext)
  */
 const se_UpdateSAMLProviderRequest = (input: UpdateSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLMetadataDocument != null) {
-    entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
+  if (input[_SAMLMD] != null) {
+    entries[_SAMLMD] = input[_SAMLMD];
   }
-  if (input.SAMLProviderArn != null) {
-    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  if (input[_SAMLPA] != null) {
+    entries[_SAMLPA] = input[_SAMLPA];
   }
   return entries;
 };
@@ -14873,14 +14873,14 @@ const se_UpdateSAMLProviderRequest = (input: UpdateSAMLProviderRequest, context:
  */
 const se_UpdateServerCertificateRequest = (input: UpdateServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.NewPath != null) {
-    entries["NewPath"] = input.NewPath;
+  if (input[_NPe] != null) {
+    entries[_NPe] = input[_NPe];
   }
-  if (input.NewServerCertificateName != null) {
-    entries["NewServerCertificateName"] = input.NewServerCertificateName;
+  if (input[_NSCN] != null) {
+    entries[_NSCN] = input[_NSCN];
   }
   return entries;
 };
@@ -14893,14 +14893,14 @@ const se_UpdateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.ServiceSpecificCredentialId != null) {
-    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
+  if (input[_SSCI] != null) {
+    entries[_SSCI] = input[_SSCI];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
   return entries;
 };
@@ -14910,14 +14910,14 @@ const se_UpdateServiceSpecificCredentialRequest = (
  */
 const se_UpdateSigningCertificateRequest = (input: UpdateSigningCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.CertificateId != null) {
-    entries["CertificateId"] = input.CertificateId;
+  if (input[_CI] != null) {
+    entries[_CI] = input[_CI];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
   return entries;
 };
@@ -14927,14 +14927,14 @@ const se_UpdateSigningCertificateRequest = (input: UpdateSigningCertificateReque
  */
 const se_UpdateSSHPublicKeyRequest = (input: UpdateSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SSHPublicKeyId != null) {
-    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
+  if (input[_SSHPKI] != null) {
+    entries[_SSHPKI] = input[_SSHPKI];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
   return entries;
 };
@@ -14944,14 +14944,14 @@ const se_UpdateSSHPublicKeyRequest = (input: UpdateSSHPublicKeyRequest, context:
  */
 const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.NewPath != null) {
-    entries["NewPath"] = input.NewPath;
+  if (input[_NPe] != null) {
+    entries[_NPe] = input[_NPe];
   }
-  if (input.NewUserName != null) {
-    entries["NewUserName"] = input.NewUserName;
+  if (input[_NUN] != null) {
+    entries[_NUN] = input[_NUN];
   }
   return entries;
 };
@@ -14961,24 +14961,24 @@ const se_UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext)
  */
 const se_UploadServerCertificateRequest = (input: UploadServerCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path != null) {
-    entries["Path"] = input.Path;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.ServerCertificateName != null) {
-    entries["ServerCertificateName"] = input.ServerCertificateName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.CertificateBody != null) {
-    entries["CertificateBody"] = input.CertificateBody;
+  if (input[_CB] != null) {
+    entries[_CB] = input[_CB];
   }
-  if (input.PrivateKey != null) {
-    entries["PrivateKey"] = input.PrivateKey;
+  if (input[_PK] != null) {
+    entries[_PK] = input[_PK];
   }
-  if (input.CertificateChain != null) {
-    entries["CertificateChain"] = input.CertificateChain;
+  if (input[_CC] != null) {
+    entries[_CC] = input[_CC];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14994,11 +14994,11 @@ const se_UploadServerCertificateRequest = (input: UploadServerCertificateRequest
  */
 const se_UploadSigningCertificateRequest = (input: UploadSigningCertificateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.CertificateBody != null) {
-    entries["CertificateBody"] = input.CertificateBody;
+  if (input[_CB] != null) {
+    entries[_CB] = input[_CB];
   }
   return entries;
 };
@@ -15008,11 +15008,11 @@ const se_UploadSigningCertificateRequest = (input: UploadSigningCertificateReque
  */
 const se_UploadSSHPublicKeyRequest = (input: UploadSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.SSHPublicKeyBody != null) {
-    entries["SSHPublicKeyBody"] = input.SSHPublicKeyBody;
+  if (input[_SSHPKB] != null) {
+    entries[_SSHPKB] = input[_SSHPKB];
   }
   return entries;
 };
@@ -15022,23 +15022,23 @@ const se_UploadSSHPublicKeyRequest = (input: UploadSSHPublicKeyRequest, context:
  */
 const de_AccessDetail = (output: any, context: __SerdeContext): AccessDetail => {
   const contents: any = {};
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = __expectString(output["ServiceName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["ServiceNamespace"] !== undefined) {
-    contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
+  if (output[_SNer] != null) {
+    contents[_SNer] = __expectString(output[_SNer]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
-  if (output["EntityPath"] !== undefined) {
-    contents.EntityPath = __expectString(output["EntityPath"]);
+  if (output[_EP] != null) {
+    contents[_EP] = __expectString(output[_EP]);
   }
-  if (output["LastAuthenticatedTime"] !== undefined) {
-    contents.LastAuthenticatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticatedTime"]));
+  if (output[_LAT] != null) {
+    contents[_LAT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LAT]));
   }
-  if (output["TotalAuthenticatedEntities"] !== undefined) {
-    contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
+  if (output[_TAE] != null) {
+    contents[_TAE] = __strictParseInt32(output[_TAE]) as number;
   }
   return contents;
 };
@@ -15059,20 +15059,20 @@ const de_AccessDetails = (output: any, context: __SerdeContext): AccessDetail[] 
  */
 const de_AccessKey = (output: any, context: __SerdeContext): AccessKey => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  if (output[_AKI] != null) {
+    contents[_AKI] = __expectString(output[_AKI]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["SecretAccessKey"] !== undefined) {
-    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
+  if (output[_SAK] != null) {
+    contents[_SAK] = __expectString(output[_SAK]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   return contents;
 };
@@ -15082,14 +15082,14 @@ const de_AccessKey = (output: any, context: __SerdeContext): AccessKey => {
  */
 const de_AccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
   const contents: any = {};
-  if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
+  if (output[_LUD] != null) {
+    contents[_LUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUD]));
   }
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = __expectString(output["ServiceName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   return contents;
 };
@@ -15099,17 +15099,17 @@ const de_AccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLa
  */
 const de_AccessKeyMetadata = (output: any, context: __SerdeContext): AccessKeyMetadata => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  if (output[_AKI] != null) {
+    contents[_AKI] = __expectString(output[_AKI]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   return contents;
 };
@@ -15152,11 +15152,11 @@ const de_ArnListType = (output: any, context: __SerdeContext): string[] => {
  */
 const de_AttachedPermissionsBoundary = (output: any, context: __SerdeContext): AttachedPermissionsBoundary => {
   const contents: any = {};
-  if (output["PermissionsBoundaryType"] !== undefined) {
-    contents.PermissionsBoundaryType = __expectString(output["PermissionsBoundaryType"]);
+  if (output[_PBT] != null) {
+    contents[_PBT] = __expectString(output[_PBT]);
   }
-  if (output["PermissionsBoundaryArn"] !== undefined) {
-    contents.PermissionsBoundaryArn = __expectString(output["PermissionsBoundaryArn"]);
+  if (output[_PBA] != null) {
+    contents[_PBA] = __expectString(output[_PBA]);
   }
   return contents;
 };
@@ -15177,11 +15177,11 @@ const de_attachedPoliciesListType = (output: any, context: __SerdeContext): Atta
  */
 const de_AttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyArn"] !== undefined) {
-    contents.PolicyArn = __expectString(output["PolicyArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
   return contents;
 };
@@ -15226,8 +15226,8 @@ const de_clientIDListType = (output: any, context: __SerdeContext): string[] => 
  */
 const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15248,8 +15248,8 @@ const de_ContextKeyNamesResultListType = (output: any, context: __SerdeContext):
  */
 const de_CreateAccessKeyResponse = (output: any, context: __SerdeContext): CreateAccessKeyResponse => {
   const contents: any = {};
-  if (output["AccessKey"] !== undefined) {
-    contents.AccessKey = de_AccessKey(output["AccessKey"], context);
+  if (output[_AK] != null) {
+    contents[_AK] = de_AccessKey(output[_AK], context);
   }
   return contents;
 };
@@ -15259,8 +15259,8 @@ const de_CreateAccessKeyResponse = (output: any, context: __SerdeContext): Creat
  */
 const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   const contents: any = {};
-  if (output["Group"] !== undefined) {
-    contents.Group = de_Group(output["Group"], context);
+  if (output[_Gr] != null) {
+    contents[_Gr] = de_Group(output[_Gr], context);
   }
   return contents;
 };
@@ -15270,8 +15270,8 @@ const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGro
  */
 const de_CreateInstanceProfileResponse = (output: any, context: __SerdeContext): CreateInstanceProfileResponse => {
   const contents: any = {};
-  if (output["InstanceProfile"] !== undefined) {
-    contents.InstanceProfile = de_InstanceProfile(output["InstanceProfile"], context);
+  if (output[_IP] != null) {
+    contents[_IP] = de_InstanceProfile(output[_IP], context);
   }
   return contents;
 };
@@ -15281,8 +15281,8 @@ const de_CreateInstanceProfileResponse = (output: any, context: __SerdeContext):
  */
 const de_CreateLoginProfileResponse = (output: any, context: __SerdeContext): CreateLoginProfileResponse => {
   const contents: any = {};
-  if (output["LoginProfile"] !== undefined) {
-    contents.LoginProfile = de_LoginProfile(output["LoginProfile"], context);
+  if (output[_LPo] != null) {
+    contents[_LPo] = de_LoginProfile(output[_LPo], context);
   }
   return contents;
 };
@@ -15295,13 +15295,13 @@ const de_CreateOpenIDConnectProviderResponse = (
   context: __SerdeContext
 ): CreateOpenIDConnectProviderResponse => {
   const contents: any = {};
-  if (output["OpenIDConnectProviderArn"] !== undefined) {
-    contents.OpenIDConnectProviderArn = __expectString(output["OpenIDConnectProviderArn"]);
+  if (output[_OIDCPA] != null) {
+    contents[_OIDCPA] = __expectString(output[_OIDCPA]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -15311,8 +15311,8 @@ const de_CreateOpenIDConnectProviderResponse = (
  */
 const de_CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
   const contents: any = {};
-  if (output["Policy"] !== undefined) {
-    contents.Policy = de_Policy(output["Policy"], context);
+  if (output[_Po] != null) {
+    contents[_Po] = de_Policy(output[_Po], context);
   }
   return contents;
 };
@@ -15322,8 +15322,8 @@ const de_CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePo
  */
 const de_CreatePolicyVersionResponse = (output: any, context: __SerdeContext): CreatePolicyVersionResponse => {
   const contents: any = {};
-  if (output["PolicyVersion"] !== undefined) {
-    contents.PolicyVersion = de_PolicyVersion(output["PolicyVersion"], context);
+  if (output[_PV] != null) {
+    contents[_PV] = de_PolicyVersion(output[_PV], context);
   }
   return contents;
 };
@@ -15333,8 +15333,8 @@ const de_CreatePolicyVersionResponse = (output: any, context: __SerdeContext): C
  */
 const de_CreateRoleResponse = (output: any, context: __SerdeContext): CreateRoleResponse => {
   const contents: any = {};
-  if (output["Role"] !== undefined) {
-    contents.Role = de_Role(output["Role"], context);
+  if (output[_Ro] != null) {
+    contents[_Ro] = de_Role(output[_Ro], context);
   }
   return contents;
 };
@@ -15344,13 +15344,13 @@ const de_CreateRoleResponse = (output: any, context: __SerdeContext): CreateRole
  */
 const de_CreateSAMLProviderResponse = (output: any, context: __SerdeContext): CreateSAMLProviderResponse => {
   const contents: any = {};
-  if (output["SAMLProviderArn"] !== undefined) {
-    contents.SAMLProviderArn = __expectString(output["SAMLProviderArn"]);
+  if (output[_SAMLPA] != null) {
+    contents[_SAMLPA] = __expectString(output[_SAMLPA]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -15360,8 +15360,8 @@ const de_CreateSAMLProviderResponse = (output: any, context: __SerdeContext): Cr
  */
 const de_CreateServiceLinkedRoleResponse = (output: any, context: __SerdeContext): CreateServiceLinkedRoleResponse => {
   const contents: any = {};
-  if (output["Role"] !== undefined) {
-    contents.Role = de_Role(output["Role"], context);
+  if (output[_Ro] != null) {
+    contents[_Ro] = de_Role(output[_Ro], context);
   }
   return contents;
 };
@@ -15374,8 +15374,8 @@ const de_CreateServiceSpecificCredentialResponse = (
   context: __SerdeContext
 ): CreateServiceSpecificCredentialResponse => {
   const contents: any = {};
-  if (output["ServiceSpecificCredential"] !== undefined) {
-    contents.ServiceSpecificCredential = de_ServiceSpecificCredential(output["ServiceSpecificCredential"], context);
+  if (output[_SSC] != null) {
+    contents[_SSC] = de_ServiceSpecificCredential(output[_SSC], context);
   }
   return contents;
 };
@@ -15385,8 +15385,8 @@ const de_CreateServiceSpecificCredentialResponse = (
  */
 const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   const contents: any = {};
-  if (output["User"] !== undefined) {
-    contents.User = de_User(output["User"], context);
+  if (output[_Us] != null) {
+    contents[_Us] = de_User(output[_Us], context);
   }
   return contents;
 };
@@ -15396,8 +15396,8 @@ const de_CreateUserResponse = (output: any, context: __SerdeContext): CreateUser
  */
 const de_CreateVirtualMFADeviceResponse = (output: any, context: __SerdeContext): CreateVirtualMFADeviceResponse => {
   const contents: any = {};
-  if (output["VirtualMFADevice"] !== undefined) {
-    contents.VirtualMFADevice = de_VirtualMFADevice(output["VirtualMFADevice"], context);
+  if (output[_VMFAD] != null) {
+    contents[_VMFAD] = de_VirtualMFADevice(output[_VMFAD], context);
   }
   return contents;
 };
@@ -15410,8 +15410,8 @@ const de_CredentialReportExpiredException = (
   context: __SerdeContext
 ): CredentialReportExpiredException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15424,8 +15424,8 @@ const de_CredentialReportNotPresentException = (
   context: __SerdeContext
 ): CredentialReportNotPresentException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15438,8 +15438,8 @@ const de_CredentialReportNotReadyException = (
   context: __SerdeContext
 ): CredentialReportNotReadyException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15449,8 +15449,8 @@ const de_CredentialReportNotReadyException = (
  */
 const de_DeleteConflictException = (output: any, context: __SerdeContext): DeleteConflictException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15460,8 +15460,8 @@ const de_DeleteConflictException = (output: any, context: __SerdeContext): Delet
  */
 const de_DeleteServiceLinkedRoleResponse = (output: any, context: __SerdeContext): DeleteServiceLinkedRoleResponse => {
   const contents: any = {};
-  if (output["DeletionTaskId"] !== undefined) {
-    contents.DeletionTaskId = __expectString(output["DeletionTaskId"]);
+  if (output[_DTI] != null) {
+    contents[_DTI] = __expectString(output[_DTI]);
   }
   return contents;
 };
@@ -15471,13 +15471,13 @@ const de_DeleteServiceLinkedRoleResponse = (output: any, context: __SerdeContext
  */
 const de_DeletionTaskFailureReasonType = (output: any, context: __SerdeContext): DeletionTaskFailureReasonType => {
   const contents: any = {};
-  if (output["Reason"] !== undefined) {
-    contents.Reason = __expectString(output["Reason"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
   if (output.RoleUsageList === "") {
-    contents.RoleUsageList = [];
-  } else if (output["RoleUsageList"] !== undefined && output["RoleUsageList"]["member"] !== undefined) {
-    contents.RoleUsageList = de_RoleUsageListType(__getArrayIfSingleItem(output["RoleUsageList"]["member"]), context);
+    contents[_RUL] = [];
+  } else if (output[_RUL] != null && output[_RUL][_me] != null) {
+    contents[_RUL] = de_RoleUsageListType(__getArrayIfSingleItem(output[_RUL][_me]), context);
   }
   return contents;
 };
@@ -15487,8 +15487,8 @@ const de_DeletionTaskFailureReasonType = (output: any, context: __SerdeContext):
  */
 const de_DuplicateCertificateException = (output: any, context: __SerdeContext): DuplicateCertificateException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15498,8 +15498,8 @@ const de_DuplicateCertificateException = (output: any, context: __SerdeContext):
  */
 const de_DuplicateSSHPublicKeyException = (output: any, context: __SerdeContext): DuplicateSSHPublicKeyException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15509,8 +15509,8 @@ const de_DuplicateSSHPublicKeyException = (output: any, context: __SerdeContext)
  */
 const de_EntityAlreadyExistsException = (output: any, context: __SerdeContext): EntityAlreadyExistsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15520,11 +15520,11 @@ const de_EntityAlreadyExistsException = (output: any, context: __SerdeContext): 
  */
 const de_EntityDetails = (output: any, context: __SerdeContext): EntityDetails => {
   const contents: any = {};
-  if (output["EntityInfo"] !== undefined) {
-    contents.EntityInfo = de_EntityInfo(output["EntityInfo"], context);
+  if (output[_EI] != null) {
+    contents[_EI] = de_EntityInfo(output[_EI], context);
   }
-  if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
+  if (output[_LA] != null) {
+    contents[_LA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LA]));
   }
   return contents;
 };
@@ -15545,20 +15545,20 @@ const de_entityDetailsListType = (output: any, context: __SerdeContext): EntityD
  */
 const de_EntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   return contents;
 };
@@ -15571,8 +15571,8 @@ const de_EntityTemporarilyUnmodifiableException = (
   context: __SerdeContext
 ): EntityTemporarilyUnmodifiableException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -15582,11 +15582,11 @@ const de_EntityTemporarilyUnmodifiableException = (
  */
 const de_ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -15612,61 +15612,40 @@ const de_EvalDecisionDetailsType = (
  */
 const de_EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   const contents: any = {};
-  if (output["EvalActionName"] !== undefined) {
-    contents.EvalActionName = __expectString(output["EvalActionName"]);
+  if (output[_EAN] != null) {
+    contents[_EAN] = __expectString(output[_EAN]);
   }
-  if (output["EvalResourceName"] !== undefined) {
-    contents.EvalResourceName = __expectString(output["EvalResourceName"]);
+  if (output[_ERN] != null) {
+    contents[_ERN] = __expectString(output[_ERN]);
   }
-  if (output["EvalDecision"] !== undefined) {
-    contents.EvalDecision = __expectString(output["EvalDecision"]);
+  if (output[_ED] != null) {
+    contents[_ED] = __expectString(output[_ED]);
   }
   if (output.MatchedStatements === "") {
-    contents.MatchedStatements = [];
-  } else if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
-    contents.MatchedStatements = de_StatementListType(
-      __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
-      context
-    );
+    contents[_MS] = [];
+  } else if (output[_MS] != null && output[_MS][_me] != null) {
+    contents[_MS] = de_StatementListType(__getArrayIfSingleItem(output[_MS][_me]), context);
   }
   if (output.MissingContextValues === "") {
-    contents.MissingContextValues = [];
-  } else if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
-    contents.MissingContextValues = de_ContextKeyNamesResultListType(
-      __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
-      context
-    );
+    contents[_MCV] = [];
+  } else if (output[_MCV] != null && output[_MCV][_me] != null) {
+    contents[_MCV] = de_ContextKeyNamesResultListType(__getArrayIfSingleItem(output[_MCV][_me]), context);
   }
-  if (output["OrganizationsDecisionDetail"] !== undefined) {
-    contents.OrganizationsDecisionDetail = de_OrganizationsDecisionDetail(
-      output["OrganizationsDecisionDetail"],
-      context
-    );
+  if (output[_ODD] != null) {
+    contents[_ODD] = de_OrganizationsDecisionDetail(output[_ODD], context);
   }
-  if (output["PermissionsBoundaryDecisionDetail"] !== undefined) {
-    contents.PermissionsBoundaryDecisionDetail = de_PermissionsBoundaryDecisionDetail(
-      output["PermissionsBoundaryDecisionDetail"],
-      context
-    );
+  if (output[_PBDD] != null) {
+    contents[_PBDD] = de_PermissionsBoundaryDecisionDetail(output[_PBDD], context);
   }
   if (output.EvalDecisionDetails === "") {
-    contents.EvalDecisionDetails = {};
-  } else if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
-    contents.EvalDecisionDetails = de_EvalDecisionDetailsType(
-      __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
-      context
-    );
+    contents[_EDD] = {};
+  } else if (output[_EDD] != null && output[_EDD][_e] != null) {
+    contents[_EDD] = de_EvalDecisionDetailsType(__getArrayIfSingleItem(output[_EDD][_e]), context);
   }
   if (output.ResourceSpecificResults === "") {
-    contents.ResourceSpecificResults = [];
-  } else if (
-    output["ResourceSpecificResults"] !== undefined &&
-    output["ResourceSpecificResults"]["member"] !== undefined
-  ) {
-    contents.ResourceSpecificResults = de_ResourceSpecificResultListType(
-      __getArrayIfSingleItem(output["ResourceSpecificResults"]["member"]),
-      context
-    );
+    contents[_RSR] = [];
+  } else if (output[_RSR] != null && output[_RSR][_me] != null) {
+    contents[_RSR] = de_ResourceSpecificResultListType(__getArrayIfSingleItem(output[_RSR][_me]), context);
   }
   return contents;
 };
@@ -15690,11 +15669,11 @@ const de_GenerateCredentialReportResponse = (
   context: __SerdeContext
 ): GenerateCredentialReportResponse => {
   const contents: any = {};
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -15707,8 +15686,8 @@ const de_GenerateOrganizationsAccessReportResponse = (
   context: __SerdeContext
 ): GenerateOrganizationsAccessReportResponse => {
   const contents: any = {};
-  if (output["JobId"] !== undefined) {
-    contents.JobId = __expectString(output["JobId"]);
+  if (output[_JI] != null) {
+    contents[_JI] = __expectString(output[_JI]);
   }
   return contents;
 };
@@ -15721,8 +15700,8 @@ const de_GenerateServiceLastAccessedDetailsResponse = (
   context: __SerdeContext
 ): GenerateServiceLastAccessedDetailsResponse => {
   const contents: any = {};
-  if (output["JobId"] !== undefined) {
-    contents.JobId = __expectString(output["JobId"]);
+  if (output[_JI] != null) {
+    contents[_JI] = __expectString(output[_JI]);
   }
   return contents;
 };
@@ -15732,11 +15711,11 @@ const de_GenerateServiceLastAccessedDetailsResponse = (
  */
 const de_GetAccessKeyLastUsedResponse = (output: any, context: __SerdeContext): GetAccessKeyLastUsedResponse => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["AccessKeyLastUsed"] !== undefined) {
-    contents.AccessKeyLastUsed = de_AccessKeyLastUsed(output["AccessKeyLastUsed"], context);
+  if (output[_AKLU] != null) {
+    contents[_AKLU] = de_AccessKeyLastUsed(output[_AKLU], context);
   }
   return contents;
 };
@@ -15750,39 +15729,30 @@ const de_GetAccountAuthorizationDetailsResponse = (
 ): GetAccountAuthorizationDetailsResponse => {
   const contents: any = {};
   if (output.UserDetailList === "") {
-    contents.UserDetailList = [];
-  } else if (output["UserDetailList"] !== undefined && output["UserDetailList"]["member"] !== undefined) {
-    contents.UserDetailList = de_userDetailListType(
-      __getArrayIfSingleItem(output["UserDetailList"]["member"]),
-      context
-    );
+    contents[_UDL] = [];
+  } else if (output[_UDL] != null && output[_UDL][_me] != null) {
+    contents[_UDL] = de_userDetailListType(__getArrayIfSingleItem(output[_UDL][_me]), context);
   }
   if (output.GroupDetailList === "") {
-    contents.GroupDetailList = [];
-  } else if (output["GroupDetailList"] !== undefined && output["GroupDetailList"]["member"] !== undefined) {
-    contents.GroupDetailList = de_groupDetailListType(
-      __getArrayIfSingleItem(output["GroupDetailList"]["member"]),
-      context
-    );
+    contents[_GDL] = [];
+  } else if (output[_GDL] != null && output[_GDL][_me] != null) {
+    contents[_GDL] = de_groupDetailListType(__getArrayIfSingleItem(output[_GDL][_me]), context);
   }
   if (output.RoleDetailList === "") {
-    contents.RoleDetailList = [];
-  } else if (output["RoleDetailList"] !== undefined && output["RoleDetailList"]["member"] !== undefined) {
-    contents.RoleDetailList = de_roleDetailListType(
-      __getArrayIfSingleItem(output["RoleDetailList"]["member"]),
-      context
-    );
+    contents[_RDL] = [];
+  } else if (output[_RDL] != null && output[_RDL][_me] != null) {
+    contents[_RDL] = de_roleDetailListType(__getArrayIfSingleItem(output[_RDL][_me]), context);
   }
   if (output.Policies === "") {
-    contents.Policies = [];
-  } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = de_ManagedPolicyDetailListType(__getArrayIfSingleItem(output["Policies"]["member"]), context);
+    contents[_Pol] = [];
+  } else if (output[_Pol] != null && output[_Pol][_me] != null) {
+    contents[_Pol] = de_ManagedPolicyDetailListType(__getArrayIfSingleItem(output[_Pol][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -15795,8 +15765,8 @@ const de_GetAccountPasswordPolicyResponse = (
   context: __SerdeContext
 ): GetAccountPasswordPolicyResponse => {
   const contents: any = {};
-  if (output["PasswordPolicy"] !== undefined) {
-    contents.PasswordPolicy = de_PasswordPolicy(output["PasswordPolicy"], context);
+  if (output[_PPa] != null) {
+    contents[_PPa] = de_PasswordPolicy(output[_PPa], context);
   }
   return contents;
 };
@@ -15807,9 +15777,9 @@ const de_GetAccountPasswordPolicyResponse = (
 const de_GetAccountSummaryResponse = (output: any, context: __SerdeContext): GetAccountSummaryResponse => {
   const contents: any = {};
   if (output.SummaryMap === "") {
-    contents.SummaryMap = {};
-  } else if (output["SummaryMap"] !== undefined && output["SummaryMap"]["entry"] !== undefined) {
-    contents.SummaryMap = de_summaryMapType(__getArrayIfSingleItem(output["SummaryMap"]["entry"]), context);
+    contents[_SM] = {};
+  } else if (output[_SM] != null && output[_SM][_e] != null) {
+    contents[_SM] = de_summaryMapType(__getArrayIfSingleItem(output[_SM][_e]), context);
   }
   return contents;
 };
@@ -15820,12 +15790,9 @@ const de_GetAccountSummaryResponse = (output: any, context: __SerdeContext): Get
 const de_GetContextKeysForPolicyResponse = (output: any, context: __SerdeContext): GetContextKeysForPolicyResponse => {
   const contents: any = {};
   if (output.ContextKeyNames === "") {
-    contents.ContextKeyNames = [];
-  } else if (output["ContextKeyNames"] !== undefined && output["ContextKeyNames"]["member"] !== undefined) {
-    contents.ContextKeyNames = de_ContextKeyNamesResultListType(
-      __getArrayIfSingleItem(output["ContextKeyNames"]["member"]),
-      context
-    );
+    contents[_CKNo] = [];
+  } else if (output[_CKNo] != null && output[_CKNo][_me] != null) {
+    contents[_CKNo] = de_ContextKeyNamesResultListType(__getArrayIfSingleItem(output[_CKNo][_me]), context);
   }
   return contents;
 };
@@ -15835,14 +15802,14 @@ const de_GetContextKeysForPolicyResponse = (output: any, context: __SerdeContext
  */
 const de_GetCredentialReportResponse = (output: any, context: __SerdeContext): GetCredentialReportResponse => {
   const contents: any = {};
-  if (output["Content"] !== undefined) {
-    contents.Content = context.base64Decoder(output["Content"]);
+  if (output[_Co] != null) {
+    contents[_Co] = context.base64Decoder(output[_Co]);
   }
-  if (output["ReportFormat"] !== undefined) {
-    contents.ReportFormat = __expectString(output["ReportFormat"]);
+  if (output[_RF] != null) {
+    contents[_RF] = __expectString(output[_RF]);
   }
-  if (output["GeneratedTime"] !== undefined) {
-    contents.GeneratedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["GeneratedTime"]));
+  if (output[_GT] != null) {
+    contents[_GT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_GT]));
   }
   return contents;
 };
@@ -15852,14 +15819,14 @@ const de_GetCredentialReportResponse = (output: any, context: __SerdeContext): G
  */
 const de_GetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGroupPolicyResponse => {
   const contents: any = {};
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = __expectString(output["GroupName"]);
+  if (output[_GN] != null) {
+    contents[_GN] = __expectString(output[_GN]);
   }
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyDocument"] !== undefined) {
-    contents.PolicyDocument = __expectString(output["PolicyDocument"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
   return contents;
 };
@@ -15869,19 +15836,19 @@ const de_GetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGro
  */
 const de_GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
   const contents: any = {};
-  if (output["Group"] !== undefined) {
-    contents.Group = de_Group(output["Group"], context);
+  if (output[_Gr] != null) {
+    contents[_Gr] = de_Group(output[_Gr], context);
   }
   if (output.Users === "") {
-    contents.Users = [];
-  } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
-    contents.Users = de_userListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
+    contents[_Use] = [];
+  } else if (output[_Use] != null && output[_Use][_me] != null) {
+    contents[_Use] = de_userListType(__getArrayIfSingleItem(output[_Use][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -15891,8 +15858,8 @@ const de_GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResp
  */
 const de_GetInstanceProfileResponse = (output: any, context: __SerdeContext): GetInstanceProfileResponse => {
   const contents: any = {};
-  if (output["InstanceProfile"] !== undefined) {
-    contents.InstanceProfile = de_InstanceProfile(output["InstanceProfile"], context);
+  if (output[_IP] != null) {
+    contents[_IP] = de_InstanceProfile(output[_IP], context);
   }
   return contents;
 };
@@ -15902,8 +15869,8 @@ const de_GetInstanceProfileResponse = (output: any, context: __SerdeContext): Ge
  */
 const de_GetLoginProfileResponse = (output: any, context: __SerdeContext): GetLoginProfileResponse => {
   const contents: any = {};
-  if (output["LoginProfile"] !== undefined) {
-    contents.LoginProfile = de_LoginProfile(output["LoginProfile"], context);
+  if (output[_LPo] != null) {
+    contents[_LPo] = de_LoginProfile(output[_LPo], context);
   }
   return contents;
 };
@@ -15913,22 +15880,19 @@ const de_GetLoginProfileResponse = (output: any, context: __SerdeContext): GetLo
  */
 const de_GetMFADeviceResponse = (output: any, context: __SerdeContext): GetMFADeviceResponse => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["SerialNumber"] !== undefined) {
-    contents.SerialNumber = __expectString(output["SerialNumber"]);
+  if (output[_SNe] != null) {
+    contents[_SNe] = __expectString(output[_SNe]);
   }
-  if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
+  if (output[_EDn] != null) {
+    contents[_EDn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_EDn]));
   }
   if (output.Certifications === "") {
-    contents.Certifications = {};
-  } else if (output["Certifications"] !== undefined && output["Certifications"]["entry"] !== undefined) {
-    contents.Certifications = de_CertificationMapType(
-      __getArrayIfSingleItem(output["Certifications"]["entry"]),
-      context
-    );
+    contents[_Ce] = {};
+  } else if (output[_Ce] != null && output[_Ce][_e] != null) {
+    contents[_Ce] = de_CertificationMapType(__getArrayIfSingleItem(output[_Ce][_e]), context);
   }
   return contents;
 };
@@ -15941,29 +15905,26 @@ const de_GetOpenIDConnectProviderResponse = (
   context: __SerdeContext
 ): GetOpenIDConnectProviderResponse => {
   const contents: any = {};
-  if (output["Url"] !== undefined) {
-    contents.Url = __expectString(output["Url"]);
+  if (output[_U] != null) {
+    contents[_U] = __expectString(output[_U]);
   }
   if (output.ClientIDList === "") {
-    contents.ClientIDList = [];
-  } else if (output["ClientIDList"] !== undefined && output["ClientIDList"]["member"] !== undefined) {
-    contents.ClientIDList = de_clientIDListType(__getArrayIfSingleItem(output["ClientIDList"]["member"]), context);
+    contents[_CIDL] = [];
+  } else if (output[_CIDL] != null && output[_CIDL][_me] != null) {
+    contents[_CIDL] = de_clientIDListType(__getArrayIfSingleItem(output[_CIDL][_me]), context);
   }
   if (output.ThumbprintList === "") {
-    contents.ThumbprintList = [];
-  } else if (output["ThumbprintList"] !== undefined && output["ThumbprintList"]["member"] !== undefined) {
-    contents.ThumbprintList = de_thumbprintListType(
-      __getArrayIfSingleItem(output["ThumbprintList"]["member"]),
-      context
-    );
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_me] != null) {
+    contents[_TL] = de_thumbprintListType(__getArrayIfSingleItem(output[_TL][_me]), context);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -15976,34 +15937,34 @@ const de_GetOrganizationsAccessReportResponse = (
   context: __SerdeContext
 ): GetOrganizationsAccessReportResponse => {
   const contents: any = {};
-  if (output["JobStatus"] !== undefined) {
-    contents.JobStatus = __expectString(output["JobStatus"]);
+  if (output[_JS] != null) {
+    contents[_JS] = __expectString(output[_JS]);
   }
-  if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
+  if (output[_JCD] != null) {
+    contents[_JCD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_JCD]));
   }
-  if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
+  if (output[_JCDo] != null) {
+    contents[_JCDo] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_JCDo]));
   }
-  if (output["NumberOfServicesAccessible"] !== undefined) {
-    contents.NumberOfServicesAccessible = __strictParseInt32(output["NumberOfServicesAccessible"]) as number;
+  if (output[_NOSA] != null) {
+    contents[_NOSA] = __strictParseInt32(output[_NOSA]) as number;
   }
-  if (output["NumberOfServicesNotAccessed"] !== undefined) {
-    contents.NumberOfServicesNotAccessed = __strictParseInt32(output["NumberOfServicesNotAccessed"]) as number;
+  if (output[_NOSNA] != null) {
+    contents[_NOSNA] = __strictParseInt32(output[_NOSNA]) as number;
   }
   if (output.AccessDetails === "") {
-    contents.AccessDetails = [];
-  } else if (output["AccessDetails"] !== undefined && output["AccessDetails"]["member"] !== undefined) {
-    contents.AccessDetails = de_AccessDetails(__getArrayIfSingleItem(output["AccessDetails"]["member"]), context);
+    contents[_AD] = [];
+  } else if (output[_AD] != null && output[_AD][_me] != null) {
+    contents[_AD] = de_AccessDetails(__getArrayIfSingleItem(output[_AD][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["ErrorDetails"] !== undefined) {
-    contents.ErrorDetails = de_ErrorDetails(output["ErrorDetails"], context);
+  if (output[_EDr] != null) {
+    contents[_EDr] = de_ErrorDetails(output[_EDr], context);
   }
   return contents;
 };
@@ -16013,8 +15974,8 @@ const de_GetOrganizationsAccessReportResponse = (
  */
 const de_GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
   const contents: any = {};
-  if (output["Policy"] !== undefined) {
-    contents.Policy = de_Policy(output["Policy"], context);
+  if (output[_Po] != null) {
+    contents[_Po] = de_Policy(output[_Po], context);
   }
   return contents;
 };
@@ -16024,8 +15985,8 @@ const de_GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyRe
  */
 const de_GetPolicyVersionResponse = (output: any, context: __SerdeContext): GetPolicyVersionResponse => {
   const contents: any = {};
-  if (output["PolicyVersion"] !== undefined) {
-    contents.PolicyVersion = de_PolicyVersion(output["PolicyVersion"], context);
+  if (output[_PV] != null) {
+    contents[_PV] = de_PolicyVersion(output[_PV], context);
   }
   return contents;
 };
@@ -16035,14 +15996,14 @@ const de_GetPolicyVersionResponse = (output: any, context: __SerdeContext): GetP
  */
 const de_GetRolePolicyResponse = (output: any, context: __SerdeContext): GetRolePolicyResponse => {
   const contents: any = {};
-  if (output["RoleName"] !== undefined) {
-    contents.RoleName = __expectString(output["RoleName"]);
+  if (output[_RN] != null) {
+    contents[_RN] = __expectString(output[_RN]);
   }
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyDocument"] !== undefined) {
-    contents.PolicyDocument = __expectString(output["PolicyDocument"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
   return contents;
 };
@@ -16052,8 +16013,8 @@ const de_GetRolePolicyResponse = (output: any, context: __SerdeContext): GetRole
  */
 const de_GetRoleResponse = (output: any, context: __SerdeContext): GetRoleResponse => {
   const contents: any = {};
-  if (output["Role"] !== undefined) {
-    contents.Role = de_Role(output["Role"], context);
+  if (output[_Ro] != null) {
+    contents[_Ro] = de_Role(output[_Ro], context);
   }
   return contents;
 };
@@ -16063,19 +16024,19 @@ const de_GetRoleResponse = (output: any, context: __SerdeContext): GetRoleRespon
  */
 const de_GetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
   const contents: any = {};
-  if (output["SAMLMetadataDocument"] !== undefined) {
-    contents.SAMLMetadataDocument = __expectString(output["SAMLMetadataDocument"]);
+  if (output[_SAMLMD] != null) {
+    contents[_SAMLMD] = __expectString(output[_SAMLMD]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
+  if (output[_VU] != null) {
+    contents[_VU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VU]));
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -16085,8 +16046,8 @@ const de_GetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSA
  */
 const de_GetServerCertificateResponse = (output: any, context: __SerdeContext): GetServerCertificateResponse => {
   const contents: any = {};
-  if (output["ServerCertificate"] !== undefined) {
-    contents.ServerCertificate = de_ServerCertificate(output["ServerCertificate"], context);
+  if (output[_SC] != null) {
+    contents[_SC] = de_ServerCertificate(output[_SC], context);
   }
   return contents;
 };
@@ -16099,34 +16060,31 @@ const de_GetServiceLastAccessedDetailsResponse = (
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsResponse => {
   const contents: any = {};
-  if (output["JobStatus"] !== undefined) {
-    contents.JobStatus = __expectString(output["JobStatus"]);
+  if (output[_JS] != null) {
+    contents[_JS] = __expectString(output[_JS]);
   }
-  if (output["JobType"] !== undefined) {
-    contents.JobType = __expectString(output["JobType"]);
+  if (output[_JT] != null) {
+    contents[_JT] = __expectString(output[_JT]);
   }
-  if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
+  if (output[_JCD] != null) {
+    contents[_JCD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_JCD]));
   }
   if (output.ServicesLastAccessed === "") {
-    contents.ServicesLastAccessed = [];
-  } else if (output["ServicesLastAccessed"] !== undefined && output["ServicesLastAccessed"]["member"] !== undefined) {
-    contents.ServicesLastAccessed = de_ServicesLastAccessed(
-      __getArrayIfSingleItem(output["ServicesLastAccessed"]["member"]),
-      context
-    );
+    contents[_SLA] = [];
+  } else if (output[_SLA] != null && output[_SLA][_me] != null) {
+    contents[_SLA] = de_ServicesLastAccessed(__getArrayIfSingleItem(output[_SLA][_me]), context);
   }
-  if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
+  if (output[_JCDo] != null) {
+    contents[_JCDo] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_JCDo]));
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["Error"] !== undefined) {
-    contents.Error = de_ErrorDetails(output["Error"], context);
+  if (output[_Er] != null) {
+    contents[_Er] = de_ErrorDetails(output[_Er], context);
   }
   return contents;
 };
@@ -16139,31 +16097,28 @@ const de_GetServiceLastAccessedDetailsWithEntitiesResponse = (
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsWithEntitiesResponse => {
   const contents: any = {};
-  if (output["JobStatus"] !== undefined) {
-    contents.JobStatus = __expectString(output["JobStatus"]);
+  if (output[_JS] != null) {
+    contents[_JS] = __expectString(output[_JS]);
   }
-  if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCreationDate"]));
+  if (output[_JCD] != null) {
+    contents[_JCD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_JCD]));
   }
-  if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["JobCompletionDate"]));
+  if (output[_JCDo] != null) {
+    contents[_JCDo] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_JCDo]));
   }
   if (output.EntityDetailsList === "") {
-    contents.EntityDetailsList = [];
-  } else if (output["EntityDetailsList"] !== undefined && output["EntityDetailsList"]["member"] !== undefined) {
-    contents.EntityDetailsList = de_entityDetailsListType(
-      __getArrayIfSingleItem(output["EntityDetailsList"]["member"]),
-      context
-    );
+    contents[_EDL] = [];
+  } else if (output[_EDL] != null && output[_EDL][_me] != null) {
+    contents[_EDL] = de_entityDetailsListType(__getArrayIfSingleItem(output[_EDL][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["Error"] !== undefined) {
-    contents.Error = de_ErrorDetails(output["Error"], context);
+  if (output[_Er] != null) {
+    contents[_Er] = de_ErrorDetails(output[_Er], context);
   }
   return contents;
 };
@@ -16176,11 +16131,11 @@ const de_GetServiceLinkedRoleDeletionStatusResponse = (
   context: __SerdeContext
 ): GetServiceLinkedRoleDeletionStatusResponse => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Reason"] !== undefined) {
-    contents.Reason = de_DeletionTaskFailureReasonType(output["Reason"], context);
+  if (output[_Re] != null) {
+    contents[_Re] = de_DeletionTaskFailureReasonType(output[_Re], context);
   }
   return contents;
 };
@@ -16190,8 +16145,8 @@ const de_GetServiceLinkedRoleDeletionStatusResponse = (
  */
 const de_GetSSHPublicKeyResponse = (output: any, context: __SerdeContext): GetSSHPublicKeyResponse => {
   const contents: any = {};
-  if (output["SSHPublicKey"] !== undefined) {
-    contents.SSHPublicKey = de_SSHPublicKey(output["SSHPublicKey"], context);
+  if (output[_SSHPK] != null) {
+    contents[_SSHPK] = de_SSHPublicKey(output[_SSHPK], context);
   }
   return contents;
 };
@@ -16201,14 +16156,14 @@ const de_GetSSHPublicKeyResponse = (output: any, context: __SerdeContext): GetSS
  */
 const de_GetUserPolicyResponse = (output: any, context: __SerdeContext): GetUserPolicyResponse => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyDocument"] !== undefined) {
-    contents.PolicyDocument = __expectString(output["PolicyDocument"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
   return contents;
 };
@@ -16218,8 +16173,8 @@ const de_GetUserPolicyResponse = (output: any, context: __SerdeContext): GetUser
  */
 const de_GetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
   const contents: any = {};
-  if (output["User"] !== undefined) {
-    contents.User = de_User(output["User"], context);
+  if (output[_Us] != null) {
+    contents[_Us] = de_User(output[_Us], context);
   }
   return contents;
 };
@@ -16229,20 +16184,20 @@ const de_GetUserResponse = (output: any, context: __SerdeContext): GetUserRespon
  */
 const de_Group = (output: any, context: __SerdeContext): Group => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = __expectString(output["GroupName"]);
+  if (output[_GN] != null) {
+    contents[_GN] = __expectString(output[_GN]);
   }
-  if (output["GroupId"] !== undefined) {
-    contents.GroupId = __expectString(output["GroupId"]);
+  if (output[_GI] != null) {
+    contents[_GI] = __expectString(output[_GI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   return contents;
 };
@@ -16252,39 +16207,30 @@ const de_Group = (output: any, context: __SerdeContext): Group => {
  */
 const de_GroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = __expectString(output["GroupName"]);
+  if (output[_GN] != null) {
+    contents[_GN] = __expectString(output[_GN]);
   }
-  if (output["GroupId"] !== undefined) {
-    contents.GroupId = __expectString(output["GroupId"]);
+  if (output[_GI] != null) {
+    contents[_GI] = __expectString(output[_GI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   if (output.GroupPolicyList === "") {
-    contents.GroupPolicyList = [];
-  } else if (output["GroupPolicyList"] !== undefined && output["GroupPolicyList"]["member"] !== undefined) {
-    contents.GroupPolicyList = de_policyDetailListType(
-      __getArrayIfSingleItem(output["GroupPolicyList"]["member"]),
-      context
-    );
+    contents[_GPL] = [];
+  } else if (output[_GPL] != null && output[_GPL][_me] != null) {
+    contents[_GPL] = de_policyDetailListType(__getArrayIfSingleItem(output[_GPL][_me]), context);
   }
   if (output.AttachedManagedPolicies === "") {
-    contents.AttachedManagedPolicies = [];
-  } else if (
-    output["AttachedManagedPolicies"] !== undefined &&
-    output["AttachedManagedPolicies"]["member"] !== undefined
-  ) {
-    contents.AttachedManagedPolicies = de_attachedPoliciesListType(
-      __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
-      context
-    );
+    contents[_AMP] = [];
+  } else if (output[_AMP] != null && output[_AMP][_me] != null) {
+    contents[_AMP] = de_attachedPoliciesListType(__getArrayIfSingleItem(output[_AMP][_me]), context);
   }
   return contents;
 };
@@ -16327,30 +16273,30 @@ const de_groupNameListType = (output: any, context: __SerdeContext): string[] =>
  */
 const de_InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["InstanceProfileName"] !== undefined) {
-    contents.InstanceProfileName = __expectString(output["InstanceProfileName"]);
+  if (output[_IPN] != null) {
+    contents[_IPN] = __expectString(output[_IPN]);
   }
-  if (output["InstanceProfileId"] !== undefined) {
-    contents.InstanceProfileId = __expectString(output["InstanceProfileId"]);
+  if (output[_IPI] != null) {
+    contents[_IPI] = __expectString(output[_IPI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   if (output.Roles === "") {
-    contents.Roles = [];
-  } else if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
-    contents.Roles = de_roleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
+    contents[_Rol] = [];
+  } else if (output[_Rol] != null && output[_Rol][_me] != null) {
+    contents[_Rol] = de_roleListType(__getArrayIfSingleItem(output[_Rol][_me]), context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -16374,8 +16320,8 @@ const de_InvalidAuthenticationCodeException = (
   context: __SerdeContext
 ): InvalidAuthenticationCodeException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16385,8 +16331,8 @@ const de_InvalidAuthenticationCodeException = (
  */
 const de_InvalidCertificateException = (output: any, context: __SerdeContext): InvalidCertificateException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16396,8 +16342,8 @@ const de_InvalidCertificateException = (output: any, context: __SerdeContext): I
  */
 const de_InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16407,8 +16353,8 @@ const de_InvalidInputException = (output: any, context: __SerdeContext): Invalid
  */
 const de_InvalidPublicKeyException = (output: any, context: __SerdeContext): InvalidPublicKeyException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16418,8 +16364,8 @@ const de_InvalidPublicKeyException = (output: any, context: __SerdeContext): Inv
  */
 const de_InvalidUserTypeException = (output: any, context: __SerdeContext): InvalidUserTypeException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16429,8 +16375,8 @@ const de_InvalidUserTypeException = (output: any, context: __SerdeContext): Inva
  */
 const de_KeyPairMismatchException = (output: any, context: __SerdeContext): KeyPairMismatchException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16440,8 +16386,8 @@ const de_KeyPairMismatchException = (output: any, context: __SerdeContext): KeyP
  */
 const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -16452,18 +16398,15 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
 const de_ListAccessKeysResponse = (output: any, context: __SerdeContext): ListAccessKeysResponse => {
   const contents: any = {};
   if (output.AccessKeyMetadata === "") {
-    contents.AccessKeyMetadata = [];
-  } else if (output["AccessKeyMetadata"] !== undefined && output["AccessKeyMetadata"]["member"] !== undefined) {
-    contents.AccessKeyMetadata = de_accessKeyMetadataListType(
-      __getArrayIfSingleItem(output["AccessKeyMetadata"]["member"]),
-      context
-    );
+    contents[_AKM] = [];
+  } else if (output[_AKM] != null && output[_AKM][_me] != null) {
+    contents[_AKM] = de_accessKeyMetadataListType(__getArrayIfSingleItem(output[_AKM][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16474,18 +16417,15 @@ const de_ListAccessKeysResponse = (output: any, context: __SerdeContext): ListAc
 const de_ListAccountAliasesResponse = (output: any, context: __SerdeContext): ListAccountAliasesResponse => {
   const contents: any = {};
   if (output.AccountAliases === "") {
-    contents.AccountAliases = [];
-  } else if (output["AccountAliases"] !== undefined && output["AccountAliases"]["member"] !== undefined) {
-    contents.AccountAliases = de_accountAliasListType(
-      __getArrayIfSingleItem(output["AccountAliases"]["member"]),
-      context
-    );
+    contents[_AAc] = [];
+  } else if (output[_AAc] != null && output[_AAc][_me] != null) {
+    contents[_AAc] = de_accountAliasListType(__getArrayIfSingleItem(output[_AAc][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16499,18 +16439,15 @@ const de_ListAttachedGroupPoliciesResponse = (
 ): ListAttachedGroupPoliciesResponse => {
   const contents: any = {};
   if (output.AttachedPolicies === "") {
-    contents.AttachedPolicies = [];
-  } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
-    contents.AttachedPolicies = de_attachedPoliciesListType(
-      __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
-      context
-    );
+    contents[_AP] = [];
+  } else if (output[_AP] != null && output[_AP][_me] != null) {
+    contents[_AP] = de_attachedPoliciesListType(__getArrayIfSingleItem(output[_AP][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16524,18 +16461,15 @@ const de_ListAttachedRolePoliciesResponse = (
 ): ListAttachedRolePoliciesResponse => {
   const contents: any = {};
   if (output.AttachedPolicies === "") {
-    contents.AttachedPolicies = [];
-  } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
-    contents.AttachedPolicies = de_attachedPoliciesListType(
-      __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
-      context
-    );
+    contents[_AP] = [];
+  } else if (output[_AP] != null && output[_AP][_me] != null) {
+    contents[_AP] = de_attachedPoliciesListType(__getArrayIfSingleItem(output[_AP][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16549,18 +16483,15 @@ const de_ListAttachedUserPoliciesResponse = (
 ): ListAttachedUserPoliciesResponse => {
   const contents: any = {};
   if (output.AttachedPolicies === "") {
-    contents.AttachedPolicies = [];
-  } else if (output["AttachedPolicies"] !== undefined && output["AttachedPolicies"]["member"] !== undefined) {
-    contents.AttachedPolicies = de_attachedPoliciesListType(
-      __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
-      context
-    );
+    contents[_AP] = [];
+  } else if (output[_AP] != null && output[_AP][_me] != null) {
+    contents[_AP] = de_attachedPoliciesListType(__getArrayIfSingleItem(output[_AP][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16571,25 +16502,25 @@ const de_ListAttachedUserPoliciesResponse = (
 const de_ListEntitiesForPolicyResponse = (output: any, context: __SerdeContext): ListEntitiesForPolicyResponse => {
   const contents: any = {};
   if (output.PolicyGroups === "") {
-    contents.PolicyGroups = [];
-  } else if (output["PolicyGroups"] !== undefined && output["PolicyGroups"]["member"] !== undefined) {
-    contents.PolicyGroups = de_PolicyGroupListType(__getArrayIfSingleItem(output["PolicyGroups"]["member"]), context);
+    contents[_PG] = [];
+  } else if (output[_PG] != null && output[_PG][_me] != null) {
+    contents[_PG] = de_PolicyGroupListType(__getArrayIfSingleItem(output[_PG][_me]), context);
   }
   if (output.PolicyUsers === "") {
-    contents.PolicyUsers = [];
-  } else if (output["PolicyUsers"] !== undefined && output["PolicyUsers"]["member"] !== undefined) {
-    contents.PolicyUsers = de_PolicyUserListType(__getArrayIfSingleItem(output["PolicyUsers"]["member"]), context);
+    contents[_PU] = [];
+  } else if (output[_PU] != null && output[_PU][_me] != null) {
+    contents[_PU] = de_PolicyUserListType(__getArrayIfSingleItem(output[_PU][_me]), context);
   }
   if (output.PolicyRoles === "") {
-    contents.PolicyRoles = [];
-  } else if (output["PolicyRoles"] !== undefined && output["PolicyRoles"]["member"] !== undefined) {
-    contents.PolicyRoles = de_PolicyRoleListType(__getArrayIfSingleItem(output["PolicyRoles"]["member"]), context);
+    contents[_PR] = [];
+  } else if (output[_PR] != null && output[_PR][_me] != null) {
+    contents[_PR] = de_PolicyRoleListType(__getArrayIfSingleItem(output[_PR][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16600,15 +16531,15 @@ const de_ListEntitiesForPolicyResponse = (output: any, context: __SerdeContext):
 const de_ListGroupPoliciesResponse = (output: any, context: __SerdeContext): ListGroupPoliciesResponse => {
   const contents: any = {};
   if (output.PolicyNames === "") {
-    contents.PolicyNames = [];
-  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = de_policyNameListType(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
+    contents[_PNo] = [];
+  } else if (output[_PNo] != null && output[_PNo][_me] != null) {
+    contents[_PNo] = de_policyNameListType(__getArrayIfSingleItem(output[_PNo][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16619,15 +16550,15 @@ const de_ListGroupPoliciesResponse = (output: any, context: __SerdeContext): Lis
 const de_ListGroupsForUserResponse = (output: any, context: __SerdeContext): ListGroupsForUserResponse => {
   const contents: any = {};
   if (output.Groups === "") {
-    contents.Groups = [];
-  } else if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
-    contents.Groups = de_groupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
+    contents[_Gro] = [];
+  } else if (output[_Gro] != null && output[_Gro][_me] != null) {
+    contents[_Gro] = de_groupListType(__getArrayIfSingleItem(output[_Gro][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16638,15 +16569,15 @@ const de_ListGroupsForUserResponse = (output: any, context: __SerdeContext): Lis
 const de_ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   const contents: any = {};
   if (output.Groups === "") {
-    contents.Groups = [];
-  } else if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
-    contents.Groups = de_groupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
+    contents[_Gro] = [];
+  } else if (output[_Gro] != null && output[_Gro][_me] != null) {
+    contents[_Gro] = de_groupListType(__getArrayIfSingleItem(output[_Gro][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16660,18 +16591,15 @@ const de_ListInstanceProfilesForRoleResponse = (
 ): ListInstanceProfilesForRoleResponse => {
   const contents: any = {};
   if (output.InstanceProfiles === "") {
-    contents.InstanceProfiles = [];
-  } else if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
-    contents.InstanceProfiles = de_instanceProfileListType(
-      __getArrayIfSingleItem(output["InstanceProfiles"]["member"]),
-      context
-    );
+    contents[_IPn] = [];
+  } else if (output[_IPn] != null && output[_IPn][_me] != null) {
+    contents[_IPn] = de_instanceProfileListType(__getArrayIfSingleItem(output[_IPn][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16682,18 +16610,15 @@ const de_ListInstanceProfilesForRoleResponse = (
 const de_ListInstanceProfilesResponse = (output: any, context: __SerdeContext): ListInstanceProfilesResponse => {
   const contents: any = {};
   if (output.InstanceProfiles === "") {
-    contents.InstanceProfiles = [];
-  } else if (output["InstanceProfiles"] !== undefined && output["InstanceProfiles"]["member"] !== undefined) {
-    contents.InstanceProfiles = de_instanceProfileListType(
-      __getArrayIfSingleItem(output["InstanceProfiles"]["member"]),
-      context
-    );
+    contents[_IPn] = [];
+  } else if (output[_IPn] != null && output[_IPn][_me] != null) {
+    contents[_IPn] = de_instanceProfileListType(__getArrayIfSingleItem(output[_IPn][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16704,15 +16629,15 @@ const de_ListInstanceProfilesResponse = (output: any, context: __SerdeContext): 
 const de_ListInstanceProfileTagsResponse = (output: any, context: __SerdeContext): ListInstanceProfileTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16723,15 +16648,15 @@ const de_ListInstanceProfileTagsResponse = (output: any, context: __SerdeContext
 const de_ListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
   const contents: any = {};
   if (output.MFADevices === "") {
-    contents.MFADevices = [];
-  } else if (output["MFADevices"] !== undefined && output["MFADevices"]["member"] !== undefined) {
-    contents.MFADevices = de_mfaDeviceListType(__getArrayIfSingleItem(output["MFADevices"]["member"]), context);
+    contents[_MFAD] = [];
+  } else if (output[_MFAD] != null && output[_MFAD][_me] != null) {
+    contents[_MFAD] = de_mfaDeviceListType(__getArrayIfSingleItem(output[_MFAD][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16742,15 +16667,15 @@ const de_ListMFADevicesResponse = (output: any, context: __SerdeContext): ListMF
 const de_ListMFADeviceTagsResponse = (output: any, context: __SerdeContext): ListMFADeviceTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16764,15 +16689,9 @@ const de_ListOpenIDConnectProvidersResponse = (
 ): ListOpenIDConnectProvidersResponse => {
   const contents: any = {};
   if (output.OpenIDConnectProviderList === "") {
-    contents.OpenIDConnectProviderList = [];
-  } else if (
-    output["OpenIDConnectProviderList"] !== undefined &&
-    output["OpenIDConnectProviderList"]["member"] !== undefined
-  ) {
-    contents.OpenIDConnectProviderList = de_OpenIDConnectProviderListType(
-      __getArrayIfSingleItem(output["OpenIDConnectProviderList"]["member"]),
-      context
-    );
+    contents[_OIDCPL] = [];
+  } else if (output[_OIDCPL] != null && output[_OIDCPL][_me] != null) {
+    contents[_OIDCPL] = de_OpenIDConnectProviderListType(__getArrayIfSingleItem(output[_OIDCPL][_me]), context);
   }
   return contents;
 };
@@ -16786,15 +16705,15 @@ const de_ListOpenIDConnectProviderTagsResponse = (
 ): ListOpenIDConnectProviderTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16807,16 +16726,13 @@ const de_ListPoliciesGrantingServiceAccessEntry = (
   context: __SerdeContext
 ): ListPoliciesGrantingServiceAccessEntry => {
   const contents: any = {};
-  if (output["ServiceNamespace"] !== undefined) {
-    contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
+  if (output[_SNer] != null) {
+    contents[_SNer] = __expectString(output[_SNer]);
   }
   if (output.Policies === "") {
-    contents.Policies = [];
-  } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = de_policyGrantingServiceAccessListType(
-      __getArrayIfSingleItem(output["Policies"]["member"]),
-      context
-    );
+    contents[_Pol] = [];
+  } else if (output[_Pol] != null && output[_Pol][_me] != null) {
+    contents[_Pol] = de_policyGrantingServiceAccessListType(__getArrayIfSingleItem(output[_Pol][_me]), context);
   }
   return contents;
 };
@@ -16830,21 +16746,18 @@ const de_ListPoliciesGrantingServiceAccessResponse = (
 ): ListPoliciesGrantingServiceAccessResponse => {
   const contents: any = {};
   if (output.PoliciesGrantingServiceAccess === "") {
-    contents.PoliciesGrantingServiceAccess = [];
-  } else if (
-    output["PoliciesGrantingServiceAccess"] !== undefined &&
-    output["PoliciesGrantingServiceAccess"]["member"] !== undefined
-  ) {
-    contents.PoliciesGrantingServiceAccess = de_listPolicyGrantingServiceAccessResponseListType(
-      __getArrayIfSingleItem(output["PoliciesGrantingServiceAccess"]["member"]),
+    contents[_PGSA] = [];
+  } else if (output[_PGSA] != null && output[_PGSA][_me] != null) {
+    contents[_PGSA] = de_listPolicyGrantingServiceAccessResponseListType(
+      __getArrayIfSingleItem(output[_PGSA][_me]),
       context
     );
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16855,15 +16768,15 @@ const de_ListPoliciesGrantingServiceAccessResponse = (
 const de_ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   const contents: any = {};
   if (output.Policies === "") {
-    contents.Policies = [];
-  } else if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = de_policyListType(__getArrayIfSingleItem(output["Policies"]["member"]), context);
+    contents[_Pol] = [];
+  } else if (output[_Pol] != null && output[_Pol][_me] != null) {
+    contents[_Pol] = de_policyListType(__getArrayIfSingleItem(output[_Pol][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16888,15 +16801,15 @@ const de_listPolicyGrantingServiceAccessResponseListType = (
 const de_ListPolicyTagsResponse = (output: any, context: __SerdeContext): ListPolicyTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16907,15 +16820,15 @@ const de_ListPolicyTagsResponse = (output: any, context: __SerdeContext): ListPo
 const de_ListPolicyVersionsResponse = (output: any, context: __SerdeContext): ListPolicyVersionsResponse => {
   const contents: any = {};
   if (output.Versions === "") {
-    contents.Versions = [];
-  } else if (output["Versions"] !== undefined && output["Versions"]["member"] !== undefined) {
-    contents.Versions = de_policyDocumentVersionListType(__getArrayIfSingleItem(output["Versions"]["member"]), context);
+    contents[_Ve] = [];
+  } else if (output[_Ve] != null && output[_Ve][_me] != null) {
+    contents[_Ve] = de_policyDocumentVersionListType(__getArrayIfSingleItem(output[_Ve][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16926,15 +16839,15 @@ const de_ListPolicyVersionsResponse = (output: any, context: __SerdeContext): Li
 const de_ListRolePoliciesResponse = (output: any, context: __SerdeContext): ListRolePoliciesResponse => {
   const contents: any = {};
   if (output.PolicyNames === "") {
-    contents.PolicyNames = [];
-  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = de_policyNameListType(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
+    contents[_PNo] = [];
+  } else if (output[_PNo] != null && output[_PNo][_me] != null) {
+    contents[_PNo] = de_policyNameListType(__getArrayIfSingleItem(output[_PNo][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16945,15 +16858,15 @@ const de_ListRolePoliciesResponse = (output: any, context: __SerdeContext): List
 const de_ListRolesResponse = (output: any, context: __SerdeContext): ListRolesResponse => {
   const contents: any = {};
   if (output.Roles === "") {
-    contents.Roles = [];
-  } else if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
-    contents.Roles = de_roleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
+    contents[_Rol] = [];
+  } else if (output[_Rol] != null && output[_Rol][_me] != null) {
+    contents[_Rol] = de_roleListType(__getArrayIfSingleItem(output[_Rol][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16964,15 +16877,15 @@ const de_ListRolesResponse = (output: any, context: __SerdeContext): ListRolesRe
 const de_ListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -16983,12 +16896,9 @@ const de_ListRoleTagsResponse = (output: any, context: __SerdeContext): ListRole
 const de_ListSAMLProvidersResponse = (output: any, context: __SerdeContext): ListSAMLProvidersResponse => {
   const contents: any = {};
   if (output.SAMLProviderList === "") {
-    contents.SAMLProviderList = [];
-  } else if (output["SAMLProviderList"] !== undefined && output["SAMLProviderList"]["member"] !== undefined) {
-    contents.SAMLProviderList = de_SAMLProviderListType(
-      __getArrayIfSingleItem(output["SAMLProviderList"]["member"]),
-      context
-    );
+    contents[_SAMLPL] = [];
+  } else if (output[_SAMLPL] != null && output[_SAMLPL][_me] != null) {
+    contents[_SAMLPL] = de_SAMLProviderListType(__getArrayIfSingleItem(output[_SAMLPL][_me]), context);
   }
   return contents;
 };
@@ -16999,15 +16909,15 @@ const de_ListSAMLProvidersResponse = (output: any, context: __SerdeContext): Lis
 const de_ListSAMLProviderTagsResponse = (output: any, context: __SerdeContext): ListSAMLProviderTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17018,21 +16928,15 @@ const de_ListSAMLProviderTagsResponse = (output: any, context: __SerdeContext): 
 const de_ListServerCertificatesResponse = (output: any, context: __SerdeContext): ListServerCertificatesResponse => {
   const contents: any = {};
   if (output.ServerCertificateMetadataList === "") {
-    contents.ServerCertificateMetadataList = [];
-  } else if (
-    output["ServerCertificateMetadataList"] !== undefined &&
-    output["ServerCertificateMetadataList"]["member"] !== undefined
-  ) {
-    contents.ServerCertificateMetadataList = de_serverCertificateMetadataListType(
-      __getArrayIfSingleItem(output["ServerCertificateMetadataList"]["member"]),
-      context
-    );
+    contents[_SCML] = [];
+  } else if (output[_SCML] != null && output[_SCML][_me] != null) {
+    contents[_SCML] = de_serverCertificateMetadataListType(__getArrayIfSingleItem(output[_SCML][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17046,15 +16950,15 @@ const de_ListServerCertificateTagsResponse = (
 ): ListServerCertificateTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17068,15 +16972,9 @@ const de_ListServiceSpecificCredentialsResponse = (
 ): ListServiceSpecificCredentialsResponse => {
   const contents: any = {};
   if (output.ServiceSpecificCredentials === "") {
-    contents.ServiceSpecificCredentials = [];
-  } else if (
-    output["ServiceSpecificCredentials"] !== undefined &&
-    output["ServiceSpecificCredentials"]["member"] !== undefined
-  ) {
-    contents.ServiceSpecificCredentials = de_ServiceSpecificCredentialsListType(
-      __getArrayIfSingleItem(output["ServiceSpecificCredentials"]["member"]),
-      context
-    );
+    contents[_SSCe] = [];
+  } else if (output[_SSCe] != null && output[_SSCe][_me] != null) {
+    contents[_SSCe] = de_ServiceSpecificCredentialsListType(__getArrayIfSingleItem(output[_SSCe][_me]), context);
   }
   return contents;
 };
@@ -17087,15 +16985,15 @@ const de_ListServiceSpecificCredentialsResponse = (
 const de_ListSigningCertificatesResponse = (output: any, context: __SerdeContext): ListSigningCertificatesResponse => {
   const contents: any = {};
   if (output.Certificates === "") {
-    contents.Certificates = [];
-  } else if (output["Certificates"] !== undefined && output["Certificates"]["member"] !== undefined) {
-    contents.Certificates = de_certificateListType(__getArrayIfSingleItem(output["Certificates"]["member"]), context);
+    contents[_Cer] = [];
+  } else if (output[_Cer] != null && output[_Cer][_me] != null) {
+    contents[_Cer] = de_certificateListType(__getArrayIfSingleItem(output[_Cer][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17106,18 +17004,15 @@ const de_ListSigningCertificatesResponse = (output: any, context: __SerdeContext
 const de_ListSSHPublicKeysResponse = (output: any, context: __SerdeContext): ListSSHPublicKeysResponse => {
   const contents: any = {};
   if (output.SSHPublicKeys === "") {
-    contents.SSHPublicKeys = [];
-  } else if (output["SSHPublicKeys"] !== undefined && output["SSHPublicKeys"]["member"] !== undefined) {
-    contents.SSHPublicKeys = de_SSHPublicKeyListType(
-      __getArrayIfSingleItem(output["SSHPublicKeys"]["member"]),
-      context
-    );
+    contents[_SSHPKu] = [];
+  } else if (output[_SSHPKu] != null && output[_SSHPKu][_me] != null) {
+    contents[_SSHPKu] = de_SSHPublicKeyListType(__getArrayIfSingleItem(output[_SSHPKu][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17128,15 +17023,15 @@ const de_ListSSHPublicKeysResponse = (output: any, context: __SerdeContext): Lis
 const de_ListUserPoliciesResponse = (output: any, context: __SerdeContext): ListUserPoliciesResponse => {
   const contents: any = {};
   if (output.PolicyNames === "") {
-    contents.PolicyNames = [];
-  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = de_policyNameListType(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
+    contents[_PNo] = [];
+  } else if (output[_PNo] != null && output[_PNo][_me] != null) {
+    contents[_PNo] = de_policyNameListType(__getArrayIfSingleItem(output[_PNo][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17147,15 +17042,15 @@ const de_ListUserPoliciesResponse = (output: any, context: __SerdeContext): List
 const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   const contents: any = {};
   if (output.Users === "") {
-    contents.Users = [];
-  } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
-    contents.Users = de_userListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
+    contents[_Use] = [];
+  } else if (output[_Use] != null && output[_Use][_me] != null) {
+    contents[_Use] = de_userListType(__getArrayIfSingleItem(output[_Use][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17166,15 +17061,15 @@ const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersRe
 const de_ListUserTagsResponse = (output: any, context: __SerdeContext): ListUserTagsResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17185,18 +17080,15 @@ const de_ListUserTagsResponse = (output: any, context: __SerdeContext): ListUser
 const de_ListVirtualMFADevicesResponse = (output: any, context: __SerdeContext): ListVirtualMFADevicesResponse => {
   const contents: any = {};
   if (output.VirtualMFADevices === "") {
-    contents.VirtualMFADevices = [];
-  } else if (output["VirtualMFADevices"] !== undefined && output["VirtualMFADevices"]["member"] !== undefined) {
-    contents.VirtualMFADevices = de_virtualMFADeviceListType(
-      __getArrayIfSingleItem(output["VirtualMFADevices"]["member"]),
-      context
-    );
+    contents[_VMFADi] = [];
+  } else if (output[_VMFADi] != null && output[_VMFADi][_me] != null) {
+    contents[_VMFADi] = de_virtualMFADeviceListType(__getArrayIfSingleItem(output[_VMFADi][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -17206,14 +17098,14 @@ const de_ListVirtualMFADevicesResponse = (output: any, context: __SerdeContext):
  */
 const de_LoginProfile = (output: any, context: __SerdeContext): LoginProfile => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["PasswordResetRequired"] !== undefined) {
-    contents.PasswordResetRequired = __parseBoolean(output["PasswordResetRequired"]);
+  if (output[_PRR] != null) {
+    contents[_PRR] = __parseBoolean(output[_PRR]);
   }
   return contents;
 };
@@ -17223,8 +17115,8 @@ const de_LoginProfile = (output: any, context: __SerdeContext): LoginProfile => 
  */
 const de_MalformedCertificateException = (output: any, context: __SerdeContext): MalformedCertificateException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17237,8 +17129,8 @@ const de_MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17248,46 +17140,43 @@ const de_MalformedPolicyDocumentException = (
  */
 const de_ManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPolicyDetail => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyId"] !== undefined) {
-    contents.PolicyId = __expectString(output["PolicyId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = __expectString(output["DefaultVersionId"]);
+  if (output[_DVI] != null) {
+    contents[_DVI] = __expectString(output[_DVI]);
   }
-  if (output["AttachmentCount"] !== undefined) {
-    contents.AttachmentCount = __strictParseInt32(output["AttachmentCount"]) as number;
+  if (output[_ACt] != null) {
+    contents[_ACt] = __strictParseInt32(output[_ACt]) as number;
   }
-  if (output["PermissionsBoundaryUsageCount"] !== undefined) {
-    contents.PermissionsBoundaryUsageCount = __strictParseInt32(output["PermissionsBoundaryUsageCount"]) as number;
+  if (output[_PBUC] != null) {
+    contents[_PBUC] = __strictParseInt32(output[_PBUC]) as number;
   }
-  if (output["IsAttachable"] !== undefined) {
-    contents.IsAttachable = __parseBoolean(output["IsAttachable"]);
+  if (output[_IA] != null) {
+    contents[_IA] = __parseBoolean(output[_IA]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
+  if (output[_UD] != null) {
+    contents[_UD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UD]));
   }
   if (output.PolicyVersionList === "") {
-    contents.PolicyVersionList = [];
-  } else if (output["PolicyVersionList"] !== undefined && output["PolicyVersionList"]["member"] !== undefined) {
-    contents.PolicyVersionList = de_policyDocumentVersionListType(
-      __getArrayIfSingleItem(output["PolicyVersionList"]["member"]),
-      context
-    );
+    contents[_PVL] = [];
+  } else if (output[_PVL] != null && output[_PVL][_me] != null) {
+    contents[_PVL] = de_policyDocumentVersionListType(__getArrayIfSingleItem(output[_PVL][_me]), context);
   }
   return contents;
 };
@@ -17308,14 +17197,14 @@ const de_ManagedPolicyDetailListType = (output: any, context: __SerdeContext): M
  */
 const de_MFADevice = (output: any, context: __SerdeContext): MFADevice => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["SerialNumber"] !== undefined) {
-    contents.SerialNumber = __expectString(output["SerialNumber"]);
+  if (output[_SNe] != null) {
+    contents[_SNe] = __expectString(output[_SNe]);
   }
-  if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
+  if (output[_EDn] != null) {
+    contents[_EDn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_EDn]));
   }
   return contents;
 };
@@ -17336,8 +17225,8 @@ const de_mfaDeviceListType = (output: any, context: __SerdeContext): MFADevice[]
  */
 const de_NoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17347,8 +17236,8 @@ const de_NoSuchEntityException = (output: any, context: __SerdeContext): NoSuchE
  */
 const de_OpenIDConnectProviderListEntry = (output: any, context: __SerdeContext): OpenIDConnectProviderListEntry => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -17369,8 +17258,8 @@ const de_OpenIDConnectProviderListType = (output: any, context: __SerdeContext):
  */
 const de_OrganizationsDecisionDetail = (output: any, context: __SerdeContext): OrganizationsDecisionDetail => {
   const contents: any = {};
-  if (output["AllowedByOrganizations"] !== undefined) {
-    contents.AllowedByOrganizations = __parseBoolean(output["AllowedByOrganizations"]);
+  if (output[_ABO] != null) {
+    contents[_ABO] = __parseBoolean(output[_ABO]);
   }
   return contents;
 };
@@ -17380,35 +17269,35 @@ const de_OrganizationsDecisionDetail = (output: any, context: __SerdeContext): O
  */
 const de_PasswordPolicy = (output: any, context: __SerdeContext): PasswordPolicy => {
   const contents: any = {};
-  if (output["MinimumPasswordLength"] !== undefined) {
-    contents.MinimumPasswordLength = __strictParseInt32(output["MinimumPasswordLength"]) as number;
+  if (output[_MPL] != null) {
+    contents[_MPL] = __strictParseInt32(output[_MPL]) as number;
   }
-  if (output["RequireSymbols"] !== undefined) {
-    contents.RequireSymbols = __parseBoolean(output["RequireSymbols"]);
+  if (output[_RS] != null) {
+    contents[_RS] = __parseBoolean(output[_RS]);
   }
-  if (output["RequireNumbers"] !== undefined) {
-    contents.RequireNumbers = __parseBoolean(output["RequireNumbers"]);
+  if (output[_RNe] != null) {
+    contents[_RNe] = __parseBoolean(output[_RNe]);
   }
-  if (output["RequireUppercaseCharacters"] !== undefined) {
-    contents.RequireUppercaseCharacters = __parseBoolean(output["RequireUppercaseCharacters"]);
+  if (output[_RUC] != null) {
+    contents[_RUC] = __parseBoolean(output[_RUC]);
   }
-  if (output["RequireLowercaseCharacters"] !== undefined) {
-    contents.RequireLowercaseCharacters = __parseBoolean(output["RequireLowercaseCharacters"]);
+  if (output[_RLC] != null) {
+    contents[_RLC] = __parseBoolean(output[_RLC]);
   }
-  if (output["AllowUsersToChangePassword"] !== undefined) {
-    contents.AllowUsersToChangePassword = __parseBoolean(output["AllowUsersToChangePassword"]);
+  if (output[_AUTCP] != null) {
+    contents[_AUTCP] = __parseBoolean(output[_AUTCP]);
   }
-  if (output["ExpirePasswords"] !== undefined) {
-    contents.ExpirePasswords = __parseBoolean(output["ExpirePasswords"]);
+  if (output[_EPx] != null) {
+    contents[_EPx] = __parseBoolean(output[_EPx]);
   }
-  if (output["MaxPasswordAge"] !== undefined) {
-    contents.MaxPasswordAge = __strictParseInt32(output["MaxPasswordAge"]) as number;
+  if (output[_MPA] != null) {
+    contents[_MPA] = __strictParseInt32(output[_MPA]) as number;
   }
-  if (output["PasswordReusePrevention"] !== undefined) {
-    contents.PasswordReusePrevention = __strictParseInt32(output["PasswordReusePrevention"]) as number;
+  if (output[_PRPa] != null) {
+    contents[_PRPa] = __strictParseInt32(output[_PRPa]) as number;
   }
-  if (output["HardExpiry"] !== undefined) {
-    contents.HardExpiry = __parseBoolean(output["HardExpiry"]);
+  if (output[_HE] != null) {
+    contents[_HE] = __parseBoolean(output[_HE]);
   }
   return contents;
 };
@@ -17421,8 +17310,8 @@ const de_PasswordPolicyViolationException = (
   context: __SerdeContext
 ): PasswordPolicyViolationException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17435,8 +17324,8 @@ const de_PermissionsBoundaryDecisionDetail = (
   context: __SerdeContext
 ): PermissionsBoundaryDecisionDetail => {
   const contents: any = {};
-  if (output["AllowedByPermissionsBoundary"] !== undefined) {
-    contents.AllowedByPermissionsBoundary = __parseBoolean(output["AllowedByPermissionsBoundary"]);
+  if (output[_ABPB] != null) {
+    contents[_ABPB] = __parseBoolean(output[_ABPB]);
   }
   return contents;
 };
@@ -17446,43 +17335,43 @@ const de_PermissionsBoundaryDecisionDetail = (
  */
 const de_Policy = (output: any, context: __SerdeContext): Policy => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyId"] !== undefined) {
-    contents.PolicyId = __expectString(output["PolicyId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = __expectString(output["DefaultVersionId"]);
+  if (output[_DVI] != null) {
+    contents[_DVI] = __expectString(output[_DVI]);
   }
-  if (output["AttachmentCount"] !== undefined) {
-    contents.AttachmentCount = __strictParseInt32(output["AttachmentCount"]) as number;
+  if (output[_ACt] != null) {
+    contents[_ACt] = __strictParseInt32(output[_ACt]) as number;
   }
-  if (output["PermissionsBoundaryUsageCount"] !== undefined) {
-    contents.PermissionsBoundaryUsageCount = __strictParseInt32(output["PermissionsBoundaryUsageCount"]) as number;
+  if (output[_PBUC] != null) {
+    contents[_PBUC] = __strictParseInt32(output[_PBUC]) as number;
   }
-  if (output["IsAttachable"] !== undefined) {
-    contents.IsAttachable = __parseBoolean(output["IsAttachable"]);
+  if (output[_IA] != null) {
+    contents[_IA] = __parseBoolean(output[_IA]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["UpdateDate"] !== undefined) {
-    contents.UpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdateDate"]));
+  if (output[_UD] != null) {
+    contents[_UD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UD]));
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -17492,11 +17381,11 @@ const de_Policy = (output: any, context: __SerdeContext): Policy => {
  */
 const de_PolicyDetail = (output: any, context: __SerdeContext): PolicyDetail => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyDocument"] !== undefined) {
-    contents.PolicyDocument = __expectString(output["PolicyDocument"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
   return contents;
 };
@@ -17528,8 +17417,8 @@ const de_policyDocumentVersionListType = (output: any, context: __SerdeContext):
  */
 const de_PolicyEvaluationException = (output: any, context: __SerdeContext): PolicyEvaluationException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17539,20 +17428,20 @@ const de_PolicyEvaluationException = (output: any, context: __SerdeContext): Pol
  */
 const de_PolicyGrantingServiceAccess = (output: any, context: __SerdeContext): PolicyGrantingServiceAccess => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyType"] !== undefined) {
-    contents.PolicyType = __expectString(output["PolicyType"]);
+  if (output[_PT] != null) {
+    contents[_PT] = __expectString(output[_PT]);
   }
-  if (output["PolicyArn"] !== undefined) {
-    contents.PolicyArn = __expectString(output["PolicyArn"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __expectString(output[_PA]);
   }
-  if (output["EntityType"] !== undefined) {
-    contents.EntityType = __expectString(output["EntityType"]);
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
   }
-  if (output["EntityName"] !== undefined) {
-    contents.EntityName = __expectString(output["EntityName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
   return contents;
 };
@@ -17576,11 +17465,11 @@ const de_policyGrantingServiceAccessListType = (
  */
 const de_PolicyGroup = (output: any, context: __SerdeContext): PolicyGroup => {
   const contents: any = {};
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = __expectString(output["GroupName"]);
+  if (output[_GN] != null) {
+    contents[_GN] = __expectString(output[_GN]);
   }
-  if (output["GroupId"] !== undefined) {
-    contents.GroupId = __expectString(output["GroupId"]);
+  if (output[_GI] != null) {
+    contents[_GI] = __expectString(output[_GI]);
   }
   return contents;
 };
@@ -17623,8 +17512,8 @@ const de_policyNameListType = (output: any, context: __SerdeContext): string[] =
  */
 const de_PolicyNotAttachableException = (output: any, context: __SerdeContext): PolicyNotAttachableException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17634,11 +17523,11 @@ const de_PolicyNotAttachableException = (output: any, context: __SerdeContext): 
  */
 const de_PolicyRole = (output: any, context: __SerdeContext): PolicyRole => {
   const contents: any = {};
-  if (output["RoleName"] !== undefined) {
-    contents.RoleName = __expectString(output["RoleName"]);
+  if (output[_RN] != null) {
+    contents[_RN] = __expectString(output[_RN]);
   }
-  if (output["RoleId"] !== undefined) {
-    contents.RoleId = __expectString(output["RoleId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
   return contents;
 };
@@ -17659,11 +17548,11 @@ const de_PolicyRoleListType = (output: any, context: __SerdeContext): PolicyRole
  */
 const de_PolicyUser = (output: any, context: __SerdeContext): PolicyUser => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["UserId"] !== undefined) {
-    contents.UserId = __expectString(output["UserId"]);
+  if (output[_UI] != null) {
+    contents[_UI] = __expectString(output[_UI]);
   }
   return contents;
 };
@@ -17684,17 +17573,17 @@ const de_PolicyUserListType = (output: any, context: __SerdeContext): PolicyUser
  */
 const de_PolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
   const contents: any = {};
-  if (output["Document"] !== undefined) {
-    contents.Document = __expectString(output["Document"]);
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
   }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = __expectString(output["VersionId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
+  if (output[_IDV] != null) {
+    contents[_IDV] = __parseBoolean(output[_IDV]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   return contents;
 };
@@ -17704,11 +17593,11 @@ const de_PolicyVersion = (output: any, context: __SerdeContext): PolicyVersion =
  */
 const de_Position = (output: any, context: __SerdeContext): Position => {
   const contents: any = {};
-  if (output["Line"] !== undefined) {
-    contents.Line = __strictParseInt32(output["Line"]) as number;
+  if (output[_L] != null) {
+    contents[_L] = __strictParseInt32(output[_L]) as number;
   }
-  if (output["Column"] !== undefined) {
-    contents.Column = __strictParseInt32(output["Column"]) as number;
+  if (output[_Col] != null) {
+    contents[_Col] = __strictParseInt32(output[_Col]) as number;
   }
   return contents;
 };
@@ -17721,8 +17610,8 @@ const de_ReportGenerationLimitExceededException = (
   context: __SerdeContext
 ): ReportGenerationLimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -17735,8 +17624,8 @@ const de_ResetServiceSpecificCredentialResponse = (
   context: __SerdeContext
 ): ResetServiceSpecificCredentialResponse => {
   const contents: any = {};
-  if (output["ServiceSpecificCredential"] !== undefined) {
-    contents.ServiceSpecificCredential = de_ServiceSpecificCredential(output["ServiceSpecificCredential"], context);
+  if (output[_SSC] != null) {
+    contents[_SSC] = de_ServiceSpecificCredential(output[_SSC], context);
   }
   return contents;
 };
@@ -17746,41 +17635,29 @@ const de_ResetServiceSpecificCredentialResponse = (
  */
 const de_ResourceSpecificResult = (output: any, context: __SerdeContext): ResourceSpecificResult => {
   const contents: any = {};
-  if (output["EvalResourceName"] !== undefined) {
-    contents.EvalResourceName = __expectString(output["EvalResourceName"]);
+  if (output[_ERN] != null) {
+    contents[_ERN] = __expectString(output[_ERN]);
   }
-  if (output["EvalResourceDecision"] !== undefined) {
-    contents.EvalResourceDecision = __expectString(output["EvalResourceDecision"]);
+  if (output[_ERD] != null) {
+    contents[_ERD] = __expectString(output[_ERD]);
   }
   if (output.MatchedStatements === "") {
-    contents.MatchedStatements = [];
-  } else if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
-    contents.MatchedStatements = de_StatementListType(
-      __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
-      context
-    );
+    contents[_MS] = [];
+  } else if (output[_MS] != null && output[_MS][_me] != null) {
+    contents[_MS] = de_StatementListType(__getArrayIfSingleItem(output[_MS][_me]), context);
   }
   if (output.MissingContextValues === "") {
-    contents.MissingContextValues = [];
-  } else if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
-    contents.MissingContextValues = de_ContextKeyNamesResultListType(
-      __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
-      context
-    );
+    contents[_MCV] = [];
+  } else if (output[_MCV] != null && output[_MCV][_me] != null) {
+    contents[_MCV] = de_ContextKeyNamesResultListType(__getArrayIfSingleItem(output[_MCV][_me]), context);
   }
   if (output.EvalDecisionDetails === "") {
-    contents.EvalDecisionDetails = {};
-  } else if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
-    contents.EvalDecisionDetails = de_EvalDecisionDetailsType(
-      __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
-      context
-    );
+    contents[_EDD] = {};
+  } else if (output[_EDD] != null && output[_EDD][_e] != null) {
+    contents[_EDD] = de_EvalDecisionDetailsType(__getArrayIfSingleItem(output[_EDD][_e]), context);
   }
-  if (output["PermissionsBoundaryDecisionDetail"] !== undefined) {
-    contents.PermissionsBoundaryDecisionDetail = de_PermissionsBoundaryDecisionDetail(
-      output["PermissionsBoundaryDecisionDetail"],
-      context
-    );
+  if (output[_PBDD] != null) {
+    contents[_PBDD] = de_PermissionsBoundaryDecisionDetail(output[_PBDD], context);
   }
   return contents;
 };
@@ -17801,40 +17678,40 @@ const de_ResourceSpecificResultListType = (output: any, context: __SerdeContext)
  */
 const de_Role = (output: any, context: __SerdeContext): Role => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["RoleName"] !== undefined) {
-    contents.RoleName = __expectString(output["RoleName"]);
+  if (output[_RN] != null) {
+    contents[_RN] = __expectString(output[_RN]);
   }
-  if (output["RoleId"] !== undefined) {
-    contents.RoleId = __expectString(output["RoleId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["AssumeRolePolicyDocument"] !== undefined) {
-    contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
+  if (output[_ARPD] != null) {
+    contents[_ARPD] = __expectString(output[_ARPD]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["MaxSessionDuration"] !== undefined) {
-    contents.MaxSessionDuration = __strictParseInt32(output["MaxSessionDuration"]) as number;
+  if (output[_MSD] != null) {
+    contents[_MSD] = __strictParseInt32(output[_MSD]) as number;
   }
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
+  if (output[_PB] != null) {
+    contents[_PB] = de_AttachedPermissionsBoundary(output[_PB], context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["RoleLastUsed"] !== undefined) {
-    contents.RoleLastUsed = de_RoleLastUsed(output["RoleLastUsed"], context);
+  if (output[_RLU] != null) {
+    contents[_RLU] = de_RoleLastUsed(output[_RLU], context);
   }
   return contents;
 };
@@ -17844,61 +17721,49 @@ const de_Role = (output: any, context: __SerdeContext): Role => {
  */
 const de_RoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["RoleName"] !== undefined) {
-    contents.RoleName = __expectString(output["RoleName"]);
+  if (output[_RN] != null) {
+    contents[_RN] = __expectString(output[_RN]);
   }
-  if (output["RoleId"] !== undefined) {
-    contents.RoleId = __expectString(output["RoleId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["AssumeRolePolicyDocument"] !== undefined) {
-    contents.AssumeRolePolicyDocument = __expectString(output["AssumeRolePolicyDocument"]);
+  if (output[_ARPD] != null) {
+    contents[_ARPD] = __expectString(output[_ARPD]);
   }
   if (output.InstanceProfileList === "") {
-    contents.InstanceProfileList = [];
-  } else if (output["InstanceProfileList"] !== undefined && output["InstanceProfileList"]["member"] !== undefined) {
-    contents.InstanceProfileList = de_instanceProfileListType(
-      __getArrayIfSingleItem(output["InstanceProfileList"]["member"]),
-      context
-    );
+    contents[_IPL] = [];
+  } else if (output[_IPL] != null && output[_IPL][_me] != null) {
+    contents[_IPL] = de_instanceProfileListType(__getArrayIfSingleItem(output[_IPL][_me]), context);
   }
   if (output.RolePolicyList === "") {
-    contents.RolePolicyList = [];
-  } else if (output["RolePolicyList"] !== undefined && output["RolePolicyList"]["member"] !== undefined) {
-    contents.RolePolicyList = de_policyDetailListType(
-      __getArrayIfSingleItem(output["RolePolicyList"]["member"]),
-      context
-    );
+    contents[_RPL] = [];
+  } else if (output[_RPL] != null && output[_RPL][_me] != null) {
+    contents[_RPL] = de_policyDetailListType(__getArrayIfSingleItem(output[_RPL][_me]), context);
   }
   if (output.AttachedManagedPolicies === "") {
-    contents.AttachedManagedPolicies = [];
-  } else if (
-    output["AttachedManagedPolicies"] !== undefined &&
-    output["AttachedManagedPolicies"]["member"] !== undefined
-  ) {
-    contents.AttachedManagedPolicies = de_attachedPoliciesListType(
-      __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
-      context
-    );
+    contents[_AMP] = [];
+  } else if (output[_AMP] != null && output[_AMP][_me] != null) {
+    contents[_AMP] = de_attachedPoliciesListType(__getArrayIfSingleItem(output[_AMP][_me]), context);
   }
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
+  if (output[_PB] != null) {
+    contents[_PB] = de_AttachedPermissionsBoundary(output[_PB], context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
-  if (output["RoleLastUsed"] !== undefined) {
-    contents.RoleLastUsed = de_RoleLastUsed(output["RoleLastUsed"], context);
+  if (output[_RLU] != null) {
+    contents[_RLU] = de_RoleLastUsed(output[_RLU], context);
   }
   return contents;
 };
@@ -17919,11 +17784,11 @@ const de_roleDetailListType = (output: any, context: __SerdeContext): RoleDetail
  */
 const de_RoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
   const contents: any = {};
-  if (output["LastUsedDate"] !== undefined) {
-    contents.LastUsedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUsedDate"]));
+  if (output[_LUD] != null) {
+    contents[_LUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUD]));
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   return contents;
 };
@@ -17955,13 +17820,13 @@ const de_RoleUsageListType = (output: any, context: __SerdeContext): RoleUsageTy
  */
 const de_RoleUsageType = (output: any, context: __SerdeContext): RoleUsageType => {
   const contents: any = {};
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
   if (output.Resources === "") {
-    contents.Resources = [];
-  } else if (output["Resources"] !== undefined && output["Resources"]["member"] !== undefined) {
-    contents.Resources = de_ArnListType(__getArrayIfSingleItem(output["Resources"]["member"]), context);
+    contents[_Res] = [];
+  } else if (output[_Res] != null && output[_Res][_me] != null) {
+    contents[_Res] = de_ArnListType(__getArrayIfSingleItem(output[_Res][_me]), context);
   }
   return contents;
 };
@@ -17971,14 +17836,14 @@ const de_RoleUsageType = (output: any, context: __SerdeContext): RoleUsageType =
  */
 const de_SAMLProviderListEntry = (output: any, context: __SerdeContext): SAMLProviderListEntry => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["ValidUntil"] !== undefined) {
-    contents.ValidUntil = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidUntil"]));
+  if (output[_VU] != null) {
+    contents[_VU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VU]));
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   return contents;
 };
@@ -17999,19 +17864,19 @@ const de_SAMLProviderListType = (output: any, context: __SerdeContext): SAMLProv
  */
 const de_ServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
   const contents: any = {};
-  if (output["ServerCertificateMetadata"] !== undefined) {
-    contents.ServerCertificateMetadata = de_ServerCertificateMetadata(output["ServerCertificateMetadata"], context);
+  if (output[_SCM] != null) {
+    contents[_SCM] = de_ServerCertificateMetadata(output[_SCM], context);
   }
-  if (output["CertificateBody"] !== undefined) {
-    contents.CertificateBody = __expectString(output["CertificateBody"]);
+  if (output[_CB] != null) {
+    contents[_CB] = __expectString(output[_CB]);
   }
-  if (output["CertificateChain"] !== undefined) {
-    contents.CertificateChain = __expectString(output["CertificateChain"]);
+  if (output[_CC] != null) {
+    contents[_CC] = __expectString(output[_CC]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -18021,23 +17886,23 @@ const de_ServerCertificate = (output: any, context: __SerdeContext): ServerCerti
  */
 const de_ServerCertificateMetadata = (output: any, context: __SerdeContext): ServerCertificateMetadata => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["ServerCertificateName"] !== undefined) {
-    contents.ServerCertificateName = __expectString(output["ServerCertificateName"]);
+  if (output[_SCN] != null) {
+    contents[_SCN] = __expectString(output[_SCN]);
   }
-  if (output["ServerCertificateId"] !== undefined) {
-    contents.ServerCertificateId = __expectString(output["ServerCertificateId"]);
+  if (output[_SCI] != null) {
+    contents[_SCI] = __expectString(output[_SCI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
+  if (output[_UDp] != null) {
+    contents[_UDp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UDp]));
   }
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
+  if (output[_Ex] != null) {
+    contents[_Ex] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ex]));
   }
   return contents;
 };
@@ -18058,8 +17923,8 @@ const de_serverCertificateMetadataListType = (output: any, context: __SerdeConte
  */
 const de_ServiceFailureException = (output: any, context: __SerdeContext): ServiceFailureException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -18069,34 +17934,28 @@ const de_ServiceFailureException = (output: any, context: __SerdeContext): Servi
  */
 const de_ServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed => {
   const contents: any = {};
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = __expectString(output["ServiceName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAuthenticated"]));
+  if (output[_LA] != null) {
+    contents[_LA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LA]));
   }
-  if (output["ServiceNamespace"] !== undefined) {
-    contents.ServiceNamespace = __expectString(output["ServiceNamespace"]);
+  if (output[_SNer] != null) {
+    contents[_SNer] = __expectString(output[_SNer]);
   }
-  if (output["LastAuthenticatedEntity"] !== undefined) {
-    contents.LastAuthenticatedEntity = __expectString(output["LastAuthenticatedEntity"]);
+  if (output[_LAE] != null) {
+    contents[_LAE] = __expectString(output[_LAE]);
   }
-  if (output["LastAuthenticatedRegion"] !== undefined) {
-    contents.LastAuthenticatedRegion = __expectString(output["LastAuthenticatedRegion"]);
+  if (output[_LAR] != null) {
+    contents[_LAR] = __expectString(output[_LAR]);
   }
-  if (output["TotalAuthenticatedEntities"] !== undefined) {
-    contents.TotalAuthenticatedEntities = __strictParseInt32(output["TotalAuthenticatedEntities"]) as number;
+  if (output[_TAE] != null) {
+    contents[_TAE] = __strictParseInt32(output[_TAE]) as number;
   }
   if (output.TrackedActionsLastAccessed === "") {
-    contents.TrackedActionsLastAccessed = [];
-  } else if (
-    output["TrackedActionsLastAccessed"] !== undefined &&
-    output["TrackedActionsLastAccessed"]["member"] !== undefined
-  ) {
-    contents.TrackedActionsLastAccessed = de_TrackedActionsLastAccessed(
-      __getArrayIfSingleItem(output["TrackedActionsLastAccessed"]["member"]),
-      context
-    );
+    contents[_TALA] = [];
+  } else if (output[_TALA] != null && output[_TALA][_me] != null) {
+    contents[_TALA] = de_TrackedActionsLastAccessed(__getArrayIfSingleItem(output[_TALA][_me]), context);
   }
   return contents;
 };
@@ -18106,8 +17965,8 @@ const de_ServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLa
  */
 const de_ServiceNotSupportedException = (output: any, context: __SerdeContext): ServiceNotSupportedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -18128,26 +17987,26 @@ const de_ServicesLastAccessed = (output: any, context: __SerdeContext): ServiceL
  */
 const de_ServiceSpecificCredential = (output: any, context: __SerdeContext): ServiceSpecificCredential => {
   const contents: any = {};
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = __expectString(output["ServiceName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["ServiceUserName"] !== undefined) {
-    contents.ServiceUserName = __expectString(output["ServiceUserName"]);
+  if (output[_SUN] != null) {
+    contents[_SUN] = __expectString(output[_SUN]);
   }
-  if (output["ServicePassword"] !== undefined) {
-    contents.ServicePassword = __expectString(output["ServicePassword"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
-  if (output["ServiceSpecificCredentialId"] !== undefined) {
-    contents.ServiceSpecificCredentialId = __expectString(output["ServiceSpecificCredentialId"]);
+  if (output[_SSCI] != null) {
+    contents[_SSCI] = __expectString(output[_SSCI]);
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -18160,23 +18019,23 @@ const de_ServiceSpecificCredentialMetadata = (
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["ServiceUserName"] !== undefined) {
-    contents.ServiceUserName = __expectString(output["ServiceUserName"]);
+  if (output[_SUN] != null) {
+    contents[_SUN] = __expectString(output[_SUN]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["ServiceSpecificCredentialId"] !== undefined) {
-    contents.ServiceSpecificCredentialId = __expectString(output["ServiceSpecificCredentialId"]);
+  if (output[_SSCI] != null) {
+    contents[_SSCI] = __expectString(output[_SSCI]);
   }
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = __expectString(output["ServiceName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
   return contents;
 };
@@ -18200,20 +18059,20 @@ const de_ServiceSpecificCredentialsListType = (
  */
 const de_SigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["CertificateId"] !== undefined) {
-    contents.CertificateId = __expectString(output["CertificateId"]);
+  if (output[_CI] != null) {
+    contents[_CI] = __expectString(output[_CI]);
   }
-  if (output["CertificateBody"] !== undefined) {
-    contents.CertificateBody = __expectString(output["CertificateBody"]);
+  if (output[_CB] != null) {
+    contents[_CB] = __expectString(output[_CB]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
+  if (output[_UDp] != null) {
+    contents[_UDp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UDp]));
   }
   return contents;
 };
@@ -18224,18 +18083,15 @@ const de_SigningCertificate = (output: any, context: __SerdeContext): SigningCer
 const de_SimulatePolicyResponse = (output: any, context: __SerdeContext): SimulatePolicyResponse => {
   const contents: any = {};
   if (output.EvaluationResults === "") {
-    contents.EvaluationResults = [];
-  } else if (output["EvaluationResults"] !== undefined && output["EvaluationResults"]["member"] !== undefined) {
-    contents.EvaluationResults = de_EvaluationResultsListType(
-      __getArrayIfSingleItem(output["EvaluationResults"]["member"]),
-      context
-    );
+    contents[_ER] = [];
+  } else if (output[_ER] != null && output[_ER][_me] != null) {
+    contents[_ER] = de_EvaluationResultsListType(__getArrayIfSingleItem(output[_ER][_me]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -18245,23 +18101,23 @@ const de_SimulatePolicyResponse = (output: any, context: __SerdeContext): Simula
  */
 const de_SSHPublicKey = (output: any, context: __SerdeContext): SSHPublicKey => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["SSHPublicKeyId"] !== undefined) {
-    contents.SSHPublicKeyId = __expectString(output["SSHPublicKeyId"]);
+  if (output[_SSHPKI] != null) {
+    contents[_SSHPKI] = __expectString(output[_SSHPKI]);
   }
-  if (output["Fingerprint"] !== undefined) {
-    contents.Fingerprint = __expectString(output["Fingerprint"]);
+  if (output[_Fi] != null) {
+    contents[_Fi] = __expectString(output[_Fi]);
   }
-  if (output["SSHPublicKeyBody"] !== undefined) {
-    contents.SSHPublicKeyBody = __expectString(output["SSHPublicKeyBody"]);
+  if (output[_SSHPKB] != null) {
+    contents[_SSHPKB] = __expectString(output[_SSHPKB]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
+  if (output[_UDp] != null) {
+    contents[_UDp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UDp]));
   }
   return contents;
 };
@@ -18282,17 +18138,17 @@ const de_SSHPublicKeyListType = (output: any, context: __SerdeContext): SSHPubli
  */
 const de_SSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
   const contents: any = {};
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["SSHPublicKeyId"] !== undefined) {
-    contents.SSHPublicKeyId = __expectString(output["SSHPublicKeyId"]);
+  if (output[_SSHPKI] != null) {
+    contents[_SSHPKI] = __expectString(output[_SSHPKI]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UploadDate"]));
+  if (output[_UDp] != null) {
+    contents[_UDp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UDp]));
   }
   return contents;
 };
@@ -18302,17 +18158,17 @@ const de_SSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPubli
  */
 const de_Statement = (output: any, context: __SerdeContext): Statement => {
   const contents: any = {};
-  if (output["SourcePolicyId"] !== undefined) {
-    contents.SourcePolicyId = __expectString(output["SourcePolicyId"]);
+  if (output[_SPI] != null) {
+    contents[_SPI] = __expectString(output[_SPI]);
   }
-  if (output["SourcePolicyType"] !== undefined) {
-    contents.SourcePolicyType = __expectString(output["SourcePolicyType"]);
+  if (output[_SPT] != null) {
+    contents[_SPT] = __expectString(output[_SPT]);
   }
-  if (output["StartPosition"] !== undefined) {
-    contents.StartPosition = de_Position(output["StartPosition"], context);
+  if (output[_SPt] != null) {
+    contents[_SPt] = de_Position(output[_SPt], context);
   }
-  if (output["EndPosition"] !== undefined) {
-    contents.EndPosition = de_Position(output["EndPosition"], context);
+  if (output[_EPn] != null) {
+    contents[_EPn] = de_Position(output[_EPn], context);
   }
   return contents;
 };
@@ -18346,11 +18202,11 @@ const de_summaryMapType = (output: any, context: __SerdeContext): Partial<Record
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -18382,17 +18238,17 @@ const de_thumbprintListType = (output: any, context: __SerdeContext): string[] =
  */
 const de_TrackedActionLastAccessed = (output: any, context: __SerdeContext): TrackedActionLastAccessed => {
   const contents: any = {};
-  if (output["ActionName"] !== undefined) {
-    contents.ActionName = __expectString(output["ActionName"]);
+  if (output[_ANc] != null) {
+    contents[_ANc] = __expectString(output[_ANc]);
   }
-  if (output["LastAccessedEntity"] !== undefined) {
-    contents.LastAccessedEntity = __expectString(output["LastAccessedEntity"]);
+  if (output[_LAEa] != null) {
+    contents[_LAEa] = __expectString(output[_LAEa]);
   }
-  if (output["LastAccessedTime"] !== undefined) {
-    contents.LastAccessedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastAccessedTime"]));
+  if (output[_LATa] != null) {
+    contents[_LATa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LATa]));
   }
-  if (output["LastAccessedRegion"] !== undefined) {
-    contents.LastAccessedRegion = __expectString(output["LastAccessedRegion"]);
+  if (output[_LARa] != null) {
+    contents[_LARa] = __expectString(output[_LARa]);
   }
   return contents;
 };
@@ -18413,8 +18269,8 @@ const de_TrackedActionsLastAccessed = (output: any, context: __SerdeContext): Tr
  */
 const de_UnmodifiableEntityException = (output: any, context: __SerdeContext): UnmodifiableEntityException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -18427,8 +18283,8 @@ const de_UnrecognizedPublicKeyEncodingException = (
   context: __SerdeContext
 ): UnrecognizedPublicKeyEncodingException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -18438,8 +18294,8 @@ const de_UnrecognizedPublicKeyEncodingException = (
  */
 const de_UpdateRoleDescriptionResponse = (output: any, context: __SerdeContext): UpdateRoleDescriptionResponse => {
   const contents: any = {};
-  if (output["Role"] !== undefined) {
-    contents.Role = de_Role(output["Role"], context);
+  if (output[_Ro] != null) {
+    contents[_Ro] = de_Role(output[_Ro], context);
   }
   return contents;
 };
@@ -18457,8 +18313,8 @@ const de_UpdateRoleResponse = (output: any, context: __SerdeContext): UpdateRole
  */
 const de_UpdateSAMLProviderResponse = (output: any, context: __SerdeContext): UpdateSAMLProviderResponse => {
   const contents: any = {};
-  if (output["SAMLProviderArn"] !== undefined) {
-    contents.SAMLProviderArn = __expectString(output["SAMLProviderArn"]);
+  if (output[_SAMLPA] != null) {
+    contents[_SAMLPA] = __expectString(output[_SAMLPA]);
   }
   return contents;
 };
@@ -18468,13 +18324,13 @@ const de_UpdateSAMLProviderResponse = (output: any, context: __SerdeContext): Up
  */
 const de_UploadServerCertificateResponse = (output: any, context: __SerdeContext): UploadServerCertificateResponse => {
   const contents: any = {};
-  if (output["ServerCertificateMetadata"] !== undefined) {
-    contents.ServerCertificateMetadata = de_ServerCertificateMetadata(output["ServerCertificateMetadata"], context);
+  if (output[_SCM] != null) {
+    contents[_SCM] = de_ServerCertificateMetadata(output[_SCM], context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -18487,8 +18343,8 @@ const de_UploadSigningCertificateResponse = (
   context: __SerdeContext
 ): UploadSigningCertificateResponse => {
   const contents: any = {};
-  if (output["Certificate"] !== undefined) {
-    contents.Certificate = de_SigningCertificate(output["Certificate"], context);
+  if (output[_Cert] != null) {
+    contents[_Cert] = de_SigningCertificate(output[_Cert], context);
   }
   return contents;
 };
@@ -18498,8 +18354,8 @@ const de_UploadSigningCertificateResponse = (
  */
 const de_UploadSSHPublicKeyResponse = (output: any, context: __SerdeContext): UploadSSHPublicKeyResponse => {
   const contents: any = {};
-  if (output["SSHPublicKey"] !== undefined) {
-    contents.SSHPublicKey = de_SSHPublicKey(output["SSHPublicKey"], context);
+  if (output[_SSHPK] != null) {
+    contents[_SSHPK] = de_SSHPublicKey(output[_SSHPK], context);
   }
   return contents;
 };
@@ -18509,31 +18365,31 @@ const de_UploadSSHPublicKeyResponse = (output: any, context: __SerdeContext): Up
  */
 const de_User = (output: any, context: __SerdeContext): User => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["UserId"] !== undefined) {
-    contents.UserId = __expectString(output["UserId"]);
+  if (output[_UI] != null) {
+    contents[_UI] = __expectString(output[_UI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["PasswordLastUsed"] !== undefined) {
-    contents.PasswordLastUsed = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["PasswordLastUsed"]));
+  if (output[_PLU] != null) {
+    contents[_PLU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_PLU]));
   }
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
+  if (output[_PB] != null) {
+    contents[_PB] = de_AttachedPermissionsBoundary(output[_PB], context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -18543,52 +18399,43 @@ const de_User = (output: any, context: __SerdeContext): User => {
  */
 const de_UserDetail = (output: any, context: __SerdeContext): UserDetail => {
   const contents: any = {};
-  if (output["Path"] !== undefined) {
-    contents.Path = __expectString(output["Path"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["UserId"] !== undefined) {
-    contents.UserId = __expectString(output["UserId"]);
+  if (output[_UI] != null) {
+    contents[_UI] = __expectString(output[_UI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
   if (output.UserPolicyList === "") {
-    contents.UserPolicyList = [];
-  } else if (output["UserPolicyList"] !== undefined && output["UserPolicyList"]["member"] !== undefined) {
-    contents.UserPolicyList = de_policyDetailListType(
-      __getArrayIfSingleItem(output["UserPolicyList"]["member"]),
-      context
-    );
+    contents[_UPL] = [];
+  } else if (output[_UPL] != null && output[_UPL][_me] != null) {
+    contents[_UPL] = de_policyDetailListType(__getArrayIfSingleItem(output[_UPL][_me]), context);
   }
   if (output.GroupList === "") {
-    contents.GroupList = [];
-  } else if (output["GroupList"] !== undefined && output["GroupList"]["member"] !== undefined) {
-    contents.GroupList = de_groupNameListType(__getArrayIfSingleItem(output["GroupList"]["member"]), context);
+    contents[_GL] = [];
+  } else if (output[_GL] != null && output[_GL][_me] != null) {
+    contents[_GL] = de_groupNameListType(__getArrayIfSingleItem(output[_GL][_me]), context);
   }
   if (output.AttachedManagedPolicies === "") {
-    contents.AttachedManagedPolicies = [];
-  } else if (
-    output["AttachedManagedPolicies"] !== undefined &&
-    output["AttachedManagedPolicies"]["member"] !== undefined
-  ) {
-    contents.AttachedManagedPolicies = de_attachedPoliciesListType(
-      __getArrayIfSingleItem(output["AttachedManagedPolicies"]["member"]),
-      context
-    );
+    contents[_AMP] = [];
+  } else if (output[_AMP] != null && output[_AMP][_me] != null) {
+    contents[_AMP] = de_attachedPoliciesListType(__getArrayIfSingleItem(output[_AMP][_me]), context);
   }
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = de_AttachedPermissionsBoundary(output["PermissionsBoundary"], context);
+  if (output[_PB] != null) {
+    contents[_PB] = de_AttachedPermissionsBoundary(output[_PB], context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -18620,25 +18467,25 @@ const de_userListType = (output: any, context: __SerdeContext): User[] => {
  */
 const de_VirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
   const contents: any = {};
-  if (output["SerialNumber"] !== undefined) {
-    contents.SerialNumber = __expectString(output["SerialNumber"]);
+  if (output[_SNe] != null) {
+    contents[_SNe] = __expectString(output[_SNe]);
   }
-  if (output["Base32StringSeed"] !== undefined) {
-    contents.Base32StringSeed = context.base64Decoder(output["Base32StringSeed"]);
+  if (output[_BSS] != null) {
+    contents[_BSS] = context.base64Decoder(output[_BSS]);
   }
-  if (output["QRCodePNG"] !== undefined) {
-    contents.QRCodePNG = context.base64Decoder(output["QRCodePNG"]);
+  if (output[_QRCPNG] != null) {
+    contents[_QRCPNG] = context.base64Decoder(output[_QRCPNG]);
   }
-  if (output["User"] !== undefined) {
-    contents.User = de_User(output["User"], context);
+  if (output[_Us] != null) {
+    contents[_Us] = de_User(output[_Us], context);
   }
-  if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EnableDate"]));
+  if (output[_EDn] != null) {
+    contents[_EDn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_EDn]));
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_tagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_me] != null) {
+    contents[_T] = de_tagListType(__getArrayIfSingleItem(output[_T][_me]), context);
   }
   return contents;
 };
@@ -18695,6 +18542,405 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
+// HttpRpcProtocolGenerator
+const _ = "2010-05-08";
+const _A = "Action";
+const _AA = "AccountAlias";
+const _AAc = "AccountAliases";
+const _ABO = "AllowedByOrganizations";
+const _ABPB = "AllowedByPermissionsBoundary";
+const _AC = "AuthenticationCode1";
+const _ACIDTOIDCP = "AddClientIDToOpenIDConnectProvider";
+const _ACt = "AttachmentCount";
+const _ACu = "AuthenticationCode2";
+const _AD = "AccessDetails";
+const _AGP = "AttachGroupPolicy";
+const _AK = "AccessKey";
+const _AKI = "AccessKeyId";
+const _AKLU = "AccessKeyLastUsed";
+const _AKM = "AccessKeyMetadata";
+const _AMP = "AttachedManagedPolicies";
+const _AN = "ActionNames";
+const _ANc = "ActionName";
+const _AP = "AttachedPolicies";
+const _ARP = "AttachRolePolicy";
+const _ARPD = "AssumeRolePolicyDocument";
+const _ARTIP = "AddRoleToInstanceProfile";
+const _AS = "AssignmentStatus";
+const _AUP = "AttachUserPolicy";
+const _AUTCP = "AllowUsersToChangePassword";
+const _AUTG = "AddUserToGroup";
+const _AWSSN = "AWSServiceName";
+const _Ar = "Arn";
+const _BSS = "Base32StringSeed";
+const _C = "Code";
+const _CA = "CallerArn";
+const _CAA = "CreateAccountAlias";
+const _CAK = "CreateAccessKey";
+const _CB = "CertificateBody";
+const _CC = "CertificateChain";
+const _CD = "CreateDate";
+const _CE = "ContextEntries";
+const _CG = "CreateGroup";
+const _CI = "CertificateId";
+const _CID = "ClientID";
+const _CIDL = "ClientIDList";
+const _CIP = "CreateInstanceProfile";
+const _CKN = "ContextKeyName";
+const _CKNo = "ContextKeyNames";
+const _CKT = "ContextKeyType";
+const _CKV = "ContextKeyValues";
+const _CLP = "CreateLoginProfile";
+const _COIDCP = "CreateOpenIDConnectProvider";
+const _CP = "ChangePassword";
+const _CPV = "CreatePolicyVersion";
+const _CPr = "CreatePolicy";
+const _CR = "CreateRole";
+const _CS = "CustomSuffix";
+const _CSAMLP = "CreateSAMLProvider";
+const _CSLR = "CreateServiceLinkedRole";
+const _CSSC = "CreateServiceSpecificCredential";
+const _CU = "CreateUser";
+const _CVMFAD = "CreateVirtualMFADevice";
+const _Ce = "Certifications";
+const _Cer = "Certificates";
+const _Cert = "Certificate";
+const _Co = "Content";
+const _Col = "Column";
+const _D = "Description";
+const _DAA = "DeleteAccountAlias";
+const _DAK = "DeleteAccessKey";
+const _DAPP = "DeleteAccountPasswordPolicy";
+const _DG = "DeleteGroup";
+const _DGP = "DeleteGroupPolicy";
+const _DGPe = "DetachGroupPolicy";
+const _DIP = "DeleteInstanceProfile";
+const _DLP = "DeleteLoginProfile";
+const _DMFAD = "DeactivateMFADevice";
+const _DOIDCP = "DeleteOpenIDConnectProvider";
+const _DP = "DeletePolicy";
+const _DPV = "DeletePolicyVersion";
+const _DR = "DeleteRole";
+const _DRP = "DeleteRolePolicy";
+const _DRPB = "DeleteRolePermissionsBoundary";
+const _DRPe = "DetachRolePolicy";
+const _DSAMLP = "DeleteSAMLProvider";
+const _DSC = "DeleteServerCertificate";
+const _DSCe = "DeleteSigningCertificate";
+const _DSLR = "DeleteServiceLinkedRole";
+const _DSSC = "DeleteServiceSpecificCredential";
+const _DSSHPK = "DeleteSSHPublicKey";
+const _DTI = "DeletionTaskId";
+const _DU = "DeleteUser";
+const _DUP = "DeleteUserPolicy";
+const _DUPB = "DeleteUserPermissionsBoundary";
+const _DUPe = "DetachUserPolicy";
+const _DVI = "DefaultVersionId";
+const _DVMFAD = "DeleteVirtualMFADevice";
+const _Do = "Document";
+const _E = "Encoding";
+const _EAN = "EvalActionName";
+const _ED = "EvalDecision";
+const _EDD = "EvalDecisionDetails";
+const _EDL = "EntityDetailsList";
+const _EDn = "EnableDate";
+const _EDr = "ErrorDetails";
+const _EF = "EntityFilter";
+const _EI = "EntityInfo";
+const _EMFAD = "EnableMFADevice";
+const _EN = "EntityName";
+const _EP = "EntityPath";
+const _EPn = "EndPosition";
+const _EPx = "ExpirePasswords";
+const _ER = "EvaluationResults";
+const _ERD = "EvalResourceDecision";
+const _ERN = "EvalResourceName";
+const _ET = "EntityType";
+const _Er = "Error";
+const _Ex = "Expiration";
+const _F = "Filter";
+const _Fi = "Fingerprint";
+const _G = "Granularity";
+const _GAAD = "GetAccountAuthorizationDetails";
+const _GAKLU = "GetAccessKeyLastUsed";
+const _GAPP = "GetAccountPasswordPolicy";
+const _GAS = "GetAccountSummary";
+const _GCKFCP = "GetContextKeysForCustomPolicy";
+const _GCKFPP = "GetContextKeysForPrincipalPolicy";
+const _GCR = "GenerateCredentialReport";
+const _GCRe = "GetCredentialReport";
+const _GDL = "GroupDetailList";
+const _GETV = "GlobalEndpointTokenVersion";
+const _GG = "GetGroup";
+const _GGP = "GetGroupPolicy";
+const _GI = "GroupId";
+const _GIP = "GetInstanceProfile";
+const _GL = "GroupList";
+const _GLP = "GetLoginProfile";
+const _GMFAD = "GetMFADevice";
+const _GN = "GroupName";
+const _GOAR = "GenerateOrganizationsAccessReport";
+const _GOARe = "GetOrganizationsAccessReport";
+const _GOIDCP = "GetOpenIDConnectProvider";
+const _GP = "GetPolicy";
+const _GPL = "GroupPolicyList";
+const _GPV = "GetPolicyVersion";
+const _GR = "GetRole";
+const _GRP = "GetRolePolicy";
+const _GSAMLP = "GetSAMLProvider";
+const _GSC = "GetServerCertificate";
+const _GSLAD = "GenerateServiceLastAccessedDetails";
+const _GSLADWE = "GetServiceLastAccessedDetailsWithEntities";
+const _GSLADe = "GetServiceLastAccessedDetails";
+const _GSLRDS = "GetServiceLinkedRoleDeletionStatus";
+const _GSSHPK = "GetSSHPublicKey";
+const _GT = "GeneratedTime";
+const _GU = "GetUser";
+const _GUP = "GetUserPolicy";
+const _Gr = "Group";
+const _Gro = "Groups";
+const _HE = "HardExpiry";
+const _I = "Id";
+const _IA = "IsAttachable";
+const _IDV = "IsDefaultVersion";
+const _IP = "InstanceProfile";
+const _IPI = "InstanceProfileId";
+const _IPL = "InstanceProfileList";
+const _IPN = "InstanceProfileName";
+const _IPn = "InstanceProfiles";
+const _IT = "IsTruncated";
+const _JCD = "JobCreationDate";
+const _JCDo = "JobCompletionDate";
+const _JI = "JobId";
+const _JS = "JobStatus";
+const _JT = "JobType";
+const _K = "Key";
+const _L = "Line";
+const _LA = "LastAuthenticated";
+const _LAA = "ListAccountAliases";
+const _LAE = "LastAuthenticatedEntity";
+const _LAEa = "LastAccessedEntity";
+const _LAGP = "ListAttachedGroupPolicies";
+const _LAK = "ListAccessKeys";
+const _LAR = "LastAuthenticatedRegion";
+const _LARP = "ListAttachedRolePolicies";
+const _LARa = "LastAccessedRegion";
+const _LAT = "LastAuthenticatedTime";
+const _LATa = "LastAccessedTime";
+const _LAUP = "ListAttachedUserPolicies";
+const _LEFP = "ListEntitiesForPolicy";
+const _LG = "ListGroups";
+const _LGFU = "ListGroupsForUser";
+const _LGP = "ListGroupPolicies";
+const _LIP = "ListInstanceProfiles";
+const _LIPFR = "ListInstanceProfilesForRole";
+const _LIPT = "ListInstanceProfileTags";
+const _LMFAD = "ListMFADevices";
+const _LMFADT = "ListMFADeviceTags";
+const _LOIDCP = "ListOpenIDConnectProviders";
+const _LOIDCPT = "ListOpenIDConnectProviderTags";
+const _LP = "ListPolicies";
+const _LPGSA = "ListPoliciesGrantingServiceAccess";
+const _LPT = "ListPolicyTags";
+const _LPV = "ListPolicyVersions";
+const _LPo = "LoginProfile";
+const _LR = "ListRoles";
+const _LRP = "ListRolePolicies";
+const _LRT = "ListRoleTags";
+const _LSAMLP = "ListSAMLProviders";
+const _LSAMLPT = "ListSAMLProviderTags";
+const _LSC = "ListServerCertificates";
+const _LSCT = "ListServerCertificateTags";
+const _LSCi = "ListSigningCertificates";
+const _LSSC = "ListServiceSpecificCredentials";
+const _LSSHPK = "ListSSHPublicKeys";
+const _LU = "ListUsers";
+const _LUD = "LastUsedDate";
+const _LUP = "ListUserPolicies";
+const _LUT = "ListUserTags";
+const _LVMFAD = "ListVirtualMFADevices";
+const _M = "Marker";
+const _MCV = "MissingContextValues";
+const _MFAD = "MFADevices";
+const _MI = "MaxItems";
+const _MPA = "MaxPasswordAge";
+const _MPL = "MinimumPasswordLength";
+const _MS = "MatchedStatements";
+const _MSD = "MaxSessionDuration";
+const _Me = "Message";
+const _N = "Name";
+const _NGN = "NewGroupName";
+const _NOSA = "NumberOfServicesAccessible";
+const _NOSNA = "NumberOfServicesNotAccessed";
+const _NP = "NewPassword";
+const _NPe = "NewPath";
+const _NSCN = "NewServerCertificateName";
+const _NUN = "NewUserName";
+const _OA = "OnlyAttached";
+const _ODD = "OrganizationsDecisionDetail";
+const _OIDCPA = "OpenIDConnectProviderArn";
+const _OIDCPL = "OpenIDConnectProviderList";
+const _OP = "OldPassword";
+const _OPI = "OrganizationsPolicyId";
+const _P = "Path";
+const _PA = "PolicyArn";
+const _PB = "PermissionsBoundary";
+const _PBA = "PermissionsBoundaryArn";
+const _PBDD = "PermissionsBoundaryDecisionDetail";
+const _PBPIL = "PermissionsBoundaryPolicyInputList";
+const _PBT = "PermissionsBoundaryType";
+const _PBUC = "PermissionsBoundaryUsageCount";
+const _PD = "PolicyDocument";
+const _PG = "PolicyGroups";
+const _PGP = "PutGroupPolicy";
+const _PGSA = "PoliciesGrantingServiceAccess";
+const _PI = "PolicyId";
+const _PIL = "PolicyInputList";
+const _PK = "PrivateKey";
+const _PLU = "PasswordLastUsed";
+const _PN = "PolicyName";
+const _PNo = "PolicyNames";
+const _PP = "PathPrefix";
+const _PPa = "PasswordPolicy";
+const _PR = "PolicyRoles";
+const _PRP = "PutRolePolicy";
+const _PRPB = "PutRolePermissionsBoundary";
+const _PRPa = "PasswordReusePrevention";
+const _PRR = "PasswordResetRequired";
+const _PSA = "PolicySourceArn";
+const _PT = "PolicyType";
+const _PU = "PolicyUsers";
+const _PUF = "PolicyUsageFilter";
+const _PUP = "PutUserPolicy";
+const _PUPB = "PutUserPermissionsBoundary";
+const _PV = "PolicyVersion";
+const _PVL = "PolicyVersionList";
+const _Pa = "Password";
+const _Po = "Policy";
+const _Pol = "Policies";
+const _QRCPNG = "QRCodePNG";
+const _R = "Region";
+const _RA = "ResourceArns";
+const _RCIDFOIDCP = "RemoveClientIDFromOpenIDConnectProvider";
+const _RDL = "RoleDetailList";
+const _RF = "ReportFormat";
+const _RHO = "ResourceHandlingOption";
+const _RI = "RoleId";
+const _RLC = "RequireLowercaseCharacters";
+const _RLU = "RoleLastUsed";
+const _RMFAD = "ResyncMFADevice";
+const _RN = "RoleName";
+const _RNe = "RequireNumbers";
+const _RO = "ResourceOwner";
+const _RP = "ResourcePolicy";
+const _RPL = "RolePolicyList";
+const _RRFIP = "RemoveRoleFromInstanceProfile";
+const _RS = "RequireSymbols";
+const _RSR = "ResourceSpecificResults";
+const _RSSC = "ResetServiceSpecificCredential";
+const _RUC = "RequireUppercaseCharacters";
+const _RUFG = "RemoveUserFromGroup";
+const _RUL = "RoleUsageList";
+const _Re = "Reason";
+const _Res = "Resources";
+const _Ro = "Role";
+const _Rol = "Roles";
+const _S = "Scope";
+const _SAD = "SetAsDefault";
+const _SAK = "SecretAccessKey";
+const _SAMLMD = "SAMLMetadataDocument";
+const _SAMLPA = "SAMLProviderArn";
+const _SAMLPL = "SAMLProviderList";
+const _SC = "ServerCertificate";
+const _SCI = "ServerCertificateId";
+const _SCM = "ServerCertificateMetadata";
+const _SCML = "ServerCertificateMetadataList";
+const _SCN = "ServerCertificateName";
+const _SCP = "SimulateCustomPolicy";
+const _SDPV = "SetDefaultPolicyVersion";
+const _SK = "SortKey";
+const _SLA = "ServicesLastAccessed";
+const _SM = "SummaryMap";
+const _SN = "ServiceName";
+const _SNe = "SerialNumber";
+const _SNer = "ServiceNamespace";
+const _SNerv = "ServiceNamespaces";
+const _SP = "ServicePassword";
+const _SPI = "SourcePolicyId";
+const _SPP = "SimulatePrincipalPolicy";
+const _SPT = "SourcePolicyType";
+const _SPt = "StartPosition";
+const _SSC = "ServiceSpecificCredential";
+const _SSCI = "ServiceSpecificCredentialId";
+const _SSCe = "ServiceSpecificCredentials";
+const _SSHPK = "SSHPublicKey";
+const _SSHPKB = "SSHPublicKeyBody";
+const _SSHPKI = "SSHPublicKeyId";
+const _SSHPKu = "SSHPublicKeys";
+const _SSTSP = "SetSecurityTokenServicePreferences";
+const _SUN = "ServiceUserName";
+const _St = "Status";
+const _Sta = "State";
+const _T = "Tags";
+const _TAE = "TotalAuthenticatedEntities";
+const _TALA = "TrackedActionsLastAccessed";
+const _TIP = "TagInstanceProfile";
+const _TK = "TagKeys";
+const _TL = "ThumbprintList";
+const _TMFAD = "TagMFADevice";
+const _TOIDCP = "TagOpenIDConnectProvider";
+const _TP = "TagPolicy";
+const _TR = "TagRole";
+const _TSAMLP = "TagSAMLProvider";
+const _TSC = "TagServerCertificate";
+const _TU = "TagUser";
+const _Ty = "Type";
+const _U = "Url";
+const _UAK = "UpdateAccessKey";
+const _UAPP = "UpdateAccountPasswordPolicy";
+const _UARP = "UpdateAssumeRolePolicy";
+const _UD = "UpdateDate";
+const _UDL = "UserDetailList";
+const _UDp = "UploadDate";
+const _UG = "UpdateGroup";
+const _UI = "UserId";
+const _UIP = "UntagInstanceProfile";
+const _ULP = "UpdateLoginProfile";
+const _UMFAD = "UntagMFADevice";
+const _UN = "UserName";
+const _UOIDCP = "UntagOpenIDConnectProvider";
+const _UOIDCPT = "UpdateOpenIDConnectProviderThumbprint";
+const _UP = "UntagPolicy";
+const _UPL = "UserPolicyList";
+const _UR = "UntagRole";
+const _URD = "UpdateRoleDescription";
+const _URp = "UpdateRole";
+const _USAMLP = "UntagSAMLProvider";
+const _USAMLPp = "UpdateSAMLProvider";
+const _USC = "UntagServerCertificate";
+const _USCp = "UpdateServerCertificate";
+const _USCpd = "UpdateSigningCertificate";
+const _USCpl = "UploadServerCertificate";
+const _USCplo = "UploadSigningCertificate";
+const _USSC = "UpdateServiceSpecificCredential";
+const _USSHPK = "UpdateSSHPublicKey";
+const _USSHPKp = "UploadSSHPublicKey";
+const _UU = "UntagUser";
+const _UUp = "UpdateUser";
+const _Us = "User";
+const _Use = "Users";
+const _V = "Version";
+const _VI = "VersionId";
+const _VMFAD = "VirtualMFADevice";
+const _VMFADN = "VirtualMFADeviceName";
+const _VMFADi = "VirtualMFADevices";
+const _VU = "ValidUntil";
+const _Va = "Value";
+const _Ve = "Versions";
+const _e = "entry";
+const _m = "message";
+const _me = "member";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -18743,3 +18989,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
+
+// AwsQuery

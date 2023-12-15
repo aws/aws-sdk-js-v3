@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -80,25 +81,16 @@ export const se_DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -108,25 +100,16 @@ export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -136,18 +119,16 @@ export const se_PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    responsecontenttype: input.responseContentType!,
+    [_r]: input[_rCT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -156,15 +137,8 @@ export const se_PutSessionCommand = async (
       sessionState: (_) => se_SessionState(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -174,17 +148,15 @@ export const se_RecognizeTextCommand = async (
   input: RecognizeTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -193,15 +165,8 @@ export const se_RecognizeTextCommand = async (
       text: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -211,34 +176,25 @@ export const se_RecognizeUtteranceCommand = async (
   input: RecognizeUtteranceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    "content-type": input.requestContentType! || "application/octet-stream",
-    "x-amz-lex-session-state": input.sessionState!,
-    "x-amz-lex-request-attributes": input.requestAttributes!,
-    "response-content-type": input.responseContentType!,
+    [_ct]: input[_rCTe]! || "application/octet-stream",
+    [_xalss]: input[_sS]!,
+    [_xalra]: input[_rA]!,
+    [_rct]: input[_rCT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   if (input.inputStream !== undefined) {
     body = input.inputStream;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -248,30 +204,21 @@ export const se_StartConversationCommand = async (
   input: StartConversationCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-lex-conversation-mode": input.conversationMode!,
+    [_xalcm]: input[_cM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   if (input.requestEventStream !== undefined) {
     body = se_StartConversationRequestEventStream(input.requestEventStream, context);
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -413,11 +360,11 @@ export const de_PutSessionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
-    messages: [, output.headers["x-amz-lex-messages"]],
-    sessionState: [, output.headers["x-amz-lex-session-state"]],
-    requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
-    sessionId: [, output.headers["x-amz-lex-session-id"]],
+    [_cT]: [, output.headers[_ct]],
+    [_m]: [, output.headers[_xalm]],
+    [_sS]: [, output.headers[_xalss]],
+    [_rA]: [, output.headers[_xalra]],
+    [_sI]: [, output.headers[_xalsi]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -557,15 +504,15 @@ export const de_RecognizeUtteranceCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    inputMode: [, output.headers["x-amz-lex-input-mode"]],
-    contentType: [, output.headers["content-type"]],
-    messages: [, output.headers["x-amz-lex-messages"]],
-    interpretations: [, output.headers["x-amz-lex-interpretations"]],
-    sessionState: [, output.headers["x-amz-lex-session-state"]],
-    requestAttributes: [, output.headers["x-amz-lex-request-attributes"]],
-    sessionId: [, output.headers["x-amz-lex-session-id"]],
-    inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
-    recognizedBotMember: [, output.headers["x-amz-lex-recognized-bot-member"]],
+    [_iM]: [, output.headers[_xalim]],
+    [_cT]: [, output.headers[_ct]],
+    [_m]: [, output.headers[_xalm]],
+    [_i]: [, output.headers[_xali]],
+    [_sS]: [, output.headers[_xalss]],
+    [_rA]: [, output.headers[_xalra]],
+    [_sI]: [, output.headers[_xalsi]],
+    [_iT]: [, output.headers[_xalit]],
+    [_rBM]: [, output.headers[_xalrbm]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -1570,6 +1517,32 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cM = "conversationMode";
+const _cT = "contentType";
+const _ct = "content-type";
+const _i = "interpretations";
+const _iM = "inputMode";
+const _iT = "inputTranscript";
+const _m = "messages";
+const _r = "responsecontenttype";
+const _rA = "requestAttributes";
+const _rBM = "recognizedBotMember";
+const _rCT = "responseContentType";
+const _rCTe = "requestContentType";
+const _rct = "response-content-type";
+const _sI = "sessionId";
+const _sS = "sessionState";
+const _xalcm = "x-amz-lex-conversation-mode";
+const _xali = "x-amz-lex-interpretations";
+const _xalim = "x-amz-lex-input-mode";
+const _xalit = "x-amz-lex-input-transcript";
+const _xalm = "x-amz-lex-messages";
+const _xalra = "x-amz-lex-request-attributes";
+const _xalrbm = "x-amz-lex-recognized-bot-member";
+const _xalsi = "x-amz-lex-session-id";
+const _xalss = "x-amz-lex-session-state";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1620,3 +1593,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

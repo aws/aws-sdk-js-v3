@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -157,11 +158,11 @@ export const se_CreateAppInstanceCommand = async (
   input: CreateAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances";
+  b.bp("/app-instances");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -171,15 +172,8 @@ export const se_CreateAppInstanceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -189,35 +183,20 @@ export const se_CreateAppInstanceAdminCommand = async (
   input: CreateAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances/{AppInstanceArn}/admins";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/admins");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AppInstanceAdminArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -227,11 +206,11 @@ export const se_CreateAppInstanceBotCommand = async (
   input: CreateAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-bots";
+  b.bp("/app-instance-bots");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -243,15 +222,8 @@ export const se_CreateAppInstanceBotCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -261,11 +233,11 @@ export const se_CreateAppInstanceUserCommand = async (
   input: CreateAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users";
+  b.bp("/app-instance-users");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -278,15 +250,8 @@ export const se_CreateAppInstanceUserCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -296,28 +261,13 @@ export const se_DeleteAppInstanceCommand = async (
   input: DeleteAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances/{AppInstanceArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,37 +277,14 @@ export const se_DeleteAppInstanceAdminCommand = async (
   input: DeleteAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceAdminArn",
-    () => input.AppInstanceAdminArn!,
-    "{AppInstanceAdminArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}");
+  b.p("AppInstanceAdminArn", () => input.AppInstanceAdminArn!, "{AppInstanceAdminArn}", false);
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -367,28 +294,13 @@ export const se_DeleteAppInstanceBotCommand = async (
   input: DeleteAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-bots/{AppInstanceBotArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceBotArn",
-    () => input.AppInstanceBotArn!,
-    "{AppInstanceBotArn}",
-    false
-  );
+  b.bp("/app-instance-bots/{AppInstanceBotArn}");
+  b.p("AppInstanceBotArn", () => input.AppInstanceBotArn!, "{AppInstanceBotArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -398,28 +310,13 @@ export const se_DeleteAppInstanceUserCommand = async (
   input: DeleteAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users/{AppInstanceUserArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
+  b.bp("/app-instance-users/{AppInstanceUserArn}");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -429,30 +326,14 @@ export const se_DeregisterAppInstanceUserEndpointCommand = async (
   input: DeregisterAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "EndpointId", () => input.EndpointId!, "{EndpointId}", false);
+  b.bp("/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
+  b.p("EndpointId", () => input.EndpointId!, "{EndpointId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -462,28 +343,13 @@ export const se_DescribeAppInstanceCommand = async (
   input: DescribeAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances/{AppInstanceArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -493,37 +359,14 @@ export const se_DescribeAppInstanceAdminCommand = async (
   input: DescribeAppInstanceAdminCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceAdminArn",
-    () => input.AppInstanceAdminArn!,
-    "{AppInstanceAdminArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/admins/{AppInstanceAdminArn}");
+  b.p("AppInstanceAdminArn", () => input.AppInstanceAdminArn!, "{AppInstanceAdminArn}", false);
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -533,28 +376,13 @@ export const se_DescribeAppInstanceBotCommand = async (
   input: DescribeAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-bots/{AppInstanceBotArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceBotArn",
-    () => input.AppInstanceBotArn!,
-    "{AppInstanceBotArn}",
-    false
-  );
+  b.bp("/app-instance-bots/{AppInstanceBotArn}");
+  b.p("AppInstanceBotArn", () => input.AppInstanceBotArn!, "{AppInstanceBotArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -564,28 +392,13 @@ export const se_DescribeAppInstanceUserCommand = async (
   input: DescribeAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users/{AppInstanceUserArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
+  b.bp("/app-instance-users/{AppInstanceUserArn}");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -595,30 +408,14 @@ export const se_DescribeAppInstanceUserEndpointCommand = async (
   input: DescribeAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "EndpointId", () => input.EndpointId!, "{EndpointId}", false);
+  b.bp("/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
+  b.p("EndpointId", () => input.EndpointId!, "{EndpointId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -628,29 +425,13 @@ export const se_GetAppInstanceRetentionSettingsCommand = async (
   input: GetAppInstanceRetentionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/retention-settings";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/retention-settings");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -660,33 +441,17 @@ export const se_ListAppInstanceAdminsCommand = async (
   input: ListAppInstanceAdminsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances/{AppInstanceArn}/admins";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/admins");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -696,25 +461,17 @@ export const se_ListAppInstanceBotsCommand = async (
   input: ListAppInstanceBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-bots";
+  b.bp("/app-instance-bots");
   const query: any = map({
-    "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_aia]: [, __expectNonNull(input[_AIA]!, `AppInstanceArn`)],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -724,24 +481,16 @@ export const se_ListAppInstancesCommand = async (
   input: ListAppInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances";
+  b.bp("/app-instances");
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -751,34 +500,17 @@ export const se_ListAppInstanceUserEndpointsCommand = async (
   input: ListAppInstanceUserEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instance-users/{AppInstanceUserArn}/endpoints";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
+  b.bp("/app-instance-users/{AppInstanceUserArn}/endpoints");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -788,25 +520,17 @@ export const se_ListAppInstanceUsersCommand = async (
   input: ListAppInstanceUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users";
+  b.bp("/app-instance-users");
   const query: any = map({
-    "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_aia]: [, __expectNonNull(input[_AIA]!, `AppInstanceArn`)],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -816,23 +540,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
+    [_a]: [, __expectNonNull(input[_RARN]!, `ResourceARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -842,36 +558,20 @@ export const se_PutAppInstanceRetentionSettingsCommand = async (
   input: PutAppInstanceRetentionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/retention-settings";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/retention-settings");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AppInstanceRetentionSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -881,36 +581,20 @@ export const se_PutAppInstanceUserExpirationSettingsCommand = async (
   input: PutAppInstanceUserExpirationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instance-users/{AppInstanceUserArn}/expiration-settings";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
+  b.bp("/app-instance-users/{AppInstanceUserArn}/expiration-settings");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ExpirationSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -920,21 +604,12 @@ export const se_RegisterAppInstanceUserEndpointCommand = async (
   input: RegisterAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instance-users/{AppInstanceUserArn}/endpoints";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
+  b.bp("/app-instance-users/{AppInstanceUserArn}/endpoints");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -946,15 +621,8 @@ export const se_RegisterAppInstanceUserEndpointCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -964,13 +632,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "tag-resource"],
+    [_o]: [, "tag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -979,16 +647,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -998,13 +658,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "untag-resource"],
+    [_o]: [, "untag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1013,16 +673,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1032,20 +684,12 @@ export const se_UpdateAppInstanceCommand = async (
   input: UpdateAppInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instances/{AppInstanceArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1053,15 +697,8 @@ export const se_UpdateAppInstanceCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1071,20 +708,12 @@ export const se_UpdateAppInstanceBotCommand = async (
   input: UpdateAppInstanceBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-bots/{AppInstanceBotArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceBotArn",
-    () => input.AppInstanceBotArn!,
-    "{AppInstanceBotArn}",
-    false
-  );
+  b.bp("/app-instance-bots/{AppInstanceBotArn}");
+  b.p("AppInstanceBotArn", () => input.AppInstanceBotArn!, "{AppInstanceBotArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1093,15 +722,8 @@ export const se_UpdateAppInstanceBotCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1111,20 +733,12 @@ export const se_UpdateAppInstanceUserCommand = async (
   input: UpdateAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/app-instance-users/{AppInstanceUserArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
+  b.bp("/app-instance-users/{AppInstanceUserArn}");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1132,15 +746,8 @@ export const se_UpdateAppInstanceUserCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1150,22 +757,13 @@ export const se_UpdateAppInstanceUserEndpointCommand = async (
   input: UpdateAppInstanceUserEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceUserArn",
-    () => input.AppInstanceUserArn!,
-    "{AppInstanceUserArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "EndpointId", () => input.EndpointId!, "{EndpointId}", false);
+  b.bp("/app-instance-users/{AppInstanceUserArn}/endpoints/{EndpointId}");
+  b.p("AppInstanceUserArn", () => input.AppInstanceUserArn!, "{AppInstanceUserArn}", false);
+  b.p("EndpointId", () => input.EndpointId!, "{EndpointId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1173,15 +771,8 @@ export const se_UpdateAppInstanceUserEndpointCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3443,6 +3034,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _AIA = "AppInstanceArn";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RARN = "ResourceARN";
+const _a = "arn";
+const _aia = "app-instance-arn";
+const _mr = "max-results";
+const _nt = "next-token";
+const _o = "operation";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -3493,3 +3095,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

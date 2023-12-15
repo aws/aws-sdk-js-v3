@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
+
 import { FlywheelProperties, JobStatus, Tag, VpcConfig } from "./models_0";
 
 /**

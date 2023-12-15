@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -60,13 +61,12 @@ export const se_CompleteAttachmentUploadCommand = async (
   input: CompleteAttachmentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/complete-attachment-upload";
+  b.bp("/participant/complete-attachment-upload");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -74,15 +74,8 @@ export const se_CompleteAttachmentUploadCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -92,13 +85,12 @@ export const se_CreateParticipantConnectionCommand = async (
   input: CreateParticipantConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ParticipantToken!,
+    [_xab]: input[_PT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
+  b.bp("/participant/connection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -106,15 +98,8 @@ export const se_CreateParticipantConnectionCommand = async (
       Type: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -124,23 +109,15 @@ export const se_DescribeViewCommand = async (
   input: DescribeViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/views/{ViewToken}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ViewToken", () => input.ViewToken!, "{ViewToken}", false);
+  b.bp("/participant/views/{ViewToken}");
+  b.p("ViewToken", () => input.ViewToken!, "{ViewToken}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -150,28 +127,20 @@ export const se_DisconnectParticipantCommand = async (
   input: DisconnectParticipantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/disconnect";
+  b.bp("/participant/disconnect");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -181,28 +150,20 @@ export const se_GetAttachmentCommand = async (
   input: GetAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
+  b.bp("/participant/attachment");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AttachmentId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -212,13 +173,12 @@ export const se_GetTranscriptCommand = async (
   input: GetTranscriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
+  b.bp("/participant/transcript");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -230,15 +190,8 @@ export const se_GetTranscriptCommand = async (
       StartPosition: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -248,12 +201,12 @@ export const se_SendEventCommand = async (
   input: SendEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/event";
+  b.bp("/participant/event");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -262,15 +215,8 @@ export const se_SendEventCommand = async (
       ContentType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -280,12 +226,12 @@ export const se_SendMessageCommand = async (
   input: SendMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/message";
+  b.bp("/participant/message");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -294,15 +240,8 @@ export const se_SendMessageCommand = async (
       ContentType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -312,13 +251,12 @@ export const se_StartAttachmentUploadCommand = async (
   input: StartAttachmentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/start-attachment-upload";
+  b.bp("/participant/start-attachment-upload");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -328,15 +266,8 @@ export const se_StartAttachmentUploadCommand = async (
       ContentType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1041,6 +972,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CT = "ConnectionToken";
+const _PT = "ParticipantToken";
+const _xab = "x-amz-bearer";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1091,3 +1027,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

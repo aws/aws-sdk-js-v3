@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -270,24 +271,15 @@ export const se_CreateGatewayRouteCommand = async (
   input: CreateGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -298,16 +290,8 @@ export const se_CreateGatewayRouteCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -317,11 +301,11 @@ export const se_CreateMeshCommand = async (
   input: CreateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes";
+  b.bp("/v20190125/meshes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -331,15 +315,8 @@ export const se_CreateMeshCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -349,24 +326,15 @@ export const se_CreateRouteCommand = async (
   input: CreateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -377,16 +345,8 @@ export const se_CreateRouteCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -396,16 +356,14 @@ export const se_CreateVirtualGatewayCommand = async (
   input: CreateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateways";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualGateways");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -416,16 +374,8 @@ export const se_CreateVirtualGatewayCommand = async (
       virtualGatewayName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -435,15 +385,14 @@ export const se_CreateVirtualNodeCommand = async (
   input: CreateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}/virtualNodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualNodes");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -454,16 +403,8 @@ export const se_CreateVirtualNodeCommand = async (
       virtualNodeName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -473,16 +414,14 @@ export const se_CreateVirtualRouterCommand = async (
   input: CreateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouters";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualRouters");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -493,16 +432,8 @@ export const se_CreateVirtualRouterCommand = async (
       virtualRouterName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -512,16 +443,14 @@ export const se_CreateVirtualServiceCommand = async (
   input: CreateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualServices";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualServices");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -532,16 +461,8 @@ export const se_CreateVirtualServiceCommand = async (
       virtualServiceName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -551,42 +472,18 @@ export const se_DeleteGatewayRouteCommand = async (
   input: DeleteGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "gatewayRouteName",
-    () => input.gatewayRouteName!,
-    "{gatewayRouteName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}");
+  b.p("gatewayRouteName", () => input.gatewayRouteName!, "{gatewayRouteName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -596,21 +493,13 @@ export const se_DeleteMeshCommand = async (
   input: DeleteMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -620,35 +509,18 @@ export const se_DeleteRouteCommand = async (
   input: DeleteRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "routeName", () => input.routeName!, "{routeName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}");
+  b.p("routeName", () => input.routeName!, "{routeName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -658,34 +530,17 @@ export const se_DeleteVirtualGatewayCommand = async (
   input: DeleteVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}");
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -695,34 +550,17 @@ export const se_DeleteVirtualNodeCommand = async (
   input: DeleteVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualNodeName",
-    () => input.virtualNodeName!,
-    "{virtualNodeName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}");
+  b.p("virtualNodeName", () => input.virtualNodeName!, "{virtualNodeName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -732,34 +570,17 @@ export const se_DeleteVirtualRouterCommand = async (
   input: DeleteVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}");
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -769,34 +590,17 @@ export const se_DeleteVirtualServiceCommand = async (
   input: DeleteVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualServiceName",
-    () => input.virtualServiceName!,
-    "{virtualServiceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}");
+  b.p("virtualServiceName", () => input.virtualServiceName!, "{virtualServiceName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -806,42 +610,18 @@ export const se_DescribeGatewayRouteCommand = async (
   input: DescribeGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "gatewayRouteName",
-    () => input.gatewayRouteName!,
-    "{gatewayRouteName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}");
+  b.p("gatewayRouteName", () => input.gatewayRouteName!, "{gatewayRouteName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -851,25 +631,16 @@ export const se_DescribeMeshCommand = async (
   input: DescribeMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -879,35 +650,18 @@ export const se_DescribeRouteCommand = async (
   input: DescribeRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "routeName", () => input.routeName!, "{routeName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}");
+  b.p("routeName", () => input.routeName!, "{routeName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -917,34 +671,17 @@ export const se_DescribeVirtualGatewayCommand = async (
   input: DescribeVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}");
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -954,34 +691,17 @@ export const se_DescribeVirtualNodeCommand = async (
   input: DescribeVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualNodeName",
-    () => input.virtualNodeName!,
-    "{virtualNodeName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}");
+  b.p("virtualNodeName", () => input.virtualNodeName!, "{virtualNodeName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -991,34 +711,17 @@ export const se_DescribeVirtualRouterCommand = async (
   input: DescribeVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}");
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1028,34 +731,17 @@ export const se_DescribeVirtualServiceCommand = async (
   input: DescribeVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualServiceName",
-    () => input.virtualServiceName!,
-    "{virtualServiceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}");
+  b.p("virtualServiceName", () => input.virtualServiceName!, "{virtualServiceName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1065,36 +751,19 @@ export const se_ListGatewayRoutesCommand = async (
   input: ListGatewayRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    meshOwner: [, input.meshOwner!],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1104,24 +773,16 @@ export const se_ListMeshesCommand = async (
   input: ListMeshesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes";
+  b.bp("/v20190125/meshes");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1131,36 +792,19 @@ export const se_ListRoutesCommand = async (
   input: ListRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    meshOwner: [, input.meshOwner!],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1170,25 +814,17 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tags";
+  b.bp("/v20190125/tags");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1198,28 +834,18 @@ export const se_ListVirtualGatewaysCommand = async (
   input: ListVirtualGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateways";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualGateways");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    meshOwner: [, input.meshOwner!],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1229,27 +855,18 @@ export const se_ListVirtualNodesCommand = async (
   input: ListVirtualNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}/virtualNodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualNodes");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    meshOwner: [, input.meshOwner!],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1259,28 +876,18 @@ export const se_ListVirtualRoutersCommand = async (
   input: ListVirtualRoutersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouters";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualRouters");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    meshOwner: [, input.meshOwner!],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1290,28 +897,18 @@ export const se_ListVirtualServicesCommand = async (
   input: ListVirtualServicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualServices";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualServices");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    meshOwner: [, input.meshOwner!],
+    [_nT]: [, input[_nT]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1321,13 +918,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tag";
+  b.bp("/v20190125/tag");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1335,16 +932,8 @@ export const se_TagResourceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1354,13 +943,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/untag";
+  b.bp("/v20190125/untag");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1368,16 +957,8 @@ export const se_UntagResourceCommand = async (
       tagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1387,32 +968,16 @@ export const se_UpdateGatewayRouteCommand = async (
   input: UpdateGatewayRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "gatewayRouteName",
-    () => input.gatewayRouteName!,
-    "{gatewayRouteName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}");
+  b.p("gatewayRouteName", () => input.gatewayRouteName!, "{gatewayRouteName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1421,16 +986,8 @@ export const se_UpdateGatewayRouteCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1440,13 +997,12 @@ export const se_UpdateMeshCommand = async (
   input: UpdateMeshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/meshes/{meshName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}");
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1454,15 +1010,8 @@ export const se_UpdateMeshCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1472,25 +1021,16 @@ export const se_UpdateRouteCommand = async (
   input: UpdateRouteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "routeName", () => input.routeName!, "{routeName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
+  b.bp("/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}");
+  b.p("routeName", () => input.routeName!, "{routeName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1499,16 +1039,8 @@ export const se_UpdateRouteCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1518,24 +1050,15 @@ export const se_UpdateVirtualGatewayCommand = async (
   input: UpdateVirtualGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualGatewayName",
-    () => input.virtualGatewayName!,
-    "{virtualGatewayName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualGateways/{virtualGatewayName}");
+  b.p("virtualGatewayName", () => input.virtualGatewayName!, "{virtualGatewayName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1544,16 +1067,8 @@ export const se_UpdateVirtualGatewayCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1563,24 +1078,15 @@ export const se_UpdateVirtualNodeCommand = async (
   input: UpdateVirtualNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualNodeName",
-    () => input.virtualNodeName!,
-    "{virtualNodeName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}");
+  b.p("virtualNodeName", () => input.virtualNodeName!, "{virtualNodeName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1589,16 +1095,8 @@ export const se_UpdateVirtualNodeCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1608,24 +1106,15 @@ export const se_UpdateVirtualRouterCommand = async (
   input: UpdateVirtualRouterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualRouterName",
-    () => input.virtualRouterName!,
-    "{virtualRouterName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}");
+  b.p("virtualRouterName", () => input.virtualRouterName!, "{virtualRouterName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1634,16 +1123,8 @@ export const se_UpdateVirtualRouterCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1653,24 +1134,15 @@ export const se_UpdateVirtualServiceCommand = async (
   input: UpdateVirtualServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualServiceName",
-    () => input.virtualServiceName!,
-    "{virtualServiceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "meshName", () => input.meshName!, "{meshName}", false);
+  b.bp("/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}");
+  b.p("virtualServiceName", () => input.virtualServiceName!, "{virtualServiceName}", false);
+  b.p("meshName", () => input.meshName!, "{meshName}", false);
   const query: any = map({
-    meshOwner: [, input.meshOwner!],
+    [_mO]: [, input[_mO]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1679,16 +1151,8 @@ export const se_UpdateVirtualServiceCommand = async (
       spec: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5156,6 +4620,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _l = "limit";
+const _mO = "meshOwner";
+const _nT = "nextToken";
+const _rA = "resourceArn";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -5206,3 +4676,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

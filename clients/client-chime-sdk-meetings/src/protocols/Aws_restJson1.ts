@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -90,15 +91,14 @@ export const se_BatchCreateAttendeeCommand = async (
   input: BatchCreateAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/attendees";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}/attendees");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   const query: any = map({
-    operation: [, "batch-create"],
+    [_o]: [, "batch-create"],
   });
   let body: any;
   body = JSON.stringify(
@@ -106,16 +106,8 @@ export const se_BatchCreateAttendeeCommand = async (
       Attendees: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -125,16 +117,14 @@ export const se_BatchUpdateAttendeeCapabilitiesExceptCommand = async (
   input: BatchUpdateAttendeeCapabilitiesExceptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/meetings/{MeetingId}/attendees/capabilities";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}/attendees/capabilities");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   const query: any = map({
-    operation: [, "batch-update-except"],
+    [_o]: [, "batch-update-except"],
   });
   let body: any;
   body = JSON.stringify(
@@ -143,16 +133,8 @@ export const se_BatchUpdateAttendeeCapabilitiesExceptCommand = async (
       ExcludedAttendeeIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -162,13 +144,12 @@ export const se_CreateAttendeeCommand = async (
   input: CreateAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/attendees";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}/attendees");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -176,15 +157,8 @@ export const se_CreateAttendeeCommand = async (
       ExternalUserId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -194,11 +168,11 @@ export const se_CreateMeetingCommand = async (
   input: CreateMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings";
+  b.bp("/meetings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -213,15 +187,8 @@ export const se_CreateMeetingCommand = async (
       TenantIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -231,13 +198,13 @@ export const se_CreateMeetingWithAttendeesCommand = async (
   input: CreateMeetingWithAttendeesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings";
+  b.bp("/meetings");
   const query: any = map({
-    operation: [, "create-attendees"],
+    [_o]: [, "create-attendees"],
   });
   let body: any;
   body = JSON.stringify(
@@ -254,16 +221,8 @@ export const se_CreateMeetingWithAttendeesCommand = async (
       TenantIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -273,23 +232,14 @@ export const se_DeleteAttendeeCommand = async (
   input: DeleteAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/meetings/{MeetingId}/attendees/{AttendeeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
+  b.bp("/meetings/{MeetingId}/attendees/{AttendeeId}");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.p("AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -299,20 +249,13 @@ export const se_DeleteMeetingCommand = async (
   input: DeleteMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -322,23 +265,14 @@ export const se_GetAttendeeCommand = async (
   input: GetAttendeeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/meetings/{MeetingId}/attendees/{AttendeeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
+  b.bp("/meetings/{MeetingId}/attendees/{AttendeeId}");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.p("AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -348,20 +282,13 @@ export const se_GetMeetingCommand = async (
   input: GetMeetingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -371,26 +298,17 @@ export const se_ListAttendeesCommand = async (
   input: ListAttendeesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/attendees";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}/attendees");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -400,23 +318,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
+    [_a]: [, __expectNonNull(input[_RARN]!, `ResourceARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -426,15 +336,14 @@ export const se_StartMeetingTranscriptionCommand = async (
   input: StartMeetingTranscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/transcription";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}/transcription");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   const query: any = map({
-    operation: [, "start"],
+    [_o]: [, "start"],
   });
   let body: any;
   body = JSON.stringify(
@@ -442,16 +351,8 @@ export const se_StartMeetingTranscriptionCommand = async (
       TranscriptionConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -461,25 +362,16 @@ export const se_StopMeetingTranscriptionCommand = async (
   input: StopMeetingTranscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/meetings/{MeetingId}/transcription";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.bp("/meetings/{MeetingId}/transcription");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
   const query: any = map({
-    operation: [, "stop"],
+    [_o]: [, "stop"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -489,13 +381,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "tag-resource"],
+    [_o]: [, "tag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -504,16 +396,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -523,13 +407,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "untag-resource"],
+    [_o]: [, "untag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -538,16 +422,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -557,30 +433,21 @@ export const se_UpdateAttendeeCapabilitiesCommand = async (
   input: UpdateAttendeeCapabilitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/meetings/{MeetingId}/attendees/{AttendeeId}/capabilities";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MeetingId", () => input.MeetingId!, "{MeetingId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
+  b.bp("/meetings/{MeetingId}/attendees/{AttendeeId}/capabilities");
+  b.p("MeetingId", () => input.MeetingId!, "{MeetingId}", false);
+  b.p("AttendeeId", () => input.AttendeeId!, "{AttendeeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Capabilities: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1796,7 +1663,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({
-    RetryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+    [_RAS]: [, parsedOutput.headers[_ra]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1973,6 +1840,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RARN = "ResourceARN";
+const _RAS = "RetryAfterSeconds";
+const _a = "arn";
+const _mr = "max-results";
+const _nt = "next-token";
+const _o = "operation";
+const _ra = "retry-after";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2023,3 +1901,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

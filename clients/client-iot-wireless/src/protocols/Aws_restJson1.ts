@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -501,11 +502,11 @@ export const se_AssociateAwsAccountWithPartnerAccountCommand = async (
   input: AssociateAwsAccountWithPartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts";
+  b.bp("/partner-accounts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -514,15 +515,8 @@ export const se_AssociateAwsAccountWithPartnerAccountCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -532,28 +526,20 @@ export const se_AssociateMulticastGroupWithFuotaTaskCommand = async (
   input: AssociateMulticastGroupWithFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/multicast-group";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}/multicast-group");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       MulticastGroupId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -563,28 +549,20 @@ export const se_AssociateWirelessDeviceWithFuotaTaskCommand = async (
   input: AssociateWirelessDeviceWithFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/wireless-device";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}/wireless-device");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       WirelessDeviceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -594,28 +572,20 @@ export const se_AssociateWirelessDeviceWithMulticastGroupCommand = async (
   input: AssociateWirelessDeviceWithMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/wireless-device";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/wireless-device");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       WirelessDeviceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -625,28 +595,20 @@ export const se_AssociateWirelessDeviceWithThingCommand = async (
   input: AssociateWirelessDeviceWithThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/thing";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}/thing");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ThingArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -656,28 +618,20 @@ export const se_AssociateWirelessGatewayWithCertificateCommand = async (
   input: AssociateWirelessGatewayWithCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/certificate");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       IotCertificateId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -687,28 +641,20 @@ export const se_AssociateWirelessGatewayWithThingCommand = async (
   input: AssociateWirelessGatewayWithThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/thing";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/thing");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ThingArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -718,21 +664,13 @@ export const se_CancelMulticastGroupSessionCommand = async (
   input: CancelMulticastGroupSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/session");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -742,11 +680,11 @@ export const se_CreateDestinationCommand = async (
   input: CreateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations";
+  b.bp("/destinations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -759,15 +697,8 @@ export const se_CreateDestinationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -777,11 +708,11 @@ export const se_CreateDeviceProfileCommand = async (
   input: CreateDeviceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles";
+  b.bp("/device-profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -792,15 +723,8 @@ export const se_CreateDeviceProfileCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -810,11 +734,11 @@ export const se_CreateFuotaTaskCommand = async (
   input: CreateFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks";
+  b.bp("/fuota-tasks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -830,15 +754,8 @@ export const se_CreateFuotaTaskCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -848,11 +765,11 @@ export const se_CreateMulticastGroupCommand = async (
   input: CreateMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups";
+  b.bp("/multicast-groups");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -863,15 +780,8 @@ export const se_CreateMulticastGroupCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -881,12 +791,11 @@ export const se_CreateNetworkAnalyzerConfigurationCommand = async (
   input: CreateNetworkAnalyzerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/network-analyzer-configurations";
+  b.bp("/network-analyzer-configurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -900,15 +809,8 @@ export const se_CreateNetworkAnalyzerConfigurationCommand = async (
       WirelessGateways: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -918,11 +820,11 @@ export const se_CreateServiceProfileCommand = async (
   input: CreateServiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles";
+  b.bp("/service-profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -932,15 +834,8 @@ export const se_CreateServiceProfileCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -950,11 +845,11 @@ export const se_CreateWirelessDeviceCommand = async (
   input: CreateWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices";
+  b.bp("/wireless-devices");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -969,15 +864,8 @@ export const se_CreateWirelessDeviceCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -987,11 +875,11 @@ export const se_CreateWirelessGatewayCommand = async (
   input: CreateWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways";
+  b.bp("/wireless-gateways");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1002,15 +890,8 @@ export const se_CreateWirelessGatewayCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1020,28 +901,20 @@ export const se_CreateWirelessGatewayTaskCommand = async (
   input: CreateWirelessGatewayTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/tasks");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       WirelessGatewayTaskDefinitionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1051,12 +924,11 @@ export const se_CreateWirelessGatewayTaskDefinitionCommand = async (
   input: CreateWirelessGatewayTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions";
+  b.bp("/wireless-gateway-task-definitions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1067,15 +939,8 @@ export const se_CreateWirelessGatewayTaskDefinitionCommand = async (
       Update: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1085,20 +950,13 @@ export const se_DeleteDestinationCommand = async (
   input: DeleteDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/destinations/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1108,20 +966,13 @@ export const se_DeleteDeviceProfileCommand = async (
   input: DeleteDeviceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/device-profiles/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1131,20 +982,13 @@ export const se_DeleteFuotaTaskCommand = async (
   input: DeleteFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1154,20 +998,13 @@ export const se_DeleteMulticastGroupCommand = async (
   input: DeleteMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1177,29 +1014,13 @@ export const se_DeleteNetworkAnalyzerConfigurationCommand = async (
   input: DeleteNetworkAnalyzerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/network-analyzer-configurations/{ConfigurationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationName",
-    () => input.ConfigurationName!,
-    "{ConfigurationName}",
-    false
-  );
+  b.bp("/network-analyzer-configurations/{ConfigurationName}");
+  b.p("ConfigurationName", () => input.ConfigurationName!, "{ConfigurationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1209,26 +1030,17 @@ export const se_DeleteQueuedMessagesCommand = async (
   input: DeleteQueuedMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}/data");
+  b.p("Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    messageId: [, __expectNonNull(input.MessageId!, `MessageId`)],
-    WirelessDeviceType: [, input.WirelessDeviceType!],
+    [_mI]: [, __expectNonNull(input[_MI]!, `MessageId`)],
+    [_WDT]: [, input[_WDT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1238,20 +1050,13 @@ export const se_DeleteServiceProfileCommand = async (
   input: DeleteServiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/service-profiles/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1261,20 +1066,13 @@ export const se_DeleteWirelessDeviceCommand = async (
   input: DeleteWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1284,21 +1082,13 @@ export const se_DeleteWirelessDeviceImportTaskCommand = async (
   input: DeleteWirelessDeviceImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless_device_import_task/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1308,20 +1098,13 @@ export const se_DeleteWirelessGatewayCommand = async (
   input: DeleteWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1331,21 +1114,13 @@ export const se_DeleteWirelessGatewayTaskCommand = async (
   input: DeleteWirelessGatewayTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/tasks");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1355,21 +1130,13 @@ export const se_DeleteWirelessGatewayTaskDefinitionCommand = async (
   input: DeleteWirelessGatewayTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateway-task-definitions/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1379,25 +1146,16 @@ export const se_DeregisterWirelessDeviceCommand = async (
   input: DeregisterWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Identifier}/deregister";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/wireless-devices/{Identifier}/deregister");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    WirelessDeviceType: [, input.WirelessDeviceType!],
+    [_WDT]: [, input[_WDT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1407,32 +1165,16 @@ export const se_DisassociateAwsAccountFromPartnerAccountCommand = async (
   input: DisassociateAwsAccountFromPartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts/{PartnerAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PartnerAccountId",
-    () => input.PartnerAccountId!,
-    "{PartnerAccountId}",
-    false
-  );
+  b.bp("/partner-accounts/{PartnerAccountId}");
+  b.p("PartnerAccountId", () => input.PartnerAccountId!, "{PartnerAccountId}", false);
   const query: any = map({
-    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
+    [_pT]: [, __expectNonNull(input[_PT]!, `PartnerType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1442,30 +1184,14 @@ export const se_DisassociateMulticastGroupFromFuotaTaskCommand = async (
   input: DisassociateMulticastGroupFromFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MulticastGroupId",
-    () => input.MulticastGroupId!,
-    "{MulticastGroupId}",
-    false
-  );
+  b.bp("/fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  b.p("MulticastGroupId", () => input.MulticastGroupId!, "{MulticastGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1475,30 +1201,14 @@ export const se_DisassociateWirelessDeviceFromFuotaTaskCommand = async (
   input: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "WirelessDeviceId",
-    () => input.WirelessDeviceId!,
-    "{WirelessDeviceId}",
-    false
-  );
+  b.bp("/fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  b.p("WirelessDeviceId", () => input.WirelessDeviceId!, "{WirelessDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1508,30 +1218,14 @@ export const se_DisassociateWirelessDeviceFromMulticastGroupCommand = async (
   input: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "WirelessDeviceId",
-    () => input.WirelessDeviceId!,
-    "{WirelessDeviceId}",
-    false
-  );
+  b.bp("/multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  b.p("WirelessDeviceId", () => input.WirelessDeviceId!, "{WirelessDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1541,21 +1235,13 @@ export const se_DisassociateWirelessDeviceFromThingCommand = async (
   input: DisassociateWirelessDeviceFromThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/thing";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}/thing");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1565,21 +1251,13 @@ export const se_DisassociateWirelessGatewayFromCertificateCommand = async (
   input: DisassociateWirelessGatewayFromCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/certificate");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1589,21 +1267,13 @@ export const se_DisassociateWirelessGatewayFromThingCommand = async (
   input: DisassociateWirelessGatewayFromThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/thing";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/thing");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1613,20 +1283,13 @@ export const se_GetDestinationCommand = async (
   input: GetDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/destinations/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1636,20 +1299,13 @@ export const se_GetDeviceProfileCommand = async (
   input: GetDeviceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/device-profiles/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1659,23 +1315,15 @@ export const se_GetEventConfigurationByResourceTypesCommand = async (
   input: GetEventConfigurationByResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations-resource-types";
+  b.bp("/event-configurations-resource-types");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1685,20 +1333,13 @@ export const se_GetFuotaTaskCommand = async (
   input: GetFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1708,22 +1349,15 @@ export const se_GetLogLevelsByResourceTypesCommand = async (
   input: GetLogLevelsByResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
+  b.bp("/log-levels");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1733,20 +1367,13 @@ export const se_GetMulticastGroupCommand = async (
   input: GetMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1756,21 +1383,13 @@ export const se_GetMulticastGroupSessionCommand = async (
   input: GetMulticastGroupSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/session");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1780,29 +1399,13 @@ export const se_GetNetworkAnalyzerConfigurationCommand = async (
   input: GetNetworkAnalyzerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/network-analyzer-configurations/{ConfigurationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationName",
-    () => input.ConfigurationName!,
-    "{ConfigurationName}",
-    false
-  );
+  b.bp("/network-analyzer-configurations/{ConfigurationName}");
+  b.p("ConfigurationName", () => input.ConfigurationName!, "{ConfigurationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1812,32 +1415,16 @@ export const se_GetPartnerAccountCommand = async (
   input: GetPartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts/{PartnerAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PartnerAccountId",
-    () => input.PartnerAccountId!,
-    "{PartnerAccountId}",
-    false
-  );
+  b.bp("/partner-accounts/{PartnerAccountId}");
+  b.p("PartnerAccountId", () => input.PartnerAccountId!, "{PartnerAccountId}", false);
   const query: any = map({
-    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
+    [_pT]: [, __expectNonNull(input[_PT]!, `PartnerType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1847,32 +1434,16 @@ export const se_GetPositionCommand = async (
   input: GetPositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/positions/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/positions/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1882,33 +1453,16 @@ export const se_GetPositionConfigurationCommand = async (
   input: GetPositionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/position-configurations/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/position-configurations/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1918,11 +1472,11 @@ export const se_GetPositionEstimateCommand = async (
   input: GetPositionEstimateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/position-estimate";
+  b.bp("/position-estimate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1933,15 +1487,8 @@ export const se_GetPositionEstimateCommand = async (
       WiFiAccessPoints: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1951,26 +1498,17 @@ export const se_GetResourceEventConfigurationCommand = async (
   input: GetResourceEventConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/event-configurations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
-    partnerType: [, input.PartnerType!],
+    [_iT]: [, __expectNonNull(input[_IT]!, `IdentifierType`)],
+    [_pT]: [, input[_PT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1980,32 +1518,16 @@ export const se_GetResourceLogLevelCommand = async (
   input: GetResourceLogLevelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/log-levels/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2015,32 +1537,16 @@ export const se_GetResourcePositionCommand = async (
   input: GetResourcePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-positions/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/resource-positions/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2050,23 +1556,15 @@ export const se_GetServiceEndpointCommand = async (
   input: GetServiceEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-endpoint";
+  b.bp("/service-endpoint");
   const query: any = map({
-    serviceType: [, input.ServiceType!],
+    [_sT]: [, input[_ST]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2076,20 +1574,13 @@ export const se_GetServiceProfileCommand = async (
   input: GetServiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/service-profiles/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2099,25 +1590,16 @@ export const se_GetWirelessDeviceCommand = async (
   input: GetWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/wireless-devices/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
+    [_iT]: [, __expectNonNull(input[_IT]!, `IdentifierType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2127,21 +1609,13 @@ export const se_GetWirelessDeviceImportTaskCommand = async (
   input: GetWirelessDeviceImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless_device_import_task/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2151,29 +1625,13 @@ export const se_GetWirelessDeviceStatisticsCommand = async (
   input: GetWirelessDeviceStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/wireless-devices/{WirelessDeviceId}/statistics";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "WirelessDeviceId",
-    () => input.WirelessDeviceId!,
-    "{WirelessDeviceId}",
-    false
-  );
+  b.bp("/wireless-devices/{WirelessDeviceId}/statistics");
+  b.p("WirelessDeviceId", () => input.WirelessDeviceId!, "{WirelessDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2183,25 +1641,16 @@ export const se_GetWirelessGatewayCommand = async (
   input: GetWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/wireless-gateways/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
+    [_iT]: [, __expectNonNull(input[_IT]!, `IdentifierType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2211,21 +1660,13 @@ export const se_GetWirelessGatewayCertificateCommand = async (
   input: GetWirelessGatewayCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/certificate");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2235,22 +1676,13 @@ export const se_GetWirelessGatewayFirmwareInformationCommand = async (
   input: GetWirelessGatewayFirmwareInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/wireless-gateways/{Id}/firmware-information";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/firmware-information");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2260,29 +1692,13 @@ export const se_GetWirelessGatewayStatisticsCommand = async (
   input: GetWirelessGatewayStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/wireless-gateways/{WirelessGatewayId}/statistics";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "WirelessGatewayId",
-    () => input.WirelessGatewayId!,
-    "{WirelessGatewayId}",
-    false
-  );
+  b.bp("/wireless-gateways/{WirelessGatewayId}/statistics");
+  b.p("WirelessGatewayId", () => input.WirelessGatewayId!, "{WirelessGatewayId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2292,21 +1708,13 @@ export const se_GetWirelessGatewayTaskCommand = async (
   input: GetWirelessGatewayTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}/tasks");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2316,21 +1724,13 @@ export const se_GetWirelessGatewayTaskDefinitionCommand = async (
   input: GetWirelessGatewayTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateway-task-definitions/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2340,24 +1740,16 @@ export const se_ListDestinationsCommand = async (
   input: ListDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations";
+  b.bp("/destinations");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2367,25 +1759,17 @@ export const se_ListDeviceProfilesCommand = async (
   input: ListDeviceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles";
+  b.bp("/device-profiles");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    deviceProfileType: [, input.DeviceProfileType!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_dPT]: [, input[_DPT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2395,27 +1779,18 @@ export const se_ListDevicesForWirelessDeviceImportTaskCommand = async (
   input: ListDevicesForWirelessDeviceImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task";
+  b.bp("/wireless_device_import_task");
   const query: any = map({
-    id: [, __expectNonNull(input.Id!, `Id`)],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    status: [, input.Status!],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_s]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2425,25 +1800,17 @@ export const se_ListEventConfigurationsCommand = async (
   input: ListEventConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations";
+  b.bp("/event-configurations");
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2453,24 +1820,16 @@ export const se_ListFuotaTasksCommand = async (
   input: ListFuotaTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks";
+  b.bp("/fuota-tasks");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2480,24 +1839,16 @@ export const se_ListMulticastGroupsCommand = async (
   input: ListMulticastGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups";
+  b.bp("/multicast-groups");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2507,26 +1858,17 @@ export const se_ListMulticastGroupsByFuotaTaskCommand = async (
   input: ListMulticastGroupsByFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/multicast-groups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}/multicast-groups");
+  b.p("Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2536,25 +1878,16 @@ export const se_ListNetworkAnalyzerConfigurationsCommand = async (
   input: ListNetworkAnalyzerConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/network-analyzer-configurations";
+  b.bp("/network-analyzer-configurations");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2564,24 +1897,16 @@ export const se_ListPartnerAccountsCommand = async (
   input: ListPartnerAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts";
+  b.bp("/partner-accounts");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2591,26 +1916,17 @@ export const se_ListPositionConfigurationsCommand = async (
   input: ListPositionConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/position-configurations";
+  b.bp("/position-configurations");
   const query: any = map({
-    resourceType: [, input.ResourceType!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_rT]: [, input[_RT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2620,27 +1936,18 @@ export const se_ListQueuedMessagesCommand = async (
   input: ListQueuedMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}/data");
+  b.p("Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    WirelessDeviceType: [, input.WirelessDeviceType!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_WDT]: [, input[_WDT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2650,24 +1957,16 @@ export const se_ListServiceProfilesCommand = async (
   input: ListServiceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles";
+  b.bp("/service-profiles");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2677,23 +1976,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    [_rA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2703,25 +1994,16 @@ export const se_ListWirelessDeviceImportTasksCommand = async (
   input: ListWirelessDeviceImportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_tasks";
+  b.bp("/wireless_device_import_tasks");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2731,30 +2013,22 @@ export const se_ListWirelessDevicesCommand = async (
   input: ListWirelessDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices";
+  b.bp("/wireless-devices");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    destinationName: [, input.DestinationName!],
-    deviceProfileId: [, input.DeviceProfileId!],
-    serviceProfileId: [, input.ServiceProfileId!],
-    wirelessDeviceType: [, input.WirelessDeviceType!],
-    fuotaTaskId: [, input.FuotaTaskId!],
-    multicastGroupId: [, input.MulticastGroupId!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_dN]: [, input[_DN]!],
+    [_dPI]: [, input[_DPI]!],
+    [_sPI]: [, input[_SPI]!],
+    [_wDT]: [, input[_WDT]!],
+    [_fTI]: [, input[_FTI]!],
+    [_mGI]: [, input[_MGI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2764,24 +2038,16 @@ export const se_ListWirelessGatewaysCommand = async (
   input: ListWirelessGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways";
+  b.bp("/wireless-gateways");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2791,26 +2057,17 @@ export const se_ListWirelessGatewayTaskDefinitionsCommand = async (
   input: ListWirelessGatewayTaskDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions";
+  b.bp("/wireless-gateway-task-definitions");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    taskDefinitionType: [, input.TaskDefinitionType!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_tDT]: [, input[_TDT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2820,23 +2077,14 @@ export const se_PutPositionConfigurationCommand = async (
   input: PutPositionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/position-configurations/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/position-configurations/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -2845,16 +2093,8 @@ export const se_PutPositionConfigurationCommand = async (
       Solvers: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2864,22 +2104,14 @@ export const se_PutResourceLogLevelCommand = async (
   input: PutResourceLogLevelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/log-levels/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -2887,16 +2119,8 @@ export const se_PutResourceLogLevelCommand = async (
       LogLevel: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2906,22 +2130,15 @@ export const se_ResetAllResourceLogLevelsCommand = async (
   input: ResetAllResourceLogLevelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
+  b.bp("/log-levels");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2931,32 +2148,16 @@ export const se_ResetResourceLogLevelCommand = async (
   input: ResetResourceLogLevelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/log-levels/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2966,13 +2167,12 @@ export const se_SendDataToMulticastGroupCommand = async (
   input: SendDataToMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/data";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/data");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2980,15 +2180,8 @@ export const se_SendDataToMulticastGroupCommand = async (
       WirelessMetadata: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2998,13 +2191,12 @@ export const se_SendDataToWirelessDeviceCommand = async (
   input: SendDataToWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}/data");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3013,15 +2205,8 @@ export const se_SendDataToWirelessDeviceCommand = async (
       WirelessMetadata: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3031,13 +2216,12 @@ export const se_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand = asyn
   input: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/bulk";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/bulk");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3045,15 +2229,8 @@ export const se_StartBulkAssociateWirelessDeviceWithMulticastGroupCommand = asyn
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3063,13 +2240,12 @@ export const se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand = a
   input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/bulk";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/bulk");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3077,15 +2253,8 @@ export const se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand = a
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3095,27 +2264,20 @@ export const se_StartFuotaTaskCommand = async (
   input: StartFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LoRaWAN: (_) => se_LoRaWANStartFuotaTask(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3125,28 +2287,20 @@ export const se_StartMulticastGroupSessionCommand = async (
   input: StartMulticastGroupSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}/session");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LoRaWAN: (_) => se_LoRaWANMulticastSession(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3156,12 +2310,11 @@ export const se_StartSingleWirelessDeviceImportTaskCommand = async (
   input: StartSingleWirelessDeviceImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_single_device_import_task";
+  b.bp("/wireless_single_device_import_task");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3172,15 +2325,8 @@ export const se_StartSingleWirelessDeviceImportTaskCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3190,12 +2336,11 @@ export const se_StartWirelessDeviceImportTaskCommand = async (
   input: StartWirelessDeviceImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task";
+  b.bp("/wireless_device_import_task");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3205,15 +2350,8 @@ export const se_StartWirelessDeviceImportTaskCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3223,13 +2361,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    [_rA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -3237,16 +2375,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3256,21 +2386,13 @@ export const se_TestWirelessDeviceCommand = async (
   input: TestWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/test";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}/test");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3280,27 +2402,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
-    tagKeys: [
+    [_rA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3310,12 +2424,12 @@ export const se_UpdateDestinationCommand = async (
   input: UpdateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/destinations/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3325,15 +2439,8 @@ export const se_UpdateDestinationCommand = async (
       RoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3343,12 +2450,11 @@ export const se_UpdateEventConfigurationByResourceTypesCommand = async (
   input: UpdateEventConfigurationByResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations-resource-types";
+  b.bp("/event-configurations-resource-types");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3359,15 +2465,8 @@ export const se_UpdateEventConfigurationByResourceTypesCommand = async (
       Proximity: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3377,12 +2476,12 @@ export const se_UpdateFuotaTaskCommand = async (
   input: UpdateFuotaTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/fuota-tasks/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3396,15 +2495,8 @@ export const se_UpdateFuotaTaskCommand = async (
       RedundancyPercent: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3414,11 +2506,11 @@ export const se_UpdateLogLevelsByResourceTypesCommand = async (
   input: UpdateLogLevelsByResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
+  b.bp("/log-levels");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3427,15 +2519,8 @@ export const se_UpdateLogLevelsByResourceTypesCommand = async (
       WirelessGatewayLogOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3445,12 +2530,12 @@ export const se_UpdateMulticastGroupCommand = async (
   input: UpdateMulticastGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/multicast-groups/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3459,15 +2544,8 @@ export const se_UpdateMulticastGroupCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3477,21 +2555,12 @@ export const se_UpdateNetworkAnalyzerConfigurationCommand = async (
   input: UpdateNetworkAnalyzerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/network-analyzer-configurations/{ConfigurationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationName",
-    () => input.ConfigurationName!,
-    "{ConfigurationName}",
-    false
-  );
+  b.bp("/network-analyzer-configurations/{ConfigurationName}");
+  b.p("ConfigurationName", () => input.ConfigurationName!, "{ConfigurationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3505,15 +2574,8 @@ export const se_UpdateNetworkAnalyzerConfigurationCommand = async (
       WirelessGatewaysToRemove: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3523,22 +2585,14 @@ export const se_UpdatePartnerAccountCommand = async (
   input: UpdatePartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts/{PartnerAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PartnerAccountId",
-    () => input.PartnerAccountId!,
-    "{PartnerAccountId}",
-    false
-  );
+  b.bp("/partner-accounts/{PartnerAccountId}");
+  b.p("PartnerAccountId", () => input.PartnerAccountId!, "{PartnerAccountId}", false);
   const query: any = map({
-    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
+    [_pT]: [, __expectNonNull(input[_PT]!, `PartnerType`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -3546,16 +2600,8 @@ export const se_UpdatePartnerAccountCommand = async (
       Sidewalk: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3565,22 +2611,14 @@ export const se_UpdatePositionCommand = async (
   input: UpdatePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/positions/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/positions/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -3588,16 +2626,8 @@ export const se_UpdatePositionCommand = async (
       Position: (_) => se_PositionCoordinate(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3607,16 +2637,15 @@ export const se_UpdateResourceEventConfigurationCommand = async (
   input: UpdateResourceEventConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/event-configurations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
-    partnerType: [, input.PartnerType!],
+    [_iT]: [, __expectNonNull(input[_IT]!, `IdentifierType`)],
+    [_pT]: [, input[_PT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -3628,16 +2657,8 @@ export const se_UpdateResourceEventConfigurationCommand = async (
       Proximity: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3647,37 +2668,21 @@ export const se_UpdateResourcePositionCommand = async (
   input: UpdateResourcePositionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-positions/{ResourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceIdentifier",
-    () => input.ResourceIdentifier!,
-    "{ResourceIdentifier}",
-    false
-  );
+  b.bp("/resource-positions/{ResourceIdentifier}");
+  b.p("ResourceIdentifier", () => input.ResourceIdentifier!, "{ResourceIdentifier}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
   if (input.GeoJsonPayload !== undefined) {
     body = input.GeoJsonPayload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3687,12 +2692,12 @@ export const se_UpdateWirelessDeviceCommand = async (
   input: UpdateWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-devices/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3703,15 +2708,8 @@ export const se_UpdateWirelessDeviceCommand = async (
       Positioning: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3721,28 +2719,20 @@ export const se_UpdateWirelessDeviceImportTaskCommand = async (
   input: UpdateWirelessDeviceImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless_device_import_task/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless_device_import_task/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Sidewalk: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3752,12 +2742,12 @@ export const se_UpdateWirelessGatewayCommand = async (
   input: UpdateWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/wireless-gateways/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3768,15 +2758,8 @@ export const se_UpdateWirelessGatewayCommand = async (
       NetIdFilters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -11091,6 +10074,46 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _DN = "DestinationName";
+const _DPI = "DeviceProfileId";
+const _DPT = "DeviceProfileType";
+const _FTI = "FuotaTaskId";
+const _I = "Id";
+const _IT = "IdentifierType";
+const _MGI = "MulticastGroupId";
+const _MI = "MessageId";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _PT = "PartnerType";
+const _RA = "ResourceArn";
+const _RT = "ResourceType";
+const _S = "Status";
+const _SPI = "ServiceProfileId";
+const _ST = "ServiceType";
+const _TDT = "TaskDefinitionType";
+const _TK = "TagKeys";
+const _WDT = "WirelessDeviceType";
+const _dN = "destinationName";
+const _dPI = "deviceProfileId";
+const _dPT = "deviceProfileType";
+const _fTI = "fuotaTaskId";
+const _i = "id";
+const _iT = "identifierType";
+const _mGI = "multicastGroupId";
+const _mI = "messageId";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _pT = "partnerType";
+const _rA = "resourceArn";
+const _rT = "resourceType";
+const _s = "status";
+const _sPI = "serviceProfileId";
+const _sT = "serviceType";
+const _tDT = "taskDefinitionType";
+const _tK = "tagKeys";
+const _wDT = "wirelessDeviceType";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -11141,3 +10164,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

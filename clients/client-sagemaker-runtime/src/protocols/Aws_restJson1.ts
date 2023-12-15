@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -50,41 +51,26 @@ export const se_InvokeEndpointCommand = async (
   input: InvokeEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.ContentType! || "application/octet-stream",
-    accept: input.Accept!,
-    "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,
-    "x-amzn-sagemaker-target-model": input.TargetModel!,
-    "x-amzn-sagemaker-target-variant": input.TargetVariant!,
-    "x-amzn-sagemaker-target-container-hostname": input.TargetContainerHostname!,
-    "x-amzn-sagemaker-inference-id": input.InferenceId!,
-    "x-amzn-sagemaker-enable-explanations": input.EnableExplanations!,
-    "x-amzn-sagemaker-inference-component": input.InferenceComponentName!,
+    [_ct]: input[_CT]! || "application/octet-stream",
+    [_a]: input[_A]!,
+    [_xasca]: input[_CA]!,
+    [_xastm]: input[_TM]!,
+    [_xastv]: input[_TV]!,
+    [_xastch]: input[_TCH]!,
+    [_xasii]: input[_II]!,
+    [_xasee]: input[_EE]!,
+    [_xasic]: input[_ICN]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoints/{EndpointName}/invocations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EndpointName",
-    () => input.EndpointName!,
-    "{EndpointName}",
-    false
-  );
+  b.bp("/endpoints/{EndpointName}/invocations");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
   let body: any;
   if (input.Body !== undefined) {
     body = input.Body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -94,43 +80,21 @@ export const se_InvokeEndpointAsyncCommand = async (
   input: InvokeEndpointAsyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amzn-sagemaker-content-type": input.ContentType!,
-    "x-amzn-sagemaker-accept": input.Accept!,
-    "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,
-    "x-amzn-sagemaker-inference-id": input.InferenceId!,
-    "x-amzn-sagemaker-inputlocation": input.InputLocation!,
-    "x-amzn-sagemaker-requestttlseconds": [
-      () => isSerializableHeaderValue(input.RequestTTLSeconds),
-      () => input.RequestTTLSeconds!.toString(),
-    ],
-    "x-amzn-sagemaker-invocationtimeoutseconds": [
-      () => isSerializableHeaderValue(input.InvocationTimeoutSeconds),
-      () => input.InvocationTimeoutSeconds!.toString(),
-    ],
+    [_xasct]: input[_CT]!,
+    [_xasa]: input[_A]!,
+    [_xasca]: input[_CA]!,
+    [_xasii]: input[_II]!,
+    [_xasi]: input[_IL]!,
+    [_xasr]: [() => isSerializableHeaderValue(input[_RTTLS]), () => input[_RTTLS]!.toString()],
+    [_xasi_]: [() => isSerializableHeaderValue(input[_ITS]), () => input[_ITS]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/endpoints/{EndpointName}/async-invocations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EndpointName",
-    () => input.EndpointName!,
-    "{EndpointName}",
-    false
-  );
+  b.bp("/endpoints/{EndpointName}/async-invocations");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -140,40 +104,24 @@ export const se_InvokeEndpointWithResponseStreamCommand = async (
   input: InvokeEndpointWithResponseStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.ContentType! || "application/octet-stream",
-    "x-amzn-sagemaker-accept": input.Accept!,
-    "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,
-    "x-amzn-sagemaker-target-variant": input.TargetVariant!,
-    "x-amzn-sagemaker-target-container-hostname": input.TargetContainerHostname!,
-    "x-amzn-sagemaker-inference-id": input.InferenceId!,
-    "x-amzn-sagemaker-inference-component": input.InferenceComponentName!,
+    [_ct]: input[_CT]! || "application/octet-stream",
+    [_xasa]: input[_A]!,
+    [_xasca]: input[_CA]!,
+    [_xastv]: input[_TV]!,
+    [_xastch]: input[_TCH]!,
+    [_xasii]: input[_II]!,
+    [_xasic]: input[_ICN]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/endpoints/{EndpointName}/invocations-response-stream";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EndpointName",
-    () => input.EndpointName!,
-    "{EndpointName}",
-    false
-  );
+  b.bp("/endpoints/{EndpointName}/invocations-response-stream");
+  b.p("EndpointName", () => input.EndpointName!, "{EndpointName}", false);
   let body: any;
   if (input.Body !== undefined) {
     body = input.Body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -188,9 +136,9 @@ export const de_InvokeEndpointCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    InvokedProductionVariant: [, output.headers["x-amzn-invoked-production-variant"]],
-    CustomAttributes: [, output.headers["x-amzn-sagemaker-custom-attributes"]],
+    [_CT]: [, output.headers[_ct]],
+    [_IPV]: [, output.headers[_xaipv]],
+    [_CA]: [, output.headers[_xasca]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Body = data;
@@ -250,8 +198,8 @@ export const de_InvokeEndpointAsyncCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    OutputLocation: [, output.headers["x-amzn-sagemaker-outputlocation"]],
-    FailureLocation: [, output.headers["x-amzn-sagemaker-failurelocation"]],
+    [_OL]: [, output.headers[_xaso]],
+    [_FL]: [, output.headers[_xasf]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -305,9 +253,9 @@ export const de_InvokeEndpointWithResponseStreamCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["x-amzn-sagemaker-content-type"]],
-    InvokedProductionVariant: [, output.headers["x-amzn-invoked-production-variant"]],
-    CustomAttributes: [, output.headers["x-amzn-sagemaker-custom-attributes"]],
+    [_CT]: [, output.headers[_xasct]],
+    [_IPV]: [, output.headers[_xaipv]],
+    [_CA]: [, output.headers[_xasca]],
   });
   const data: any = output.body;
   contents.Body = de_ResponseStream(data, context);
@@ -569,6 +517,40 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _A = "Accept";
+const _CA = "CustomAttributes";
+const _CT = "ContentType";
+const _EE = "EnableExplanations";
+const _FL = "FailureLocation";
+const _ICN = "InferenceComponentName";
+const _II = "InferenceId";
+const _IL = "InputLocation";
+const _IPV = "InvokedProductionVariant";
+const _ITS = "InvocationTimeoutSeconds";
+const _OL = "OutputLocation";
+const _RTTLS = "RequestTTLSeconds";
+const _TCH = "TargetContainerHostname";
+const _TM = "TargetModel";
+const _TV = "TargetVariant";
+const _a = "accept";
+const _ct = "content-type";
+const _xaipv = "x-amzn-invoked-production-variant";
+const _xasa = "x-amzn-sagemaker-accept";
+const _xasca = "x-amzn-sagemaker-custom-attributes";
+const _xasct = "x-amzn-sagemaker-content-type";
+const _xasee = "x-amzn-sagemaker-enable-explanations";
+const _xasf = "x-amzn-sagemaker-failurelocation";
+const _xasi = "x-amzn-sagemaker-inputlocation";
+const _xasi_ = "x-amzn-sagemaker-invocationtimeoutseconds";
+const _xasic = "x-amzn-sagemaker-inference-component";
+const _xasii = "x-amzn-sagemaker-inference-id";
+const _xaso = "x-amzn-sagemaker-outputlocation";
+const _xasr = "x-amzn-sagemaker-requestttlseconds";
+const _xastch = "x-amzn-sagemaker-target-container-hostname";
+const _xastm = "x-amzn-sagemaker-target-model";
+const _xastv = "x-amzn-sagemaker-target-variant";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -619,3 +601,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

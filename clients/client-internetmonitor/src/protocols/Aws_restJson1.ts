@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -75,11 +76,11 @@ export const se_CreateMonitorCommand = async (
   input: CreateMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors";
+  b.bp("/v20210603/Monitors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -93,15 +94,8 @@ export const se_CreateMonitorCommand = async (
       TrafficPercentageToMonitor: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -111,21 +105,13 @@ export const se_DeleteMonitorCommand = async (
   input: DeleteMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -135,23 +121,14 @@ export const se_GetHealthEventCommand = async (
   input: GetHealthEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "EventId", () => input.EventId!, "{EventId}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("EventId", () => input.EventId!, "{EventId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -161,21 +138,13 @@ export const se_GetMonitorCommand = async (
   input: GetMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -185,28 +154,18 @@ export const se_GetQueryResultsCommand = async (
   input: GetQueryResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueryId", () => input.QueryId!, "{QueryId}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("QueryId", () => input.QueryId!, "{QueryId}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -216,23 +175,14 @@ export const se_GetQueryStatusCommand = async (
   input: GetQueryStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueryId", () => input.QueryId!, "{QueryId}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("QueryId", () => input.QueryId!, "{QueryId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -242,33 +192,20 @@ export const se_ListHealthEventsCommand = async (
   input: ListHealthEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/HealthEvents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/HealthEvents");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   const query: any = map({
-    StartTime: [
-      () => input.StartTime !== void 0,
-      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    EndTime: [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    EventStatus: [, input.EventStatus!],
+    [_ST]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ET]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_ES]: [, input[_ES]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -278,25 +215,17 @@ export const se_ListMonitorsCommand = async (
   input: ListMonitorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors";
+  b.bp("/v20210603/Monitors");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    MonitorStatus: [, input.MonitorStatus!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_MS]: [, input[_MS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -306,20 +235,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -329,13 +251,12 @@ export const se_StartQueryCommand = async (
   input: StartQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}/Queries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -345,15 +266,8 @@ export const se_StartQueryCommand = async (
       StartTime: (_) => _.toISOString().split(".")[0] + "Z",
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -363,23 +277,14 @@ export const se_StopQueryCommand = async (
   input: StopQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/Queries/{QueryId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueryId", () => input.QueryId!, "{QueryId}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries/{QueryId}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("QueryId", () => input.QueryId!, "{QueryId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -389,27 +294,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -419,27 +317,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -449,13 +339,12 @@ export const se_UpdateMonitorCommand = async (
   input: UpdateMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -469,15 +358,8 @@ export const se_UpdateMonitorCommand = async (
       TrafficPercentageToMonitor: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1729,6 +1611,16 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _ES = "EventStatus";
+const _ET = "EndTime";
+const _MR = "MaxResults";
+const _MS = "MonitorStatus";
+const _NT = "NextToken";
+const _ST = "StartTime";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1779,3 +1671,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

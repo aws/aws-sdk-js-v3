@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -248,12 +249,11 @@ export const se_AddDraftAppVersionResourceMappingsCommand = async (
   input: AddDraftAppVersionResourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/add-draft-app-version-resource-mappings";
+  b.bp("/add-draft-app-version-resource-mappings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -261,15 +261,8 @@ export const se_AddDraftAppVersionResourceMappingsCommand = async (
       resourceMappings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -279,12 +272,11 @@ export const se_BatchUpdateRecommendationStatusCommand = async (
   input: BatchUpdateRecommendationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batch-update-recommendation-status";
+  b.bp("/batch-update-recommendation-status");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -292,15 +284,8 @@ export const se_BatchUpdateRecommendationStatusCommand = async (
       requestEntries: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,11 +295,11 @@ export const se_CreateAppCommand = async (
   input: CreateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app";
+  b.bp("/create-app");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -328,15 +313,8 @@ export const se_CreateAppCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -346,12 +324,11 @@ export const se_CreateAppVersionAppComponentCommand = async (
   input: CreateAppVersionAppComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app-version-app-component";
+  b.bp("/create-app-version-app-component");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -363,15 +340,8 @@ export const se_CreateAppVersionAppComponentCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -381,12 +351,11 @@ export const se_CreateAppVersionResourceCommand = async (
   input: CreateAppVersionResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app-version-resource";
+  b.bp("/create-app-version-resource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -402,15 +371,8 @@ export const se_CreateAppVersionResourceCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -420,12 +382,11 @@ export const se_CreateRecommendationTemplateCommand = async (
   input: CreateRecommendationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-recommendation-template";
+  b.bp("/create-recommendation-template");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -439,15 +400,8 @@ export const se_CreateRecommendationTemplateCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -457,12 +411,11 @@ export const se_CreateResiliencyPolicyCommand = async (
   input: CreateResiliencyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-resiliency-policy";
+  b.bp("/create-resiliency-policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -475,15 +428,8 @@ export const se_CreateResiliencyPolicyCommand = async (
       tier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -493,11 +439,11 @@ export const se_DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app";
+  b.bp("/delete-app");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -506,15 +452,8 @@ export const se_DeleteAppCommand = async (
       forceDelete: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -524,11 +463,11 @@ export const se_DeleteAppAssessmentCommand = async (
   input: DeleteAppAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-assessment";
+  b.bp("/delete-app-assessment");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -536,15 +475,8 @@ export const se_DeleteAppAssessmentCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -554,12 +486,11 @@ export const se_DeleteAppInputSourceCommand = async (
   input: DeleteAppInputSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-input-source";
+  b.bp("/delete-app-input-source");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -570,15 +501,8 @@ export const se_DeleteAppInputSourceCommand = async (
       terraformSource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -588,12 +512,11 @@ export const se_DeleteAppVersionAppComponentCommand = async (
   input: DeleteAppVersionAppComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-version-app-component";
+  b.bp("/delete-app-version-app-component");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -602,15 +525,8 @@ export const se_DeleteAppVersionAppComponentCommand = async (
       id: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -620,12 +536,11 @@ export const se_DeleteAppVersionResourceCommand = async (
   input: DeleteAppVersionResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-version-resource";
+  b.bp("/delete-app-version-resource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -638,15 +553,8 @@ export const se_DeleteAppVersionResourceCommand = async (
       resourceName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -656,12 +564,11 @@ export const se_DeleteRecommendationTemplateCommand = async (
   input: DeleteRecommendationTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-recommendation-template";
+  b.bp("/delete-recommendation-template");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -669,15 +576,8 @@ export const se_DeleteRecommendationTemplateCommand = async (
       recommendationTemplateArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -687,12 +587,11 @@ export const se_DeleteResiliencyPolicyCommand = async (
   input: DeleteResiliencyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-resiliency-policy";
+  b.bp("/delete-resiliency-policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -700,15 +599,8 @@ export const se_DeleteResiliencyPolicyCommand = async (
       policyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -718,26 +610,19 @@ export const se_DescribeAppCommand = async (
   input: DescribeAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app";
+  b.bp("/describe-app");
   let body: any;
   body = JSON.stringify(
     take(input, {
       appArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -747,27 +632,19 @@ export const se_DescribeAppAssessmentCommand = async (
   input: DescribeAppAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-assessment";
+  b.bp("/describe-app-assessment");
   let body: any;
   body = JSON.stringify(
     take(input, {
       assessmentArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -777,11 +654,11 @@ export const se_DescribeAppVersionCommand = async (
   input: DescribeAppVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version";
+  b.bp("/describe-app-version");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -789,15 +666,8 @@ export const se_DescribeAppVersionCommand = async (
       appVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -807,12 +677,11 @@ export const se_DescribeAppVersionAppComponentCommand = async (
   input: DescribeAppVersionAppComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-app-component";
+  b.bp("/describe-app-version-app-component");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -821,15 +690,8 @@ export const se_DescribeAppVersionAppComponentCommand = async (
       id: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -839,12 +701,11 @@ export const se_DescribeAppVersionResourceCommand = async (
   input: DescribeAppVersionResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-resource";
+  b.bp("/describe-app-version-resource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -857,15 +718,8 @@ export const se_DescribeAppVersionResourceCommand = async (
       resourceName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -875,13 +729,11 @@ export const se_DescribeAppVersionResourcesResolutionStatusCommand = async (
   input: DescribeAppVersionResourcesResolutionStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/describe-app-version-resources-resolution-status";
+  b.bp("/describe-app-version-resources-resolution-status");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -890,15 +742,8 @@ export const se_DescribeAppVersionResourcesResolutionStatusCommand = async (
       resolutionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -908,12 +753,11 @@ export const se_DescribeAppVersionTemplateCommand = async (
   input: DescribeAppVersionTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-template";
+  b.bp("/describe-app-version-template");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -921,15 +765,8 @@ export const se_DescribeAppVersionTemplateCommand = async (
       appVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -939,28 +776,19 @@ export const se_DescribeDraftAppVersionResourcesImportStatusCommand = async (
   input: DescribeDraftAppVersionResourcesImportStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/describe-draft-app-version-resources-import-status";
+  b.bp("/describe-draft-app-version-resources-import-status");
   let body: any;
   body = JSON.stringify(
     take(input, {
       appArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -970,27 +798,19 @@ export const se_DescribeResiliencyPolicyCommand = async (
   input: DescribeResiliencyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-resiliency-policy";
+  b.bp("/describe-resiliency-policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
       policyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1000,12 +820,11 @@ export const se_ImportResourcesToDraftAppVersionCommand = async (
   input: ImportResourcesToDraftAppVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import-resources-to-draft-app-version";
+  b.bp("/import-resources-to-draft-app-version");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1016,15 +835,8 @@ export const se_ImportResourcesToDraftAppVersionCommand = async (
       terraformSources: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1034,12 +846,11 @@ export const se_ListAlarmRecommendationsCommand = async (
   input: ListAlarmRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-alarm-recommendations";
+  b.bp("/list-alarm-recommendations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1048,15 +859,8 @@ export const se_ListAlarmRecommendationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1066,12 +870,11 @@ export const se_ListAppAssessmentComplianceDriftsCommand = async (
   input: ListAppAssessmentComplianceDriftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-assessment-compliance-drifts";
+  b.bp("/list-app-assessment-compliance-drifts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1080,15 +883,8 @@ export const se_ListAppAssessmentComplianceDriftsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1098,33 +894,22 @@ export const se_ListAppAssessmentsCommand = async (
   input: ListAppAssessmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-assessments";
+  b.bp("/list-app-assessments");
   const query: any = map({
-    appArn: [, input.appArn!],
-    assessmentName: [, input.assessmentName!],
-    assessmentStatus: [
-      () => input.assessmentStatus !== void 0,
-      () => (input.assessmentStatus! || []).map((_entry) => _entry as any),
-    ],
-    complianceStatus: [, input.complianceStatus!],
-    invoker: [, input.invoker!],
-    reverseOrder: [() => input.reverseOrder !== void 0, () => input.reverseOrder!.toString()],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_aA]: [, input[_aA]!],
+    [_aN]: [, input[_aN]!],
+    [_aS]: [() => input.assessmentStatus !== void 0, () => (input[_aS]! || []).map((_entry) => _entry as any)],
+    [_cS]: [, input[_cS]!],
+    [_i]: [, input[_i]!],
+    [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1134,12 +919,11 @@ export const se_ListAppComponentCompliancesCommand = async (
   input: ListAppComponentCompliancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-compliances";
+  b.bp("/list-app-component-compliances");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1148,15 +932,8 @@ export const se_ListAppComponentCompliancesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1166,12 +943,11 @@ export const se_ListAppComponentRecommendationsCommand = async (
   input: ListAppComponentRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-recommendations";
+  b.bp("/list-app-component-recommendations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1180,15 +956,8 @@ export const se_ListAppComponentRecommendationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1198,12 +967,11 @@ export const se_ListAppInputSourcesCommand = async (
   input: ListAppInputSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-input-sources";
+  b.bp("/list-app-input-sources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1213,15 +981,8 @@ export const se_ListAppInputSourcesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1231,35 +992,27 @@ export const se_ListAppsCommand = async (
   input: ListAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-apps";
+  b.bp("/list-apps");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    name: [, input.name!],
-    appArn: [, input.appArn!],
-    fromLastAssessmentTime: [
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_n]: [, input[_n]!],
+    [_aA]: [, input[_aA]!],
+    [_fLAT]: [
       () => input.fromLastAssessmentTime !== void 0,
-      () => (input.fromLastAssessmentTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_fLAT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    toLastAssessmentTime: [
+    [_tLAT]: [
       () => input.toLastAssessmentTime !== void 0,
-      () => (input.toLastAssessmentTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_tLAT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    reverseOrder: [() => input.reverseOrder !== void 0, () => input.reverseOrder!.toString()],
+    [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1269,12 +1022,11 @@ export const se_ListAppVersionAppComponentsCommand = async (
   input: ListAppVersionAppComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-app-components";
+  b.bp("/list-app-version-app-components");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1284,15 +1036,8 @@ export const se_ListAppVersionAppComponentsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1302,12 +1047,11 @@ export const se_ListAppVersionResourceMappingsCommand = async (
   input: ListAppVersionResourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resource-mappings";
+  b.bp("/list-app-version-resource-mappings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1317,15 +1061,8 @@ export const se_ListAppVersionResourceMappingsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1335,12 +1072,11 @@ export const se_ListAppVersionResourcesCommand = async (
   input: ListAppVersionResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resources";
+  b.bp("/list-app-version-resources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1351,15 +1087,8 @@ export const se_ListAppVersionResourcesCommand = async (
       resolutionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1369,11 +1098,11 @@ export const se_ListAppVersionsCommand = async (
   input: ListAppVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-versions";
+  b.bp("/list-app-versions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1384,15 +1113,8 @@ export const se_ListAppVersionsCommand = async (
       startTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1402,30 +1124,21 @@ export const se_ListRecommendationTemplatesCommand = async (
   input: ListRecommendationTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-recommendation-templates";
+  b.bp("/list-recommendation-templates");
   const query: any = map({
-    assessmentArn: [, __expectNonNull(input.assessmentArn!, `assessmentArn`)],
-    reverseOrder: [() => input.reverseOrder !== void 0, () => input.reverseOrder!.toString()],
-    status: [() => input.status !== void 0, () => (input.status! || []).map((_entry) => _entry as any)],
-    recommendationTemplateArn: [, input.recommendationTemplateArn!],
-    name: [, input.name!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_aAs]: [, __expectNonNull(input[_aAs]!, `assessmentArn`)],
+    [_rO]: [() => input.reverseOrder !== void 0, () => input[_rO]!.toString()],
+    [_s]: [() => input.status !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_rTA]: [, input[_rTA]!],
+    [_n]: [, input[_n]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1435,26 +1148,17 @@ export const se_ListResiliencyPoliciesCommand = async (
   input: ListResiliencyPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-resiliency-policies";
+  b.bp("/list-resiliency-policies");
   const query: any = map({
-    policyName: [, input.policyName!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_pN]: [, input[_pN]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1464,12 +1168,11 @@ export const se_ListSopRecommendationsCommand = async (
   input: ListSopRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-sop-recommendations";
+  b.bp("/list-sop-recommendations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1478,15 +1181,8 @@ export const se_ListSopRecommendationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1496,25 +1192,16 @@ export const se_ListSuggestedResiliencyPoliciesCommand = async (
   input: ListSuggestedResiliencyPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-suggested-resiliency-policies";
+  b.bp("/list-suggested-resiliency-policies");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1524,20 +1211,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1547,12 +1227,11 @@ export const se_ListTestRecommendationsCommand = async (
   input: ListTestRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-test-recommendations";
+  b.bp("/list-test-recommendations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1561,15 +1240,8 @@ export const se_ListTestRecommendationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1579,12 +1251,11 @@ export const se_ListUnsupportedAppVersionResourcesCommand = async (
   input: ListUnsupportedAppVersionResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-unsupported-app-version-resources";
+  b.bp("/list-unsupported-app-version-resources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1595,15 +1266,8 @@ export const se_ListUnsupportedAppVersionResourcesCommand = async (
       resolutionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1613,11 +1277,11 @@ export const se_PublishAppVersionCommand = async (
   input: PublishAppVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/publish-app-version";
+  b.bp("/publish-app-version");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1625,15 +1289,8 @@ export const se_PublishAppVersionCommand = async (
       versionName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1643,12 +1300,11 @@ export const se_PutDraftAppVersionTemplateCommand = async (
   input: PutDraftAppVersionTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-draft-app-version-template";
+  b.bp("/put-draft-app-version-template");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1656,15 +1312,8 @@ export const se_PutDraftAppVersionTemplateCommand = async (
       appTemplateBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1674,13 +1323,11 @@ export const se_RemoveDraftAppVersionResourceMappingsCommand = async (
   input: RemoveDraftAppVersionResourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/remove-draft-app-version-resource-mappings";
+  b.bp("/remove-draft-app-version-resource-mappings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1693,15 +1340,8 @@ export const se_RemoveDraftAppVersionResourceMappingsCommand = async (
       terraformSourceNames: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1711,12 +1351,11 @@ export const se_ResolveAppVersionResourcesCommand = async (
   input: ResolveAppVersionResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resolve-app-version-resources";
+  b.bp("/resolve-app-version-resources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1724,15 +1363,8 @@ export const se_ResolveAppVersionResourcesCommand = async (
       appVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1742,11 +1374,11 @@ export const se_StartAppAssessmentCommand = async (
   input: StartAppAssessmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-app-assessment";
+  b.bp("/start-app-assessment");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1757,15 +1389,8 @@ export const se_StartAppAssessmentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1775,27 +1400,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1805,27 +1423,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1835,11 +1445,11 @@ export const se_UpdateAppCommand = async (
   input: UpdateAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app";
+  b.bp("/update-app");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1852,15 +1462,8 @@ export const se_UpdateAppCommand = async (
       policyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1870,11 +1473,11 @@ export const se_UpdateAppVersionCommand = async (
   input: UpdateAppVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app-version";
+  b.bp("/update-app-version");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1882,15 +1485,8 @@ export const se_UpdateAppVersionCommand = async (
       appArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1900,12 +1496,11 @@ export const se_UpdateAppVersionAppComponentCommand = async (
   input: UpdateAppVersionAppComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app-version-app-component";
+  b.bp("/update-app-version-app-component");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1916,15 +1511,8 @@ export const se_UpdateAppVersionAppComponentCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1934,12 +1522,11 @@ export const se_UpdateAppVersionResourceCommand = async (
   input: UpdateAppVersionResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app-version-resource";
+  b.bp("/update-app-version-resource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1955,15 +1542,8 @@ export const se_UpdateAppVersionResourceCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1973,12 +1553,11 @@ export const se_UpdateResiliencyPolicyCommand = async (
   input: UpdateResiliencyPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-resiliency-policy";
+  b.bp("/update-resiliency-policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1990,15 +1569,8 @@ export const se_UpdateResiliencyPolicyCommand = async (
       tier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6023,6 +5595,24 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _aA = "appArn";
+const _aAs = "assessmentArn";
+const _aN = "assessmentName";
+const _aS = "assessmentStatus";
+const _cS = "complianceStatus";
+const _fLAT = "fromLastAssessmentTime";
+const _i = "invoker";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _pN = "policyName";
+const _rO = "reverseOrder";
+const _rTA = "recommendationTemplateArn";
+const _s = "status";
+const _tK = "tagKeys";
+const _tLAT = "toLastAssessmentTime";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -6073,3 +5663,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

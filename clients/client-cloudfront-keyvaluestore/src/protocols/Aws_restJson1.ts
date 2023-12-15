@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -51,24 +52,16 @@ export const se_DeleteKeyCommand = async (
   input: DeleteKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/key-value-stores/{KvsARN}/keys/{Key}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KvsARN", () => input.KvsARN!, "{KvsARN}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key}", false);
+  b.bp("/key-value-stores/{KvsARN}/keys/{Key}");
+  b.p("KvsARN", () => input.KvsARN!, "{KvsARN}", false);
+  b.p("Key", () => input.Key!, "{Key}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -78,43 +71,27 @@ export const se_DescribeKeyValueStoreCommand = async (
   input: DescribeKeyValueStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/key-value-stores/{KvsARN}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KvsARN", () => input.KvsARN!, "{KvsARN}", false);
+  b.bp("/key-value-stores/{KvsARN}");
+  b.p("KvsARN", () => input.KvsARN!, "{KvsARN}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1GetKeyCommand
  */
 export const se_GetKeyCommand = async (input: GetKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/key-value-stores/{KvsARN}/keys/{Key}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KvsARN", () => input.KvsARN!, "{KvsARN}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key}", false);
+  b.bp("/key-value-stores/{KvsARN}/keys/{Key}");
+  b.p("KvsARN", () => input.KvsARN!, "{KvsARN}", false);
+  b.p("Key", () => input.Key!, "{Key}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -124,56 +101,39 @@ export const se_ListKeysCommand = async (
   input: ListKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/key-value-stores/{KvsARN}/keys";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KvsARN", () => input.KvsARN!, "{KvsARN}", false);
+  b.bp("/key-value-stores/{KvsARN}/keys");
+  b.p("KvsARN", () => input.KvsARN!, "{KvsARN}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1PutKeyCommand
  */
 export const se_PutKeyCommand = async (input: PutKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/key-value-stores/{KvsARN}/keys/{Key}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "KvsARN", () => input.KvsARN!, "{KvsARN}", false);
+  b.bp("/key-value-stores/{KvsARN}/keys/{Key}");
+  b.p("Key", () => input.Key!, "{Key}", false);
+  b.p("KvsARN", () => input.KvsARN!, "{KvsARN}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Value: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -183,14 +143,13 @@ export const se_UpdateKeysCommand = async (
   input: UpdateKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/key-value-stores/{KvsARN}/keys";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KvsARN", () => input.KvsARN!, "{KvsARN}", false);
+  b.bp("/key-value-stores/{KvsARN}/keys");
+  b.p("KvsARN", () => input.KvsARN!, "{KvsARN}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -198,15 +157,8 @@ export const se_UpdateKeysCommand = async (
       Puts: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -221,7 +173,7 @@ export const de_DeleteKeyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -285,7 +237,7 @@ export const de_DescribeKeyValueStoreCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -462,7 +414,7 @@ export const de_PutKeyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -523,7 +475,7 @@ export const de_UpdateKeysCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -721,6 +673,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _ET = "ETag";
+const _IM = "IfMatch";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _e = "etag";
+const _im = "if-match";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -771,3 +731,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

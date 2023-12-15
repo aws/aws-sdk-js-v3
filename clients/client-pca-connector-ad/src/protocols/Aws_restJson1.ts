@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -151,11 +152,11 @@ export const se_CreateConnectorCommand = async (
   input: CreateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connectors";
+  b.bp("/connectors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -166,15 +167,8 @@ export const se_CreateConnectorCommand = async (
       VpcInformation: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -184,12 +178,11 @@ export const se_CreateDirectoryRegistrationCommand = async (
   input: CreateDirectoryRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/directoryRegistrations";
+  b.bp("/directoryRegistrations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -198,15 +191,8 @@ export const se_CreateDirectoryRegistrationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -216,44 +202,21 @@ export const se_CreateServicePrincipalNameCommand = async (
   input: CreateServicePrincipalNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DirectoryRegistrationArn",
-    () => input.DirectoryRegistrationArn!,
-    "{DirectoryRegistrationArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorArn",
-    () => input.ConnectorArn!,
-    "{ConnectorArn}",
-    false
-  );
+  b.bp("/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}");
+  b.p("DirectoryRegistrationArn", () => input.DirectoryRegistrationArn!, "{DirectoryRegistrationArn}", false);
+  b.p("ConnectorArn", () => input.ConnectorArn!, "{ConnectorArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -263,11 +226,11 @@ export const se_CreateTemplateCommand = async (
   input: CreateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates";
+  b.bp("/templates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -278,15 +241,8 @@ export const se_CreateTemplateCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -296,14 +252,12 @@ export const se_CreateTemplateGroupAccessControlEntryCommand = async (
   input: CreateTemplateGroupAccessControlEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/templates/{TemplateArn}/accessControlEntries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.bp("/templates/{TemplateArn}/accessControlEntries");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -313,15 +267,8 @@ export const se_CreateTemplateGroupAccessControlEntryCommand = async (
       GroupSecurityIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -331,28 +278,13 @@ export const se_DeleteConnectorCommand = async (
   input: DeleteConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connectors/{ConnectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorArn",
-    () => input.ConnectorArn!,
-    "{ConnectorArn}",
-    false
-  );
+  b.bp("/connectors/{ConnectorArn}");
+  b.p("ConnectorArn", () => input.ConnectorArn!, "{ConnectorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -362,29 +294,13 @@ export const se_DeleteDirectoryRegistrationCommand = async (
   input: DeleteDirectoryRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/directoryRegistrations/{DirectoryRegistrationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DirectoryRegistrationArn",
-    () => input.DirectoryRegistrationArn!,
-    "{DirectoryRegistrationArn}",
-    false
-  );
+  b.bp("/directoryRegistrations/{DirectoryRegistrationArn}");
+  b.p("DirectoryRegistrationArn", () => input.DirectoryRegistrationArn!, "{DirectoryRegistrationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -394,37 +310,14 @@ export const se_DeleteServicePrincipalNameCommand = async (
   input: DeleteServicePrincipalNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DirectoryRegistrationArn",
-    () => input.DirectoryRegistrationArn!,
-    "{DirectoryRegistrationArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorArn",
-    () => input.ConnectorArn!,
-    "{ConnectorArn}",
-    false
-  );
+  b.bp("/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}");
+  b.p("DirectoryRegistrationArn", () => input.DirectoryRegistrationArn!, "{DirectoryRegistrationArn}", false);
+  b.p("ConnectorArn", () => input.ConnectorArn!, "{ConnectorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -434,20 +327,13 @@ export const se_DeleteTemplateCommand = async (
   input: DeleteTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/{TemplateArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.bp("/templates/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -457,30 +343,14 @@ export const se_DeleteTemplateGroupAccessControlEntryCommand = async (
   input: DeleteTemplateGroupAccessControlEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupSecurityIdentifier",
-    () => input.GroupSecurityIdentifier!,
-    "{GroupSecurityIdentifier}",
-    false
-  );
+  b.bp("/templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("GroupSecurityIdentifier", () => input.GroupSecurityIdentifier!, "{GroupSecurityIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -490,28 +360,13 @@ export const se_GetConnectorCommand = async (
   input: GetConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connectors/{ConnectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorArn",
-    () => input.ConnectorArn!,
-    "{ConnectorArn}",
-    false
-  );
+  b.bp("/connectors/{ConnectorArn}");
+  b.p("ConnectorArn", () => input.ConnectorArn!, "{ConnectorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -521,29 +376,13 @@ export const se_GetDirectoryRegistrationCommand = async (
   input: GetDirectoryRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/directoryRegistrations/{DirectoryRegistrationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DirectoryRegistrationArn",
-    () => input.DirectoryRegistrationArn!,
-    "{DirectoryRegistrationArn}",
-    false
-  );
+  b.bp("/directoryRegistrations/{DirectoryRegistrationArn}");
+  b.p("DirectoryRegistrationArn", () => input.DirectoryRegistrationArn!, "{DirectoryRegistrationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -553,37 +392,14 @@ export const se_GetServicePrincipalNameCommand = async (
   input: GetServicePrincipalNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DirectoryRegistrationArn",
-    () => input.DirectoryRegistrationArn!,
-    "{DirectoryRegistrationArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorArn",
-    () => input.ConnectorArn!,
-    "{ConnectorArn}",
-    false
-  );
+  b.bp("/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames/{ConnectorArn}");
+  b.p("DirectoryRegistrationArn", () => input.DirectoryRegistrationArn!, "{DirectoryRegistrationArn}", false);
+  b.p("ConnectorArn", () => input.ConnectorArn!, "{ConnectorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -593,20 +409,13 @@ export const se_GetTemplateCommand = async (
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/{TemplateArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.bp("/templates/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -616,30 +425,14 @@ export const se_GetTemplateGroupAccessControlEntryCommand = async (
   input: GetTemplateGroupAccessControlEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupSecurityIdentifier",
-    () => input.GroupSecurityIdentifier!,
-    "{GroupSecurityIdentifier}",
-    false
-  );
+  b.bp("/templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("GroupSecurityIdentifier", () => input.GroupSecurityIdentifier!, "{GroupSecurityIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -649,24 +442,16 @@ export const se_ListConnectorsCommand = async (
   input: ListConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connectors";
+  b.bp("/connectors");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -676,25 +461,16 @@ export const se_ListDirectoryRegistrationsCommand = async (
   input: ListDirectoryRegistrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/directoryRegistrations";
+  b.bp("/directoryRegistrations");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -704,34 +480,17 @@ export const se_ListServicePrincipalNamesCommand = async (
   input: ListServicePrincipalNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DirectoryRegistrationArn",
-    () => input.DirectoryRegistrationArn!,
-    "{DirectoryRegistrationArn}",
-    false
-  );
+  b.bp("/directoryRegistrations/{DirectoryRegistrationArn}/servicePrincipalNames");
+  b.p("DirectoryRegistrationArn", () => input.DirectoryRegistrationArn!, "{DirectoryRegistrationArn}", false);
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -741,20 +500,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -764,27 +516,17 @@ export const se_ListTemplateGroupAccessControlEntriesCommand = async (
   input: ListTemplateGroupAccessControlEntriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/templates/{TemplateArn}/accessControlEntries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.bp("/templates/{TemplateArn}/accessControlEntries");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -794,25 +536,17 @@ export const se_ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates";
+  b.bp("/templates");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
-    ConnectorArn: [, __expectNonNull(input.ConnectorArn!, `ConnectorArn`)],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_CA]: [, __expectNonNull(input[_CA]!, `ConnectorArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -822,27 +556,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -852,27 +579,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -882,12 +601,12 @@ export const se_UpdateTemplateCommand = async (
   input: UpdateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/{TemplateArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.bp("/templates/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -895,15 +614,8 @@ export const se_UpdateTemplateCommand = async (
       ReenrollAllCertificateHolders: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -913,22 +625,13 @@ export const se_UpdateTemplateGroupAccessControlEntryCommand = async (
   input: UpdateTemplateGroupAccessControlEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupSecurityIdentifier",
-    () => input.GroupSecurityIdentifier!,
-    "{GroupSecurityIdentifier}",
-    false
-  );
+  b.bp("/templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("GroupSecurityIdentifier", () => input.GroupSecurityIdentifier!, "{GroupSecurityIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -936,15 +639,8 @@ export const se_UpdateTemplateGroupAccessControlEntryCommand = async (
       GroupDisplayName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2942,6 +2638,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CA = "ConnectorArn";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2992,3 +2695,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

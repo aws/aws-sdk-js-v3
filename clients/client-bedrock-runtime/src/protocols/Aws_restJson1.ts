@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -46,26 +47,19 @@ export const se_InvokeModelCommand = async (
   input: InvokeModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
-    accept: input.accept!,
+    [_ct]: input[_cT]! || "application/octet-stream",
+    [_a]: input[_a]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/model/{modelId}/invoke";
-  resolvedPath = __resolvedPath(resolvedPath, input, "modelId", () => input.modelId!, "{modelId}", false);
+  b.bp("/model/{modelId}/invoke");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -75,28 +69,19 @@ export const se_InvokeModelWithResponseStreamCommand = async (
   input: InvokeModelWithResponseStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
-    "x-amzn-bedrock-accept": input.accept!,
+    [_ct]: input[_cT]! || "application/octet-stream",
+    [_xaba]: input[_a]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/model/{modelId}/invoke-with-response-stream";
-  resolvedPath = __resolvedPath(resolvedPath, input, "modelId", () => input.modelId!, "{modelId}", false);
+  b.bp("/model/{modelId}/invoke-with-response-stream");
+  b.p("modelId", () => input.modelId!, "{modelId}", false);
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -111,7 +96,7 @@ export const de_InvokeModelCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.body = data;
@@ -180,7 +165,7 @@ export const de_InvokeModelWithResponseStreamCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["x-amzn-bedrock-content-type"]],
+    [_cT]: [, output.headers[_xabct]],
   });
   const data: any = output.body;
   contents.body = de_ResponseStream(data, context);
@@ -555,6 +540,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _a = "accept";
+const _cT = "contentType";
+const _ct = "content-type";
+const _xaba = "x-amzn-bedrock-accept";
+const _xabct = "x-amzn-bedrock-content-type";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -605,3 +597,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

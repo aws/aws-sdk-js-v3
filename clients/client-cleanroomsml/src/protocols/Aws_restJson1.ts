@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -145,11 +146,11 @@ export const se_CreateAudienceModelCommand = async (
   input: CreateAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-model";
+  b.bp("/audience-model");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -162,15 +163,8 @@ export const se_CreateAudienceModelCommand = async (
       trainingDatasetArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -180,12 +174,11 @@ export const se_CreateConfiguredAudienceModelCommand = async (
   input: CreateConfiguredAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configured-audience-model";
+  b.bp("/configured-audience-model");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -200,15 +193,8 @@ export const se_CreateConfiguredAudienceModelCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -218,11 +204,11 @@ export const se_CreateTrainingDatasetCommand = async (
   input: CreateTrainingDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/training-dataset";
+  b.bp("/training-dataset");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -233,15 +219,8 @@ export const se_CreateTrainingDatasetCommand = async (
       trainingData: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -251,29 +230,13 @@ export const se_DeleteAudienceGenerationJobCommand = async (
   input: DeleteAudienceGenerationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/audience-generation-job/{audienceGenerationJobArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "audienceGenerationJobArn",
-    () => input.audienceGenerationJobArn!,
-    "{audienceGenerationJobArn}",
-    false
-  );
+  b.bp("/audience-generation-job/{audienceGenerationJobArn}");
+  b.p("audienceGenerationJobArn", () => input.audienceGenerationJobArn!, "{audienceGenerationJobArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -283,28 +246,13 @@ export const se_DeleteAudienceModelCommand = async (
   input: DeleteAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-model/{audienceModelArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "audienceModelArn",
-    () => input.audienceModelArn!,
-    "{audienceModelArn}",
-    false
-  );
+  b.bp("/audience-model/{audienceModelArn}");
+  b.p("audienceModelArn", () => input.audienceModelArn!, "{audienceModelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -314,29 +262,13 @@ export const se_DeleteConfiguredAudienceModelCommand = async (
   input: DeleteConfiguredAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configured-audience-model/{configuredAudienceModelArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredAudienceModelArn",
-    () => input.configuredAudienceModelArn!,
-    "{configuredAudienceModelArn}",
-    false
-  );
+  b.bp("/configured-audience-model/{configuredAudienceModelArn}");
+  b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -346,29 +278,13 @@ export const se_DeleteConfiguredAudienceModelPolicyCommand = async (
   input: DeleteConfiguredAudienceModelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configured-audience-model/{configuredAudienceModelArn}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredAudienceModelArn",
-    () => input.configuredAudienceModelArn!,
-    "{configuredAudienceModelArn}",
-    false
-  );
+  b.bp("/configured-audience-model/{configuredAudienceModelArn}/policy");
+  b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -378,28 +294,13 @@ export const se_DeleteTrainingDatasetCommand = async (
   input: DeleteTrainingDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/training-dataset/{trainingDatasetArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trainingDatasetArn",
-    () => input.trainingDatasetArn!,
-    "{trainingDatasetArn}",
-    false
-  );
+  b.bp("/training-dataset/{trainingDatasetArn}");
+  b.p("trainingDatasetArn", () => input.trainingDatasetArn!, "{trainingDatasetArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -409,29 +310,13 @@ export const se_GetAudienceGenerationJobCommand = async (
   input: GetAudienceGenerationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/audience-generation-job/{audienceGenerationJobArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "audienceGenerationJobArn",
-    () => input.audienceGenerationJobArn!,
-    "{audienceGenerationJobArn}",
-    false
-  );
+  b.bp("/audience-generation-job/{audienceGenerationJobArn}");
+  b.p("audienceGenerationJobArn", () => input.audienceGenerationJobArn!, "{audienceGenerationJobArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -441,28 +326,13 @@ export const se_GetAudienceModelCommand = async (
   input: GetAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-model/{audienceModelArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "audienceModelArn",
-    () => input.audienceModelArn!,
-    "{audienceModelArn}",
-    false
-  );
+  b.bp("/audience-model/{audienceModelArn}");
+  b.p("audienceModelArn", () => input.audienceModelArn!, "{audienceModelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -472,29 +342,13 @@ export const se_GetConfiguredAudienceModelCommand = async (
   input: GetConfiguredAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configured-audience-model/{configuredAudienceModelArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredAudienceModelArn",
-    () => input.configuredAudienceModelArn!,
-    "{configuredAudienceModelArn}",
-    false
-  );
+  b.bp("/configured-audience-model/{configuredAudienceModelArn}");
+  b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -504,29 +358,13 @@ export const se_GetConfiguredAudienceModelPolicyCommand = async (
   input: GetConfiguredAudienceModelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configured-audience-model/{configuredAudienceModelArn}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredAudienceModelArn",
-    () => input.configuredAudienceModelArn!,
-    "{configuredAudienceModelArn}",
-    false
-  );
+  b.bp("/configured-audience-model/{configuredAudienceModelArn}/policy");
+  b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -536,28 +374,13 @@ export const se_GetTrainingDatasetCommand = async (
   input: GetTrainingDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/training-dataset/{trainingDatasetArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trainingDatasetArn",
-    () => input.trainingDatasetArn!,
-    "{trainingDatasetArn}",
-    false
-  );
+  b.bp("/training-dataset/{trainingDatasetArn}");
+  b.p("trainingDatasetArn", () => input.trainingDatasetArn!, "{trainingDatasetArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -567,25 +390,17 @@ export const se_ListAudienceExportJobsCommand = async (
   input: ListAudienceExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-export-job";
+  b.bp("/audience-export-job");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    audienceGenerationJobArn: [, input.audienceGenerationJobArn!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_aGJA]: [, input[_aGJA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -595,27 +410,18 @@ export const se_ListAudienceGenerationJobsCommand = async (
   input: ListAudienceGenerationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-generation-job";
+  b.bp("/audience-generation-job");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    configuredAudienceModelArn: [, input.configuredAudienceModelArn!],
-    collaborationId: [, input.collaborationId!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_cAMA]: [, input[_cAMA]!],
+    [_cI]: [, input[_cI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -625,24 +431,16 @@ export const se_ListAudienceModelsCommand = async (
   input: ListAudienceModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-model";
+  b.bp("/audience-model");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -652,25 +450,16 @@ export const se_ListConfiguredAudienceModelsCommand = async (
   input: ListConfiguredAudienceModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configured-audience-model";
+  b.bp("/configured-audience-model");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -680,20 +469,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -703,24 +485,16 @@ export const se_ListTrainingDatasetsCommand = async (
   input: ListTrainingDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/training-dataset";
+  b.bp("/training-dataset");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -730,21 +504,12 @@ export const se_PutConfiguredAudienceModelPolicyCommand = async (
   input: PutConfiguredAudienceModelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configured-audience-model/{configuredAudienceModelArn}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredAudienceModelArn",
-    () => input.configuredAudienceModelArn!,
-    "{configuredAudienceModelArn}",
-    false
-  );
+  b.bp("/configured-audience-model/{configuredAudienceModelArn}/policy");
+  b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -753,15 +518,8 @@ export const se_PutConfiguredAudienceModelPolicyCommand = async (
       previousPolicyHash: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -771,11 +529,11 @@ export const se_StartAudienceExportJobCommand = async (
   input: StartAudienceExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-export-job";
+  b.bp("/audience-export-job");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -785,15 +543,8 @@ export const se_StartAudienceExportJobCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -803,12 +554,11 @@ export const se_StartAudienceGenerationJobCommand = async (
   input: StartAudienceGenerationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audience-generation-job";
+  b.bp("/audience-generation-job");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -821,15 +571,8 @@ export const se_StartAudienceGenerationJobCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -839,27 +582,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -869,27 +605,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -899,21 +627,12 @@ export const se_UpdateConfiguredAudienceModelCommand = async (
   input: UpdateConfiguredAudienceModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configured-audience-model/{configuredAudienceModelArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredAudienceModelArn",
-    () => input.configuredAudienceModelArn!,
-    "{configuredAudienceModelArn}",
-    false
-  );
+  b.bp("/configured-audience-model/{configuredAudienceModelArn}");
+  b.p("configuredAudienceModelArn", () => input.configuredAudienceModelArn!, "{configuredAudienceModelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -925,15 +644,8 @@ export const se_UpdateConfiguredAudienceModelCommand = async (
       sharedAudienceMetrics: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2683,6 +2395,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _aGJA = "audienceGenerationJobArn";
+const _cAMA = "configuredAudienceModelArn";
+const _cI = "collaborationId";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2733,3 +2453,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

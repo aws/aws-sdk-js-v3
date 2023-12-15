@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -181,29 +182,13 @@ export const se_CancelSolNetworkOperationCommand = async (
   input: CancelSolNetworkOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsLcmOpOccId",
-    () => input.nsLcmOpOccId!,
-    "{nsLcmOpOccId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel");
+  b.p("nsLcmOpOccId", () => input.nsLcmOpOccId!, "{nsLcmOpOccId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -213,27 +198,19 @@ export const se_CreateSolFunctionPackageCommand = async (
   input: CreateSolFunctionPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/vnfpkgm/v1/vnf_packages";
+  b.bp("/sol/vnfpkgm/v1/vnf_packages");
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -243,12 +220,11 @@ export const se_CreateSolNetworkInstanceCommand = async (
   input: CreateSolNetworkInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nslcm/v1/ns_instances";
+  b.bp("/sol/nslcm/v1/ns_instances");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -258,15 +234,8 @@ export const se_CreateSolNetworkInstanceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -276,27 +245,19 @@ export const se_CreateSolNetworkPackageCommand = async (
   input: CreateSolNetworkPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nsd/v1/ns_descriptors";
+  b.bp("/sol/nsd/v1/ns_descriptors");
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -306,21 +267,13 @@ export const se_DeleteSolFunctionPackageCommand = async (
   input: DeleteSolFunctionPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -330,28 +283,13 @@ export const se_DeleteSolNetworkInstanceCommand = async (
   input: DeleteSolNetworkInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nslcm/v1/ns_instances/{nsInstanceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsInstanceId",
-    () => input.nsInstanceId!,
-    "{nsInstanceId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_instances/{nsInstanceId}");
+  b.p("nsInstanceId", () => input.nsInstanceId!, "{nsInstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -361,21 +299,13 @@ export const se_DeleteSolNetworkPackageCommand = async (
   input: DeleteSolNetworkPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nsd/v1/ns_descriptors/{nsdInfoId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -385,29 +315,13 @@ export const se_GetSolFunctionInstanceCommand = async (
   input: GetSolFunctionInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/vnflcm/v1/vnf_instances/{vnfInstanceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "vnfInstanceId",
-    () => input.vnfInstanceId!,
-    "{vnfInstanceId}",
-    false
-  );
+  b.bp("/sol/vnflcm/v1/vnf_instances/{vnfInstanceId}");
+  b.p("vnfInstanceId", () => input.vnfInstanceId!, "{vnfInstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -417,21 +331,13 @@ export const se_GetSolFunctionPackageCommand = async (
   input: GetSolFunctionPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -441,24 +347,15 @@ export const se_GetSolFunctionPackageContentCommand = async (
   input: GetSolFunctionPackageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    accept: input.accept!,
+    [_a]: input[_a]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -468,24 +365,15 @@ export const se_GetSolFunctionPackageDescriptorCommand = async (
   input: GetSolFunctionPackageDescriptorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    accept: input.accept!,
+    [_a]: input[_a]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/vnfd");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -495,28 +383,13 @@ export const se_GetSolNetworkInstanceCommand = async (
   input: GetSolNetworkInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nslcm/v1/ns_instances/{nsInstanceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsInstanceId",
-    () => input.nsInstanceId!,
-    "{nsInstanceId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_instances/{nsInstanceId}");
+  b.p("nsInstanceId", () => input.nsInstanceId!, "{nsInstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -526,29 +399,13 @@ export const se_GetSolNetworkOperationCommand = async (
   input: GetSolNetworkOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsLcmOpOccId",
-    () => input.nsLcmOpOccId!,
-    "{nsLcmOpOccId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}");
+  b.p("nsLcmOpOccId", () => input.nsLcmOpOccId!, "{nsLcmOpOccId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -558,21 +415,13 @@ export const se_GetSolNetworkPackageCommand = async (
   input: GetSolNetworkPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nsd/v1/ns_descriptors/{nsdInfoId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,24 +431,15 @@ export const se_GetSolNetworkPackageContentCommand = async (
   input: GetSolNetworkPackageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    accept: input.accept!,
+    [_a]: input[_a]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -609,22 +449,13 @@ export const se_GetSolNetworkPackageDescriptorCommand = async (
   input: GetSolNetworkPackageDescriptorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -634,23 +465,14 @@ export const se_InstantiateSolNetworkInstanceCommand = async (
   input: InstantiateSolNetworkInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsInstanceId",
-    () => input.nsInstanceId!,
-    "{nsInstanceId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate");
+  b.p("nsInstanceId", () => input.nsInstanceId!, "{nsInstanceId}", false);
   const query: any = map({
-    dry_run: [() => input.dryRun !== void 0, () => input.dryRun!.toString()],
+    [_dr]: [() => input.dryRun !== void 0, () => input[_dR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -659,16 +481,8 @@ export const se_InstantiateSolNetworkInstanceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -678,25 +492,16 @@ export const se_ListSolFunctionInstancesCommand = async (
   input: ListSolFunctionInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/vnflcm/v1/vnf_instances";
+  b.bp("/sol/vnflcm/v1/vnf_instances");
   const query: any = map({
-    max_results: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextpage_opaque_marker: [, input.nextToken!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nom]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -706,25 +511,16 @@ export const se_ListSolFunctionPackagesCommand = async (
   input: ListSolFunctionPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/vnfpkgm/v1/vnf_packages";
+  b.bp("/sol/vnfpkgm/v1/vnf_packages");
   const query: any = map({
-    max_results: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextpage_opaque_marker: [, input.nextToken!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nom]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -734,25 +530,16 @@ export const se_ListSolNetworkInstancesCommand = async (
   input: ListSolNetworkInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nslcm/v1/ns_instances";
+  b.bp("/sol/nslcm/v1/ns_instances");
   const query: any = map({
-    max_results: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextpage_opaque_marker: [, input.nextToken!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nom]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -762,25 +549,16 @@ export const se_ListSolNetworkOperationsCommand = async (
   input: ListSolNetworkOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nslcm/v1/ns_lcm_op_occs";
+  b.bp("/sol/nslcm/v1/ns_lcm_op_occs");
   const query: any = map({
-    max_results: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextpage_opaque_marker: [, input.nextToken!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nom]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -790,25 +568,16 @@ export const se_ListSolNetworkPackagesCommand = async (
   input: ListSolNetworkPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nsd/v1/ns_descriptors";
+  b.bp("/sol/nsd/v1/ns_descriptors");
   const query: any = map({
-    max_results: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextpage_opaque_marker: [, input.nextToken!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nom]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -818,20 +587,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -841,27 +603,18 @@ export const se_PutSolFunctionPackageContentCommand = async (
   input: PutSolFunctionPackageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
   if (input.file !== undefined) {
     body = input.file;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -871,27 +624,18 @@ export const se_PutSolNetworkPackageContentCommand = async (
   input: PutSolNetworkPackageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
   if (input.file !== undefined) {
     body = input.file;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -901,27 +645,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -931,36 +668,20 @@ export const se_TerminateSolNetworkInstanceCommand = async (
   input: TerminateSolNetworkInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsInstanceId",
-    () => input.nsInstanceId!,
-    "{nsInstanceId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate");
+  b.p("nsInstanceId", () => input.nsInstanceId!, "{nsInstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -970,27 +691,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1000,28 +713,20 @@ export const se_UpdateSolFunctionPackageCommand = async (
   input: UpdateSolFunctionPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       operationalState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1031,21 +736,12 @@ export const se_UpdateSolNetworkInstanceCommand = async (
   input: UpdateSolNetworkInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nslcm/v1/ns_instances/{nsInstanceId}/update";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nsInstanceId",
-    () => input.nsInstanceId!,
-    "{nsInstanceId}",
-    false
-  );
+  b.bp("/sol/nslcm/v1/ns_instances/{nsInstanceId}/update");
+  b.p("nsInstanceId", () => input.nsInstanceId!, "{nsInstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1054,15 +750,8 @@ export const se_UpdateSolNetworkInstanceCommand = async (
       updateType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1072,28 +761,20 @@ export const se_UpdateSolNetworkPackageCommand = async (
   input: UpdateSolNetworkPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sol/nsd/v1/ns_descriptors/{nsdInfoId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       nsdOperationalState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,27 +784,18 @@ export const se_ValidateSolFunctionPackageContentCommand = async (
   input: ValidateSolFunctionPackageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content/validate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
+  b.bp("/sol/vnfpkgm/v1/vnf_packages/{vnfPkgId}/package_content/validate");
+  b.p("vnfPkgId", () => input.vnfPkgId!, "{vnfPkgId}", false);
   let body: any;
   if (input.file !== undefined) {
     body = input.file;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1133,27 +805,18 @@ export const se_ValidateSolNetworkPackageContentCommand = async (
   input: ValidateSolNetworkPackageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content/validate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
+  b.bp("/sol/nsd/v1/ns_descriptors/{nsdInfoId}/nsd_content/validate");
+  b.p("nsdInfoId", () => input.nsdInfoId!, "{nsdInfoId}", false);
   let body: any;
   if (input.file !== undefined) {
     body = input.file;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1721,7 +1384,7 @@ export const de_GetSolFunctionPackageContentCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.packageContent = data;
@@ -1778,7 +1441,7 @@ export const de_GetSolFunctionPackageDescriptorCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.vnfd = data;
@@ -2039,7 +1702,7 @@ export const de_GetSolNetworkPackageContentCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.nsdContent = data;
@@ -2096,7 +1759,7 @@ export const de_GetSolNetworkPackageDescriptorCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.nsd = data;
@@ -3633,6 +3296,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _a = "accept";
+const _cT = "contentType";
+const _ct = "content-type";
+const _dR = "dryRun";
+const _dr = "dry_run";
+const _mR = "maxResults";
+const _mr = "max_results";
+const _nT = "nextToken";
+const _nom = "nextpage_opaque_marker";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -3683,3 +3358,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

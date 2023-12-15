@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -93,29 +94,13 @@ export const se_BulkPublishCommand = async (
   input: BulkPublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/bulkpublish";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}/bulkpublish");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -125,31 +110,15 @@ export const se_DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.p("DatasetName", () => input.DatasetName!, "{DatasetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -159,31 +128,15 @@ export const se_DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.p("DatasetName", () => input.DatasetName!, "{DatasetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -193,28 +146,13 @@ export const se_DescribeIdentityPoolUsageCommand = async (
   input: DescribeIdentityPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools/{IdentityPoolId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -224,30 +162,14 @@ export const se_DescribeIdentityUsageCommand = async (
   input: DescribeIdentityUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -257,29 +179,13 @@ export const se_GetBulkPublishDetailsCommand = async (
   input: GetBulkPublishDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/getBulkPublishDetails";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}/getBulkPublishDetails");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -289,28 +195,13 @@ export const se_GetCognitoEventsCommand = async (
   input: GetCognitoEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools/{IdentityPoolId}/events";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}/events");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -320,29 +211,13 @@ export const se_GetIdentityPoolConfigurationCommand = async (
   input: GetIdentityPoolConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}/configuration");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -352,35 +227,18 @@ export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -390,24 +248,16 @@ export const se_ListIdentityPoolUsageCommand = async (
   input: ListIdentityPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools";
+  b.bp("/identitypools");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -417,38 +267,21 @@ export const se_ListRecordsCommand = async (
   input: ListRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.p("DatasetName", () => input.DatasetName!, "{DatasetName}", false);
   const query: any = map({
-    lastSyncCount: [() => input.LastSyncCount !== void 0, () => input.LastSyncCount!.toString()],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    syncSessionToken: [, input.SyncSessionToken!],
+    [_lSC]: [() => input.LastSyncCount !== void 0, () => input[_LSC]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_sST]: [, input[_SST]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -458,22 +291,13 @@ export const se_RegisterDeviceCommand = async (
   input: RegisterDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identity/{IdentityId}/device");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -481,15 +305,8 @@ export const se_RegisterDeviceCommand = async (
       Token: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -499,35 +316,20 @@ export const se_SetCognitoEventsCommand = async (
   input: SetCognitoEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identitypools/{IdentityPoolId}/events";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}/events");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Events: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -537,21 +339,12 @@ export const se_SetIdentityPoolConfigurationCommand = async (
   input: SetIdentityPoolConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
+  b.bp("/identitypools/{IdentityPoolId}/configuration");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -559,15 +352,8 @@ export const se_SetIdentityPoolConfigurationCommand = async (
       PushSync: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -577,32 +363,16 @@ export const se_SubscribeToDatasetCommand = async (
   input: SubscribeToDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.p("DatasetName", () => input.DatasetName!, "{DatasetName}", false);
+  b.p("DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -612,32 +382,16 @@ export const se_UnsubscribeFromDatasetCommand = async (
   input: UnsubscribeFromDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.p("DatasetName", () => input.DatasetName!, "{DatasetName}", false);
+  b.p("DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -647,24 +401,15 @@ export const se_UpdateRecordsCommand = async (
   input: UpdateRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-context": input.ClientContext!,
+    [_xacc]: input[_CC]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IdentityPoolId",
-    () => input.IdentityPoolId!,
-    "{IdentityPoolId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "IdentityId", () => input.IdentityId!, "{IdentityId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetName", () => input.DatasetName!, "{DatasetName}", false);
+  b.bp("/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}");
+  b.p("IdentityPoolId", () => input.IdentityPoolId!, "{IdentityPoolId}", false);
+  b.p("IdentityId", () => input.IdentityId!, "{IdentityId}", false);
+  b.p("DatasetName", () => input.DatasetName!, "{DatasetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -673,15 +418,8 @@ export const se_UpdateRecordsCommand = async (
       SyncSessionToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2126,6 +1864,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CC = "ClientContext";
+const _LSC = "LastSyncCount";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _SST = "SyncSessionToken";
+const _lSC = "lastSyncCount";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _sST = "syncSessionToken";
+const _xacc = "x-amz-client-context";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2176,3 +1926,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

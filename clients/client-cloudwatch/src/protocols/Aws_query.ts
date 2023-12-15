@@ -235,8 +235,8 @@ export const se_DeleteAlarmsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAlarmsInput(input, context),
-    Action: "DeleteAlarms",
-    Version: "2010-08-01",
+    [_A]: _DA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -252,8 +252,8 @@ export const se_DeleteAnomalyDetectorCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAnomalyDetectorInput(input, context),
-    Action: "DeleteAnomalyDetector",
-    Version: "2010-08-01",
+    [_A]: _DAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -269,8 +269,8 @@ export const se_DeleteDashboardsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDashboardsInput(input, context),
-    Action: "DeleteDashboards",
-    Version: "2010-08-01",
+    [_A]: _DD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -286,8 +286,8 @@ export const se_DeleteInsightRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteInsightRulesInput(input, context),
-    Action: "DeleteInsightRules",
-    Version: "2010-08-01",
+    [_A]: _DIR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -303,8 +303,8 @@ export const se_DeleteMetricStreamCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteMetricStreamInput(input, context),
-    Action: "DeleteMetricStream",
-    Version: "2010-08-01",
+    [_A]: _DMS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -320,8 +320,8 @@ export const se_DescribeAlarmHistoryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAlarmHistoryInput(input, context),
-    Action: "DescribeAlarmHistory",
-    Version: "2010-08-01",
+    [_A]: _DAH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -337,8 +337,8 @@ export const se_DescribeAlarmsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAlarmsInput(input, context),
-    Action: "DescribeAlarms",
-    Version: "2010-08-01",
+    [_A]: _DAe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -354,8 +354,8 @@ export const se_DescribeAlarmsForMetricCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAlarmsForMetricInput(input, context),
-    Action: "DescribeAlarmsForMetric",
-    Version: "2010-08-01",
+    [_A]: _DAFM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -371,8 +371,8 @@ export const se_DescribeAnomalyDetectorsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAnomalyDetectorsInput(input, context),
-    Action: "DescribeAnomalyDetectors",
-    Version: "2010-08-01",
+    [_A]: _DADe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -388,8 +388,8 @@ export const se_DescribeInsightRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeInsightRulesInput(input, context),
-    Action: "DescribeInsightRules",
-    Version: "2010-08-01",
+    [_A]: _DIRe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -405,8 +405,8 @@ export const se_DisableAlarmActionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DisableAlarmActionsInput(input, context),
-    Action: "DisableAlarmActions",
-    Version: "2010-08-01",
+    [_A]: _DAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -422,8 +422,8 @@ export const se_DisableInsightRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DisableInsightRulesInput(input, context),
-    Action: "DisableInsightRules",
-    Version: "2010-08-01",
+    [_A]: _DIRi,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -439,8 +439,8 @@ export const se_EnableAlarmActionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EnableAlarmActionsInput(input, context),
-    Action: "EnableAlarmActions",
-    Version: "2010-08-01",
+    [_A]: _EAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -456,8 +456,8 @@ export const se_EnableInsightRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EnableInsightRulesInput(input, context),
-    Action: "EnableInsightRules",
-    Version: "2010-08-01",
+    [_A]: _EIR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -473,8 +473,8 @@ export const se_GetDashboardCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetDashboardInput(input, context),
-    Action: "GetDashboard",
-    Version: "2010-08-01",
+    [_A]: _GD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -490,8 +490,8 @@ export const se_GetInsightRuleReportCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetInsightRuleReportInput(input, context),
-    Action: "GetInsightRuleReport",
-    Version: "2010-08-01",
+    [_A]: _GIRR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -507,8 +507,8 @@ export const se_GetMetricDataCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetMetricDataInput(input, context),
-    Action: "GetMetricData",
-    Version: "2010-08-01",
+    [_A]: _GMD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -524,8 +524,8 @@ export const se_GetMetricStatisticsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetMetricStatisticsInput(input, context),
-    Action: "GetMetricStatistics",
-    Version: "2010-08-01",
+    [_A]: _GMS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -541,8 +541,8 @@ export const se_GetMetricStreamCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetMetricStreamInput(input, context),
-    Action: "GetMetricStream",
-    Version: "2010-08-01",
+    [_A]: _GMSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -558,8 +558,8 @@ export const se_GetMetricWidgetImageCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetMetricWidgetImageInput(input, context),
-    Action: "GetMetricWidgetImage",
-    Version: "2010-08-01",
+    [_A]: _GMWI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -575,8 +575,8 @@ export const se_ListDashboardsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListDashboardsInput(input, context),
-    Action: "ListDashboards",
-    Version: "2010-08-01",
+    [_A]: _LD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -592,8 +592,8 @@ export const se_ListManagedInsightRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListManagedInsightRulesInput(input, context),
-    Action: "ListManagedInsightRules",
-    Version: "2010-08-01",
+    [_A]: _LMIR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -609,8 +609,8 @@ export const se_ListMetricsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListMetricsInput(input, context),
-    Action: "ListMetrics",
-    Version: "2010-08-01",
+    [_A]: _LM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -626,8 +626,8 @@ export const se_ListMetricStreamsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListMetricStreamsInput(input, context),
-    Action: "ListMetricStreams",
-    Version: "2010-08-01",
+    [_A]: _LMS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -643,8 +643,8 @@ export const se_ListTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceInput(input, context),
-    Action: "ListTagsForResource",
-    Version: "2010-08-01",
+    [_A]: _LTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -660,8 +660,8 @@ export const se_PutAnomalyDetectorCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutAnomalyDetectorInput(input, context),
-    Action: "PutAnomalyDetector",
-    Version: "2010-08-01",
+    [_A]: _PAD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -677,8 +677,8 @@ export const se_PutCompositeAlarmCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutCompositeAlarmInput(input, context),
-    Action: "PutCompositeAlarm",
-    Version: "2010-08-01",
+    [_A]: _PCA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -694,8 +694,8 @@ export const se_PutDashboardCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutDashboardInput(input, context),
-    Action: "PutDashboard",
-    Version: "2010-08-01",
+    [_A]: _PD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -711,8 +711,8 @@ export const se_PutInsightRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutInsightRuleInput(input, context),
-    Action: "PutInsightRule",
-    Version: "2010-08-01",
+    [_A]: _PIR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -728,8 +728,8 @@ export const se_PutManagedInsightRulesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutManagedInsightRulesInput(input, context),
-    Action: "PutManagedInsightRules",
-    Version: "2010-08-01",
+    [_A]: _PMIR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -745,8 +745,8 @@ export const se_PutMetricAlarmCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutMetricAlarmInput(input, context),
-    Action: "PutMetricAlarm",
-    Version: "2010-08-01",
+    [_A]: _PMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -762,8 +762,8 @@ export const se_PutMetricDataCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutMetricDataInput(input, context),
-    Action: "PutMetricData",
-    Version: "2010-08-01",
+    [_A]: _PMD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -779,8 +779,8 @@ export const se_PutMetricStreamCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutMetricStreamInput(input, context),
-    Action: "PutMetricStream",
-    Version: "2010-08-01",
+    [_A]: _PMS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -796,8 +796,8 @@ export const se_SetAlarmStateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetAlarmStateInput(input, context),
-    Action: "SetAlarmState",
-    Version: "2010-08-01",
+    [_A]: _SAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -813,8 +813,8 @@ export const se_StartMetricStreamsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartMetricStreamsInput(input, context),
-    Action: "StartMetricStreams",
-    Version: "2010-08-01",
+    [_A]: _SMS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -830,8 +830,8 @@ export const se_StopMetricStreamsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopMetricStreamsInput(input, context),
-    Action: "StopMetricStreams",
-    Version: "2010-08-01",
+    [_A]: _SMSt,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -847,8 +847,8 @@ export const se_TagResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagResourceInput(input, context),
-    Action: "TagResource",
-    Version: "2010-08-01",
+    [_A]: _TR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -864,8 +864,8 @@ export const se_UntagResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagResourceInput(input, context),
-    Action: "UntagResource",
-    Version: "2010-08-01",
+    [_A]: _UR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2989,9 +2989,9 @@ const se_AlarmTypes = (input: AlarmType[], context: __SerdeContext): any => {
  */
 const se_AnomalyDetectorConfiguration = (input: AnomalyDetectorConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExcludedTimeRanges != null) {
-    const memberEntries = se_AnomalyDetectorExcludedTimeRanges(input.ExcludedTimeRanges, context);
-    if (input.ExcludedTimeRanges?.length === 0) {
+  if (input[_ETR] != null) {
+    const memberEntries = se_AnomalyDetectorExcludedTimeRanges(input[_ETR], context);
+    if (input[_ETR]?.length === 0) {
       entries.ExcludedTimeRanges = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2999,8 +2999,8 @@ const se_AnomalyDetectorConfiguration = (input: AnomalyDetectorConfiguration, co
       entries[loc] = value;
     });
   }
-  if (input.MetricTimezone != null) {
-    entries["MetricTimezone"] = input.MetricTimezone;
+  if (input[_MT] != null) {
+    entries[_MT] = input[_MT];
   }
   return entries;
 };
@@ -3077,9 +3077,9 @@ const se_DashboardNames = (input: string[], context: __SerdeContext): any => {
  */
 const se_DeleteAlarmsInput = (input: DeleteAlarmsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames != null) {
-    const memberEntries = se_AlarmNames(input.AlarmNames, context);
-    if (input.AlarmNames?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_AlarmNames(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.AlarmNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3095,15 +3095,15 @@ const se_DeleteAlarmsInput = (input: DeleteAlarmsInput, context: __SerdeContext)
  */
 const se_DeleteAnomalyDetectorInput = (input: DeleteAnomalyDetectorInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3111,18 +3111,18 @@ const se_DeleteAnomalyDetectorInput = (input: DeleteAnomalyDetectorInput, contex
       entries[loc] = value;
     });
   }
-  if (input.Stat != null) {
-    entries["Stat"] = input.Stat;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.SingleMetricAnomalyDetector != null) {
-    const memberEntries = se_SingleMetricAnomalyDetector(input.SingleMetricAnomalyDetector, context);
+  if (input[_SMAD] != null) {
+    const memberEntries = se_SingleMetricAnomalyDetector(input[_SMAD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SingleMetricAnomalyDetector.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MetricMathAnomalyDetector != null) {
-    const memberEntries = se_MetricMathAnomalyDetector(input.MetricMathAnomalyDetector, context);
+  if (input[_MMAD] != null) {
+    const memberEntries = se_MetricMathAnomalyDetector(input[_MMAD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricMathAnomalyDetector.${key}`;
       entries[loc] = value;
@@ -3136,9 +3136,9 @@ const se_DeleteAnomalyDetectorInput = (input: DeleteAnomalyDetectorInput, contex
  */
 const se_DeleteDashboardsInput = (input: DeleteDashboardsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardNames != null) {
-    const memberEntries = se_DashboardNames(input.DashboardNames, context);
-    if (input.DashboardNames?.length === 0) {
+  if (input[_DN] != null) {
+    const memberEntries = se_DashboardNames(input[_DN], context);
+    if (input[_DN]?.length === 0) {
       entries.DashboardNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3154,9 +3154,9 @@ const se_DeleteDashboardsInput = (input: DeleteDashboardsInput, context: __Serde
  */
 const se_DeleteInsightRulesInput = (input: DeleteInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleNames != null) {
-    const memberEntries = se_InsightRuleNames(input.RuleNames, context);
-    if (input.RuleNames?.length === 0) {
+  if (input[_RN] != null) {
+    const memberEntries = se_InsightRuleNames(input[_RN], context);
+    if (input[_RN]?.length === 0) {
       entries.RuleNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3172,8 +3172,8 @@ const se_DeleteInsightRulesInput = (input: DeleteInsightRulesInput, context: __S
  */
 const se_DeleteMetricStreamInput = (input: DeleteMetricStreamInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_Na] != null) {
+    entries[_Na] = input[_Na];
   }
   return entries;
 };
@@ -3183,12 +3183,12 @@ const se_DeleteMetricStreamInput = (input: DeleteMetricStreamInput, context: __S
  */
 const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmName != null) {
-    entries["AlarmName"] = input.AlarmName;
+  if (input[_ANl] != null) {
+    entries[_ANl] = input[_ANl];
   }
-  if (input.AlarmTypes != null) {
-    const memberEntries = se_AlarmTypes(input.AlarmTypes, context);
-    if (input.AlarmTypes?.length === 0) {
+  if (input[_AT] != null) {
+    const memberEntries = se_AlarmTypes(input[_AT], context);
+    if (input[_AT]?.length === 0) {
       entries.AlarmTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3196,23 +3196,23 @@ const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context:
       entries[loc] = value;
     });
   }
-  if (input.HistoryItemType != null) {
-    entries["HistoryItemType"] = input.HistoryItemType;
+  if (input[_HIT] != null) {
+    entries[_HIT] = input[_HIT];
   }
-  if (input.StartDate != null) {
-    entries["StartDate"] = input.StartDate.toISOString().split(".")[0] + "Z";
+  if (input[_SD] != null) {
+    entries[_SD] = input[_SD].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndDate != null) {
-    entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
+  if (input[_ED] != null) {
+    entries[_ED] = input[_ED].toISOString().split(".")[0] + "Z";
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.ScanBy != null) {
-    entries["ScanBy"] = input.ScanBy;
+  if (input[_SB] != null) {
+    entries[_SB] = input[_SB];
   }
   return entries;
 };
@@ -3222,21 +3222,21 @@ const se_DescribeAlarmHistoryInput = (input: DescribeAlarmHistoryInput, context:
  */
 const se_DescribeAlarmsForMetricInput = (input: DescribeAlarmsForMetricInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Statistic != null) {
-    entries["Statistic"] = input.Statistic;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
-  if (input.ExtendedStatistic != null) {
-    entries["ExtendedStatistic"] = input.ExtendedStatistic;
+  if (input[_ES] != null) {
+    entries[_ES] = input[_ES];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3244,11 +3244,11 @@ const se_DescribeAlarmsForMetricInput = (input: DescribeAlarmsForMetricInput, co
       entries[loc] = value;
     });
   }
-  if (input.Period != null) {
-    entries["Period"] = input.Period;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Unit != null) {
-    entries["Unit"] = input.Unit;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
   return entries;
 };
@@ -3258,9 +3258,9 @@ const se_DescribeAlarmsForMetricInput = (input: DescribeAlarmsForMetricInput, co
  */
 const se_DescribeAlarmsInput = (input: DescribeAlarmsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames != null) {
-    const memberEntries = se_AlarmNames(input.AlarmNames, context);
-    if (input.AlarmNames?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_AlarmNames(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.AlarmNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3268,12 +3268,12 @@ const se_DescribeAlarmsInput = (input: DescribeAlarmsInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.AlarmNamePrefix != null) {
-    entries["AlarmNamePrefix"] = input.AlarmNamePrefix;
+  if (input[_ANP] != null) {
+    entries[_ANP] = input[_ANP];
   }
-  if (input.AlarmTypes != null) {
-    const memberEntries = se_AlarmTypes(input.AlarmTypes, context);
-    if (input.AlarmTypes?.length === 0) {
+  if (input[_AT] != null) {
+    const memberEntries = se_AlarmTypes(input[_AT], context);
+    if (input[_AT]?.length === 0) {
       entries.AlarmTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3281,23 +3281,23 @@ const se_DescribeAlarmsInput = (input: DescribeAlarmsInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.ChildrenOfAlarmName != null) {
-    entries["ChildrenOfAlarmName"] = input.ChildrenOfAlarmName;
+  if (input[_COAN] != null) {
+    entries[_COAN] = input[_COAN];
   }
-  if (input.ParentsOfAlarmName != null) {
-    entries["ParentsOfAlarmName"] = input.ParentsOfAlarmName;
+  if (input[_POAN] != null) {
+    entries[_POAN] = input[_POAN];
   }
-  if (input.StateValue != null) {
-    entries["StateValue"] = input.StateValue;
+  if (input[_SV] != null) {
+    entries[_SV] = input[_SV];
   }
-  if (input.ActionPrefix != null) {
-    entries["ActionPrefix"] = input.ActionPrefix;
+  if (input[_AP] != null) {
+    entries[_AP] = input[_AP];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -3307,21 +3307,21 @@ const se_DescribeAlarmsInput = (input: DescribeAlarmsInput, context: __SerdeCont
  */
 const se_DescribeAnomalyDetectorsInput = (input: DescribeAnomalyDetectorsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MRa] != null) {
+    entries[_MRa] = input[_MRa];
   }
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3329,9 +3329,9 @@ const se_DescribeAnomalyDetectorsInput = (input: DescribeAnomalyDetectorsInput, 
       entries[loc] = value;
     });
   }
-  if (input.AnomalyDetectorTypes != null) {
-    const memberEntries = se_AnomalyDetectorTypes(input.AnomalyDetectorTypes, context);
-    if (input.AnomalyDetectorTypes?.length === 0) {
+  if (input[_ADT] != null) {
+    const memberEntries = se_AnomalyDetectorTypes(input[_ADT], context);
+    if (input[_ADT]?.length === 0) {
       entries.AnomalyDetectorTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3347,11 +3347,11 @@ const se_DescribeAnomalyDetectorsInput = (input: DescribeAnomalyDetectorsInput, 
  */
 const se_DescribeInsightRulesInput = (input: DescribeInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MRa] != null) {
+    entries[_MRa] = input[_MRa];
   }
   return entries;
 };
@@ -3361,11 +3361,11 @@ const se_DescribeInsightRulesInput = (input: DescribeInsightRulesInput, context:
  */
 const se_Dimension = (input: Dimension, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_Na] != null) {
+    entries[_Na] = input[_Na];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -3375,11 +3375,11 @@ const se_Dimension = (input: Dimension, context: __SerdeContext): any => {
  */
 const se_DimensionFilter = (input: DimensionFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_Na] != null) {
+    entries[_Na] = input[_Na];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -3427,9 +3427,9 @@ const se_Dimensions = (input: Dimension[], context: __SerdeContext): any => {
  */
 const se_DisableAlarmActionsInput = (input: DisableAlarmActionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames != null) {
-    const memberEntries = se_AlarmNames(input.AlarmNames, context);
-    if (input.AlarmNames?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_AlarmNames(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.AlarmNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3445,9 +3445,9 @@ const se_DisableAlarmActionsInput = (input: DisableAlarmActionsInput, context: _
  */
 const se_DisableInsightRulesInput = (input: DisableInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleNames != null) {
-    const memberEntries = se_InsightRuleNames(input.RuleNames, context);
-    if (input.RuleNames?.length === 0) {
+  if (input[_RN] != null) {
+    const memberEntries = se_InsightRuleNames(input[_RN], context);
+    if (input[_RN]?.length === 0) {
       entries.RuleNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3463,9 +3463,9 @@ const se_DisableInsightRulesInput = (input: DisableInsightRulesInput, context: _
  */
 const se_EnableAlarmActionsInput = (input: EnableAlarmActionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmNames != null) {
-    const memberEntries = se_AlarmNames(input.AlarmNames, context);
-    if (input.AlarmNames?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_AlarmNames(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.AlarmNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3481,9 +3481,9 @@ const se_EnableAlarmActionsInput = (input: EnableAlarmActionsInput, context: __S
  */
 const se_EnableInsightRulesInput = (input: EnableInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleNames != null) {
-    const memberEntries = se_InsightRuleNames(input.RuleNames, context);
-    if (input.RuleNames?.length === 0) {
+  if (input[_RN] != null) {
+    const memberEntries = se_InsightRuleNames(input[_RN], context);
+    if (input[_RN]?.length === 0) {
       entries.RuleNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3515,8 +3515,8 @@ const se_ExtendedStatistics = (input: string[], context: __SerdeContext): any =>
  */
 const se_GetDashboardInput = (input: GetDashboardInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardName != null) {
-    entries["DashboardName"] = input.DashboardName;
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   return entries;
 };
@@ -3526,24 +3526,24 @@ const se_GetDashboardInput = (input: GetDashboardInput, context: __SerdeContext)
  */
 const se_GetInsightRuleReportInput = (input: GetInsightRuleReportInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleName != null) {
-    entries["RuleName"] = input.RuleName;
+  if (input[_RNu] != null) {
+    entries[_RNu] = input[_RNu];
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
-  if (input.Period != null) {
-    entries["Period"] = input.Period;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MaxContributorCount != null) {
-    entries["MaxContributorCount"] = input.MaxContributorCount;
+  if (input[_MCC] != null) {
+    entries[_MCC] = input[_MCC];
   }
-  if (input.Metrics != null) {
-    const memberEntries = se_InsightRuleMetricList(input.Metrics, context);
-    if (input.Metrics?.length === 0) {
+  if (input[_M] != null) {
+    const memberEntries = se_InsightRuleMetricList(input[_M], context);
+    if (input[_M]?.length === 0) {
       entries.Metrics = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3551,8 +3551,8 @@ const se_GetInsightRuleReportInput = (input: GetInsightRuleReportInput, context:
       entries[loc] = value;
     });
   }
-  if (input.OrderBy != null) {
-    entries["OrderBy"] = input.OrderBy;
+  if (input[_OB] != null) {
+    entries[_OB] = input[_OB];
   }
   return entries;
 };
@@ -3562,9 +3562,9 @@ const se_GetInsightRuleReportInput = (input: GetInsightRuleReportInput, context:
  */
 const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricDataQueries != null) {
-    const memberEntries = se_MetricDataQueries(input.MetricDataQueries, context);
-    if (input.MetricDataQueries?.length === 0) {
+  if (input[_MDQ] != null) {
+    const memberEntries = se_MetricDataQueries(input[_MDQ], context);
+    if (input[_MDQ]?.length === 0) {
       entries.MetricDataQueries = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3572,23 +3572,23 @@ const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContex
       entries[loc] = value;
     });
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.ScanBy != null) {
-    entries["ScanBy"] = input.ScanBy;
+  if (input[_SB] != null) {
+    entries[_SB] = input[_SB];
   }
-  if (input.MaxDatapoints != null) {
-    entries["MaxDatapoints"] = input.MaxDatapoints;
+  if (input[_MD] != null) {
+    entries[_MD] = input[_MD];
   }
-  if (input.LabelOptions != null) {
-    const memberEntries = se_LabelOptions(input.LabelOptions, context);
+  if (input[_LO] != null) {
+    const memberEntries = se_LabelOptions(input[_LO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LabelOptions.${key}`;
       entries[loc] = value;
@@ -3602,15 +3602,15 @@ const se_GetMetricDataInput = (input: GetMetricDataInput, context: __SerdeContex
  */
 const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3618,18 +3618,18 @@ const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: _
       entries[loc] = value;
     });
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
-  if (input.Period != null) {
-    entries["Period"] = input.Period;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Statistics != null) {
-    const memberEntries = se_Statistics(input.Statistics, context);
-    if (input.Statistics?.length === 0) {
+  if (input[_Sta] != null) {
+    const memberEntries = se_Statistics(input[_Sta], context);
+    if (input[_Sta]?.length === 0) {
       entries.Statistics = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3637,9 +3637,9 @@ const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: _
       entries[loc] = value;
     });
   }
-  if (input.ExtendedStatistics != null) {
-    const memberEntries = se_ExtendedStatistics(input.ExtendedStatistics, context);
-    if (input.ExtendedStatistics?.length === 0) {
+  if (input[_ESx] != null) {
+    const memberEntries = se_ExtendedStatistics(input[_ESx], context);
+    if (input[_ESx]?.length === 0) {
       entries.ExtendedStatistics = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3647,8 +3647,8 @@ const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: _
       entries[loc] = value;
     });
   }
-  if (input.Unit != null) {
-    entries["Unit"] = input.Unit;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
   return entries;
 };
@@ -3658,8 +3658,8 @@ const se_GetMetricStatisticsInput = (input: GetMetricStatisticsInput, context: _
  */
 const se_GetMetricStreamInput = (input: GetMetricStreamInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_Na] != null) {
+    entries[_Na] = input[_Na];
   }
   return entries;
 };
@@ -3669,11 +3669,11 @@ const se_GetMetricStreamInput = (input: GetMetricStreamInput, context: __SerdeCo
  */
 const se_GetMetricWidgetImageInput = (input: GetMetricWidgetImageInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricWidget != null) {
-    entries["MetricWidget"] = input.MetricWidget;
+  if (input[_MW] != null) {
+    entries[_MW] = input[_MW];
   }
-  if (input.OutputFormat != null) {
-    entries["OutputFormat"] = input.OutputFormat;
+  if (input[_OF] != null) {
+    entries[_OF] = input[_OF];
   }
   return entries;
 };
@@ -3715,8 +3715,8 @@ const se_InsightRuleNames = (input: string[], context: __SerdeContext): any => {
  */
 const se_LabelOptions = (input: LabelOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Timezone != null) {
-    entries["Timezone"] = input.Timezone;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
   return entries;
 };
@@ -3726,11 +3726,11 @@ const se_LabelOptions = (input: LabelOptions, context: __SerdeContext): any => {
  */
 const se_ListDashboardsInput = (input: ListDashboardsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardNamePrefix != null) {
-    entries["DashboardNamePrefix"] = input.DashboardNamePrefix;
+  if (input[_DNP] != null) {
+    entries[_DNP] = input[_DNP];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -3740,14 +3740,14 @@ const se_ListDashboardsInput = (input: ListDashboardsInput, context: __SerdeCont
  */
 const se_ListManagedInsightRulesInput = (input: ListManagedInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN != null) {
-    entries["ResourceARN"] = input.ResourceARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MRa] != null) {
+    entries[_MRa] = input[_MRa];
   }
   return entries;
 };
@@ -3757,15 +3757,15 @@ const se_ListManagedInsightRulesInput = (input: ListManagedInsightRulesInput, co
  */
 const se_ListMetricsInput = (input: ListMetricsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_DimensionFilters(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_DimensionFilters(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3773,17 +3773,17 @@ const se_ListMetricsInput = (input: ListMetricsInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.RecentlyActive != null) {
-    entries["RecentlyActive"] = input.RecentlyActive;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.IncludeLinkedAccounts != null) {
-    entries["IncludeLinkedAccounts"] = input.IncludeLinkedAccounts;
+  if (input[_ILA] != null) {
+    entries[_ILA] = input[_ILA];
   }
-  if (input.OwningAccount != null) {
-    entries["OwningAccount"] = input.OwningAccount;
+  if (input[_OA] != null) {
+    entries[_OA] = input[_OA];
   }
   return entries;
 };
@@ -3793,11 +3793,11 @@ const se_ListMetricsInput = (input: ListMetricsInput, context: __SerdeContext): 
  */
 const se_ListMetricStreamsInput = (input: ListMetricStreamsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MRa] != null) {
+    entries[_MRa] = input[_MRa];
   }
   return entries;
 };
@@ -3807,8 +3807,8 @@ const se_ListMetricStreamsInput = (input: ListMetricStreamsInput, context: __Ser
  */
 const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN != null) {
-    entries["ResourceARN"] = input.ResourceARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
   return entries;
 };
@@ -3818,15 +3818,15 @@ const se_ListTagsForResourceInput = (input: ListTagsForResourceInput, context: _
  */
 const se_ManagedRule = (input: ManagedRule, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.ResourceARN != null) {
-    entries["ResourceARN"] = input.ResourceARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3861,15 +3861,15 @@ const se_ManagedRules = (input: ManagedRule[], context: __SerdeContext): any => 
  */
 const se_Metric = (input: Metric, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3923,30 +3923,30 @@ const se_MetricDataQueries = (input: MetricDataQuery[], context: __SerdeContext)
  */
 const se_MetricDataQuery = (input: MetricDataQuery, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Id != null) {
-    entries["Id"] = input.Id;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.MetricStat != null) {
-    const memberEntries = se_MetricStat(input.MetricStat, context);
+  if (input[_MS] != null) {
+    const memberEntries = se_MetricStat(input[_MS], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricStat.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Expression != null) {
-    entries["Expression"] = input.Expression;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.Label != null) {
-    entries["Label"] = input.Label;
+  if (input[_L] != null) {
+    entries[_L] = input[_L];
   }
-  if (input.ReturnData != null) {
-    entries["ReturnData"] = input.ReturnData;
+  if (input[_RD] != null) {
+    entries[_RD] = input[_RD];
   }
-  if (input.Period != null) {
-    entries["Period"] = input.Period;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.AccountId != null) {
-    entries["AccountId"] = input.AccountId;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -3956,12 +3956,12 @@ const se_MetricDataQuery = (input: MetricDataQuery, context: __SerdeContext): an
  */
 const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3969,22 +3969,22 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.Timestamp != null) {
-    entries["Timestamp"] = input.Timestamp.toISOString().split(".")[0] + "Z";
+  if (input[_Ti] != null) {
+    entries[_Ti] = input[_Ti].toISOString().split(".")[0] + "Z";
   }
-  if (input.Value != null) {
-    entries["Value"] = __serializeFloat(input.Value);
+  if (input[_Va] != null) {
+    entries[_Va] = __serializeFloat(input[_Va]);
   }
-  if (input.StatisticValues != null) {
-    const memberEntries = se_StatisticSet(input.StatisticValues, context);
+  if (input[_SVt] != null) {
+    const memberEntries = se_StatisticSet(input[_SVt], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StatisticValues.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Values != null) {
-    const memberEntries = se_Values(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Val] != null) {
+    const memberEntries = se_Values(input[_Val], context);
+    if (input[_Val]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3992,9 +3992,9 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.Counts != null) {
-    const memberEntries = se_Counts(input.Counts, context);
-    if (input.Counts?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_Counts(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Counts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4002,11 +4002,11 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.Unit != null) {
-    entries["Unit"] = input.Unit;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
-  if (input.StorageResolution != null) {
-    entries["StorageResolution"] = input.StorageResolution;
+  if (input[_SR] != null) {
+    entries[_SR] = input[_SR];
   }
   return entries;
 };
@@ -4016,9 +4016,9 @@ const se_MetricDatum = (input: MetricDatum, context: __SerdeContext): any => {
  */
 const se_MetricMathAnomalyDetector = (input: MetricMathAnomalyDetector, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MetricDataQueries != null) {
-    const memberEntries = se_MetricDataQueries(input.MetricDataQueries, context);
-    if (input.MetricDataQueries?.length === 0) {
+  if (input[_MDQ] != null) {
+    const memberEntries = se_MetricDataQueries(input[_MDQ], context);
+    if (input[_MDQ]?.length === 0) {
       entries.MetricDataQueries = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4034,21 +4034,21 @@ const se_MetricMathAnomalyDetector = (input: MetricMathAnomalyDetector, context:
  */
 const se_MetricStat = (input: MetricStat, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Metric != null) {
-    const memberEntries = se_Metric(input.Metric, context);
+  if (input[_Me] != null) {
+    const memberEntries = se_Metric(input[_Me], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Metric.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Period != null) {
-    entries["Period"] = input.Period;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Stat != null) {
-    entries["Stat"] = input.Stat;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.Unit != null) {
-    entries["Unit"] = input.Unit;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
   return entries;
 };
@@ -4058,12 +4058,12 @@ const se_MetricStat = (input: MetricStat, context: __SerdeContext): any => {
  */
 const se_MetricStreamFilter = (input: MetricStreamFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricNames != null) {
-    const memberEntries = se_MetricStreamFilterMetricNames(input.MetricNames, context);
-    if (input.MetricNames?.length === 0) {
+  if (input[_MNe] != null) {
+    const memberEntries = se_MetricStreamFilterMetricNames(input[_MNe], context);
+    if (input[_MNe]?.length === 0) {
       entries.MetricNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4149,9 +4149,9 @@ const se_MetricStreamStatisticsConfiguration = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.IncludeMetrics != null) {
-    const memberEntries = se_MetricStreamStatisticsIncludeMetrics(input.IncludeMetrics, context);
-    if (input.IncludeMetrics?.length === 0) {
+  if (input[_IM] != null) {
+    const memberEntries = se_MetricStreamStatisticsIncludeMetrics(input[_IM], context);
+    if (input[_IM]?.length === 0) {
       entries.IncludeMetrics = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4159,9 +4159,9 @@ const se_MetricStreamStatisticsConfiguration = (
       entries[loc] = value;
     });
   }
-  if (input.AdditionalStatistics != null) {
-    const memberEntries = se_MetricStreamStatisticsAdditionalStatistics(input.AdditionalStatistics, context);
-    if (input.AdditionalStatistics?.length === 0) {
+  if (input[_AS] != null) {
+    const memberEntries = se_MetricStreamStatisticsAdditionalStatistics(input[_AS], context);
+    if (input[_AS]?.length === 0) {
       entries.AdditionalStatistics = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4221,11 +4221,11 @@ const se_MetricStreamStatisticsIncludeMetrics = (
  */
 const se_MetricStreamStatisticsMetric = (input: MetricStreamStatisticsMetric, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
   return entries;
 };
@@ -4235,15 +4235,15 @@ const se_MetricStreamStatisticsMetric = (input: MetricStreamStatisticsMetric, co
  */
 const se_PutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4251,25 +4251,25 @@ const se_PutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __S
       entries[loc] = value;
     });
   }
-  if (input.Stat != null) {
-    entries["Stat"] = input.Stat;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.Configuration != null) {
-    const memberEntries = se_AnomalyDetectorConfiguration(input.Configuration, context);
+  if (input[_Co] != null) {
+    const memberEntries = se_AnomalyDetectorConfiguration(input[_Co], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Configuration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SingleMetricAnomalyDetector != null) {
-    const memberEntries = se_SingleMetricAnomalyDetector(input.SingleMetricAnomalyDetector, context);
+  if (input[_SMAD] != null) {
+    const memberEntries = se_SingleMetricAnomalyDetector(input[_SMAD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SingleMetricAnomalyDetector.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MetricMathAnomalyDetector != null) {
-    const memberEntries = se_MetricMathAnomalyDetector(input.MetricMathAnomalyDetector, context);
+  if (input[_MMAD] != null) {
+    const memberEntries = se_MetricMathAnomalyDetector(input[_MMAD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MetricMathAnomalyDetector.${key}`;
       entries[loc] = value;
@@ -4283,12 +4283,12 @@ const se_PutAnomalyDetectorInput = (input: PutAnomalyDetectorInput, context: __S
  */
 const se_PutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ActionsEnabled != null) {
-    entries["ActionsEnabled"] = input.ActionsEnabled;
+  if (input[_AE] != null) {
+    entries[_AE] = input[_AE];
   }
-  if (input.AlarmActions != null) {
-    const memberEntries = se_ResourceList(input.AlarmActions, context);
-    if (input.AlarmActions?.length === 0) {
+  if (input[_AA] != null) {
+    const memberEntries = se_ResourceList(input[_AA], context);
+    if (input[_AA]?.length === 0) {
       entries.AlarmActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4296,18 +4296,18 @@ const se_PutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.AlarmDescription != null) {
-    entries["AlarmDescription"] = input.AlarmDescription;
+  if (input[_AD] != null) {
+    entries[_AD] = input[_AD];
   }
-  if (input.AlarmName != null) {
-    entries["AlarmName"] = input.AlarmName;
+  if (input[_ANl] != null) {
+    entries[_ANl] = input[_ANl];
   }
-  if (input.AlarmRule != null) {
-    entries["AlarmRule"] = input.AlarmRule;
+  if (input[_AR] != null) {
+    entries[_AR] = input[_AR];
   }
-  if (input.InsufficientDataActions != null) {
-    const memberEntries = se_ResourceList(input.InsufficientDataActions, context);
-    if (input.InsufficientDataActions?.length === 0) {
+  if (input[_IDA] != null) {
+    const memberEntries = se_ResourceList(input[_IDA], context);
+    if (input[_IDA]?.length === 0) {
       entries.InsufficientDataActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4315,9 +4315,9 @@ const se_PutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.OKActions != null) {
-    const memberEntries = se_ResourceList(input.OKActions, context);
-    if (input.OKActions?.length === 0) {
+  if (input[_OKA] != null) {
+    const memberEntries = se_ResourceList(input[_OKA], context);
+    if (input[_OKA]?.length === 0) {
       entries.OKActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4325,9 +4325,9 @@ const se_PutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4335,14 +4335,14 @@ const se_PutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.ActionsSuppressor != null) {
-    entries["ActionsSuppressor"] = input.ActionsSuppressor;
+  if (input[_ASc] != null) {
+    entries[_ASc] = input[_ASc];
   }
-  if (input.ActionsSuppressorWaitPeriod != null) {
-    entries["ActionsSuppressorWaitPeriod"] = input.ActionsSuppressorWaitPeriod;
+  if (input[_ASWP] != null) {
+    entries[_ASWP] = input[_ASWP];
   }
-  if (input.ActionsSuppressorExtensionPeriod != null) {
-    entries["ActionsSuppressorExtensionPeriod"] = input.ActionsSuppressorExtensionPeriod;
+  if (input[_ASEP] != null) {
+    entries[_ASEP] = input[_ASEP];
   }
   return entries;
 };
@@ -4352,11 +4352,11 @@ const se_PutCompositeAlarmInput = (input: PutCompositeAlarmInput, context: __Ser
  */
 const se_PutDashboardInput = (input: PutDashboardInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DashboardName != null) {
-    entries["DashboardName"] = input.DashboardName;
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
-  if (input.DashboardBody != null) {
-    entries["DashboardBody"] = input.DashboardBody;
+  if (input[_DB] != null) {
+    entries[_DB] = input[_DB];
   }
   return entries;
 };
@@ -4366,18 +4366,18 @@ const se_PutDashboardInput = (input: PutDashboardInput, context: __SerdeContext)
  */
 const se_PutInsightRuleInput = (input: PutInsightRuleInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleName != null) {
-    entries["RuleName"] = input.RuleName;
+  if (input[_RNu] != null) {
+    entries[_RNu] = input[_RNu];
   }
-  if (input.RuleState != null) {
-    entries["RuleState"] = input.RuleState;
+  if (input[_RS] != null) {
+    entries[_RS] = input[_RS];
   }
-  if (input.RuleDefinition != null) {
-    entries["RuleDefinition"] = input.RuleDefinition;
+  if (input[_RDu] != null) {
+    entries[_RDu] = input[_RDu];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4393,9 +4393,9 @@ const se_PutInsightRuleInput = (input: PutInsightRuleInput, context: __SerdeCont
  */
 const se_PutManagedInsightRulesInput = (input: PutManagedInsightRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ManagedRules != null) {
-    const memberEntries = se_ManagedRules(input.ManagedRules, context);
-    if (input.ManagedRules?.length === 0) {
+  if (input[_MRan] != null) {
+    const memberEntries = se_ManagedRules(input[_MRan], context);
+    if (input[_MRan]?.length === 0) {
       entries.ManagedRules = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4411,18 +4411,18 @@ const se_PutManagedInsightRulesInput = (input: PutManagedInsightRulesInput, cont
  */
 const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmName != null) {
-    entries["AlarmName"] = input.AlarmName;
+  if (input[_ANl] != null) {
+    entries[_ANl] = input[_ANl];
   }
-  if (input.AlarmDescription != null) {
-    entries["AlarmDescription"] = input.AlarmDescription;
+  if (input[_AD] != null) {
+    entries[_AD] = input[_AD];
   }
-  if (input.ActionsEnabled != null) {
-    entries["ActionsEnabled"] = input.ActionsEnabled;
+  if (input[_AE] != null) {
+    entries[_AE] = input[_AE];
   }
-  if (input.OKActions != null) {
-    const memberEntries = se_ResourceList(input.OKActions, context);
-    if (input.OKActions?.length === 0) {
+  if (input[_OKA] != null) {
+    const memberEntries = se_ResourceList(input[_OKA], context);
+    if (input[_OKA]?.length === 0) {
       entries.OKActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4430,9 +4430,9 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.AlarmActions != null) {
-    const memberEntries = se_ResourceList(input.AlarmActions, context);
-    if (input.AlarmActions?.length === 0) {
+  if (input[_AA] != null) {
+    const memberEntries = se_ResourceList(input[_AA], context);
+    if (input[_AA]?.length === 0) {
       entries.AlarmActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4440,9 +4440,9 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.InsufficientDataActions != null) {
-    const memberEntries = se_ResourceList(input.InsufficientDataActions, context);
-    if (input.InsufficientDataActions?.length === 0) {
+  if (input[_IDA] != null) {
+    const memberEntries = se_ResourceList(input[_IDA], context);
+    if (input[_IDA]?.length === 0) {
       entries.InsufficientDataActions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4450,21 +4450,21 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Statistic != null) {
-    entries["Statistic"] = input.Statistic;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
-  if (input.ExtendedStatistic != null) {
-    entries["ExtendedStatistic"] = input.ExtendedStatistic;
+  if (input[_ES] != null) {
+    entries[_ES] = input[_ES];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4472,33 +4472,33 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Period != null) {
-    entries["Period"] = input.Period;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Unit != null) {
-    entries["Unit"] = input.Unit;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
-  if (input.EvaluationPeriods != null) {
-    entries["EvaluationPeriods"] = input.EvaluationPeriods;
+  if (input[_EP] != null) {
+    entries[_EP] = input[_EP];
   }
-  if (input.DatapointsToAlarm != null) {
-    entries["DatapointsToAlarm"] = input.DatapointsToAlarm;
+  if (input[_DTA] != null) {
+    entries[_DTA] = input[_DTA];
   }
-  if (input.Threshold != null) {
-    entries["Threshold"] = __serializeFloat(input.Threshold);
+  if (input[_Th] != null) {
+    entries[_Th] = __serializeFloat(input[_Th]);
   }
-  if (input.ComparisonOperator != null) {
-    entries["ComparisonOperator"] = input.ComparisonOperator;
+  if (input[_CO] != null) {
+    entries[_CO] = input[_CO];
   }
-  if (input.TreatMissingData != null) {
-    entries["TreatMissingData"] = input.TreatMissingData;
+  if (input[_TMD] != null) {
+    entries[_TMD] = input[_TMD];
   }
-  if (input.EvaluateLowSampleCountPercentile != null) {
-    entries["EvaluateLowSampleCountPercentile"] = input.EvaluateLowSampleCountPercentile;
+  if (input[_ELSCP] != null) {
+    entries[_ELSCP] = input[_ELSCP];
   }
-  if (input.Metrics != null) {
-    const memberEntries = se_MetricDataQueries(input.Metrics, context);
-    if (input.Metrics?.length === 0) {
+  if (input[_M] != null) {
+    const memberEntries = se_MetricDataQueries(input[_M], context);
+    if (input[_M]?.length === 0) {
       entries.Metrics = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4506,9 +4506,9 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4516,8 +4516,8 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.ThresholdMetricId != null) {
-    entries["ThresholdMetricId"] = input.ThresholdMetricId;
+  if (input[_TMI] != null) {
+    entries[_TMI] = input[_TMI];
   }
   return entries;
 };
@@ -4527,12 +4527,12 @@ const se_PutMetricAlarmInput = (input: PutMetricAlarmInput, context: __SerdeCont
  */
 const se_PutMetricDataInput = (input: PutMetricDataInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricData != null) {
-    const memberEntries = se_MetricData(input.MetricData, context);
-    if (input.MetricData?.length === 0) {
+  if (input[_MDe] != null) {
+    const memberEntries = se_MetricData(input[_MDe], context);
+    if (input[_MDe]?.length === 0) {
       entries.MetricData = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4548,12 +4548,12 @@ const se_PutMetricDataInput = (input: PutMetricDataInput, context: __SerdeContex
  */
 const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_Na] != null) {
+    entries[_Na] = input[_Na];
   }
-  if (input.IncludeFilters != null) {
-    const memberEntries = se_MetricStreamFilters(input.IncludeFilters, context);
-    if (input.IncludeFilters?.length === 0) {
+  if (input[_IF] != null) {
+    const memberEntries = se_MetricStreamFilters(input[_IF], context);
+    if (input[_IF]?.length === 0) {
       entries.IncludeFilters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4561,9 +4561,9 @@ const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.ExcludeFilters != null) {
-    const memberEntries = se_MetricStreamFilters(input.ExcludeFilters, context);
-    if (input.ExcludeFilters?.length === 0) {
+  if (input[_EF] != null) {
+    const memberEntries = se_MetricStreamFilters(input[_EF], context);
+    if (input[_EF]?.length === 0) {
       entries.ExcludeFilters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4571,18 +4571,18 @@ const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.FirehoseArn != null) {
-    entries["FirehoseArn"] = input.FirehoseArn;
+  if (input[_FA] != null) {
+    entries[_FA] = input[_FA];
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RAo] != null) {
+    entries[_RAo] = input[_RAo];
   }
-  if (input.OutputFormat != null) {
-    entries["OutputFormat"] = input.OutputFormat;
+  if (input[_OF] != null) {
+    entries[_OF] = input[_OF];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4590,9 +4590,9 @@ const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.StatisticsConfigurations != null) {
-    const memberEntries = se_MetricStreamStatisticsConfigurations(input.StatisticsConfigurations, context);
-    if (input.StatisticsConfigurations?.length === 0) {
+  if (input[_SC] != null) {
+    const memberEntries = se_MetricStreamStatisticsConfigurations(input[_SC], context);
+    if (input[_SC]?.length === 0) {
       entries.StatisticsConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4600,8 +4600,8 @@ const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.IncludeLinkedAccountsMetrics != null) {
-    entries["IncludeLinkedAccountsMetrics"] = input.IncludeLinkedAccountsMetrics;
+  if (input[_ILAM] != null) {
+    entries[_ILAM] = input[_ILAM];
   }
   return entries;
 };
@@ -4611,11 +4611,11 @@ const se_PutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeCo
  */
 const se_Range = (input: Range, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -4641,17 +4641,17 @@ const se_ResourceList = (input: string[], context: __SerdeContext): any => {
  */
 const se_SetAlarmStateInput = (input: SetAlarmStateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AlarmName != null) {
-    entries["AlarmName"] = input.AlarmName;
+  if (input[_ANl] != null) {
+    entries[_ANl] = input[_ANl];
   }
-  if (input.StateValue != null) {
-    entries["StateValue"] = input.StateValue;
+  if (input[_SV] != null) {
+    entries[_SV] = input[_SV];
   }
-  if (input.StateReason != null) {
-    entries["StateReason"] = input.StateReason;
+  if (input[_SRt] != null) {
+    entries[_SRt] = input[_SRt];
   }
-  if (input.StateReasonData != null) {
-    entries["StateReasonData"] = input.StateReasonData;
+  if (input[_SRD] != null) {
+    entries[_SRD] = input[_SRD];
   }
   return entries;
 };
@@ -4661,15 +4661,15 @@ const se_SetAlarmStateInput = (input: SetAlarmStateInput, context: __SerdeContex
  */
 const se_SingleMetricAnomalyDetector = (input: SingleMetricAnomalyDetector, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Namespace != null) {
-    entries["Namespace"] = input.Namespace;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.MetricName != null) {
-    entries["MetricName"] = input.MetricName;
+  if (input[_MN] != null) {
+    entries[_MN] = input[_MN];
   }
-  if (input.Dimensions != null) {
-    const memberEntries = se_Dimensions(input.Dimensions, context);
-    if (input.Dimensions?.length === 0) {
+  if (input[_D] != null) {
+    const memberEntries = se_Dimensions(input[_D], context);
+    if (input[_D]?.length === 0) {
       entries.Dimensions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4677,8 +4677,8 @@ const se_SingleMetricAnomalyDetector = (input: SingleMetricAnomalyDetector, cont
       entries[loc] = value;
     });
   }
-  if (input.Stat != null) {
-    entries["Stat"] = input.Stat;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
   return entries;
 };
@@ -4688,9 +4688,9 @@ const se_SingleMetricAnomalyDetector = (input: SingleMetricAnomalyDetector, cont
  */
 const se_StartMetricStreamsInput = (input: StartMetricStreamsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Names != null) {
-    const memberEntries = se_MetricStreamNames(input.Names, context);
-    if (input.Names?.length === 0) {
+  if (input[_Nam] != null) {
+    const memberEntries = se_MetricStreamNames(input[_Nam], context);
+    if (input[_Nam]?.length === 0) {
       entries.Names = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4722,17 +4722,17 @@ const se_Statistics = (input: Statistic[], context: __SerdeContext): any => {
  */
 const se_StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SampleCount != null) {
-    entries["SampleCount"] = __serializeFloat(input.SampleCount);
+  if (input[_SCa] != null) {
+    entries[_SCa] = __serializeFloat(input[_SCa]);
   }
-  if (input.Sum != null) {
-    entries["Sum"] = __serializeFloat(input.Sum);
+  if (input[_Su] != null) {
+    entries[_Su] = __serializeFloat(input[_Su]);
   }
-  if (input.Minimum != null) {
-    entries["Minimum"] = __serializeFloat(input.Minimum);
+  if (input[_Mi] != null) {
+    entries[_Mi] = __serializeFloat(input[_Mi]);
   }
-  if (input.Maximum != null) {
-    entries["Maximum"] = __serializeFloat(input.Maximum);
+  if (input[_Ma] != null) {
+    entries[_Ma] = __serializeFloat(input[_Ma]);
   }
   return entries;
 };
@@ -4742,9 +4742,9 @@ const se_StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
  */
 const se_StopMetricStreamsInput = (input: StopMetricStreamsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Names != null) {
-    const memberEntries = se_MetricStreamNames(input.Names, context);
-    if (input.Names?.length === 0) {
+  if (input[_Nam] != null) {
+    const memberEntries = se_MetricStreamNames(input[_Nam], context);
+    if (input[_Nam]?.length === 0) {
       entries.Names = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4760,11 +4760,11 @@ const se_StopMetricStreamsInput = (input: StopMetricStreamsInput, context: __Ser
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -4809,12 +4809,12 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN != null) {
-    entries["ResourceARN"] = input.ResourceARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4830,12 +4830,12 @@ const se_TagResourceInput = (input: TagResourceInput, context: __SerdeContext): 
  */
 const se_UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceARN != null) {
-    entries["ResourceARN"] = input.ResourceARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_TagKeyList(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_TagKeyList(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4867,23 +4867,23 @@ const se_Values = (input: number[], context: __SerdeContext): any => {
  */
 const de_AlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistoryItem => {
   const contents: any = {};
-  if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = __expectString(output["AlarmName"]);
+  if (output[_ANl] != null) {
+    contents[_ANl] = __expectString(output[_ANl]);
   }
-  if (output["AlarmType"] !== undefined) {
-    contents.AlarmType = __expectString(output["AlarmType"]);
+  if (output[_ATl] != null) {
+    contents[_ATl] = __expectString(output[_ATl]);
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["HistoryItemType"] !== undefined) {
-    contents.HistoryItemType = __expectString(output["HistoryItemType"]);
+  if (output[_HIT] != null) {
+    contents[_HIT] = __expectString(output[_HIT]);
   }
-  if (output["HistorySummary"] !== undefined) {
-    contents.HistorySummary = __expectString(output["HistorySummary"]);
+  if (output[_HS] != null) {
+    contents[_HS] = __expectString(output[_HS]);
   }
-  if (output["HistoryData"] !== undefined) {
-    contents.HistoryData = __expectString(output["HistoryData"]);
+  if (output[_HD] != null) {
+    contents[_HD] = __expectString(output[_HD]);
   }
   return contents;
 };
@@ -4904,34 +4904,31 @@ const de_AlarmHistoryItems = (output: any, context: __SerdeContext): AlarmHistor
  */
 const de_AnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetector => {
   const contents: any = {};
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = __expectString(output["MetricName"]);
+  if (output[_MN] != null) {
+    contents[_MN] = __expectString(output[_MN]);
   }
   if (output.Dimensions === "") {
-    contents.Dimensions = [];
-  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
-    contents.Dimensions = de_Dimensions(__getArrayIfSingleItem(output["Dimensions"]["member"]), context);
+    contents[_D] = [];
+  } else if (output[_D] != null && output[_D][_m] != null) {
+    contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
   }
-  if (output["Stat"] !== undefined) {
-    contents.Stat = __expectString(output["Stat"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Configuration"] !== undefined) {
-    contents.Configuration = de_AnomalyDetectorConfiguration(output["Configuration"], context);
+  if (output[_Co] != null) {
+    contents[_Co] = de_AnomalyDetectorConfiguration(output[_Co], context);
   }
-  if (output["StateValue"] !== undefined) {
-    contents.StateValue = __expectString(output["StateValue"]);
+  if (output[_SV] != null) {
+    contents[_SV] = __expectString(output[_SV]);
   }
-  if (output["SingleMetricAnomalyDetector"] !== undefined) {
-    contents.SingleMetricAnomalyDetector = de_SingleMetricAnomalyDetector(
-      output["SingleMetricAnomalyDetector"],
-      context
-    );
+  if (output[_SMAD] != null) {
+    contents[_SMAD] = de_SingleMetricAnomalyDetector(output[_SMAD], context);
   }
-  if (output["MetricMathAnomalyDetector"] !== undefined) {
-    contents.MetricMathAnomalyDetector = de_MetricMathAnomalyDetector(output["MetricMathAnomalyDetector"], context);
+  if (output[_MMAD] != null) {
+    contents[_MMAD] = de_MetricMathAnomalyDetector(output[_MMAD], context);
   }
   return contents;
 };
@@ -4942,15 +4939,12 @@ const de_AnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetect
 const de_AnomalyDetectorConfiguration = (output: any, context: __SerdeContext): AnomalyDetectorConfiguration => {
   const contents: any = {};
   if (output.ExcludedTimeRanges === "") {
-    contents.ExcludedTimeRanges = [];
-  } else if (output["ExcludedTimeRanges"] !== undefined && output["ExcludedTimeRanges"]["member"] !== undefined) {
-    contents.ExcludedTimeRanges = de_AnomalyDetectorExcludedTimeRanges(
-      __getArrayIfSingleItem(output["ExcludedTimeRanges"]["member"]),
-      context
-    );
+    contents[_ETR] = [];
+  } else if (output[_ETR] != null && output[_ETR][_m] != null) {
+    contents[_ETR] = de_AnomalyDetectorExcludedTimeRanges(__getArrayIfSingleItem(output[_ETR][_m]), context);
   }
-  if (output["MetricTimezone"] !== undefined) {
-    contents.MetricTimezone = __expectString(output["MetricTimezone"]);
+  if (output[_MT] != null) {
+    contents[_MT] = __expectString(output[_MT]);
   }
   return contents;
 };
@@ -4993,80 +4987,68 @@ const de_BatchFailures = (output: any, context: __SerdeContext): PartialFailure[
  */
 const de_CompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm => {
   const contents: any = {};
-  if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
+  if (output[_AE] != null) {
+    contents[_AE] = __parseBoolean(output[_AE]);
   }
   if (output.AlarmActions === "") {
-    contents.AlarmActions = [];
-  } else if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
-    contents.AlarmActions = de_ResourceList(__getArrayIfSingleItem(output["AlarmActions"]["member"]), context);
+    contents[_AA] = [];
+  } else if (output[_AA] != null && output[_AA][_m] != null) {
+    contents[_AA] = de_ResourceList(__getArrayIfSingleItem(output[_AA][_m]), context);
   }
-  if (output["AlarmArn"] !== undefined) {
-    contents.AlarmArn = __expectString(output["AlarmArn"]);
+  if (output[_AAl] != null) {
+    contents[_AAl] = __expectString(output[_AAl]);
   }
-  if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
-    contents.AlarmConfigurationUpdatedTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["AlarmConfigurationUpdatedTimestamp"])
-    );
+  if (output[_ACUT] != null) {
+    contents[_ACUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ACUT]));
   }
-  if (output["AlarmDescription"] !== undefined) {
-    contents.AlarmDescription = __expectString(output["AlarmDescription"]);
+  if (output[_AD] != null) {
+    contents[_AD] = __expectString(output[_AD]);
   }
-  if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = __expectString(output["AlarmName"]);
+  if (output[_ANl] != null) {
+    contents[_ANl] = __expectString(output[_ANl]);
   }
-  if (output["AlarmRule"] !== undefined) {
-    contents.AlarmRule = __expectString(output["AlarmRule"]);
+  if (output[_AR] != null) {
+    contents[_AR] = __expectString(output[_AR]);
   }
   if (output.InsufficientDataActions === "") {
-    contents.InsufficientDataActions = [];
-  } else if (
-    output["InsufficientDataActions"] !== undefined &&
-    output["InsufficientDataActions"]["member"] !== undefined
-  ) {
-    contents.InsufficientDataActions = de_ResourceList(
-      __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
-      context
-    );
+    contents[_IDA] = [];
+  } else if (output[_IDA] != null && output[_IDA][_m] != null) {
+    contents[_IDA] = de_ResourceList(__getArrayIfSingleItem(output[_IDA][_m]), context);
   }
   if (output.OKActions === "") {
-    contents.OKActions = [];
-  } else if (output["OKActions"] !== undefined && output["OKActions"]["member"] !== undefined) {
-    contents.OKActions = de_ResourceList(__getArrayIfSingleItem(output["OKActions"]["member"]), context);
+    contents[_OKA] = [];
+  } else if (output[_OKA] != null && output[_OKA][_m] != null) {
+    contents[_OKA] = de_ResourceList(__getArrayIfSingleItem(output[_OKA][_m]), context);
   }
-  if (output["StateReason"] !== undefined) {
-    contents.StateReason = __expectString(output["StateReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["StateReasonData"] !== undefined) {
-    contents.StateReasonData = __expectString(output["StateReasonData"]);
+  if (output[_SRD] != null) {
+    contents[_SRD] = __expectString(output[_SRD]);
   }
-  if (output["StateUpdatedTimestamp"] !== undefined) {
-    contents.StateUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StateUpdatedTimestamp"]));
+  if (output[_SUT] != null) {
+    contents[_SUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SUT]));
   }
-  if (output["StateValue"] !== undefined) {
-    contents.StateValue = __expectString(output["StateValue"]);
+  if (output[_SV] != null) {
+    contents[_SV] = __expectString(output[_SV]);
   }
-  if (output["StateTransitionedTimestamp"] !== undefined) {
-    contents.StateTransitionedTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["StateTransitionedTimestamp"])
-    );
+  if (output[_STT] != null) {
+    contents[_STT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STT]));
   }
-  if (output["ActionsSuppressedBy"] !== undefined) {
-    contents.ActionsSuppressedBy = __expectString(output["ActionsSuppressedBy"]);
+  if (output[_ASB] != null) {
+    contents[_ASB] = __expectString(output[_ASB]);
   }
-  if (output["ActionsSuppressedReason"] !== undefined) {
-    contents.ActionsSuppressedReason = __expectString(output["ActionsSuppressedReason"]);
+  if (output[_ASR] != null) {
+    contents[_ASR] = __expectString(output[_ASR]);
   }
-  if (output["ActionsSuppressor"] !== undefined) {
-    contents.ActionsSuppressor = __expectString(output["ActionsSuppressor"]);
+  if (output[_ASc] != null) {
+    contents[_ASc] = __expectString(output[_ASc]);
   }
-  if (output["ActionsSuppressorWaitPeriod"] !== undefined) {
-    contents.ActionsSuppressorWaitPeriod = __strictParseInt32(output["ActionsSuppressorWaitPeriod"]) as number;
+  if (output[_ASWP] != null) {
+    contents[_ASWP] = __strictParseInt32(output[_ASWP]) as number;
   }
-  if (output["ActionsSuppressorExtensionPeriod"] !== undefined) {
-    contents.ActionsSuppressorExtensionPeriod = __strictParseInt32(
-      output["ActionsSuppressorExtensionPeriod"]
-    ) as number;
+  if (output[_ASEP] != null) {
+    contents[_ASEP] = __strictParseInt32(output[_ASEP]) as number;
   }
   return contents;
 };
@@ -5087,8 +5069,8 @@ const de_CompositeAlarms = (output: any, context: __SerdeContext): CompositeAlar
  */
 const de_ConcurrentModificationException = (output: any, context: __SerdeContext): ConcurrentModificationException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
   }
   return contents;
 };
@@ -5109,17 +5091,17 @@ const de_DashboardEntries = (output: any, context: __SerdeContext): DashboardEnt
  */
 const de_DashboardEntry = (output: any, context: __SerdeContext): DashboardEntry => {
   const contents: any = {};
-  if (output["DashboardName"] !== undefined) {
-    contents.DashboardName = __expectString(output["DashboardName"]);
+  if (output[_DNa] != null) {
+    contents[_DNa] = __expectString(output[_DNa]);
   }
-  if (output["DashboardArn"] !== undefined) {
-    contents.DashboardArn = __expectString(output["DashboardArn"]);
+  if (output[_DAa] != null) {
+    contents[_DAa] = __expectString(output[_DAa]);
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LMa] != null) {
+    contents[_LMa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMa]));
   }
-  if (output["Size"] !== undefined) {
-    contents.Size = __strictParseLong(output["Size"]) as number;
+  if (output[_Si] != null) {
+    contents[_Si] = __strictParseLong(output[_Si]) as number;
   }
   return contents;
 };
@@ -5129,19 +5111,13 @@ const de_DashboardEntry = (output: any, context: __SerdeContext): DashboardEntry
  */
 const de_DashboardInvalidInputError = (output: any, context: __SerdeContext): DashboardInvalidInputError => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   if (output.dashboardValidationMessages === "") {
-    contents.dashboardValidationMessages = [];
-  } else if (
-    output["dashboardValidationMessages"] !== undefined &&
-    output["dashboardValidationMessages"]["member"] !== undefined
-  ) {
-    contents.dashboardValidationMessages = de_DashboardValidationMessages(
-      __getArrayIfSingleItem(output["dashboardValidationMessages"]["member"]),
-      context
-    );
+    contents[_dVM] = [];
+  } else if (output[_dVM] != null && output[_dVM][_m] != null) {
+    contents[_dVM] = de_DashboardValidationMessages(__getArrayIfSingleItem(output[_dVM][_m]), context);
   }
   return contents;
 };
@@ -5151,8 +5127,8 @@ const de_DashboardInvalidInputError = (output: any, context: __SerdeContext): Da
  */
 const de_DashboardNotFoundError = (output: any, context: __SerdeContext): DashboardNotFoundError => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5162,11 +5138,11 @@ const de_DashboardNotFoundError = (output: any, context: __SerdeContext): Dashbo
  */
 const de_DashboardValidationMessage = (output: any, context: __SerdeContext): DashboardValidationMessage => {
   const contents: any = {};
-  if (output["DataPath"] !== undefined) {
-    contents.DataPath = __expectString(output["DataPath"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __expectString(output[_DP]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
   }
   return contents;
 };
@@ -5187,34 +5163,31 @@ const de_DashboardValidationMessages = (output: any, context: __SerdeContext): D
  */
 const de_Datapoint = (output: any, context: __SerdeContext): Datapoint => {
   const contents: any = {};
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = __strictParseFloat(output["SampleCount"]) as number;
+  if (output[_SCa] != null) {
+    contents[_SCa] = __strictParseFloat(output[_SCa]) as number;
   }
-  if (output["Average"] !== undefined) {
-    contents.Average = __strictParseFloat(output["Average"]) as number;
+  if (output[_Av] != null) {
+    contents[_Av] = __strictParseFloat(output[_Av]) as number;
   }
-  if (output["Sum"] !== undefined) {
-    contents.Sum = __strictParseFloat(output["Sum"]) as number;
+  if (output[_Su] != null) {
+    contents[_Su] = __strictParseFloat(output[_Su]) as number;
   }
-  if (output["Minimum"] !== undefined) {
-    contents.Minimum = __strictParseFloat(output["Minimum"]) as number;
+  if (output[_Mi] != null) {
+    contents[_Mi] = __strictParseFloat(output[_Mi]) as number;
   }
-  if (output["Maximum"] !== undefined) {
-    contents.Maximum = __strictParseFloat(output["Maximum"]) as number;
+  if (output[_Ma] != null) {
+    contents[_Ma] = __strictParseFloat(output[_Ma]) as number;
   }
-  if (output["Unit"] !== undefined) {
-    contents.Unit = __expectString(output["Unit"]);
+  if (output[_U] != null) {
+    contents[_U] = __expectString(output[_U]);
   }
   if (output.ExtendedStatistics === "") {
-    contents.ExtendedStatistics = {};
-  } else if (output["ExtendedStatistics"] !== undefined && output["ExtendedStatistics"]["entry"] !== undefined) {
-    contents.ExtendedStatistics = de_DatapointValueMap(
-      __getArrayIfSingleItem(output["ExtendedStatistics"]["entry"]),
-      context
-    );
+    contents[_ESx] = {};
+  } else if (output[_ESx] != null && output[_ESx][_e] != null) {
+    contents[_ESx] = de_DatapointValueMap(__getArrayIfSingleItem(output[_ESx][_e]), context);
   }
   return contents;
 };
@@ -5276,9 +5249,9 @@ const de_DeleteDashboardsOutput = (output: any, context: __SerdeContext): Delete
 const de_DeleteInsightRulesOutput = (output: any, context: __SerdeContext): DeleteInsightRulesOutput => {
   const contents: any = {};
   if (output.Failures === "") {
-    contents.Failures = [];
-  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
-    contents.Failures = de_BatchFailures(__getArrayIfSingleItem(output["Failures"]["member"]), context);
+    contents[_F] = [];
+  } else if (output[_F] != null && output[_F][_m] != null) {
+    contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
   }
   return contents;
 };
@@ -5297,15 +5270,12 @@ const de_DeleteMetricStreamOutput = (output: any, context: __SerdeContext): Dele
 const de_DescribeAlarmHistoryOutput = (output: any, context: __SerdeContext): DescribeAlarmHistoryOutput => {
   const contents: any = {};
   if (output.AlarmHistoryItems === "") {
-    contents.AlarmHistoryItems = [];
-  } else if (output["AlarmHistoryItems"] !== undefined && output["AlarmHistoryItems"]["member"] !== undefined) {
-    contents.AlarmHistoryItems = de_AlarmHistoryItems(
-      __getArrayIfSingleItem(output["AlarmHistoryItems"]["member"]),
-      context
-    );
+    contents[_AHI] = [];
+  } else if (output[_AHI] != null && output[_AHI][_m] != null) {
+    contents[_AHI] = de_AlarmHistoryItems(__getArrayIfSingleItem(output[_AHI][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5316,9 +5286,9 @@ const de_DescribeAlarmHistoryOutput = (output: any, context: __SerdeContext): De
 const de_DescribeAlarmsForMetricOutput = (output: any, context: __SerdeContext): DescribeAlarmsForMetricOutput => {
   const contents: any = {};
   if (output.MetricAlarms === "") {
-    contents.MetricAlarms = [];
-  } else if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
-    contents.MetricAlarms = de_MetricAlarms(__getArrayIfSingleItem(output["MetricAlarms"]["member"]), context);
+    contents[_MA] = [];
+  } else if (output[_MA] != null && output[_MA][_m] != null) {
+    contents[_MA] = de_MetricAlarms(__getArrayIfSingleItem(output[_MA][_m]), context);
   }
   return contents;
 };
@@ -5329,17 +5299,17 @@ const de_DescribeAlarmsForMetricOutput = (output: any, context: __SerdeContext):
 const de_DescribeAlarmsOutput = (output: any, context: __SerdeContext): DescribeAlarmsOutput => {
   const contents: any = {};
   if (output.CompositeAlarms === "") {
-    contents.CompositeAlarms = [];
-  } else if (output["CompositeAlarms"] !== undefined && output["CompositeAlarms"]["member"] !== undefined) {
-    contents.CompositeAlarms = de_CompositeAlarms(__getArrayIfSingleItem(output["CompositeAlarms"]["member"]), context);
+    contents[_CA] = [];
+  } else if (output[_CA] != null && output[_CA][_m] != null) {
+    contents[_CA] = de_CompositeAlarms(__getArrayIfSingleItem(output[_CA][_m]), context);
   }
   if (output.MetricAlarms === "") {
-    contents.MetricAlarms = [];
-  } else if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
-    contents.MetricAlarms = de_MetricAlarms(__getArrayIfSingleItem(output["MetricAlarms"]["member"]), context);
+    contents[_MA] = [];
+  } else if (output[_MA] != null && output[_MA][_m] != null) {
+    contents[_MA] = de_MetricAlarms(__getArrayIfSingleItem(output[_MA][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5350,15 +5320,12 @@ const de_DescribeAlarmsOutput = (output: any, context: __SerdeContext): Describe
 const de_DescribeAnomalyDetectorsOutput = (output: any, context: __SerdeContext): DescribeAnomalyDetectorsOutput => {
   const contents: any = {};
   if (output.AnomalyDetectors === "") {
-    contents.AnomalyDetectors = [];
-  } else if (output["AnomalyDetectors"] !== undefined && output["AnomalyDetectors"]["member"] !== undefined) {
-    contents.AnomalyDetectors = de_AnomalyDetectors(
-      __getArrayIfSingleItem(output["AnomalyDetectors"]["member"]),
-      context
-    );
+    contents[_ADn] = [];
+  } else if (output[_ADn] != null && output[_ADn][_m] != null) {
+    contents[_ADn] = de_AnomalyDetectors(__getArrayIfSingleItem(output[_ADn][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5368,13 +5335,13 @@ const de_DescribeAnomalyDetectorsOutput = (output: any, context: __SerdeContext)
  */
 const de_DescribeInsightRulesOutput = (output: any, context: __SerdeContext): DescribeInsightRulesOutput => {
   const contents: any = {};
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   if (output.InsightRules === "") {
-    contents.InsightRules = [];
-  } else if (output["InsightRules"] !== undefined && output["InsightRules"]["member"] !== undefined) {
-    contents.InsightRules = de_InsightRules(__getArrayIfSingleItem(output["InsightRules"]["member"]), context);
+    contents[_IR] = [];
+  } else if (output[_IR] != null && output[_IR][_m] != null) {
+    contents[_IR] = de_InsightRules(__getArrayIfSingleItem(output[_IR][_m]), context);
   }
   return contents;
 };
@@ -5384,11 +5351,11 @@ const de_DescribeInsightRulesOutput = (output: any, context: __SerdeContext): De
  */
 const de_Dimension = (output: any, context: __SerdeContext): Dimension => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -5410,9 +5377,9 @@ const de_Dimensions = (output: any, context: __SerdeContext): Dimension[] => {
 const de_DisableInsightRulesOutput = (output: any, context: __SerdeContext): DisableInsightRulesOutput => {
   const contents: any = {};
   if (output.Failures === "") {
-    contents.Failures = [];
-  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
-    contents.Failures = de_BatchFailures(__getArrayIfSingleItem(output["Failures"]["member"]), context);
+    contents[_F] = [];
+  } else if (output[_F] != null && output[_F][_m] != null) {
+    contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
   }
   return contents;
 };
@@ -5423,9 +5390,9 @@ const de_DisableInsightRulesOutput = (output: any, context: __SerdeContext): Dis
 const de_EnableInsightRulesOutput = (output: any, context: __SerdeContext): EnableInsightRulesOutput => {
   const contents: any = {};
   if (output.Failures === "") {
-    contents.Failures = [];
-  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
-    contents.Failures = de_BatchFailures(__getArrayIfSingleItem(output["Failures"]["member"]), context);
+    contents[_F] = [];
+  } else if (output[_F] != null && output[_F][_m] != null) {
+    contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
   }
   return contents;
 };
@@ -5435,14 +5402,14 @@ const de_EnableInsightRulesOutput = (output: any, context: __SerdeContext): Enab
  */
 const de_GetDashboardOutput = (output: any, context: __SerdeContext): GetDashboardOutput => {
   const contents: any = {};
-  if (output["DashboardArn"] !== undefined) {
-    contents.DashboardArn = __expectString(output["DashboardArn"]);
+  if (output[_DAa] != null) {
+    contents[_DAa] = __expectString(output[_DAa]);
   }
-  if (output["DashboardBody"] !== undefined) {
-    contents.DashboardBody = __expectString(output["DashboardBody"]);
+  if (output[_DB] != null) {
+    contents[_DB] = __expectString(output[_DB]);
   }
-  if (output["DashboardName"] !== undefined) {
-    contents.DashboardName = __expectString(output["DashboardName"]);
+  if (output[_DNa] != null) {
+    contents[_DNa] = __expectString(output[_DNa]);
   }
   return contents;
 };
@@ -5453,37 +5420,28 @@ const de_GetDashboardOutput = (output: any, context: __SerdeContext): GetDashboa
 const de_GetInsightRuleReportOutput = (output: any, context: __SerdeContext): GetInsightRuleReportOutput => {
   const contents: any = {};
   if (output.KeyLabels === "") {
-    contents.KeyLabels = [];
-  } else if (output["KeyLabels"] !== undefined && output["KeyLabels"]["member"] !== undefined) {
-    contents.KeyLabels = de_InsightRuleContributorKeyLabels(
-      __getArrayIfSingleItem(output["KeyLabels"]["member"]),
-      context
-    );
+    contents[_KL] = [];
+  } else if (output[_KL] != null && output[_KL][_m] != null) {
+    contents[_KL] = de_InsightRuleContributorKeyLabels(__getArrayIfSingleItem(output[_KL][_m]), context);
   }
-  if (output["AggregationStatistic"] !== undefined) {
-    contents.AggregationStatistic = __expectString(output["AggregationStatistic"]);
+  if (output[_ASg] != null) {
+    contents[_ASg] = __expectString(output[_ASg]);
   }
-  if (output["AggregateValue"] !== undefined) {
-    contents.AggregateValue = __strictParseFloat(output["AggregateValue"]) as number;
+  if (output[_AV] != null) {
+    contents[_AV] = __strictParseFloat(output[_AV]) as number;
   }
-  if (output["ApproximateUniqueCount"] !== undefined) {
-    contents.ApproximateUniqueCount = __strictParseLong(output["ApproximateUniqueCount"]) as number;
+  if (output[_AUC] != null) {
+    contents[_AUC] = __strictParseLong(output[_AUC]) as number;
   }
   if (output.Contributors === "") {
-    contents.Contributors = [];
-  } else if (output["Contributors"] !== undefined && output["Contributors"]["member"] !== undefined) {
-    contents.Contributors = de_InsightRuleContributors(
-      __getArrayIfSingleItem(output["Contributors"]["member"]),
-      context
-    );
+    contents[_Con] = [];
+  } else if (output[_Con] != null && output[_Con][_m] != null) {
+    contents[_Con] = de_InsightRuleContributors(__getArrayIfSingleItem(output[_Con][_m]), context);
   }
   if (output.MetricDatapoints === "") {
-    contents.MetricDatapoints = [];
-  } else if (output["MetricDatapoints"] !== undefined && output["MetricDatapoints"]["member"] !== undefined) {
-    contents.MetricDatapoints = de_InsightRuleMetricDatapoints(
-      __getArrayIfSingleItem(output["MetricDatapoints"]["member"]),
-      context
-    );
+    contents[_MDet] = [];
+  } else if (output[_MDet] != null && output[_MDet][_m] != null) {
+    contents[_MDet] = de_InsightRuleMetricDatapoints(__getArrayIfSingleItem(output[_MDet][_m]), context);
   }
   return contents;
 };
@@ -5494,20 +5452,17 @@ const de_GetInsightRuleReportOutput = (output: any, context: __SerdeContext): Ge
 const de_GetMetricDataOutput = (output: any, context: __SerdeContext): GetMetricDataOutput => {
   const contents: any = {};
   if (output.MetricDataResults === "") {
-    contents.MetricDataResults = [];
-  } else if (output["MetricDataResults"] !== undefined && output["MetricDataResults"]["member"] !== undefined) {
-    contents.MetricDataResults = de_MetricDataResults(
-      __getArrayIfSingleItem(output["MetricDataResults"]["member"]),
-      context
-    );
+    contents[_MDR] = [];
+  } else if (output[_MDR] != null && output[_MDR][_m] != null) {
+    contents[_MDR] = de_MetricDataResults(__getArrayIfSingleItem(output[_MDR][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   if (output.Messages === "") {
-    contents.Messages = [];
-  } else if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
-    contents.Messages = de_MetricDataResultMessages(__getArrayIfSingleItem(output["Messages"]["member"]), context);
+    contents[_Mess] = [];
+  } else if (output[_Mess] != null && output[_Mess][_m] != null) {
+    contents[_Mess] = de_MetricDataResultMessages(__getArrayIfSingleItem(output[_Mess][_m]), context);
   }
   return contents;
 };
@@ -5517,13 +5472,13 @@ const de_GetMetricDataOutput = (output: any, context: __SerdeContext): GetMetric
  */
 const de_GetMetricStatisticsOutput = (output: any, context: __SerdeContext): GetMetricStatisticsOutput => {
   const contents: any = {};
-  if (output["Label"] !== undefined) {
-    contents.Label = __expectString(output["Label"]);
+  if (output[_L] != null) {
+    contents[_L] = __expectString(output[_L]);
   }
   if (output.Datapoints === "") {
-    contents.Datapoints = [];
-  } else if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
-    contents.Datapoints = de_Datapoints(__getArrayIfSingleItem(output["Datapoints"]["member"]), context);
+    contents[_Da] = [];
+  } else if (output[_Da] != null && output[_Da][_m] != null) {
+    contents[_Da] = de_Datapoints(__getArrayIfSingleItem(output[_Da][_m]), context);
   }
   return contents;
 };
@@ -5533,59 +5488,47 @@ const de_GetMetricStatisticsOutput = (output: any, context: __SerdeContext): Get
  */
 const de_GetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetricStreamOutput => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
   if (output.IncludeFilters === "") {
-    contents.IncludeFilters = [];
-  } else if (output["IncludeFilters"] !== undefined && output["IncludeFilters"]["member"] !== undefined) {
-    contents.IncludeFilters = de_MetricStreamFilters(
-      __getArrayIfSingleItem(output["IncludeFilters"]["member"]),
-      context
-    );
+    contents[_IF] = [];
+  } else if (output[_IF] != null && output[_IF][_m] != null) {
+    contents[_IF] = de_MetricStreamFilters(__getArrayIfSingleItem(output[_IF][_m]), context);
   }
   if (output.ExcludeFilters === "") {
-    contents.ExcludeFilters = [];
-  } else if (output["ExcludeFilters"] !== undefined && output["ExcludeFilters"]["member"] !== undefined) {
-    contents.ExcludeFilters = de_MetricStreamFilters(
-      __getArrayIfSingleItem(output["ExcludeFilters"]["member"]),
-      context
-    );
+    contents[_EF] = [];
+  } else if (output[_EF] != null && output[_EF][_m] != null) {
+    contents[_EF] = de_MetricStreamFilters(__getArrayIfSingleItem(output[_EF][_m]), context);
   }
-  if (output["FirehoseArn"] !== undefined) {
-    contents.FirehoseArn = __expectString(output["FirehoseArn"]);
+  if (output[_FA] != null) {
+    contents[_FA] = __expectString(output[_FA]);
   }
-  if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = __expectString(output["RoleArn"]);
+  if (output[_RAo] != null) {
+    contents[_RAo] = __expectString(output[_RAo]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Stat] != null) {
+    contents[_Stat] = __expectString(output[_Stat]);
   }
-  if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["LastUpdateDate"] !== undefined) {
-    contents.LastUpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdateDate"]));
+  if (output[_LUD] != null) {
+    contents[_LUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUD]));
   }
-  if (output["OutputFormat"] !== undefined) {
-    contents.OutputFormat = __expectString(output["OutputFormat"]);
+  if (output[_OF] != null) {
+    contents[_OF] = __expectString(output[_OF]);
   }
   if (output.StatisticsConfigurations === "") {
-    contents.StatisticsConfigurations = [];
-  } else if (
-    output["StatisticsConfigurations"] !== undefined &&
-    output["StatisticsConfigurations"]["member"] !== undefined
-  ) {
-    contents.StatisticsConfigurations = de_MetricStreamStatisticsConfigurations(
-      __getArrayIfSingleItem(output["StatisticsConfigurations"]["member"]),
-      context
-    );
+    contents[_SC] = [];
+  } else if (output[_SC] != null && output[_SC][_m] != null) {
+    contents[_SC] = de_MetricStreamStatisticsConfigurations(__getArrayIfSingleItem(output[_SC][_m]), context);
   }
-  if (output["IncludeLinkedAccountsMetrics"] !== undefined) {
-    contents.IncludeLinkedAccountsMetrics = __parseBoolean(output["IncludeLinkedAccountsMetrics"]);
+  if (output[_ILAM] != null) {
+    contents[_ILAM] = __parseBoolean(output[_ILAM]);
   }
   return contents;
 };
@@ -5595,8 +5538,8 @@ const de_GetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetr
  */
 const de_GetMetricWidgetImageOutput = (output: any, context: __SerdeContext): GetMetricWidgetImageOutput => {
   const contents: any = {};
-  if (output["MetricWidgetImage"] !== undefined) {
-    contents.MetricWidgetImage = context.base64Decoder(output["MetricWidgetImage"]);
+  if (output[_MWI] != null) {
+    contents[_MWI] = context.base64Decoder(output[_MWI]);
   }
   return contents;
 };
@@ -5606,20 +5549,20 @@ const de_GetMetricWidgetImageOutput = (output: any, context: __SerdeContext): Ge
  */
 const de_InsightRule = (output: any, context: __SerdeContext): InsightRule => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Stat] != null) {
+    contents[_Stat] = __expectString(output[_Stat]);
   }
-  if (output["Schema"] !== undefined) {
-    contents.Schema = __expectString(output["Schema"]);
+  if (output[_Sc] != null) {
+    contents[_Sc] = __expectString(output[_Sc]);
   }
-  if (output["Definition"] !== undefined) {
-    contents.Definition = __expectString(output["Definition"]);
+  if (output[_De] != null) {
+    contents[_De] = __expectString(output[_De]);
   }
-  if (output["ManagedRule"] !== undefined) {
-    contents.ManagedRule = __parseBoolean(output["ManagedRule"]);
+  if (output[_MRana] != null) {
+    contents[_MRana] = __parseBoolean(output[_MRana]);
   }
   return contents;
 };
@@ -5630,20 +5573,17 @@ const de_InsightRule = (output: any, context: __SerdeContext): InsightRule => {
 const de_InsightRuleContributor = (output: any, context: __SerdeContext): InsightRuleContributor => {
   const contents: any = {};
   if (output.Keys === "") {
-    contents.Keys = [];
-  } else if (output["Keys"] !== undefined && output["Keys"]["member"] !== undefined) {
-    contents.Keys = de_InsightRuleContributorKeys(__getArrayIfSingleItem(output["Keys"]["member"]), context);
+    contents[_Ke] = [];
+  } else if (output[_Ke] != null && output[_Ke][_m] != null) {
+    contents[_Ke] = de_InsightRuleContributorKeys(__getArrayIfSingleItem(output[_Ke][_m]), context);
   }
-  if (output["ApproximateAggregateValue"] !== undefined) {
-    contents.ApproximateAggregateValue = __strictParseFloat(output["ApproximateAggregateValue"]) as number;
+  if (output[_AAV] != null) {
+    contents[_AAV] = __strictParseFloat(output[_AAV]) as number;
   }
   if (output.Datapoints === "") {
-    contents.Datapoints = [];
-  } else if (output["Datapoints"] !== undefined && output["Datapoints"]["member"] !== undefined) {
-    contents.Datapoints = de_InsightRuleContributorDatapoints(
-      __getArrayIfSingleItem(output["Datapoints"]["member"]),
-      context
-    );
+    contents[_Da] = [];
+  } else if (output[_Da] != null && output[_Da][_m] != null) {
+    contents[_Da] = de_InsightRuleContributorDatapoints(__getArrayIfSingleItem(output[_Da][_m]), context);
   }
   return contents;
 };
@@ -5653,11 +5593,11 @@ const de_InsightRuleContributor = (output: any, context: __SerdeContext): Insigh
  */
 const de_InsightRuleContributorDatapoint = (output: any, context: __SerdeContext): InsightRuleContributorDatapoint => {
   const contents: any = {};
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["ApproximateValue"] !== undefined) {
-    contents.ApproximateValue = __strictParseFloat(output["ApproximateValue"]) as number;
+  if (output[_AVp] != null) {
+    contents[_AVp] = __strictParseFloat(output[_AVp]) as number;
   }
   return contents;
 };
@@ -5714,29 +5654,29 @@ const de_InsightRuleContributors = (output: any, context: __SerdeContext): Insig
  */
 const de_InsightRuleMetricDatapoint = (output: any, context: __SerdeContext): InsightRuleMetricDatapoint => {
   const contents: any = {};
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["UniqueContributors"] !== undefined) {
-    contents.UniqueContributors = __strictParseFloat(output["UniqueContributors"]) as number;
+  if (output[_UC] != null) {
+    contents[_UC] = __strictParseFloat(output[_UC]) as number;
   }
-  if (output["MaxContributorValue"] !== undefined) {
-    contents.MaxContributorValue = __strictParseFloat(output["MaxContributorValue"]) as number;
+  if (output[_MCV] != null) {
+    contents[_MCV] = __strictParseFloat(output[_MCV]) as number;
   }
-  if (output["SampleCount"] !== undefined) {
-    contents.SampleCount = __strictParseFloat(output["SampleCount"]) as number;
+  if (output[_SCa] != null) {
+    contents[_SCa] = __strictParseFloat(output[_SCa]) as number;
   }
-  if (output["Average"] !== undefined) {
-    contents.Average = __strictParseFloat(output["Average"]) as number;
+  if (output[_Av] != null) {
+    contents[_Av] = __strictParseFloat(output[_Av]) as number;
   }
-  if (output["Sum"] !== undefined) {
-    contents.Sum = __strictParseFloat(output["Sum"]) as number;
+  if (output[_Su] != null) {
+    contents[_Su] = __strictParseFloat(output[_Su]) as number;
   }
-  if (output["Minimum"] !== undefined) {
-    contents.Minimum = __strictParseFloat(output["Minimum"]) as number;
+  if (output[_Mi] != null) {
+    contents[_Mi] = __strictParseFloat(output[_Mi]) as number;
   }
-  if (output["Maximum"] !== undefined) {
-    contents.Maximum = __strictParseFloat(output["Maximum"]) as number;
+  if (output[_Ma] != null) {
+    contents[_Ma] = __strictParseFloat(output[_Ma]) as number;
   }
   return contents;
 };
@@ -5768,8 +5708,8 @@ const de_InsightRules = (output: any, context: __SerdeContext): InsightRule[] =>
  */
 const de_InternalServiceFault = (output: any, context: __SerdeContext): InternalServiceFault => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
   }
   return contents;
 };
@@ -5779,8 +5719,8 @@ const de_InternalServiceFault = (output: any, context: __SerdeContext): Internal
  */
 const de_InvalidFormatFault = (output: any, context: __SerdeContext): InvalidFormatFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5790,8 +5730,8 @@ const de_InvalidFormatFault = (output: any, context: __SerdeContext): InvalidFor
  */
 const de_InvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5804,8 +5744,8 @@ const de_InvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5815,8 +5755,8 @@ const de_InvalidParameterCombinationException = (
  */
 const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5826,8 +5766,8 @@ const de_InvalidParameterValueException = (output: any, context: __SerdeContext)
  */
 const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
   }
   return contents;
 };
@@ -5837,8 +5777,8 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
  */
 const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -5849,15 +5789,12 @@ const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExcee
 const de_ListDashboardsOutput = (output: any, context: __SerdeContext): ListDashboardsOutput => {
   const contents: any = {};
   if (output.DashboardEntries === "") {
-    contents.DashboardEntries = [];
-  } else if (output["DashboardEntries"] !== undefined && output["DashboardEntries"]["member"] !== undefined) {
-    contents.DashboardEntries = de_DashboardEntries(
-      __getArrayIfSingleItem(output["DashboardEntries"]["member"]),
-      context
-    );
+    contents[_DE] = [];
+  } else if (output[_DE] != null && output[_DE][_m] != null) {
+    contents[_DE] = de_DashboardEntries(__getArrayIfSingleItem(output[_DE][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5868,15 +5805,12 @@ const de_ListDashboardsOutput = (output: any, context: __SerdeContext): ListDash
 const de_ListManagedInsightRulesOutput = (output: any, context: __SerdeContext): ListManagedInsightRulesOutput => {
   const contents: any = {};
   if (output.ManagedRules === "") {
-    contents.ManagedRules = [];
-  } else if (output["ManagedRules"] !== undefined && output["ManagedRules"]["member"] !== undefined) {
-    contents.ManagedRules = de_ManagedRuleDescriptions(
-      __getArrayIfSingleItem(output["ManagedRules"]["member"]),
-      context
-    );
+    contents[_MRan] = [];
+  } else if (output[_MRan] != null && output[_MRan][_m] != null) {
+    contents[_MRan] = de_ManagedRuleDescriptions(__getArrayIfSingleItem(output[_MRan][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5887,17 +5821,17 @@ const de_ListManagedInsightRulesOutput = (output: any, context: __SerdeContext):
 const de_ListMetricsOutput = (output: any, context: __SerdeContext): ListMetricsOutput => {
   const contents: any = {};
   if (output.Metrics === "") {
-    contents.Metrics = [];
-  } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
-    contents.Metrics = de_Metrics(__getArrayIfSingleItem(output["Metrics"]["member"]), context);
+    contents[_M] = [];
+  } else if (output[_M] != null && output[_M][_m] != null) {
+    contents[_M] = de_Metrics(__getArrayIfSingleItem(output[_M][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   if (output.OwningAccounts === "") {
-    contents.OwningAccounts = [];
-  } else if (output["OwningAccounts"] !== undefined && output["OwningAccounts"]["member"] !== undefined) {
-    contents.OwningAccounts = de_OwningAccounts(__getArrayIfSingleItem(output["OwningAccounts"]["member"]), context);
+    contents[_OAw] = [];
+  } else if (output[_OAw] != null && output[_OAw][_m] != null) {
+    contents[_OAw] = de_OwningAccounts(__getArrayIfSingleItem(output[_OAw][_m]), context);
   }
   return contents;
 };
@@ -5907,13 +5841,13 @@ const de_ListMetricsOutput = (output: any, context: __SerdeContext): ListMetrics
  */
 const de_ListMetricStreamsOutput = (output: any, context: __SerdeContext): ListMetricStreamsOutput => {
   const contents: any = {};
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   if (output.Entries === "") {
-    contents.Entries = [];
-  } else if (output["Entries"] !== undefined && output["Entries"]["member"] !== undefined) {
-    contents.Entries = de_MetricStreamEntries(__getArrayIfSingleItem(output["Entries"]["member"]), context);
+    contents[_En] = [];
+  } else if (output[_En] != null && output[_En][_m] != null) {
+    contents[_En] = de_MetricStreamEntries(__getArrayIfSingleItem(output[_En][_m]), context);
   }
   return contents;
 };
@@ -5924,9 +5858,9 @@ const de_ListMetricStreamsOutput = (output: any, context: __SerdeContext): ListM
 const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): ListTagsForResourceOutput => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_Ta] = [];
+  } else if (output[_Ta] != null && output[_Ta][_m] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Ta][_m]), context);
   }
   return contents;
 };
@@ -5936,14 +5870,14 @@ const de_ListTagsForResourceOutput = (output: any, context: __SerdeContext): Lis
  */
 const de_ManagedRuleDescription = (output: any, context: __SerdeContext): ManagedRuleDescription => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["ResourceARN"] !== undefined) {
-    contents.ResourceARN = __expectString(output["ResourceARN"]);
+  if (output[_RARN] != null) {
+    contents[_RARN] = __expectString(output[_RARN]);
   }
-  if (output["RuleState"] !== undefined) {
-    contents.RuleState = de_ManagedRuleState(output["RuleState"], context);
+  if (output[_RS] != null) {
+    contents[_RS] = de_ManagedRuleState(output[_RS], context);
   }
   return contents;
 };
@@ -5964,11 +5898,11 @@ const de_ManagedRuleDescriptions = (output: any, context: __SerdeContext): Manag
  */
 const de_ManagedRuleState = (output: any, context: __SerdeContext): ManagedRuleState => {
   const contents: any = {};
-  if (output["RuleName"] !== undefined) {
-    contents.RuleName = __expectString(output["RuleName"]);
+  if (output[_RNu] != null) {
+    contents[_RNu] = __expectString(output[_RNu]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Stat] != null) {
+    contents[_Stat] = __expectString(output[_Stat]);
   }
   return contents;
 };
@@ -5978,11 +5912,11 @@ const de_ManagedRuleState = (output: any, context: __SerdeContext): ManagedRuleS
  */
 const de_MessageData = (output: any, context: __SerdeContext): MessageData => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_Cod] != null) {
+    contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -5992,16 +5926,16 @@ const de_MessageData = (output: any, context: __SerdeContext): MessageData => {
  */
 const de_Metric = (output: any, context: __SerdeContext): Metric => {
   const contents: any = {};
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = __expectString(output["MetricName"]);
+  if (output[_MN] != null) {
+    contents[_MN] = __expectString(output[_MN]);
   }
   if (output.Dimensions === "") {
-    contents.Dimensions = [];
-  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
-    contents.Dimensions = de_Dimensions(__getArrayIfSingleItem(output["Dimensions"]["member"]), context);
+    contents[_D] = [];
+  } else if (output[_D] != null && output[_D][_m] != null) {
+    contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
   }
   return contents;
 };
@@ -6011,112 +5945,102 @@ const de_Metric = (output: any, context: __SerdeContext): Metric => {
  */
 const de_MetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
   const contents: any = {};
-  if (output["AlarmName"] !== undefined) {
-    contents.AlarmName = __expectString(output["AlarmName"]);
+  if (output[_ANl] != null) {
+    contents[_ANl] = __expectString(output[_ANl]);
   }
-  if (output["AlarmArn"] !== undefined) {
-    contents.AlarmArn = __expectString(output["AlarmArn"]);
+  if (output[_AAl] != null) {
+    contents[_AAl] = __expectString(output[_AAl]);
   }
-  if (output["AlarmDescription"] !== undefined) {
-    contents.AlarmDescription = __expectString(output["AlarmDescription"]);
+  if (output[_AD] != null) {
+    contents[_AD] = __expectString(output[_AD]);
   }
-  if (output["AlarmConfigurationUpdatedTimestamp"] !== undefined) {
-    contents.AlarmConfigurationUpdatedTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["AlarmConfigurationUpdatedTimestamp"])
-    );
+  if (output[_ACUT] != null) {
+    contents[_ACUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ACUT]));
   }
-  if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
+  if (output[_AE] != null) {
+    contents[_AE] = __parseBoolean(output[_AE]);
   }
   if (output.OKActions === "") {
-    contents.OKActions = [];
-  } else if (output["OKActions"] !== undefined && output["OKActions"]["member"] !== undefined) {
-    contents.OKActions = de_ResourceList(__getArrayIfSingleItem(output["OKActions"]["member"]), context);
+    contents[_OKA] = [];
+  } else if (output[_OKA] != null && output[_OKA][_m] != null) {
+    contents[_OKA] = de_ResourceList(__getArrayIfSingleItem(output[_OKA][_m]), context);
   }
   if (output.AlarmActions === "") {
-    contents.AlarmActions = [];
-  } else if (output["AlarmActions"] !== undefined && output["AlarmActions"]["member"] !== undefined) {
-    contents.AlarmActions = de_ResourceList(__getArrayIfSingleItem(output["AlarmActions"]["member"]), context);
+    contents[_AA] = [];
+  } else if (output[_AA] != null && output[_AA][_m] != null) {
+    contents[_AA] = de_ResourceList(__getArrayIfSingleItem(output[_AA][_m]), context);
   }
   if (output.InsufficientDataActions === "") {
-    contents.InsufficientDataActions = [];
-  } else if (
-    output["InsufficientDataActions"] !== undefined &&
-    output["InsufficientDataActions"]["member"] !== undefined
-  ) {
-    contents.InsufficientDataActions = de_ResourceList(
-      __getArrayIfSingleItem(output["InsufficientDataActions"]["member"]),
-      context
-    );
+    contents[_IDA] = [];
+  } else if (output[_IDA] != null && output[_IDA][_m] != null) {
+    contents[_IDA] = de_ResourceList(__getArrayIfSingleItem(output[_IDA][_m]), context);
   }
-  if (output["StateValue"] !== undefined) {
-    contents.StateValue = __expectString(output["StateValue"]);
+  if (output[_SV] != null) {
+    contents[_SV] = __expectString(output[_SV]);
   }
-  if (output["StateReason"] !== undefined) {
-    contents.StateReason = __expectString(output["StateReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["StateReasonData"] !== undefined) {
-    contents.StateReasonData = __expectString(output["StateReasonData"]);
+  if (output[_SRD] != null) {
+    contents[_SRD] = __expectString(output[_SRD]);
   }
-  if (output["StateUpdatedTimestamp"] !== undefined) {
-    contents.StateUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StateUpdatedTimestamp"]));
+  if (output[_SUT] != null) {
+    contents[_SUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SUT]));
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = __expectString(output["MetricName"]);
+  if (output[_MN] != null) {
+    contents[_MN] = __expectString(output[_MN]);
   }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Statistic"] !== undefined) {
-    contents.Statistic = __expectString(output["Statistic"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["ExtendedStatistic"] !== undefined) {
-    contents.ExtendedStatistic = __expectString(output["ExtendedStatistic"]);
+  if (output[_ES] != null) {
+    contents[_ES] = __expectString(output[_ES]);
   }
   if (output.Dimensions === "") {
-    contents.Dimensions = [];
-  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
-    contents.Dimensions = de_Dimensions(__getArrayIfSingleItem(output["Dimensions"]["member"]), context);
+    contents[_D] = [];
+  } else if (output[_D] != null && output[_D][_m] != null) {
+    contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
   }
-  if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt32(output["Period"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["Unit"] !== undefined) {
-    contents.Unit = __expectString(output["Unit"]);
+  if (output[_U] != null) {
+    contents[_U] = __expectString(output[_U]);
   }
-  if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = __strictParseInt32(output["EvaluationPeriods"]) as number;
+  if (output[_EP] != null) {
+    contents[_EP] = __strictParseInt32(output[_EP]) as number;
   }
-  if (output["DatapointsToAlarm"] !== undefined) {
-    contents.DatapointsToAlarm = __strictParseInt32(output["DatapointsToAlarm"]) as number;
+  if (output[_DTA] != null) {
+    contents[_DTA] = __strictParseInt32(output[_DTA]) as number;
   }
-  if (output["Threshold"] !== undefined) {
-    contents.Threshold = __strictParseFloat(output["Threshold"]) as number;
+  if (output[_Th] != null) {
+    contents[_Th] = __strictParseFloat(output[_Th]) as number;
   }
-  if (output["ComparisonOperator"] !== undefined) {
-    contents.ComparisonOperator = __expectString(output["ComparisonOperator"]);
+  if (output[_CO] != null) {
+    contents[_CO] = __expectString(output[_CO]);
   }
-  if (output["TreatMissingData"] !== undefined) {
-    contents.TreatMissingData = __expectString(output["TreatMissingData"]);
+  if (output[_TMD] != null) {
+    contents[_TMD] = __expectString(output[_TMD]);
   }
-  if (output["EvaluateLowSampleCountPercentile"] !== undefined) {
-    contents.EvaluateLowSampleCountPercentile = __expectString(output["EvaluateLowSampleCountPercentile"]);
+  if (output[_ELSCP] != null) {
+    contents[_ELSCP] = __expectString(output[_ELSCP]);
   }
   if (output.Metrics === "") {
-    contents.Metrics = [];
-  } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
-    contents.Metrics = de_MetricDataQueries(__getArrayIfSingleItem(output["Metrics"]["member"]), context);
+    contents[_M] = [];
+  } else if (output[_M] != null && output[_M][_m] != null) {
+    contents[_M] = de_MetricDataQueries(__getArrayIfSingleItem(output[_M][_m]), context);
   }
-  if (output["ThresholdMetricId"] !== undefined) {
-    contents.ThresholdMetricId = __expectString(output["ThresholdMetricId"]);
+  if (output[_TMI] != null) {
+    contents[_TMI] = __expectString(output[_TMI]);
   }
-  if (output["EvaluationState"] !== undefined) {
-    contents.EvaluationState = __expectString(output["EvaluationState"]);
+  if (output[_ESv] != null) {
+    contents[_ESv] = __expectString(output[_ESv]);
   }
-  if (output["StateTransitionedTimestamp"] !== undefined) {
-    contents.StateTransitionedTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["StateTransitionedTimestamp"])
-    );
+  if (output[_STT] != null) {
+    contents[_STT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STT]));
   }
   return contents;
 };
@@ -6148,26 +6072,26 @@ const de_MetricDataQueries = (output: any, context: __SerdeContext): MetricDataQ
  */
 const de_MetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["MetricStat"] !== undefined) {
-    contents.MetricStat = de_MetricStat(output["MetricStat"], context);
+  if (output[_MS] != null) {
+    contents[_MS] = de_MetricStat(output[_MS], context);
   }
-  if (output["Expression"] !== undefined) {
-    contents.Expression = __expectString(output["Expression"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["Label"] !== undefined) {
-    contents.Label = __expectString(output["Label"]);
+  if (output[_L] != null) {
+    contents[_L] = __expectString(output[_L]);
   }
-  if (output["ReturnData"] !== undefined) {
-    contents.ReturnData = __parseBoolean(output["ReturnData"]);
+  if (output[_RD] != null) {
+    contents[_RD] = __parseBoolean(output[_RD]);
   }
-  if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt32(output["Period"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["AccountId"] !== undefined) {
-    contents.AccountId = __expectString(output["AccountId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
   return contents;
 };
@@ -6177,29 +6101,29 @@ const de_MetricDataQuery = (output: any, context: __SerdeContext): MetricDataQue
  */
 const de_MetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Label"] !== undefined) {
-    contents.Label = __expectString(output["Label"]);
+  if (output[_L] != null) {
+    contents[_L] = __expectString(output[_L]);
   }
   if (output.Timestamps === "") {
-    contents.Timestamps = [];
-  } else if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
-    contents.Timestamps = de_Timestamps(__getArrayIfSingleItem(output["Timestamps"]["member"]), context);
+    contents[_Tim] = [];
+  } else if (output[_Tim] != null && output[_Tim][_m] != null) {
+    contents[_Tim] = de_Timestamps(__getArrayIfSingleItem(output[_Tim][_m]), context);
   }
   if (output.Values === "") {
-    contents.Values = [];
-  } else if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
-    contents.Values = de_DatapointValues(__getArrayIfSingleItem(output["Values"]["member"]), context);
+    contents[_Val] = [];
+  } else if (output[_Val] != null && output[_Val][_m] != null) {
+    contents[_Val] = de_DatapointValues(__getArrayIfSingleItem(output[_Val][_m]), context);
   }
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = __expectString(output["StatusCode"]);
+  if (output[_SCt] != null) {
+    contents[_SCt] = __expectString(output[_SCt]);
   }
   if (output.Messages === "") {
-    contents.Messages = [];
-  } else if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
-    contents.Messages = de_MetricDataResultMessages(__getArrayIfSingleItem(output["Messages"]["member"]), context);
+    contents[_Mess] = [];
+  } else if (output[_Mess] != null && output[_Mess][_m] != null) {
+    contents[_Mess] = de_MetricDataResultMessages(__getArrayIfSingleItem(output[_Mess][_m]), context);
   }
   return contents;
 };
@@ -6232,12 +6156,9 @@ const de_MetricDataResults = (output: any, context: __SerdeContext): MetricDataR
 const de_MetricMathAnomalyDetector = (output: any, context: __SerdeContext): MetricMathAnomalyDetector => {
   const contents: any = {};
   if (output.MetricDataQueries === "") {
-    contents.MetricDataQueries = [];
-  } else if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
-    contents.MetricDataQueries = de_MetricDataQueries(
-      __getArrayIfSingleItem(output["MetricDataQueries"]["member"]),
-      context
-    );
+    contents[_MDQ] = [];
+  } else if (output[_MDQ] != null && output[_MDQ][_m] != null) {
+    contents[_MDQ] = de_MetricDataQueries(__getArrayIfSingleItem(output[_MDQ][_m]), context);
   }
   return contents;
 };
@@ -6258,17 +6179,17 @@ const de_Metrics = (output: any, context: __SerdeContext): Metric[] => {
  */
 const de_MetricStat = (output: any, context: __SerdeContext): MetricStat => {
   const contents: any = {};
-  if (output["Metric"] !== undefined) {
-    contents.Metric = de_Metric(output["Metric"], context);
+  if (output[_Me] != null) {
+    contents[_Me] = de_Metric(output[_Me], context);
   }
-  if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt32(output["Period"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["Stat"] !== undefined) {
-    contents.Stat = __expectString(output["Stat"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Unit"] !== undefined) {
-    contents.Unit = __expectString(output["Unit"]);
+  if (output[_U] != null) {
+    contents[_U] = __expectString(output[_U]);
   }
   return contents;
 };
@@ -6289,26 +6210,26 @@ const de_MetricStreamEntries = (output: any, context: __SerdeContext): MetricStr
  */
 const de_MetricStreamEntry = (output: any, context: __SerdeContext): MetricStreamEntry => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["LastUpdateDate"] !== undefined) {
-    contents.LastUpdateDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdateDate"]));
+  if (output[_LUD] != null) {
+    contents[_LUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUD]));
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_Na] != null) {
+    contents[_Na] = __expectString(output[_Na]);
   }
-  if (output["FirehoseArn"] !== undefined) {
-    contents.FirehoseArn = __expectString(output["FirehoseArn"]);
+  if (output[_FA] != null) {
+    contents[_FA] = __expectString(output[_FA]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Stat] != null) {
+    contents[_Stat] = __expectString(output[_Stat]);
   }
-  if (output["OutputFormat"] !== undefined) {
-    contents.OutputFormat = __expectString(output["OutputFormat"]);
+  if (output[_OF] != null) {
+    contents[_OF] = __expectString(output[_OF]);
   }
   return contents;
 };
@@ -6318,16 +6239,13 @@ const de_MetricStreamEntry = (output: any, context: __SerdeContext): MetricStrea
  */
 const de_MetricStreamFilter = (output: any, context: __SerdeContext): MetricStreamFilter => {
   const contents: any = {};
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   if (output.MetricNames === "") {
-    contents.MetricNames = [];
-  } else if (output["MetricNames"] !== undefined && output["MetricNames"]["member"] !== undefined) {
-    contents.MetricNames = de_MetricStreamFilterMetricNames(
-      __getArrayIfSingleItem(output["MetricNames"]["member"]),
-      context
-    );
+    contents[_MNe] = [];
+  } else if (output[_MNe] != null && output[_MNe][_m] != null) {
+    contents[_MNe] = de_MetricStreamFilterMetricNames(__getArrayIfSingleItem(output[_MNe][_m]), context);
   }
   return contents;
 };
@@ -6374,20 +6292,14 @@ const de_MetricStreamStatisticsConfiguration = (
 ): MetricStreamStatisticsConfiguration => {
   const contents: any = {};
   if (output.IncludeMetrics === "") {
-    contents.IncludeMetrics = [];
-  } else if (output["IncludeMetrics"] !== undefined && output["IncludeMetrics"]["member"] !== undefined) {
-    contents.IncludeMetrics = de_MetricStreamStatisticsIncludeMetrics(
-      __getArrayIfSingleItem(output["IncludeMetrics"]["member"]),
-      context
-    );
+    contents[_IM] = [];
+  } else if (output[_IM] != null && output[_IM][_m] != null) {
+    contents[_IM] = de_MetricStreamStatisticsIncludeMetrics(__getArrayIfSingleItem(output[_IM][_m]), context);
   }
   if (output.AdditionalStatistics === "") {
-    contents.AdditionalStatistics = [];
-  } else if (output["AdditionalStatistics"] !== undefined && output["AdditionalStatistics"]["member"] !== undefined) {
-    contents.AdditionalStatistics = de_MetricStreamStatisticsAdditionalStatistics(
-      __getArrayIfSingleItem(output["AdditionalStatistics"]["member"]),
-      context
-    );
+    contents[_AS] = [];
+  } else if (output[_AS] != null && output[_AS][_m] != null) {
+    contents[_AS] = de_MetricStreamStatisticsAdditionalStatistics(__getArrayIfSingleItem(output[_AS][_m]), context);
   }
   return contents;
 };
@@ -6425,11 +6337,11 @@ const de_MetricStreamStatisticsIncludeMetrics = (
  */
 const de_MetricStreamStatisticsMetric = (output: any, context: __SerdeContext): MetricStreamStatisticsMetric => {
   const contents: any = {};
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = __expectString(output["MetricName"]);
+  if (output[_MN] != null) {
+    contents[_MN] = __expectString(output[_MN]);
   }
   return contents;
 };
@@ -6442,8 +6354,8 @@ const de_MissingRequiredParameterException = (
   context: __SerdeContext
 ): MissingRequiredParameterException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6464,17 +6376,17 @@ const de_OwningAccounts = (output: any, context: __SerdeContext): string[] => {
  */
 const de_PartialFailure = (output: any, context: __SerdeContext): PartialFailure => {
   const contents: any = {};
-  if (output["FailureResource"] !== undefined) {
-    contents.FailureResource = __expectString(output["FailureResource"]);
+  if (output[_FR] != null) {
+    contents[_FR] = __expectString(output[_FR]);
   }
-  if (output["ExceptionType"] !== undefined) {
-    contents.ExceptionType = __expectString(output["ExceptionType"]);
+  if (output[_ETx] != null) {
+    contents[_ETx] = __expectString(output[_ETx]);
   }
-  if (output["FailureCode"] !== undefined) {
-    contents.FailureCode = __expectString(output["FailureCode"]);
+  if (output[_FC] != null) {
+    contents[_FC] = __expectString(output[_FC]);
   }
-  if (output["FailureDescription"] !== undefined) {
-    contents.FailureDescription = __expectString(output["FailureDescription"]);
+  if (output[_FD] != null) {
+    contents[_FD] = __expectString(output[_FD]);
   }
   return contents;
 };
@@ -6493,15 +6405,9 @@ const de_PutAnomalyDetectorOutput = (output: any, context: __SerdeContext): PutA
 const de_PutDashboardOutput = (output: any, context: __SerdeContext): PutDashboardOutput => {
   const contents: any = {};
   if (output.DashboardValidationMessages === "") {
-    contents.DashboardValidationMessages = [];
-  } else if (
-    output["DashboardValidationMessages"] !== undefined &&
-    output["DashboardValidationMessages"]["member"] !== undefined
-  ) {
-    contents.DashboardValidationMessages = de_DashboardValidationMessages(
-      __getArrayIfSingleItem(output["DashboardValidationMessages"]["member"]),
-      context
-    );
+    contents[_DVM] = [];
+  } else if (output[_DVM] != null && output[_DVM][_m] != null) {
+    contents[_DVM] = de_DashboardValidationMessages(__getArrayIfSingleItem(output[_DVM][_m]), context);
   }
   return contents;
 };
@@ -6520,9 +6426,9 @@ const de_PutInsightRuleOutput = (output: any, context: __SerdeContext): PutInsig
 const de_PutManagedInsightRulesOutput = (output: any, context: __SerdeContext): PutManagedInsightRulesOutput => {
   const contents: any = {};
   if (output.Failures === "") {
-    contents.Failures = [];
-  } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
-    contents.Failures = de_BatchFailures(__getArrayIfSingleItem(output["Failures"]["member"]), context);
+    contents[_F] = [];
+  } else if (output[_F] != null && output[_F][_m] != null) {
+    contents[_F] = de_BatchFailures(__getArrayIfSingleItem(output[_F][_m]), context);
   }
   return contents;
 };
@@ -6532,8 +6438,8 @@ const de_PutManagedInsightRulesOutput = (output: any, context: __SerdeContext): 
  */
 const de_PutMetricStreamOutput = (output: any, context: __SerdeContext): PutMetricStreamOutput => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -6543,11 +6449,11 @@ const de_PutMetricStreamOutput = (output: any, context: __SerdeContext): PutMetr
  */
 const de_Range = (output: any, context: __SerdeContext): Range => {
   const contents: any = {};
-  if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
+  if (output[_ST] != null) {
+    contents[_ST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ST]));
   }
-  if (output["EndTime"] !== undefined) {
-    contents.EndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTime"]));
+  if (output[_ET] != null) {
+    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
   }
   return contents;
 };
@@ -6568,8 +6474,8 @@ const de_ResourceList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_ResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -6579,14 +6485,14 @@ const de_ResourceNotFound = (output: any, context: __SerdeContext): ResourceNotF
  */
 const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   const contents: any = {};
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RT] != null) {
+    contents[_RT] = __expectString(output[_RT]);
   }
-  if (output["ResourceId"] !== undefined) {
-    contents.ResourceId = __expectString(output["ResourceId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
   }
   return contents;
 };
@@ -6596,19 +6502,19 @@ const de_ResourceNotFoundException = (output: any, context: __SerdeContext): Res
  */
 const de_SingleMetricAnomalyDetector = (output: any, context: __SerdeContext): SingleMetricAnomalyDetector => {
   const contents: any = {};
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = __expectString(output["MetricName"]);
+  if (output[_MN] != null) {
+    contents[_MN] = __expectString(output[_MN]);
   }
   if (output.Dimensions === "") {
-    contents.Dimensions = [];
-  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["member"] !== undefined) {
-    contents.Dimensions = de_Dimensions(__getArrayIfSingleItem(output["Dimensions"]["member"]), context);
+    contents[_D] = [];
+  } else if (output[_D] != null && output[_D][_m] != null) {
+    contents[_D] = de_Dimensions(__getArrayIfSingleItem(output[_D][_m]), context);
   }
-  if (output["Stat"] !== undefined) {
-    contents.Stat = __expectString(output["Stat"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -6634,11 +6540,11 @@ const de_StopMetricStreamsOutput = (output: any, context: __SerdeContext): StopM
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -6722,6 +6628,216 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
+// HttpRpcProtocolGenerator
+const _ = "2010-08-01";
+const _A = "Action";
+const _AA = "AlarmActions";
+const _AAV = "ApproximateAggregateValue";
+const _AAl = "AlarmArn";
+const _ACUT = "AlarmConfigurationUpdatedTimestamp";
+const _AD = "AlarmDescription";
+const _ADT = "AnomalyDetectorTypes";
+const _ADn = "AnomalyDetectors";
+const _AE = "ActionsEnabled";
+const _AHI = "AlarmHistoryItems";
+const _AI = "AccountId";
+const _AN = "AlarmNames";
+const _ANP = "AlarmNamePrefix";
+const _ANl = "AlarmName";
+const _AP = "ActionPrefix";
+const _AR = "AlarmRule";
+const _AS = "AdditionalStatistics";
+const _ASB = "ActionsSuppressedBy";
+const _ASEP = "ActionsSuppressorExtensionPeriod";
+const _ASR = "ActionsSuppressedReason";
+const _ASWP = "ActionsSuppressorWaitPeriod";
+const _ASc = "ActionsSuppressor";
+const _ASg = "AggregationStatistic";
+const _AT = "AlarmTypes";
+const _ATl = "AlarmType";
+const _AUC = "ApproximateUniqueCount";
+const _AV = "AggregateValue";
+const _AVp = "ApproximateValue";
+const _Ar = "Arn";
+const _Av = "Average";
+const _C = "Counts";
+const _CA = "CompositeAlarms";
+const _CD = "CreationDate";
+const _CO = "ComparisonOperator";
+const _COAN = "ChildrenOfAlarmName";
+const _Co = "Configuration";
+const _Cod = "Code";
+const _Con = "Contributors";
+const _D = "Dimensions";
+const _DA = "DeleteAlarms";
+const _DAA = "DisableAlarmActions";
+const _DAD = "DeleteAnomalyDetector";
+const _DADe = "DescribeAnomalyDetectors";
+const _DAFM = "DescribeAlarmsForMetric";
+const _DAH = "DescribeAlarmHistory";
+const _DAa = "DashboardArn";
+const _DAe = "DescribeAlarms";
+const _DB = "DashboardBody";
+const _DD = "DeleteDashboards";
+const _DE = "DashboardEntries";
+const _DIR = "DeleteInsightRules";
+const _DIRe = "DescribeInsightRules";
+const _DIRi = "DisableInsightRules";
+const _DMS = "DeleteMetricStream";
+const _DN = "DashboardNames";
+const _DNP = "DashboardNamePrefix";
+const _DNa = "DashboardName";
+const _DP = "DataPath";
+const _DTA = "DatapointsToAlarm";
+const _DVM = "DashboardValidationMessages";
+const _Da = "Datapoints";
+const _De = "Definition";
+const _E = "Expression";
+const _EAA = "EnableAlarmActions";
+const _ED = "EndDate";
+const _EF = "ExcludeFilters";
+const _EIR = "EnableInsightRules";
+const _ELSCP = "EvaluateLowSampleCountPercentile";
+const _EP = "EvaluationPeriods";
+const _ES = "ExtendedStatistic";
+const _ESv = "EvaluationState";
+const _ESx = "ExtendedStatistics";
+const _ET = "EndTime";
+const _ETR = "ExcludedTimeRanges";
+const _ETx = "ExceptionType";
+const _En = "Entries";
+const _F = "Failures";
+const _FA = "FirehoseArn";
+const _FC = "FailureCode";
+const _FD = "FailureDescription";
+const _FR = "FailureResource";
+const _GD = "GetDashboard";
+const _GIRR = "GetInsightRuleReport";
+const _GMD = "GetMetricData";
+const _GMS = "GetMetricStatistics";
+const _GMSe = "GetMetricStream";
+const _GMWI = "GetMetricWidgetImage";
+const _HD = "HistoryData";
+const _HIT = "HistoryItemType";
+const _HS = "HistorySummary";
+const _I = "Id";
+const _IDA = "InsufficientDataActions";
+const _IF = "IncludeFilters";
+const _ILA = "IncludeLinkedAccounts";
+const _ILAM = "IncludeLinkedAccountsMetrics";
+const _IM = "IncludeMetrics";
+const _IR = "InsightRules";
+const _K = "Key";
+const _KL = "KeyLabels";
+const _Ke = "Keys";
+const _L = "Label";
+const _LD = "ListDashboards";
+const _LM = "ListMetrics";
+const _LMIR = "ListManagedInsightRules";
+const _LMS = "ListMetricStreams";
+const _LMa = "LastModified";
+const _LO = "LabelOptions";
+const _LTFR = "ListTagsForResource";
+const _LUD = "LastUpdateDate";
+const _M = "Metrics";
+const _MA = "MetricAlarms";
+const _MCC = "MaxContributorCount";
+const _MCV = "MaxContributorValue";
+const _MD = "MaxDatapoints";
+const _MDQ = "MetricDataQueries";
+const _MDR = "MetricDataResults";
+const _MDe = "MetricData";
+const _MDet = "MetricDatapoints";
+const _MMAD = "MetricMathAnomalyDetector";
+const _MN = "MetricName";
+const _MNe = "MetricNames";
+const _MR = "MaxRecords";
+const _MRa = "MaxResults";
+const _MRan = "ManagedRules";
+const _MRana = "ManagedRule";
+const _MS = "MetricStat";
+const _MT = "MetricTimezone";
+const _MW = "MetricWidget";
+const _MWI = "MetricWidgetImage";
+const _Ma = "Maximum";
+const _Me = "Metric";
+const _Mes = "Message";
+const _Mess = "Messages";
+const _Mi = "Minimum";
+const _N = "Namespace";
+const _NT = "NextToken";
+const _Na = "Name";
+const _Nam = "Names";
+const _OA = "OwningAccount";
+const _OAw = "OwningAccounts";
+const _OB = "OrderBy";
+const _OF = "OutputFormat";
+const _OKA = "OKActions";
+const _P = "Period";
+const _PAD = "PutAnomalyDetector";
+const _PCA = "PutCompositeAlarm";
+const _PD = "PutDashboard";
+const _PIR = "PutInsightRule";
+const _PMA = "PutMetricAlarm";
+const _PMD = "PutMetricData";
+const _PMIR = "PutManagedInsightRules";
+const _PMS = "PutMetricStream";
+const _POAN = "ParentsOfAlarmName";
+const _RA = "RecentlyActive";
+const _RARN = "ResourceARN";
+const _RAo = "RoleArn";
+const _RD = "ReturnData";
+const _RDu = "RuleDefinition";
+const _RI = "ResourceId";
+const _RN = "RuleNames";
+const _RNu = "RuleName";
+const _RS = "RuleState";
+const _RT = "ResourceType";
+const _S = "Stat";
+const _SAS = "SetAlarmState";
+const _SB = "ScanBy";
+const _SC = "StatisticsConfigurations";
+const _SCa = "SampleCount";
+const _SCt = "StatusCode";
+const _SD = "StartDate";
+const _SMAD = "SingleMetricAnomalyDetector";
+const _SMS = "StartMetricStreams";
+const _SMSt = "StopMetricStreams";
+const _SR = "StorageResolution";
+const _SRD = "StateReasonData";
+const _SRt = "StateReason";
+const _ST = "StartTime";
+const _STT = "StateTransitionedTimestamp";
+const _SUT = "StateUpdatedTimestamp";
+const _SV = "StateValue";
+const _SVt = "StatisticValues";
+const _Sc = "Schema";
+const _Si = "Size";
+const _St = "Statistic";
+const _Sta = "Statistics";
+const _Stat = "State";
+const _Su = "Sum";
+const _T = "Timezone";
+const _TK = "TagKeys";
+const _TMD = "TreatMissingData";
+const _TMI = "ThresholdMetricId";
+const _TN = "TemplateName";
+const _TR = "TagResource";
+const _Ta = "Tags";
+const _Th = "Threshold";
+const _Ti = "Timestamp";
+const _Tim = "Timestamps";
+const _U = "Unit";
+const _UC = "UniqueContributors";
+const _UR = "UntagResource";
+const _V = "Version";
+const _Va = "Value";
+const _Val = "Values";
+const _dVM = "dashboardValidationMessages";
+const _e = "entry";
+const _m = "member";
+const _me = "message";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -6770,3 +6886,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
+
+// AwsQuery

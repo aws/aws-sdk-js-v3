@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -54,23 +55,14 @@ export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-jobs/{BackupJobId}/object/{ObjectName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ObjectName", () => input.ObjectName!, "{ObjectName}", false);
+  b.bp("/backup-jobs/{BackupJobId}/object/{ObjectName}");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.p("ObjectName", () => input.ObjectName!, "{ObjectName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -80,30 +72,14 @@ export const se_GetChunkCommand = async (
   input: GetChunkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/restore-jobs/{StorageJobId}/chunk/{ChunkToken}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "StorageJobId",
-    () => input.StorageJobId!,
-    "{StorageJobId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChunkToken", () => input.ChunkToken!, "{ChunkToken}", false);
+  b.bp("/restore-jobs/{StorageJobId}/chunk/{ChunkToken}");
+  b.p("StorageJobId", () => input.StorageJobId!, "{StorageJobId}", false);
+  b.p("ChunkToken", () => input.ChunkToken!, "{ChunkToken}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -113,30 +89,14 @@ export const se_GetObjectMetadataCommand = async (
   input: GetObjectMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/restore-jobs/{StorageJobId}/object/{ObjectToken}/metadata";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "StorageJobId",
-    () => input.StorageJobId!,
-    "{StorageJobId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ObjectToken", () => input.ObjectToken!, "{ObjectToken}", false);
+  b.bp("/restore-jobs/{StorageJobId}/object/{ObjectToken}/metadata");
+  b.p("StorageJobId", () => input.StorageJobId!, "{StorageJobId}", false);
+  b.p("ObjectToken", () => input.ObjectToken!, "{ObjectToken}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -146,35 +106,18 @@ export const se_ListChunksCommand = async (
   input: ListChunksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/restore-jobs/{StorageJobId}/chunks/{ObjectToken}/list";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "StorageJobId",
-    () => input.StorageJobId!,
-    "{StorageJobId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ObjectToken", () => input.ObjectToken!, "{ObjectToken}", false);
+  b.bp("/restore-jobs/{StorageJobId}/chunks/{ObjectToken}/list");
+  b.p("StorageJobId", () => input.StorageJobId!, "{StorageJobId}", false);
+  b.p("ObjectToken", () => input.ObjectToken!, "{ObjectToken}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -184,43 +127,21 @@ export const se_ListObjectsCommand = async (
   input: ListObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs/{StorageJobId}/objects/list";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "StorageJobId",
-    () => input.StorageJobId!,
-    "{StorageJobId}",
-    false
-  );
+  b.bp("/restore-jobs/{StorageJobId}/objects/list");
+  b.p("StorageJobId", () => input.StorageJobId!, "{StorageJobId}", false);
   const query: any = map({
-    "starting-object-name": [, input.StartingObjectName!],
-    "starting-object-prefix": [, input.StartingObjectPrefix!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
-    "created-before": [
-      () => input.CreatedBefore !== void 0,
-      () => (input.CreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "created-after": [
-      () => input.CreatedAfter !== void 0,
-      () => (input.CreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    [_son]: [, input[_SON]!],
+    [_sop]: [, input[_SOP]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_cb]: [() => input.CreatedBefore !== void 0, () => (input[_CB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ca]: [() => input.CreatedAfter !== void 0, () => (input[_CA]!.toISOString().split(".")[0] + "Z").toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -230,38 +151,28 @@ export const se_NotifyObjectCompleteCommand = async (
   input: NotifyObjectCompleteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-jobs/{BackupJobId}/object/{UploadId}/complete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "UploadId", () => input.UploadId!, "{UploadId}", false);
+  b.bp("/backup-jobs/{BackupJobId}/object/{UploadId}/complete");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.p("UploadId", () => input.UploadId!, "{UploadId}", false);
   const query: any = map({
-    checksum: [, __expectNonNull(input.ObjectChecksum!, `ObjectChecksum`)],
-    "checksum-algorithm": [, __expectNonNull(input.ObjectChecksumAlgorithm!, `ObjectChecksumAlgorithm`)],
-    "metadata-string": [, input.MetadataString!],
-    "metadata-blob-length": [() => input.MetadataBlobLength !== void 0, () => input.MetadataBlobLength!.toString()],
-    "metadata-checksum": [, input.MetadataBlobChecksum!],
-    "metadata-checksum-algorithm": [, input.MetadataBlobChecksumAlgorithm!],
+    [_c]: [, __expectNonNull(input[_OC]!, `ObjectChecksum`)],
+    [_ca_]: [, __expectNonNull(input[_OCA]!, `ObjectChecksumAlgorithm`)],
+    [_ms]: [, input[_MS]!],
+    [_mbl]: [() => input.MetadataBlobLength !== void 0, () => input[_MBL]!.toString()],
+    [_mc]: [, input[_MBC]!],
+    [_mca]: [, input[_MBCA]!],
   });
   let body: any;
   if (input.MetadataBlob !== undefined) {
     body = input.MetadataBlob;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -271,43 +182,26 @@ export const se_PutChunkCommand = async (
   input: PutChunkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-jobs/{BackupJobId}/chunk/{UploadId}/{ChunkIndex}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "UploadId", () => input.UploadId!, "{UploadId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChunkIndex",
-    () => input.ChunkIndex!.toString(),
-    "{ChunkIndex}",
-    false
-  );
+  b.bp("/backup-jobs/{BackupJobId}/chunk/{UploadId}/{ChunkIndex}");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.p("UploadId", () => input.UploadId!, "{UploadId}", false);
+  b.p("ChunkIndex", () => input.ChunkIndex!.toString(), "{ChunkIndex}", false);
   const query: any = map({
-    length: [__expectNonNull(input.Length, `Length`) != null, () => input.Length!.toString()],
-    checksum: [, __expectNonNull(input.Checksum!, `Checksum`)],
-    "checksum-algorithm": [, __expectNonNull(input.ChecksumAlgorithm!, `ChecksumAlgorithm`)],
+    [_l]: [__expectNonNull(input.Length, `Length`) != null, () => input[_L]!.toString()],
+    [_c]: [, __expectNonNull(input[_C]!, `Checksum`)],
+    [_ca_]: [, __expectNonNull(input[_CAh]!, `ChecksumAlgorithm`)],
   });
   let body: any;
   if (input.Data !== undefined) {
     body = input.Data;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -317,39 +211,29 @@ export const se_PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-jobs/{BackupJobId}/object/{ObjectName}/put-object";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ObjectName", () => input.ObjectName!, "{ObjectName}", false);
+  b.bp("/backup-jobs/{BackupJobId}/object/{ObjectName}/put-object");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.p("ObjectName", () => input.ObjectName!, "{ObjectName}", false);
   const query: any = map({
-    "metadata-string": [, input.MetadataString!],
-    length: [() => input.InlineChunkLength !== void 0, () => input.InlineChunkLength!.toString()],
-    checksum: [, input.InlineChunkChecksum!],
-    "checksum-algorithm": [, input.InlineChunkChecksumAlgorithm!],
-    "object-checksum": [, input.ObjectChecksum!],
-    "object-checksum-algorithm": [, input.ObjectChecksumAlgorithm!],
-    throwOnDuplicate: [() => input.ThrowOnDuplicate !== void 0, () => input.ThrowOnDuplicate!.toString()],
+    [_ms]: [, input[_MS]!],
+    [_l]: [() => input.InlineChunkLength !== void 0, () => input[_ICL]!.toString()],
+    [_c]: [, input[_ICC]!],
+    [_ca_]: [, input[_ICCA]!],
+    [_oc]: [, input[_OC]!],
+    [_oca]: [, input[_OCA]!],
+    [_tOD]: [() => input.ThrowOnDuplicate !== void 0, () => input[_TOD]!.toString()],
   });
   let body: any;
   if (input.InlineChunk !== undefined) {
     body = input.InlineChunk;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -359,30 +243,21 @@ export const se_StartObjectCommand = async (
   input: StartObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-jobs/{BackupJobId}/object/{ObjectName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ObjectName", () => input.ObjectName!, "{ObjectName}", false);
+  b.bp("/backup-jobs/{BackupJobId}/object/{ObjectName}");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.p("ObjectName", () => input.ObjectName!, "{ObjectName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ThrowOnDuplicate: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -458,12 +333,9 @@ export const de_GetChunkCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Length: [
-      () => void 0 !== output.headers["x-amz-data-length"],
-      () => __strictParseLong(output.headers["x-amz-data-length"]),
-    ],
-    Checksum: [, output.headers["x-amz-checksum"]],
-    ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
+    [_L]: [() => void 0 !== output.headers[_xadl], () => __strictParseLong(output.headers[_xadl])],
+    [_C]: [, output.headers[_xac]],
+    [_CAh]: [, output.headers[_xaca]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -527,13 +399,10 @@ export const de_GetObjectMetadataCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MetadataString: [, output.headers["x-amz-metadata-string"]],
-    MetadataBlobLength: [
-      () => void 0 !== output.headers["x-amz-data-length"],
-      () => __strictParseLong(output.headers["x-amz-data-length"]),
-    ],
-    MetadataBlobChecksum: [, output.headers["x-amz-checksum"]],
-    MetadataBlobChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
+    [_MS]: [, output.headers[_xams]],
+    [_MBL]: [() => void 0 !== output.headers[_xadl], () => __strictParseLong(output.headers[_xadl])],
+    [_MBC]: [, output.headers[_xac]],
+    [_MBCA]: [, output.headers[_xaca]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -1221,6 +1090,47 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _C = "Checksum";
+const _CA = "CreatedAfter";
+const _CAh = "ChecksumAlgorithm";
+const _CB = "CreatedBefore";
+const _ICC = "InlineChunkChecksum";
+const _ICCA = "InlineChunkChecksumAlgorithm";
+const _ICL = "InlineChunkLength";
+const _L = "Length";
+const _MBC = "MetadataBlobChecksum";
+const _MBCA = "MetadataBlobChecksumAlgorithm";
+const _MBL = "MetadataBlobLength";
+const _MR = "MaxResults";
+const _MS = "MetadataString";
+const _NT = "NextToken";
+const _OC = "ObjectChecksum";
+const _OCA = "ObjectChecksumAlgorithm";
+const _SON = "StartingObjectName";
+const _SOP = "StartingObjectPrefix";
+const _TOD = "ThrowOnDuplicate";
+const _c = "checksum";
+const _ca = "created-after";
+const _ca_ = "checksum-algorithm";
+const _cb = "created-before";
+const _l = "length";
+const _mbl = "metadata-blob-length";
+const _mc = "metadata-checksum";
+const _mca = "metadata-checksum-algorithm";
+const _mr = "max-results";
+const _ms = "metadata-string";
+const _nt = "next-token";
+const _oc = "object-checksum";
+const _oca = "object-checksum-algorithm";
+const _son = "starting-object-name";
+const _sop = "starting-object-prefix";
+const _tOD = "throwOnDuplicate";
+const _xac = "x-amz-checksum";
+const _xaca = "x-amz-checksum-algorithm";
+const _xadl = "x-amz-data-length";
+const _xams = "x-amz-metadata-string";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1271,3 +1181,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

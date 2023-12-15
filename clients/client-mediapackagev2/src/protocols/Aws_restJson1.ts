@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -109,21 +110,13 @@ export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.ClientToken!,
+    [_xact]: input[_CT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup/{ChannelGroupName}/channel";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -132,15 +125,8 @@ export const se_CreateChannelCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -150,12 +136,12 @@ export const se_CreateChannelGroupCommand = async (
   input: CreateChannelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.ClientToken!,
+    [_xact]: input[_CT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup";
+  b.bp("/channelGroup");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -164,15 +150,8 @@ export const se_CreateChannelGroupCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -182,23 +161,14 @@ export const se_CreateOriginEndpointCommand = async (
   input: CreateOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.ClientToken!,
+    [_xact]: input[_CT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -212,15 +182,8 @@ export const se_CreateOriginEndpointCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -230,30 +193,14 @@ export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -263,28 +210,13 @@ export const se_DeleteChannelGroupCommand = async (
   input: DeleteChannelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup/{ChannelGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -294,30 +226,14 @@ export const se_DeleteChannelPolicyCommand = async (
   input: DeleteChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,38 +243,15 @@ export const se_DeleteOriginEndpointCommand = async (
   input: DeleteOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginEndpointName",
-    () => input.OriginEndpointName!,
-    "{OriginEndpointName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -368,38 +261,15 @@ export const se_DeleteOriginEndpointPolicyCommand = async (
   input: DeleteOriginEndpointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginEndpointName",
-    () => input.OriginEndpointName!,
-    "{OriginEndpointName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -409,30 +279,14 @@ export const se_GetChannelCommand = async (
   input: GetChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -442,28 +296,13 @@ export const se_GetChannelGroupCommand = async (
   input: GetChannelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup/{ChannelGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -473,30 +312,14 @@ export const se_GetChannelPolicyCommand = async (
   input: GetChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -506,38 +329,15 @@ export const se_GetOriginEndpointCommand = async (
   input: GetOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginEndpointName",
-    () => input.OriginEndpointName!,
-    "{OriginEndpointName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -547,38 +347,15 @@ export const se_GetOriginEndpointPolicyCommand = async (
   input: GetOriginEndpointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginEndpointName",
-    () => input.OriginEndpointName!,
-    "{OriginEndpointName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -588,24 +365,16 @@ export const se_ListChannelGroupsCommand = async (
   input: ListChannelGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup";
+  b.bp("/channelGroup");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -615,33 +384,17 @@ export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup/{ChannelGroupName}/channel";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -651,35 +404,18 @@ export const se_ListOriginEndpointsCommand = async (
   input: ListOriginEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -689,20 +425,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -712,37 +441,21 @@ export const se_PutChannelPolicyCommand = async (
   input: PutChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/policy");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -752,45 +465,22 @@ export const se_PutOriginEndpointPolicyCommand = async (
   input: PutOriginEndpointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginEndpointName",
-    () => input.OriginEndpointName!,
-    "{OriginEndpointName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/policy");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -800,27 +490,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -830,27 +513,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -860,37 +535,21 @@ export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -900,35 +559,20 @@ export const se_UpdateChannelGroupCommand = async (
   input: UpdateChannelGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channelGroup/{ChannelGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -938,30 +582,14 @@ export const se_UpdateOriginEndpointCommand = async (
   input: UpdateOriginEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelGroupName",
-    () => input.ChannelGroupName!,
-    "{ChannelGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginEndpointName",
-    () => input.OriginEndpointName!,
-    "{OriginEndpointName}",
-    false
-  );
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -973,15 +601,8 @@ export const se_UpdateOriginEndpointCommand = async (
       StartoverWindowSeconds: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2868,6 +2489,16 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CT = "ClientToken";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _TK = "TagKeys";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _xact = "x-amzn-client-token";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2918,3 +2549,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

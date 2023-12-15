@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -57,11 +58,11 @@ export const se_CreateLinkCommand = async (
   input: CreateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLink";
+  b.bp("/CreateLink");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -71,15 +72,8 @@ export const se_CreateLinkCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -89,11 +83,11 @@ export const se_CreateSinkCommand = async (
   input: CreateSinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateSink";
+  b.bp("/CreateSink");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -101,15 +95,8 @@ export const se_CreateSinkCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -119,26 +106,19 @@ export const se_DeleteLinkCommand = async (
   input: DeleteLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteLink";
+  b.bp("/DeleteLink");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Identifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -148,26 +128,19 @@ export const se_DeleteSinkCommand = async (
   input: DeleteSinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteSink";
+  b.bp("/DeleteSink");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Identifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -177,26 +150,19 @@ export const se_GetLinkCommand = async (
   input: GetLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetLink";
+  b.bp("/GetLink");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Identifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -206,26 +172,19 @@ export const se_GetSinkCommand = async (
   input: GetSinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetSink";
+  b.bp("/GetSink");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Identifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -235,26 +194,19 @@ export const se_GetSinkPolicyCommand = async (
   input: GetSinkPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetSinkPolicy";
+  b.bp("/GetSinkPolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
       SinkIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -264,11 +216,11 @@ export const se_ListAttachedLinksCommand = async (
   input: ListAttachedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListAttachedLinks";
+  b.bp("/ListAttachedLinks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -277,15 +229,8 @@ export const se_ListAttachedLinksCommand = async (
       SinkIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -295,11 +240,11 @@ export const se_ListLinksCommand = async (
   input: ListLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListLinks";
+  b.bp("/ListLinks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -307,15 +252,8 @@ export const se_ListLinksCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -325,11 +263,11 @@ export const se_ListSinksCommand = async (
   input: ListSinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListSinks";
+  b.bp("/ListSinks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -337,15 +275,8 @@ export const se_ListSinksCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -355,20 +286,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -378,11 +302,11 @@ export const se_PutSinkPolicyCommand = async (
   input: PutSinkPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutSinkPolicy";
+  b.bp("/PutSinkPolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -390,15 +314,8 @@ export const se_PutSinkPolicyCommand = async (
       SinkIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -408,27 +325,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -438,27 +348,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -468,11 +370,11 @@ export const se_UpdateLinkCommand = async (
   input: UpdateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLink";
+  b.bp("/UpdateLink");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -480,15 +382,8 @@ export const se_UpdateLinkCommand = async (
       ResourceTypes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1340,7 +1235,7 @@ const throwDefaultError = withBaseException(__BaseException);
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
   const contents: any = map({
-    amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
+    [_aET]: [, parsedOutput.headers[_xae]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1362,7 +1257,7 @@ const de_InternalServiceFaultRes = async (
   context: __SerdeContext
 ): Promise<InternalServiceFault> => {
   const contents: any = map({
-    amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
+    [_aET]: [, parsedOutput.headers[_xae]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1384,7 +1279,7 @@ const de_InvalidParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
   const contents: any = map({
-    amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
+    [_aET]: [, parsedOutput.headers[_xae]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1406,7 +1301,7 @@ const de_MissingRequiredParameterExceptionRes = async (
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
   const contents: any = map({
-    amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
+    [_aET]: [, parsedOutput.headers[_xae]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1428,7 +1323,7 @@ const de_ResourceNotFoundExceptionRes = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const contents: any = map({
-    amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
+    [_aET]: [, parsedOutput.headers[_xae]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1450,7 +1345,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
   const contents: any = map({
-    amznErrorType: [, parsedOutput.headers["x-amzn-errortype"]],
+    [_aET]: [, parsedOutput.headers[_xae]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1540,6 +1435,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _TK = "TagKeys";
+const _aET = "amznErrorType";
+const _tK = "tagKeys";
+const _xae = "x-amzn-errortype";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1590,3 +1491,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -304,24 +305,15 @@ export const se_AddLayerVersionPermissionCommand = async (
   input: AddLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.bp("/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   const query: any = map({
-    RevisionId: [, input.RevisionId!],
+    [_RI]: [, input[_RI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -332,16 +324,8 @@ export const se_AddLayerVersionPermissionCommand = async (
       StatementId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -351,23 +335,14 @@ export const se_AddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/policy");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -383,16 +358,8 @@ export const se_AddPermissionCommand = async (
       StatementId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -402,21 +369,12 @@ export const se_CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/aliases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/aliases");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -426,15 +384,8 @@ export const se_CreateAliasCommand = async (
       RoutingConfig: (_) => se_AliasRoutingConfiguration(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -444,12 +395,11 @@ export const se_CreateCodeSigningConfigCommand = async (
   input: CreateCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
+  b.bp("/2020-04-22/code-signing-configs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -458,15 +408,8 @@ export const se_CreateCodeSigningConfigCommand = async (
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -476,12 +419,11 @@ export const se_CreateEventSourceMappingCommand = async (
   input: CreateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
+  b.bp("/2015-03-31/event-source-mappings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -510,15 +452,8 @@ export const se_CreateEventSourceMappingCommand = async (
       TumblingWindowInSeconds: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -528,11 +463,11 @@ export const se_CreateFunctionCommand = async (
   input: CreateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
+  b.bp("/2015-03-31/functions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -562,15 +497,8 @@ export const se_CreateFunctionCommand = async (
       VpcConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -580,22 +508,14 @@ export const se_CreateFunctionUrlConfigCommand = async (
   input: CreateFunctionUrlConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-10-31/functions/{FunctionName}/url");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -605,16 +525,8 @@ export const se_CreateFunctionUrlConfigCommand = async (
       InvokeMode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -624,30 +536,14 @@ export const se_DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2015-03-31/functions/{FunctionName}/aliases/{Name}");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -657,29 +553,13 @@ export const se_DeleteCodeSigningConfigCommand = async (
   input: DeleteCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeSigningConfigArn",
-    () => input.CodeSigningConfigArn!,
-    "{CodeSigningConfigArn}",
-    false
-  );
+  b.bp("/2020-04-22/code-signing-configs/{CodeSigningConfigArn}");
+  b.p("CodeSigningConfigArn", () => input.CodeSigningConfigArn!, "{CodeSigningConfigArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -689,21 +569,13 @@ export const se_DeleteEventSourceMappingCommand = async (
   input: DeleteEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UUID", () => input.UUID!, "{UUID}", false);
+  b.bp("/2015-03-31/event-source-mappings/{UUID}");
+  b.p("UUID", () => input.UUID!, "{UUID}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -713,32 +585,16 @@ export const se_DeleteFunctionCommand = async (
   input: DeleteFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -748,29 +604,13 @@ export const se_DeleteFunctionCodeSigningConfigCommand = async (
   input: DeleteFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-06-30/functions/{FunctionName}/code-signing-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2020-06-30/functions/{FunctionName}/code-signing-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -780,29 +620,13 @@ export const se_DeleteFunctionConcurrencyCommand = async (
   input: DeleteFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2017-10-31/functions/{FunctionName}/concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2017-10-31/functions/{FunctionName}/concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -812,33 +636,16 @@ export const se_DeleteFunctionEventInvokeConfigCommand = async (
   input: DeleteFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-25/functions/{FunctionName}/event-invoke-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -848,32 +655,16 @@ export const se_DeleteFunctionUrlConfigCommand = async (
   input: DeleteFunctionUrlConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-10-31/functions/{FunctionName}/url");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -883,30 +674,14 @@ export const se_DeleteLayerVersionCommand = async (
   input: DeleteLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.bp("/2018-10-31/layers/{LayerName}/versions/{VersionNumber}");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -916,33 +691,16 @@ export const se_DeleteProvisionedConcurrencyConfigCommand = async (
   input: DeleteProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-30/functions/{FunctionName}/provisioned-concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
+    [_Q]: [, __expectNonNull(input[_Q]!, `Qualifier`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -952,23 +710,15 @@ export const se_GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2016-08-19/account-settings";
+  b.bp("/2016-08-19/account-settings");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -978,30 +728,14 @@ export const se_GetAliasCommand = async (
   input: GetAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2015-03-31/functions/{FunctionName}/aliases/{Name}");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1011,29 +745,13 @@ export const se_GetCodeSigningConfigCommand = async (
   input: GetCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeSigningConfigArn",
-    () => input.CodeSigningConfigArn!,
-    "{CodeSigningConfigArn}",
-    false
-  );
+  b.bp("/2020-04-22/code-signing-configs/{CodeSigningConfigArn}");
+  b.p("CodeSigningConfigArn", () => input.CodeSigningConfigArn!, "{CodeSigningConfigArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1043,21 +761,13 @@ export const se_GetEventSourceMappingCommand = async (
   input: GetEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UUID", () => input.UUID!, "{UUID}", false);
+  b.bp("/2015-03-31/event-source-mappings/{UUID}");
+  b.p("UUID", () => input.UUID!, "{UUID}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1067,32 +777,16 @@ export const se_GetFunctionCommand = async (
   input: GetFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1102,29 +796,13 @@ export const se_GetFunctionCodeSigningConfigCommand = async (
   input: GetFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-06-30/functions/{FunctionName}/code-signing-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2020-06-30/functions/{FunctionName}/code-signing-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1134,29 +812,13 @@ export const se_GetFunctionConcurrencyCommand = async (
   input: GetFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-30/functions/{FunctionName}/concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-30/functions/{FunctionName}/concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1166,33 +828,16 @@ export const se_GetFunctionConfigurationCommand = async (
   input: GetFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/configuration");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1202,33 +847,16 @@ export const se_GetFunctionEventInvokeConfigCommand = async (
   input: GetFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-25/functions/{FunctionName}/event-invoke-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1238,32 +866,16 @@ export const se_GetFunctionUrlConfigCommand = async (
   input: GetFunctionUrlConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-10-31/functions/{FunctionName}/url");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1273,30 +885,14 @@ export const se_GetLayerVersionCommand = async (
   input: GetLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.bp("/2018-10-31/layers/{LayerName}/versions/{VersionNumber}");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1306,24 +902,16 @@ export const se_GetLayerVersionByArnCommand = async (
   input: GetLayerVersionByArnCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
+  b.bp("/2018-10-31/layers");
   const query: any = map({
-    find: [, "LayerVersion"],
-    Arn: [, __expectNonNull(input.Arn!, `Arn`)],
+    [_f]: [, "LayerVersion"],
+    [_A]: [, __expectNonNull(input[_A]!, `Arn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1333,30 +921,14 @@ export const se_GetLayerVersionPolicyCommand = async (
   input: GetLayerVersionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.bp("/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1366,33 +938,16 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/policy");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1402,33 +957,16 @@ export const se_GetProvisionedConcurrencyConfigCommand = async (
   input: GetProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-30/functions/{FunctionName}/provisioned-concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
+    [_Q]: [, __expectNonNull(input[_Q]!, `Qualifier`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1438,74 +976,40 @@ export const se_GetRuntimeManagementConfigCommand = async (
   input: GetRuntimeManagementConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-07-20/functions/{FunctionName}/runtime-management-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-07-20/functions/{FunctionName}/runtime-management-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1InvokeCommand
  */
 export const se_InvokeCommand = async (input: InvokeCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-amz-invocation-type": input.InvocationType!,
-    "x-amz-log-type": input.LogType!,
-    "x-amz-client-context": input.ClientContext!,
+    [_xait]: input[_IT]!,
+    [_xalt]: input[_LT]!,
+    [_xacc]: input[_CC]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/invocations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/invocations");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   if (input.Payload !== undefined) {
     body = input.Payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1515,34 +1019,18 @@ export const se_InvokeAsyncCommand = async (
   input: InvokeAsyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2014-11-13/functions/{FunctionName}/invoke-async";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2014-11-13/functions/{FunctionName}/invoke-async");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   if (input.InvokeArgs !== undefined) {
     body = input.InvokeArgs;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1552,41 +1040,24 @@ export const se_InvokeWithResponseStreamCommand = async (
   input: InvokeWithResponseStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-amz-invocation-type": input.InvocationType!,
-    "x-amz-log-type": input.LogType!,
-    "x-amz-client-context": input.ClientContext!,
+    [_xait]: input[_IT]!,
+    [_xalt]: input[_LT]!,
+    [_xacc]: input[_CC]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-11-15/functions/{FunctionName}/response-streaming-invocations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-11-15/functions/{FunctionName}/response-streaming-invocations");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   if (input.Payload !== undefined) {
     body = input.Payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1596,35 +1067,18 @@ export const se_ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/aliases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/aliases");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    FunctionVersion: [, input.FunctionVersion!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_FV]: [, input[_FV]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1634,25 +1088,16 @@ export const se_ListCodeSigningConfigsCommand = async (
   input: ListCodeSigningConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
+  b.bp("/2020-04-22/code-signing-configs");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1662,27 +1107,18 @@ export const se_ListEventSourceMappingsCommand = async (
   input: ListEventSourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
+  b.bp("/2015-03-31/event-source-mappings");
   const query: any = map({
-    EventSourceArn: [, input.EventSourceArn!],
-    FunctionName: [, input.FunctionName!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_ESA]: [, input[_ESA]!],
+    [_FN]: [, input[_FN]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1692,34 +1128,17 @@ export const se_ListFunctionEventInvokeConfigsCommand = async (
   input: ListFunctionEventInvokeConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-25/functions/{FunctionName}/event-invoke-config/list");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1729,26 +1148,18 @@ export const se_ListFunctionsCommand = async (
   input: ListFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
+  b.bp("/2015-03-31/functions");
   const query: any = map({
-    MasterRegion: [, input.MasterRegion!],
-    FunctionVersion: [, input.FunctionVersion!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_MR]: [, input[_MR]!],
+    [_FV]: [, input[_FV]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1758,34 +1169,17 @@ export const se_ListFunctionsByCodeSigningConfigCommand = async (
   input: ListFunctionsByCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeSigningConfigArn",
-    () => input.CodeSigningConfigArn!,
-    "{CodeSigningConfigArn}",
-    false
-  );
+  b.bp("/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions");
+  b.p("CodeSigningConfigArn", () => input.CodeSigningConfigArn!, "{CodeSigningConfigArn}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1795,33 +1189,17 @@ export const se_ListFunctionUrlConfigsCommand = async (
   input: ListFunctionUrlConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/urls";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-10-31/functions/{FunctionName}/urls");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1831,26 +1209,18 @@ export const se_ListLayersCommand = async (
   input: ListLayersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
+  b.bp("/2018-10-31/layers");
   const query: any = map({
-    CompatibleRuntime: [, input.CompatibleRuntime!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    CompatibleArchitecture: [, input.CompatibleArchitecture!],
+    [_CR]: [, input[_CR]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_CA]: [, input[_CA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1860,28 +1230,19 @@ export const se_ListLayerVersionsCommand = async (
   input: ListLayerVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.bp("/2018-10-31/layers/{LayerName}/versions");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
   const query: any = map({
-    CompatibleRuntime: [, input.CompatibleRuntime!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    CompatibleArchitecture: [, input.CompatibleArchitecture!],
+    [_CR]: [, input[_CR]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_CA]: [, input[_CA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1891,35 +1252,18 @@ export const se_ListProvisionedConcurrencyConfigsCommand = async (
   input: ListProvisionedConcurrencyConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-30/functions/{FunctionName}/provisioned-concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    List: [, "ALL"],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_L]: [, "ALL"],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1929,21 +1273,13 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Resource", () => input.Resource!, "{Resource}", false);
+  b.bp("/2017-03-31/tags/{Resource}");
+  b.p("Resource", () => input.Resource!, "{Resource}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1953,34 +1289,17 @@ export const se_ListVersionsByFunctionCommand = async (
   input: ListVersionsByFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/versions");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1990,13 +1309,12 @@ export const se_PublishLayerVersionCommand = async (
   input: PublishLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.bp("/2018-10-31/layers/{LayerName}/versions");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2007,15 +1325,8 @@ export const se_PublishLayerVersionCommand = async (
       LicenseInfo: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2025,21 +1336,12 @@ export const se_PublishVersionCommand = async (
   input: PublishVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/versions");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2048,15 +1350,8 @@ export const se_PublishVersionCommand = async (
       RevisionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2066,36 +1361,20 @@ export const se_PutFunctionCodeSigningConfigCommand = async (
   input: PutFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-06-30/functions/{FunctionName}/code-signing-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2020-06-30/functions/{FunctionName}/code-signing-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       CodeSigningConfigArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2105,36 +1384,20 @@ export const se_PutFunctionConcurrencyCommand = async (
   input: PutFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2017-10-31/functions/{FunctionName}/concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2017-10-31/functions/{FunctionName}/concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ReservedConcurrentExecutions: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2144,23 +1407,14 @@ export const se_PutFunctionEventInvokeConfigCommand = async (
   input: PutFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-25/functions/{FunctionName}/event-invoke-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2170,16 +1424,8 @@ export const se_PutFunctionEventInvokeConfigCommand = async (
       MaximumRetryAttempts: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2189,23 +1435,14 @@ export const se_PutProvisionedConcurrencyConfigCommand = async (
   input: PutProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-30/functions/{FunctionName}/provisioned-concurrency");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, __expectNonNull(input.Qualifier!, `Qualifier`)],
+    [_Q]: [, __expectNonNull(input[_Q]!, `Qualifier`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -2213,16 +1450,8 @@ export const se_PutProvisionedConcurrencyConfigCommand = async (
       ProvisionedConcurrentExecutions: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2232,23 +1461,14 @@ export const se_PutRuntimeManagementConfigCommand = async (
   input: PutRuntimeManagementConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-07-20/functions/{FunctionName}/runtime-management-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-07-20/functions/{FunctionName}/runtime-management-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2257,16 +1477,8 @@ export const se_PutRuntimeManagementConfigCommand = async (
       UpdateRuntimeOn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2276,35 +1488,18 @@ export const se_RemoveLayerVersionPermissionCommand = async (
   input: RemoveLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LayerName", () => input.LayerName!, "{LayerName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "StatementId", () => input.StatementId!, "{StatementId}", false);
+  b.bp("/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}");
+  b.p("LayerName", () => input.LayerName!, "{LayerName}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
+  b.p("StatementId", () => input.StatementId!, "{StatementId}", false);
   const query: any = map({
-    RevisionId: [, input.RevisionId!],
+    [_RI]: [, input[_RI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2314,35 +1509,18 @@ export const se_RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "StatementId", () => input.StatementId!, "{StatementId}", false);
+  b.bp("/2015-03-31/functions/{FunctionName}/policy/{StatementId}");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
+  b.p("StatementId", () => input.StatementId!, "{StatementId}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
-    RevisionId: [, input.RevisionId!],
+    [_Q]: [, input[_Q]!],
+    [_RI]: [, input[_RI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2352,28 +1530,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Resource", () => input.Resource!, "{Resource}", false);
+  b.bp("/2017-03-31/tags/{Resource}");
+  b.p("Resource", () => input.Resource!, "{Resource}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2383,28 +1553,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Resource", () => input.Resource!, "{Resource}", false);
+  b.bp("/2017-03-31/tags/{Resource}");
+  b.p("Resource", () => input.Resource!, "{Resource}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2414,22 +1575,13 @@ export const se_UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2015-03-31/functions/{FunctionName}/aliases/{Name}");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2439,15 +1591,8 @@ export const se_UpdateAliasCommand = async (
       RoutingConfig: (_) => se_AliasRoutingConfiguration(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2457,21 +1602,12 @@ export const se_UpdateCodeSigningConfigCommand = async (
   input: UpdateCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeSigningConfigArn",
-    () => input.CodeSigningConfigArn!,
-    "{CodeSigningConfigArn}",
-    false
-  );
+  b.bp("/2020-04-22/code-signing-configs/{CodeSigningConfigArn}");
+  b.p("CodeSigningConfigArn", () => input.CodeSigningConfigArn!, "{CodeSigningConfigArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2480,15 +1616,8 @@ export const se_UpdateCodeSigningConfigCommand = async (
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2498,13 +1627,12 @@ export const se_UpdateEventSourceMappingCommand = async (
   input: UpdateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UUID", () => input.UUID!, "{UUID}", false);
+  b.bp("/2015-03-31/event-source-mappings/{UUID}");
+  b.p("UUID", () => input.UUID!, "{UUID}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2525,15 +1653,8 @@ export const se_UpdateEventSourceMappingCommand = async (
       TumblingWindowInSeconds: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2543,20 +1664,12 @@ export const se_UpdateFunctionCodeCommand = async (
   input: UpdateFunctionCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}/code";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/code");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2571,15 +1684,8 @@ export const se_UpdateFunctionCodeCommand = async (
       ZipFile: (_) => context.base64Encoder(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2589,21 +1695,12 @@ export const se_UpdateFunctionConfigurationCommand = async (
   input: UpdateFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-03-31/functions/{FunctionName}/configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2015-03-31/functions/{FunctionName}/configuration");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2627,15 +1724,8 @@ export const se_UpdateFunctionConfigurationCommand = async (
       VpcConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2645,23 +1735,14 @@ export const se_UpdateFunctionEventInvokeConfigCommand = async (
   input: UpdateFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2019-09-25/functions/{FunctionName}/event-invoke-config");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2671,16 +1752,8 @@ export const se_UpdateFunctionEventInvokeConfigCommand = async (
       MaximumRetryAttempts: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2690,22 +1763,14 @@ export const se_UpdateFunctionUrlConfigCommand = async (
   input: UpdateFunctionUrlConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionName",
-    () => input.FunctionName!,
-    "{FunctionName}",
-    false
-  );
+  b.bp("/2021-10-31/functions/{FunctionName}/url");
+  b.p("FunctionName", () => input.FunctionName!, "{FunctionName}", false);
   const query: any = map({
-    Qualifier: [, input.Qualifier!],
+    [_Q]: [, input[_Q]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2715,16 +1780,8 @@ export const se_UpdateFunctionUrlConfigCommand = async (
       InvokeMode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4803,9 +3860,9 @@ export const de_InvokeCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    FunctionError: [, output.headers["x-amz-function-error"]],
-    LogResult: [, output.headers["x-amz-log-result"]],
-    ExecutedVersion: [, output.headers["x-amz-executed-version"]],
+    [_FE]: [, output.headers[_xafe]],
+    [_LR]: [, output.headers[_xalr]],
+    [_EV]: [, output.headers[_xaev]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Payload = data;
@@ -4995,8 +4052,8 @@ export const de_InvokeWithResponseStreamCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ExecutedVersion: [, output.headers["x-amz-executed-version"]],
-    ResponseStreamContentType: [, output.headers["content-type"]],
+    [_EV]: [, output.headers[_xaev]],
+    [_RSCT]: [, output.headers[_ct]],
   });
   const data: any = output.body;
   contents.EventStream = de_InvokeWithResponseStreamResponseEvent(data, context);
@@ -7792,7 +6849,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({
-    retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+    [_rAS]: [, parsedOutput.headers[_ra]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -8279,6 +7336,39 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _A = "Arn";
+const _CA = "CompatibleArchitecture";
+const _CC = "ClientContext";
+const _CR = "CompatibleRuntime";
+const _ESA = "EventSourceArn";
+const _EV = "ExecutedVersion";
+const _FE = "FunctionError";
+const _FN = "FunctionName";
+const _FV = "FunctionVersion";
+const _IT = "InvocationType";
+const _L = "List";
+const _LR = "LogResult";
+const _LT = "LogType";
+const _M = "Marker";
+const _MI = "MaxItems";
+const _MR = "MasterRegion";
+const _Q = "Qualifier";
+const _RI = "RevisionId";
+const _RSCT = "ResponseStreamContentType";
+const _TK = "TagKeys";
+const _ct = "content-type";
+const _f = "find";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
+const _xacc = "x-amz-client-context";
+const _xaev = "x-amz-executed-version";
+const _xafe = "x-amz-function-error";
+const _xait = "x-amz-invocation-type";
+const _xalr = "x-amz-log-result";
+const _xalt = "x-amz-log-type";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -8329,3 +7419,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

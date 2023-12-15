@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { KendraServiceException as __BaseException } from "./KendraServiceException";
+
 import {
   AdditionalResultAttribute,
   AttributeSuggestionsUpdateConfig,

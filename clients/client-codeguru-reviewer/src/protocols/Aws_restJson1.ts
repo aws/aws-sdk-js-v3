@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -104,11 +105,11 @@ export const se_AssociateRepositoryCommand = async (
   input: AssociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
+  b.bp("/associations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -118,15 +119,8 @@ export const se_AssociateRepositoryCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -136,11 +130,11 @@ export const se_CreateCodeReviewCommand = async (
   input: CreateCodeReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews";
+  b.bp("/codereviews");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -150,15 +144,8 @@ export const se_CreateCodeReviewCommand = async (
       Type: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -168,28 +155,13 @@ export const se_DescribeCodeReviewCommand = async (
   input: DescribeCodeReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews/{CodeReviewArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeReviewArn",
-    () => input.CodeReviewArn!,
-    "{CodeReviewArn}",
-    false
-  );
+  b.bp("/codereviews/{CodeReviewArn}");
+  b.p("CodeReviewArn", () => input.CodeReviewArn!, "{CodeReviewArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -199,33 +171,17 @@ export const se_DescribeRecommendationFeedbackCommand = async (
   input: DescribeRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback/{CodeReviewArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeReviewArn",
-    () => input.CodeReviewArn!,
-    "{CodeReviewArn}",
-    false
-  );
+  b.bp("/feedback/{CodeReviewArn}");
+  b.p("CodeReviewArn", () => input.CodeReviewArn!, "{CodeReviewArn}", false);
   const query: any = map({
-    RecommendationId: [, __expectNonNull(input.RecommendationId!, `RecommendationId`)],
-    UserId: [, input.UserId!],
+    [_RI]: [, __expectNonNull(input[_RI]!, `RecommendationId`)],
+    [_UI]: [, input[_UI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -235,28 +191,13 @@ export const se_DescribeRepositoryAssociationCommand = async (
   input: DescribeRepositoryAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations/{AssociationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssociationArn",
-    () => input.AssociationArn!,
-    "{AssociationArn}",
-    false
-  );
+  b.bp("/associations/{AssociationArn}");
+  b.p("AssociationArn", () => input.AssociationArn!, "{AssociationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -266,28 +207,13 @@ export const se_DisassociateRepositoryCommand = async (
   input: DisassociateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations/{AssociationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssociationArn",
-    () => input.AssociationArn!,
-    "{AssociationArn}",
-    false
-  );
+  b.bp("/associations/{AssociationArn}");
+  b.p("AssociationArn", () => input.AssociationArn!, "{AssociationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -297,34 +223,20 @@ export const se_ListCodeReviewsCommand = async (
   input: ListCodeReviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/codereviews";
+  b.bp("/codereviews");
   const query: any = map({
-    ProviderTypes: [
-      () => input.ProviderTypes !== void 0,
-      () => (input.ProviderTypes! || []).map((_entry) => _entry as any),
-    ],
-    States: [() => input.States !== void 0, () => (input.States! || []).map((_entry) => _entry as any)],
-    RepositoryNames: [
-      () => input.RepositoryNames !== void 0,
-      () => (input.RepositoryNames! || []).map((_entry) => _entry as any),
-    ],
-    Type: [, __expectNonNull(input.Type!, `Type`)],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_PT]: [() => input.ProviderTypes !== void 0, () => (input[_PT]! || []).map((_entry) => _entry as any)],
+    [_S]: [() => input.States !== void 0, () => (input[_S]! || []).map((_entry) => _entry as any)],
+    [_RN]: [() => input.RepositoryNames !== void 0, () => (input[_RN]! || []).map((_entry) => _entry as any)],
+    [_T]: [, __expectNonNull(input[_T]!, `Type`)],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -334,39 +246,19 @@ export const se_ListRecommendationFeedbackCommand = async (
   input: ListRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/feedback/{CodeReviewArn}/RecommendationFeedback";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeReviewArn",
-    () => input.CodeReviewArn!,
-    "{CodeReviewArn}",
-    false
-  );
+  b.bp("/feedback/{CodeReviewArn}/RecommendationFeedback");
+  b.p("CodeReviewArn", () => input.CodeReviewArn!, "{CodeReviewArn}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    UserIds: [() => input.UserIds !== void 0, () => (input.UserIds! || []).map((_entry) => _entry as any)],
-    RecommendationIds: [
-      () => input.RecommendationIds !== void 0,
-      () => (input.RecommendationIds! || []).map((_entry) => _entry as any),
-    ],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_UIs]: [() => input.UserIds !== void 0, () => (input[_UIs]! || []).map((_entry) => _entry as any)],
+    [_RIe]: [() => input.RecommendationIds !== void 0, () => (input[_RIe]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -376,34 +268,17 @@ export const se_ListRecommendationsCommand = async (
   input: ListRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/codereviews/{CodeReviewArn}/Recommendations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CodeReviewArn",
-    () => input.CodeReviewArn!,
-    "{CodeReviewArn}",
-    false
-  );
+  b.bp("/codereviews/{CodeReviewArn}/Recommendations");
+  b.p("CodeReviewArn", () => input.CodeReviewArn!, "{CodeReviewArn}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -413,31 +288,20 @@ export const se_ListRepositoryAssociationsCommand = async (
   input: ListRepositoryAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
+  b.bp("/associations");
   const query: any = map({
-    ProviderType: [
-      () => input.ProviderTypes !== void 0,
-      () => (input.ProviderTypes! || []).map((_entry) => _entry as any),
-    ],
-    State: [() => input.States !== void 0, () => (input.States! || []).map((_entry) => _entry as any)],
-    Name: [() => input.Names !== void 0, () => (input.Names! || []).map((_entry) => _entry as any)],
-    Owner: [() => input.Owners !== void 0, () => (input.Owners! || []).map((_entry) => _entry as any)],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_PTr]: [() => input.ProviderTypes !== void 0, () => (input[_PT]! || []).map((_entry) => _entry as any)],
+    [_St]: [() => input.States !== void 0, () => (input[_S]! || []).map((_entry) => _entry as any)],
+    [_Na]: [() => input.Names !== void 0, () => (input[_N]! || []).map((_entry) => _entry as any)],
+    [_Ow]: [() => input.Owners !== void 0, () => (input[_O]! || []).map((_entry) => _entry as any)],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -447,20 +311,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -470,11 +327,11 @@ export const se_PutRecommendationFeedbackCommand = async (
   input: PutRecommendationFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/feedback";
+  b.bp("/feedback");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -483,15 +340,8 @@ export const se_PutRecommendationFeedbackCommand = async (
       RecommendationId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -501,27 +351,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -531,27 +374,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1700,6 +1535,26 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _MR = "MaxResults";
+const _N = "Names";
+const _NT = "NextToken";
+const _Na = "Name";
+const _O = "Owners";
+const _Ow = "Owner";
+const _PT = "ProviderTypes";
+const _PTr = "ProviderType";
+const _RI = "RecommendationId";
+const _RIe = "RecommendationIds";
+const _RN = "RepositoryNames";
+const _S = "States";
+const _St = "State";
+const _T = "Type";
+const _TK = "TagKeys";
+const _UI = "UserId";
+const _UIs = "UserIds";
+const _tK = "tagKeys";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1750,3 +1605,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

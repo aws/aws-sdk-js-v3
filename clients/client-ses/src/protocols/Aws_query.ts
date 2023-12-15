@@ -465,8 +465,8 @@ export const se_CloneReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CloneReceiptRuleSetRequest(input, context),
-    Action: "CloneReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _CRRS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -482,8 +482,8 @@ export const se_CreateConfigurationSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationSetRequest(input, context),
-    Action: "CreateConfigurationSet",
-    Version: "2010-12-01",
+    [_A]: _CCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -499,8 +499,8 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationSetEventDestinationRequest(input, context),
-    Action: "CreateConfigurationSetEventDestination",
-    Version: "2010-12-01",
+    [_A]: _CCSED,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -516,8 +516,8 @@ export const se_CreateConfigurationSetTrackingOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateConfigurationSetTrackingOptionsRequest(input, context),
-    Action: "CreateConfigurationSetTrackingOptions",
-    Version: "2010-12-01",
+    [_A]: _CCSTO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -533,8 +533,8 @@ export const se_CreateCustomVerificationEmailTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCustomVerificationEmailTemplateRequest(input, context),
-    Action: "CreateCustomVerificationEmailTemplate",
-    Version: "2010-12-01",
+    [_A]: _CCVET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -550,8 +550,8 @@ export const se_CreateReceiptFilterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReceiptFilterRequest(input, context),
-    Action: "CreateReceiptFilter",
-    Version: "2010-12-01",
+    [_A]: _CRF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -567,8 +567,8 @@ export const se_CreateReceiptRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReceiptRuleRequest(input, context),
-    Action: "CreateReceiptRule",
-    Version: "2010-12-01",
+    [_A]: _CRR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -584,8 +584,8 @@ export const se_CreateReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReceiptRuleSetRequest(input, context),
-    Action: "CreateReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _CRRSr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -601,8 +601,8 @@ export const se_CreateTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateTemplateRequest(input, context),
-    Action: "CreateTemplate",
-    Version: "2010-12-01",
+    [_A]: _CT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -618,8 +618,8 @@ export const se_DeleteConfigurationSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationSetRequest(input, context),
-    Action: "DeleteConfigurationSet",
-    Version: "2010-12-01",
+    [_A]: _DCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -635,8 +635,8 @@ export const se_DeleteConfigurationSetEventDestinationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationSetEventDestinationRequest(input, context),
-    Action: "DeleteConfigurationSetEventDestination",
-    Version: "2010-12-01",
+    [_A]: _DCSED,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -652,8 +652,8 @@ export const se_DeleteConfigurationSetTrackingOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteConfigurationSetTrackingOptionsRequest(input, context),
-    Action: "DeleteConfigurationSetTrackingOptions",
-    Version: "2010-12-01",
+    [_A]: _DCSTO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -669,8 +669,8 @@ export const se_DeleteCustomVerificationEmailTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCustomVerificationEmailTemplateRequest(input, context),
-    Action: "DeleteCustomVerificationEmailTemplate",
-    Version: "2010-12-01",
+    [_A]: _DCVET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -686,8 +686,8 @@ export const se_DeleteIdentityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteIdentityRequest(input, context),
-    Action: "DeleteIdentity",
-    Version: "2010-12-01",
+    [_A]: _DI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -703,8 +703,8 @@ export const se_DeleteIdentityPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteIdentityPolicyRequest(input, context),
-    Action: "DeleteIdentityPolicy",
-    Version: "2010-12-01",
+    [_A]: _DIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -720,8 +720,8 @@ export const se_DeleteReceiptFilterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReceiptFilterRequest(input, context),
-    Action: "DeleteReceiptFilter",
-    Version: "2010-12-01",
+    [_A]: _DRF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -737,8 +737,8 @@ export const se_DeleteReceiptRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReceiptRuleRequest(input, context),
-    Action: "DeleteReceiptRule",
-    Version: "2010-12-01",
+    [_A]: _DRR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -754,8 +754,8 @@ export const se_DeleteReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReceiptRuleSetRequest(input, context),
-    Action: "DeleteReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _DRRS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -771,8 +771,8 @@ export const se_DeleteTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteTemplateRequest(input, context),
-    Action: "DeleteTemplate",
-    Version: "2010-12-01",
+    [_A]: _DT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -788,8 +788,8 @@ export const se_DeleteVerifiedEmailAddressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteVerifiedEmailAddressRequest(input, context),
-    Action: "DeleteVerifiedEmailAddress",
-    Version: "2010-12-01",
+    [_A]: _DVEA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -805,8 +805,8 @@ export const se_DescribeActiveReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeActiveReceiptRuleSetRequest(input, context),
-    Action: "DescribeActiveReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _DARRS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -822,8 +822,8 @@ export const se_DescribeConfigurationSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeConfigurationSetRequest(input, context),
-    Action: "DescribeConfigurationSet",
-    Version: "2010-12-01",
+    [_A]: _DCSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -839,8 +839,8 @@ export const se_DescribeReceiptRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReceiptRuleRequest(input, context),
-    Action: "DescribeReceiptRule",
-    Version: "2010-12-01",
+    [_A]: _DRRe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -856,8 +856,8 @@ export const se_DescribeReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReceiptRuleSetRequest(input, context),
-    Action: "DescribeReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _DRRSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -871,8 +871,8 @@ export const se_GetAccountSendingEnabledCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GetAccountSendingEnabled",
-    Version: "2010-12-01",
+    [_A]: _GASE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -888,8 +888,8 @@ export const se_GetCustomVerificationEmailTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetCustomVerificationEmailTemplateRequest(input, context),
-    Action: "GetCustomVerificationEmailTemplate",
-    Version: "2010-12-01",
+    [_A]: _GCVET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -905,8 +905,8 @@ export const se_GetIdentityDkimAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityDkimAttributesRequest(input, context),
-    Action: "GetIdentityDkimAttributes",
-    Version: "2010-12-01",
+    [_A]: _GIDA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -922,8 +922,8 @@ export const se_GetIdentityMailFromDomainAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityMailFromDomainAttributesRequest(input, context),
-    Action: "GetIdentityMailFromDomainAttributes",
-    Version: "2010-12-01",
+    [_A]: _GIMFDA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -939,8 +939,8 @@ export const se_GetIdentityNotificationAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityNotificationAttributesRequest(input, context),
-    Action: "GetIdentityNotificationAttributes",
-    Version: "2010-12-01",
+    [_A]: _GINA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -956,8 +956,8 @@ export const se_GetIdentityPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityPoliciesRequest(input, context),
-    Action: "GetIdentityPolicies",
-    Version: "2010-12-01",
+    [_A]: _GIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -973,8 +973,8 @@ export const se_GetIdentityVerificationAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetIdentityVerificationAttributesRequest(input, context),
-    Action: "GetIdentityVerificationAttributes",
-    Version: "2010-12-01",
+    [_A]: _GIVA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -988,8 +988,8 @@ export const se_GetSendQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GetSendQuota",
-    Version: "2010-12-01",
+    [_A]: _GSQ,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1003,8 +1003,8 @@ export const se_GetSendStatisticsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GetSendStatistics",
-    Version: "2010-12-01",
+    [_A]: _GSS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1020,8 +1020,8 @@ export const se_GetTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTemplateRequest(input, context),
-    Action: "GetTemplate",
-    Version: "2010-12-01",
+    [_A]: _GT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1037,8 +1037,8 @@ export const se_ListConfigurationSetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListConfigurationSetsRequest(input, context),
-    Action: "ListConfigurationSets",
-    Version: "2010-12-01",
+    [_A]: _LCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1054,8 +1054,8 @@ export const se_ListCustomVerificationEmailTemplatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListCustomVerificationEmailTemplatesRequest(input, context),
-    Action: "ListCustomVerificationEmailTemplates",
-    Version: "2010-12-01",
+    [_A]: _LCVET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1071,8 +1071,8 @@ export const se_ListIdentitiesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListIdentitiesRequest(input, context),
-    Action: "ListIdentities",
-    Version: "2010-12-01",
+    [_A]: _LI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1088,8 +1088,8 @@ export const se_ListIdentityPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListIdentityPoliciesRequest(input, context),
-    Action: "ListIdentityPolicies",
-    Version: "2010-12-01",
+    [_A]: _LIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1105,8 +1105,8 @@ export const se_ListReceiptFiltersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListReceiptFiltersRequest(input, context),
-    Action: "ListReceiptFilters",
-    Version: "2010-12-01",
+    [_A]: _LRF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1122,8 +1122,8 @@ export const se_ListReceiptRuleSetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListReceiptRuleSetsRequest(input, context),
-    Action: "ListReceiptRuleSets",
-    Version: "2010-12-01",
+    [_A]: _LRRS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1139,8 +1139,8 @@ export const se_ListTemplatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTemplatesRequest(input, context),
-    Action: "ListTemplates",
-    Version: "2010-12-01",
+    [_A]: _LT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1154,8 +1154,8 @@ export const se_ListVerifiedEmailAddressesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "ListVerifiedEmailAddresses",
-    Version: "2010-12-01",
+    [_A]: _LVEA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1171,8 +1171,8 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutConfigurationSetDeliveryOptionsRequest(input, context),
-    Action: "PutConfigurationSetDeliveryOptions",
-    Version: "2010-12-01",
+    [_A]: _PCSDO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1188,8 +1188,8 @@ export const se_PutIdentityPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutIdentityPolicyRequest(input, context),
-    Action: "PutIdentityPolicy",
-    Version: "2010-12-01",
+    [_A]: _PIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1205,8 +1205,8 @@ export const se_ReorderReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ReorderReceiptRuleSetRequest(input, context),
-    Action: "ReorderReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _RRRS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1222,8 +1222,8 @@ export const se_SendBounceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendBounceRequest(input, context),
-    Action: "SendBounce",
-    Version: "2010-12-01",
+    [_A]: _SB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1239,8 +1239,8 @@ export const se_SendBulkTemplatedEmailCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendBulkTemplatedEmailRequest(input, context),
-    Action: "SendBulkTemplatedEmail",
-    Version: "2010-12-01",
+    [_A]: _SBTE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1256,8 +1256,8 @@ export const se_SendCustomVerificationEmailCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendCustomVerificationEmailRequest(input, context),
-    Action: "SendCustomVerificationEmail",
-    Version: "2010-12-01",
+    [_A]: _SCVE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1273,8 +1273,8 @@ export const se_SendEmailCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendEmailRequest(input, context),
-    Action: "SendEmail",
-    Version: "2010-12-01",
+    [_A]: _SE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1290,8 +1290,8 @@ export const se_SendRawEmailCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendRawEmailRequest(input, context),
-    Action: "SendRawEmail",
-    Version: "2010-12-01",
+    [_A]: _SRE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1307,8 +1307,8 @@ export const se_SendTemplatedEmailCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SendTemplatedEmailRequest(input, context),
-    Action: "SendTemplatedEmail",
-    Version: "2010-12-01",
+    [_A]: _STE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1324,8 +1324,8 @@ export const se_SetActiveReceiptRuleSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetActiveReceiptRuleSetRequest(input, context),
-    Action: "SetActiveReceiptRuleSet",
-    Version: "2010-12-01",
+    [_A]: _SARRS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1341,8 +1341,8 @@ export const se_SetIdentityDkimEnabledCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityDkimEnabledRequest(input, context),
-    Action: "SetIdentityDkimEnabled",
-    Version: "2010-12-01",
+    [_A]: _SIDE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1358,8 +1358,8 @@ export const se_SetIdentityFeedbackForwardingEnabledCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityFeedbackForwardingEnabledRequest(input, context),
-    Action: "SetIdentityFeedbackForwardingEnabled",
-    Version: "2010-12-01",
+    [_A]: _SIFFE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1375,8 +1375,8 @@ export const se_SetIdentityHeadersInNotificationsEnabledCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityHeadersInNotificationsEnabledRequest(input, context),
-    Action: "SetIdentityHeadersInNotificationsEnabled",
-    Version: "2010-12-01",
+    [_A]: _SIHINE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1392,8 +1392,8 @@ export const se_SetIdentityMailFromDomainCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityMailFromDomainRequest(input, context),
-    Action: "SetIdentityMailFromDomain",
-    Version: "2010-12-01",
+    [_A]: _SIMFD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1409,8 +1409,8 @@ export const se_SetIdentityNotificationTopicCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetIdentityNotificationTopicRequest(input, context),
-    Action: "SetIdentityNotificationTopic",
-    Version: "2010-12-01",
+    [_A]: _SINT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1426,8 +1426,8 @@ export const se_SetReceiptRulePositionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetReceiptRulePositionRequest(input, context),
-    Action: "SetReceiptRulePosition",
-    Version: "2010-12-01",
+    [_A]: _SRRP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1443,8 +1443,8 @@ export const se_TestRenderTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestRenderTemplateRequest(input, context),
-    Action: "TestRenderTemplate",
-    Version: "2010-12-01",
+    [_A]: _TRT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1460,8 +1460,8 @@ export const se_UpdateAccountSendingEnabledCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateAccountSendingEnabledRequest(input, context),
-    Action: "UpdateAccountSendingEnabled",
-    Version: "2010-12-01",
+    [_A]: _UASE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1477,8 +1477,8 @@ export const se_UpdateConfigurationSetEventDestinationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetEventDestinationRequest(input, context),
-    Action: "UpdateConfigurationSetEventDestination",
-    Version: "2010-12-01",
+    [_A]: _UCSED,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1494,8 +1494,8 @@ export const se_UpdateConfigurationSetReputationMetricsEnabledCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetReputationMetricsEnabledRequest(input, context),
-    Action: "UpdateConfigurationSetReputationMetricsEnabled",
-    Version: "2010-12-01",
+    [_A]: _UCSRME,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1511,8 +1511,8 @@ export const se_UpdateConfigurationSetSendingEnabledCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetSendingEnabledRequest(input, context),
-    Action: "UpdateConfigurationSetSendingEnabled",
-    Version: "2010-12-01",
+    [_A]: _UCSSE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1528,8 +1528,8 @@ export const se_UpdateConfigurationSetTrackingOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateConfigurationSetTrackingOptionsRequest(input, context),
-    Action: "UpdateConfigurationSetTrackingOptions",
-    Version: "2010-12-01",
+    [_A]: _UCSTO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1545,8 +1545,8 @@ export const se_UpdateCustomVerificationEmailTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateCustomVerificationEmailTemplateRequest(input, context),
-    Action: "UpdateCustomVerificationEmailTemplate",
-    Version: "2010-12-01",
+    [_A]: _UCVET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1562,8 +1562,8 @@ export const se_UpdateReceiptRuleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateReceiptRuleRequest(input, context),
-    Action: "UpdateReceiptRule",
-    Version: "2010-12-01",
+    [_A]: _URR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1579,8 +1579,8 @@ export const se_UpdateTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateTemplateRequest(input, context),
-    Action: "UpdateTemplate",
-    Version: "2010-12-01",
+    [_A]: _UT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1596,8 +1596,8 @@ export const se_VerifyDomainDkimCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyDomainDkimRequest(input, context),
-    Action: "VerifyDomainDkim",
-    Version: "2010-12-01",
+    [_A]: _VDD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1613,8 +1613,8 @@ export const se_VerifyDomainIdentityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyDomainIdentityRequest(input, context),
-    Action: "VerifyDomainIdentity",
-    Version: "2010-12-01",
+    [_A]: _VDI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1630,8 +1630,8 @@ export const se_VerifyEmailAddressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyEmailAddressRequest(input, context),
-    Action: "VerifyEmailAddress",
-    Version: "2010-12-01",
+    [_A]: _VEA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1647,8 +1647,8 @@ export const se_VerifyEmailIdentityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifyEmailIdentityRequest(input, context),
-    Action: "VerifyEmailIdentity",
-    Version: "2010-12-01",
+    [_A]: _VEI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -5468,11 +5468,11 @@ const de_TrackingOptionsDoesNotExistExceptionRes = async (
  */
 const se_AddHeaderAction = (input: AddHeaderAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.HeaderName != null) {
-    entries["HeaderName"] = input.HeaderName;
+  if (input[_HN] != null) {
+    entries[_HN] = input[_HN];
   }
-  if (input.HeaderValue != null) {
-    entries["HeaderValue"] = input.HeaderValue;
+  if (input[_HV] != null) {
+    entries[_HV] = input[_HV];
   }
   return entries;
 };
@@ -5498,15 +5498,15 @@ const se_AddressList = (input: string[], context: __SerdeContext): any => {
  */
 const se_Body = (input: Body, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Text != null) {
-    const memberEntries = se_Content(input.Text, context);
+  if (input[_T] != null) {
+    const memberEntries = se_Content(input[_T], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Text.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Html != null) {
-    const memberEntries = se_Content(input.Html, context);
+  if (input[_H] != null) {
+    const memberEntries = se_Content(input[_H], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Html.${key}`;
       entries[loc] = value;
@@ -5520,20 +5520,20 @@ const se_Body = (input: Body, context: __SerdeContext): any => {
  */
 const se_BounceAction = (input: BounceAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.SmtpReplyCode != null) {
-    entries["SmtpReplyCode"] = input.SmtpReplyCode;
+  if (input[_SRC] != null) {
+    entries[_SRC] = input[_SRC];
   }
-  if (input.StatusCode != null) {
-    entries["StatusCode"] = input.StatusCode;
+  if (input[_SC] != null) {
+    entries[_SC] = input[_SC];
   }
-  if (input.Message != null) {
-    entries["Message"] = input.Message;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.Sender != null) {
-    entries["Sender"] = input.Sender;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
   return entries;
 };
@@ -5543,17 +5543,17 @@ const se_BounceAction = (input: BounceAction, context: __SerdeContext): any => {
  */
 const se_BouncedRecipientInfo = (input: BouncedRecipientInfo, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Recipient != null) {
-    entries["Recipient"] = input.Recipient;
+  if (input[_R] != null) {
+    entries[_R] = input[_R];
   }
-  if (input.RecipientArn != null) {
-    entries["RecipientArn"] = input.RecipientArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.BounceType != null) {
-    entries["BounceType"] = input.BounceType;
+  if (input[_BT] != null) {
+    entries[_BT] = input[_BT];
   }
-  if (input.RecipientDsnFields != null) {
-    const memberEntries = se_RecipientDsnFields(input.RecipientDsnFields, context);
+  if (input[_RDF] != null) {
+    const memberEntries = se_RecipientDsnFields(input[_RDF], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecipientDsnFields.${key}`;
       entries[loc] = value;
@@ -5586,16 +5586,16 @@ const se_BouncedRecipientInfoList = (input: BouncedRecipientInfo[], context: __S
  */
 const se_BulkEmailDestination = (input: BulkEmailDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Destination != null) {
-    const memberEntries = se_Destination(input.Destination, context);
+  if (input[_D] != null) {
+    const memberEntries = se_Destination(input[_D], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReplacementTags != null) {
-    const memberEntries = se_MessageTagList(input.ReplacementTags, context);
-    if (input.ReplacementTags?.length === 0) {
+  if (input[_RT] != null) {
+    const memberEntries = se_MessageTagList(input[_RT], context);
+    if (input[_RT]?.length === 0) {
       entries.ReplacementTags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5603,8 +5603,8 @@ const se_BulkEmailDestination = (input: BulkEmailDestination, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.ReplacementTemplateData != null) {
-    entries["ReplacementTemplateData"] = input.ReplacementTemplateData;
+  if (input[_RTD] != null) {
+    entries[_RTD] = input[_RTD];
   }
   return entries;
 };
@@ -5633,11 +5633,11 @@ const se_BulkEmailDestinationList = (input: BulkEmailDestination[], context: __S
  */
 const se_CloneReceiptRuleSetRequest = (input: CloneReceiptRuleSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.OriginalRuleSetName != null) {
-    entries["OriginalRuleSetName"] = input.OriginalRuleSetName;
+  if (input[_ORSN] != null) {
+    entries[_ORSN] = input[_ORSN];
   }
   return entries;
 };
@@ -5647,9 +5647,9 @@ const se_CloneReceiptRuleSetRequest = (input: CloneReceiptRuleSetRequest, contex
  */
 const se_CloudWatchDestination = (input: CloudWatchDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DimensionConfigurations != null) {
-    const memberEntries = se_CloudWatchDimensionConfigurations(input.DimensionConfigurations, context);
-    if (input.DimensionConfigurations?.length === 0) {
+  if (input[_DC] != null) {
+    const memberEntries = se_CloudWatchDimensionConfigurations(input[_DC], context);
+    if (input[_DC]?.length === 0) {
       entries.DimensionConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5665,14 +5665,14 @@ const se_CloudWatchDestination = (input: CloudWatchDestination, context: __Serde
  */
 const se_CloudWatchDimensionConfiguration = (input: CloudWatchDimensionConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DimensionName != null) {
-    entries["DimensionName"] = input.DimensionName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.DimensionValueSource != null) {
-    entries["DimensionValueSource"] = input.DimensionValueSource;
+  if (input[_DVS] != null) {
+    entries[_DVS] = input[_DVS];
   }
-  if (input.DefaultDimensionValue != null) {
-    entries["DefaultDimensionValue"] = input.DefaultDimensionValue;
+  if (input[_DDV] != null) {
+    entries[_DDV] = input[_DDV];
   }
   return entries;
 };
@@ -5704,8 +5704,8 @@ const se_CloudWatchDimensionConfigurations = (
  */
 const se_ConfigurationSet = (input: ConfigurationSet, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
   return entries;
 };
@@ -5731,11 +5731,11 @@ const se_ConfigurationSetAttributeList = (input: ConfigurationSetAttribute[], co
  */
 const se_Content = (input: Content, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Data != null) {
-    entries["Data"] = input.Data;
+  if (input[_Da] != null) {
+    entries[_Da] = input[_Da];
   }
-  if (input.Charset != null) {
-    entries["Charset"] = input.Charset;
+  if (input[_C] != null) {
+    entries[_C] = input[_C];
   }
   return entries;
 };
@@ -5748,11 +5748,11 @@ const se_CreateConfigurationSetEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.EventDestination != null) {
-    const memberEntries = se_EventDestination(input.EventDestination, context);
+  if (input[_ED] != null) {
+    const memberEntries = se_EventDestination(input[_ED], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventDestination.${key}`;
       entries[loc] = value;
@@ -5766,8 +5766,8 @@ const se_CreateConfigurationSetEventDestinationRequest = (
  */
 const se_CreateConfigurationSetRequest = (input: CreateConfigurationSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ConfigurationSet != null) {
-    const memberEntries = se_ConfigurationSet(input.ConfigurationSet, context);
+  if (input[_CS] != null) {
+    const memberEntries = se_ConfigurationSet(input[_CS], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConfigurationSet.${key}`;
       entries[loc] = value;
@@ -5784,11 +5784,11 @@ const se_CreateConfigurationSetTrackingOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.TrackingOptions != null) {
-    const memberEntries = se_TrackingOptions(input.TrackingOptions, context);
+  if (input[_TO] != null) {
+    const memberEntries = se_TrackingOptions(input[_TO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrackingOptions.${key}`;
       entries[loc] = value;
@@ -5805,23 +5805,23 @@ const se_CreateCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.FromEmailAddress != null) {
-    entries["FromEmailAddress"] = input.FromEmailAddress;
+  if (input[_FEA] != null) {
+    entries[_FEA] = input[_FEA];
   }
-  if (input.TemplateSubject != null) {
-    entries["TemplateSubject"] = input.TemplateSubject;
+  if (input[_TS] != null) {
+    entries[_TS] = input[_TS];
   }
-  if (input.TemplateContent != null) {
-    entries["TemplateContent"] = input.TemplateContent;
+  if (input[_TC] != null) {
+    entries[_TC] = input[_TC];
   }
-  if (input.SuccessRedirectionURL != null) {
-    entries["SuccessRedirectionURL"] = input.SuccessRedirectionURL;
+  if (input[_SRURL] != null) {
+    entries[_SRURL] = input[_SRURL];
   }
-  if (input.FailureRedirectionURL != null) {
-    entries["FailureRedirectionURL"] = input.FailureRedirectionURL;
+  if (input[_FRURL] != null) {
+    entries[_FRURL] = input[_FRURL];
   }
   return entries;
 };
@@ -5831,8 +5831,8 @@ const se_CreateCustomVerificationEmailTemplateRequest = (
  */
 const se_CreateReceiptFilterRequest = (input: CreateReceiptFilterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Filter != null) {
-    const memberEntries = se_ReceiptFilter(input.Filter, context);
+  if (input[_F] != null) {
+    const memberEntries = se_ReceiptFilter(input[_F], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
       entries[loc] = value;
@@ -5846,14 +5846,14 @@ const se_CreateReceiptFilterRequest = (input: CreateReceiptFilterRequest, contex
  */
 const se_CreateReceiptRuleRequest = (input: CreateReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.After != null) {
-    entries["After"] = input.After;
+  if (input[_Af] != null) {
+    entries[_Af] = input[_Af];
   }
-  if (input.Rule != null) {
-    const memberEntries = se_ReceiptRule(input.Rule, context);
+  if (input[_Ru] != null) {
+    const memberEntries = se_ReceiptRule(input[_Ru], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Rule.${key}`;
       entries[loc] = value;
@@ -5867,8 +5867,8 @@ const se_CreateReceiptRuleRequest = (input: CreateReceiptRuleRequest, context: _
  */
 const se_CreateReceiptRuleSetRequest = (input: CreateReceiptRuleSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
   return entries;
 };
@@ -5878,8 +5878,8 @@ const se_CreateReceiptRuleSetRequest = (input: CreateReceiptRuleSetRequest, cont
  */
 const se_CreateTemplateRequest = (input: CreateTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Template != null) {
-    const memberEntries = se_Template(input.Template, context);
+  if (input[_Te] != null) {
+    const memberEntries = se_Template(input[_Te], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Template.${key}`;
       entries[loc] = value;
@@ -5896,11 +5896,11 @@ const se_DeleteConfigurationSetEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.EventDestinationName != null) {
-    entries["EventDestinationName"] = input.EventDestinationName;
+  if (input[_EDN] != null) {
+    entries[_EDN] = input[_EDN];
   }
   return entries;
 };
@@ -5910,8 +5910,8 @@ const se_DeleteConfigurationSetEventDestinationRequest = (
  */
 const se_DeleteConfigurationSetRequest = (input: DeleteConfigurationSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
   return entries;
 };
@@ -5924,8 +5924,8 @@ const se_DeleteConfigurationSetTrackingOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
   return entries;
 };
@@ -5938,8 +5938,8 @@ const se_DeleteCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -5949,11 +5949,11 @@ const se_DeleteCustomVerificationEmailTemplateRequest = (
  */
 const se_DeleteIdentityPolicyRequest = (input: DeleteIdentityPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -5963,8 +5963,8 @@ const se_DeleteIdentityPolicyRequest = (input: DeleteIdentityPolicyRequest, cont
  */
 const se_DeleteIdentityRequest = (input: DeleteIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   return entries;
 };
@@ -5974,8 +5974,8 @@ const se_DeleteIdentityRequest = (input: DeleteIdentityRequest, context: __Serde
  */
 const se_DeleteReceiptFilterRequest = (input: DeleteReceiptFilterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.FilterName != null) {
-    entries["FilterName"] = input.FilterName;
+  if (input[_FN] != null) {
+    entries[_FN] = input[_FN];
   }
   return entries;
 };
@@ -5985,11 +5985,11 @@ const se_DeleteReceiptFilterRequest = (input: DeleteReceiptFilterRequest, contex
  */
 const se_DeleteReceiptRuleRequest = (input: DeleteReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.RuleName != null) {
-    entries["RuleName"] = input.RuleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -5999,8 +5999,8 @@ const se_DeleteReceiptRuleRequest = (input: DeleteReceiptRuleRequest, context: _
  */
 const se_DeleteReceiptRuleSetRequest = (input: DeleteReceiptRuleSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
   return entries;
 };
@@ -6010,8 +6010,8 @@ const se_DeleteReceiptRuleSetRequest = (input: DeleteReceiptRuleSetRequest, cont
  */
 const se_DeleteTemplateRequest = (input: DeleteTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -6024,8 +6024,8 @@ const se_DeleteVerifiedEmailAddressRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EmailAddress != null) {
-    entries["EmailAddress"] = input.EmailAddress;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
   return entries;
 };
@@ -6035,8 +6035,8 @@ const se_DeleteVerifiedEmailAddressRequest = (
  */
 const se_DeliveryOptions = (input: DeliveryOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TlsPolicy != null) {
-    entries["TlsPolicy"] = input.TlsPolicy;
+  if (input[_TP] != null) {
+    entries[_TP] = input[_TP];
   }
   return entries;
 };
@@ -6057,12 +6057,12 @@ const se_DescribeActiveReceiptRuleSetRequest = (
  */
 const se_DescribeConfigurationSetRequest = (input: DescribeConfigurationSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.ConfigurationSetAttributeNames != null) {
-    const memberEntries = se_ConfigurationSetAttributeList(input.ConfigurationSetAttributeNames, context);
-    if (input.ConfigurationSetAttributeNames?.length === 0) {
+  if (input[_CSAN] != null) {
+    const memberEntries = se_ConfigurationSetAttributeList(input[_CSAN], context);
+    if (input[_CSAN]?.length === 0) {
       entries.ConfigurationSetAttributeNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6078,11 +6078,11 @@ const se_DescribeConfigurationSetRequest = (input: DescribeConfigurationSetReque
  */
 const se_DescribeReceiptRuleRequest = (input: DescribeReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.RuleName != null) {
-    entries["RuleName"] = input.RuleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -6092,8 +6092,8 @@ const se_DescribeReceiptRuleRequest = (input: DescribeReceiptRuleRequest, contex
  */
 const se_DescribeReceiptRuleSetRequest = (input: DescribeReceiptRuleSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
   return entries;
 };
@@ -6103,9 +6103,9 @@ const se_DescribeReceiptRuleSetRequest = (input: DescribeReceiptRuleSetRequest, 
  */
 const se_Destination = (input: Destination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ToAddresses != null) {
-    const memberEntries = se_AddressList(input.ToAddresses, context);
-    if (input.ToAddresses?.length === 0) {
+  if (input[_TAo] != null) {
+    const memberEntries = se_AddressList(input[_TAo], context);
+    if (input[_TAo]?.length === 0) {
       entries.ToAddresses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6113,9 +6113,9 @@ const se_Destination = (input: Destination, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.CcAddresses != null) {
-    const memberEntries = se_AddressList(input.CcAddresses, context);
-    if (input.CcAddresses?.length === 0) {
+  if (input[_CA] != null) {
+    const memberEntries = se_AddressList(input[_CA], context);
+    if (input[_CA]?.length === 0) {
       entries.CcAddresses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6123,9 +6123,9 @@ const se_Destination = (input: Destination, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.BccAddresses != null) {
-    const memberEntries = se_AddressList(input.BccAddresses, context);
-    if (input.BccAddresses?.length === 0) {
+  if (input[_BA] != null) {
+    const memberEntries = se_AddressList(input[_BA], context);
+    if (input[_BA]?.length === 0) {
       entries.BccAddresses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6141,15 +6141,15 @@ const se_Destination = (input: Destination, context: __SerdeContext): any => {
  */
 const se_EventDestination = (input: EventDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.MatchingEventTypes != null) {
-    const memberEntries = se_EventTypes(input.MatchingEventTypes, context);
-    if (input.MatchingEventTypes?.length === 0) {
+  if (input[_MET] != null) {
+    const memberEntries = se_EventTypes(input[_MET], context);
+    if (input[_MET]?.length === 0) {
       entries.MatchingEventTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6157,22 +6157,22 @@ const se_EventDestination = (input: EventDestination, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.KinesisFirehoseDestination != null) {
-    const memberEntries = se_KinesisFirehoseDestination(input.KinesisFirehoseDestination, context);
+  if (input[_KFD] != null) {
+    const memberEntries = se_KinesisFirehoseDestination(input[_KFD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KinesisFirehoseDestination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CloudWatchDestination != null) {
-    const memberEntries = se_CloudWatchDestination(input.CloudWatchDestination, context);
+  if (input[_CWD] != null) {
+    const memberEntries = se_CloudWatchDestination(input[_CWD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudWatchDestination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SNSDestination != null) {
-    const memberEntries = se_SNSDestination(input.SNSDestination, context);
+  if (input[_SNSD] != null) {
+    const memberEntries = se_SNSDestination(input[_SNSD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SNSDestination.${key}`;
       entries[loc] = value;
@@ -6202,11 +6202,11 @@ const se_EventTypes = (input: EventType[], context: __SerdeContext): any => {
  */
 const se_ExtensionField = (input: ExtensionField, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -6238,8 +6238,8 @@ const se_GetCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -6249,9 +6249,9 @@ const se_GetCustomVerificationEmailTemplateRequest = (
  */
 const se_GetIdentityDkimAttributesRequest = (input: GetIdentityDkimAttributesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identities != null) {
-    const memberEntries = se_IdentityList(input.Identities, context);
-    if (input.Identities?.length === 0) {
+  if (input[_Id] != null) {
+    const memberEntries = se_IdentityList(input[_Id], context);
+    if (input[_Id]?.length === 0) {
       entries.Identities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6270,9 +6270,9 @@ const se_GetIdentityMailFromDomainAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities != null) {
-    const memberEntries = se_IdentityList(input.Identities, context);
-    if (input.Identities?.length === 0) {
+  if (input[_Id] != null) {
+    const memberEntries = se_IdentityList(input[_Id], context);
+    if (input[_Id]?.length === 0) {
       entries.Identities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6291,9 +6291,9 @@ const se_GetIdentityNotificationAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities != null) {
-    const memberEntries = se_IdentityList(input.Identities, context);
-    if (input.Identities?.length === 0) {
+  if (input[_Id] != null) {
+    const memberEntries = se_IdentityList(input[_Id], context);
+    if (input[_Id]?.length === 0) {
       entries.Identities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6309,12 +6309,12 @@ const se_GetIdentityNotificationAttributesRequest = (
  */
 const se_GetIdentityPoliciesRequest = (input: GetIdentityPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.PolicyNames != null) {
-    const memberEntries = se_PolicyNameList(input.PolicyNames, context);
-    if (input.PolicyNames?.length === 0) {
+  if (input[_PNo] != null) {
+    const memberEntries = se_PolicyNameList(input[_PNo], context);
+    if (input[_PNo]?.length === 0) {
       entries.PolicyNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6333,9 +6333,9 @@ const se_GetIdentityVerificationAttributesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identities != null) {
-    const memberEntries = se_IdentityList(input.Identities, context);
-    if (input.Identities?.length === 0) {
+  if (input[_Id] != null) {
+    const memberEntries = se_IdentityList(input[_Id], context);
+    if (input[_Id]?.length === 0) {
       entries.Identities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6351,8 +6351,8 @@ const se_GetIdentityVerificationAttributesRequest = (
  */
 const se_GetTemplateRequest = (input: GetTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -6378,11 +6378,11 @@ const se_IdentityList = (input: string[], context: __SerdeContext): any => {
  */
 const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IAMRoleARN != null) {
-    entries["IAMRoleARN"] = input.IAMRoleARN;
+  if (input[_IAMRARN] != null) {
+    entries[_IAMRARN] = input[_IAMRARN];
   }
-  if (input.DeliveryStreamARN != null) {
-    entries["DeliveryStreamARN"] = input.DeliveryStreamARN;
+  if (input[_DSARN] != null) {
+    entries[_DSARN] = input[_DSARN];
   }
   return entries;
 };
@@ -6392,14 +6392,14 @@ const se_KinesisFirehoseDestination = (input: KinesisFirehoseDestination, contex
  */
 const se_LambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.FunctionArn != null) {
-    entries["FunctionArn"] = input.FunctionArn;
+  if (input[_FA] != null) {
+    entries[_FA] = input[_FA];
   }
-  if (input.InvocationType != null) {
-    entries["InvocationType"] = input.InvocationType;
+  if (input[_IT] != null) {
+    entries[_IT] = input[_IT];
   }
   return entries;
 };
@@ -6409,11 +6409,11 @@ const se_LambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
  */
 const se_ListConfigurationSetsRequest = (input: ListConfigurationSetsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -6426,11 +6426,11 @@ const se_ListCustomVerificationEmailTemplatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -6440,14 +6440,14 @@ const se_ListCustomVerificationEmailTemplatesRequest = (
  */
 const se_ListIdentitiesRequest = (input: ListIdentitiesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IdentityType != null) {
-    entries["IdentityType"] = input.IdentityType;
+  if (input[_ITd] != null) {
+    entries[_ITd] = input[_ITd];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -6457,8 +6457,8 @@ const se_ListIdentitiesRequest = (input: ListIdentitiesRequest, context: __Serde
  */
 const se_ListIdentityPoliciesRequest = (input: ListIdentityPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
   return entries;
 };
@@ -6476,8 +6476,8 @@ const se_ListReceiptFiltersRequest = (input: ListReceiptFiltersRequest, context:
  */
 const se_ListReceiptRuleSetsRequest = (input: ListReceiptRuleSetsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6487,11 +6487,11 @@ const se_ListReceiptRuleSetsRequest = (input: ListReceiptRuleSetsRequest, contex
  */
 const se_ListTemplatesRequest = (input: ListTemplatesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxItems != null) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
   return entries;
 };
@@ -6501,15 +6501,15 @@ const se_ListTemplatesRequest = (input: ListTemplatesRequest, context: __SerdeCo
  */
 const se_Message = (input: Message, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Subject != null) {
-    const memberEntries = se_Content(input.Subject, context);
+  if (input[_Su] != null) {
+    const memberEntries = se_Content(input[_Su], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subject.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Body != null) {
-    const memberEntries = se_Body(input.Body, context);
+  if (input[_B] != null) {
+    const memberEntries = se_Body(input[_B], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Body.${key}`;
       entries[loc] = value;
@@ -6523,15 +6523,15 @@ const se_Message = (input: Message, context: __SerdeContext): any => {
  */
 const se_MessageDsn = (input: MessageDsn, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReportingMta != null) {
-    entries["ReportingMta"] = input.ReportingMta;
+  if (input[_RM] != null) {
+    entries[_RM] = input[_RM];
   }
-  if (input.ArrivalDate != null) {
-    entries["ArrivalDate"] = input.ArrivalDate.toISOString().split(".")[0] + "Z";
+  if (input[_AD] != null) {
+    entries[_AD] = input[_AD].toISOString().split(".")[0] + "Z";
   }
-  if (input.ExtensionFields != null) {
-    const memberEntries = se_ExtensionFieldList(input.ExtensionFields, context);
-    if (input.ExtensionFields?.length === 0) {
+  if (input[_EF] != null) {
+    const memberEntries = se_ExtensionFieldList(input[_EF], context);
+    if (input[_EF]?.length === 0) {
       entries.ExtensionFields = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6547,11 +6547,11 @@ const se_MessageDsn = (input: MessageDsn, context: __SerdeContext): any => {
  */
 const se_MessageTag = (input: MessageTag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -6599,11 +6599,11 @@ const se_PutConfigurationSetDeliveryOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.DeliveryOptions != null) {
-    const memberEntries = se_DeliveryOptions(input.DeliveryOptions, context);
+  if (input[_DO] != null) {
+    const memberEntries = se_DeliveryOptions(input[_DO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeliveryOptions.${key}`;
       entries[loc] = value;
@@ -6617,14 +6617,14 @@ const se_PutConfigurationSetDeliveryOptionsRequest = (
  */
 const se_PutIdentityPolicyRequest = (input: PutIdentityPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.Policy != null) {
-    entries["Policy"] = input.Policy;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
   return entries;
 };
@@ -6634,8 +6634,8 @@ const se_PutIdentityPolicyRequest = (input: PutIdentityPolicyRequest, context: _
  */
 const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Data != null) {
-    entries["Data"] = context.base64Encoder(input.Data);
+  if (input[_Da] != null) {
+    entries[_Da] = context.base64Encoder(input[_Da]);
   }
   return entries;
 };
@@ -6645,50 +6645,50 @@ const se_RawMessage = (input: RawMessage, context: __SerdeContext): any => {
  */
 const se_ReceiptAction = (input: ReceiptAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.S3Action != null) {
-    const memberEntries = se_S3Action(input.S3Action, context);
+  if (input[_SA] != null) {
+    const memberEntries = se_S3Action(input[_SA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `S3Action.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.BounceAction != null) {
-    const memberEntries = se_BounceAction(input.BounceAction, context);
+  if (input[_BAo] != null) {
+    const memberEntries = se_BounceAction(input[_BAo], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BounceAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.WorkmailAction != null) {
-    const memberEntries = se_WorkmailAction(input.WorkmailAction, context);
+  if (input[_WA] != null) {
+    const memberEntries = se_WorkmailAction(input[_WA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `WorkmailAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LambdaAction != null) {
-    const memberEntries = se_LambdaAction(input.LambdaAction, context);
+  if (input[_LA] != null) {
+    const memberEntries = se_LambdaAction(input[_LA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LambdaAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.StopAction != null) {
-    const memberEntries = se_StopAction(input.StopAction, context);
+  if (input[_SAt] != null) {
+    const memberEntries = se_StopAction(input[_SAt], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StopAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AddHeaderAction != null) {
-    const memberEntries = se_AddHeaderAction(input.AddHeaderAction, context);
+  if (input[_AHA] != null) {
+    const memberEntries = se_AddHeaderAction(input[_AHA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AddHeaderAction.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SNSAction != null) {
-    const memberEntries = se_SNSAction(input.SNSAction, context);
+  if (input[_SNSA] != null) {
+    const memberEntries = se_SNSAction(input[_SNSA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SNSAction.${key}`;
       entries[loc] = value;
@@ -6721,11 +6721,11 @@ const se_ReceiptActionsList = (input: ReceiptAction[], context: __SerdeContext):
  */
 const se_ReceiptFilter = (input: ReceiptFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.IpFilter != null) {
-    const memberEntries = se_ReceiptIpFilter(input.IpFilter, context);
+  if (input[_IF] != null) {
+    const memberEntries = se_ReceiptIpFilter(input[_IF], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IpFilter.${key}`;
       entries[loc] = value;
@@ -6739,11 +6739,11 @@ const se_ReceiptFilter = (input: ReceiptFilter, context: __SerdeContext): any =>
  */
 const se_ReceiptIpFilter = (input: ReceiptIpFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Policy != null) {
-    entries["Policy"] = input.Policy;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.Cidr != null) {
-    entries["Cidr"] = input.Cidr;
+  if (input[_Ci] != null) {
+    entries[_Ci] = input[_Ci];
   }
   return entries;
 };
@@ -6753,18 +6753,18 @@ const se_ReceiptIpFilter = (input: ReceiptIpFilter, context: __SerdeContext): an
  */
 const se_ReceiptRule = (input: ReceiptRule, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.TlsPolicy != null) {
-    entries["TlsPolicy"] = input.TlsPolicy;
+  if (input[_TP] != null) {
+    entries[_TP] = input[_TP];
   }
-  if (input.Recipients != null) {
-    const memberEntries = se_RecipientsList(input.Recipients, context);
-    if (input.Recipients?.length === 0) {
+  if (input[_Re] != null) {
+    const memberEntries = se_RecipientsList(input[_Re], context);
+    if (input[_Re]?.length === 0) {
       entries.Recipients = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6772,9 +6772,9 @@ const se_ReceiptRule = (input: ReceiptRule, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.Actions != null) {
-    const memberEntries = se_ReceiptActionsList(input.Actions, context);
-    if (input.Actions?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_ReceiptActionsList(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Actions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6782,8 +6782,8 @@ const se_ReceiptRule = (input: ReceiptRule, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.ScanEnabled != null) {
-    entries["ScanEnabled"] = input.ScanEnabled;
+  if (input[_SEc] != null) {
+    entries[_SEc] = input[_SEc];
   }
   return entries;
 };
@@ -6809,27 +6809,27 @@ const se_ReceiptRuleNamesList = (input: string[], context: __SerdeContext): any 
  */
 const se_RecipientDsnFields = (input: RecipientDsnFields, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.FinalRecipient != null) {
-    entries["FinalRecipient"] = input.FinalRecipient;
+  if (input[_FR] != null) {
+    entries[_FR] = input[_FR];
   }
-  if (input.Action != null) {
-    entries["Action"] = input.Action;
+  if (input[_A] != null) {
+    entries[_A] = input[_A];
   }
-  if (input.RemoteMta != null) {
-    entries["RemoteMta"] = input.RemoteMta;
+  if (input[_RMe] != null) {
+    entries[_RMe] = input[_RMe];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
-  if (input.DiagnosticCode != null) {
-    entries["DiagnosticCode"] = input.DiagnosticCode;
+  if (input[_DCi] != null) {
+    entries[_DCi] = input[_DCi];
   }
-  if (input.LastAttemptDate != null) {
-    entries["LastAttemptDate"] = input.LastAttemptDate.toISOString().split(".")[0] + "Z";
+  if (input[_LAD] != null) {
+    entries[_LAD] = input[_LAD].toISOString().split(".")[0] + "Z";
   }
-  if (input.ExtensionFields != null) {
-    const memberEntries = se_ExtensionFieldList(input.ExtensionFields, context);
-    if (input.ExtensionFields?.length === 0) {
+  if (input[_EF] != null) {
+    const memberEntries = se_ExtensionFieldList(input[_EF], context);
+    if (input[_EF]?.length === 0) {
       entries.ExtensionFields = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6861,12 +6861,12 @@ const se_RecipientsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ReorderReceiptRuleSetRequest = (input: ReorderReceiptRuleSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.RuleNames != null) {
-    const memberEntries = se_ReceiptRuleNamesList(input.RuleNames, context);
-    if (input.RuleNames?.length === 0) {
+  if (input[_RNu] != null) {
+    const memberEntries = se_ReceiptRuleNamesList(input[_RNu], context);
+    if (input[_RNu]?.length === 0) {
       entries.RuleNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6882,17 +6882,17 @@ const se_ReorderReceiptRuleSetRequest = (input: ReorderReceiptRuleSetRequest, co
  */
 const se_S3Action = (input: S3Action, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.BucketName != null) {
-    entries["BucketName"] = input.BucketName;
+  if (input[_BN] != null) {
+    entries[_BN] = input[_BN];
   }
-  if (input.ObjectKeyPrefix != null) {
-    entries["ObjectKeyPrefix"] = input.ObjectKeyPrefix;
+  if (input[_OKP] != null) {
+    entries[_OKP] = input[_OKP];
   }
-  if (input.KmsKeyArn != null) {
-    entries["KmsKeyArn"] = input.KmsKeyArn;
+  if (input[_KKA] != null) {
+    entries[_KKA] = input[_KKA];
   }
   return entries;
 };
@@ -6902,25 +6902,25 @@ const se_S3Action = (input: S3Action, context: __SerdeContext): any => {
  */
 const se_SendBounceRequest = (input: SendBounceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OriginalMessageId != null) {
-    entries["OriginalMessageId"] = input.OriginalMessageId;
+  if (input[_OMI] != null) {
+    entries[_OMI] = input[_OMI];
   }
-  if (input.BounceSender != null) {
-    entries["BounceSender"] = input.BounceSender;
+  if (input[_BS] != null) {
+    entries[_BS] = input[_BS];
   }
-  if (input.Explanation != null) {
-    entries["Explanation"] = input.Explanation;
+  if (input[_Ex] != null) {
+    entries[_Ex] = input[_Ex];
   }
-  if (input.MessageDsn != null) {
-    const memberEntries = se_MessageDsn(input.MessageDsn, context);
+  if (input[_MD] != null) {
+    const memberEntries = se_MessageDsn(input[_MD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageDsn.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.BouncedRecipientInfoList != null) {
-    const memberEntries = se_BouncedRecipientInfoList(input.BouncedRecipientInfoList, context);
-    if (input.BouncedRecipientInfoList?.length === 0) {
+  if (input[_BRIL] != null) {
+    const memberEntries = se_BouncedRecipientInfoList(input[_BRIL], context);
+    if (input[_BRIL]?.length === 0) {
       entries.BouncedRecipientInfoList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6928,8 +6928,8 @@ const se_SendBounceRequest = (input: SendBounceRequest, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.BounceSenderArn != null) {
-    entries["BounceSenderArn"] = input.BounceSenderArn;
+  if (input[_BSA] != null) {
+    entries[_BSA] = input[_BSA];
   }
   return entries;
 };
@@ -6939,15 +6939,15 @@ const se_SendBounceRequest = (input: SendBounceRequest, context: __SerdeContext)
  */
 const se_SendBulkTemplatedEmailRequest = (input: SendBulkTemplatedEmailRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_So] != null) {
+    entries[_So] = input[_So];
   }
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SAo] != null) {
+    entries[_SAo] = input[_SAo];
   }
-  if (input.ReplyToAddresses != null) {
-    const memberEntries = se_AddressList(input.ReplyToAddresses, context);
-    if (input.ReplyToAddresses?.length === 0) {
+  if (input[_RTA] != null) {
+    const memberEntries = se_AddressList(input[_RTA], context);
+    if (input[_RTA]?.length === 0) {
       entries.ReplyToAddresses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6955,18 +6955,18 @@ const se_SendBulkTemplatedEmailRequest = (input: SendBulkTemplatedEmailRequest, 
       entries[loc] = value;
     });
   }
-  if (input.ReturnPath != null) {
-    entries["ReturnPath"] = input.ReturnPath;
+  if (input[_RP] != null) {
+    entries[_RP] = input[_RP];
   }
-  if (input.ReturnPathArn != null) {
-    entries["ReturnPathArn"] = input.ReturnPathArn;
+  if (input[_RPA] != null) {
+    entries[_RPA] = input[_RPA];
   }
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.DefaultTags != null) {
-    const memberEntries = se_MessageTagList(input.DefaultTags, context);
-    if (input.DefaultTags?.length === 0) {
+  if (input[_DTe] != null) {
+    const memberEntries = se_MessageTagList(input[_DTe], context);
+    if (input[_DTe]?.length === 0) {
       entries.DefaultTags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6974,18 +6974,18 @@ const se_SendBulkTemplatedEmailRequest = (input: SendBulkTemplatedEmailRequest, 
       entries[loc] = value;
     });
   }
-  if (input.Template != null) {
-    entries["Template"] = input.Template;
+  if (input[_Te] != null) {
+    entries[_Te] = input[_Te];
   }
-  if (input.TemplateArn != null) {
-    entries["TemplateArn"] = input.TemplateArn;
+  if (input[_TAe] != null) {
+    entries[_TAe] = input[_TAe];
   }
-  if (input.DefaultTemplateData != null) {
-    entries["DefaultTemplateData"] = input.DefaultTemplateData;
+  if (input[_DTD] != null) {
+    entries[_DTD] = input[_DTD];
   }
-  if (input.Destinations != null) {
-    const memberEntries = se_BulkEmailDestinationList(input.Destinations, context);
-    if (input.Destinations?.length === 0) {
+  if (input[_De] != null) {
+    const memberEntries = se_BulkEmailDestinationList(input[_De], context);
+    if (input[_De]?.length === 0) {
       entries.Destinations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7004,14 +7004,14 @@ const se_SendCustomVerificationEmailRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EmailAddress != null) {
-    entries["EmailAddress"] = input.EmailAddress;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
   return entries;
 };
@@ -7021,26 +7021,26 @@ const se_SendCustomVerificationEmailRequest = (
  */
 const se_SendEmailRequest = (input: SendEmailRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_So] != null) {
+    entries[_So] = input[_So];
   }
-  if (input.Destination != null) {
-    const memberEntries = se_Destination(input.Destination, context);
+  if (input[_D] != null) {
+    const memberEntries = se_Destination(input[_D], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Message != null) {
-    const memberEntries = se_Message(input.Message, context);
+  if (input[_M] != null) {
+    const memberEntries = se_Message(input[_M], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Message.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReplyToAddresses != null) {
-    const memberEntries = se_AddressList(input.ReplyToAddresses, context);
-    if (input.ReplyToAddresses?.length === 0) {
+  if (input[_RTA] != null) {
+    const memberEntries = se_AddressList(input[_RTA], context);
+    if (input[_RTA]?.length === 0) {
       entries.ReplyToAddresses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7048,18 +7048,18 @@ const se_SendEmailRequest = (input: SendEmailRequest, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.ReturnPath != null) {
-    entries["ReturnPath"] = input.ReturnPath;
+  if (input[_RP] != null) {
+    entries[_RP] = input[_RP];
   }
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SAo] != null) {
+    entries[_SAo] = input[_SAo];
   }
-  if (input.ReturnPathArn != null) {
-    entries["ReturnPathArn"] = input.ReturnPathArn;
+  if (input[_RPA] != null) {
+    entries[_RPA] = input[_RPA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_MessageTagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_MessageTagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7067,8 +7067,8 @@ const se_SendEmailRequest = (input: SendEmailRequest, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
   return entries;
 };
@@ -7078,12 +7078,12 @@ const se_SendEmailRequest = (input: SendEmailRequest, context: __SerdeContext): 
  */
 const se_SendRawEmailRequest = (input: SendRawEmailRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_So] != null) {
+    entries[_So] = input[_So];
   }
-  if (input.Destinations != null) {
-    const memberEntries = se_AddressList(input.Destinations, context);
-    if (input.Destinations?.length === 0) {
+  if (input[_De] != null) {
+    const memberEntries = se_AddressList(input[_De], context);
+    if (input[_De]?.length === 0) {
       entries.Destinations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7091,25 +7091,25 @@ const se_SendRawEmailRequest = (input: SendRawEmailRequest, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.RawMessage != null) {
-    const memberEntries = se_RawMessage(input.RawMessage, context);
+  if (input[_RMa] != null) {
+    const memberEntries = se_RawMessage(input[_RMa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RawMessage.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FromArn != null) {
-    entries["FromArn"] = input.FromArn;
+  if (input[_FAr] != null) {
+    entries[_FAr] = input[_FAr];
   }
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SAo] != null) {
+    entries[_SAo] = input[_SAo];
   }
-  if (input.ReturnPathArn != null) {
-    entries["ReturnPathArn"] = input.ReturnPathArn;
+  if (input[_RPA] != null) {
+    entries[_RPA] = input[_RPA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_MessageTagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_MessageTagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7117,8 +7117,8 @@ const se_SendRawEmailRequest = (input: SendRawEmailRequest, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
   return entries;
 };
@@ -7128,19 +7128,19 @@ const se_SendRawEmailRequest = (input: SendRawEmailRequest, context: __SerdeCont
  */
 const se_SendTemplatedEmailRequest = (input: SendTemplatedEmailRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_So] != null) {
+    entries[_So] = input[_So];
   }
-  if (input.Destination != null) {
-    const memberEntries = se_Destination(input.Destination, context);
+  if (input[_D] != null) {
+    const memberEntries = se_Destination(input[_D], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Destination.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReplyToAddresses != null) {
-    const memberEntries = se_AddressList(input.ReplyToAddresses, context);
-    if (input.ReplyToAddresses?.length === 0) {
+  if (input[_RTA] != null) {
+    const memberEntries = se_AddressList(input[_RTA], context);
+    if (input[_RTA]?.length === 0) {
       entries.ReplyToAddresses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7148,18 +7148,18 @@ const se_SendTemplatedEmailRequest = (input: SendTemplatedEmailRequest, context:
       entries[loc] = value;
     });
   }
-  if (input.ReturnPath != null) {
-    entries["ReturnPath"] = input.ReturnPath;
+  if (input[_RP] != null) {
+    entries[_RP] = input[_RP];
   }
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SAo] != null) {
+    entries[_SAo] = input[_SAo];
   }
-  if (input.ReturnPathArn != null) {
-    entries["ReturnPathArn"] = input.ReturnPathArn;
+  if (input[_RPA] != null) {
+    entries[_RPA] = input[_RPA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_MessageTagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_MessageTagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7167,17 +7167,17 @@ const se_SendTemplatedEmailRequest = (input: SendTemplatedEmailRequest, context:
       entries[loc] = value;
     });
   }
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.Template != null) {
-    entries["Template"] = input.Template;
+  if (input[_Te] != null) {
+    entries[_Te] = input[_Te];
   }
-  if (input.TemplateArn != null) {
-    entries["TemplateArn"] = input.TemplateArn;
+  if (input[_TAe] != null) {
+    entries[_TAe] = input[_TAe];
   }
-  if (input.TemplateData != null) {
-    entries["TemplateData"] = input.TemplateData;
+  if (input[_TD] != null) {
+    entries[_TD] = input[_TD];
   }
   return entries;
 };
@@ -7187,8 +7187,8 @@ const se_SendTemplatedEmailRequest = (input: SendTemplatedEmailRequest, context:
  */
 const se_SetActiveReceiptRuleSetRequest = (input: SetActiveReceiptRuleSetRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
   return entries;
 };
@@ -7198,11 +7198,11 @@ const se_SetActiveReceiptRuleSetRequest = (input: SetActiveReceiptRuleSetRequest
  */
 const se_SetIdentityDkimEnabledRequest = (input: SetIdentityDkimEnabledRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.DkimEnabled != null) {
-    entries["DkimEnabled"] = input.DkimEnabled;
+  if (input[_DE] != null) {
+    entries[_DE] = input[_DE];
   }
   return entries;
 };
@@ -7215,11 +7215,11 @@ const se_SetIdentityFeedbackForwardingEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.ForwardingEnabled != null) {
-    entries["ForwardingEnabled"] = input.ForwardingEnabled;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
   return entries;
 };
@@ -7232,14 +7232,14 @@ const se_SetIdentityHeadersInNotificationsEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.NotificationType != null) {
-    entries["NotificationType"] = input.NotificationType;
+  if (input[_NTo] != null) {
+    entries[_NTo] = input[_NTo];
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7249,14 +7249,14 @@ const se_SetIdentityHeadersInNotificationsEnabledRequest = (
  */
 const se_SetIdentityMailFromDomainRequest = (input: SetIdentityMailFromDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.MailFromDomain != null) {
-    entries["MailFromDomain"] = input.MailFromDomain;
+  if (input[_MFD] != null) {
+    entries[_MFD] = input[_MFD];
   }
-  if (input.BehaviorOnMXFailure != null) {
-    entries["BehaviorOnMXFailure"] = input.BehaviorOnMXFailure;
+  if (input[_BOMXF] != null) {
+    entries[_BOMXF] = input[_BOMXF];
   }
   return entries;
 };
@@ -7269,14 +7269,14 @@ const se_SetIdentityNotificationTopicRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Identity != null) {
-    entries["Identity"] = input.Identity;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.NotificationType != null) {
-    entries["NotificationType"] = input.NotificationType;
+  if (input[_NTo] != null) {
+    entries[_NTo] = input[_NTo];
   }
-  if (input.SnsTopic != null) {
-    entries["SnsTopic"] = input.SnsTopic;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
   return entries;
 };
@@ -7286,14 +7286,14 @@ const se_SetIdentityNotificationTopicRequest = (
  */
 const se_SetReceiptRulePositionRequest = (input: SetReceiptRulePositionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.RuleName != null) {
-    entries["RuleName"] = input.RuleName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.After != null) {
-    entries["After"] = input.After;
+  if (input[_Af] != null) {
+    entries[_Af] = input[_Af];
   }
   return entries;
 };
@@ -7303,11 +7303,11 @@ const se_SetReceiptRulePositionRequest = (input: SetReceiptRulePositionRequest, 
  */
 const se_SNSAction = (input: SNSAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.Encoding != null) {
-    entries["Encoding"] = input.Encoding;
+  if (input[_En] != null) {
+    entries[_En] = input[_En];
   }
   return entries;
 };
@@ -7317,8 +7317,8 @@ const se_SNSAction = (input: SNSAction, context: __SerdeContext): any => {
  */
 const se_SNSDestination = (input: SNSDestination, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicARN != null) {
-    entries["TopicARN"] = input.TopicARN;
+  if (input[_TARN] != null) {
+    entries[_TARN] = input[_TARN];
   }
   return entries;
 };
@@ -7328,11 +7328,11 @@ const se_SNSDestination = (input: SNSDestination, context: __SerdeContext): any 
  */
 const se_StopAction = (input: StopAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Scope != null) {
-    entries["Scope"] = input.Scope;
+  if (input[_Sc] != null) {
+    entries[_Sc] = input[_Sc];
   }
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
   return entries;
 };
@@ -7342,17 +7342,17 @@ const se_StopAction = (input: StopAction, context: __SerdeContext): any => {
  */
 const se_Template = (input: Template, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.SubjectPart != null) {
-    entries["SubjectPart"] = input.SubjectPart;
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
   }
-  if (input.TextPart != null) {
-    entries["TextPart"] = input.TextPart;
+  if (input[_TPe] != null) {
+    entries[_TPe] = input[_TPe];
   }
-  if (input.HtmlPart != null) {
-    entries["HtmlPart"] = input.HtmlPart;
+  if (input[_HP] != null) {
+    entries[_HP] = input[_HP];
   }
   return entries;
 };
@@ -7362,11 +7362,11 @@ const se_Template = (input: Template, context: __SerdeContext): any => {
  */
 const se_TestRenderTemplateRequest = (input: TestRenderTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.TemplateData != null) {
-    entries["TemplateData"] = input.TemplateData;
+  if (input[_TD] != null) {
+    entries[_TD] = input[_TD];
   }
   return entries;
 };
@@ -7376,8 +7376,8 @@ const se_TestRenderTemplateRequest = (input: TestRenderTemplateRequest, context:
  */
 const se_TrackingOptions = (input: TrackingOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CustomRedirectDomain != null) {
-    entries["CustomRedirectDomain"] = input.CustomRedirectDomain;
+  if (input[_CRD] != null) {
+    entries[_CRD] = input[_CRD];
   }
   return entries;
 };
@@ -7390,8 +7390,8 @@ const se_UpdateAccountSendingEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7404,11 +7404,11 @@ const se_UpdateConfigurationSetEventDestinationRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.EventDestination != null) {
-    const memberEntries = se_EventDestination(input.EventDestination, context);
+  if (input[_ED] != null) {
+    const memberEntries = se_EventDestination(input[_ED], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EventDestination.${key}`;
       entries[loc] = value;
@@ -7425,11 +7425,11 @@ const se_UpdateConfigurationSetReputationMetricsEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7442,11 +7442,11 @@ const se_UpdateConfigurationSetSendingEnabledRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7459,11 +7459,11 @@ const se_UpdateConfigurationSetTrackingOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ConfigurationSetName != null) {
-    entries["ConfigurationSetName"] = input.ConfigurationSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.TrackingOptions != null) {
-    const memberEntries = se_TrackingOptions(input.TrackingOptions, context);
+  if (input[_TO] != null) {
+    const memberEntries = se_TrackingOptions(input[_TO], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TrackingOptions.${key}`;
       entries[loc] = value;
@@ -7480,23 +7480,23 @@ const se_UpdateCustomVerificationEmailTemplateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateName != null) {
-    entries["TemplateName"] = input.TemplateName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.FromEmailAddress != null) {
-    entries["FromEmailAddress"] = input.FromEmailAddress;
+  if (input[_FEA] != null) {
+    entries[_FEA] = input[_FEA];
   }
-  if (input.TemplateSubject != null) {
-    entries["TemplateSubject"] = input.TemplateSubject;
+  if (input[_TS] != null) {
+    entries[_TS] = input[_TS];
   }
-  if (input.TemplateContent != null) {
-    entries["TemplateContent"] = input.TemplateContent;
+  if (input[_TC] != null) {
+    entries[_TC] = input[_TC];
   }
-  if (input.SuccessRedirectionURL != null) {
-    entries["SuccessRedirectionURL"] = input.SuccessRedirectionURL;
+  if (input[_SRURL] != null) {
+    entries[_SRURL] = input[_SRURL];
   }
-  if (input.FailureRedirectionURL != null) {
-    entries["FailureRedirectionURL"] = input.FailureRedirectionURL;
+  if (input[_FRURL] != null) {
+    entries[_FRURL] = input[_FRURL];
   }
   return entries;
 };
@@ -7506,11 +7506,11 @@ const se_UpdateCustomVerificationEmailTemplateRequest = (
  */
 const se_UpdateReceiptRuleRequest = (input: UpdateReceiptRuleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RuleSetName != null) {
-    entries["RuleSetName"] = input.RuleSetName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.Rule != null) {
-    const memberEntries = se_ReceiptRule(input.Rule, context);
+  if (input[_Ru] != null) {
+    const memberEntries = se_ReceiptRule(input[_Ru], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Rule.${key}`;
       entries[loc] = value;
@@ -7524,8 +7524,8 @@ const se_UpdateReceiptRuleRequest = (input: UpdateReceiptRuleRequest, context: _
  */
 const se_UpdateTemplateRequest = (input: UpdateTemplateRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Template != null) {
-    const memberEntries = se_Template(input.Template, context);
+  if (input[_Te] != null) {
+    const memberEntries = se_Template(input[_Te], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Template.${key}`;
       entries[loc] = value;
@@ -7539,8 +7539,8 @@ const se_UpdateTemplateRequest = (input: UpdateTemplateRequest, context: __Serde
  */
 const se_VerifyDomainDkimRequest = (input: VerifyDomainDkimRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
   return entries;
 };
@@ -7550,8 +7550,8 @@ const se_VerifyDomainDkimRequest = (input: VerifyDomainDkimRequest, context: __S
  */
 const se_VerifyDomainIdentityRequest = (input: VerifyDomainIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
   return entries;
 };
@@ -7561,8 +7561,8 @@ const se_VerifyDomainIdentityRequest = (input: VerifyDomainIdentityRequest, cont
  */
 const se_VerifyEmailAddressRequest = (input: VerifyEmailAddressRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EmailAddress != null) {
-    entries["EmailAddress"] = input.EmailAddress;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
   return entries;
 };
@@ -7572,8 +7572,8 @@ const se_VerifyEmailAddressRequest = (input: VerifyEmailAddressRequest, context:
  */
 const se_VerifyEmailIdentityRequest = (input: VerifyEmailIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EmailAddress != null) {
-    entries["EmailAddress"] = input.EmailAddress;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
   return entries;
 };
@@ -7583,11 +7583,11 @@ const se_VerifyEmailIdentityRequest = (input: VerifyEmailIdentityRequest, contex
  */
 const se_WorkmailAction = (input: WorkmailAction, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.OrganizationArn != null) {
-    entries["OrganizationArn"] = input.OrganizationArn;
+  if (input[_OA] != null) {
+    entries[_OA] = input[_OA];
   }
   return entries;
 };
@@ -7597,8 +7597,8 @@ const se_WorkmailAction = (input: WorkmailAction, context: __SerdeContext): any 
  */
 const de_AccountSendingPausedException = (output: any, context: __SerdeContext): AccountSendingPausedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7608,11 +7608,11 @@ const de_AccountSendingPausedException = (output: any, context: __SerdeContext):
  */
 const de_AddHeaderAction = (output: any, context: __SerdeContext): AddHeaderAction => {
   const contents: any = {};
-  if (output["HeaderName"] !== undefined) {
-    contents.HeaderName = __expectString(output["HeaderName"]);
+  if (output[_HN] != null) {
+    contents[_HN] = __expectString(output[_HN]);
   }
-  if (output["HeaderValue"] !== undefined) {
-    contents.HeaderValue = __expectString(output["HeaderValue"]);
+  if (output[_HV] != null) {
+    contents[_HV] = __expectString(output[_HV]);
   }
   return contents;
 };
@@ -7633,11 +7633,11 @@ const de_AddressList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7647,20 +7647,20 @@ const de_AlreadyExistsException = (output: any, context: __SerdeContext): Alread
  */
 const de_BounceAction = (output: any, context: __SerdeContext): BounceAction => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["SmtpReplyCode"] !== undefined) {
-    contents.SmtpReplyCode = __expectString(output["SmtpReplyCode"]);
+  if (output[_SRC] != null) {
+    contents[_SRC] = __expectString(output[_SRC]);
   }
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = __expectString(output["StatusCode"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["Sender"] !== undefined) {
-    contents.Sender = __expectString(output["Sender"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -7670,14 +7670,14 @@ const de_BounceAction = (output: any, context: __SerdeContext): BounceAction => 
  */
 const de_BulkEmailDestinationStatus = (output: any, context: __SerdeContext): BulkEmailDestinationStatus => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Error"] !== undefined) {
-    contents.Error = __expectString(output["Error"]);
+  if (output[_Er] != null) {
+    contents[_Er] = __expectString(output[_Er]);
   }
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MIe] != null) {
+    contents[_MIe] = __expectString(output[_MIe]);
   }
   return contents;
 };
@@ -7698,11 +7698,11 @@ const de_BulkEmailDestinationStatusList = (output: any, context: __SerdeContext)
  */
 const de_CannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7721,15 +7721,9 @@ const de_CloneReceiptRuleSetResponse = (output: any, context: __SerdeContext): C
 const de_CloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
   const contents: any = {};
   if (output.DimensionConfigurations === "") {
-    contents.DimensionConfigurations = [];
-  } else if (
-    output["DimensionConfigurations"] !== undefined &&
-    output["DimensionConfigurations"]["member"] !== undefined
-  ) {
-    contents.DimensionConfigurations = de_CloudWatchDimensionConfigurations(
-      __getArrayIfSingleItem(output["DimensionConfigurations"]["member"]),
-      context
-    );
+    contents[_DC] = [];
+  } else if (output[_DC] != null && output[_DC][_me] != null) {
+    contents[_DC] = de_CloudWatchDimensionConfigurations(__getArrayIfSingleItem(output[_DC][_me]), context);
   }
   return contents;
 };
@@ -7742,14 +7736,14 @@ const de_CloudWatchDimensionConfiguration = (
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration => {
   const contents: any = {};
-  if (output["DimensionName"] !== undefined) {
-    contents.DimensionName = __expectString(output["DimensionName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["DimensionValueSource"] !== undefined) {
-    contents.DimensionValueSource = __expectString(output["DimensionValueSource"]);
+  if (output[_DVS] != null) {
+    contents[_DVS] = __expectString(output[_DVS]);
   }
-  if (output["DefaultDimensionValue"] !== undefined) {
-    contents.DefaultDimensionValue = __expectString(output["DefaultDimensionValue"]);
+  if (output[_DDV] != null) {
+    contents[_DDV] = __expectString(output[_DDV]);
   }
   return contents;
 };
@@ -7773,8 +7767,8 @@ const de_CloudWatchDimensionConfigurations = (
  */
 const de_ConfigurationSet = (output: any, context: __SerdeContext): ConfigurationSet => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   return contents;
 };
@@ -7787,11 +7781,11 @@ const de_ConfigurationSetAlreadyExistsException = (
   context: __SerdeContext
 ): ConfigurationSetAlreadyExistsException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7804,11 +7798,11 @@ const de_ConfigurationSetDoesNotExistException = (
   context: __SerdeContext
 ): ConfigurationSetDoesNotExistException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7832,11 +7826,11 @@ const de_ConfigurationSetSendingPausedException = (
   context: __SerdeContext
 ): ConfigurationSetSendingPausedException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7911,8 +7905,8 @@ const de_CustomVerificationEmailInvalidContentException = (
   context: __SerdeContext
 ): CustomVerificationEmailInvalidContentException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7922,20 +7916,20 @@ const de_CustomVerificationEmailInvalidContentException = (
  */
 const de_CustomVerificationEmailTemplate = (output: any, context: __SerdeContext): CustomVerificationEmailTemplate => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["FromEmailAddress"] !== undefined) {
-    contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
+  if (output[_FEA] != null) {
+    contents[_FEA] = __expectString(output[_FEA]);
   }
-  if (output["TemplateSubject"] !== undefined) {
-    contents.TemplateSubject = __expectString(output["TemplateSubject"]);
+  if (output[_TS] != null) {
+    contents[_TS] = __expectString(output[_TS]);
   }
-  if (output["SuccessRedirectionURL"] !== undefined) {
-    contents.SuccessRedirectionURL = __expectString(output["SuccessRedirectionURL"]);
+  if (output[_SRURL] != null) {
+    contents[_SRURL] = __expectString(output[_SRURL]);
   }
-  if (output["FailureRedirectionURL"] !== undefined) {
-    contents.FailureRedirectionURL = __expectString(output["FailureRedirectionURL"]);
+  if (output[_FRURL] != null) {
+    contents[_FRURL] = __expectString(output[_FRURL]);
   }
   return contents;
 };
@@ -7948,11 +7942,11 @@ const de_CustomVerificationEmailTemplateAlreadyExistsException = (
   context: __SerdeContext
 ): CustomVerificationEmailTemplateAlreadyExistsException => {
   const contents: any = {};
-  if (output["CustomVerificationEmailTemplateName"] !== undefined) {
-    contents.CustomVerificationEmailTemplateName = __expectString(output["CustomVerificationEmailTemplateName"]);
+  if (output[_CVETN] != null) {
+    contents[_CVETN] = __expectString(output[_CVETN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7965,11 +7959,11 @@ const de_CustomVerificationEmailTemplateDoesNotExistException = (
   context: __SerdeContext
 ): CustomVerificationEmailTemplateDoesNotExistException => {
   const contents: any = {};
-  if (output["CustomVerificationEmailTemplateName"] !== undefined) {
-    contents.CustomVerificationEmailTemplateName = __expectString(output["CustomVerificationEmailTemplateName"]);
+  if (output[_CVETN] != null) {
+    contents[_CVETN] = __expectString(output[_CVETN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8071,8 +8065,8 @@ const de_DeleteTemplateResponse = (output: any, context: __SerdeContext): Delete
  */
 const de_DeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
   const contents: any = {};
-  if (output["TlsPolicy"] !== undefined) {
-    contents.TlsPolicy = __expectString(output["TlsPolicy"]);
+  if (output[_TP] != null) {
+    contents[_TP] = __expectString(output[_TP]);
   }
   return contents;
 };
@@ -8085,13 +8079,13 @@ const de_DescribeActiveReceiptRuleSetResponse = (
   context: __SerdeContext
 ): DescribeActiveReceiptRuleSetResponse => {
   const contents: any = {};
-  if (output["Metadata"] !== undefined) {
-    contents.Metadata = de_ReceiptRuleSetMetadata(output["Metadata"], context);
+  if (output[_Me] != null) {
+    contents[_Me] = de_ReceiptRuleSetMetadata(output[_Me], context);
   }
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
-    contents.Rules = de_ReceiptRulesList(__getArrayIfSingleItem(output["Rules"]["member"]), context);
+    contents[_Rul] = [];
+  } else if (output[_Rul] != null && output[_Rul][_me] != null) {
+    contents[_Rul] = de_ReceiptRulesList(__getArrayIfSingleItem(output[_Rul][_me]), context);
   }
   return contents;
 };
@@ -8104,25 +8098,22 @@ const de_DescribeConfigurationSetResponse = (
   context: __SerdeContext
 ): DescribeConfigurationSetResponse => {
   const contents: any = {};
-  if (output["ConfigurationSet"] !== undefined) {
-    contents.ConfigurationSet = de_ConfigurationSet(output["ConfigurationSet"], context);
+  if (output[_CS] != null) {
+    contents[_CS] = de_ConfigurationSet(output[_CS], context);
   }
   if (output.EventDestinations === "") {
-    contents.EventDestinations = [];
-  } else if (output["EventDestinations"] !== undefined && output["EventDestinations"]["member"] !== undefined) {
-    contents.EventDestinations = de_EventDestinations(
-      __getArrayIfSingleItem(output["EventDestinations"]["member"]),
-      context
-    );
+    contents[_EDv] = [];
+  } else if (output[_EDv] != null && output[_EDv][_me] != null) {
+    contents[_EDv] = de_EventDestinations(__getArrayIfSingleItem(output[_EDv][_me]), context);
   }
-  if (output["TrackingOptions"] !== undefined) {
-    contents.TrackingOptions = de_TrackingOptions(output["TrackingOptions"], context);
+  if (output[_TO] != null) {
+    contents[_TO] = de_TrackingOptions(output[_TO], context);
   }
-  if (output["DeliveryOptions"] !== undefined) {
-    contents.DeliveryOptions = de_DeliveryOptions(output["DeliveryOptions"], context);
+  if (output[_DO] != null) {
+    contents[_DO] = de_DeliveryOptions(output[_DO], context);
   }
-  if (output["ReputationOptions"] !== undefined) {
-    contents.ReputationOptions = de_ReputationOptions(output["ReputationOptions"], context);
+  if (output[_RO] != null) {
+    contents[_RO] = de_ReputationOptions(output[_RO], context);
   }
   return contents;
 };
@@ -8132,8 +8123,8 @@ const de_DescribeConfigurationSetResponse = (
  */
 const de_DescribeReceiptRuleResponse = (output: any, context: __SerdeContext): DescribeReceiptRuleResponse => {
   const contents: any = {};
-  if (output["Rule"] !== undefined) {
-    contents.Rule = de_ReceiptRule(output["Rule"], context);
+  if (output[_Ru] != null) {
+    contents[_Ru] = de_ReceiptRule(output[_Ru], context);
   }
   return contents;
 };
@@ -8143,13 +8134,13 @@ const de_DescribeReceiptRuleResponse = (output: any, context: __SerdeContext): D
  */
 const de_DescribeReceiptRuleSetResponse = (output: any, context: __SerdeContext): DescribeReceiptRuleSetResponse => {
   const contents: any = {};
-  if (output["Metadata"] !== undefined) {
-    contents.Metadata = de_ReceiptRuleSetMetadata(output["Metadata"], context);
+  if (output[_Me] != null) {
+    contents[_Me] = de_ReceiptRuleSetMetadata(output[_Me], context);
   }
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["member"] !== undefined) {
-    contents.Rules = de_ReceiptRulesList(__getArrayIfSingleItem(output["Rules"]["member"]), context);
+    contents[_Rul] = [];
+  } else if (output[_Rul] != null && output[_Rul][_me] != null) {
+    contents[_Rul] = de_ReceiptRulesList(__getArrayIfSingleItem(output[_Rul][_me]), context);
   }
   return contents;
 };
@@ -8172,28 +8163,25 @@ const de_DkimAttributes = (output: any, context: __SerdeContext): Record<string,
  */
 const de_EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
   if (output.MatchingEventTypes === "") {
-    contents.MatchingEventTypes = [];
-  } else if (output["MatchingEventTypes"] !== undefined && output["MatchingEventTypes"]["member"] !== undefined) {
-    contents.MatchingEventTypes = de_EventTypes(
-      __getArrayIfSingleItem(output["MatchingEventTypes"]["member"]),
-      context
-    );
+    contents[_MET] = [];
+  } else if (output[_MET] != null && output[_MET][_me] != null) {
+    contents[_MET] = de_EventTypes(__getArrayIfSingleItem(output[_MET][_me]), context);
   }
-  if (output["KinesisFirehoseDestination"] !== undefined) {
-    contents.KinesisFirehoseDestination = de_KinesisFirehoseDestination(output["KinesisFirehoseDestination"], context);
+  if (output[_KFD] != null) {
+    contents[_KFD] = de_KinesisFirehoseDestination(output[_KFD], context);
   }
-  if (output["CloudWatchDestination"] !== undefined) {
-    contents.CloudWatchDestination = de_CloudWatchDestination(output["CloudWatchDestination"], context);
+  if (output[_CWD] != null) {
+    contents[_CWD] = de_CloudWatchDestination(output[_CWD], context);
   }
-  if (output["SNSDestination"] !== undefined) {
-    contents.SNSDestination = de_SNSDestination(output["SNSDestination"], context);
+  if (output[_SNSD] != null) {
+    contents[_SNSD] = de_SNSDestination(output[_SNSD], context);
   }
   return contents;
 };
@@ -8206,14 +8194,14 @@ const de_EventDestinationAlreadyExistsException = (
   context: __SerdeContext
 ): EventDestinationAlreadyExistsException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
+  if (output[_EDN] != null) {
+    contents[_EDN] = __expectString(output[_EDN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8226,14 +8214,14 @@ const de_EventDestinationDoesNotExistException = (
   context: __SerdeContext
 ): EventDestinationDoesNotExistException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
+  if (output[_EDN] != null) {
+    contents[_EDN] = __expectString(output[_EDN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8268,11 +8256,11 @@ const de_FromEmailAddressNotVerifiedException = (
   context: __SerdeContext
 ): FromEmailAddressNotVerifiedException => {
   const contents: any = {};
-  if (output["FromEmailAddress"] !== undefined) {
-    contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
+  if (output[_FEA] != null) {
+    contents[_FEA] = __expectString(output[_FEA]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8285,8 +8273,8 @@ const de_GetAccountSendingEnabledResponse = (
   context: __SerdeContext
 ): GetAccountSendingEnabledResponse => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
   return contents;
 };
@@ -8299,23 +8287,23 @@ const de_GetCustomVerificationEmailTemplateResponse = (
   context: __SerdeContext
 ): GetCustomVerificationEmailTemplateResponse => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["FromEmailAddress"] !== undefined) {
-    contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
+  if (output[_FEA] != null) {
+    contents[_FEA] = __expectString(output[_FEA]);
   }
-  if (output["TemplateSubject"] !== undefined) {
-    contents.TemplateSubject = __expectString(output["TemplateSubject"]);
+  if (output[_TS] != null) {
+    contents[_TS] = __expectString(output[_TS]);
   }
-  if (output["TemplateContent"] !== undefined) {
-    contents.TemplateContent = __expectString(output["TemplateContent"]);
+  if (output[_TC] != null) {
+    contents[_TC] = __expectString(output[_TC]);
   }
-  if (output["SuccessRedirectionURL"] !== undefined) {
-    contents.SuccessRedirectionURL = __expectString(output["SuccessRedirectionURL"]);
+  if (output[_SRURL] != null) {
+    contents[_SRURL] = __expectString(output[_SRURL]);
   }
-  if (output["FailureRedirectionURL"] !== undefined) {
-    contents.FailureRedirectionURL = __expectString(output["FailureRedirectionURL"]);
+  if (output[_FRURL] != null) {
+    contents[_FRURL] = __expectString(output[_FRURL]);
   }
   return contents;
 };
@@ -8329,9 +8317,9 @@ const de_GetIdentityDkimAttributesResponse = (
 ): GetIdentityDkimAttributesResponse => {
   const contents: any = {};
   if (output.DkimAttributes === "") {
-    contents.DkimAttributes = {};
-  } else if (output["DkimAttributes"] !== undefined && output["DkimAttributes"]["entry"] !== undefined) {
-    contents.DkimAttributes = de_DkimAttributes(__getArrayIfSingleItem(output["DkimAttributes"]["entry"]), context);
+    contents[_DA] = {};
+  } else if (output[_DA] != null && output[_DA][_e] != null) {
+    contents[_DA] = de_DkimAttributes(__getArrayIfSingleItem(output[_DA][_e]), context);
   }
   return contents;
 };
@@ -8345,15 +8333,9 @@ const de_GetIdentityMailFromDomainAttributesResponse = (
 ): GetIdentityMailFromDomainAttributesResponse => {
   const contents: any = {};
   if (output.MailFromDomainAttributes === "") {
-    contents.MailFromDomainAttributes = {};
-  } else if (
-    output["MailFromDomainAttributes"] !== undefined &&
-    output["MailFromDomainAttributes"]["entry"] !== undefined
-  ) {
-    contents.MailFromDomainAttributes = de_MailFromDomainAttributes(
-      __getArrayIfSingleItem(output["MailFromDomainAttributes"]["entry"]),
-      context
-    );
+    contents[_MFDA] = {};
+  } else if (output[_MFDA] != null && output[_MFDA][_e] != null) {
+    contents[_MFDA] = de_MailFromDomainAttributes(__getArrayIfSingleItem(output[_MFDA][_e]), context);
   }
   return contents;
 };
@@ -8367,15 +8349,9 @@ const de_GetIdentityNotificationAttributesResponse = (
 ): GetIdentityNotificationAttributesResponse => {
   const contents: any = {};
   if (output.NotificationAttributes === "") {
-    contents.NotificationAttributes = {};
-  } else if (
-    output["NotificationAttributes"] !== undefined &&
-    output["NotificationAttributes"]["entry"] !== undefined
-  ) {
-    contents.NotificationAttributes = de_NotificationAttributes(
-      __getArrayIfSingleItem(output["NotificationAttributes"]["entry"]),
-      context
-    );
+    contents[_NA] = {};
+  } else if (output[_NA] != null && output[_NA][_e] != null) {
+    contents[_NA] = de_NotificationAttributes(__getArrayIfSingleItem(output[_NA][_e]), context);
   }
   return contents;
 };
@@ -8386,9 +8362,9 @@ const de_GetIdentityNotificationAttributesResponse = (
 const de_GetIdentityPoliciesResponse = (output: any, context: __SerdeContext): GetIdentityPoliciesResponse => {
   const contents: any = {};
   if (output.Policies === "") {
-    contents.Policies = {};
-  } else if (output["Policies"] !== undefined && output["Policies"]["entry"] !== undefined) {
-    contents.Policies = de_PolicyMap(__getArrayIfSingleItem(output["Policies"]["entry"]), context);
+    contents[_Po] = {};
+  } else if (output[_Po] != null && output[_Po][_e] != null) {
+    contents[_Po] = de_PolicyMap(__getArrayIfSingleItem(output[_Po][_e]), context);
   }
   return contents;
 };
@@ -8402,15 +8378,9 @@ const de_GetIdentityVerificationAttributesResponse = (
 ): GetIdentityVerificationAttributesResponse => {
   const contents: any = {};
   if (output.VerificationAttributes === "") {
-    contents.VerificationAttributes = {};
-  } else if (
-    output["VerificationAttributes"] !== undefined &&
-    output["VerificationAttributes"]["entry"] !== undefined
-  ) {
-    contents.VerificationAttributes = de_VerificationAttributes(
-      __getArrayIfSingleItem(output["VerificationAttributes"]["entry"]),
-      context
-    );
+    contents[_VA] = {};
+  } else if (output[_VA] != null && output[_VA][_e] != null) {
+    contents[_VA] = de_VerificationAttributes(__getArrayIfSingleItem(output[_VA][_e]), context);
   }
   return contents;
 };
@@ -8420,14 +8390,14 @@ const de_GetIdentityVerificationAttributesResponse = (
  */
 const de_GetSendQuotaResponse = (output: any, context: __SerdeContext): GetSendQuotaResponse => {
   const contents: any = {};
-  if (output["Max24HourSend"] !== undefined) {
-    contents.Max24HourSend = __strictParseFloat(output["Max24HourSend"]) as number;
+  if (output[_MHS] != null) {
+    contents[_MHS] = __strictParseFloat(output[_MHS]) as number;
   }
-  if (output["MaxSendRate"] !== undefined) {
-    contents.MaxSendRate = __strictParseFloat(output["MaxSendRate"]) as number;
+  if (output[_MSR] != null) {
+    contents[_MSR] = __strictParseFloat(output[_MSR]) as number;
   }
-  if (output["SentLast24Hours"] !== undefined) {
-    contents.SentLast24Hours = __strictParseFloat(output["SentLast24Hours"]) as number;
+  if (output[_SLH] != null) {
+    contents[_SLH] = __strictParseFloat(output[_SLH]) as number;
   }
   return contents;
 };
@@ -8438,9 +8408,9 @@ const de_GetSendQuotaResponse = (output: any, context: __SerdeContext): GetSendQ
 const de_GetSendStatisticsResponse = (output: any, context: __SerdeContext): GetSendStatisticsResponse => {
   const contents: any = {};
   if (output.SendDataPoints === "") {
-    contents.SendDataPoints = [];
-  } else if (output["SendDataPoints"] !== undefined && output["SendDataPoints"]["member"] !== undefined) {
-    contents.SendDataPoints = de_SendDataPointList(__getArrayIfSingleItem(output["SendDataPoints"]["member"]), context);
+    contents[_SDP] = [];
+  } else if (output[_SDP] != null && output[_SDP][_me] != null) {
+    contents[_SDP] = de_SendDataPointList(__getArrayIfSingleItem(output[_SDP][_me]), context);
   }
   return contents;
 };
@@ -8450,8 +8420,8 @@ const de_GetSendStatisticsResponse = (output: any, context: __SerdeContext): Get
  */
 const de_GetTemplateResponse = (output: any, context: __SerdeContext): GetTemplateResponse => {
   const contents: any = {};
-  if (output["Template"] !== undefined) {
-    contents.Template = de_Template(output["Template"], context);
+  if (output[_Te] != null) {
+    contents[_Te] = de_Template(output[_Te], context);
   }
   return contents;
 };
@@ -8461,16 +8431,16 @@ const de_GetTemplateResponse = (output: any, context: __SerdeContext): GetTempla
  */
 const de_IdentityDkimAttributes = (output: any, context: __SerdeContext): IdentityDkimAttributes => {
   const contents: any = {};
-  if (output["DkimEnabled"] !== undefined) {
-    contents.DkimEnabled = __parseBoolean(output["DkimEnabled"]);
+  if (output[_DE] != null) {
+    contents[_DE] = __parseBoolean(output[_DE]);
   }
-  if (output["DkimVerificationStatus"] !== undefined) {
-    contents.DkimVerificationStatus = __expectString(output["DkimVerificationStatus"]);
+  if (output[_DVSk] != null) {
+    contents[_DVSk] = __expectString(output[_DVSk]);
   }
   if (output.DkimTokens === "") {
-    contents.DkimTokens = [];
-  } else if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
-    contents.DkimTokens = de_VerificationTokenList(__getArrayIfSingleItem(output["DkimTokens"]["member"]), context);
+    contents[_DTk] = [];
+  } else if (output[_DTk] != null && output[_DTk][_me] != null) {
+    contents[_DTk] = de_VerificationTokenList(__getArrayIfSingleItem(output[_DTk][_me]), context);
   }
   return contents;
 };
@@ -8494,14 +8464,14 @@ const de_IdentityMailFromDomainAttributes = (
   context: __SerdeContext
 ): IdentityMailFromDomainAttributes => {
   const contents: any = {};
-  if (output["MailFromDomain"] !== undefined) {
-    contents.MailFromDomain = __expectString(output["MailFromDomain"]);
+  if (output[_MFD] != null) {
+    contents[_MFD] = __expectString(output[_MFD]);
   }
-  if (output["MailFromDomainStatus"] !== undefined) {
-    contents.MailFromDomainStatus = __expectString(output["MailFromDomainStatus"]);
+  if (output[_MFDS] != null) {
+    contents[_MFDS] = __expectString(output[_MFDS]);
   }
-  if (output["BehaviorOnMXFailure"] !== undefined) {
-    contents.BehaviorOnMXFailure = __expectString(output["BehaviorOnMXFailure"]);
+  if (output[_BOMXF] != null) {
+    contents[_BOMXF] = __expectString(output[_BOMXF]);
   }
   return contents;
 };
@@ -8511,26 +8481,26 @@ const de_IdentityMailFromDomainAttributes = (
  */
 const de_IdentityNotificationAttributes = (output: any, context: __SerdeContext): IdentityNotificationAttributes => {
   const contents: any = {};
-  if (output["BounceTopic"] !== undefined) {
-    contents.BounceTopic = __expectString(output["BounceTopic"]);
+  if (output[_BTo] != null) {
+    contents[_BTo] = __expectString(output[_BTo]);
   }
-  if (output["ComplaintTopic"] !== undefined) {
-    contents.ComplaintTopic = __expectString(output["ComplaintTopic"]);
+  if (output[_CTo] != null) {
+    contents[_CTo] = __expectString(output[_CTo]);
   }
-  if (output["DeliveryTopic"] !== undefined) {
-    contents.DeliveryTopic = __expectString(output["DeliveryTopic"]);
+  if (output[_DTel] != null) {
+    contents[_DTel] = __expectString(output[_DTel]);
   }
-  if (output["ForwardingEnabled"] !== undefined) {
-    contents.ForwardingEnabled = __parseBoolean(output["ForwardingEnabled"]);
+  if (output[_FE] != null) {
+    contents[_FE] = __parseBoolean(output[_FE]);
   }
-  if (output["HeadersInBounceNotificationsEnabled"] !== undefined) {
-    contents.HeadersInBounceNotificationsEnabled = __parseBoolean(output["HeadersInBounceNotificationsEnabled"]);
+  if (output[_HIBNE] != null) {
+    contents[_HIBNE] = __parseBoolean(output[_HIBNE]);
   }
-  if (output["HeadersInComplaintNotificationsEnabled"] !== undefined) {
-    contents.HeadersInComplaintNotificationsEnabled = __parseBoolean(output["HeadersInComplaintNotificationsEnabled"]);
+  if (output[_HICNE] != null) {
+    contents[_HICNE] = __parseBoolean(output[_HICNE]);
   }
-  if (output["HeadersInDeliveryNotificationsEnabled"] !== undefined) {
-    contents.HeadersInDeliveryNotificationsEnabled = __parseBoolean(output["HeadersInDeliveryNotificationsEnabled"]);
+  if (output[_HIDNE] != null) {
+    contents[_HIDNE] = __parseBoolean(output[_HIDNE]);
   }
   return contents;
 };
@@ -8540,11 +8510,11 @@ const de_IdentityNotificationAttributes = (output: any, context: __SerdeContext)
  */
 const de_IdentityVerificationAttributes = (output: any, context: __SerdeContext): IdentityVerificationAttributes => {
   const contents: any = {};
-  if (output["VerificationStatus"] !== undefined) {
-    contents.VerificationStatus = __expectString(output["VerificationStatus"]);
+  if (output[_VS] != null) {
+    contents[_VS] = __expectString(output[_VS]);
   }
-  if (output["VerificationToken"] !== undefined) {
-    contents.VerificationToken = __expectString(output["VerificationToken"]);
+  if (output[_VT] != null) {
+    contents[_VT] = __expectString(output[_VT]);
   }
   return contents;
 };
@@ -8557,14 +8527,14 @@ const de_InvalidCloudWatchDestinationException = (
   context: __SerdeContext
 ): InvalidCloudWatchDestinationException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
+  if (output[_EDN] != null) {
+    contents[_EDN] = __expectString(output[_EDN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8577,8 +8547,8 @@ const de_InvalidConfigurationSetException = (
   context: __SerdeContext
 ): InvalidConfigurationSetException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8588,8 +8558,8 @@ const de_InvalidConfigurationSetException = (
  */
 const de_InvalidDeliveryOptionsException = (output: any, context: __SerdeContext): InvalidDeliveryOptionsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8602,14 +8572,14 @@ const de_InvalidFirehoseDestinationException = (
   context: __SerdeContext
 ): InvalidFirehoseDestinationException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
+  if (output[_EDN] != null) {
+    contents[_EDN] = __expectString(output[_EDN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8619,11 +8589,11 @@ const de_InvalidFirehoseDestinationException = (
  */
 const de_InvalidLambdaFunctionException = (output: any, context: __SerdeContext): InvalidLambdaFunctionException => {
   const contents: any = {};
-  if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = __expectString(output["FunctionArn"]);
+  if (output[_FA] != null) {
+    contents[_FA] = __expectString(output[_FA]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8633,8 +8603,8 @@ const de_InvalidLambdaFunctionException = (output: any, context: __SerdeContext)
  */
 const de_InvalidPolicyException = (output: any, context: __SerdeContext): InvalidPolicyException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8647,11 +8617,11 @@ const de_InvalidRenderingParameterException = (
   context: __SerdeContext
 ): InvalidRenderingParameterException => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8661,11 +8631,11 @@ const de_InvalidRenderingParameterException = (
  */
 const de_InvalidS3ConfigurationException = (output: any, context: __SerdeContext): InvalidS3ConfigurationException => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_Bu] != null) {
+    contents[_Bu] = __expectString(output[_Bu]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8675,14 +8645,14 @@ const de_InvalidS3ConfigurationException = (output: any, context: __SerdeContext
  */
 const de_InvalidSNSDestinationException = (output: any, context: __SerdeContext): InvalidSNSDestinationException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["EventDestinationName"] !== undefined) {
-    contents.EventDestinationName = __expectString(output["EventDestinationName"]);
+  if (output[_EDN] != null) {
+    contents[_EDN] = __expectString(output[_EDN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8692,11 +8662,11 @@ const de_InvalidSNSDestinationException = (output: any, context: __SerdeContext)
  */
 const de_InvalidSnsTopicException = (output: any, context: __SerdeContext): InvalidSnsTopicException => {
   const contents: any = {};
-  if (output["Topic"] !== undefined) {
-    contents.Topic = __expectString(output["Topic"]);
+  if (output[_To] != null) {
+    contents[_To] = __expectString(output[_To]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8706,11 +8676,11 @@ const de_InvalidSnsTopicException = (output: any, context: __SerdeContext): Inva
  */
 const de_InvalidTemplateException = (output: any, context: __SerdeContext): InvalidTemplateException => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8720,8 +8690,8 @@ const de_InvalidTemplateException = (output: any, context: __SerdeContext): Inva
  */
 const de_InvalidTrackingOptionsException = (output: any, context: __SerdeContext): InvalidTrackingOptionsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8731,11 +8701,11 @@ const de_InvalidTrackingOptionsException = (output: any, context: __SerdeContext
  */
 const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): KinesisFirehoseDestination => {
   const contents: any = {};
-  if (output["IAMRoleARN"] !== undefined) {
-    contents.IAMRoleARN = __expectString(output["IAMRoleARN"]);
+  if (output[_IAMRARN] != null) {
+    contents[_IAMRARN] = __expectString(output[_IAMRARN]);
   }
-  if (output["DeliveryStreamARN"] !== undefined) {
-    contents.DeliveryStreamARN = __expectString(output["DeliveryStreamARN"]);
+  if (output[_DSARN] != null) {
+    contents[_DSARN] = __expectString(output[_DSARN]);
   }
   return contents;
 };
@@ -8745,14 +8715,14 @@ const de_KinesisFirehoseDestination = (output: any, context: __SerdeContext): Ki
  */
 const de_LambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = __expectString(output["FunctionArn"]);
+  if (output[_FA] != null) {
+    contents[_FA] = __expectString(output[_FA]);
   }
-  if (output["InvocationType"] !== undefined) {
-    contents.InvocationType = __expectString(output["InvocationType"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __expectString(output[_IT]);
   }
   return contents;
 };
@@ -8762,8 +8732,8 @@ const de_LambdaAction = (output: any, context: __SerdeContext): LambdaAction => 
  */
 const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8774,15 +8744,12 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
 const de_ListConfigurationSetsResponse = (output: any, context: __SerdeContext): ListConfigurationSetsResponse => {
   const contents: any = {};
   if (output.ConfigurationSets === "") {
-    contents.ConfigurationSets = [];
-  } else if (output["ConfigurationSets"] !== undefined && output["ConfigurationSets"]["member"] !== undefined) {
-    contents.ConfigurationSets = de_ConfigurationSets(
-      __getArrayIfSingleItem(output["ConfigurationSets"]["member"]),
-      context
-    );
+    contents[_CSo] = [];
+  } else if (output[_CSo] != null && output[_CSo][_me] != null) {
+    contents[_CSo] = de_ConfigurationSets(__getArrayIfSingleItem(output[_CSo][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8796,18 +8763,12 @@ const de_ListCustomVerificationEmailTemplatesResponse = (
 ): ListCustomVerificationEmailTemplatesResponse => {
   const contents: any = {};
   if (output.CustomVerificationEmailTemplates === "") {
-    contents.CustomVerificationEmailTemplates = [];
-  } else if (
-    output["CustomVerificationEmailTemplates"] !== undefined &&
-    output["CustomVerificationEmailTemplates"]["member"] !== undefined
-  ) {
-    contents.CustomVerificationEmailTemplates = de_CustomVerificationEmailTemplates(
-      __getArrayIfSingleItem(output["CustomVerificationEmailTemplates"]["member"]),
-      context
-    );
+    contents[_CVET] = [];
+  } else if (output[_CVET] != null && output[_CVET][_me] != null) {
+    contents[_CVET] = de_CustomVerificationEmailTemplates(__getArrayIfSingleItem(output[_CVET][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8818,12 +8779,12 @@ const de_ListCustomVerificationEmailTemplatesResponse = (
 const de_ListIdentitiesResponse = (output: any, context: __SerdeContext): ListIdentitiesResponse => {
   const contents: any = {};
   if (output.Identities === "") {
-    contents.Identities = [];
-  } else if (output["Identities"] !== undefined && output["Identities"]["member"] !== undefined) {
-    contents.Identities = de_IdentityList(__getArrayIfSingleItem(output["Identities"]["member"]), context);
+    contents[_Id] = [];
+  } else if (output[_Id] != null && output[_Id][_me] != null) {
+    contents[_Id] = de_IdentityList(__getArrayIfSingleItem(output[_Id][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8834,9 +8795,9 @@ const de_ListIdentitiesResponse = (output: any, context: __SerdeContext): ListId
 const de_ListIdentityPoliciesResponse = (output: any, context: __SerdeContext): ListIdentityPoliciesResponse => {
   const contents: any = {};
   if (output.PolicyNames === "") {
-    contents.PolicyNames = [];
-  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = de_PolicyNameList(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
+    contents[_PNo] = [];
+  } else if (output[_PNo] != null && output[_PNo][_me] != null) {
+    contents[_PNo] = de_PolicyNameList(__getArrayIfSingleItem(output[_PNo][_me]), context);
   }
   return contents;
 };
@@ -8847,9 +8808,9 @@ const de_ListIdentityPoliciesResponse = (output: any, context: __SerdeContext): 
 const de_ListReceiptFiltersResponse = (output: any, context: __SerdeContext): ListReceiptFiltersResponse => {
   const contents: any = {};
   if (output.Filters === "") {
-    contents.Filters = [];
-  } else if (output["Filters"] !== undefined && output["Filters"]["member"] !== undefined) {
-    contents.Filters = de_ReceiptFilterList(__getArrayIfSingleItem(output["Filters"]["member"]), context);
+    contents[_Fi] = [];
+  } else if (output[_Fi] != null && output[_Fi][_me] != null) {
+    contents[_Fi] = de_ReceiptFilterList(__getArrayIfSingleItem(output[_Fi][_me]), context);
   }
   return contents;
 };
@@ -8860,12 +8821,12 @@ const de_ListReceiptFiltersResponse = (output: any, context: __SerdeContext): Li
 const de_ListReceiptRuleSetsResponse = (output: any, context: __SerdeContext): ListReceiptRuleSetsResponse => {
   const contents: any = {};
   if (output.RuleSets === "") {
-    contents.RuleSets = [];
-  } else if (output["RuleSets"] !== undefined && output["RuleSets"]["member"] !== undefined) {
-    contents.RuleSets = de_ReceiptRuleSetsLists(__getArrayIfSingleItem(output["RuleSets"]["member"]), context);
+    contents[_RS] = [];
+  } else if (output[_RS] != null && output[_RS][_me] != null) {
+    contents[_RS] = de_ReceiptRuleSetsLists(__getArrayIfSingleItem(output[_RS][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8876,15 +8837,12 @@ const de_ListReceiptRuleSetsResponse = (output: any, context: __SerdeContext): L
 const de_ListTemplatesResponse = (output: any, context: __SerdeContext): ListTemplatesResponse => {
   const contents: any = {};
   if (output.TemplatesMetadata === "") {
-    contents.TemplatesMetadata = [];
-  } else if (output["TemplatesMetadata"] !== undefined && output["TemplatesMetadata"]["member"] !== undefined) {
-    contents.TemplatesMetadata = de_TemplateMetadataList(
-      __getArrayIfSingleItem(output["TemplatesMetadata"]["member"]),
-      context
-    );
+    contents[_TM] = [];
+  } else if (output[_TM] != null && output[_TM][_me] != null) {
+    contents[_TM] = de_TemplateMetadataList(__getArrayIfSingleItem(output[_TM][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8898,15 +8856,9 @@ const de_ListVerifiedEmailAddressesResponse = (
 ): ListVerifiedEmailAddressesResponse => {
   const contents: any = {};
   if (output.VerifiedEmailAddresses === "") {
-    contents.VerifiedEmailAddresses = [];
-  } else if (
-    output["VerifiedEmailAddresses"] !== undefined &&
-    output["VerifiedEmailAddresses"]["member"] !== undefined
-  ) {
-    contents.VerifiedEmailAddresses = de_AddressList(
-      __getArrayIfSingleItem(output["VerifiedEmailAddresses"]["member"]),
-      context
-    );
+    contents[_VEAe] = [];
+  } else if (output[_VEAe] != null && output[_VEAe][_me] != null) {
+    contents[_VEAe] = de_AddressList(__getArrayIfSingleItem(output[_VEAe][_me]), context);
   }
   return contents;
 };
@@ -8935,8 +8887,8 @@ const de_MailFromDomainNotVerifiedException = (
   context: __SerdeContext
 ): MailFromDomainNotVerifiedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8946,8 +8898,8 @@ const de_MailFromDomainNotVerifiedException = (
  */
 const de_MessageRejected = (output: any, context: __SerdeContext): MessageRejected => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8960,11 +8912,11 @@ const de_MissingRenderingAttributeException = (
   context: __SerdeContext
 ): MissingRenderingAttributeException => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9017,8 +8969,8 @@ const de_ProductionAccessNotGrantedException = (
   context: __SerdeContext
 ): ProductionAccessNotGrantedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9047,26 +8999,26 @@ const de_PutIdentityPolicyResponse = (output: any, context: __SerdeContext): Put
  */
 const de_ReceiptAction = (output: any, context: __SerdeContext): ReceiptAction => {
   const contents: any = {};
-  if (output["S3Action"] !== undefined) {
-    contents.S3Action = de_S3Action(output["S3Action"], context);
+  if (output[_SA] != null) {
+    contents[_SA] = de_S3Action(output[_SA], context);
   }
-  if (output["BounceAction"] !== undefined) {
-    contents.BounceAction = de_BounceAction(output["BounceAction"], context);
+  if (output[_BAo] != null) {
+    contents[_BAo] = de_BounceAction(output[_BAo], context);
   }
-  if (output["WorkmailAction"] !== undefined) {
-    contents.WorkmailAction = de_WorkmailAction(output["WorkmailAction"], context);
+  if (output[_WA] != null) {
+    contents[_WA] = de_WorkmailAction(output[_WA], context);
   }
-  if (output["LambdaAction"] !== undefined) {
-    contents.LambdaAction = de_LambdaAction(output["LambdaAction"], context);
+  if (output[_LA] != null) {
+    contents[_LA] = de_LambdaAction(output[_LA], context);
   }
-  if (output["StopAction"] !== undefined) {
-    contents.StopAction = de_StopAction(output["StopAction"], context);
+  if (output[_SAt] != null) {
+    contents[_SAt] = de_StopAction(output[_SAt], context);
   }
-  if (output["AddHeaderAction"] !== undefined) {
-    contents.AddHeaderAction = de_AddHeaderAction(output["AddHeaderAction"], context);
+  if (output[_AHA] != null) {
+    contents[_AHA] = de_AddHeaderAction(output[_AHA], context);
   }
-  if (output["SNSAction"] !== undefined) {
-    contents.SNSAction = de_SNSAction(output["SNSAction"], context);
+  if (output[_SNSA] != null) {
+    contents[_SNSA] = de_SNSAction(output[_SNSA], context);
   }
   return contents;
 };
@@ -9087,11 +9039,11 @@ const de_ReceiptActionsList = (output: any, context: __SerdeContext): ReceiptAct
  */
 const de_ReceiptFilter = (output: any, context: __SerdeContext): ReceiptFilter => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["IpFilter"] !== undefined) {
-    contents.IpFilter = de_ReceiptIpFilter(output["IpFilter"], context);
+  if (output[_IF] != null) {
+    contents[_IF] = de_ReceiptIpFilter(output[_IF], context);
   }
   return contents;
 };
@@ -9112,11 +9064,11 @@ const de_ReceiptFilterList = (output: any, context: __SerdeContext): ReceiptFilt
  */
 const de_ReceiptIpFilter = (output: any, context: __SerdeContext): ReceiptIpFilter => {
   const contents: any = {};
-  if (output["Policy"] !== undefined) {
-    contents.Policy = __expectString(output["Policy"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["Cidr"] !== undefined) {
-    contents.Cidr = __expectString(output["Cidr"]);
+  if (output[_Ci] != null) {
+    contents[_Ci] = __expectString(output[_Ci]);
   }
   return contents;
 };
@@ -9126,27 +9078,27 @@ const de_ReceiptIpFilter = (output: any, context: __SerdeContext): ReceiptIpFilt
  */
 const de_ReceiptRule = (output: any, context: __SerdeContext): ReceiptRule => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["TlsPolicy"] !== undefined) {
-    contents.TlsPolicy = __expectString(output["TlsPolicy"]);
+  if (output[_TP] != null) {
+    contents[_TP] = __expectString(output[_TP]);
   }
   if (output.Recipients === "") {
-    contents.Recipients = [];
-  } else if (output["Recipients"] !== undefined && output["Recipients"]["member"] !== undefined) {
-    contents.Recipients = de_RecipientsList(__getArrayIfSingleItem(output["Recipients"]["member"]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_me] != null) {
+    contents[_Re] = de_RecipientsList(__getArrayIfSingleItem(output[_Re][_me]), context);
   }
   if (output.Actions === "") {
-    contents.Actions = [];
-  } else if (output["Actions"] !== undefined && output["Actions"]["member"] !== undefined) {
-    contents.Actions = de_ReceiptActionsList(__getArrayIfSingleItem(output["Actions"]["member"]), context);
+    contents[_Ac] = [];
+  } else if (output[_Ac] != null && output[_Ac][_me] != null) {
+    contents[_Ac] = de_ReceiptActionsList(__getArrayIfSingleItem(output[_Ac][_me]), context);
   }
-  if (output["ScanEnabled"] !== undefined) {
-    contents.ScanEnabled = __parseBoolean(output["ScanEnabled"]);
+  if (output[_SEc] != null) {
+    contents[_SEc] = __parseBoolean(output[_SEc]);
   }
   return contents;
 };
@@ -9156,11 +9108,11 @@ const de_ReceiptRule = (output: any, context: __SerdeContext): ReceiptRule => {
  */
 const de_ReceiptRuleSetMetadata = (output: any, context: __SerdeContext): ReceiptRuleSetMetadata => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTimestamp"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
   return contents;
 };
@@ -9211,14 +9163,14 @@ const de_ReorderReceiptRuleSetResponse = (output: any, context: __SerdeContext):
  */
 const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
   const contents: any = {};
-  if (output["SendingEnabled"] !== undefined) {
-    contents.SendingEnabled = __parseBoolean(output["SendingEnabled"]);
+  if (output[_SEe] != null) {
+    contents[_SEe] = __parseBoolean(output[_SEe]);
   }
-  if (output["ReputationMetricsEnabled"] !== undefined) {
-    contents.ReputationMetricsEnabled = __parseBoolean(output["ReputationMetricsEnabled"]);
+  if (output[_RME] != null) {
+    contents[_RME] = __parseBoolean(output[_RME]);
   }
-  if (output["LastFreshStart"] !== undefined) {
-    contents.LastFreshStart = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastFreshStart"]));
+  if (output[_LFS] != null) {
+    contents[_LFS] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LFS]));
   }
   return contents;
 };
@@ -9228,11 +9180,11 @@ const de_ReputationOptions = (output: any, context: __SerdeContext): ReputationO
  */
 const de_RuleDoesNotExistException = (output: any, context: __SerdeContext): RuleDoesNotExistException => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9242,11 +9194,11 @@ const de_RuleDoesNotExistException = (output: any, context: __SerdeContext): Rul
  */
 const de_RuleSetDoesNotExistException = (output: any, context: __SerdeContext): RuleSetDoesNotExistException => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9256,17 +9208,17 @@ const de_RuleSetDoesNotExistException = (output: any, context: __SerdeContext): 
  */
 const de_S3Action = (output: any, context: __SerdeContext): S3Action => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["BucketName"] !== undefined) {
-    contents.BucketName = __expectString(output["BucketName"]);
+  if (output[_BN] != null) {
+    contents[_BN] = __expectString(output[_BN]);
   }
-  if (output["ObjectKeyPrefix"] !== undefined) {
-    contents.ObjectKeyPrefix = __expectString(output["ObjectKeyPrefix"]);
+  if (output[_OKP] != null) {
+    contents[_OKP] = __expectString(output[_OKP]);
   }
-  if (output["KmsKeyArn"] !== undefined) {
-    contents.KmsKeyArn = __expectString(output["KmsKeyArn"]);
+  if (output[_KKA] != null) {
+    contents[_KKA] = __expectString(output[_KKA]);
   }
   return contents;
 };
@@ -9276,8 +9228,8 @@ const de_S3Action = (output: any, context: __SerdeContext): S3Action => {
  */
 const de_SendBounceResponse = (output: any, context: __SerdeContext): SendBounceResponse => {
   const contents: any = {};
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MIe] != null) {
+    contents[_MIe] = __expectString(output[_MIe]);
   }
   return contents;
 };
@@ -9288,9 +9240,9 @@ const de_SendBounceResponse = (output: any, context: __SerdeContext): SendBounce
 const de_SendBulkTemplatedEmailResponse = (output: any, context: __SerdeContext): SendBulkTemplatedEmailResponse => {
   const contents: any = {};
   if (output.Status === "") {
-    contents.Status = [];
-  } else if (output["Status"] !== undefined && output["Status"]["member"] !== undefined) {
-    contents.Status = de_BulkEmailDestinationStatusList(__getArrayIfSingleItem(output["Status"]["member"]), context);
+    contents[_St] = [];
+  } else if (output[_St] != null && output[_St][_me] != null) {
+    contents[_St] = de_BulkEmailDestinationStatusList(__getArrayIfSingleItem(output[_St][_me]), context);
   }
   return contents;
 };
@@ -9303,8 +9255,8 @@ const de_SendCustomVerificationEmailResponse = (
   context: __SerdeContext
 ): SendCustomVerificationEmailResponse => {
   const contents: any = {};
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MIe] != null) {
+    contents[_MIe] = __expectString(output[_MIe]);
   }
   return contents;
 };
@@ -9314,20 +9266,20 @@ const de_SendCustomVerificationEmailResponse = (
  */
 const de_SendDataPoint = (output: any, context: __SerdeContext): SendDataPoint => {
   const contents: any = {};
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["DeliveryAttempts"] !== undefined) {
-    contents.DeliveryAttempts = __strictParseLong(output["DeliveryAttempts"]) as number;
+  if (output[_DAe] != null) {
+    contents[_DAe] = __strictParseLong(output[_DAe]) as number;
   }
-  if (output["Bounces"] !== undefined) {
-    contents.Bounces = __strictParseLong(output["Bounces"]) as number;
+  if (output[_Bo] != null) {
+    contents[_Bo] = __strictParseLong(output[_Bo]) as number;
   }
-  if (output["Complaints"] !== undefined) {
-    contents.Complaints = __strictParseLong(output["Complaints"]) as number;
+  if (output[_Co] != null) {
+    contents[_Co] = __strictParseLong(output[_Co]) as number;
   }
-  if (output["Rejects"] !== undefined) {
-    contents.Rejects = __strictParseLong(output["Rejects"]) as number;
+  if (output[_Rej] != null) {
+    contents[_Rej] = __strictParseLong(output[_Rej]) as number;
   }
   return contents;
 };
@@ -9348,8 +9300,8 @@ const de_SendDataPointList = (output: any, context: __SerdeContext): SendDataPoi
  */
 const de_SendEmailResponse = (output: any, context: __SerdeContext): SendEmailResponse => {
   const contents: any = {};
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MIe] != null) {
+    contents[_MIe] = __expectString(output[_MIe]);
   }
   return contents;
 };
@@ -9359,8 +9311,8 @@ const de_SendEmailResponse = (output: any, context: __SerdeContext): SendEmailRe
  */
 const de_SendRawEmailResponse = (output: any, context: __SerdeContext): SendRawEmailResponse => {
   const contents: any = {};
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MIe] != null) {
+    contents[_MIe] = __expectString(output[_MIe]);
   }
   return contents;
 };
@@ -9370,8 +9322,8 @@ const de_SendRawEmailResponse = (output: any, context: __SerdeContext): SendRawE
  */
 const de_SendTemplatedEmailResponse = (output: any, context: __SerdeContext): SendTemplatedEmailResponse => {
   const contents: any = {};
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MIe] != null) {
+    contents[_MIe] = __expectString(output[_MIe]);
   }
   return contents;
 };
@@ -9449,11 +9401,11 @@ const de_SetReceiptRulePositionResponse = (output: any, context: __SerdeContext)
  */
 const de_SNSAction = (output: any, context: __SerdeContext): SNSAction => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["Encoding"] !== undefined) {
-    contents.Encoding = __expectString(output["Encoding"]);
+  if (output[_En] != null) {
+    contents[_En] = __expectString(output[_En]);
   }
   return contents;
 };
@@ -9463,8 +9415,8 @@ const de_SNSAction = (output: any, context: __SerdeContext): SNSAction => {
  */
 const de_SNSDestination = (output: any, context: __SerdeContext): SNSDestination => {
   const contents: any = {};
-  if (output["TopicARN"] !== undefined) {
-    contents.TopicARN = __expectString(output["TopicARN"]);
+  if (output[_TARN] != null) {
+    contents[_TARN] = __expectString(output[_TARN]);
   }
   return contents;
 };
@@ -9474,11 +9426,11 @@ const de_SNSDestination = (output: any, context: __SerdeContext): SNSDestination
  */
 const de_StopAction = (output: any, context: __SerdeContext): StopAction => {
   const contents: any = {};
-  if (output["Scope"] !== undefined) {
-    contents.Scope = __expectString(output["Scope"]);
+  if (output[_Sc] != null) {
+    contents[_Sc] = __expectString(output[_Sc]);
   }
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
   return contents;
 };
@@ -9488,17 +9440,17 @@ const de_StopAction = (output: any, context: __SerdeContext): StopAction => {
  */
 const de_Template = (output: any, context: __SerdeContext): Template => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["SubjectPart"] !== undefined) {
-    contents.SubjectPart = __expectString(output["SubjectPart"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
-  if (output["TextPart"] !== undefined) {
-    contents.TextPart = __expectString(output["TextPart"]);
+  if (output[_TPe] != null) {
+    contents[_TPe] = __expectString(output[_TPe]);
   }
-  if (output["HtmlPart"] !== undefined) {
-    contents.HtmlPart = __expectString(output["HtmlPart"]);
+  if (output[_HP] != null) {
+    contents[_HP] = __expectString(output[_HP]);
   }
   return contents;
 };
@@ -9508,11 +9460,11 @@ const de_Template = (output: any, context: __SerdeContext): Template => {
  */
 const de_TemplateDoesNotExistException = (output: any, context: __SerdeContext): TemplateDoesNotExistException => {
   const contents: any = {};
-  if (output["TemplateName"] !== undefined) {
-    contents.TemplateName = __expectString(output["TemplateName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9522,11 +9474,11 @@ const de_TemplateDoesNotExistException = (output: any, context: __SerdeContext):
  */
 const de_TemplateMetadata = (output: any, context: __SerdeContext): TemplateMetadata => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CreatedTimestamp"] !== undefined) {
-    contents.CreatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTimestamp"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
   return contents;
 };
@@ -9547,8 +9499,8 @@ const de_TemplateMetadataList = (output: any, context: __SerdeContext): Template
  */
 const de_TestRenderTemplateResponse = (output: any, context: __SerdeContext): TestRenderTemplateResponse => {
   const contents: any = {};
-  if (output["RenderedTemplate"] !== undefined) {
-    contents.RenderedTemplate = __expectString(output["RenderedTemplate"]);
+  if (output[_RTe] != null) {
+    contents[_RTe] = __expectString(output[_RTe]);
   }
   return contents;
 };
@@ -9558,8 +9510,8 @@ const de_TestRenderTemplateResponse = (output: any, context: __SerdeContext): Te
  */
 const de_TrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
   const contents: any = {};
-  if (output["CustomRedirectDomain"] !== undefined) {
-    contents.CustomRedirectDomain = __expectString(output["CustomRedirectDomain"]);
+  if (output[_CRD] != null) {
+    contents[_CRD] = __expectString(output[_CRD]);
   }
   return contents;
 };
@@ -9572,11 +9524,11 @@ const de_TrackingOptionsAlreadyExistsException = (
   context: __SerdeContext
 ): TrackingOptionsAlreadyExistsException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9589,11 +9541,11 @@ const de_TrackingOptionsDoesNotExistException = (
   context: __SerdeContext
 ): TrackingOptionsDoesNotExistException => {
   const contents: any = {};
-  if (output["ConfigurationSetName"] !== undefined) {
-    contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9669,9 +9621,9 @@ const de_VerificationTokenList = (output: any, context: __SerdeContext): string[
 const de_VerifyDomainDkimResponse = (output: any, context: __SerdeContext): VerifyDomainDkimResponse => {
   const contents: any = {};
   if (output.DkimTokens === "") {
-    contents.DkimTokens = [];
-  } else if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
-    contents.DkimTokens = de_VerificationTokenList(__getArrayIfSingleItem(output["DkimTokens"]["member"]), context);
+    contents[_DTk] = [];
+  } else if (output[_DTk] != null && output[_DTk][_me] != null) {
+    contents[_DTk] = de_VerificationTokenList(__getArrayIfSingleItem(output[_DTk][_me]), context);
   }
   return contents;
 };
@@ -9681,8 +9633,8 @@ const de_VerifyDomainDkimResponse = (output: any, context: __SerdeContext): Veri
  */
 const de_VerifyDomainIdentityResponse = (output: any, context: __SerdeContext): VerifyDomainIdentityResponse => {
   const contents: any = {};
-  if (output["VerificationToken"] !== undefined) {
-    contents.VerificationToken = __expectString(output["VerificationToken"]);
+  if (output[_VT] != null) {
+    contents[_VT] = __expectString(output[_VT]);
   }
   return contents;
 };
@@ -9700,11 +9652,11 @@ const de_VerifyEmailIdentityResponse = (output: any, context: __SerdeContext): V
  */
 const de_WorkmailAction = (output: any, context: __SerdeContext): WorkmailAction => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["OrganizationArn"] !== undefined) {
-    contents.OrganizationArn = __expectString(output["OrganizationArn"]);
+  if (output[_OA] != null) {
+    contents[_OA] = __expectString(output[_OA]);
   }
   return contents;
 };
@@ -9749,6 +9701,258 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+// HttpRpcProtocolGenerator
+const _ = "2010-12-01";
+const _A = "Action";
+const _AD = "ArrivalDate";
+const _AHA = "AddHeaderAction";
+const _Ac = "Actions";
+const _Af = "After";
+const _B = "Body";
+const _BA = "BccAddresses";
+const _BAo = "BounceAction";
+const _BN = "BucketName";
+const _BOMXF = "BehaviorOnMXFailure";
+const _BRIL = "BouncedRecipientInfoList";
+const _BS = "BounceSender";
+const _BSA = "BounceSenderArn";
+const _BT = "BounceType";
+const _BTo = "BounceTopic";
+const _Bo = "Bounces";
+const _Bu = "Bucket";
+const _C = "Charset";
+const _CA = "CcAddresses";
+const _CCS = "CreateConfigurationSet";
+const _CCSED = "CreateConfigurationSetEventDestination";
+const _CCSTO = "CreateConfigurationSetTrackingOptions";
+const _CCVET = "CreateCustomVerificationEmailTemplate";
+const _CRD = "CustomRedirectDomain";
+const _CRF = "CreateReceiptFilter";
+const _CRR = "CreateReceiptRule";
+const _CRRS = "CloneReceiptRuleSet";
+const _CRRSr = "CreateReceiptRuleSet";
+const _CS = "ConfigurationSet";
+const _CSAN = "ConfigurationSetAttributeNames";
+const _CSN = "ConfigurationSetName";
+const _CSo = "ConfigurationSets";
+const _CT = "CreateTemplate";
+const _CTo = "ComplaintTopic";
+const _CTr = "CreatedTimestamp";
+const _CVET = "CustomVerificationEmailTemplates";
+const _CVETN = "CustomVerificationEmailTemplateName";
+const _CWD = "CloudWatchDestination";
+const _Ci = "Cidr";
+const _Co = "Complaints";
+const _D = "Destination";
+const _DA = "DkimAttributes";
+const _DARRS = "DescribeActiveReceiptRuleSet";
+const _DAe = "DeliveryAttempts";
+const _DC = "DimensionConfigurations";
+const _DCS = "DeleteConfigurationSet";
+const _DCSED = "DeleteConfigurationSetEventDestination";
+const _DCSTO = "DeleteConfigurationSetTrackingOptions";
+const _DCSe = "DescribeConfigurationSet";
+const _DCVET = "DeleteCustomVerificationEmailTemplate";
+const _DCi = "DiagnosticCode";
+const _DDV = "DefaultDimensionValue";
+const _DE = "DkimEnabled";
+const _DI = "DeleteIdentity";
+const _DIP = "DeleteIdentityPolicy";
+const _DN = "DimensionName";
+const _DO = "DeliveryOptions";
+const _DRF = "DeleteReceiptFilter";
+const _DRR = "DeleteReceiptRule";
+const _DRRS = "DeleteReceiptRuleSet";
+const _DRRSe = "DescribeReceiptRuleSet";
+const _DRRe = "DescribeReceiptRule";
+const _DSARN = "DeliveryStreamARN";
+const _DT = "DeleteTemplate";
+const _DTD = "DefaultTemplateData";
+const _DTe = "DefaultTags";
+const _DTel = "DeliveryTopic";
+const _DTk = "DkimTokens";
+const _DVEA = "DeleteVerifiedEmailAddress";
+const _DVS = "DimensionValueSource";
+const _DVSk = "DkimVerificationStatus";
+const _Da = "Data";
+const _De = "Destinations";
+const _Do = "Domain";
+const _E = "Enabled";
+const _EA = "EmailAddress";
+const _ED = "EventDestination";
+const _EDN = "EventDestinationName";
+const _EDv = "EventDestinations";
+const _EF = "ExtensionFields";
+const _En = "Encoding";
+const _Er = "Error";
+const _Ex = "Explanation";
+const _F = "Filter";
+const _FA = "FunctionArn";
+const _FAr = "FromArn";
+const _FE = "ForwardingEnabled";
+const _FEA = "FromEmailAddress";
+const _FN = "FilterName";
+const _FR = "FinalRecipient";
+const _FRURL = "FailureRedirectionURL";
+const _Fi = "Filters";
+const _GASE = "GetAccountSendingEnabled";
+const _GCVET = "GetCustomVerificationEmailTemplate";
+const _GIDA = "GetIdentityDkimAttributes";
+const _GIMFDA = "GetIdentityMailFromDomainAttributes";
+const _GINA = "GetIdentityNotificationAttributes";
+const _GIP = "GetIdentityPolicies";
+const _GIVA = "GetIdentityVerificationAttributes";
+const _GSQ = "GetSendQuota";
+const _GSS = "GetSendStatistics";
+const _GT = "GetTemplate";
+const _H = "Html";
+const _HIBNE = "HeadersInBounceNotificationsEnabled";
+const _HICNE = "HeadersInComplaintNotificationsEnabled";
+const _HIDNE = "HeadersInDeliveryNotificationsEnabled";
+const _HN = "HeaderName";
+const _HP = "HtmlPart";
+const _HV = "HeaderValue";
+const _I = "Identity";
+const _IAMRARN = "IAMRoleARN";
+const _IF = "IpFilter";
+const _IT = "InvocationType";
+const _ITd = "IdentityType";
+const _Id = "Identities";
+const _KFD = "KinesisFirehoseDestination";
+const _KKA = "KmsKeyArn";
+const _LA = "LambdaAction";
+const _LAD = "LastAttemptDate";
+const _LCS = "ListConfigurationSets";
+const _LCVET = "ListCustomVerificationEmailTemplates";
+const _LFS = "LastFreshStart";
+const _LI = "ListIdentities";
+const _LIP = "ListIdentityPolicies";
+const _LRF = "ListReceiptFilters";
+const _LRRS = "ListReceiptRuleSets";
+const _LT = "ListTemplates";
+const _LVEA = "ListVerifiedEmailAddresses";
+const _M = "Message";
+const _MD = "MessageDsn";
+const _MET = "MatchingEventTypes";
+const _MFD = "MailFromDomain";
+const _MFDA = "MailFromDomainAttributes";
+const _MFDS = "MailFromDomainStatus";
+const _MHS = "Max24HourSend";
+const _MI = "MaxItems";
+const _MIe = "MessageId";
+const _MR = "MaxResults";
+const _MSR = "MaxSendRate";
+const _Me = "Metadata";
+const _N = "Name";
+const _NA = "NotificationAttributes";
+const _NT = "NextToken";
+const _NTo = "NotificationType";
+const _OA = "OrganizationArn";
+const _OKP = "ObjectKeyPrefix";
+const _OMI = "OriginalMessageId";
+const _ORSN = "OriginalRuleSetName";
+const _P = "Policy";
+const _PCSDO = "PutConfigurationSetDeliveryOptions";
+const _PIP = "PutIdentityPolicy";
+const _PN = "PolicyName";
+const _PNo = "PolicyNames";
+const _Po = "Policies";
+const _R = "Recipient";
+const _RA = "RecipientArn";
+const _RDF = "RecipientDsnFields";
+const _RM = "ReportingMta";
+const _RME = "ReputationMetricsEnabled";
+const _RMa = "RawMessage";
+const _RMe = "RemoteMta";
+const _RN = "RuleName";
+const _RNu = "RuleNames";
+const _RO = "ReputationOptions";
+const _RP = "ReturnPath";
+const _RPA = "ReturnPathArn";
+const _RRRS = "ReorderReceiptRuleSet";
+const _RS = "RuleSets";
+const _RSN = "RuleSetName";
+const _RT = "ReplacementTags";
+const _RTA = "ReplyToAddresses";
+const _RTD = "ReplacementTemplateData";
+const _RTe = "RenderedTemplate";
+const _Re = "Recipients";
+const _Rej = "Rejects";
+const _Ru = "Rule";
+const _Rul = "Rules";
+const _S = "Sender";
+const _SA = "S3Action";
+const _SARRS = "SetActiveReceiptRuleSet";
+const _SAo = "SourceArn";
+const _SAt = "StopAction";
+const _SB = "SendBounce";
+const _SBTE = "SendBulkTemplatedEmail";
+const _SC = "StatusCode";
+const _SCVE = "SendCustomVerificationEmail";
+const _SDP = "SendDataPoints";
+const _SE = "SendEmail";
+const _SEc = "ScanEnabled";
+const _SEe = "SendingEnabled";
+const _SIDE = "SetIdentityDkimEnabled";
+const _SIFFE = "SetIdentityFeedbackForwardingEnabled";
+const _SIHINE = "SetIdentityHeadersInNotificationsEnabled";
+const _SIMFD = "SetIdentityMailFromDomain";
+const _SINT = "SetIdentityNotificationTopic";
+const _SLH = "SentLast24Hours";
+const _SNSA = "SNSAction";
+const _SNSD = "SNSDestination";
+const _SP = "SubjectPart";
+const _SRC = "SmtpReplyCode";
+const _SRE = "SendRawEmail";
+const _SRRP = "SetReceiptRulePosition";
+const _SRURL = "SuccessRedirectionURL";
+const _ST = "SnsTopic";
+const _STE = "SendTemplatedEmail";
+const _Sc = "Scope";
+const _So = "Source";
+const _St = "Status";
+const _Su = "Subject";
+const _T = "Text";
+const _TA = "TopicArn";
+const _TARN = "TopicARN";
+const _TAe = "TemplateArn";
+const _TAo = "ToAddresses";
+const _TC = "TemplateContent";
+const _TD = "TemplateData";
+const _TM = "TemplatesMetadata";
+const _TN = "TemplateName";
+const _TO = "TrackingOptions";
+const _TP = "TlsPolicy";
+const _TPe = "TextPart";
+const _TRT = "TestRenderTemplate";
+const _TS = "TemplateSubject";
+const _Ta = "Tags";
+const _Te = "Template";
+const _Ti = "Timestamp";
+const _To = "Topic";
+const _UASE = "UpdateAccountSendingEnabled";
+const _UCSED = "UpdateConfigurationSetEventDestination";
+const _UCSRME = "UpdateConfigurationSetReputationMetricsEnabled";
+const _UCSSE = "UpdateConfigurationSetSendingEnabled";
+const _UCSTO = "UpdateConfigurationSetTrackingOptions";
+const _UCVET = "UpdateCustomVerificationEmailTemplate";
+const _URR = "UpdateReceiptRule";
+const _UT = "UpdateTemplate";
+const _V = "Version";
+const _VA = "VerificationAttributes";
+const _VDD = "VerifyDomainDkim";
+const _VDI = "VerifyDomainIdentity";
+const _VEA = "VerifyEmailAddress";
+const _VEAe = "VerifiedEmailAddresses";
+const _VEI = "VerifyEmailIdentity";
+const _VS = "VerificationStatus";
+const _VT = "VerificationToken";
+const _Va = "Value";
+const _WA = "WorkmailAction";
+const _e = "entry";
+const _m = "message";
+const _me = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -9798,3 +10002,5 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
+
+// AwsQuery

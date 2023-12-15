@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -86,11 +87,11 @@ export const se_CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles";
+  b.bp("/profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -104,15 +105,8 @@ export const se_CreateProfileCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -122,11 +116,11 @@ export const se_CreateTrustAnchorCommand = async (
   input: CreateTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchors";
+  b.bp("/trustanchors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -137,15 +131,8 @@ export const se_CreateTrustAnchorCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -155,20 +142,13 @@ export const se_DeleteCrlCommand = async (
   input: DeleteCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "crlId", () => input.crlId!, "{crlId}", false);
+  b.bp("/crl/{crlId}");
+  b.p("crlId", () => input.crlId!, "{crlId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -178,20 +158,13 @@ export const se_DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profile/{profileId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileId", () => input.profileId!, "{profileId}", false);
+  b.bp("/profile/{profileId}");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -201,28 +174,13 @@ export const se_DeleteTrustAnchorCommand = async (
   input: DeleteTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchor/{trustAnchorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustAnchorId",
-    () => input.trustAnchorId!,
-    "{trustAnchorId}",
-    false
-  );
+  b.bp("/trustanchor/{trustAnchorId}");
+  b.p("trustAnchorId", () => input.trustAnchorId!, "{trustAnchorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -232,20 +190,13 @@ export const se_DisableCrlCommand = async (
   input: DisableCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}/disable";
-  resolvedPath = __resolvedPath(resolvedPath, input, "crlId", () => input.crlId!, "{crlId}", false);
+  b.bp("/crl/{crlId}/disable");
+  b.p("crlId", () => input.crlId!, "{crlId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -255,21 +206,13 @@ export const se_DisableProfileCommand = async (
   input: DisableProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profile/{profileId}/disable";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileId", () => input.profileId!, "{profileId}", false);
+  b.bp("/profile/{profileId}/disable");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -279,28 +222,13 @@ export const se_DisableTrustAnchorCommand = async (
   input: DisableTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchor/{trustAnchorId}/disable";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustAnchorId",
-    () => input.trustAnchorId!,
-    "{trustAnchorId}",
-    false
-  );
+  b.bp("/trustanchor/{trustAnchorId}/disable");
+  b.p("trustAnchorId", () => input.trustAnchorId!, "{trustAnchorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,20 +238,13 @@ export const se_EnableCrlCommand = async (
   input: EnableCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}/enable";
-  resolvedPath = __resolvedPath(resolvedPath, input, "crlId", () => input.crlId!, "{crlId}", false);
+  b.bp("/crl/{crlId}/enable");
+  b.p("crlId", () => input.crlId!, "{crlId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -333,21 +254,13 @@ export const se_EnableProfileCommand = async (
   input: EnableProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profile/{profileId}/enable";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileId", () => input.profileId!, "{profileId}", false);
+  b.bp("/profile/{profileId}/enable");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -357,48 +270,26 @@ export const se_EnableTrustAnchorCommand = async (
   input: EnableTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchor/{trustAnchorId}/enable";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustAnchorId",
-    () => input.trustAnchorId!,
-    "{trustAnchorId}",
-    false
-  );
+  b.bp("/trustanchor/{trustAnchorId}/enable");
+  b.p("trustAnchorId", () => input.trustAnchorId!, "{trustAnchorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1GetCrlCommand
  */
 export const se_GetCrlCommand = async (input: GetCrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "crlId", () => input.crlId!, "{crlId}", false);
+  b.bp("/crl/{crlId}");
+  b.p("crlId", () => input.crlId!, "{crlId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -408,20 +299,13 @@ export const se_GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profile/{profileId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileId", () => input.profileId!, "{profileId}", false);
+  b.bp("/profile/{profileId}");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -431,20 +315,13 @@ export const se_GetSubjectCommand = async (
   input: GetSubjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/subject/{subjectId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "subjectId", () => input.subjectId!, "{subjectId}", false);
+  b.bp("/subject/{subjectId}");
+  b.p("subjectId", () => input.subjectId!, "{subjectId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -454,28 +331,13 @@ export const se_GetTrustAnchorCommand = async (
   input: GetTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchor/{trustAnchorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustAnchorId",
-    () => input.trustAnchorId!,
-    "{trustAnchorId}",
-    false
-  );
+  b.bp("/trustanchor/{trustAnchorId}");
+  b.p("trustAnchorId", () => input.trustAnchorId!, "{trustAnchorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -485,11 +347,11 @@ export const se_ImportCrlCommand = async (
   input: ImportCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crls";
+  b.bp("/crls");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -500,15 +362,8 @@ export const se_ImportCrlCommand = async (
       trustAnchorArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -518,24 +373,16 @@ export const se_ListCrlsCommand = async (
   input: ListCrlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crls";
+  b.bp("/crls");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    pageSize: [() => input.pageSize !== void 0, () => input.pageSize!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -545,24 +392,16 @@ export const se_ListProfilesCommand = async (
   input: ListProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles";
+  b.bp("/profiles");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    pageSize: [() => input.pageSize !== void 0, () => input.pageSize!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -572,24 +411,16 @@ export const se_ListSubjectsCommand = async (
   input: ListSubjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/subjects";
+  b.bp("/subjects");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    pageSize: [() => input.pageSize !== void 0, () => input.pageSize!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -599,23 +430,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTagsForResource";
+  b.bp("/ListTagsForResource");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -625,24 +448,16 @@ export const se_ListTrustAnchorsCommand = async (
   input: ListTrustAnchorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchors";
+  b.bp("/trustanchors");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    pageSize: [() => input.pageSize !== void 0, () => input.pageSize!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -652,12 +467,11 @@ export const se_PutNotificationSettingsCommand = async (
   input: PutNotificationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-notifications-settings";
+  b.bp("/put-notifications-settings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -665,15 +479,8 @@ export const se_PutNotificationSettingsCommand = async (
       trustAnchorId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -683,12 +490,11 @@ export const se_ResetNotificationSettingsCommand = async (
   input: ResetNotificationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reset-notifications-settings";
+  b.bp("/reset-notifications-settings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -696,15 +502,8 @@ export const se_ResetNotificationSettingsCommand = async (
       trustAnchorId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -714,11 +513,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TagResource";
+  b.bp("/TagResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -726,15 +525,8 @@ export const se_TagResourceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -744,11 +536,11 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UntagResource";
+  b.bp("/UntagResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -756,15 +548,8 @@ export const se_UntagResourceCommand = async (
       tagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -774,12 +559,12 @@ export const se_UpdateCrlCommand = async (
   input: UpdateCrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/crl/{crlId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "crlId", () => input.crlId!, "{crlId}", false);
+  b.bp("/crl/{crlId}");
+  b.p("crlId", () => input.crlId!, "{crlId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -787,15 +572,8 @@ export const se_UpdateCrlCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -805,12 +583,12 @@ export const se_UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profile/{profileId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileId", () => input.profileId!, "{profileId}", false);
+  b.bp("/profile/{profileId}");
+  b.p("profileId", () => input.profileId!, "{profileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -821,15 +599,8 @@ export const se_UpdateProfileCommand = async (
       sessionPolicy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -839,20 +610,12 @@ export const se_UpdateTrustAnchorCommand = async (
   input: UpdateTrustAnchorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustanchor/{trustAnchorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustAnchorId",
-    () => input.trustAnchorId!,
-    "{trustAnchorId}",
-    false
-  );
+  b.bp("/trustanchor/{trustAnchorId}");
+  b.p("trustAnchorId", () => input.trustAnchorId!, "{trustAnchorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -860,15 +623,8 @@ export const se_UpdateTrustAnchorCommand = async (
       source: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2609,6 +2365,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _nT = "nextToken";
+const _pS = "pageSize";
+const _rA = "resourceArn";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -2659,3 +2420,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

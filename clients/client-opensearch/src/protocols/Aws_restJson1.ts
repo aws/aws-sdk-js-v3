@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -285,29 +286,13 @@ export const se_AcceptInboundConnectionCommand = async (
   input: AcceptInboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/accept");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -317,14 +302,12 @@ export const se_AddDataSourceCommand = async (
   input: AddDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/dataSource";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -333,15 +316,8 @@ export const se_AddDataSourceCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -351,11 +327,11 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags";
+  b.bp("/2021-01-01/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -363,15 +339,8 @@ export const se_AddTagsCommand = async (
       TagList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -381,23 +350,14 @@ export const se_AssociatePackageCommand = async (
   input: AssociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/packages/associate/{PackageID}/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/packages/associate/{PackageID}/{DomainName}");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -407,29 +367,20 @@ export const se_AuthorizeVpcEndpointAccessCommand = async (
   input: AuthorizeVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/authorizeVpcEndpointAccess";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/authorizeVpcEndpointAccess");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Account: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -439,28 +390,19 @@ export const se_CancelServiceSoftwareUpdateCommand = async (
   input: CancelServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel";
+  b.bp("/2021-01-01/opensearch/serviceSoftwareUpdate/cancel");
   let body: any;
   body = JSON.stringify(
     take(input, {
       DomainName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -470,12 +412,11 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/domain";
+  b.bp("/2021-01-01/opensearch/domain");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -500,15 +441,8 @@ export const se_CreateDomainCommand = async (
       VPCOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -518,13 +452,11 @@ export const se_CreateOutboundConnectionCommand = async (
   input: CreateOutboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/outboundConnection";
+  b.bp("/2021-01-01/opensearch/cc/outboundConnection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -535,15 +467,8 @@ export const se_CreateOutboundConnectionCommand = async (
       RemoteDomainInfo: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -553,11 +478,11 @@ export const se_CreatePackageCommand = async (
   input: CreatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages";
+  b.bp("/2021-01-01/packages");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -567,15 +492,8 @@ export const se_CreatePackageCommand = async (
       PackageType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -585,12 +503,11 @@ export const se_CreateVpcEndpointCommand = async (
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/vpcEndpoints";
+  b.bp("/2021-01-01/opensearch/vpcEndpoints");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -599,15 +516,8 @@ export const se_CreateVpcEndpointCommand = async (
       VpcOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -617,23 +527,14 @@ export const se_DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -643,22 +544,13 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -668,29 +560,13 @@ export const se_DeleteInboundConnectionCommand = async (
   input: DeleteInboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -700,29 +576,13 @@ export const se_DeleteOutboundConnectionCommand = async (
   input: DeleteOutboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/outboundConnection/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/cc/outboundConnection/{ConnectionId}");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -732,21 +592,13 @@ export const se_DeletePackageCommand = async (
   input: DeletePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/{PackageID}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.bp("/2021-01-01/packages/{PackageID}");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -756,29 +608,13 @@ export const se_DeleteVpcEndpointCommand = async (
   input: DeleteVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/vpcEndpoints/{VpcEndpointId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VpcEndpointId",
-    () => input.VpcEndpointId!,
-    "{VpcEndpointId}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/vpcEndpoints/{VpcEndpointId}");
+  b.p("VpcEndpointId", () => input.VpcEndpointId!, "{VpcEndpointId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -788,22 +624,13 @@ export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -813,14 +640,12 @@ export const se_DescribeDomainAutoTunesCommand = async (
   input: DescribeDomainAutoTunesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/autoTunes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/autoTunes");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -828,15 +653,8 @@ export const se_DescribeDomainAutoTunesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -846,26 +664,16 @@ export const se_DescribeDomainChangeProgressCommand = async (
   input: DescribeDomainChangeProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/progress";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/progress");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    changeid: [, input.ChangeId!],
+    [_c]: [, input[_CI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -875,22 +683,13 @@ export const se_DescribeDomainConfigCommand = async (
   input: DescribeDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/config");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -900,22 +699,13 @@ export const se_DescribeDomainHealthCommand = async (
   input: DescribeDomainHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/health";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/health");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -925,22 +715,13 @@ export const se_DescribeDomainNodesCommand = async (
   input: DescribeDomainNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/nodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/nodes");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -950,27 +731,19 @@ export const se_DescribeDomainsCommand = async (
   input: DescribeDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/domain-info";
+  b.bp("/2021-01-01/opensearch/domain-info");
   let body: any;
   body = JSON.stringify(
     take(input, {
       DomainNames: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -980,27 +753,17 @@ export const se_DescribeDryRunProgressCommand = async (
   input: DescribeDryRunProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/dryRun";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/dryRun");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    dryRunId: [, input.DryRunId!],
-    loadDryRunConfig: [() => input.LoadDryRunConfig !== void 0, () => input.LoadDryRunConfig!.toString()],
+    [_dRI]: [, input[_DRI]!],
+    [_lDRC]: [() => input.LoadDryRunConfig !== void 0, () => input[_LDRC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1010,13 +773,11 @@ export const se_DescribeInboundConnectionsCommand = async (
   input: DescribeInboundConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/inboundConnection/search";
+  b.bp("/2021-01-01/opensearch/cc/inboundConnection/search");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1025,15 +786,8 @@ export const se_DescribeInboundConnectionsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1043,41 +797,17 @@ export const se_DescribeInstanceTypeLimitsCommand = async (
   input: DescribeInstanceTypeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/instanceTypeLimits/{EngineVersion}/{InstanceType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InstanceType",
-    () => input.InstanceType!,
-    "{InstanceType}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EngineVersion",
-    () => input.EngineVersion!,
-    "{EngineVersion}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/instanceTypeLimits/{EngineVersion}/{InstanceType}");
+  b.p("InstanceType", () => input.InstanceType!, "{InstanceType}", false);
+  b.p("EngineVersion", () => input.EngineVersion!, "{EngineVersion}", false);
   const query: any = map({
-    domainName: [, input.DomainName!],
+    [_dN]: [, input[_DN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1087,13 +817,11 @@ export const se_DescribeOutboundConnectionsCommand = async (
   input: DescribeOutboundConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/outboundConnection/search";
+  b.bp("/2021-01-01/opensearch/cc/outboundConnection/search");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1102,15 +830,8 @@ export const se_DescribeOutboundConnectionsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1120,12 +841,11 @@ export const se_DescribePackagesCommand = async (
   input: DescribePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/describe";
+  b.bp("/2021-01-01/packages/describe");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1134,15 +854,8 @@ export const se_DescribePackagesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1152,27 +865,17 @@ export const se_DescribeReservedInstanceOfferingsCommand = async (
   input: DescribeReservedInstanceOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/reservedInstanceOfferings";
+  b.bp("/2021-01-01/opensearch/reservedInstanceOfferings");
   const query: any = map({
-    offeringId: [, input.ReservedInstanceOfferingId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_oI]: [, input[_RIOI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1182,26 +885,17 @@ export const se_DescribeReservedInstancesCommand = async (
   input: DescribeReservedInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/reservedInstances";
+  b.bp("/2021-01-01/opensearch/reservedInstances");
   const query: any = map({
-    reservationId: [, input.ReservedInstanceId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_rI]: [, input[_RII]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1211,28 +905,19 @@ export const se_DescribeVpcEndpointsCommand = async (
   input: DescribeVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/vpcEndpoints/describe";
+  b.bp("/2021-01-01/opensearch/vpcEndpoints/describe");
   let body: any;
   body = JSON.stringify(
     take(input, {
       VpcEndpointIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1242,23 +927,14 @@ export const se_DissociatePackageCommand = async (
   input: DissociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/packages/dissociate/{PackageID}/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/packages/dissociate/{PackageID}/{DomainName}");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1268,24 +944,15 @@ export const se_GetCompatibleVersionsCommand = async (
   input: GetCompatibleVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/compatibleVersions";
+  b.bp("/2021-01-01/opensearch/compatibleVersions");
   const query: any = map({
-    domainName: [, input.DomainName!],
+    [_dN]: [, input[_DN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1295,23 +962,14 @@ export const se_GetDataSourceCommand = async (
   input: GetDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1321,26 +979,16 @@ export const se_GetDomainMaintenanceStatusCommand = async (
   input: GetDomainMaintenanceStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    maintenanceId: [, __expectNonNull(input.MaintenanceId!, `MaintenanceId`)],
+    [_mI]: [, __expectNonNull(input[_MI]!, `MaintenanceId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1350,26 +998,17 @@ export const se_GetPackageVersionHistoryCommand = async (
   input: GetPackageVersionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/{PackageID}/history";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.bp("/2021-01-01/packages/{PackageID}/history");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1379,27 +1018,17 @@ export const se_GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/upgradeDomain/{DomainName}/history";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/upgradeDomain/{DomainName}/history");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1409,22 +1038,13 @@ export const se_GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/upgradeDomain/{DomainName}/status";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/upgradeDomain/{DomainName}/status");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1434,22 +1054,13 @@ export const se_ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/dataSource";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1459,29 +1070,19 @@ export const se_ListDomainMaintenancesCommand = async (
   input: ListDomainMaintenancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenances";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/domainMaintenances");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    action: [, input.Action!],
-    status: [, input.Status!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_a]: [, input[_A]!],
+    [_s]: [, input[_S]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1491,23 +1092,15 @@ export const se_ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/domain";
+  b.bp("/2021-01-01/domain");
   const query: any = map({
-    engineType: [, input.EngineType!],
+    [_eT]: [, input[_ET]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1517,26 +1110,17 @@ export const se_ListDomainsForPackageCommand = async (
   input: ListDomainsForPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/{PackageID}/domains";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.bp("/2021-01-01/packages/{PackageID}/domains");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1546,37 +1130,20 @@ export const se_ListInstanceTypeDetailsCommand = async (
   input: ListInstanceTypeDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/instanceTypeDetails/{EngineVersion}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EngineVersion",
-    () => input.EngineVersion!,
-    "{EngineVersion}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/instanceTypeDetails/{EngineVersion}");
+  b.p("EngineVersion", () => input.EngineVersion!, "{EngineVersion}", false);
   const query: any = map({
-    domainName: [, input.DomainName!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    retrieveAZs: [() => input.RetrieveAZs !== void 0, () => input.RetrieveAZs!.toString()],
-    instanceType: [, input.InstanceType!],
+    [_dN]: [, input[_DN]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_rAZ]: [() => input.RetrieveAZs !== void 0, () => input[_RAZ]!.toString()],
+    [_iT]: [, input[_IT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1586,26 +1153,17 @@ export const se_ListPackagesForDomainCommand = async (
   input: ListPackagesForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/domain/{DomainName}/packages";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/domain/{DomainName}/packages");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1615,27 +1173,17 @@ export const se_ListScheduledActionsCommand = async (
   input: ListScheduledActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/scheduledActions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/scheduledActions");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1645,23 +1193,15 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags";
+  b.bp("/2021-01-01/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ARN!, `ARN`)],
+    [_ar]: [, __expectNonNull(input[_ARN]!, `ARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1671,25 +1211,16 @@ export const se_ListVersionsCommand = async (
   input: ListVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/versions";
+  b.bp("/2021-01-01/opensearch/versions");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1699,26 +1230,16 @@ export const se_ListVpcEndpointAccessCommand = async (
   input: ListVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/listVpcEndpointAccess";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/listVpcEndpointAccess");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1728,24 +1249,15 @@ export const se_ListVpcEndpointsCommand = async (
   input: ListVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/vpcEndpoints";
+  b.bp("/2021-01-01/opensearch/vpcEndpoints");
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1755,26 +1267,16 @@ export const se_ListVpcEndpointsForDomainCommand = async (
   input: ListVpcEndpointsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/vpcEndpoints";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/vpcEndpoints");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1784,13 +1286,11 @@ export const se_PurchaseReservedInstanceOfferingCommand = async (
   input: PurchaseReservedInstanceOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/purchaseReservedInstanceOffering";
+  b.bp("/2021-01-01/opensearch/purchaseReservedInstanceOffering");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1799,15 +1299,8 @@ export const se_PurchaseReservedInstanceOfferingCommand = async (
       ReservedInstanceOfferingId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1817,29 +1310,13 @@ export const se_RejectInboundConnectionCommand = async (
   input: RejectInboundConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/reject";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/2021-01-01/opensearch/cc/inboundConnection/{ConnectionId}/reject");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1849,12 +1326,11 @@ export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags-removal";
+  b.bp("/2021-01-01/tags-removal");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1862,15 +1338,8 @@ export const se_RemoveTagsCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1880,29 +1349,20 @@ export const se_RevokeVpcEndpointAccessCommand = async (
   input: RevokeVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/revokeVpcEndpointAccess");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Account: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1912,14 +1372,12 @@ export const se_StartDomainMaintenanceCommand = async (
   input: StartDomainMaintenanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1927,15 +1385,8 @@ export const se_StartDomainMaintenanceCommand = async (
       NodeId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1945,13 +1396,11 @@ export const se_StartServiceSoftwareUpdateCommand = async (
   input: StartServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/serviceSoftwareUpdate/start";
+  b.bp("/2021-01-01/opensearch/serviceSoftwareUpdate/start");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1960,15 +1409,8 @@ export const se_StartServiceSoftwareUpdateCommand = async (
       ScheduleAt: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1978,15 +1420,13 @@ export const se_UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1994,15 +1434,8 @@ export const se_UpdateDataSourceCommand = async (
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2012,14 +1445,12 @@ export const se_UpdateDomainConfigCommand = async (
   input: UpdateDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/config");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2043,15 +1474,8 @@ export const se_UpdateDomainConfigCommand = async (
       VPCOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2061,12 +1485,11 @@ export const se_UpdatePackageCommand = async (
   input: UpdatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/packages/update";
+  b.bp("/2021-01-01/packages/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2076,15 +1499,8 @@ export const se_UpdatePackageCommand = async (
       PackageSource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2094,14 +1510,12 @@ export const se_UpdateScheduledActionCommand = async (
   input: UpdateScheduledActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/domain/{DomainName}/scheduledAction/update";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2021-01-01/opensearch/domain/{DomainName}/scheduledAction/update");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2111,15 +1525,8 @@ export const se_UpdateScheduledActionCommand = async (
       ScheduleAt: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2129,13 +1536,11 @@ export const se_UpdateVpcEndpointCommand = async (
   input: UpdateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2021-01-01/opensearch/vpcEndpoints/update";
+  b.bp("/2021-01-01/opensearch/vpcEndpoints/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2143,15 +1548,8 @@ export const se_UpdateVpcEndpointCommand = async (
       VpcOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2161,12 +1559,11 @@ export const se_UpgradeDomainCommand = async (
   input: UpgradeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/opensearch/upgradeDomain";
+  b.bp("/2021-01-01/opensearch/upgradeDomain");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2176,15 +1573,8 @@ export const se_UpgradeDomainCommand = async (
       TargetVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7056,6 +6446,38 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _A = "Action";
+const _ARN = "ARN";
+const _CI = "ChangeId";
+const _DN = "DomainName";
+const _DRI = "DryRunId";
+const _ET = "EngineType";
+const _IT = "InstanceType";
+const _LDRC = "LoadDryRunConfig";
+const _MI = "MaintenanceId";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RAZ = "RetrieveAZs";
+const _RII = "ReservedInstanceId";
+const _RIOI = "ReservedInstanceOfferingId";
+const _S = "Status";
+const _a = "action";
+const _ar = "arn";
+const _c = "changeid";
+const _dN = "domainName";
+const _dRI = "dryRunId";
+const _eT = "engineType";
+const _iT = "instanceType";
+const _lDRC = "loadDryRunConfig";
+const _mI = "maintenanceId";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _oI = "offeringId";
+const _rAZ = "retrieveAZs";
+const _rI = "reservationId";
+const _s = "status";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -7106,3 +6528,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

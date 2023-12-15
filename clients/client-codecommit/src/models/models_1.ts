@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
+
 import {
   ApprovalRule,
   ApprovalRuleTemplate,

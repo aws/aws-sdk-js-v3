@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -50,30 +51,22 @@ export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
+  b.bp("/projects");
   const query: any = map({
-    name: [, input.name!],
-    region: [, input.region!],
-    snapshotId: [, input.snapshotId!],
+    [_n]: [, input[_n]!],
+    [_r]: [, input[_r]!],
+    [_sI]: [, input[_sI]!],
   });
   let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -83,20 +76,13 @@ export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
+  b.bp("/projects/{projectId}");
+  b.p("projectId", () => input.projectId!, "{projectId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -106,20 +92,13 @@ export const se_DescribeBundleCommand = async (
   input: DescribeBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bundles/{bundleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "bundleId", () => input.bundleId!, "{bundleId}", false);
+  b.bp("/bundles/{bundleId}");
+  b.p("bundleId", () => input.bundleId!, "{bundleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -129,24 +108,16 @@ export const se_DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/project";
+  b.bp("/project");
   const query: any = map({
-    projectId: [, __expectNonNull(input.projectId!, `projectId`)],
-    syncFromResources: [() => input.syncFromResources !== void 0, () => input.syncFromResources!.toString()],
+    [_pI]: [, __expectNonNull(input[_pI]!, `projectId`)],
+    [_sFR]: [() => input.syncFromResources !== void 0, () => input[_sFR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -156,25 +127,17 @@ export const se_ExportBundleCommand = async (
   input: ExportBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bundles/{bundleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "bundleId", () => input.bundleId!, "{bundleId}", false);
+  b.bp("/bundles/{bundleId}");
+  b.p("bundleId", () => input.bundleId!, "{bundleId}", false);
   const query: any = map({
-    projectId: [, input.projectId!],
-    platform: [, input.platform!],
+    [_pI]: [, input[_pI]!],
+    [_p]: [, input[_p]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -184,20 +147,13 @@ export const se_ExportProjectCommand = async (
   input: ExportProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{projectId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
+  b.bp("/exports/{projectId}");
+  b.p("projectId", () => input.projectId!, "{projectId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -207,24 +163,16 @@ export const se_ListBundlesCommand = async (
   input: ListBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bundles";
+  b.bp("/bundles");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -234,24 +182,16 @@ export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
+  b.bp("/projects");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -261,28 +201,20 @@ export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update";
+  b.bp("/update");
   const query: any = map({
-    projectId: [, __expectNonNull(input.projectId!, `projectId`)],
+    [_pI]: [, __expectNonNull(input[_pI]!, `projectId`)],
   });
   let body: any;
   if (input.contents !== undefined) {
     body = input.contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -914,7 +846,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: any = map({
-    retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+    [_rAS]: [, parsedOutput.headers[_ra]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -953,7 +885,7 @@ const de_ServiceUnavailableExceptionRes = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const contents: any = map({
-    retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+    [_rAS]: [, parsedOutput.headers[_ra]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -975,7 +907,7 @@ const de_TooManyRequestsExceptionRes = async (
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({
-    retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+    [_rAS]: [, parsedOutput.headers[_ra]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1060,6 +992,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _p = "platform";
+const _pI = "projectId";
+const _r = "region";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _sFR = "syncFromResources";
+const _sI = "snapshotId";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1110,3 +1054,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

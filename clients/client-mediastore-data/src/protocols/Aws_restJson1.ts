@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -46,20 +47,13 @@ export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
+  b.bp("/{Path+}");
+  b.p("Path", () => input.Path!, "{Path+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -69,20 +63,13 @@ export const se_DescribeObjectCommand = async (
   input: DescribeObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
+  b.bp("/{Path+}");
+  b.p("Path", () => input.Path!, "{Path+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "HEAD",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("HEAD").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -92,22 +79,15 @@ export const se_GetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    range: input.Range!,
+    [_r]: input[_R]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
+  b.bp("/{Path+}");
+  b.p("Path", () => input.Path!, "{Path+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -117,25 +97,17 @@ export const se_ListItemsCommand = async (
   input: ListItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
+  b.bp("/");
   const query: any = map({
-    Path: [, input.Path!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_P]: [, input[_P]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -145,29 +117,22 @@ export const se_PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    "content-type": input.ContentType! || "application/octet-stream",
-    "cache-control": input.CacheControl!,
-    "x-amz-storage-class": input.StorageClass!,
-    "x-amz-upload-availability": input.UploadAvailability!,
+    [_ct]: input[_CT]! || "application/octet-stream",
+    [_cc]: input[_CC]!,
+    [_xasc]: input[_SC]!,
+    [_xaua]: input[_UA]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Path+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Path", () => input.Path!, "{Path+}", true);
+  b.bp("/{Path+}");
+  b.p("Path", () => input.Path!, "{Path+}", true);
   let body: any;
   if (input.Body !== undefined) {
     body = input.Body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -231,17 +196,11 @@ export const de_DescribeObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
-    ContentType: [, output.headers["content-type"]],
-    ContentLength: [
-      () => void 0 !== output.headers["content-length"],
-      () => __strictParseLong(output.headers["content-length"]),
-    ],
-    CacheControl: [, output.headers["cache-control"]],
-    LastModified: [
-      () => void 0 !== output.headers["last-modified"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
-    ],
+    [_ET]: [, output.headers[_e]],
+    [_CT]: [, output.headers[_ct]],
+    [_CL]: [() => void 0 !== output.headers[_cl], () => __strictParseLong(output.headers[_cl])],
+    [_CC]: [, output.headers[_cc]],
+    [_LM]: [() => void 0 !== output.headers[_lm], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_lm]))],
   });
   await collectBody(output.body, context);
   return contents;
@@ -291,18 +250,12 @@ export const de_GetObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CacheControl: [, output.headers["cache-control"]],
-    ContentRange: [, output.headers["content-range"]],
-    ContentLength: [
-      () => void 0 !== output.headers["content-length"],
-      () => __strictParseLong(output.headers["content-length"]),
-    ],
-    ContentType: [, output.headers["content-type"]],
-    ETag: [, output.headers["etag"]],
-    LastModified: [
-      () => void 0 !== output.headers["last-modified"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
-    ],
+    [_CC]: [, output.headers[_cc]],
+    [_CR]: [, output.headers[_cr]],
+    [_CL]: [() => void 0 !== output.headers[_cl], () => __strictParseLong(output.headers[_cl])],
+    [_CT]: [, output.headers[_ct]],
+    [_ET]: [, output.headers[_e]],
+    [_LM]: [() => void 0 !== output.headers[_lm], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_lm]))],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -574,6 +527,29 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CC = "CacheControl";
+const _CL = "ContentLength";
+const _CR = "ContentRange";
+const _CT = "ContentType";
+const _ET = "ETag";
+const _LM = "LastModified";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _P = "Path";
+const _R = "Range";
+const _SC = "StorageClass";
+const _UA = "UploadAvailability";
+const _cc = "cache-control";
+const _cl = "content-length";
+const _cr = "content-range";
+const _ct = "content-type";
+const _e = "etag";
+const _lm = "last-modified";
+const _r = "range";
+const _xasc = "x-amz-storage-class";
+const _xaua = "x-amz-upload-availability";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -624,3 +600,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

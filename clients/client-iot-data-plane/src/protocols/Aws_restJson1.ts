@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -56,25 +57,16 @@ export const se_DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/shadow");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   const query: any = map({
-    name: [, input.shadowName!],
+    [_n]: [, input[_sN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -84,20 +76,13 @@ export const se_GetRetainedMessageCommand = async (
   input: GetRetainedMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retainedMessage/{topic}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "topic", () => input.topic!, "{topic}", false);
+  b.bp("/retainedMessage/{topic}");
+  b.p("topic", () => input.topic!, "{topic}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -107,25 +92,16 @@ export const se_GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/shadow");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   const query: any = map({
-    name: [, input.shadowName!],
+    [_n]: [, input[_sN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -135,27 +111,17 @@ export const se_ListNamedShadowsForThingCommand = async (
   input: ListNamedShadowsForThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/things/shadow/ListNamedShadowsForThing/{thingName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/api/things/shadow/ListNamedShadowsForThing/{thingName}");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    pageSize: [() => input.pageSize !== void 0, () => input.pageSize!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pS]: [() => input.pageSize !== void 0, () => input[_pS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -165,24 +131,16 @@ export const se_ListRetainedMessagesCommand = async (
   input: ListRetainedMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retainedMessage";
+  b.bp("/retainedMessage");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -192,39 +150,31 @@ export const se_PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-amz-mqtt5-user-properties": [
-      () => isSerializableHeaderValue(input.userProperties),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.userProperties!))),
+    [_xamup]: [
+      () => isSerializableHeaderValue(input[_uP]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_uP]!))),
     ],
-    "x-amz-mqtt5-payload-format-indicator": input.payloadFormatIndicator!,
-    "x-amz-mqtt5-correlation-data": input.correlationData!,
+    [_xampfi]: input[_pFI]!,
+    [_xamcd]: input[_cD]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/topics/{topic}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "topic", () => input.topic!, "{topic}", false);
+  b.bp("/topics/{topic}");
+  b.p("topic", () => input.topic!, "{topic}", false);
   const query: any = map({
-    qos: [() => input.qos !== void 0, () => input.qos!.toString()],
-    retain: [() => input.retain !== void 0, () => input.retain!.toString()],
-    contentType: [, input.contentType!],
-    responseTopic: [, input.responseTopic!],
-    messageExpiry: [() => input.messageExpiry !== void 0, () => input.messageExpiry!.toString()],
+    [_q]: [() => input.qos !== void 0, () => input[_q]!.toString()],
+    [_r]: [() => input.retain !== void 0, () => input[_r]!.toString()],
+    [_cT]: [, input[_cT]!],
+    [_rT]: [, input[_rT]!],
+    [_mE]: [() => input.messageExpiry !== void 0, () => input[_mE]!.toString()],
   });
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -234,30 +184,21 @@ export const se_UpdateThingShadowCommand = async (
   input: UpdateThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/shadow");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   const query: any = map({
-    name: [, input.shadowName!],
+    [_n]: [, input[_sN]!],
   });
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -932,6 +873,24 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cD = "correlationData";
+const _cT = "contentType";
+const _mE = "messageExpiry";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _pFI = "payloadFormatIndicator";
+const _pS = "pageSize";
+const _q = "qos";
+const _r = "retain";
+const _rT = "responseTopic";
+const _sN = "shadowName";
+const _uP = "userProperties";
+const _xamcd = "x-amz-mqtt5-correlation-data";
+const _xampfi = "x-amz-mqtt5-payload-format-indicator";
+const _xamup = "x-amz-mqtt5-user-properties";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -982,3 +941,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

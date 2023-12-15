@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   collectBody,
@@ -364,30 +365,14 @@ export const se_ActivateKeySigningKeyCommand = async (
   input: ActivateKeySigningKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -397,43 +382,25 @@ export const se_AssociateVPCWithHostedZoneCommand = async (
   input: AssociateVPCWithHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/associatevpc");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("AssociateVPCWithHostedZoneRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("AssociateVPCComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_AVPCWHZR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_AVPCC, input[_C]).n(_C));
   }
-  if (input.VPC !== undefined) {
-    const node = se_VPC(input.VPC, context).withName("VPC");
-    bodyNode.addChildNode(node);
+  if (input[_VPC] != null) {
+    bn.c(se_VPC(input[_VPC], context).n(_VPC));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -443,39 +410,23 @@ export const se_ChangeCidrCollectionCommand = async (
   input: ChangeCidrCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/cidrcollection/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ChangeCidrCollectionRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Changes !== undefined) {
-    const nodes = se_CidrCollectionChanges(input.Changes, context);
-    const containerNode = new __XmlNode("Changes");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  body = _ve;
+  const bn = new __XmlNode(_CCCR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  bn.lc(input, "Changes", "Changes", () => se_CidrCollectionChanges(input[_Ch]!, context));
+  if (input[_CV] != null) {
+    bn.c(__XmlNode.of(_CV, String(input[_CV])).n(_CV));
   }
-  if (input.CollectionVersion !== undefined) {
-    const node = __XmlNode.of("CollectionVersion", String(input.CollectionVersion)).withName("CollectionVersion");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -485,39 +436,22 @@ export const se_ChangeResourceRecordSetsCommand = async (
   input: ChangeResourceRecordSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/rrset");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ChangeResourceRecordSetsRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.ChangeBatch !== undefined) {
-    const node = se_ChangeBatch(input.ChangeBatch, context).withName("ChangeBatch");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CRRSR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_CB] != null) {
+    bn.c(se_ChangeBatch(input[_CB], context).n(_CB));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -527,52 +461,22 @@ export const se_ChangeTagsForResourceCommand = async (
   input: ChangeTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/tags/{ResourceType}/{ResourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceType",
-    () => input.ResourceType!,
-    "{ResourceType}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/2013-04-01/tags/{ResourceType}/{ResourceId}");
+  b.p("ResourceType", () => input.ResourceType!, "{ResourceType}", false);
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ChangeTagsForResourceRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.AddTags !== undefined) {
-    const nodes = se_TagList(input.AddTags, context);
-    const containerNode = new __XmlNode("AddTags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.RemoveTagKeys !== undefined) {
-    const nodes = se_TagKeyList(input.RemoveTagKeys, context);
-    const containerNode = new __XmlNode("RemoveTagKeys");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_CTFRR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  bn.lc(input, "AddTags", "AddTags", () => se_TagList(input[_AT]!, context));
+  bn.lc(input, "RemoveTagKeys", "RemoveTagKeys", () => se_TagKeyList(input[_RTK]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,34 +486,24 @@ export const se_CreateCidrCollectionCommand = async (
   input: CreateCidrCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection";
+  b.bp("/2013-04-01/cidrcollection");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateCidrCollectionRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.CallerReference !== undefined) {
-    const node = __XmlNode.of("CidrNonce", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CCCRr);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_CN, input[_CR]).n(_CR));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("CollectionName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_CNo, input[_N]).n(_N));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -619,34 +513,24 @@ export const se_CreateHealthCheckCommand = async (
   input: CreateHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
+  b.bp("/2013-04-01/healthcheck");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateHealthCheckRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.CallerReference !== undefined) {
-    const node = __XmlNode.of("HealthCheckNonce", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CHCR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_HCN, input[_CR]).n(_CR));
   }
-  if (input.HealthCheckConfig !== undefined) {
-    const node = se_HealthCheckConfig(input.HealthCheckConfig, context).withName("HealthCheckConfig");
-    bodyNode.addChildNode(node);
+  if (input[_HCC] != null) {
+    bn.c(se_HealthCheckConfig(input[_HCC], context).n(_HCC));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -656,45 +540,33 @@ export const se_CreateHostedZoneCommand = async (
   input: CreateHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
+  b.bp("/2013-04-01/hostedzone");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateHostedZoneRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.CallerReference !== undefined) {
-    const node = __XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CHZR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_No, input[_CR]).n(_CR));
   }
-  if (input.DelegationSetId !== undefined) {
-    const node = __XmlNode.of("ResourceId", input.DelegationSetId).withName("DelegationSetId");
-    bodyNode.addChildNode(node);
+  if (input[_DSI] != null) {
+    bn.c(__XmlNode.of(_RI, input[_DSI]).n(_DSI));
   }
-  if (input.HostedZoneConfig !== undefined) {
-    const node = se_HostedZoneConfig(input.HostedZoneConfig, context).withName("HostedZoneConfig");
-    bodyNode.addChildNode(node);
+  if (input[_HZC] != null) {
+    bn.c(se_HostedZoneConfig(input[_HZC], context).n(_HZC));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("DNSName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_DNSN, input[_N]).n(_N));
   }
-  if (input.VPC !== undefined) {
-    const node = se_VPC(input.VPC, context).withName("VPC");
-    bodyNode.addChildNode(node);
+  if (input[_VPC] != null) {
+    bn.c(se_VPC(input[_VPC], context).n(_VPC));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -704,46 +576,33 @@ export const se_CreateKeySigningKeyCommand = async (
   input: CreateKeySigningKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/keysigningkey";
+  b.bp("/2013-04-01/keysigningkey");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateKeySigningKeyRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.CallerReference !== undefined) {
-    const node = __XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CKSKR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_No, input[_CR]).n(_CR));
   }
-  if (input.HostedZoneId !== undefined) {
-    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
-    bodyNode.addChildNode(node);
+  if (input[_HZI] != null) {
+    bn.c(__XmlNode.of(_RI, input[_HZI]).n(_HZI));
   }
-  if (input.KeyManagementServiceArn !== undefined) {
-    const node = __XmlNode.of("SigningKeyString", input.KeyManagementServiceArn).withName("KeyManagementServiceArn");
-    bodyNode.addChildNode(node);
+  if (input[_KMSA] != null) {
+    bn.c(__XmlNode.of(_SKS, input[_KMSA]).n(_KMSA));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("SigningKeyName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_SKN, input[_N]).n(_N));
   }
-  if (input.Status !== undefined) {
-    const node = __XmlNode.of("SigningKeyStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_SKSi, input[_S]).n(_S));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -753,36 +612,22 @@ export const se_CreateQueryLoggingConfigCommand = async (
   input: CreateQueryLoggingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig";
+  b.bp("/2013-04-01/queryloggingconfig");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateQueryLoggingConfigRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.CloudWatchLogsLogGroupArn !== undefined) {
-    const node = __XmlNode
-      .of("CloudWatchLogsLogGroupArn", input.CloudWatchLogsLogGroupArn)
-      .withName("CloudWatchLogsLogGroupArn");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CQLCR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  bn.cc(input, _CWLLGA);
+  if (input[_HZI] != null) {
+    bn.c(__XmlNode.of(_RI, input[_HZI]).n(_HZI));
   }
-  if (input.HostedZoneId !== undefined) {
-    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -792,34 +637,24 @@ export const se_CreateReusableDelegationSetCommand = async (
   input: CreateReusableDelegationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset";
+  b.bp("/2013-04-01/delegationset");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateReusableDelegationSetRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.CallerReference !== undefined) {
-    const node = __XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CRDSR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_No, input[_CR]).n(_CR));
   }
-  if (input.HostedZoneId !== undefined) {
-    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
-    bodyNode.addChildNode(node);
+  if (input[_HZI] != null) {
+    bn.c(__XmlNode.of(_RI, input[_HZI]).n(_HZI));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -829,38 +664,27 @@ export const se_CreateTrafficPolicyCommand = async (
   input: CreateTrafficPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy";
+  b.bp("/2013-04-01/trafficpolicy");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateTrafficPolicyRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CTPR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_TPC, input[_C]).n(_C));
   }
-  if (input.Document !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyDocument", input.Document).withName("Document");
-    bodyNode.addChildNode(node);
+  if (input[_D] != null) {
+    bn.c(__XmlNode.of(_TPD, input[_D]).n(_D));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_TPN, input[_N]).n(_N));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -870,48 +694,31 @@ export const se_CreateTrafficPolicyInstanceCommand = async (
   input: CreateTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstance";
+  b.bp("/2013-04-01/trafficpolicyinstance");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateTrafficPolicyInstanceRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.HostedZoneId !== undefined) {
-    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CTPIR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_HZI] != null) {
+    bn.c(__XmlNode.of(_RI, input[_HZI]).n(_HZI));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("DNSName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_DNSN, input[_N]).n(_N));
   }
-  if (input.TTL !== undefined) {
-    const node = __XmlNode.of("TTL", String(input.TTL)).withName("TTL");
-    bodyNode.addChildNode(node);
+  if (input[_TTL] != null) {
+    bn.c(__XmlNode.of(_TTL, String(input[_TTL])).n(_TTL));
   }
-  if (input.TrafficPolicyId !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyId", input.TrafficPolicyId).withName("TrafficPolicyId");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _TPI);
+  if (input[_TPV] != null) {
+    bn.c(__XmlNode.of(_TPV, String(input[_TPV])).n(_TPV));
   }
-  if (input.TrafficPolicyVersion !== undefined) {
-    const node = __XmlNode
-      .of("TrafficPolicyVersion", String(input.TrafficPolicyVersion))
-      .withName("TrafficPolicyVersion");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -921,35 +728,25 @@ export const se_CreateTrafficPolicyVersionCommand = async (
   input: CreateTrafficPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/trafficpolicy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateTrafficPolicyVersionRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CTPVR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_TPC, input[_C]).n(_C));
   }
-  if (input.Document !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyDocument", input.Document).withName("Document");
-    bodyNode.addChildNode(node);
+  if (input[_D] != null) {
+    bn.c(__XmlNode.of(_TPD, input[_D]).n(_D));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -959,39 +756,22 @@ export const se_CreateVPCAssociationAuthorizationCommand = async (
   input: CreateVPCAssociationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateVPCAssociationAuthorizationRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.VPC !== undefined) {
-    const node = se_VPC(input.VPC, context).withName("VPC");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CVPCAAR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_VPC] != null) {
+    bn.c(se_VPC(input[_VPC], context).n(_VPC));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1001,30 +781,14 @@ export const se_DeactivateKeySigningKeyCommand = async (
   input: DeactivateKeySigningKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1034,21 +798,13 @@ export const se_DeleteCidrCollectionCommand = async (
   input: DeleteCidrCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/cidrcollection/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1058,28 +814,13 @@ export const se_DeleteHealthCheckCommand = async (
   input: DeleteHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck/{HealthCheckId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HealthCheckId",
-    () => input.HealthCheckId!,
-    "{HealthCheckId}",
-    false
-  );
+  b.bp("/2013-04-01/healthcheck/{HealthCheckId}");
+  b.p("HealthCheckId", () => input.HealthCheckId!, "{HealthCheckId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1089,21 +830,13 @@ export const se_DeleteHostedZoneCommand = async (
   input: DeleteHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/hostedzone/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1113,30 +846,14 @@ export const se_DeleteKeySigningKeyCommand = async (
   input: DeleteKeySigningKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2013-04-01/keysigningkey/{HostedZoneId}/{Name}");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1146,21 +863,13 @@ export const se_DeleteQueryLoggingConfigCommand = async (
   input: DeleteQueryLoggingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/queryloggingconfig/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1170,21 +879,13 @@ export const se_DeleteReusableDelegationSetCommand = async (
   input: DeleteReusableDelegationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/delegationset/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1194,22 +895,14 @@ export const se_DeleteTrafficPolicyCommand = async (
   input: DeleteTrafficPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy/{Id}/{Version}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Version", () => input.Version!.toString(), "{Version}", false);
+  b.bp("/2013-04-01/trafficpolicy/{Id}/{Version}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  b.p("Version", () => input.Version!.toString(), "{Version}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1219,21 +912,13 @@ export const se_DeleteTrafficPolicyInstanceCommand = async (
   input: DeleteTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstance/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/trafficpolicyinstance/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1243,39 +928,22 @@ export const se_DeleteVPCAssociationAuthorizationCommand = async (
   input: DeleteVPCAssociationAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("DeleteVPCAssociationAuthorizationRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.VPC !== undefined) {
-    const node = se_VPC(input.VPC, context).withName("VPC");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_DVPCAAR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_VPC] != null) {
+    bn.c(se_VPC(input[_VPC], context).n(_VPC));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1285,29 +953,13 @@ export const se_DisableHostedZoneDNSSECCommand = async (
   input: DisableHostedZoneDNSSECCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1317,43 +969,25 @@ export const se_DisassociateVPCFromHostedZoneCommand = async (
   input: DisassociateVPCFromHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("DisassociateVPCFromHostedZoneRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("DisassociateVPCComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_DVPCFHZR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_DVPCC, input[_C]).n(_C));
   }
-  if (input.VPC !== undefined) {
-    const node = se_VPC(input.VPC, context).withName("VPC");
-    bodyNode.addChildNode(node);
+  if (input[_VPC] != null) {
+    bn.c(se_VPC(input[_VPC], context).n(_VPC));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1363,29 +997,13 @@ export const se_EnableHostedZoneDNSSECCommand = async (
   input: EnableHostedZoneDNSSECCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1395,21 +1013,13 @@ export const se_GetAccountLimitCommand = async (
   input: GetAccountLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/accountlimit/{Type}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Type", () => input.Type!, "{Type}", false);
+  b.bp("/2013-04-01/accountlimit/{Type}");
+  b.p("Type", () => input.Type!, "{Type}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1419,20 +1029,13 @@ export const se_GetChangeCommand = async (
   input: GetChangeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/change/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/change/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1442,23 +1045,15 @@ export const se_GetCheckerIpRangesCommand = async (
   input: GetCheckerIpRangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/checkeripranges";
+  b.bp("/2013-04-01/checkeripranges");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1468,29 +1063,13 @@ export const se_GetDNSSECCommand = async (
   input: GetDNSSECCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/dnssec";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/dnssec");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1500,26 +1079,17 @@ export const se_GetGeoLocationCommand = async (
   input: GetGeoLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/geolocation";
+  b.bp("/2013-04-01/geolocation");
   const query: any = map({
-    continentcode: [, input.ContinentCode!],
-    countrycode: [, input.CountryCode!],
-    subdivisioncode: [, input.SubdivisionCode!],
+    [_c]: [, input[_CC]!],
+    [_co]: [, input[_CCo]!],
+    [_s]: [, input[_SC]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1529,28 +1099,13 @@ export const se_GetHealthCheckCommand = async (
   input: GetHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck/{HealthCheckId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HealthCheckId",
-    () => input.HealthCheckId!,
-    "{HealthCheckId}",
-    false
-  );
+  b.bp("/2013-04-01/healthcheck/{HealthCheckId}");
+  b.p("HealthCheckId", () => input.HealthCheckId!, "{HealthCheckId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1560,23 +1115,15 @@ export const se_GetHealthCheckCountCommand = async (
   input: GetHealthCheckCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheckcount";
+  b.bp("/2013-04-01/healthcheckcount");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1586,29 +1133,13 @@ export const se_GetHealthCheckLastFailureReasonCommand = async (
   input: GetHealthCheckLastFailureReasonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HealthCheckId",
-    () => input.HealthCheckId!,
-    "{HealthCheckId}",
-    false
-  );
+  b.bp("/2013-04-01/healthcheck/{HealthCheckId}/lastfailurereason");
+  b.p("HealthCheckId", () => input.HealthCheckId!, "{HealthCheckId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1618,29 +1149,13 @@ export const se_GetHealthCheckStatusCommand = async (
   input: GetHealthCheckStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/healthcheck/{HealthCheckId}/status";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HealthCheckId",
-    () => input.HealthCheckId!,
-    "{HealthCheckId}",
-    false
-  );
+  b.bp("/2013-04-01/healthcheck/{HealthCheckId}/status");
+  b.p("HealthCheckId", () => input.HealthCheckId!, "{HealthCheckId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1650,21 +1165,13 @@ export const se_GetHostedZoneCommand = async (
   input: GetHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/hostedzone/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1674,23 +1181,15 @@ export const se_GetHostedZoneCountCommand = async (
   input: GetHostedZoneCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonecount";
+  b.bp("/2013-04-01/hostedzonecount");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1700,30 +1199,14 @@ export const se_GetHostedZoneLimitCommand = async (
   input: GetHostedZoneLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Type", () => input.Type!, "{Type}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzonelimit/{HostedZoneId}/{Type}");
+  b.p("Type", () => input.Type!, "{Type}", false);
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1733,21 +1216,13 @@ export const se_GetQueryLoggingConfigCommand = async (
   input: GetQueryLoggingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/queryloggingconfig/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1757,21 +1232,13 @@ export const se_GetReusableDelegationSetCommand = async (
   input: GetReusableDelegationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/delegationset/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1781,30 +1248,14 @@ export const se_GetReusableDelegationSetLimitCommand = async (
   input: GetReusableDelegationSetLimitCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Type", () => input.Type!, "{Type}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DelegationSetId",
-    () => input.DelegationSetId!,
-    "{DelegationSetId}",
-    false
-  );
+  b.bp("/2013-04-01/reusabledelegationsetlimit/{DelegationSetId}/{Type}");
+  b.p("Type", () => input.Type!, "{Type}", false);
+  b.p("DelegationSetId", () => input.DelegationSetId!, "{DelegationSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1814,22 +1265,14 @@ export const se_GetTrafficPolicyCommand = async (
   input: GetTrafficPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy/{Id}/{Version}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Version", () => input.Version!.toString(), "{Version}", false);
+  b.bp("/2013-04-01/trafficpolicy/{Id}/{Version}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  b.p("Version", () => input.Version!.toString(), "{Version}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1839,21 +1282,13 @@ export const se_GetTrafficPolicyInstanceCommand = async (
   input: GetTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstance/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/trafficpolicyinstance/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1863,23 +1298,15 @@ export const se_GetTrafficPolicyInstanceCountCommand = async (
   input: GetTrafficPolicyInstanceCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstancecount";
+  b.bp("/2013-04-01/trafficpolicyinstancecount");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1889,35 +1316,18 @@ export const se_ListCidrBlocksCommand = async (
   input: ListCidrBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/cidrcollection/{CollectionId}/cidrblocks";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionId",
-    () => input.CollectionId!,
-    "{CollectionId}",
-    false
-  );
+  b.bp("/2013-04-01/cidrcollection/{CollectionId}/cidrblocks");
+  b.p("CollectionId", () => input.CollectionId!, "{CollectionId}", false);
   const query: any = map({
-    location: [, input.LocationName!],
-    nexttoken: [, input.NextToken!],
-    maxresults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_l]: [, input[_LN]!],
+    [_n]: [, input[_NT]!],
+    [_m]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1927,25 +1337,16 @@ export const se_ListCidrCollectionsCommand = async (
   input: ListCidrCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection";
+  b.bp("/2013-04-01/cidrcollection");
   const query: any = map({
-    nexttoken: [, input.NextToken!],
-    maxresults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_n]: [, input[_NT]!],
+    [_m]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1955,33 +1356,17 @@ export const se_ListCidrLocationsCommand = async (
   input: ListCidrLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection/{CollectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CollectionId",
-    () => input.CollectionId!,
-    "{CollectionId}",
-    false
-  );
+  b.bp("/2013-04-01/cidrcollection/{CollectionId}");
+  b.p("CollectionId", () => input.CollectionId!, "{CollectionId}", false);
   const query: any = map({
-    nexttoken: [, input.NextToken!],
-    maxresults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_n]: [, input[_NT]!],
+    [_m]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1991,27 +1376,18 @@ export const se_ListGeoLocationsCommand = async (
   input: ListGeoLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/geolocations";
+  b.bp("/2013-04-01/geolocations");
   const query: any = map({
-    startcontinentcode: [, input.StartContinentCode!],
-    startcountrycode: [, input.StartCountryCode!],
-    startsubdivisioncode: [, input.StartSubdivisionCode!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_st]: [, input[_SCC]!],
+    [_sta]: [, input[_SCCt]!],
+    [_star]: [, input[_SSC]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2021,25 +1397,16 @@ export const se_ListHealthChecksCommand = async (
   input: ListHealthChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
+  b.bp("/2013-04-01/healthcheck");
   const query: any = map({
-    marker: [, input.Marker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_mar]: [, input[_M]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2049,26 +1416,18 @@ export const se_ListHostedZonesCommand = async (
   input: ListHostedZonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
+  b.bp("/2013-04-01/hostedzone");
   const query: any = map({
-    marker: [, input.Marker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    delegationsetid: [, input.DelegationSetId!],
-    hostedzonetype: [, input.HostedZoneType!],
+    [_mar]: [, input[_M]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_d]: [, input[_DSI]!],
+    [_h]: [, input[_HZT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2078,26 +1437,17 @@ export const se_ListHostedZonesByNameCommand = async (
   input: ListHostedZonesByNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonesbyname";
+  b.bp("/2013-04-01/hostedzonesbyname");
   const query: any = map({
-    dnsname: [, input.DNSName!],
-    hostedzoneid: [, input.HostedZoneId!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_dn]: [, input[_DNSN]!],
+    [_ho]: [, input[_HZI]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2107,27 +1457,18 @@ export const se_ListHostedZonesByVPCCommand = async (
   input: ListHostedZonesByVPCCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonesbyvpc";
+  b.bp("/2013-04-01/hostedzonesbyvpc");
   const query: any = map({
-    vpcid: [, __expectNonNull(input.VPCId!, `VPCId`)],
-    vpcregion: [, __expectNonNull(input.VPCRegion!, `VPCRegion`)],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    nexttoken: [, input.NextToken!],
+    [_v]: [, __expectNonNull(input[_VPCI]!, `VPCId`)],
+    [_vp]: [, __expectNonNull(input[_VPCR]!, `VPCRegion`)],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_n]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2137,26 +1478,17 @@ export const se_ListQueryLoggingConfigsCommand = async (
   input: ListQueryLoggingConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig";
+  b.bp("/2013-04-01/queryloggingconfig");
   const query: any = map({
-    hostedzoneid: [, input.HostedZoneId!],
-    nexttoken: [, input.NextToken!],
-    maxresults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_ho]: [, input[_HZI]!],
+    [_n]: [, input[_NT]!],
+    [_m]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2166,36 +1498,19 @@ export const se_ListResourceRecordSetsCommand = async (
   input: ListResourceRecordSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/rrset";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/rrset");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   const query: any = map({
-    name: [, input.StartRecordName!],
-    type: [, input.StartRecordType!],
-    identifier: [, input.StartRecordIdentifier!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_na]: [, input[_SRN]!],
+    [_t]: [, input[_SRT]!],
+    [_i]: [, input[_SRI]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2205,25 +1520,16 @@ export const se_ListReusableDelegationSetsCommand = async (
   input: ListReusableDelegationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset";
+  b.bp("/2013-04-01/delegationset");
   const query: any = map({
-    marker: [, input.Marker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_mar]: [, input[_M]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2233,30 +1539,14 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/tags/{ResourceType}/{ResourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceType",
-    () => input.ResourceType!,
-    "{ResourceType}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/2013-04-01/tags/{ResourceType}/{ResourceId}");
+  b.p("ResourceType", () => input.ResourceType!, "{ResourceType}", false);
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2266,42 +1556,20 @@ export const se_ListTagsForResourcesCommand = async (
   input: ListTagsForResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/tags/{ResourceType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceType",
-    () => input.ResourceType!,
-    "{ResourceType}",
-    false
-  );
+  b.bp("/2013-04-01/tags/{ResourceType}");
+  b.p("ResourceType", () => input.ResourceType!, "{ResourceType}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ListTagsForResourcesRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.ResourceIds !== undefined) {
-    const nodes = se_TagResourceIdList(input.ResourceIds, context);
-    const containerNode = new __XmlNode("ResourceIds");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_LTFRR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  bn.lc(input, "ResourceIds", "ResourceIds", () => se_TagResourceIdList(input[_RIe]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2311,25 +1579,16 @@ export const se_ListTrafficPoliciesCommand = async (
   input: ListTrafficPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicies";
+  b.bp("/2013-04-01/trafficpolicies");
   const query: any = map({
-    trafficpolicyid: [, input.TrafficPolicyIdMarker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_tr]: [, input[_TPIM]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2339,27 +1598,18 @@ export const se_ListTrafficPolicyInstancesCommand = async (
   input: ListTrafficPolicyInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstances";
+  b.bp("/2013-04-01/trafficpolicyinstances");
   const query: any = map({
-    hostedzoneid: [, input.HostedZoneIdMarker!],
-    trafficpolicyinstancename: [, input.TrafficPolicyInstanceNameMarker!],
-    trafficpolicyinstancetype: [, input.TrafficPolicyInstanceTypeMarker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_ho]: [, input[_HZIM]!],
+    [_tra]: [, input[_TPINM]!],
+    [_traf]: [, input[_TPITM]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2369,28 +1619,18 @@ export const se_ListTrafficPolicyInstancesByHostedZoneCommand = async (
   input: ListTrafficPolicyInstancesByHostedZoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/trafficpolicyinstances/hostedzone";
+  b.bp("/2013-04-01/trafficpolicyinstances/hostedzone");
   const query: any = map({
-    id: [, __expectNonNull(input.HostedZoneId!, `HostedZoneId`)],
-    trafficpolicyinstancename: [, input.TrafficPolicyInstanceNameMarker!],
-    trafficpolicyinstancetype: [, input.TrafficPolicyInstanceTypeMarker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_id]: [, __expectNonNull(input[_HZI]!, `HostedZoneId`)],
+    [_tra]: [, input[_TPINM]!],
+    [_traf]: [, input[_TPITM]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2400,33 +1640,23 @@ export const se_ListTrafficPolicyInstancesByPolicyCommand = async (
   input: ListTrafficPolicyInstancesByPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/trafficpolicyinstances/trafficpolicy";
+  b.bp("/2013-04-01/trafficpolicyinstances/trafficpolicy");
   const query: any = map({
-    id: [, __expectNonNull(input.TrafficPolicyId!, `TrafficPolicyId`)],
-    version: [
+    [_id]: [, __expectNonNull(input[_TPI]!, `TrafficPolicyId`)],
+    [_ver]: [
       __expectNonNull(input.TrafficPolicyVersion, `TrafficPolicyVersion`) != null,
-      () => input.TrafficPolicyVersion!.toString(),
+      () => input[_TPV]!.toString(),
     ],
-    hostedzoneid: [, input.HostedZoneIdMarker!],
-    trafficpolicyinstancename: [, input.TrafficPolicyInstanceNameMarker!],
-    trafficpolicyinstancetype: [, input.TrafficPolicyInstanceTypeMarker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_ho]: [, input[_HZIM]!],
+    [_tra]: [, input[_TPINM]!],
+    [_traf]: [, input[_TPITM]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2436,26 +1666,17 @@ export const se_ListTrafficPolicyVersionsCommand = async (
   input: ListTrafficPolicyVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicies/{Id}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/trafficpolicies/{Id}/versions");
+  b.p("Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    trafficpolicyversion: [, input.TrafficPolicyVersionMarker!],
-    maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_traff]: [, input[_TPVM]!],
+    [_ma]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2465,34 +1686,17 @@ export const se_ListVPCAssociationAuthorizationsCommand = async (
   input: ListVPCAssociationAuthorizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HostedZoneId",
-    () => input.HostedZoneId!,
-    "{HostedZoneId}",
-    false
-  );
+  b.bp("/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation");
+  b.p("HostedZoneId", () => input.HostedZoneId!, "{HostedZoneId}", false);
   const query: any = map({
-    nexttoken: [, input.NextToken!],
-    maxresults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_n]: [, input[_NT]!],
+    [_m]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2502,29 +1706,20 @@ export const se_TestDNSAnswerCommand = async (
   input: TestDNSAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/testdnsanswer";
+  b.bp("/2013-04-01/testdnsanswer");
   const query: any = map({
-    hostedzoneid: [, __expectNonNull(input.HostedZoneId!, `HostedZoneId`)],
-    recordname: [, __expectNonNull(input.RecordName!, `RecordName`)],
-    recordtype: [, __expectNonNull(input.RecordType!, `RecordType`)],
-    resolverip: [, input.ResolverIP!],
-    edns0clientsubnetip: [, input.EDNS0ClientSubnetIP!],
-    edns0clientsubnetmask: [, input.EDNS0ClientSubnetMask!],
+    [_ho]: [, __expectNonNull(input[_HZI]!, `HostedZoneId`)],
+    [_r]: [, __expectNonNull(input[_RN]!, `RecordName`)],
+    [_re]: [, __expectNonNull(input[_RT]!, `RecordType`)],
+    [_res]: [, input[_RIP]!],
+    [_e]: [, input[_EDNSCSIP]!],
+    [_ed]: [, input[_EDNSCSM]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2534,114 +1729,51 @@ export const se_UpdateHealthCheckCommand = async (
   input: UpdateHealthCheckCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck/{HealthCheckId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HealthCheckId",
-    () => input.HealthCheckId!,
-    "{HealthCheckId}",
-    false
-  );
+  b.bp("/2013-04-01/healthcheck/{HealthCheckId}");
+  b.p("HealthCheckId", () => input.HealthCheckId!, "{HealthCheckId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateHealthCheckRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.AlarmIdentifier !== undefined) {
-    const node = se_AlarmIdentifier(input.AlarmIdentifier, context).withName("AlarmIdentifier");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_UHCR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_AI] != null) {
+    bn.c(se_AlarmIdentifier(input[_AI], context).n(_AI));
   }
-  if (input.ChildHealthChecks !== undefined) {
-    const nodes = se_ChildHealthCheckList(input.ChildHealthChecks, context);
-    const containerNode = new __XmlNode("ChildHealthChecks");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "ChildHealthChecks", "ChildHealthChecks", () => se_ChildHealthCheckList(input[_CHC]!, context));
+  if (input[_Di] != null) {
+    bn.c(__XmlNode.of(_Di, String(input[_Di])).n(_Di));
   }
-  if (input.Disabled !== undefined) {
-    const node = __XmlNode.of("Disabled", String(input.Disabled)).withName("Disabled");
-    bodyNode.addChildNode(node);
+  if (input[_ESNI] != null) {
+    bn.c(__XmlNode.of(_ESNI, String(input[_ESNI])).n(_ESNI));
   }
-  if (input.EnableSNI !== undefined) {
-    const node = __XmlNode.of("EnableSNI", String(input.EnableSNI)).withName("EnableSNI");
-    bodyNode.addChildNode(node);
+  if (input[_FT] != null) {
+    bn.c(__XmlNode.of(_FT, String(input[_FT])).n(_FT));
   }
-  if (input.FailureThreshold !== undefined) {
-    const node = __XmlNode.of("FailureThreshold", String(input.FailureThreshold)).withName("FailureThreshold");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _FQDN);
+  if (input[_HCV] != null) {
+    bn.c(__XmlNode.of(_HCV, String(input[_HCV])).n(_HCV));
   }
-  if (input.FullyQualifiedDomainName !== undefined) {
-    const node = __XmlNode
-      .of("FullyQualifiedDomainName", input.FullyQualifiedDomainName)
-      .withName("FullyQualifiedDomainName");
-    bodyNode.addChildNode(node);
+  if (input[_HT] != null) {
+    bn.c(__XmlNode.of(_HT, String(input[_HT])).n(_HT));
   }
-  if (input.HealthCheckVersion !== undefined) {
-    const node = __XmlNode.of("HealthCheckVersion", String(input.HealthCheckVersion)).withName("HealthCheckVersion");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _IPA);
+  bn.cc(input, _IDHS);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_I, String(input[_I])).n(_I));
   }
-  if (input.HealthThreshold !== undefined) {
-    const node = __XmlNode.of("HealthThreshold", String(input.HealthThreshold)).withName("HealthThreshold");
-    bodyNode.addChildNode(node);
+  if (input[_P] != null) {
+    bn.c(__XmlNode.of(_P, String(input[_P])).n(_P));
   }
-  if (input.IPAddress !== undefined) {
-    const node = __XmlNode.of("IPAddress", input.IPAddress).withName("IPAddress");
-    bodyNode.addChildNode(node);
-  }
-  if (input.InsufficientDataHealthStatus !== undefined) {
-    const node = __XmlNode
-      .of("InsufficientDataHealthStatus", input.InsufficientDataHealthStatus)
-      .withName("InsufficientDataHealthStatus");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Inverted !== undefined) {
-    const node = __XmlNode.of("Inverted", String(input.Inverted)).withName("Inverted");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Port !== undefined) {
-    const node = __XmlNode.of("Port", String(input.Port)).withName("Port");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Regions !== undefined) {
-    const nodes = se_HealthCheckRegionList(input.Regions, context);
-    const containerNode = new __XmlNode("Regions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.ResetElements !== undefined) {
-    const nodes = se_ResettableElementNameList(input.ResetElements, context);
-    const containerNode = new __XmlNode("ResetElements");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.ResourcePath !== undefined) {
-    const node = __XmlNode.of("ResourcePath", input.ResourcePath).withName("ResourcePath");
-    bodyNode.addChildNode(node);
-  }
-  if (input.SearchString !== undefined) {
-    const node = __XmlNode.of("SearchString", input.SearchString).withName("SearchString");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  bn.lc(input, "Regions", "Regions", () => se_HealthCheckRegionList(input[_R]!, context));
+  bn.lc(input, "ResetElements", "ResetElements", () => se_ResettableElementNameList(input[_RE]!, context));
+  bn.cc(input, _RP);
+  bn.cc(input, _SS);
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2651,31 +1783,22 @@ export const se_UpdateHostedZoneCommentCommand = async (
   input: UpdateHostedZoneCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/hostedzone/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateHostedZoneCommentRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_UHZCR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_RD, input[_C]).n(_C));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2685,32 +1808,23 @@ export const se_UpdateTrafficPolicyCommentCommand = async (
   input: UpdateTrafficPolicyCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy/{Id}/{Version}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Version", () => input.Version!.toString(), "{Version}", false);
+  b.bp("/2013-04-01/trafficpolicy/{Id}/{Version}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  b.p("Version", () => input.Version!.toString(), "{Version}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateTrafficPolicyCommentRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_UTPCR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_TPC, input[_C]).n(_C));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2720,41 +1834,26 @@ export const se_UpdateTrafficPolicyInstanceCommand = async (
   input: UpdateTrafficPolicyInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstance/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2013-04-01/trafficpolicyinstance/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateTrafficPolicyInstanceRequest");
-  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
-  if (input.TTL !== undefined) {
-    const node = __XmlNode.of("TTL", String(input.TTL)).withName("TTL");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_UTPIR);
+  bn.a("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input[_TTL] != null) {
+    bn.c(__XmlNode.of(_TTL, String(input[_TTL])).n(_TTL));
   }
-  if (input.TrafficPolicyId !== undefined) {
-    const node = __XmlNode.of("TrafficPolicyId", input.TrafficPolicyId).withName("TrafficPolicyId");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _TPI);
+  if (input[_TPV] != null) {
+    bn.c(__XmlNode.of(_TPV, String(input[_TPV])).n(_TPV));
   }
-  if (input.TrafficPolicyVersion !== undefined) {
-    const node = __XmlNode
-      .of("TrafficPolicyVersion", String(input.TrafficPolicyVersion))
-      .withName("TrafficPolicyVersion");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2771,8 +1870,8 @@ export const de_ActivateKeySigningKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -2832,8 +1931,8 @@ export const de_AssociateVPCWithHostedZoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -2899,8 +1998,8 @@ export const de_ChangeCidrCollectionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Id"] !== undefined) {
-    contents.Id = __expectString(data["Id"]);
+  if (data[_Id] != null) {
+    contents[_Id] = __expectString(data[_Id]);
   }
   return contents;
 };
@@ -2960,8 +2059,8 @@ export const de_ChangeResourceRecordSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -3071,11 +2170,11 @@ export const de_CreateCidrCollectionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Collection"] !== undefined) {
-    contents.Collection = de_CidrCollection(data["Collection"], context);
+  if (data[_Co] != null) {
+    contents[_Co] = de_CidrCollection(data[_Co], context);
   }
   return contents;
 };
@@ -3127,11 +2226,11 @@ export const de_CreateHealthCheckCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HealthCheck"] !== undefined) {
-    contents.HealthCheck = de_HealthCheck(data["HealthCheck"], context);
+  if (data[_HC] != null) {
+    contents[_HC] = de_HealthCheck(data[_HC], context);
   }
   return contents;
 };
@@ -3180,20 +2279,20 @@ export const de_CreateHostedZoneCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
-  if (data["DelegationSet"] !== undefined) {
-    contents.DelegationSet = de_DelegationSet(data["DelegationSet"], context);
+  if (data[_DS] != null) {
+    contents[_DS] = de_DelegationSet(data[_DS], context);
   }
-  if (data["HostedZone"] !== undefined) {
-    contents.HostedZone = de_HostedZone(data["HostedZone"], context);
+  if (data[_HZ] != null) {
+    contents[_HZ] = de_HostedZone(data[_HZ], context);
   }
-  if (data["VPC"] !== undefined) {
-    contents.VPC = de_VPC(data["VPC"], context);
+  if (data[_VPC] != null) {
+    contents[_VPC] = de_VPC(data[_VPC], context);
   }
   return contents;
 };
@@ -3260,14 +2359,14 @@ export const de_CreateKeySigningKeyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
-  if (data["KeySigningKey"] !== undefined) {
-    contents.KeySigningKey = de_KeySigningKey(data["KeySigningKey"], context);
+  if (data[_KSK] != null) {
+    contents[_KSK] = de_KeySigningKey(data[_KSK], context);
   }
   return contents;
 };
@@ -3337,11 +2436,11 @@ export const de_CreateQueryLoggingConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["QueryLoggingConfig"] !== undefined) {
-    contents.QueryLoggingConfig = de_QueryLoggingConfig(data["QueryLoggingConfig"], context);
+  if (data[_QLC] != null) {
+    contents[_QLC] = de_QueryLoggingConfig(data[_QLC], context);
   }
   return contents;
 };
@@ -3399,11 +2498,11 @@ export const de_CreateReusableDelegationSetCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["DelegationSet"] !== undefined) {
-    contents.DelegationSet = de_DelegationSet(data["DelegationSet"], context);
+  if (data[_DS] != null) {
+    contents[_DS] = de_DelegationSet(data[_DS], context);
   }
   return contents;
 };
@@ -3464,11 +2563,11 @@ export const de_CreateTrafficPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicy"] !== undefined) {
-    contents.TrafficPolicy = de_TrafficPolicy(data["TrafficPolicy"], context);
+  if (data[_TP] != null) {
+    contents[_TP] = de_TrafficPolicy(data[_TP], context);
   }
   return contents;
 };
@@ -3520,11 +2619,11 @@ export const de_CreateTrafficPolicyInstanceCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicyInstance"] !== undefined) {
-    contents.TrafficPolicyInstance = de_TrafficPolicyInstance(data["TrafficPolicyInstance"], context);
+  if (data[_TPIr] != null) {
+    contents[_TPIr] = de_TrafficPolicyInstance(data[_TPIr], context);
   }
   return contents;
 };
@@ -3579,11 +2678,11 @@ export const de_CreateTrafficPolicyVersionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_l]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicy"] !== undefined) {
-    contents.TrafficPolicy = de_TrafficPolicy(data["TrafficPolicy"], context);
+  if (data[_TP] != null) {
+    contents[_TP] = de_TrafficPolicy(data[_TP], context);
   }
   return contents;
 };
@@ -3640,11 +2739,11 @@ export const de_CreateVPCAssociationAuthorizationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(data["HostedZoneId"]);
+  if (data[_HZI] != null) {
+    contents[_HZI] = __expectString(data[_HZI]);
   }
-  if (data["VPC"] !== undefined) {
-    contents.VPC = de_VPC(data["VPC"], context);
+  if (data[_VPC] != null) {
+    contents[_VPC] = de_VPC(data[_VPC], context);
   }
   return contents;
 };
@@ -3701,8 +2800,8 @@ export const de_DeactivateKeySigningKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -3866,8 +2965,8 @@ export const de_DeleteHostedZoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -3924,8 +3023,8 @@ export const de_DeleteKeySigningKeyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -4242,8 +3341,8 @@ export const de_DisableHostedZoneDNSSECCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -4309,8 +3408,8 @@ export const de_DisassociateVPCFromHostedZoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -4367,8 +3466,8 @@ export const de_EnableHostedZoneDNSSECCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -4437,11 +3536,11 @@ export const de_GetAccountLimitCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Count"] !== undefined) {
-    contents.Count = __strictParseLong(data["Count"]) as number;
+  if (data[_Cou] != null) {
+    contents[_Cou] = __strictParseLong(data[_Cou]) as number;
   }
-  if (data["Limit"] !== undefined) {
-    contents.Limit = de_AccountLimit(data["Limit"], context);
+  if (data[_Li] != null) {
+    contents[_Li] = de_AccountLimit(data[_Li], context);
   }
   return contents;
 };
@@ -4486,8 +3585,8 @@ export const de_GetChangeCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ChangeInfo"] !== undefined) {
-    contents.ChangeInfo = de_ChangeInfo(data["ChangeInfo"], context);
+  if (data[_CI] != null) {
+    contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
 };
@@ -4536,9 +3635,9 @@ export const de_GetCheckerIpRangesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CheckerIpRanges === "") {
-    contents.CheckerIpRanges = [];
-  } else if (data["CheckerIpRanges"] !== undefined && data["CheckerIpRanges"]["member"] !== undefined) {
-    contents.CheckerIpRanges = de_CheckerIpRanges(__getArrayIfSingleItem(data["CheckerIpRanges"]["member"]), context);
+    contents[_CIR] = [];
+  } else if (data[_CIR] != null && data[_CIR][_me] != null) {
+    contents[_CIR] = de_CheckerIpRanges(__getArrayIfSingleItem(data[_CIR][_me]), context);
   }
   return contents;
 };
@@ -4578,12 +3677,12 @@ export const de_GetDNSSECCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KeySigningKeys === "") {
-    contents.KeySigningKeys = [];
-  } else if (data["KeySigningKeys"] !== undefined && data["KeySigningKeys"]["member"] !== undefined) {
-    contents.KeySigningKeys = de_KeySigningKeys(__getArrayIfSingleItem(data["KeySigningKeys"]["member"]), context);
+    contents[_KSKe] = [];
+  } else if (data[_KSKe] != null && data[_KSKe][_me] != null) {
+    contents[_KSKe] = de_KeySigningKeys(__getArrayIfSingleItem(data[_KSKe][_me]), context);
   }
-  if (data["Status"] !== undefined) {
-    contents.Status = de_DNSSECStatus(data["Status"], context);
+  if (data[_S] != null) {
+    contents[_S] = de_DNSSECStatus(data[_S], context);
   }
   return contents;
 };
@@ -4634,8 +3733,8 @@ export const de_GetGeoLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["GeoLocationDetails"] !== undefined) {
-    contents.GeoLocationDetails = de_GeoLocationDetails(data["GeoLocationDetails"], context);
+  if (data[_GLD] != null) {
+    contents[_GLD] = de_GeoLocationDetails(data[_GLD], context);
   }
   return contents;
 };
@@ -4683,8 +3782,8 @@ export const de_GetHealthCheckCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HealthCheck"] !== undefined) {
-    contents.HealthCheck = de_HealthCheck(data["HealthCheck"], context);
+  if (data[_HC] != null) {
+    contents[_HC] = de_HealthCheck(data[_HC], context);
   }
   return contents;
 };
@@ -4735,8 +3834,8 @@ export const de_GetHealthCheckCountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HealthCheckCount"] !== undefined) {
-    contents.HealthCheckCount = __strictParseLong(data["HealthCheckCount"]) as number;
+  if (data[_HCCe] != null) {
+    contents[_HCCe] = __strictParseLong(data[_HCCe]) as number;
   }
   return contents;
 };
@@ -4776,15 +3875,9 @@ export const de_GetHealthCheckLastFailureReasonCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthCheckObservations === "") {
-    contents.HealthCheckObservations = [];
-  } else if (
-    data["HealthCheckObservations"] !== undefined &&
-    data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
-  ) {
-    contents.HealthCheckObservations = de_HealthCheckObservations(
-      __getArrayIfSingleItem(data["HealthCheckObservations"]["HealthCheckObservation"]),
-      context
-    );
+    contents[_HCO] = [];
+  } else if (data[_HCO] != null && data[_HCO][_HCOe] != null) {
+    contents[_HCO] = de_HealthCheckObservations(__getArrayIfSingleItem(data[_HCO][_HCOe]), context);
   }
   return contents;
 };
@@ -4833,15 +3926,9 @@ export const de_GetHealthCheckStatusCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthCheckObservations === "") {
-    contents.HealthCheckObservations = [];
-  } else if (
-    data["HealthCheckObservations"] !== undefined &&
-    data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
-  ) {
-    contents.HealthCheckObservations = de_HealthCheckObservations(
-      __getArrayIfSingleItem(data["HealthCheckObservations"]["HealthCheckObservation"]),
-      context
-    );
+    contents[_HCO] = [];
+  } else if (data[_HCO] != null && data[_HCO][_HCOe] != null) {
+    contents[_HCO] = de_HealthCheckObservations(__getArrayIfSingleItem(data[_HCO][_HCOe]), context);
   }
   return contents;
 };
@@ -4889,16 +3976,16 @@ export const de_GetHostedZoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["DelegationSet"] !== undefined) {
-    contents.DelegationSet = de_DelegationSet(data["DelegationSet"], context);
+  if (data[_DS] != null) {
+    contents[_DS] = de_DelegationSet(data[_DS], context);
   }
-  if (data["HostedZone"] !== undefined) {
-    contents.HostedZone = de_HostedZone(data["HostedZone"], context);
+  if (data[_HZ] != null) {
+    contents[_HZ] = de_HostedZone(data[_HZ], context);
   }
   if (data.VPCs === "") {
-    contents.VPCs = [];
-  } else if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
-    contents.VPCs = de_VPCs(__getArrayIfSingleItem(data["VPCs"]["VPC"]), context);
+    contents[_VPCs] = [];
+  } else if (data[_VPCs] != null && data[_VPCs][_VPC] != null) {
+    contents[_VPCs] = de_VPCs(__getArrayIfSingleItem(data[_VPCs][_VPC]), context);
   }
   return contents;
 };
@@ -4946,8 +4033,8 @@ export const de_GetHostedZoneCountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HostedZoneCount"] !== undefined) {
-    contents.HostedZoneCount = __strictParseLong(data["HostedZoneCount"]) as number;
+  if (data[_HZCo] != null) {
+    contents[_HZCo] = __strictParseLong(data[_HZCo]) as number;
   }
   return contents;
 };
@@ -4992,11 +4079,11 @@ export const de_GetHostedZoneLimitCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Count"] !== undefined) {
-    contents.Count = __strictParseLong(data["Count"]) as number;
+  if (data[_Cou] != null) {
+    contents[_Cou] = __strictParseLong(data[_Cou]) as number;
   }
-  if (data["Limit"] !== undefined) {
-    contents.Limit = de_HostedZoneLimit(data["Limit"], context);
+  if (data[_Li] != null) {
+    contents[_Li] = de_HostedZoneLimit(data[_Li], context);
   }
   return contents;
 };
@@ -5047,8 +4134,8 @@ export const de_GetQueryLoggingConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["QueryLoggingConfig"] !== undefined) {
-    contents.QueryLoggingConfig = de_QueryLoggingConfig(data["QueryLoggingConfig"], context);
+  if (data[_QLC] != null) {
+    contents[_QLC] = de_QueryLoggingConfig(data[_QLC], context);
   }
   return contents;
 };
@@ -5096,8 +4183,8 @@ export const de_GetReusableDelegationSetCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["DelegationSet"] !== undefined) {
-    contents.DelegationSet = de_DelegationSet(data["DelegationSet"], context);
+  if (data[_DS] != null) {
+    contents[_DS] = de_DelegationSet(data[_DS], context);
   }
   return contents;
 };
@@ -5148,11 +4235,11 @@ export const de_GetReusableDelegationSetLimitCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Count"] !== undefined) {
-    contents.Count = __strictParseLong(data["Count"]) as number;
+  if (data[_Cou] != null) {
+    contents[_Cou] = __strictParseLong(data[_Cou]) as number;
   }
-  if (data["Limit"] !== undefined) {
-    contents.Limit = de_ReusableDelegationSetLimit(data["Limit"], context);
+  if (data[_Li] != null) {
+    contents[_Li] = de_ReusableDelegationSetLimit(data[_Li], context);
   }
   return contents;
 };
@@ -5200,8 +4287,8 @@ export const de_GetTrafficPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicy"] !== undefined) {
-    contents.TrafficPolicy = de_TrafficPolicy(data["TrafficPolicy"], context);
+  if (data[_TP] != null) {
+    contents[_TP] = de_TrafficPolicy(data[_TP], context);
   }
   return contents;
 };
@@ -5249,8 +4336,8 @@ export const de_GetTrafficPolicyInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicyInstance"] !== undefined) {
-    contents.TrafficPolicyInstance = de_TrafficPolicyInstance(data["TrafficPolicyInstance"], context);
+  if (data[_TPIr] != null) {
+    contents[_TPIr] = de_TrafficPolicyInstance(data[_TPIr], context);
   }
   return contents;
 };
@@ -5298,8 +4385,8 @@ export const de_GetTrafficPolicyInstanceCountCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicyInstanceCount"] !== undefined) {
-    contents.TrafficPolicyInstanceCount = __strictParseInt32(data["TrafficPolicyInstanceCount"]) as number;
+  if (data[_TPIC] != null) {
+    contents[_TPIC] = __strictParseInt32(data[_TPIC]) as number;
   }
   return contents;
 };
@@ -5339,12 +4426,12 @@ export const de_ListCidrBlocksCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CidrBlocks === "") {
-    contents.CidrBlocks = [];
-  } else if (data["CidrBlocks"] !== undefined && data["CidrBlocks"]["member"] !== undefined) {
-    contents.CidrBlocks = de_CidrBlockSummaries(__getArrayIfSingleItem(data["CidrBlocks"]["member"]), context);
+    contents[_CBi] = [];
+  } else if (data[_CBi] != null && data[_CBi][_me] != null) {
+    contents[_CBi] = de_CidrBlockSummaries(__getArrayIfSingleItem(data[_CBi][_me]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -5396,15 +4483,12 @@ export const de_ListCidrCollectionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CidrCollections === "") {
-    contents.CidrCollections = [];
-  } else if (data["CidrCollections"] !== undefined && data["CidrCollections"]["member"] !== undefined) {
-    contents.CidrCollections = de_CollectionSummaries(
-      __getArrayIfSingleItem(data["CidrCollections"]["member"]),
-      context
-    );
+    contents[_CCi] = [];
+  } else if (data[_CCi] != null && data[_CCi][_me] != null) {
+    contents[_CCi] = de_CollectionSummaries(__getArrayIfSingleItem(data[_CCi][_me]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -5450,12 +4534,12 @@ export const de_ListCidrLocationsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CidrLocations === "") {
-    contents.CidrLocations = [];
-  } else if (data["CidrLocations"] !== undefined && data["CidrLocations"]["member"] !== undefined) {
-    contents.CidrLocations = de_LocationSummaries(__getArrayIfSingleItem(data["CidrLocations"]["member"]), context);
+    contents[_CL] = [];
+  } else if (data[_CL] != null && data[_CL][_me] != null) {
+    contents[_CL] = de_LocationSummaries(__getArrayIfSingleItem(data[_CL][_me]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -5504,30 +4588,24 @@ export const de_ListGeoLocationsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GeoLocationDetailsList === "") {
-    contents.GeoLocationDetailsList = [];
-  } else if (
-    data["GeoLocationDetailsList"] !== undefined &&
-    data["GeoLocationDetailsList"]["GeoLocationDetails"] !== undefined
-  ) {
-    contents.GeoLocationDetailsList = de_GeoLocationDetailsList(
-      __getArrayIfSingleItem(data["GeoLocationDetailsList"]["GeoLocationDetails"]),
-      context
-    );
+    contents[_GLDL] = [];
+  } else if (data[_GLDL] != null && data[_GLDL][_GLD] != null) {
+    contents[_GLDL] = de_GeoLocationDetailsList(__getArrayIfSingleItem(data[_GLDL][_GLD]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextContinentCode"] !== undefined) {
-    contents.NextContinentCode = __expectString(data["NextContinentCode"]);
+  if (data[_NCC] != null) {
+    contents[_NCC] = __expectString(data[_NCC]);
   }
-  if (data["NextCountryCode"] !== undefined) {
-    contents.NextCountryCode = __expectString(data["NextCountryCode"]);
+  if (data[_NCCe] != null) {
+    contents[_NCCe] = __expectString(data[_NCCe]);
   }
-  if (data["NextSubdivisionCode"] !== undefined) {
-    contents.NextSubdivisionCode = __expectString(data["NextSubdivisionCode"]);
+  if (data[_NSC] != null) {
+    contents[_NSC] = __expectString(data[_NSC]);
   }
   return contents;
 };
@@ -5573,21 +4651,21 @@ export const de_ListHealthChecksCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthChecks === "") {
-    contents.HealthChecks = [];
-  } else if (data["HealthChecks"] !== undefined && data["HealthChecks"]["HealthCheck"] !== undefined) {
-    contents.HealthChecks = de_HealthChecks(__getArrayIfSingleItem(data["HealthChecks"]["HealthCheck"]), context);
+    contents[_HCe] = [];
+  } else if (data[_HCe] != null && data[_HCe][_HC] != null) {
+    contents[_HCe] = de_HealthChecks(__getArrayIfSingleItem(data[_HCe][_HC]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["Marker"] !== undefined) {
-    contents.Marker = __expectString(data["Marker"]);
+  if (data[_M] != null) {
+    contents[_M] = __expectString(data[_M]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(data["NextMarker"]);
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
   }
   return contents;
 };
@@ -5636,21 +4714,21 @@ export const de_ListHostedZonesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HostedZones === "") {
-    contents.HostedZones = [];
-  } else if (data["HostedZones"] !== undefined && data["HostedZones"]["HostedZone"] !== undefined) {
-    contents.HostedZones = de_HostedZones(__getArrayIfSingleItem(data["HostedZones"]["HostedZone"]), context);
+    contents[_HZo] = [];
+  } else if (data[_HZo] != null && data[_HZo][_HZ] != null) {
+    contents[_HZo] = de_HostedZones(__getArrayIfSingleItem(data[_HZo][_HZ]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["Marker"] !== undefined) {
-    contents.Marker = __expectString(data["Marker"]);
+  if (data[_M] != null) {
+    contents[_M] = __expectString(data[_M]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(data["NextMarker"]);
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
   }
   return contents;
 };
@@ -5701,28 +4779,28 @@ export const de_ListHostedZonesByNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["DNSName"] !== undefined) {
-    contents.DNSName = __expectString(data["DNSName"]);
+  if (data[_DNSN] != null) {
+    contents[_DNSN] = __expectString(data[_DNSN]);
   }
-  if (data["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(data["HostedZoneId"]);
+  if (data[_HZI] != null) {
+    contents[_HZI] = __expectString(data[_HZI]);
   }
   if (data.HostedZones === "") {
-    contents.HostedZones = [];
-  } else if (data["HostedZones"] !== undefined && data["HostedZones"]["HostedZone"] !== undefined) {
-    contents.HostedZones = de_HostedZones(__getArrayIfSingleItem(data["HostedZones"]["HostedZone"]), context);
+    contents[_HZo] = [];
+  } else if (data[_HZo] != null && data[_HZo][_HZ] != null) {
+    contents[_HZo] = de_HostedZones(__getArrayIfSingleItem(data[_HZo][_HZ]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextDNSName"] !== undefined) {
-    contents.NextDNSName = __expectString(data["NextDNSName"]);
+  if (data[_NDNSN] != null) {
+    contents[_NDNSN] = __expectString(data[_NDNSN]);
   }
-  if (data["NextHostedZoneId"] !== undefined) {
-    contents.NextHostedZoneId = __expectString(data["NextHostedZoneId"]);
+  if (data[_NHZI] != null) {
+    contents[_NHZI] = __expectString(data[_NHZI]);
   }
   return contents;
 };
@@ -5771,21 +4849,15 @@ export const de_ListHostedZonesByVPCCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HostedZoneSummaries === "") {
-    contents.HostedZoneSummaries = [];
-  } else if (
-    data["HostedZoneSummaries"] !== undefined &&
-    data["HostedZoneSummaries"]["HostedZoneSummary"] !== undefined
-  ) {
-    contents.HostedZoneSummaries = de_HostedZoneSummaries(
-      __getArrayIfSingleItem(data["HostedZoneSummaries"]["HostedZoneSummary"]),
-      context
-    );
+    contents[_HZS] = [];
+  } else if (data[_HZS] != null && data[_HZS][_HZSo] != null) {
+    contents[_HZS] = de_HostedZoneSummaries(__getArrayIfSingleItem(data[_HZS][_HZSo]), context);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -5833,19 +4905,13 @@ export const de_ListQueryLoggingConfigsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   if (data.QueryLoggingConfigs === "") {
-    contents.QueryLoggingConfigs = [];
-  } else if (
-    data["QueryLoggingConfigs"] !== undefined &&
-    data["QueryLoggingConfigs"]["QueryLoggingConfig"] !== undefined
-  ) {
-    contents.QueryLoggingConfigs = de_QueryLoggingConfigs(
-      __getArrayIfSingleItem(data["QueryLoggingConfigs"]["QueryLoggingConfig"]),
-      context
-    );
+    contents[_QLCu] = [];
+  } else if (data[_QLCu] != null && data[_QLCu][_QLC] != null) {
+    contents[_QLCu] = de_QueryLoggingConfigs(__getArrayIfSingleItem(data[_QLCu][_QLC]), context);
   }
   return contents;
 };
@@ -5896,31 +4962,25 @@ export const de_ListResourceRecordSetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextRecordIdentifier"] !== undefined) {
-    contents.NextRecordIdentifier = __expectString(data["NextRecordIdentifier"]);
+  if (data[_NRI] != null) {
+    contents[_NRI] = __expectString(data[_NRI]);
   }
-  if (data["NextRecordName"] !== undefined) {
-    contents.NextRecordName = __expectString(data["NextRecordName"]);
+  if (data[_NRN] != null) {
+    contents[_NRN] = __expectString(data[_NRN]);
   }
-  if (data["NextRecordType"] !== undefined) {
-    contents.NextRecordType = __expectString(data["NextRecordType"]);
+  if (data[_NRT] != null) {
+    contents[_NRT] = __expectString(data[_NRT]);
   }
   if (data.ResourceRecordSets === "") {
-    contents.ResourceRecordSets = [];
-  } else if (
-    data["ResourceRecordSets"] !== undefined &&
-    data["ResourceRecordSets"]["ResourceRecordSet"] !== undefined
-  ) {
-    contents.ResourceRecordSets = de_ResourceRecordSets(
-      __getArrayIfSingleItem(data["ResourceRecordSets"]["ResourceRecordSet"]),
-      context
-    );
+    contents[_RRS] = [];
+  } else if (data[_RRS] != null && data[_RRS][_RRSe] != null) {
+    contents[_RRS] = de_ResourceRecordSets(__getArrayIfSingleItem(data[_RRS][_RRSe]), context);
   }
   return contents;
 };
@@ -5969,24 +5029,21 @@ export const de_ListReusableDelegationSetsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DelegationSets === "") {
-    contents.DelegationSets = [];
-  } else if (data["DelegationSets"] !== undefined && data["DelegationSets"]["DelegationSet"] !== undefined) {
-    contents.DelegationSets = de_DelegationSets(
-      __getArrayIfSingleItem(data["DelegationSets"]["DelegationSet"]),
-      context
-    );
+    contents[_DSe] = [];
+  } else if (data[_DSe] != null && data[_DSe][_DS] != null) {
+    contents[_DSe] = de_DelegationSets(__getArrayIfSingleItem(data[_DSe][_DS]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["Marker"] !== undefined) {
-    contents.Marker = __expectString(data["Marker"]);
+  if (data[_M] != null) {
+    contents[_M] = __expectString(data[_M]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(data["NextMarker"]);
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
   }
   return contents;
 };
@@ -6031,8 +5088,8 @@ export const de_ListTagsForResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ResourceTagSet"] !== undefined) {
-    contents.ResourceTagSet = de_ResourceTagSet(data["ResourceTagSet"], context);
+  if (data[_RTS] != null) {
+    contents[_RTS] = de_ResourceTagSet(data[_RTS], context);
   }
   return contents;
 };
@@ -6090,12 +5147,9 @@ export const de_ListTagsForResourcesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ResourceTagSets === "") {
-    contents.ResourceTagSets = [];
-  } else if (data["ResourceTagSets"] !== undefined && data["ResourceTagSets"]["ResourceTagSet"] !== undefined) {
-    contents.ResourceTagSets = de_ResourceTagSetList(
-      __getArrayIfSingleItem(data["ResourceTagSets"]["ResourceTagSet"]),
-      context
-    );
+    contents[_RTSe] = [];
+  } else if (data[_RTSe] != null && data[_RTSe][_RTS] != null) {
+    contents[_RTSe] = de_ResourceTagSetList(__getArrayIfSingleItem(data[_RTSe][_RTS]), context);
   }
   return contents;
 };
@@ -6152,25 +5206,19 @@ export const de_ListTrafficPoliciesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["TrafficPolicyIdMarker"] !== undefined) {
-    contents.TrafficPolicyIdMarker = __expectString(data["TrafficPolicyIdMarker"]);
+  if (data[_TPIM] != null) {
+    contents[_TPIM] = __expectString(data[_TPIM]);
   }
   if (data.TrafficPolicySummaries === "") {
-    contents.TrafficPolicySummaries = [];
-  } else if (
-    data["TrafficPolicySummaries"] !== undefined &&
-    data["TrafficPolicySummaries"]["TrafficPolicySummary"] !== undefined
-  ) {
-    contents.TrafficPolicySummaries = de_TrafficPolicySummaries(
-      __getArrayIfSingleItem(data["TrafficPolicySummaries"]["TrafficPolicySummary"]),
-      context
-    );
+    contents[_TPS] = [];
+  } else if (data[_TPS] != null && data[_TPS][_TPSr] != null) {
+    contents[_TPS] = de_TrafficPolicySummaries(__getArrayIfSingleItem(data[_TPS][_TPSr]), context);
   }
   return contents;
 };
@@ -6215,31 +5263,25 @@ export const de_ListTrafficPolicyInstancesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HostedZoneIdMarker"] !== undefined) {
-    contents.HostedZoneIdMarker = __expectString(data["HostedZoneIdMarker"]);
+  if (data[_HZIM] != null) {
+    contents[_HZIM] = __expectString(data[_HZIM]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["TrafficPolicyInstanceNameMarker"] !== undefined) {
-    contents.TrafficPolicyInstanceNameMarker = __expectString(data["TrafficPolicyInstanceNameMarker"]);
+  if (data[_TPINM] != null) {
+    contents[_TPINM] = __expectString(data[_TPINM]);
   }
-  if (data["TrafficPolicyInstanceTypeMarker"] !== undefined) {
-    contents.TrafficPolicyInstanceTypeMarker = __expectString(data["TrafficPolicyInstanceTypeMarker"]);
+  if (data[_TPITM] != null) {
+    contents[_TPITM] = __expectString(data[_TPITM]);
   }
   if (data.TrafficPolicyInstances === "") {
-    contents.TrafficPolicyInstances = [];
-  } else if (
-    data["TrafficPolicyInstances"] !== undefined &&
-    data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
-  ) {
-    contents.TrafficPolicyInstances = de_TrafficPolicyInstances(
-      __getArrayIfSingleItem(data["TrafficPolicyInstances"]["TrafficPolicyInstance"]),
-      context
-    );
+    contents[_TPIra] = [];
+  } else if (data[_TPIra] != null && data[_TPIra][_TPIr] != null) {
+    contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
   }
   return contents;
 };
@@ -6287,28 +5329,22 @@ export const de_ListTrafficPolicyInstancesByHostedZoneCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["TrafficPolicyInstanceNameMarker"] !== undefined) {
-    contents.TrafficPolicyInstanceNameMarker = __expectString(data["TrafficPolicyInstanceNameMarker"]);
+  if (data[_TPINM] != null) {
+    contents[_TPINM] = __expectString(data[_TPINM]);
   }
-  if (data["TrafficPolicyInstanceTypeMarker"] !== undefined) {
-    contents.TrafficPolicyInstanceTypeMarker = __expectString(data["TrafficPolicyInstanceTypeMarker"]);
+  if (data[_TPITM] != null) {
+    contents[_TPITM] = __expectString(data[_TPITM]);
   }
   if (data.TrafficPolicyInstances === "") {
-    contents.TrafficPolicyInstances = [];
-  } else if (
-    data["TrafficPolicyInstances"] !== undefined &&
-    data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
-  ) {
-    contents.TrafficPolicyInstances = de_TrafficPolicyInstances(
-      __getArrayIfSingleItem(data["TrafficPolicyInstances"]["TrafficPolicyInstance"]),
-      context
-    );
+    contents[_TPIra] = [];
+  } else if (data[_TPIra] != null && data[_TPIra][_TPIr] != null) {
+    contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
   }
   return contents;
 };
@@ -6359,31 +5395,25 @@ export const de_ListTrafficPolicyInstancesByPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HostedZoneIdMarker"] !== undefined) {
-    contents.HostedZoneIdMarker = __expectString(data["HostedZoneIdMarker"]);
+  if (data[_HZIM] != null) {
+    contents[_HZIM] = __expectString(data[_HZIM]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
-  if (data["TrafficPolicyInstanceNameMarker"] !== undefined) {
-    contents.TrafficPolicyInstanceNameMarker = __expectString(data["TrafficPolicyInstanceNameMarker"]);
+  if (data[_TPINM] != null) {
+    contents[_TPINM] = __expectString(data[_TPINM]);
   }
-  if (data["TrafficPolicyInstanceTypeMarker"] !== undefined) {
-    contents.TrafficPolicyInstanceTypeMarker = __expectString(data["TrafficPolicyInstanceTypeMarker"]);
+  if (data[_TPITM] != null) {
+    contents[_TPITM] = __expectString(data[_TPITM]);
   }
   if (data.TrafficPolicyInstances === "") {
-    contents.TrafficPolicyInstances = [];
-  } else if (
-    data["TrafficPolicyInstances"] !== undefined &&
-    data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
-  ) {
-    contents.TrafficPolicyInstances = de_TrafficPolicyInstances(
-      __getArrayIfSingleItem(data["TrafficPolicyInstances"]["TrafficPolicyInstance"]),
-      context
-    );
+    contents[_TPIra] = [];
+  } else if (data[_TPIra] != null && data[_TPIra][_TPIr] != null) {
+    contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
   }
   return contents;
 };
@@ -6434,22 +5464,19 @@ export const de_ListTrafficPolicyVersionsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(data["MaxItems"]) as number;
+  if (data[_MI] != null) {
+    contents[_MI] = __strictParseInt32(data[_MI]) as number;
   }
   if (data.TrafficPolicies === "") {
-    contents.TrafficPolicies = [];
-  } else if (data["TrafficPolicies"] !== undefined && data["TrafficPolicies"]["TrafficPolicy"] !== undefined) {
-    contents.TrafficPolicies = de_TrafficPolicies(
-      __getArrayIfSingleItem(data["TrafficPolicies"]["TrafficPolicy"]),
-      context
-    );
+    contents[_TPr] = [];
+  } else if (data[_TPr] != null && data[_TPr][_TP] != null) {
+    contents[_TPr] = de_TrafficPolicies(__getArrayIfSingleItem(data[_TPr][_TP]), context);
   }
-  if (data["TrafficPolicyVersionMarker"] !== undefined) {
-    contents.TrafficPolicyVersionMarker = __expectString(data["TrafficPolicyVersionMarker"]);
+  if (data[_TPVM] != null) {
+    contents[_TPVM] = __expectString(data[_TPVM]);
   }
   return contents;
 };
@@ -6497,16 +5524,16 @@ export const de_ListVPCAssociationAuthorizationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(data["HostedZoneId"]);
+  if (data[_HZI] != null) {
+    contents[_HZI] = __expectString(data[_HZI]);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   if (data.VPCs === "") {
-    contents.VPCs = [];
-  } else if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
-    contents.VPCs = de_VPCs(__getArrayIfSingleItem(data["VPCs"]["VPC"]), context);
+    contents[_VPCs] = [];
+  } else if (data[_VPCs] != null && data[_VPCs][_VPC] != null) {
+    contents[_VPCs] = de_VPCs(__getArrayIfSingleItem(data[_VPCs][_VPC]), context);
   }
   return contents;
 };
@@ -6557,25 +5584,25 @@ export const de_TestDNSAnswerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Nameserver"] !== undefined) {
-    contents.Nameserver = __expectString(data["Nameserver"]);
+  if (data[_Na] != null) {
+    contents[_Na] = __expectString(data[_Na]);
   }
-  if (data["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(data["Protocol"]);
+  if (data[_Pr] != null) {
+    contents[_Pr] = __expectString(data[_Pr]);
   }
   if (data.RecordData === "") {
-    contents.RecordData = [];
-  } else if (data["RecordData"] !== undefined && data["RecordData"]["RecordDataEntry"] !== undefined) {
-    contents.RecordData = de_RecordData(__getArrayIfSingleItem(data["RecordData"]["RecordDataEntry"]), context);
+    contents[_RDe] = [];
+  } else if (data[_RDe] != null && data[_RDe][_RDE] != null) {
+    contents[_RDe] = de_RecordData(__getArrayIfSingleItem(data[_RDe][_RDE]), context);
   }
-  if (data["RecordName"] !== undefined) {
-    contents.RecordName = __expectString(data["RecordName"]);
+  if (data[_RN] != null) {
+    contents[_RN] = __expectString(data[_RN]);
   }
-  if (data["RecordType"] !== undefined) {
-    contents.RecordType = __expectString(data["RecordType"]);
+  if (data[_RT] != null) {
+    contents[_RT] = __expectString(data[_RT]);
   }
-  if (data["ResponseCode"] !== undefined) {
-    contents.ResponseCode = __expectString(data["ResponseCode"]);
+  if (data[_RC] != null) {
+    contents[_RC] = __expectString(data[_RC]);
   }
   return contents;
 };
@@ -6623,8 +5650,8 @@ export const de_UpdateHealthCheckCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HealthCheck"] !== undefined) {
-    contents.HealthCheck = de_HealthCheck(data["HealthCheck"], context);
+  if (data[_HC] != null) {
+    contents[_HC] = de_HealthCheck(data[_HC], context);
   }
   return contents;
 };
@@ -6675,8 +5702,8 @@ export const de_UpdateHostedZoneCommentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["HostedZone"] !== undefined) {
-    contents.HostedZone = de_HostedZone(data["HostedZone"], context);
+  if (data[_HZ] != null) {
+    contents[_HZ] = de_HostedZone(data[_HZ], context);
   }
   return contents;
 };
@@ -6727,8 +5754,8 @@ export const de_UpdateTrafficPolicyCommentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicy"] !== undefined) {
-    contents.TrafficPolicy = de_TrafficPolicy(data["TrafficPolicy"], context);
+  if (data[_TP] != null) {
+    contents[_TP] = de_TrafficPolicy(data[_TP], context);
   }
   return contents;
 };
@@ -6779,8 +5806,8 @@ export const de_UpdateTrafficPolicyInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["TrafficPolicyInstance"] !== undefined) {
-    contents.TrafficPolicyInstance = de_TrafficPolicyInstance(data["TrafficPolicyInstance"], context);
+  if (data[_TPIr] != null) {
+    contents[_TPIr] = de_TrafficPolicyInstance(data[_TPIr], context);
   }
   return contents;
 };
@@ -6833,8 +5860,8 @@ const de_CidrBlockInUseExceptionRes = async (
 ): Promise<CidrBlockInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CidrBlockInUseException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6852,8 +5879,8 @@ const de_CidrCollectionAlreadyExistsExceptionRes = async (
 ): Promise<CidrCollectionAlreadyExistsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CidrCollectionAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6871,8 +5898,8 @@ const de_CidrCollectionInUseExceptionRes = async (
 ): Promise<CidrCollectionInUseException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CidrCollectionInUseException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6890,8 +5917,8 @@ const de_CidrCollectionVersionMismatchExceptionRes = async (
 ): Promise<CidrCollectionVersionMismatchException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CidrCollectionVersionMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6909,8 +5936,8 @@ const de_ConcurrentModificationRes = async (
 ): Promise<ConcurrentModification> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new ConcurrentModification({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6928,8 +5955,8 @@ const de_ConflictingDomainExistsRes = async (
 ): Promise<ConflictingDomainExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new ConflictingDomainExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6944,8 +5971,8 @@ const de_ConflictingDomainExistsRes = async (
 const de_ConflictingTypesRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictingTypes> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new ConflictingTypes({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6963,8 +5990,8 @@ const de_DelegationSetAlreadyCreatedRes = async (
 ): Promise<DelegationSetAlreadyCreated> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new DelegationSetAlreadyCreated({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6982,8 +6009,8 @@ const de_DelegationSetAlreadyReusableRes = async (
 ): Promise<DelegationSetAlreadyReusable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new DelegationSetAlreadyReusable({
     $metadata: deserializeMetadata(parsedOutput),
@@ -6998,8 +6025,8 @@ const de_DelegationSetAlreadyReusableRes = async (
 const de_DelegationSetInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<DelegationSetInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new DelegationSetInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7017,8 +6044,8 @@ const de_DelegationSetNotAvailableRes = async (
 ): Promise<DelegationSetNotAvailable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new DelegationSetNotAvailable({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7036,8 +6063,8 @@ const de_DelegationSetNotReusableRes = async (
 ): Promise<DelegationSetNotReusable> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new DelegationSetNotReusable({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7052,8 +6079,8 @@ const de_DelegationSetNotReusableRes = async (
 const de_DNSSECNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<DNSSECNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new DNSSECNotFound({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7071,8 +6098,8 @@ const de_HealthCheckAlreadyExistsRes = async (
 ): Promise<HealthCheckAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HealthCheckAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7087,8 +6114,8 @@ const de_HealthCheckAlreadyExistsRes = async (
 const de_HealthCheckInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<HealthCheckInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HealthCheckInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7106,8 +6133,8 @@ const de_HealthCheckVersionMismatchRes = async (
 ): Promise<HealthCheckVersionMismatch> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HealthCheckVersionMismatch({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7125,8 +6152,8 @@ const de_HostedZoneAlreadyExistsRes = async (
 ): Promise<HostedZoneAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HostedZoneAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7141,8 +6168,8 @@ const de_HostedZoneAlreadyExistsRes = async (
 const de_HostedZoneNotEmptyRes = async (parsedOutput: any, context: __SerdeContext): Promise<HostedZoneNotEmpty> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HostedZoneNotEmpty({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7157,8 +6184,8 @@ const de_HostedZoneNotEmptyRes = async (parsedOutput: any, context: __SerdeConte
 const de_HostedZoneNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<HostedZoneNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HostedZoneNotFound({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7176,8 +6203,8 @@ const de_HostedZoneNotPrivateRes = async (
 ): Promise<HostedZoneNotPrivate> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HostedZoneNotPrivate({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7195,8 +6222,8 @@ const de_HostedZonePartiallyDelegatedRes = async (
 ): Promise<HostedZonePartiallyDelegated> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new HostedZonePartiallyDelegated({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7211,8 +6238,8 @@ const de_HostedZonePartiallyDelegatedRes = async (
 const de_IncompatibleVersionRes = async (parsedOutput: any, context: __SerdeContext): Promise<IncompatibleVersion> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new IncompatibleVersion({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7230,8 +6257,8 @@ const de_InsufficientCloudWatchLogsResourcePolicyRes = async (
 ): Promise<InsufficientCloudWatchLogsResourcePolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InsufficientCloudWatchLogsResourcePolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7246,8 +6273,8 @@ const de_InsufficientCloudWatchLogsResourcePolicyRes = async (
 const de_InvalidArgumentRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArgument> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidArgument({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7262,13 +6289,13 @@ const de_InvalidArgumentRes = async (parsedOutput: any, context: __SerdeContext)
 const de_InvalidChangeBatchRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidChangeBatch> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   if (data.messages === "") {
-    contents.messages = [];
-  } else if (data["messages"] !== undefined && data["messages"]["Message"] !== undefined) {
-    contents.messages = de_ErrorMessages(__getArrayIfSingleItem(data["messages"]["Message"]), context);
+    contents[_mess] = [];
+  } else if (data[_mess] != null && data[_mess][_Me] != null) {
+    contents[_mess] = de_ErrorMessages(__getArrayIfSingleItem(data[_mess][_Me]), context);
   }
   const exception = new InvalidChangeBatch({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7283,8 +6310,8 @@ const de_InvalidChangeBatchRes = async (parsedOutput: any, context: __SerdeConte
 const de_InvalidDomainNameRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidDomainName> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidDomainName({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7299,8 +6326,8 @@ const de_InvalidDomainNameRes = async (parsedOutput: any, context: __SerdeContex
 const de_InvalidInputRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidInput> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidInput({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7318,8 +6345,8 @@ const de_InvalidKeySigningKeyNameRes = async (
 ): Promise<InvalidKeySigningKeyName> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidKeySigningKeyName({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7337,8 +6364,8 @@ const de_InvalidKeySigningKeyStatusRes = async (
 ): Promise<InvalidKeySigningKeyStatus> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidKeySigningKeyStatus({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7353,8 +6380,8 @@ const de_InvalidKeySigningKeyStatusRes = async (
 const de_InvalidKMSArnRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidKMSArn> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidKMSArn({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7372,8 +6399,8 @@ const de_InvalidPaginationTokenRes = async (
 ): Promise<InvalidPaginationToken> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidPaginationToken({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7391,8 +6418,8 @@ const de_InvalidSigningStatusRes = async (
 ): Promise<InvalidSigningStatus> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidSigningStatus({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7410,8 +6437,8 @@ const de_InvalidTrafficPolicyDocumentRes = async (
 ): Promise<InvalidTrafficPolicyDocument> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidTrafficPolicyDocument({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7426,8 +6453,8 @@ const de_InvalidTrafficPolicyDocumentRes = async (
 const de_InvalidVPCIdRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidVPCId> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new InvalidVPCId({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7445,8 +6472,8 @@ const de_KeySigningKeyAlreadyExistsRes = async (
 ): Promise<KeySigningKeyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new KeySigningKeyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7464,8 +6491,8 @@ const de_KeySigningKeyInParentDSRecordRes = async (
 ): Promise<KeySigningKeyInParentDSRecord> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new KeySigningKeyInParentDSRecord({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7480,8 +6507,8 @@ const de_KeySigningKeyInParentDSRecordRes = async (
 const de_KeySigningKeyInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<KeySigningKeyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new KeySigningKeyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7499,8 +6526,8 @@ const de_KeySigningKeyWithActiveStatusNotFoundRes = async (
 ): Promise<KeySigningKeyWithActiveStatusNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new KeySigningKeyWithActiveStatusNotFound({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7515,8 +6542,8 @@ const de_KeySigningKeyWithActiveStatusNotFoundRes = async (
 const de_LastVPCAssociationRes = async (parsedOutput: any, context: __SerdeContext): Promise<LastVPCAssociation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new LastVPCAssociation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7531,8 +6558,8 @@ const de_LastVPCAssociationRes = async (parsedOutput: any, context: __SerdeConte
 const de_LimitsExceededRes = async (parsedOutput: any, context: __SerdeContext): Promise<LimitsExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new LimitsExceeded({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7547,8 +6574,8 @@ const de_LimitsExceededRes = async (parsedOutput: any, context: __SerdeContext):
 const de_NoSuchChangeRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchChange> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchChange({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7566,8 +6593,8 @@ const de_NoSuchCidrCollectionExceptionRes = async (
 ): Promise<NoSuchCidrCollectionException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchCidrCollectionException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7585,8 +6612,8 @@ const de_NoSuchCidrLocationExceptionRes = async (
 ): Promise<NoSuchCidrLocationException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchCidrLocationException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7604,8 +6631,8 @@ const de_NoSuchCloudWatchLogsLogGroupRes = async (
 ): Promise<NoSuchCloudWatchLogsLogGroup> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchCloudWatchLogsLogGroup({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7620,8 +6647,8 @@ const de_NoSuchCloudWatchLogsLogGroupRes = async (
 const de_NoSuchDelegationSetRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchDelegationSet> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchDelegationSet({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7636,8 +6663,8 @@ const de_NoSuchDelegationSetRes = async (parsedOutput: any, context: __SerdeCont
 const de_NoSuchGeoLocationRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchGeoLocation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchGeoLocation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7652,8 +6679,8 @@ const de_NoSuchGeoLocationRes = async (parsedOutput: any, context: __SerdeContex
 const de_NoSuchHealthCheckRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchHealthCheck> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchHealthCheck({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7668,8 +6695,8 @@ const de_NoSuchHealthCheckRes = async (parsedOutput: any, context: __SerdeContex
 const de_NoSuchHostedZoneRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchHostedZone> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchHostedZone({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7684,8 +6711,8 @@ const de_NoSuchHostedZoneRes = async (parsedOutput: any, context: __SerdeContext
 const de_NoSuchKeySigningKeyRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchKeySigningKey> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchKeySigningKey({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7703,8 +6730,8 @@ const de_NoSuchQueryLoggingConfigRes = async (
 ): Promise<NoSuchQueryLoggingConfig> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchQueryLoggingConfig({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7719,8 +6746,8 @@ const de_NoSuchQueryLoggingConfigRes = async (
 const de_NoSuchTrafficPolicyRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchTrafficPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchTrafficPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7738,8 +6765,8 @@ const de_NoSuchTrafficPolicyInstanceRes = async (
 ): Promise<NoSuchTrafficPolicyInstance> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NoSuchTrafficPolicyInstance({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7757,8 +6784,8 @@ const de_NotAuthorizedExceptionRes = async (
 ): Promise<NotAuthorizedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new NotAuthorizedException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7776,8 +6803,8 @@ const de_PriorRequestNotCompleteRes = async (
 ): Promise<PriorRequestNotComplete> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new PriorRequestNotComplete({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7795,8 +6822,8 @@ const de_PublicZoneVPCAssociationRes = async (
 ): Promise<PublicZoneVPCAssociation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new PublicZoneVPCAssociation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7814,8 +6841,8 @@ const de_QueryLoggingConfigAlreadyExistsRes = async (
 ): Promise<QueryLoggingConfigAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new QueryLoggingConfigAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7830,8 +6857,8 @@ const de_QueryLoggingConfigAlreadyExistsRes = async (
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7846,8 +6873,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_TooManyHealthChecksRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyHealthChecks> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyHealthChecks({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7862,8 +6889,8 @@ const de_TooManyHealthChecksRes = async (parsedOutput: any, context: __SerdeCont
 const de_TooManyHostedZonesRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyHostedZones> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyHostedZones({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7881,8 +6908,8 @@ const de_TooManyKeySigningKeysRes = async (
 ): Promise<TooManyKeySigningKeys> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyKeySigningKeys({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7900,8 +6927,8 @@ const de_TooManyTrafficPoliciesRes = async (
 ): Promise<TooManyTrafficPolicies> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyTrafficPolicies({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7919,8 +6946,8 @@ const de_TooManyTrafficPolicyInstancesRes = async (
 ): Promise<TooManyTrafficPolicyInstances> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyTrafficPolicyInstances({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7938,8 +6965,8 @@ const de_TooManyTrafficPolicyVersionsForCurrentPolicyRes = async (
 ): Promise<TooManyTrafficPolicyVersionsForCurrentPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyTrafficPolicyVersionsForCurrentPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7957,8 +6984,8 @@ const de_TooManyVPCAssociationAuthorizationsRes = async (
 ): Promise<TooManyVPCAssociationAuthorizations> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TooManyVPCAssociationAuthorizations({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7976,8 +7003,8 @@ const de_TrafficPolicyAlreadyExistsRes = async (
 ): Promise<TrafficPolicyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TrafficPolicyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -7995,8 +7022,8 @@ const de_TrafficPolicyInstanceAlreadyExistsRes = async (
 ): Promise<TrafficPolicyInstanceAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TrafficPolicyInstanceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8011,8 +7038,8 @@ const de_TrafficPolicyInstanceAlreadyExistsRes = async (
 const de_TrafficPolicyInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<TrafficPolicyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new TrafficPolicyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8030,8 +7057,8 @@ const de_VPCAssociationAuthorizationNotFoundRes = async (
 ): Promise<VPCAssociationAuthorizationNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new VPCAssociationAuthorizationNotFound({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8049,8 +7076,8 @@ const de_VPCAssociationNotFoundRes = async (
 ): Promise<VPCAssociationNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["message"] !== undefined) {
-    contents.message = __expectString(data["message"]);
+  if (data[_mes] != null) {
+    contents[_mes] = __expectString(data[_mes]);
   }
   const exception = new VPCAssociationNotFound({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8063,74 +7090,55 @@ const de_VPCAssociationNotFoundRes = async (
  * serializeAws_restXmlAlarmIdentifier
  */
 const se_AlarmIdentifier = (input: AlarmIdentifier, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AlarmIdentifier");
-  if (input.Region != null) {
-    const node = __XmlNode.of("CloudWatchRegion", input.Region).withName("Region");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AI);
+  if (input[_Re] != null) {
+    bn.c(__XmlNode.of(_CWR, input[_Re]).n(_Re));
   }
-  if (input.Name != null) {
-    const node = __XmlNode.of("AlarmName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_AN, input[_N]).n(_N));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAliasTarget
  */
 const se_AliasTarget = (input: AliasTarget, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AliasTarget");
-  if (input.HostedZoneId != null) {
-    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ATl);
+  if (input[_HZI] != null) {
+    bn.c(__XmlNode.of(_RI, input[_HZI]).n(_HZI));
   }
-  if (input.DNSName != null) {
-    const node = __XmlNode.of("DNSName", input.DNSName).withName("DNSName");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _DNSN);
+  if (input[_ETH] != null) {
+    bn.c(__XmlNode.of(_AHE, String(input[_ETH])).n(_ETH));
   }
-  if (input.EvaluateTargetHealth != null) {
-    const node = __XmlNode
-      .of("AliasHealthEnabled", String(input.EvaluateTargetHealth))
-      .withName("EvaluateTargetHealth");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlChange
  */
 const se_Change = (input: Change, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Change");
-  if (input.Action != null) {
-    const node = __XmlNode.of("ChangeAction", input.Action).withName("Action");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Cha);
+  if (input[_A] != null) {
+    bn.c(__XmlNode.of(_CA, input[_A]).n(_A));
   }
-  if (input.ResourceRecordSet != null) {
-    const node = se_ResourceRecordSet(input.ResourceRecordSet, context).withName("ResourceRecordSet");
-    bodyNode.addChildNode(node);
+  if (input[_RRSe] != null) {
+    bn.c(se_ResourceRecordSet(input[_RRSe], context).n(_RRSe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlChangeBatch
  */
 const se_ChangeBatch = (input: ChangeBatch, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ChangeBatch");
-  if (input.Comment != null) {
-    const node = __XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CB);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_RD, input[_C]).n(_C));
   }
-  if (input.Changes != null) {
-    const nodes = se_Changes(input.Changes, context);
-    const containerNode = new __XmlNode("Changes");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Changes", "Changes", () => se_Changes(input[_Ch]!, context));
+  return bn;
 };
 
 /**
@@ -8140,8 +7148,8 @@ const se_Changes = (input: Change[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Change(entry, context);
-      return node.withName("Change");
+      const n = se_Change(entry, context);
+      return n.n(_Cha);
     });
 };
 
@@ -8152,8 +7160,8 @@ const se_ChildHealthCheckList = (input: string[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("HealthCheckId", entry);
-      return node.withName("ChildHealthCheck");
+      const n = __XmlNode.of(_HCI, entry);
+      return n.n(_CHCh);
     });
 };
 
@@ -8161,24 +7169,15 @@ const se_ChildHealthCheckList = (input: string[], context: __SerdeContext): any 
  * serializeAws_restXmlCidrCollectionChange
  */
 const se_CidrCollectionChange = (input: CidrCollectionChange, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CidrCollectionChange");
-  if (input.LocationName != null) {
-    const node = __XmlNode.of("CidrLocationNameDefaultNotAllowed", input.LocationName).withName("LocationName");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CCC);
+  if (input[_LN] != null) {
+    bn.c(__XmlNode.of(_CLNDNA, input[_LN]).n(_LN));
   }
-  if (input.Action != null) {
-    const node = __XmlNode.of("CidrCollectionChangeAction", input.Action).withName("Action");
-    bodyNode.addChildNode(node);
+  if (input[_A] != null) {
+    bn.c(__XmlNode.of(_CCCA, input[_A]).n(_A));
   }
-  if (input.CidrList != null) {
-    const nodes = se_CidrList(input.CidrList, context);
-    const containerNode = new __XmlNode("CidrList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "CidrList", "CidrList", () => se_CidrList(input[_CLi]!, context));
+  return bn;
 };
 
 /**
@@ -8188,8 +7187,8 @@ const se_CidrCollectionChanges = (input: CidrCollectionChange[], context: __Serd
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_CidrCollectionChange(entry, context);
-      return node.withName("member");
+      const n = se_CidrCollectionChange(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -8200,8 +7199,8 @@ const se_CidrList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Cidr", entry);
-      return node.withName("Cidr");
+      const n = __XmlNode.of(_Ci, entry);
+      return n.n(_Ci);
     });
 };
 
@@ -8209,128 +7208,77 @@ const se_CidrList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlCidrRoutingConfig
  */
 const se_CidrRoutingConfig = (input: CidrRoutingConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CidrRoutingConfig");
-  if (input.CollectionId != null) {
-    const node = __XmlNode.of("UUID", input.CollectionId).withName("CollectionId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CRC);
+  if (input[_CIo] != null) {
+    bn.c(__XmlNode.of(_UUID, input[_CIo]).n(_CIo));
   }
-  if (input.LocationName != null) {
-    const node = __XmlNode.of("CidrLocationNameDefaultAllowed", input.LocationName).withName("LocationName");
-    bodyNode.addChildNode(node);
+  if (input[_LN] != null) {
+    bn.c(__XmlNode.of(_CLNDA, input[_LN]).n(_LN));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlGeoLocation
  */
 const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("GeoLocation");
-  if (input.ContinentCode != null) {
-    const node = __XmlNode.of("GeoLocationContinentCode", input.ContinentCode).withName("ContinentCode");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_GL);
+  if (input[_CC] != null) {
+    bn.c(__XmlNode.of(_GLCC, input[_CC]).n(_CC));
   }
-  if (input.CountryCode != null) {
-    const node = __XmlNode.of("GeoLocationCountryCode", input.CountryCode).withName("CountryCode");
-    bodyNode.addChildNode(node);
+  if (input[_CCo] != null) {
+    bn.c(__XmlNode.of(_GLCCe, input[_CCo]).n(_CCo));
   }
-  if (input.SubdivisionCode != null) {
-    const node = __XmlNode.of("GeoLocationSubdivisionCode", input.SubdivisionCode).withName("SubdivisionCode");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_GLSC, input[_SC]).n(_SC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlHealthCheckConfig
  */
 const se_HealthCheckConfig = (input: HealthCheckConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("HealthCheckConfig");
-  if (input.IPAddress != null) {
-    const node = __XmlNode.of("IPAddress", input.IPAddress).withName("IPAddress");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_HCC);
+  bn.cc(input, _IPA);
+  if (input[_P] != null) {
+    bn.c(__XmlNode.of(_P, String(input[_P])).n(_P));
   }
-  if (input.Port != null) {
-    const node = __XmlNode.of("Port", String(input.Port)).withName("Port");
-    bodyNode.addChildNode(node);
+  if (input[_T] != null) {
+    bn.c(__XmlNode.of(_HCT, input[_T]).n(_T));
   }
-  if (input.Type != null) {
-    const node = __XmlNode.of("HealthCheckType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _RP);
+  bn.cc(input, _FQDN);
+  bn.cc(input, _SS);
+  if (input[_RIeq] != null) {
+    bn.c(__XmlNode.of(_RIeq, String(input[_RIeq])).n(_RIeq));
   }
-  if (input.ResourcePath != null) {
-    const node = __XmlNode.of("ResourcePath", input.ResourcePath).withName("ResourcePath");
-    bodyNode.addChildNode(node);
+  if (input[_FT] != null) {
+    bn.c(__XmlNode.of(_FT, String(input[_FT])).n(_FT));
   }
-  if (input.FullyQualifiedDomainName != null) {
-    const node = __XmlNode
-      .of("FullyQualifiedDomainName", input.FullyQualifiedDomainName)
-      .withName("FullyQualifiedDomainName");
-    bodyNode.addChildNode(node);
+  if (input[_ML] != null) {
+    bn.c(__XmlNode.of(_ML, String(input[_ML])).n(_ML));
   }
-  if (input.SearchString != null) {
-    const node = __XmlNode.of("SearchString", input.SearchString).withName("SearchString");
-    bodyNode.addChildNode(node);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_I, String(input[_I])).n(_I));
   }
-  if (input.RequestInterval != null) {
-    const node = __XmlNode.of("RequestInterval", String(input.RequestInterval)).withName("RequestInterval");
-    bodyNode.addChildNode(node);
+  if (input[_Di] != null) {
+    bn.c(__XmlNode.of(_Di, String(input[_Di])).n(_Di));
   }
-  if (input.FailureThreshold != null) {
-    const node = __XmlNode.of("FailureThreshold", String(input.FailureThreshold)).withName("FailureThreshold");
-    bodyNode.addChildNode(node);
+  if (input[_HT] != null) {
+    bn.c(__XmlNode.of(_HT, String(input[_HT])).n(_HT));
   }
-  if (input.MeasureLatency != null) {
-    const node = __XmlNode.of("MeasureLatency", String(input.MeasureLatency)).withName("MeasureLatency");
-    bodyNode.addChildNode(node);
+  bn.lc(input, "ChildHealthChecks", "ChildHealthChecks", () => se_ChildHealthCheckList(input[_CHC]!, context));
+  if (input[_ESNI] != null) {
+    bn.c(__XmlNode.of(_ESNI, String(input[_ESNI])).n(_ESNI));
   }
-  if (input.Inverted != null) {
-    const node = __XmlNode.of("Inverted", String(input.Inverted)).withName("Inverted");
-    bodyNode.addChildNode(node);
+  bn.lc(input, "Regions", "Regions", () => se_HealthCheckRegionList(input[_R]!, context));
+  if (input[_AI] != null) {
+    bn.c(se_AlarmIdentifier(input[_AI], context).n(_AI));
   }
-  if (input.Disabled != null) {
-    const node = __XmlNode.of("Disabled", String(input.Disabled)).withName("Disabled");
-    bodyNode.addChildNode(node);
-  }
-  if (input.HealthThreshold != null) {
-    const node = __XmlNode.of("HealthThreshold", String(input.HealthThreshold)).withName("HealthThreshold");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ChildHealthChecks != null) {
-    const nodes = se_ChildHealthCheckList(input.ChildHealthChecks, context);
-    const containerNode = new __XmlNode("ChildHealthChecks");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.EnableSNI != null) {
-    const node = __XmlNode.of("EnableSNI", String(input.EnableSNI)).withName("EnableSNI");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Regions != null) {
-    const nodes = se_HealthCheckRegionList(input.Regions, context);
-    const containerNode = new __XmlNode("Regions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.AlarmIdentifier != null) {
-    const node = se_AlarmIdentifier(input.AlarmIdentifier, context).withName("AlarmIdentifier");
-    bodyNode.addChildNode(node);
-  }
-  if (input.InsufficientDataHealthStatus != null) {
-    const node = __XmlNode
-      .of("InsufficientDataHealthStatus", input.InsufficientDataHealthStatus)
-      .withName("InsufficientDataHealthStatus");
-    bodyNode.addChildNode(node);
-  }
-  if (input.RoutingControlArn != null) {
-    const node = __XmlNode.of("RoutingControlArn", input.RoutingControlArn).withName("RoutingControlArn");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _IDHS);
+  bn.cc(input, _RCA);
+  return bn;
 };
 
 /**
@@ -8340,8 +7288,8 @@ const se_HealthCheckRegionList = (input: HealthCheckRegion[], context: __SerdeCo
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("HealthCheckRegion", entry);
-      return node.withName("Region");
+      const n = __XmlNode.of(_HCR, entry);
+      return n.n(_Re);
     });
 };
 
@@ -8349,16 +7297,14 @@ const se_HealthCheckRegionList = (input: HealthCheckRegion[], context: __SerdeCo
  * serializeAws_restXmlHostedZoneConfig
  */
 const se_HostedZoneConfig = (input: HostedZoneConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("HostedZoneConfig");
-  if (input.Comment != null) {
-    const node = __XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_HZC);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_RD, input[_C]).n(_C));
   }
-  if (input.PrivateZone != null) {
-    const node = __XmlNode.of("IsPrivateZone", String(input.PrivateZone)).withName("PrivateZone");
-    bodyNode.addChildNode(node);
+  if (input[_PZ] != null) {
+    bn.c(__XmlNode.of(_IPZ, String(input[_PZ])).n(_PZ));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8368,8 +7314,8 @@ const se_ResettableElementNameList = (input: ResettableElementName[], context: _
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("ResettableElementName", entry);
-      return node.withName("ResettableElementName");
+      const n = __XmlNode.of(_REN, entry);
+      return n.n(_REN);
     });
 };
 
@@ -8377,12 +7323,11 @@ const se_ResettableElementNameList = (input: ResettableElementName[], context: _
  * serializeAws_restXmlResourceRecord
  */
 const se_ResourceRecord = (input: ResourceRecord, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ResourceRecord");
-  if (input.Value != null) {
-    const node = __XmlNode.of("RData", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RR);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_RDa, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8392,8 +7337,8 @@ const se_ResourceRecords = (input: ResourceRecord[], context: __SerdeContext): a
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ResourceRecord(entry, context);
-      return node.withName("ResourceRecord");
+      const n = se_ResourceRecord(entry, context);
+      return n.n(_RR);
     });
 };
 
@@ -8401,88 +7346,58 @@ const se_ResourceRecords = (input: ResourceRecord[], context: __SerdeContext): a
  * serializeAws_restXmlResourceRecordSet
  */
 const se_ResourceRecordSet = (input: ResourceRecordSet, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ResourceRecordSet");
-  if (input.Name != null) {
-    const node = __XmlNode.of("DNSName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RRSe);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_DNSN, input[_N]).n(_N));
   }
-  if (input.Type != null) {
-    const node = __XmlNode.of("RRType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
+  if (input[_T] != null) {
+    bn.c(__XmlNode.of(_RRT, input[_T]).n(_T));
   }
-  if (input.SetIdentifier != null) {
-    const node = __XmlNode.of("ResourceRecordSetIdentifier", input.SetIdentifier).withName("SetIdentifier");
-    bodyNode.addChildNode(node);
+  if (input[_SI] != null) {
+    bn.c(__XmlNode.of(_RRSI, input[_SI]).n(_SI));
   }
-  if (input.Weight != null) {
-    const node = __XmlNode.of("ResourceRecordSetWeight", String(input.Weight)).withName("Weight");
-    bodyNode.addChildNode(node);
+  if (input[_W] != null) {
+    bn.c(__XmlNode.of(_RRSW, String(input[_W])).n(_W));
   }
-  if (input.Region != null) {
-    const node = __XmlNode.of("ResourceRecordSetRegion", input.Region).withName("Region");
-    bodyNode.addChildNode(node);
+  if (input[_Re] != null) {
+    bn.c(__XmlNode.of(_RRSR, input[_Re]).n(_Re));
   }
-  if (input.GeoLocation != null) {
-    const node = se_GeoLocation(input.GeoLocation, context).withName("GeoLocation");
-    bodyNode.addChildNode(node);
+  if (input[_GL] != null) {
+    bn.c(se_GeoLocation(input[_GL], context).n(_GL));
   }
-  if (input.Failover != null) {
-    const node = __XmlNode.of("ResourceRecordSetFailover", input.Failover).withName("Failover");
-    bodyNode.addChildNode(node);
+  if (input[_F] != null) {
+    bn.c(__XmlNode.of(_RRSF, input[_F]).n(_F));
   }
-  if (input.MultiValueAnswer != null) {
-    const node = __XmlNode
-      .of("ResourceRecordSetMultiValueAnswer", String(input.MultiValueAnswer))
-      .withName("MultiValueAnswer");
-    bodyNode.addChildNode(node);
+  if (input[_MVA] != null) {
+    bn.c(__XmlNode.of(_RRSMVA, String(input[_MVA])).n(_MVA));
   }
-  if (input.TTL != null) {
-    const node = __XmlNode.of("TTL", String(input.TTL)).withName("TTL");
-    bodyNode.addChildNode(node);
+  if (input[_TTL] != null) {
+    bn.c(__XmlNode.of(_TTL, String(input[_TTL])).n(_TTL));
   }
-  if (input.ResourceRecords != null) {
-    const nodes = se_ResourceRecords(input.ResourceRecords, context);
-    const containerNode = new __XmlNode("ResourceRecords");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "ResourceRecords", "ResourceRecords", () => se_ResourceRecords(input[_RRe]!, context));
+  if (input[_ATl] != null) {
+    bn.c(se_AliasTarget(input[_ATl], context).n(_ATl));
   }
-  if (input.AliasTarget != null) {
-    const node = se_AliasTarget(input.AliasTarget, context).withName("AliasTarget");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _HCI);
+  bn.cc(input, _TPII);
+  if (input[_CRC] != null) {
+    bn.c(se_CidrRoutingConfig(input[_CRC], context).n(_CRC));
   }
-  if (input.HealthCheckId != null) {
-    const node = __XmlNode.of("HealthCheckId", input.HealthCheckId).withName("HealthCheckId");
-    bodyNode.addChildNode(node);
-  }
-  if (input.TrafficPolicyInstanceId != null) {
-    const node = __XmlNode
-      .of("TrafficPolicyInstanceId", input.TrafficPolicyInstanceId)
-      .withName("TrafficPolicyInstanceId");
-    bodyNode.addChildNode(node);
-  }
-  if (input.CidrRoutingConfig != null) {
-    const node = se_CidrRoutingConfig(input.CidrRoutingConfig, context).withName("CidrRoutingConfig");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tag");
-  if (input.Key != null) {
-    const node = __XmlNode.of("TagKey", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Ta);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_TK, input[_K]).n(_K));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("TagValue", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_TV, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8492,8 +7407,8 @@ const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("TagKey", entry);
-      return node.withName("Key");
+      const n = __XmlNode.of(_TK, entry);
+      return n.n(_K);
     });
 };
 
@@ -8504,8 +7419,8 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Tag(entry, context);
-      return node.withName("Tag");
+      const n = se_Tag(entry, context);
+      return n.n(_Ta);
     });
 };
 
@@ -8516,8 +7431,8 @@ const se_TagResourceIdList = (input: string[], context: __SerdeContext): any => 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("TagResourceId", entry);
-      return node.withName("ResourceId");
+      const n = __XmlNode.of(_TRI, entry);
+      return n.n(_RI);
     });
 };
 
@@ -8525,16 +7440,10 @@ const se_TagResourceIdList = (input: string[], context: __SerdeContext): any => 
  * serializeAws_restXmlVPC
  */
 const se_VPC = (input: VPC, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("VPC");
-  if (input.VPCRegion != null) {
-    const node = __XmlNode.of("VPCRegion", input.VPCRegion).withName("VPCRegion");
-    bodyNode.addChildNode(node);
-  }
-  if (input.VPCId != null) {
-    const node = __XmlNode.of("VPCId", input.VPCId).withName("VPCId");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_VPC);
+  bn.cc(input, _VPCR);
+  bn.cc(input, _VPCI);
+  return bn;
 };
 
 /**
@@ -8542,11 +7451,11 @@ const se_VPC = (input: VPC, context: __SerdeContext): any => {
  */
 const de_AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __strictParseLong(output["Value"]) as number;
+  if (output[_V] != null) {
+    contents[_V] = __strictParseLong(output[_V]) as number;
   }
   return contents;
 };
@@ -8556,11 +7465,11 @@ const de_AccountLimit = (output: any, context: __SerdeContext): AccountLimit => 
  */
 const de_AlarmIdentifier = (output: any, context: __SerdeContext): AlarmIdentifier => {
   const contents: any = {};
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   return contents;
 };
@@ -8570,14 +7479,14 @@ const de_AlarmIdentifier = (output: any, context: __SerdeContext): AlarmIdentifi
  */
 const de_AliasTarget = (output: any, context: __SerdeContext): AliasTarget => {
   const contents: any = {};
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
-  if (output["DNSName"] !== undefined) {
-    contents.DNSName = __expectString(output["DNSName"]);
+  if (output[_DNSN] != null) {
+    contents[_DNSN] = __expectString(output[_DNSN]);
   }
-  if (output["EvaluateTargetHealth"] !== undefined) {
-    contents.EvaluateTargetHealth = __parseBoolean(output["EvaluateTargetHealth"]);
+  if (output[_ETH] != null) {
+    contents[_ETH] = __parseBoolean(output[_ETH]);
   }
   return contents;
 };
@@ -8587,17 +7496,17 @@ const de_AliasTarget = (output: any, context: __SerdeContext): AliasTarget => {
  */
 const de_ChangeInfo = (output: any, context: __SerdeContext): ChangeInfo => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["SubmittedAt"] !== undefined) {
-    contents.SubmittedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SubmittedAt"]));
+  if (output[_SA] != null) {
+    contents[_SA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SA]));
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -8640,11 +7549,11 @@ const de_CidrBlockSummaries = (output: any, context: __SerdeContext): CidrBlockS
  */
 const de_CidrBlockSummary = (output: any, context: __SerdeContext): CidrBlockSummary => {
   const contents: any = {};
-  if (output["CidrBlock"] !== undefined) {
-    contents.CidrBlock = __expectString(output["CidrBlock"]);
+  if (output[_CBid] != null) {
+    contents[_CBid] = __expectString(output[_CBid]);
   }
-  if (output["LocationName"] !== undefined) {
-    contents.LocationName = __expectString(output["LocationName"]);
+  if (output[_LN] != null) {
+    contents[_LN] = __expectString(output[_LN]);
   }
   return contents;
 };
@@ -8654,17 +7563,17 @@ const de_CidrBlockSummary = (output: any, context: __SerdeContext): CidrBlockSum
  */
 const de_CidrCollection = (output: any, context: __SerdeContext): CidrCollection => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __strictParseLong(output["Version"]) as number;
+  if (output[_Ve] != null) {
+    contents[_Ve] = __strictParseLong(output[_Ve]) as number;
   }
   return contents;
 };
@@ -8674,11 +7583,11 @@ const de_CidrCollection = (output: any, context: __SerdeContext): CidrCollection
  */
 const de_CidrRoutingConfig = (output: any, context: __SerdeContext): CidrRoutingConfig => {
   const contents: any = {};
-  if (output["CollectionId"] !== undefined) {
-    contents.CollectionId = __expectString(output["CollectionId"]);
+  if (output[_CIo] != null) {
+    contents[_CIo] = __expectString(output[_CIo]);
   }
-  if (output["LocationName"] !== undefined) {
-    contents.LocationName = __expectString(output["LocationName"]);
+  if (output[_LN] != null) {
+    contents[_LN] = __expectString(output[_LN]);
   }
   return contents;
 };
@@ -8688,31 +7597,31 @@ const de_CidrRoutingConfig = (output: any, context: __SerdeContext): CidrRouting
  */
 const de_CloudWatchAlarmConfiguration = (output: any, context: __SerdeContext): CloudWatchAlarmConfiguration => {
   const contents: any = {};
-  if (output["EvaluationPeriods"] !== undefined) {
-    contents.EvaluationPeriods = __strictParseInt32(output["EvaluationPeriods"]) as number;
+  if (output[_EP] != null) {
+    contents[_EP] = __strictParseInt32(output[_EP]) as number;
   }
-  if (output["Threshold"] !== undefined) {
-    contents.Threshold = __strictParseFloat(output["Threshold"]) as number;
+  if (output[_Th] != null) {
+    contents[_Th] = __strictParseFloat(output[_Th]) as number;
   }
-  if (output["ComparisonOperator"] !== undefined) {
-    contents.ComparisonOperator = __expectString(output["ComparisonOperator"]);
+  if (output[_CO] != null) {
+    contents[_CO] = __expectString(output[_CO]);
   }
-  if (output["Period"] !== undefined) {
-    contents.Period = __strictParseInt32(output["Period"]) as number;
+  if (output[_Pe] != null) {
+    contents[_Pe] = __strictParseInt32(output[_Pe]) as number;
   }
-  if (output["MetricName"] !== undefined) {
-    contents.MetricName = __expectString(output["MetricName"]);
+  if (output[_MN] != null) {
+    contents[_MN] = __expectString(output[_MN]);
   }
-  if (output["Namespace"] !== undefined) {
-    contents.Namespace = __expectString(output["Namespace"]);
+  if (output[_Nam] != null) {
+    contents[_Nam] = __expectString(output[_Nam]);
   }
-  if (output["Statistic"] !== undefined) {
-    contents.Statistic = __expectString(output["Statistic"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   if (output.Dimensions === "") {
-    contents.Dimensions = [];
-  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["Dimension"] !== undefined) {
-    contents.Dimensions = de_DimensionList(__getArrayIfSingleItem(output["Dimensions"]["Dimension"]), context);
+    contents[_Dim] = [];
+  } else if (output[_Dim] != null && output[_Dim][_Dime] != null) {
+    contents[_Dim] = de_DimensionList(__getArrayIfSingleItem(output[_Dim][_Dime]), context);
   }
   return contents;
 };
@@ -8733,17 +7642,17 @@ const de_CollectionSummaries = (output: any, context: __SerdeContext): Collectio
  */
 const de_CollectionSummary = (output: any, context: __SerdeContext): CollectionSummary => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __strictParseLong(output["Version"]) as number;
+  if (output[_Ve] != null) {
+    contents[_Ve] = __strictParseLong(output[_Ve]) as number;
   }
   return contents;
 };
@@ -8753,19 +7662,16 @@ const de_CollectionSummary = (output: any, context: __SerdeContext): CollectionS
  */
 const de_DelegationSet = (output: any, context: __SerdeContext): DelegationSet => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
   if (output.NameServers === "") {
-    contents.NameServers = [];
-  } else if (output["NameServers"] !== undefined && output["NameServers"]["NameServer"] !== undefined) {
-    contents.NameServers = de_DelegationSetNameServers(
-      __getArrayIfSingleItem(output["NameServers"]["NameServer"]),
-      context
-    );
+    contents[_NS] = [];
+  } else if (output[_NS] != null && output[_NS][_NSa] != null) {
+    contents[_NS] = de_DelegationSetNameServers(__getArrayIfSingleItem(output[_NS][_NSa]), context);
   }
   return contents;
 };
@@ -8797,11 +7703,11 @@ const de_DelegationSets = (output: any, context: __SerdeContext): DelegationSet[
  */
 const de_Dimension = (output: any, context: __SerdeContext): Dimension => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -8822,11 +7728,11 @@ const de_DimensionList = (output: any, context: __SerdeContext): Dimension[] => 
  */
 const de_DNSSECStatus = (output: any, context: __SerdeContext): DNSSECStatus => {
   const contents: any = {};
-  if (output["ServeSignature"] !== undefined) {
-    contents.ServeSignature = __expectString(output["ServeSignature"]);
+  if (output[_SSe] != null) {
+    contents[_SSe] = __expectString(output[_SSe]);
   }
-  if (output["StatusMessage"] !== undefined) {
-    contents.StatusMessage = __expectString(output["StatusMessage"]);
+  if (output[_SM] != null) {
+    contents[_SM] = __expectString(output[_SM]);
   }
   return contents;
 };
@@ -8847,14 +7753,14 @@ const de_ErrorMessages = (output: any, context: __SerdeContext): string[] => {
  */
 const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   const contents: any = {};
-  if (output["ContinentCode"] !== undefined) {
-    contents.ContinentCode = __expectString(output["ContinentCode"]);
+  if (output[_CC] != null) {
+    contents[_CC] = __expectString(output[_CC]);
   }
-  if (output["CountryCode"] !== undefined) {
-    contents.CountryCode = __expectString(output["CountryCode"]);
+  if (output[_CCo] != null) {
+    contents[_CCo] = __expectString(output[_CCo]);
   }
-  if (output["SubdivisionCode"] !== undefined) {
-    contents.SubdivisionCode = __expectString(output["SubdivisionCode"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
   return contents;
 };
@@ -8864,23 +7770,23 @@ const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
  */
 const de_GeoLocationDetails = (output: any, context: __SerdeContext): GeoLocationDetails => {
   const contents: any = {};
-  if (output["ContinentCode"] !== undefined) {
-    contents.ContinentCode = __expectString(output["ContinentCode"]);
+  if (output[_CC] != null) {
+    contents[_CC] = __expectString(output[_CC]);
   }
-  if (output["ContinentName"] !== undefined) {
-    contents.ContinentName = __expectString(output["ContinentName"]);
+  if (output[_CNon] != null) {
+    contents[_CNon] = __expectString(output[_CNon]);
   }
-  if (output["CountryCode"] !== undefined) {
-    contents.CountryCode = __expectString(output["CountryCode"]);
+  if (output[_CCo] != null) {
+    contents[_CCo] = __expectString(output[_CCo]);
   }
-  if (output["CountryName"] !== undefined) {
-    contents.CountryName = __expectString(output["CountryName"]);
+  if (output[_CNou] != null) {
+    contents[_CNou] = __expectString(output[_CNou]);
   }
-  if (output["SubdivisionCode"] !== undefined) {
-    contents.SubdivisionCode = __expectString(output["SubdivisionCode"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["SubdivisionName"] !== undefined) {
-    contents.SubdivisionName = __expectString(output["SubdivisionName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
   return contents;
 };
@@ -8901,26 +7807,23 @@ const de_GeoLocationDetailsList = (output: any, context: __SerdeContext): GeoLoc
  */
 const de_HealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["LinkedService"] !== undefined) {
-    contents.LinkedService = de_LinkedService(output["LinkedService"], context);
+  if (output[_LS] != null) {
+    contents[_LS] = de_LinkedService(output[_LS], context);
   }
-  if (output["HealthCheckConfig"] !== undefined) {
-    contents.HealthCheckConfig = de_HealthCheckConfig(output["HealthCheckConfig"], context);
+  if (output[_HCC] != null) {
+    contents[_HCC] = de_HealthCheckConfig(output[_HCC], context);
   }
-  if (output["HealthCheckVersion"] !== undefined) {
-    contents.HealthCheckVersion = __strictParseLong(output["HealthCheckVersion"]) as number;
+  if (output[_HCV] != null) {
+    contents[_HCV] = __strictParseLong(output[_HCV]) as number;
   }
-  if (output["CloudWatchAlarmConfiguration"] !== undefined) {
-    contents.CloudWatchAlarmConfiguration = de_CloudWatchAlarmConfiguration(
-      output["CloudWatchAlarmConfiguration"],
-      context
-    );
+  if (output[_CWAC] != null) {
+    contents[_CWAC] = de_CloudWatchAlarmConfiguration(output[_CWAC], context);
   }
   return contents;
 };
@@ -8930,69 +7833,63 @@ const de_HealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
  */
 const de_HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
   const contents: any = {};
-  if (output["IPAddress"] !== undefined) {
-    contents.IPAddress = __expectString(output["IPAddress"]);
+  if (output[_IPA] != null) {
+    contents[_IPA] = __expectString(output[_IPA]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["ResourcePath"] !== undefined) {
-    contents.ResourcePath = __expectString(output["ResourcePath"]);
+  if (output[_RP] != null) {
+    contents[_RP] = __expectString(output[_RP]);
   }
-  if (output["FullyQualifiedDomainName"] !== undefined) {
-    contents.FullyQualifiedDomainName = __expectString(output["FullyQualifiedDomainName"]);
+  if (output[_FQDN] != null) {
+    contents[_FQDN] = __expectString(output[_FQDN]);
   }
-  if (output["SearchString"] !== undefined) {
-    contents.SearchString = __expectString(output["SearchString"]);
+  if (output[_SS] != null) {
+    contents[_SS] = __expectString(output[_SS]);
   }
-  if (output["RequestInterval"] !== undefined) {
-    contents.RequestInterval = __strictParseInt32(output["RequestInterval"]) as number;
+  if (output[_RIeq] != null) {
+    contents[_RIeq] = __strictParseInt32(output[_RIeq]) as number;
   }
-  if (output["FailureThreshold"] !== undefined) {
-    contents.FailureThreshold = __strictParseInt32(output["FailureThreshold"]) as number;
+  if (output[_FT] != null) {
+    contents[_FT] = __strictParseInt32(output[_FT]) as number;
   }
-  if (output["MeasureLatency"] !== undefined) {
-    contents.MeasureLatency = __parseBoolean(output["MeasureLatency"]);
+  if (output[_ML] != null) {
+    contents[_ML] = __parseBoolean(output[_ML]);
   }
-  if (output["Inverted"] !== undefined) {
-    contents.Inverted = __parseBoolean(output["Inverted"]);
+  if (output[_I] != null) {
+    contents[_I] = __parseBoolean(output[_I]);
   }
-  if (output["Disabled"] !== undefined) {
-    contents.Disabled = __parseBoolean(output["Disabled"]);
+  if (output[_Di] != null) {
+    contents[_Di] = __parseBoolean(output[_Di]);
   }
-  if (output["HealthThreshold"] !== undefined) {
-    contents.HealthThreshold = __strictParseInt32(output["HealthThreshold"]) as number;
+  if (output[_HT] != null) {
+    contents[_HT] = __strictParseInt32(output[_HT]) as number;
   }
   if (output.ChildHealthChecks === "") {
-    contents.ChildHealthChecks = [];
-  } else if (
-    output["ChildHealthChecks"] !== undefined &&
-    output["ChildHealthChecks"]["ChildHealthCheck"] !== undefined
-  ) {
-    contents.ChildHealthChecks = de_ChildHealthCheckList(
-      __getArrayIfSingleItem(output["ChildHealthChecks"]["ChildHealthCheck"]),
-      context
-    );
+    contents[_CHC] = [];
+  } else if (output[_CHC] != null && output[_CHC][_CHCh] != null) {
+    contents[_CHC] = de_ChildHealthCheckList(__getArrayIfSingleItem(output[_CHC][_CHCh]), context);
   }
-  if (output["EnableSNI"] !== undefined) {
-    contents.EnableSNI = __parseBoolean(output["EnableSNI"]);
+  if (output[_ESNI] != null) {
+    contents[_ESNI] = __parseBoolean(output[_ESNI]);
   }
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
-    contents.Regions = de_HealthCheckRegionList(__getArrayIfSingleItem(output["Regions"]["Region"]), context);
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_Re] != null) {
+    contents[_R] = de_HealthCheckRegionList(__getArrayIfSingleItem(output[_R][_Re]), context);
   }
-  if (output["AlarmIdentifier"] !== undefined) {
-    contents.AlarmIdentifier = de_AlarmIdentifier(output["AlarmIdentifier"], context);
+  if (output[_AI] != null) {
+    contents[_AI] = de_AlarmIdentifier(output[_AI], context);
   }
-  if (output["InsufficientDataHealthStatus"] !== undefined) {
-    contents.InsufficientDataHealthStatus = __expectString(output["InsufficientDataHealthStatus"]);
+  if (output[_IDHS] != null) {
+    contents[_IDHS] = __expectString(output[_IDHS]);
   }
-  if (output["RoutingControlArn"] !== undefined) {
-    contents.RoutingControlArn = __expectString(output["RoutingControlArn"]);
+  if (output[_RCA] != null) {
+    contents[_RCA] = __expectString(output[_RCA]);
   }
   return contents;
 };
@@ -9002,14 +7899,14 @@ const de_HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheck
  */
 const de_HealthCheckObservation = (output: any, context: __SerdeContext): HealthCheckObservation => {
   const contents: any = {};
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
-  if (output["IPAddress"] !== undefined) {
-    contents.IPAddress = __expectString(output["IPAddress"]);
+  if (output[_IPA] != null) {
+    contents[_IPA] = __expectString(output[_IPA]);
   }
-  if (output["StatusReport"] !== undefined) {
-    contents.StatusReport = de_StatusReport(output["StatusReport"], context);
+  if (output[_SR] != null) {
+    contents[_SR] = de_StatusReport(output[_SR], context);
   }
   return contents;
 };
@@ -9052,23 +7949,23 @@ const de_HealthChecks = (output: any, context: __SerdeContext): HealthCheck[] =>
  */
 const de_HostedZone = (output: any, context: __SerdeContext): HostedZone => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["Config"] !== undefined) {
-    contents.Config = de_HostedZoneConfig(output["Config"], context);
+  if (output[_Con] != null) {
+    contents[_Con] = de_HostedZoneConfig(output[_Con], context);
   }
-  if (output["ResourceRecordSetCount"] !== undefined) {
-    contents.ResourceRecordSetCount = __strictParseLong(output["ResourceRecordSetCount"]) as number;
+  if (output[_RRSC] != null) {
+    contents[_RRSC] = __strictParseLong(output[_RRSC]) as number;
   }
-  if (output["LinkedService"] !== undefined) {
-    contents.LinkedService = de_LinkedService(output["LinkedService"], context);
+  if (output[_LS] != null) {
+    contents[_LS] = de_LinkedService(output[_LS], context);
   }
   return contents;
 };
@@ -9078,11 +7975,11 @@ const de_HostedZone = (output: any, context: __SerdeContext): HostedZone => {
  */
 const de_HostedZoneConfig = (output: any, context: __SerdeContext): HostedZoneConfig => {
   const contents: any = {};
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["PrivateZone"] !== undefined) {
-    contents.PrivateZone = __parseBoolean(output["PrivateZone"]);
+  if (output[_PZ] != null) {
+    contents[_PZ] = __parseBoolean(output[_PZ]);
   }
   return contents;
 };
@@ -9092,11 +7989,11 @@ const de_HostedZoneConfig = (output: any, context: __SerdeContext): HostedZoneCo
  */
 const de_HostedZoneLimit = (output: any, context: __SerdeContext): HostedZoneLimit => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __strictParseLong(output["Value"]) as number;
+  if (output[_V] != null) {
+    contents[_V] = __strictParseLong(output[_V]) as number;
   }
   return contents;
 };
@@ -9106,11 +8003,11 @@ const de_HostedZoneLimit = (output: any, context: __SerdeContext): HostedZoneLim
  */
 const de_HostedZoneOwner = (output: any, context: __SerdeContext): HostedZoneOwner => {
   const contents: any = {};
-  if (output["OwningAccount"] !== undefined) {
-    contents.OwningAccount = __expectString(output["OwningAccount"]);
+  if (output[_OA] != null) {
+    contents[_OA] = __expectString(output[_OA]);
   }
-  if (output["OwningService"] !== undefined) {
-    contents.OwningService = __expectString(output["OwningService"]);
+  if (output[_OS] != null) {
+    contents[_OS] = __expectString(output[_OS]);
   }
   return contents;
 };
@@ -9142,14 +8039,14 @@ const de_HostedZoneSummaries = (output: any, context: __SerdeContext): HostedZon
  */
 const de_HostedZoneSummary = (output: any, context: __SerdeContext): HostedZoneSummary => {
   const contents: any = {};
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Owner"] !== undefined) {
-    contents.Owner = de_HostedZoneOwner(output["Owner"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_HostedZoneOwner(output[_O], context);
   }
   return contents;
 };
@@ -9159,53 +8056,53 @@ const de_HostedZoneSummary = (output: any, context: __SerdeContext): HostedZoneS
  */
 const de_KeySigningKey = (output: any, context: __SerdeContext): KeySigningKey => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["KmsArn"] !== undefined) {
-    contents.KmsArn = __expectString(output["KmsArn"]);
+  if (output[_KA] != null) {
+    contents[_KA] = __expectString(output[_KA]);
   }
-  if (output["Flag"] !== undefined) {
-    contents.Flag = __strictParseInt32(output["Flag"]) as number;
+  if (output[_Fl] != null) {
+    contents[_Fl] = __strictParseInt32(output[_Fl]) as number;
   }
-  if (output["SigningAlgorithmMnemonic"] !== undefined) {
-    contents.SigningAlgorithmMnemonic = __expectString(output["SigningAlgorithmMnemonic"]);
+  if (output[_SAM] != null) {
+    contents[_SAM] = __expectString(output[_SAM]);
   }
-  if (output["SigningAlgorithmType"] !== undefined) {
-    contents.SigningAlgorithmType = __strictParseInt32(output["SigningAlgorithmType"]) as number;
+  if (output[_SAT] != null) {
+    contents[_SAT] = __strictParseInt32(output[_SAT]) as number;
   }
-  if (output["DigestAlgorithmMnemonic"] !== undefined) {
-    contents.DigestAlgorithmMnemonic = __expectString(output["DigestAlgorithmMnemonic"]);
+  if (output[_DAM] != null) {
+    contents[_DAM] = __expectString(output[_DAM]);
   }
-  if (output["DigestAlgorithmType"] !== undefined) {
-    contents.DigestAlgorithmType = __strictParseInt32(output["DigestAlgorithmType"]) as number;
+  if (output[_DAT] != null) {
+    contents[_DAT] = __strictParseInt32(output[_DAT]) as number;
   }
-  if (output["KeyTag"] !== undefined) {
-    contents.KeyTag = __strictParseInt32(output["KeyTag"]) as number;
+  if (output[_KT] != null) {
+    contents[_KT] = __strictParseInt32(output[_KT]) as number;
   }
-  if (output["DigestValue"] !== undefined) {
-    contents.DigestValue = __expectString(output["DigestValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["PublicKey"] !== undefined) {
-    contents.PublicKey = __expectString(output["PublicKey"]);
+  if (output[_PK] != null) {
+    contents[_PK] = __expectString(output[_PK]);
   }
-  if (output["DSRecord"] !== undefined) {
-    contents.DSRecord = __expectString(output["DSRecord"]);
+  if (output[_DSR] != null) {
+    contents[_DSR] = __expectString(output[_DSR]);
   }
-  if (output["DNSKEYRecord"] !== undefined) {
-    contents.DNSKEYRecord = __expectString(output["DNSKEYRecord"]);
+  if (output[_DNSKEYR] != null) {
+    contents[_DNSKEYR] = __expectString(output[_DNSKEYR]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StatusMessage"] !== undefined) {
-    contents.StatusMessage = __expectString(output["StatusMessage"]);
+  if (output[_SM] != null) {
+    contents[_SM] = __expectString(output[_SM]);
   }
-  if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["LastModifiedDate"] !== undefined) {
-    contents.LastModifiedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedDate"]));
+  if (output[_LMD] != null) {
+    contents[_LMD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMD]));
   }
   return contents;
 };
@@ -9226,11 +8123,11 @@ const de_KeySigningKeys = (output: any, context: __SerdeContext): KeySigningKey[
  */
 const de_LinkedService = (output: any, context: __SerdeContext): LinkedService => {
   const contents: any = {};
-  if (output["ServicePrincipal"] !== undefined) {
-    contents.ServicePrincipal = __expectString(output["ServicePrincipal"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_De] != null) {
+    contents[_De] = __expectString(output[_De]);
   }
   return contents;
 };
@@ -9251,8 +8148,8 @@ const de_LocationSummaries = (output: any, context: __SerdeContext): LocationSum
  */
 const de_LocationSummary = (output: any, context: __SerdeContext): LocationSummary => {
   const contents: any = {};
-  if (output["LocationName"] !== undefined) {
-    contents.LocationName = __expectString(output["LocationName"]);
+  if (output[_LN] != null) {
+    contents[_LN] = __expectString(output[_LN]);
   }
   return contents;
 };
@@ -9262,14 +8159,14 @@ const de_LocationSummary = (output: any, context: __SerdeContext): LocationSumma
  */
 const de_QueryLoggingConfig = (output: any, context: __SerdeContext): QueryLoggingConfig => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
-  if (output["CloudWatchLogsLogGroupArn"] !== undefined) {
-    contents.CloudWatchLogsLogGroupArn = __expectString(output["CloudWatchLogsLogGroupArn"]);
+  if (output[_CWLLGA] != null) {
+    contents[_CWLLGA] = __expectString(output[_CWLLGA]);
   }
   return contents;
 };
@@ -9301,8 +8198,8 @@ const de_RecordData = (output: any, context: __SerdeContext): string[] => {
  */
 const de_ResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
   const contents: any = {};
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -9323,52 +8220,49 @@ const de_ResourceRecords = (output: any, context: __SerdeContext): ResourceRecor
  */
 const de_ResourceRecordSet = (output: any, context: __SerdeContext): ResourceRecordSet => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["SetIdentifier"] !== undefined) {
-    contents.SetIdentifier = __expectString(output["SetIdentifier"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["Weight"] !== undefined) {
-    contents.Weight = __strictParseLong(output["Weight"]) as number;
+  if (output[_W] != null) {
+    contents[_W] = __strictParseLong(output[_W]) as number;
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
-  if (output["GeoLocation"] !== undefined) {
-    contents.GeoLocation = de_GeoLocation(output["GeoLocation"], context);
+  if (output[_GL] != null) {
+    contents[_GL] = de_GeoLocation(output[_GL], context);
   }
-  if (output["Failover"] !== undefined) {
-    contents.Failover = __expectString(output["Failover"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
-  if (output["MultiValueAnswer"] !== undefined) {
-    contents.MultiValueAnswer = __parseBoolean(output["MultiValueAnswer"]);
+  if (output[_MVA] != null) {
+    contents[_MVA] = __parseBoolean(output[_MVA]);
   }
-  if (output["TTL"] !== undefined) {
-    contents.TTL = __strictParseLong(output["TTL"]) as number;
+  if (output[_TTL] != null) {
+    contents[_TTL] = __strictParseLong(output[_TTL]) as number;
   }
   if (output.ResourceRecords === "") {
-    contents.ResourceRecords = [];
-  } else if (output["ResourceRecords"] !== undefined && output["ResourceRecords"]["ResourceRecord"] !== undefined) {
-    contents.ResourceRecords = de_ResourceRecords(
-      __getArrayIfSingleItem(output["ResourceRecords"]["ResourceRecord"]),
-      context
-    );
+    contents[_RRe] = [];
+  } else if (output[_RRe] != null && output[_RRe][_RR] != null) {
+    contents[_RRe] = de_ResourceRecords(__getArrayIfSingleItem(output[_RRe][_RR]), context);
   }
-  if (output["AliasTarget"] !== undefined) {
-    contents.AliasTarget = de_AliasTarget(output["AliasTarget"], context);
+  if (output[_ATl] != null) {
+    contents[_ATl] = de_AliasTarget(output[_ATl], context);
   }
-  if (output["HealthCheckId"] !== undefined) {
-    contents.HealthCheckId = __expectString(output["HealthCheckId"]);
+  if (output[_HCI] != null) {
+    contents[_HCI] = __expectString(output[_HCI]);
   }
-  if (output["TrafficPolicyInstanceId"] !== undefined) {
-    contents.TrafficPolicyInstanceId = __expectString(output["TrafficPolicyInstanceId"]);
+  if (output[_TPII] != null) {
+    contents[_TPII] = __expectString(output[_TPII]);
   }
-  if (output["CidrRoutingConfig"] !== undefined) {
-    contents.CidrRoutingConfig = de_CidrRoutingConfig(output["CidrRoutingConfig"], context);
+  if (output[_CRC] != null) {
+    contents[_CRC] = de_CidrRoutingConfig(output[_CRC], context);
   }
   return contents;
 };
@@ -9389,16 +8283,16 @@ const de_ResourceRecordSets = (output: any, context: __SerdeContext): ResourceRe
  */
 const de_ResourceTagSet = (output: any, context: __SerdeContext): ResourceTagSet => {
   const contents: any = {};
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTe] != null) {
+    contents[_RTe] = __expectString(output[_RTe]);
   }
-  if (output["ResourceId"] !== undefined) {
-    contents.ResourceId = __expectString(output["ResourceId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["Tag"]), context);
+    contents[_Tag] = [];
+  } else if (output[_Tag] != null && output[_Tag][_Ta] != null) {
+    contents[_Tag] = de_TagList(__getArrayIfSingleItem(output[_Tag][_Ta]), context);
   }
   return contents;
 };
@@ -9419,11 +8313,11 @@ const de_ResourceTagSetList = (output: any, context: __SerdeContext): ResourceTa
  */
 const de_ReusableDelegationSetLimit = (output: any, context: __SerdeContext): ReusableDelegationSetLimit => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __strictParseLong(output["Value"]) as number;
+  if (output[_V] != null) {
+    contents[_V] = __strictParseLong(output[_V]) as number;
   }
   return contents;
 };
@@ -9433,11 +8327,11 @@ const de_ReusableDelegationSetLimit = (output: any, context: __SerdeContext): Re
  */
 const de_StatusReport = (output: any, context: __SerdeContext): StatusReport => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["CheckedTime"] !== undefined) {
-    contents.CheckedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CheckedTime"]));
+  if (output[_CT] != null) {
+    contents[_CT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CT]));
   }
   return contents;
 };
@@ -9447,11 +8341,11 @@ const de_StatusReport = (output: any, context: __SerdeContext): StatusReport => 
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -9483,23 +8377,23 @@ const de_TrafficPolicies = (output: any, context: __SerdeContext): TrafficPolicy
  */
 const de_TrafficPolicy = (output: any, context: __SerdeContext): TrafficPolicy => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __strictParseInt32(output["Version"]) as number;
+  if (output[_Ve] != null) {
+    contents[_Ve] = __strictParseInt32(output[_Ve]) as number;
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["Document"] !== undefined) {
-    contents.Document = __expectString(output["Document"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -9509,32 +8403,32 @@ const de_TrafficPolicy = (output: any, context: __SerdeContext): TrafficPolicy =
  */
 const de_TrafficPolicyInstance = (output: any, context: __SerdeContext): TrafficPolicyInstance => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["TTL"] !== undefined) {
-    contents.TTL = __strictParseLong(output["TTL"]) as number;
+  if (output[_TTL] != null) {
+    contents[_TTL] = __strictParseLong(output[_TTL]) as number;
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["TrafficPolicyId"] !== undefined) {
-    contents.TrafficPolicyId = __expectString(output["TrafficPolicyId"]);
+  if (output[_TPI] != null) {
+    contents[_TPI] = __expectString(output[_TPI]);
   }
-  if (output["TrafficPolicyVersion"] !== undefined) {
-    contents.TrafficPolicyVersion = __strictParseInt32(output["TrafficPolicyVersion"]) as number;
+  if (output[_TPV] != null) {
+    contents[_TPV] = __strictParseInt32(output[_TPV]) as number;
   }
-  if (output["TrafficPolicyType"] !== undefined) {
-    contents.TrafficPolicyType = __expectString(output["TrafficPolicyType"]);
+  if (output[_TPT] != null) {
+    contents[_TPT] = __expectString(output[_TPT]);
   }
   return contents;
 };
@@ -9566,20 +8460,20 @@ const de_TrafficPolicySummaries = (output: any, context: __SerdeContext): Traffi
  */
 const de_TrafficPolicySummary = (output: any, context: __SerdeContext): TrafficPolicySummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["LatestVersion"] !== undefined) {
-    contents.LatestVersion = __strictParseInt32(output["LatestVersion"]) as number;
+  if (output[_LV] != null) {
+    contents[_LV] = __strictParseInt32(output[_LV]) as number;
   }
-  if (output["TrafficPolicyCount"] !== undefined) {
-    contents.TrafficPolicyCount = __strictParseInt32(output["TrafficPolicyCount"]) as number;
+  if (output[_TPCr] != null) {
+    contents[_TPCr] = __strictParseInt32(output[_TPCr]) as number;
   }
   return contents;
 };
@@ -9589,11 +8483,11 @@ const de_TrafficPolicySummary = (output: any, context: __SerdeContext): TrafficP
  */
 const de_VPC = (output: any, context: __SerdeContext): VPC => {
   const contents: any = {};
-  if (output["VPCRegion"] !== undefined) {
-    contents.VPCRegion = __expectString(output["VPCRegion"]);
+  if (output[_VPCR] != null) {
+    contents[_VPCR] = __expectString(output[_VPCR]);
   }
-  if (output["VPCId"] !== undefined) {
-    contents.VPCId = __expectString(output["VPCId"]);
+  if (output[_VPCI] != null) {
+    contents[_VPCI] = __expectString(output[_VPCI]);
   }
   return contents;
 };
@@ -9627,6 +8521,302 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+// HttpBindingProtocolGenerator
+const _A = "Action";
+const _AHE = "AliasHealthEnabled";
+const _AI = "AlarmIdentifier";
+const _AN = "AlarmName";
+const _AT = "AddTags";
+const _ATl = "AliasTarget";
+const _AVPCC = "AssociateVPCComment";
+const _AVPCWHZR = "AssociateVPCWithHostedZoneRequest";
+const _Ar = "Arn";
+const _C = "Comment";
+const _CA = "ChangeAction";
+const _CB = "ChangeBatch";
+const _CBi = "CidrBlocks";
+const _CBid = "CidrBlock";
+const _CC = "ContinentCode";
+const _CCC = "CidrCollectionChange";
+const _CCCA = "CidrCollectionChangeAction";
+const _CCCR = "ChangeCidrCollectionRequest";
+const _CCCRr = "CreateCidrCollectionRequest";
+const _CCi = "CidrCollections";
+const _CCo = "CountryCode";
+const _CD = "CreatedDate";
+const _CHC = "ChildHealthChecks";
+const _CHCR = "CreateHealthCheckRequest";
+const _CHCh = "ChildHealthCheck";
+const _CHZR = "CreateHostedZoneRequest";
+const _CI = "ChangeInfo";
+const _CIR = "CheckerIpRanges";
+const _CIo = "CollectionId";
+const _CKSKR = "CreateKeySigningKeyRequest";
+const _CL = "CidrLocations";
+const _CLNDA = "CidrLocationNameDefaultAllowed";
+const _CLNDNA = "CidrLocationNameDefaultNotAllowed";
+const _CLi = "CidrList";
+const _CN = "CidrNonce";
+const _CNo = "CollectionName";
+const _CNon = "ContinentName";
+const _CNou = "CountryName";
+const _CO = "ComparisonOperator";
+const _CQLCR = "CreateQueryLoggingConfigRequest";
+const _CR = "CallerReference";
+const _CRC = "CidrRoutingConfig";
+const _CRDSR = "CreateReusableDelegationSetRequest";
+const _CRRSR = "ChangeResourceRecordSetsRequest";
+const _CT = "CheckedTime";
+const _CTFRR = "ChangeTagsForResourceRequest";
+const _CTPIR = "CreateTrafficPolicyInstanceRequest";
+const _CTPR = "CreateTrafficPolicyRequest";
+const _CTPVR = "CreateTrafficPolicyVersionRequest";
+const _CV = "CollectionVersion";
+const _CVPCAAR = "CreateVPCAssociationAuthorizationRequest";
+const _CWAC = "CloudWatchAlarmConfiguration";
+const _CWLLGA = "CloudWatchLogsLogGroupArn";
+const _CWR = "CloudWatchRegion";
+const _Ch = "Changes";
+const _Cha = "Change";
+const _Ci = "Cidr";
+const _Co = "Collection";
+const _Con = "Config";
+const _Cou = "Count";
+const _D = "Document";
+const _DAM = "DigestAlgorithmMnemonic";
+const _DAT = "DigestAlgorithmType";
+const _DNSKEYR = "DNSKEYRecord";
+const _DNSN = "DNSName";
+const _DS = "DelegationSet";
+const _DSI = "DelegationSetId";
+const _DSR = "DSRecord";
+const _DSe = "DelegationSets";
+const _DV = "DigestValue";
+const _DVPCAAR = "DeleteVPCAssociationAuthorizationRequest";
+const _DVPCC = "DisassociateVPCComment";
+const _DVPCFHZR = "DisassociateVPCFromHostedZoneRequest";
+const _De = "Description";
+const _Di = "Disabled";
+const _Dim = "Dimensions";
+const _Dime = "Dimension";
+const _EDNSCSIP = "EDNS0ClientSubnetIP";
+const _EDNSCSM = "EDNS0ClientSubnetMask";
+const _EP = "EvaluationPeriods";
+const _ESNI = "EnableSNI";
+const _ETH = "EvaluateTargetHealth";
+const _F = "Failover";
+const _FQDN = "FullyQualifiedDomainName";
+const _FT = "FailureThreshold";
+const _Fl = "Flag";
+const _GL = "GeoLocation";
+const _GLCC = "GeoLocationContinentCode";
+const _GLCCe = "GeoLocationCountryCode";
+const _GLD = "GeoLocationDetails";
+const _GLDL = "GeoLocationDetailsList";
+const _GLSC = "GeoLocationSubdivisionCode";
+const _HC = "HealthCheck";
+const _HCC = "HealthCheckConfig";
+const _HCCe = "HealthCheckCount";
+const _HCI = "HealthCheckId";
+const _HCN = "HealthCheckNonce";
+const _HCO = "HealthCheckObservations";
+const _HCOe = "HealthCheckObservation";
+const _HCR = "HealthCheckRegion";
+const _HCT = "HealthCheckType";
+const _HCV = "HealthCheckVersion";
+const _HCe = "HealthChecks";
+const _HT = "HealthThreshold";
+const _HZ = "HostedZone";
+const _HZC = "HostedZoneConfig";
+const _HZCo = "HostedZoneCount";
+const _HZI = "HostedZoneId";
+const _HZIM = "HostedZoneIdMarker";
+const _HZS = "HostedZoneSummaries";
+const _HZSo = "HostedZoneSummary";
+const _HZT = "HostedZoneType";
+const _HZo = "HostedZones";
+const _I = "Inverted";
+const _IDHS = "InsufficientDataHealthStatus";
+const _IPA = "IPAddress";
+const _IPZ = "IsPrivateZone";
+const _IT = "IsTruncated";
+const _Id = "Id";
+const _K = "Key";
+const _KA = "KmsArn";
+const _KMSA = "KeyManagementServiceArn";
+const _KSK = "KeySigningKey";
+const _KSKe = "KeySigningKeys";
+const _KT = "KeyTag";
+const _L = "Location";
+const _LMD = "LastModifiedDate";
+const _LN = "LocationName";
+const _LS = "LinkedService";
+const _LTFRR = "ListTagsForResourcesRequest";
+const _LV = "LatestVersion";
+const _Li = "Limit";
+const _M = "Marker";
+const _MI = "MaxItems";
+const _ML = "MeasureLatency";
+const _MN = "MetricName";
+const _MR = "MaxResults";
+const _MVA = "MultiValueAnswer";
+const _Me = "Message";
+const _N = "Name";
+const _NCC = "NextContinentCode";
+const _NCCe = "NextCountryCode";
+const _NDNSN = "NextDNSName";
+const _NHZI = "NextHostedZoneId";
+const _NM = "NextMarker";
+const _NRI = "NextRecordIdentifier";
+const _NRN = "NextRecordName";
+const _NRT = "NextRecordType";
+const _NS = "NameServers";
+const _NSC = "NextSubdivisionCode";
+const _NSa = "NameServer";
+const _NT = "NextToken";
+const _Na = "Nameserver";
+const _Nam = "Namespace";
+const _No = "Nonce";
+const _O = "Owner";
+const _OA = "OwningAccount";
+const _OS = "OwningService";
+const _P = "Port";
+const _PK = "PublicKey";
+const _PZ = "PrivateZone";
+const _Pe = "Period";
+const _Pr = "Protocol";
+const _QLC = "QueryLoggingConfig";
+const _QLCu = "QueryLoggingConfigs";
+const _R = "Regions";
+const _RC = "ResponseCode";
+const _RCA = "RoutingControlArn";
+const _RD = "ResourceDescription";
+const _RDE = "RecordDataEntry";
+const _RDa = "RData";
+const _RDe = "RecordData";
+const _RE = "ResetElements";
+const _REN = "ResettableElementName";
+const _RI = "ResourceId";
+const _RIP = "ResolverIP";
+const _RIe = "ResourceIds";
+const _RIeq = "RequestInterval";
+const _RN = "RecordName";
+const _RP = "ResourcePath";
+const _RR = "ResourceRecord";
+const _RRS = "ResourceRecordSets";
+const _RRSC = "ResourceRecordSetCount";
+const _RRSF = "ResourceRecordSetFailover";
+const _RRSI = "ResourceRecordSetIdentifier";
+const _RRSMVA = "ResourceRecordSetMultiValueAnswer";
+const _RRSR = "ResourceRecordSetRegion";
+const _RRSW = "ResourceRecordSetWeight";
+const _RRSe = "ResourceRecordSet";
+const _RRT = "RRType";
+const _RRe = "ResourceRecords";
+const _RT = "RecordType";
+const _RTK = "RemoveTagKeys";
+const _RTS = "ResourceTagSet";
+const _RTSe = "ResourceTagSets";
+const _RTe = "ResourceType";
+const _Re = "Region";
+const _S = "Status";
+const _SA = "SubmittedAt";
+const _SAM = "SigningAlgorithmMnemonic";
+const _SAT = "SigningAlgorithmType";
+const _SC = "SubdivisionCode";
+const _SCC = "StartContinentCode";
+const _SCCt = "StartCountryCode";
+const _SI = "SetIdentifier";
+const _SKN = "SigningKeyName";
+const _SKS = "SigningKeyString";
+const _SKSi = "SigningKeyStatus";
+const _SM = "StatusMessage";
+const _SN = "SubdivisionName";
+const _SP = "ServicePrincipal";
+const _SR = "StatusReport";
+const _SRI = "StartRecordIdentifier";
+const _SRN = "StartRecordName";
+const _SRT = "StartRecordType";
+const _SS = "SearchString";
+const _SSC = "StartSubdivisionCode";
+const _SSe = "ServeSignature";
+const _St = "Statistic";
+const _Sta = "State";
+const _T = "Type";
+const _TK = "TagKey";
+const _TP = "TrafficPolicy";
+const _TPC = "TrafficPolicyComment";
+const _TPCr = "TrafficPolicyCount";
+const _TPD = "TrafficPolicyDocument";
+const _TPI = "TrafficPolicyId";
+const _TPIC = "TrafficPolicyInstanceCount";
+const _TPII = "TrafficPolicyInstanceId";
+const _TPIM = "TrafficPolicyIdMarker";
+const _TPINM = "TrafficPolicyInstanceNameMarker";
+const _TPITM = "TrafficPolicyInstanceTypeMarker";
+const _TPIr = "TrafficPolicyInstance";
+const _TPIra = "TrafficPolicyInstances";
+const _TPN = "TrafficPolicyName";
+const _TPS = "TrafficPolicySummaries";
+const _TPSr = "TrafficPolicySummary";
+const _TPT = "TrafficPolicyType";
+const _TPV = "TrafficPolicyVersion";
+const _TPVM = "TrafficPolicyVersionMarker";
+const _TPr = "TrafficPolicies";
+const _TRI = "TagResourceId";
+const _TTL = "TTL";
+const _TV = "TagValue";
+const _Ta = "Tag";
+const _Tag = "Tags";
+const _Th = "Threshold";
+const _UHCR = "UpdateHealthCheckRequest";
+const _UHZCR = "UpdateHostedZoneCommentRequest";
+const _UTPCR = "UpdateTrafficPolicyCommentRequest";
+const _UTPIR = "UpdateTrafficPolicyInstanceRequest";
+const _UUID = "UUID";
+const _V = "Value";
+const _VPC = "VPC";
+const _VPCI = "VPCId";
+const _VPCR = "VPCRegion";
+const _VPCs = "VPCs";
+const _Ve = "Version";
+const _W = "Weight";
+const _c = "continentcode";
+const _co = "countrycode";
+const _d = "delegationsetid";
+const _dn = "dnsname";
+const _e = "edns0clientsubnetip";
+const _ed = "edns0clientsubnetmask";
+const _h = "hostedzonetype";
+const _ho = "hostedzoneid";
+const _i = "identifier";
+const _id = "id";
+const _l = "location";
+const _m = "maxresults";
+const _ma = "maxitems";
+const _mar = "marker";
+const _me = "member";
+const _mes = "message";
+const _mess = "messages";
+const _n = "nexttoken";
+const _na = "name";
+const _r = "recordname";
+const _re = "recordtype";
+const _res = "resolverip";
+const _s = "subdivisioncode";
+const _st = "startcontinentcode";
+const _sta = "startcountrycode";
+const _star = "startsubdivisioncode";
+const _t = "type";
+const _tr = "trafficpolicyid";
+const _tra = "trafficpolicyinstancename";
+const _traf = "trafficpolicyinstancetype";
+const _traff = "trafficpolicyversion";
+const _v = "vpcid";
+const _ve = '<?xml version="1.0" encoding="UTF-8"?>';
+const _ver = "version";
+const _vp = "vpcregion";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
@@ -9671,3 +8861,5 @@ const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undef
     return "NotFound";
   }
 };
+
+// AwsRestXml

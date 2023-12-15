@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
+
 import {
   AccountAggregationSource,
   AggregationAuthorization,

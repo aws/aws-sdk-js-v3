@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { DocumentType as __DocumentType } from "@smithy/types";
 
 import { ControlTowerServiceException as __BaseException } from "./ControlTowerServiceException";

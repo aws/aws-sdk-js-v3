@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -177,12 +178,11 @@ export const se_AcceptResourceShareInvitationCommand = async (
   input: AcceptResourceShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/acceptresourceshareinvitation";
+  b.bp("/acceptresourceshareinvitation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -190,15 +190,8 @@ export const se_AcceptResourceShareInvitationCommand = async (
       resourceShareInvitationArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -208,12 +201,11 @@ export const se_AssociateResourceShareCommand = async (
   input: AssociateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourceshare";
+  b.bp("/associateresourceshare");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -224,15 +216,8 @@ export const se_AssociateResourceShareCommand = async (
       sources: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -242,12 +227,11 @@ export const se_AssociateResourceSharePermissionCommand = async (
   input: AssociateResourceSharePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourcesharepermission";
+  b.bp("/associateresourcesharepermission");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -258,15 +242,8 @@ export const se_AssociateResourceSharePermissionCommand = async (
       resourceShareArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -276,11 +253,11 @@ export const se_CreatePermissionCommand = async (
   input: CreatePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createpermission";
+  b.bp("/createpermission");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -291,15 +268,8 @@ export const se_CreatePermissionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -309,12 +279,11 @@ export const se_CreatePermissionVersionCommand = async (
   input: CreatePermissionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createpermissionversion";
+  b.bp("/createpermissionversion");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -323,15 +292,8 @@ export const se_CreatePermissionVersionCommand = async (
       policyTemplate: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -341,11 +303,11 @@ export const se_CreateResourceShareCommand = async (
   input: CreateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createresourceshare";
+  b.bp("/createresourceshare");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -359,15 +321,8 @@ export const se_CreateResourceShareCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -377,24 +332,16 @@ export const se_DeletePermissionCommand = async (
   input: DeletePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deletepermission";
+  b.bp("/deletepermission");
   const query: any = map({
-    permissionArn: [, __expectNonNull(input.permissionArn!, `permissionArn`)],
-    clientToken: [, input.clientToken!],
+    [_pA]: [, __expectNonNull(input[_pA]!, `permissionArn`)],
+    [_cT]: [, input[_cT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -404,29 +351,17 @@ export const se_DeletePermissionVersionCommand = async (
   input: DeletePermissionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deletepermissionversion";
+  b.bp("/deletepermissionversion");
   const query: any = map({
-    permissionArn: [, __expectNonNull(input.permissionArn!, `permissionArn`)],
-    permissionVersion: [
-      __expectNonNull(input.permissionVersion, `permissionVersion`) != null,
-      () => input.permissionVersion!.toString(),
-    ],
-    clientToken: [, input.clientToken!],
+    [_pA]: [, __expectNonNull(input[_pA]!, `permissionArn`)],
+    [_pV]: [__expectNonNull(input.permissionVersion, `permissionVersion`) != null, () => input[_pV]!.toString()],
+    [_cT]: [, input[_cT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -436,24 +371,16 @@ export const se_DeleteResourceShareCommand = async (
   input: DeleteResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
+  b.bp("/deleteresourceshare");
   const query: any = map({
-    resourceShareArn: [, __expectNonNull(input.resourceShareArn!, `resourceShareArn`)],
-    clientToken: [, input.clientToken!],
+    [_rSA]: [, __expectNonNull(input[_rSA]!, `resourceShareArn`)],
+    [_cT]: [, input[_cT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -463,12 +390,11 @@ export const se_DisassociateResourceShareCommand = async (
   input: DisassociateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourceshare";
+  b.bp("/disassociateresourceshare");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -479,15 +405,8 @@ export const se_DisassociateResourceShareCommand = async (
       sources: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -497,12 +416,11 @@ export const se_DisassociateResourceSharePermissionCommand = async (
   input: DisassociateResourceSharePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourcesharepermission";
+  b.bp("/disassociateresourcesharepermission");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -511,15 +429,8 @@ export const se_DisassociateResourceSharePermissionCommand = async (
       resourceShareArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -529,23 +440,15 @@ export const se_EnableSharingWithAwsOrganizationCommand = async (
   input: EnableSharingWithAwsOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enablesharingwithawsorganization";
+  b.bp("/enablesharingwithawsorganization");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -555,11 +458,11 @@ export const se_GetPermissionCommand = async (
   input: GetPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getpermission";
+  b.bp("/getpermission");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -567,15 +470,8 @@ export const se_GetPermissionCommand = async (
       permissionVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -585,11 +481,11 @@ export const se_GetResourcePoliciesCommand = async (
   input: GetResourcePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourcepolicies";
+  b.bp("/getresourcepolicies");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -599,15 +495,8 @@ export const se_GetResourcePoliciesCommand = async (
       resourceArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -617,12 +506,11 @@ export const se_GetResourceShareAssociationsCommand = async (
   input: GetResourceShareAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareassociations";
+  b.bp("/getresourceshareassociations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -635,15 +523,8 @@ export const se_GetResourceShareAssociationsCommand = async (
       resourceShareArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -653,12 +534,11 @@ export const se_GetResourceShareInvitationsCommand = async (
   input: GetResourceShareInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareinvitations";
+  b.bp("/getresourceshareinvitations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -668,15 +548,8 @@ export const se_GetResourceShareInvitationsCommand = async (
       resourceShareInvitationArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -686,11 +559,11 @@ export const se_GetResourceSharesCommand = async (
   input: GetResourceSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshares";
+  b.bp("/getresourceshares");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -705,15 +578,8 @@ export const se_GetResourceSharesCommand = async (
       tagFilters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -723,12 +589,11 @@ export const se_ListPendingInvitationResourcesCommand = async (
   input: ListPendingInvitationResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpendinginvitationresources";
+  b.bp("/listpendinginvitationresources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -738,15 +603,8 @@ export const se_ListPendingInvitationResourcesCommand = async (
       resourceShareInvitationArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -756,12 +614,11 @@ export const se_ListPermissionAssociationsCommand = async (
   input: ListPermissionAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissionassociations";
+  b.bp("/listpermissionassociations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -775,15 +632,8 @@ export const se_ListPermissionAssociationsCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -793,11 +643,11 @@ export const se_ListPermissionsCommand = async (
   input: ListPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissions";
+  b.bp("/listpermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -807,15 +657,8 @@ export const se_ListPermissionsCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -825,12 +668,11 @@ export const se_ListPermissionVersionsCommand = async (
   input: ListPermissionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissionversions";
+  b.bp("/listpermissionversions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -839,15 +681,8 @@ export const se_ListPermissionVersionsCommand = async (
       permissionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -857,11 +692,11 @@ export const se_ListPrincipalsCommand = async (
   input: ListPrincipalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listprincipals";
+  b.bp("/listprincipals");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -874,15 +709,8 @@ export const se_ListPrincipalsCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -892,12 +720,11 @@ export const se_ListReplacePermissionAssociationsWorkCommand = async (
   input: ListReplacePermissionAssociationsWorkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listreplacepermissionassociationswork";
+  b.bp("/listreplacepermissionassociationswork");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -907,15 +734,8 @@ export const se_ListReplacePermissionAssociationsWorkCommand = async (
       workIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -925,11 +745,11 @@ export const se_ListResourcesCommand = async (
   input: ListResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresources";
+  b.bp("/listresources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -943,15 +763,8 @@ export const se_ListResourcesCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -961,12 +774,11 @@ export const se_ListResourceSharePermissionsCommand = async (
   input: ListResourceSharePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcesharepermissions";
+  b.bp("/listresourcesharepermissions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -975,15 +787,8 @@ export const se_ListResourceSharePermissionsCommand = async (
       resourceShareArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -993,11 +798,11 @@ export const se_ListResourceTypesCommand = async (
   input: ListResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcetypes";
+  b.bp("/listresourcetypes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1006,15 +811,8 @@ export const se_ListResourceTypesCommand = async (
       resourceRegionScope: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1024,12 +822,11 @@ export const se_PromotePermissionCreatedFromPolicyCommand = async (
   input: PromotePermissionCreatedFromPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promotepermissioncreatedfrompolicy";
+  b.bp("/promotepermissioncreatedfrompolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1038,15 +835,8 @@ export const se_PromotePermissionCreatedFromPolicyCommand = async (
       permissionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1056,24 +846,15 @@ export const se_PromoteResourceShareCreatedFromPolicyCommand = async (
   input: PromoteResourceShareCreatedFromPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promoteresourcesharecreatedfrompolicy";
+  b.bp("/promoteresourcesharecreatedfrompolicy");
   const query: any = map({
-    resourceShareArn: [, __expectNonNull(input.resourceShareArn!, `resourceShareArn`)],
+    [_rSA]: [, __expectNonNull(input[_rSA]!, `resourceShareArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1083,12 +864,11 @@ export const se_RejectResourceShareInvitationCommand = async (
   input: RejectResourceShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rejectresourceshareinvitation";
+  b.bp("/rejectresourceshareinvitation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1096,15 +876,8 @@ export const se_RejectResourceShareInvitationCommand = async (
       resourceShareInvitationArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1114,12 +887,11 @@ export const se_ReplacePermissionAssociationsCommand = async (
   input: ReplacePermissionAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/replacepermissionassociations";
+  b.bp("/replacepermissionassociations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1129,15 +901,8 @@ export const se_ReplacePermissionAssociationsCommand = async (
       toPermissionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1147,12 +912,11 @@ export const se_SetDefaultPermissionVersionCommand = async (
   input: SetDefaultPermissionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/setdefaultpermissionversion";
+  b.bp("/setdefaultpermissionversion");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1161,15 +925,8 @@ export const se_SetDefaultPermissionVersionCommand = async (
       permissionVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1179,11 +936,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagresource";
+  b.bp("/tagresource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1192,15 +949,8 @@ export const se_TagResourceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1210,11 +960,11 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagresource";
+  b.bp("/untagresource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1223,15 +973,8 @@ export const se_UntagResourceCommand = async (
       tagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1241,11 +984,11 @@ export const se_UpdateResourceShareCommand = async (
   input: UpdateResourceShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateresourceshare";
+  b.bp("/updateresourceshare");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1255,15 +998,8 @@ export const se_UpdateResourceShareCommand = async (
       resourceShareArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4424,6 +4160,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cT = "clientToken";
+const _pA = "permissionArn";
+const _pV = "permissionVersion";
+const _rSA = "resourceShareArn";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -4474,3 +4216,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

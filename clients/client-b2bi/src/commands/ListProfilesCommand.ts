@@ -77,33 +77,6 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @example Sample ListProfiles call
- * ```javascript
- * //
- * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo"
- * };
- * const command = new ListProfilesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "nextToken": "foo",
- *   "profiles": [
- *     {
- *       "name": "Shipping Profile",
- *       "businessName": "John's Trucking",
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "logGroupName": "b2bi/p-60fbc37c87f04fce9-Logs",
- *       "logging": "ENABLED",
- *       "profileId": "p-60fbc37c87f04fce9"
- *     }
- *   ]
- * }
- * *\/
- * // example id: example-1
- * ```
- *
  */
 export class ListProfilesCommand extends $Command<
   ListProfilesCommandInput,

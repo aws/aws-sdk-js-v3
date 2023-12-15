@@ -43,6 +43,7 @@ import {
   TenantDatabaseFilterSensitiveLog,
   UserAuthConfig,
 } from "./models_0";
+
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -78,12 +79,11 @@ export const se_CreatePipelineCommand = async (
   input: CreatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/createPipeline";
+  b.bp("/2022-01-01/osis/createPipeline");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -98,15 +98,8 @@ export const se_CreatePipelineCommand = async (
       VpcOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -116,29 +109,13 @@ export const se_DeletePipelineCommand = async (
   input: DeletePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/deletePipeline/{PipelineName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PipelineName",
-    () => input.PipelineName!,
-    "{PipelineName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/deletePipeline/{PipelineName}");
+  b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -148,29 +125,13 @@ export const se_GetPipelineCommand = async (
   input: GetPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/getPipeline/{PipelineName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PipelineName",
-    () => input.PipelineName!,
-    "{PipelineName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/getPipeline/{PipelineName}");
+  b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -180,29 +141,13 @@ export const se_GetPipelineBlueprintCommand = async (
   input: GetPipelineBlueprintCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/getPipelineBlueprint/{BlueprintName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BlueprintName",
-    () => input.BlueprintName!,
-    "{BlueprintName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/getPipelineBlueprint/{BlueprintName}");
+  b.p("BlueprintName", () => input.BlueprintName!, "{BlueprintName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -212,29 +157,13 @@ export const se_GetPipelineChangeProgressCommand = async (
   input: GetPipelineChangeProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/getPipelineChangeProgress/{PipelineName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PipelineName",
-    () => input.PipelineName!,
-    "{PipelineName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/getPipelineChangeProgress/{PipelineName}");
+  b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -244,23 +173,15 @@ export const se_ListPipelineBlueprintsCommand = async (
   input: ListPipelineBlueprintsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/listPipelineBlueprints";
+  b.bp("/2022-01-01/osis/listPipelineBlueprints");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -270,25 +191,16 @@ export const se_ListPipelinesCommand = async (
   input: ListPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/listPipelines";
+  b.bp("/2022-01-01/osis/listPipelines");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -298,24 +210,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/listTagsForResource";
+  b.bp("/2022-01-01/osis/listTagsForResource");
   const query: any = map({
-    arn: [, __expectNonNull(input.Arn!, `Arn`)],
+    [_a]: [, __expectNonNull(input[_A]!, `Arn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -325,29 +228,13 @@ export const se_StartPipelineCommand = async (
   input: StartPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/startPipeline/{PipelineName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PipelineName",
-    () => input.PipelineName!,
-    "{PipelineName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/startPipeline/{PipelineName}");
+  b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -357,29 +244,13 @@ export const se_StopPipelineCommand = async (
   input: StopPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/stopPipeline/{PipelineName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PipelineName",
-    () => input.PipelineName!,
-    "{PipelineName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/stopPipeline/{PipelineName}");
+  b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -389,14 +260,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/tagResource";
+  b.bp("/2022-01-01/osis/tagResource");
   const query: any = map({
-    arn: [, __expectNonNull(input.Arn!, `Arn`)],
+    [_a]: [, __expectNonNull(input[_A]!, `Arn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -404,16 +274,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -423,14 +285,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/untagResource";
+  b.bp("/2022-01-01/osis/untagResource");
   const query: any = map({
-    arn: [, __expectNonNull(input.Arn!, `Arn`)],
+    [_a]: [, __expectNonNull(input[_A]!, `Arn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -438,16 +299,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -457,21 +310,12 @@ export const se_UpdatePipelineCommand = async (
   input: UpdatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2022-01-01/osis/updatePipeline/{PipelineName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PipelineName",
-    () => input.PipelineName!,
-    "{PipelineName}",
-    false
-  );
+  b.bp("/2022-01-01/osis/updatePipeline/{PipelineName}");
+  b.p("PipelineName", () => input.PipelineName!, "{PipelineName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -483,15 +327,8 @@ export const se_UpdatePipelineCommand = async (
       PipelineConfigurationBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -501,27 +338,19 @@ export const se_ValidatePipelineCommand = async (
   input: ValidatePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2022-01-01/osis/validatePipeline";
+  b.bp("/2022-01-01/osis/validatePipeline");
   let body: any;
   body = JSON.stringify(
     take(input, {
       PipelineConfigurationBody: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1648,6 +1477,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _A = "Arn";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _a = "arn";
+const _mR = "maxResults";
+const _nT = "nextToken";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1698,3 +1535,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

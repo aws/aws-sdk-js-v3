@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -81,29 +82,18 @@ export const se_GetOrganizationRecommendationCommand = async (
   input: GetOrganizationRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/organization-recommendations/{organizationRecommendationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/v1/organization-recommendations/{organizationRecommendationIdentifier}");
+  b.p(
     "organizationRecommendationIdentifier",
     () => input.organizationRecommendationIdentifier!,
     "{organizationRecommendationIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -113,29 +103,13 @@ export const se_GetRecommendationCommand = async (
   input: GetRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/recommendations/{recommendationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "recommendationIdentifier",
-    () => input.recommendationIdentifier!,
-    "{recommendationIdentifier}",
-    false
-  );
+  b.bp("/v1/recommendations/{recommendationIdentifier}");
+  b.p("recommendationIdentifier", () => input.recommendationIdentifier!, "{recommendationIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -145,28 +119,20 @@ export const se_ListChecksCommand = async (
   input: ListChecksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/checks";
+  b.bp("/v1/checks");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    pillar: [, input.pillar!],
-    awsService: [, input.awsService!],
-    source: [, input.source!],
-    language: [, input.language!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_p]: [, input[_p]!],
+    [_aS]: [, input[_aS]!],
+    [_s]: [, input[_s]!],
+    [_l]: [, input[_l]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -176,35 +142,23 @@ export const se_ListOrganizationRecommendationAccountsCommand = async (
   input: ListOrganizationRecommendationAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts");
+  b.p(
     "organizationRecommendationIdentifier",
     () => input.organizationRecommendationIdentifier!,
     "{organizationRecommendationIdentifier}",
     false
   );
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    affectedAccountId: [, input.affectedAccountId!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_aAI]: [, input[_aAI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -214,37 +168,25 @@ export const se_ListOrganizationRecommendationResourcesCommand = async (
   input: ListOrganizationRecommendationResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/organization-recommendations/{organizationRecommendationIdentifier}/resources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/v1/organization-recommendations/{organizationRecommendationIdentifier}/resources");
+  b.p(
     "organizationRecommendationIdentifier",
     () => input.organizationRecommendationIdentifier!,
     "{organizationRecommendationIdentifier}",
     false
   );
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    status: [, input.status!],
-    regionCode: [, input.regionCode!],
-    affectedAccountId: [, input.affectedAccountId!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_st]: [, input[_st]!],
+    [_rC]: [, input[_rC]!],
+    [_aAI]: [, input[_aAI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -254,39 +196,30 @@ export const se_ListOrganizationRecommendationsCommand = async (
   input: ListOrganizationRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/organization-recommendations";
+  b.bp("/v1/organization-recommendations");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    type: [, input.type!],
-    status: [, input.status!],
-    pillar: [, input.pillar!],
-    awsService: [, input.awsService!],
-    source: [, input.source!],
-    checkIdentifier: [, input.checkIdentifier!],
-    afterLastUpdatedAt: [
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_t]: [, input[_t]!],
+    [_st]: [, input[_st]!],
+    [_p]: [, input[_p]!],
+    [_aS]: [, input[_aS]!],
+    [_s]: [, input[_s]!],
+    [_cI]: [, input[_cI]!],
+    [_aLUA]: [
       () => input.afterLastUpdatedAt !== void 0,
-      () => (input.afterLastUpdatedAt!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_aLUA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    beforeLastUpdatedAt: [
+    [_bLUA]: [
       () => input.beforeLastUpdatedAt !== void 0,
-      () => (input.beforeLastUpdatedAt!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_bLUA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -296,36 +229,19 @@ export const se_ListRecommendationResourcesCommand = async (
   input: ListRecommendationResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/recommendations/{recommendationIdentifier}/resources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "recommendationIdentifier",
-    () => input.recommendationIdentifier!,
-    "{recommendationIdentifier}",
-    false
-  );
+  b.bp("/v1/recommendations/{recommendationIdentifier}/resources");
+  b.p("recommendationIdentifier", () => input.recommendationIdentifier!, "{recommendationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    status: [, input.status!],
-    regionCode: [, input.regionCode!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_st]: [, input[_st]!],
+    [_rC]: [, input[_rC]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -335,38 +251,30 @@ export const se_ListRecommendationsCommand = async (
   input: ListRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/recommendations";
+  b.bp("/v1/recommendations");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    type: [, input.type!],
-    status: [, input.status!],
-    pillar: [, input.pillar!],
-    awsService: [, input.awsService!],
-    source: [, input.source!],
-    checkIdentifier: [, input.checkIdentifier!],
-    afterLastUpdatedAt: [
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_t]: [, input[_t]!],
+    [_st]: [, input[_st]!],
+    [_p]: [, input[_p]!],
+    [_aS]: [, input[_aS]!],
+    [_s]: [, input[_s]!],
+    [_cI]: [, input[_cI]!],
+    [_aLUA]: [
       () => input.afterLastUpdatedAt !== void 0,
-      () => (input.afterLastUpdatedAt!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_aLUA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    beforeLastUpdatedAt: [
+    [_bLUA]: [
       () => input.beforeLastUpdatedAt !== void 0,
-      () => (input.beforeLastUpdatedAt!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_bLUA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -376,16 +284,12 @@ export const se_UpdateOrganizationRecommendationLifecycleCommand = async (
   input: UpdateOrganizationRecommendationLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle");
+  b.p(
     "organizationRecommendationIdentifier",
     () => input.organizationRecommendationIdentifier!,
     "{organizationRecommendationIdentifier}",
@@ -399,15 +303,8 @@ export const se_UpdateOrganizationRecommendationLifecycleCommand = async (
       updateReasonCode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -417,21 +314,12 @@ export const se_UpdateRecommendationLifecycleCommand = async (
   input: UpdateRecommendationLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/recommendations/{recommendationIdentifier}/lifecycle";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "recommendationIdentifier",
-    () => input.recommendationIdentifier!,
-    "{recommendationIdentifier}",
-    false
-  );
+  b.bp("/v1/recommendations/{recommendationIdentifier}/lifecycle");
+  b.p("recommendationIdentifier", () => input.recommendationIdentifier!, "{recommendationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -440,15 +328,8 @@ export const se_UpdateRecommendationLifecycleCommand = async (
       updateReasonCode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1436,6 +1317,21 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _aAI = "affectedAccountId";
+const _aLUA = "afterLastUpdatedAt";
+const _aS = "awsService";
+const _bLUA = "beforeLastUpdatedAt";
+const _cI = "checkIdentifier";
+const _l = "language";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _p = "pillar";
+const _rC = "regionCode";
+const _s = "source";
+const _st = "status";
+const _t = "type";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -1486,3 +1382,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -180,25 +181,16 @@ export const se_AbortDocumentVersionUploadCommand = async (
   input: AbortDocumentVersionUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions/{VersionId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -208,23 +200,15 @@ export const se_ActivateUserCommand = async (
   input: ActivateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}/activation";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
+  b.bp("/api/v1/users/{UserId}/activation");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -234,15 +218,13 @@ export const se_AddResourcePermissionsCommand = async (
   input: AddResourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/resources/{ResourceId}/permissions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/permissions");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -250,15 +232,8 @@ export const se_AddResourcePermissionsCommand = async (
       Principals: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -268,16 +243,14 @@ export const se_CreateCommentCommand = async (
   input: CreateCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions/{VersionId}/comment");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -288,15 +261,8 @@ export const se_CreateCommentCommand = async (
       Visibility: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -306,17 +272,15 @@ export const se_CreateCustomMetadataCommand = async (
   input: CreateCustomMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/resources/{ResourceId}/customMetadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/customMetadata");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    versionid: [, input.VersionId!],
+    [_v]: [, input[_VI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -324,16 +288,8 @@ export const se_CreateCustomMetadataCommand = async (
       CustomMetadata: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -343,12 +299,12 @@ export const se_CreateFolderCommand = async (
   input: CreateFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders";
+  b.bp("/api/v1/folders");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -356,15 +312,8 @@ export const se_CreateFolderCommand = async (
       ParentFolderId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -374,29 +323,21 @@ export const se_CreateLabelsCommand = async (
   input: CreateLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/resources/{ResourceId}/labels";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/labels");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Labels: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -406,21 +347,12 @@ export const se_CreateNotificationSubscriptionCommand = async (
   input: CreateNotificationSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/organizations/{OrganizationId}/subscriptions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OrganizationId",
-    () => input.OrganizationId!,
-    "{OrganizationId}",
-    false
-  );
+  b.bp("/api/v1/organizations/{OrganizationId}/subscriptions");
+  b.p("OrganizationId", () => input.OrganizationId!, "{OrganizationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -429,15 +361,8 @@ export const se_CreateNotificationSubscriptionCommand = async (
       SubscriptionType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -447,12 +372,12 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
+  b.bp("/api/v1/users");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -466,15 +391,8 @@ export const se_CreateUserCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -484,23 +402,15 @@ export const se_DeactivateUserCommand = async (
   input: DeactivateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}/activation";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
+  b.bp("/api/v1/users/{UserId}/activation");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -510,26 +420,17 @@ export const se_DeleteCommentCommand = async (
   input: DeleteCommentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "CommentId", () => input.CommentId!, "{CommentId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.p("CommentId", () => input.CommentId!, "{CommentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -539,30 +440,20 @@ export const se_DeleteCustomMetadataCommand = async (
   input: DeleteCustomMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/resources/{ResourceId}/customMetadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/customMetadata");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    versionId: [, input.VersionId!],
-    keys: [() => input.Keys !== void 0, () => (input.Keys! || []).map((_entry) => _entry as any)],
-    deleteAll: [() => input.DeleteAll !== void 0, () => input.DeleteAll!.toString()],
+    [_vI]: [, input[_VI]!],
+    [_k]: [() => input.Keys !== void 0, () => (input[_K]! || []).map((_entry) => _entry as any)],
+    [_dA]: [() => input.DeleteAll !== void 0, () => input[_DA]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -572,23 +463,15 @@ export const se_DeleteDocumentCommand = async (
   input: DeleteDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.bp("/api/v1/documents/{DocumentId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -598,32 +481,19 @@ export const se_DeleteDocumentVersionCommand = async (
   input: DeleteDocumentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documentVersions/{DocumentId}/versions/{VersionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.bp("/api/v1/documentVersions/{DocumentId}/versions/{VersionId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
   const query: any = map({
-    deletePriorVersions: [
-      __expectNonNull(input.DeletePriorVersions, `DeletePriorVersions`) != null,
-      () => input.DeletePriorVersions!.toString(),
-    ],
+    [_dPV]: [__expectNonNull(input.DeletePriorVersions, `DeletePriorVersions`) != null, () => input[_DPV]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -633,23 +503,15 @@ export const se_DeleteFolderCommand = async (
   input: DeleteFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/api/v1/folders/{FolderId}");
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -659,23 +521,15 @@ export const se_DeleteFolderContentsCommand = async (
   input: DeleteFolderContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}/contents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/api/v1/folders/{FolderId}/contents");
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -685,28 +539,19 @@ export const se_DeleteLabelsCommand = async (
   input: DeleteLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/resources/{ResourceId}/labels";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/labels");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    labels: [() => input.Labels !== void 0, () => (input.Labels! || []).map((_entry) => _entry as any)],
-    deleteAll: [() => input.DeleteAll !== void 0, () => input.DeleteAll!.toString()],
+    [_l]: [() => input.Labels !== void 0, () => (input[_L]! || []).map((_entry) => _entry as any)],
+    [_dA]: [() => input.DeleteAll !== void 0, () => input[_DA]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -716,37 +561,14 @@ export const se_DeleteNotificationSubscriptionCommand = async (
   input: DeleteNotificationSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionId",
-    () => input.SubscriptionId!,
-    "{SubscriptionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OrganizationId",
-    () => input.OrganizationId!,
-    "{OrganizationId}",
-    false
-  );
+  b.bp("/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}");
+  b.p("SubscriptionId", () => input.SubscriptionId!, "{SubscriptionId}", false);
+  b.p("OrganizationId", () => input.OrganizationId!, "{OrganizationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -756,22 +578,15 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
+  b.bp("/api/v1/users/{UserId}");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -781,39 +596,25 @@ export const se_DescribeActivitiesCommand = async (
   input: DescribeActivitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/activities";
+  b.bp("/api/v1/activities");
   const query: any = map({
-    startTime: [
-      () => input.StartTime !== void 0,
-      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    endTime: [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
-    organizationId: [, input.OrganizationId!],
-    activityTypes: [, input.ActivityTypes!],
-    resourceId: [, input.ResourceId!],
-    userId: [, input.UserId!],
-    includeIndirectActivities: [
-      () => input.IncludeIndirectActivities !== void 0,
-      () => input.IncludeIndirectActivities!.toString(),
-    ],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    marker: [, input.Marker!],
+    [_sT]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_eT]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_oI]: [, input[_OI]!],
+    [_aT]: [, input[_ATc]!],
+    [_rI]: [, input[_RI]!],
+    [_uI]: [, input[_UI]!],
+    [_iIA]: [() => input.IncludeIndirectActivities !== void 0, () => input[_IIA]!.toString()],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -823,30 +624,20 @@ export const se_DescribeCommentsCommand = async (
   input: DescribeCommentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions/{VersionId}/comments");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    marker: [, input.Marker!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -856,30 +647,21 @@ export const se_DescribeDocumentVersionsCommand = async (
   input: DescribeDocumentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   const query: any = map({
-    marker: [, input.Marker!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    include: [, input.Include!],
-    fields: [, input.Fields!],
+    [_m]: [, input[_M]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_i]: [, input[_I]!],
+    [_f]: [, input[_F]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -889,32 +671,23 @@ export const se_DescribeFolderContentsCommand = async (
   input: DescribeFolderContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}/contents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/api/v1/folders/{FolderId}/contents");
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   const query: any = map({
-    sort: [, input.Sort!],
-    order: [, input.Order!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    marker: [, input.Marker!],
-    type: [, input.Type!],
-    include: [, input.Include!],
+    [_s]: [, input[_S]!],
+    [_o]: [, input[_O]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_m]: [, input[_M]!],
+    [_t]: [, input[_T]!],
+    [_i]: [, input[_I]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -924,28 +697,20 @@ export const se_DescribeGroupsCommand = async (
   input: DescribeGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/groups";
+  b.bp("/api/v1/groups");
   const query: any = map({
-    searchQuery: [, __expectNonNull(input.SearchQuery!, `SearchQuery`)],
-    organizationId: [, input.OrganizationId!],
-    marker: [, input.Marker!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
+    [_sQ]: [, __expectNonNull(input[_SQ]!, `SearchQuery`)],
+    [_oI]: [, input[_OI]!],
+    [_m]: [, input[_M]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -955,34 +720,17 @@ export const se_DescribeNotificationSubscriptionsCommand = async (
   input: DescribeNotificationSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/organizations/{OrganizationId}/subscriptions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OrganizationId",
-    () => input.OrganizationId!,
-    "{OrganizationId}",
-    false
-  );
+  b.bp("/api/v1/organizations/{OrganizationId}/subscriptions");
+  b.p("OrganizationId", () => input.OrganizationId!, "{OrganizationId}", false);
   const query: any = map({
-    marker: [, input.Marker!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
+    [_m]: [, input[_M]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -992,30 +740,20 @@ export const se_DescribeResourcePermissionsCommand = async (
   input: DescribeResourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/resources/{ResourceId}/permissions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/permissions");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    principalId: [, input.PrincipalId!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    marker: [, input.Marker!],
+    [_pI]: [, input[_PI]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1025,26 +763,18 @@ export const se_DescribeRootFoldersCommand = async (
   input: DescribeRootFoldersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/me/root";
+  b.bp("/api/v1/me/root");
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    marker: [, input.Marker!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1054,33 +784,25 @@ export const se_DescribeUsersCommand = async (
   input: DescribeUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
+  b.bp("/api/v1/users");
   const query: any = map({
-    organizationId: [, input.OrganizationId!],
-    userIds: [, input.UserIds!],
-    query: [, input.Query!],
-    include: [, input.Include!],
-    order: [, input.Order!],
-    sort: [, input.Sort!],
-    marker: [, input.Marker!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    fields: [, input.Fields!],
+    [_oI]: [, input[_OI]!],
+    [_uIs]: [, input[_UIs]!],
+    [_q]: [, input[_Q]!],
+    [_i]: [, input[_I]!],
+    [_o]: [, input[_O]!],
+    [_s]: [, input[_S]!],
+    [_m]: [, input[_M]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_f]: [, input[_F]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1090,21 +812,14 @@ export const se_GetCurrentUserCommand = async (
   input: GetCurrentUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/me";
+  b.bp("/api/v1/me");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1114,30 +829,18 @@ export const se_GetDocumentCommand = async (
   input: GetDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.bp("/api/v1/documents/{DocumentId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   const query: any = map({
-    includeCustomMetadata: [
-      () => input.IncludeCustomMetadata !== void 0,
-      () => input.IncludeCustomMetadata!.toString(),
-    ],
+    [_iCM]: [() => input.IncludeCustomMetadata !== void 0, () => input[_ICM]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1147,29 +850,20 @@ export const se_GetDocumentPathCommand = async (
   input: GetDocumentPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}/path";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/path");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    fields: [, input.Fields!],
-    marker: [, input.Marker!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_f]: [, input[_F]!],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1179,33 +873,20 @@ export const se_GetDocumentVersionCommand = async (
   input: GetDocumentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions/{VersionId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
   const query: any = map({
-    fields: [, input.Fields!],
-    includeCustomMetadata: [
-      () => input.IncludeCustomMetadata !== void 0,
-      () => input.IncludeCustomMetadata!.toString(),
-    ],
+    [_f]: [, input[_F]!],
+    [_iCM]: [() => input.IncludeCustomMetadata !== void 0, () => input[_ICM]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1215,30 +896,18 @@ export const se_GetFolderCommand = async (
   input: GetFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/api/v1/folders/{FolderId}");
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   const query: any = map({
-    includeCustomMetadata: [
-      () => input.IncludeCustomMetadata !== void 0,
-      () => input.IncludeCustomMetadata!.toString(),
-    ],
+    [_iCM]: [() => input.IncludeCustomMetadata !== void 0, () => input[_ICM]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1248,29 +917,20 @@ export const se_GetFolderPathCommand = async (
   input: GetFolderPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}/path";
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/api/v1/folders/{FolderId}/path");
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   const query: any = map({
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    fields: [, input.Fields!],
-    marker: [, input.Marker!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_f]: [, input[_F]!],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1280,28 +940,20 @@ export const se_GetResourcesCommand = async (
   input: GetResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/resources";
+  b.bp("/api/v1/resources");
   const query: any = map({
-    userId: [, input.UserId!],
-    collectionType: [, input.CollectionType!],
-    limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
-    marker: [, input.Marker!],
+    [_uI]: [, input[_UI]!],
+    [_cT]: [, input[_CT]!],
+    [_li]: [() => input.Limit !== void 0, () => input[_Li]!.toString()],
+    [_m]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1311,12 +963,12 @@ export const se_InitiateDocumentVersionUploadCommand = async (
   input: InitiateDocumentVersionUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents";
+  b.bp("/api/v1/documents");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1329,15 +981,8 @@ export const se_InitiateDocumentVersionUploadCommand = async (
       ParentFolderId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1347,24 +992,15 @@ export const se_RemoveAllResourcePermissionsCommand = async (
   input: RemoveAllResourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/resources/{ResourceId}/permissions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/permissions");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1374,29 +1010,19 @@ export const se_RemoveResourcePermissionCommand = async (
   input: RemoveResourcePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "PrincipalId", () => input.PrincipalId!, "{PrincipalId}", false);
+  b.bp("/api/v1/resources/{ResourceId}/permissions/{PrincipalId}");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.p("PrincipalId", () => input.PrincipalId!, "{PrincipalId}", false);
   const query: any = map({
-    type: [, input.PrincipalType!],
+    [_t]: [, input[_PT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1406,24 +1032,15 @@ export const se_RestoreDocumentVersionsCommand = async (
   input: RestoreDocumentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documentVersions/restore/{DocumentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.bp("/api/v1/documentVersions/restore/{DocumentId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1433,12 +1050,12 @@ export const se_SearchResourcesCommand = async (
   input: SearchResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/search";
+  b.bp("/api/v1/search");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1452,15 +1069,8 @@ export const se_SearchResourcesCommand = async (
       QueryText: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1470,14 +1080,13 @@ export const se_UpdateDocumentCommand = async (
   input: UpdateDocumentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents/{DocumentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.bp("/api/v1/documents/{DocumentId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1486,15 +1095,8 @@ export const se_UpdateDocumentCommand = async (
       ResourceState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1504,31 +1106,22 @@ export const se_UpdateDocumentVersionCommand = async (
   input: UpdateDocumentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/api/v1/documents/{DocumentId}/versions/{VersionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  b.bp("/api/v1/documents/{DocumentId}/versions/{VersionId}");
+  b.p("DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  b.p("VersionId", () => input.VersionId!, "{VersionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       VersionStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1538,14 +1131,13 @@ export const se_UpdateFolderCommand = async (
   input: UpdateFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders/{FolderId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/api/v1/folders/{FolderId}");
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1554,15 +1146,8 @@ export const se_UpdateFolderCommand = async (
       ResourceState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1572,13 +1157,13 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    authentication: input.AuthenticationToken!,
+    [_a]: input[_AT]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
+  b.bp("/api/v1/users/{UserId}");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1591,15 +1176,8 @@ export const se_UpdateUserCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5200,6 +4778,62 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _AT = "AuthenticationToken";
+const _ATc = "ActivityTypes";
+const _CT = "CollectionType";
+const _DA = "DeleteAll";
+const _DPV = "DeletePriorVersions";
+const _ET = "EndTime";
+const _F = "Fields";
+const _I = "Include";
+const _ICM = "IncludeCustomMetadata";
+const _IIA = "IncludeIndirectActivities";
+const _K = "Keys";
+const _L = "Labels";
+const _Li = "Limit";
+const _M = "Marker";
+const _O = "Order";
+const _OI = "OrganizationId";
+const _PI = "PrincipalId";
+const _PT = "PrincipalType";
+const _Q = "Query";
+const _RI = "ResourceId";
+const _S = "Sort";
+const _SQ = "SearchQuery";
+const _ST = "StartTime";
+const _T = "Type";
+const _UI = "UserId";
+const _UIs = "UserIds";
+const _VI = "VersionId";
+const _a = "authentication";
+const _aT = "activityTypes";
+const _cT = "collectionType";
+const _dA = "deleteAll";
+const _dPV = "deletePriorVersions";
+const _eT = "endTime";
+const _f = "fields";
+const _i = "include";
+const _iCM = "includeCustomMetadata";
+const _iIA = "includeIndirectActivities";
+const _k = "keys";
+const _l = "labels";
+const _li = "limit";
+const _m = "marker";
+const _o = "order";
+const _oI = "organizationId";
+const _pI = "principalId";
+const _q = "query";
+const _rI = "resourceId";
+const _s = "sort";
+const _sQ = "searchQuery";
+const _sT = "startTime";
+const _t = "type";
+const _uI = "userId";
+const _uIs = "userIds";
+const _v = "versionid";
+const _vI = "versionId";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -5250,3 +4884,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

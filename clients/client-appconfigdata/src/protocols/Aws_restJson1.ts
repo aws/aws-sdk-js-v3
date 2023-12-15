@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -43,23 +44,15 @@ export const se_GetLatestConfigurationCommand = async (
   input: GetLatestConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
+  b.bp("/configuration");
   const query: any = map({
-    configuration_token: [, __expectNonNull(input.ConfigurationToken!, `ConfigurationToken`)],
+    [_ct]: [, __expectNonNull(input[_CT]!, `ConfigurationToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -69,11 +62,11 @@ export const se_StartConfigurationSessionCommand = async (
   input: StartConfigurationSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configurationsessions";
+  b.bp("/configurationsessions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -83,15 +76,8 @@ export const se_StartConfigurationSessionCommand = async (
       RequiredMinimumPollIntervalInSeconds: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -106,13 +92,10 @@ export const de_GetLatestConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    NextPollConfigurationToken: [, output.headers["next-poll-configuration-token"]],
-    NextPollIntervalInSeconds: [
-      () => void 0 !== output.headers["next-poll-interval-in-seconds"],
-      () => __strictParseInt32(output.headers["next-poll-interval-in-seconds"]),
-    ],
-    ContentType: [, output.headers["content-type"]],
-    VersionLabel: [, output.headers["version-label"]],
+    [_NPCT]: [, output.headers[_npct]],
+    [_NPIIS]: [() => void 0 !== output.headers[_npiis], () => __strictParseInt32(output.headers[_npiis])],
+    [_CTo]: [, output.headers[_ct_]],
+    [_VL]: [, output.headers[_vl]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Configuration = data;
@@ -316,6 +299,18 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _CT = "ConfigurationToken";
+const _CTo = "ContentType";
+const _NPCT = "NextPollConfigurationToken";
+const _NPIIS = "NextPollIntervalInSeconds";
+const _VL = "VersionLabel";
+const _ct = "configuration_token";
+const _ct_ = "content-type";
+const _npct = "next-poll-configuration-token";
+const _npiis = "next-poll-interval-in-seconds";
+const _vl = "version-label";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -366,3 +361,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

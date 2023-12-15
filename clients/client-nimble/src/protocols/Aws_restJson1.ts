@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -209,30 +210,21 @@ export const se_AcceptEulasCommand = async (
   input: AcceptEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/eula-acceptances";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/eula-acceptances");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       eulaIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -242,15 +234,13 @@ export const se_CreateLaunchProfileCommand = async (
   input: CreateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -263,15 +253,8 @@ export const se_CreateLaunchProfileCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -281,15 +264,13 @@ export const se_CreateStreamingImageCommand = async (
   input: CreateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-images";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-images");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -299,15 +280,8 @@ export const se_CreateStreamingImageCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -317,15 +291,13 @@ export const se_CreateStreamingSessionCommand = async (
   input: CreateStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -336,15 +308,8 @@ export const se_CreateStreamingSessionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -354,31 +319,22 @@ export const se_CreateStreamingSessionStreamCommand = async (
   input: CreateStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams";
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       expirationInSeconds: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -388,12 +344,12 @@ export const se_CreateStudioCommand = async (
   input: CreateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
+  b.bp("/2020-08-01/studios");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -405,15 +361,8 @@ export const se_CreateStudioCommand = async (
       userRoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -423,15 +372,13 @@ export const se_CreateStudioComponentCommand = async (
   input: CreateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/studio-components";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/studio-components");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -448,15 +395,8 @@ export const se_CreateStudioComponentCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -466,32 +406,16 @@ export const se_DeleteLaunchProfileCommand = async (
   input: DeleteLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -501,33 +425,17 @@ export const se_DeleteLaunchProfileMemberCommand = async (
   input: DeleteLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "principalId", () => input.principalId!, "{principalId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("principalId", () => input.principalId!, "{principalId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -537,32 +445,16 @@ export const se_DeleteStreamingImageCommand = async (
   input: DeleteStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "streamingImageId",
-    () => input.streamingImageId!,
-    "{streamingImageId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}");
+  b.p("streamingImageId", () => input.streamingImageId!, "{streamingImageId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -572,25 +464,16 @@ export const se_DeleteStreamingSessionCommand = async (
   input: DeleteStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -600,23 +483,15 @@ export const se_DeleteStudioCommand = async (
   input: DeleteStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -626,32 +501,16 @@ export const se_DeleteStudioComponentCommand = async (
   input: DeleteStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "studioComponentId",
-    () => input.studioComponentId!,
-    "{studioComponentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}");
+  b.p("studioComponentId", () => input.studioComponentId!, "{studioComponentId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -661,25 +520,16 @@ export const se_DeleteStudioMemberCommand = async (
   input: DeleteStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/membership/{principalId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "principalId", () => input.principalId!, "{principalId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/membership/{principalId}");
+  b.p("principalId", () => input.principalId!, "{principalId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -689,21 +539,13 @@ export const se_GetEulaCommand = async (
   input: GetEulaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas/{eulaId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "eulaId", () => input.eulaId!, "{eulaId}", false);
+  b.bp("/2020-08-01/eulas/{eulaId}");
+  b.p("eulaId", () => input.eulaId!, "{eulaId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -713,30 +555,14 @@ export const se_GetLaunchProfileCommand = async (
   input: GetLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -746,30 +572,14 @@ export const se_GetLaunchProfileDetailsCommand = async (
   input: GetLaunchProfileDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -779,39 +589,22 @@ export const se_GetLaunchProfileInitializationCommand = async (
   input: GetLaunchProfileInitializationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    launchProfileProtocolVersions: [
+    [_lPPV]: [
       __expectNonNull(input.launchProfileProtocolVersions, `launchProfileProtocolVersions`) != null,
-      () => (input.launchProfileProtocolVersions! || []).map((_entry) => _entry as any),
+      () => (input[_lPPV]! || []).map((_entry) => _entry as any),
     ],
-    launchPurpose: [, __expectNonNull(input.launchPurpose!, `launchPurpose`)],
-    platform: [, __expectNonNull(input.platform!, `platform`)],
+    [_lP]: [, __expectNonNull(input[_lP]!, `launchPurpose`)],
+    [_p]: [, __expectNonNull(input[_p]!, `platform`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -821,31 +614,15 @@ export const se_GetLaunchProfileMemberCommand = async (
   input: GetLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "principalId", () => input.principalId!, "{principalId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("principalId", () => input.principalId!, "{principalId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -855,30 +632,14 @@ export const se_GetStreamingImageCommand = async (
   input: GetStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "streamingImageId",
-    () => input.streamingImageId!,
-    "{streamingImageId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}");
+  b.p("streamingImageId", () => input.streamingImageId!, "{streamingImageId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -888,23 +649,14 @@ export const se_GetStreamingSessionCommand = async (
   input: GetStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -914,23 +666,14 @@ export const se_GetStreamingSessionBackupCommand = async (
   input: GetStreamingSessionBackupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-session-backups/{backupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "backupId", () => input.backupId!, "{backupId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-session-backups/{backupId}");
+  b.p("backupId", () => input.backupId!, "{backupId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -940,24 +683,15 @@ export const se_GetStreamingSessionStreamCommand = async (
   input: GetStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "streamId", () => input.streamId!, "{streamId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.p("streamId", () => input.streamId!, "{streamId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -967,21 +701,13 @@ export const se_GetStudioCommand = async (
   input: GetStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -991,30 +717,14 @@ export const se_GetStudioComponentCommand = async (
   input: GetStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "studioComponentId",
-    () => input.studioComponentId!,
-    "{studioComponentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}");
+  b.p("studioComponentId", () => input.studioComponentId!, "{studioComponentId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1024,23 +734,14 @@ export const se_GetStudioMemberCommand = async (
   input: GetStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/membership/{principalId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "principalId", () => input.principalId!, "{principalId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/membership/{principalId}");
+  b.p("principalId", () => input.principalId!, "{principalId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1050,27 +751,17 @@ export const se_ListEulaAcceptancesCommand = async (
   input: ListEulaAcceptancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/eula-acceptances";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/eula-acceptances");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    eulaIds: [() => input.eulaIds !== void 0, () => (input.eulaIds! || []).map((_entry) => _entry as any)],
-    nextToken: [, input.nextToken!],
+    [_eI]: [() => input.eulaIds !== void 0, () => (input[_eI]! || []).map((_entry) => _entry as any)],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1080,24 +771,16 @@ export const se_ListEulasCommand = async (
   input: ListEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas";
+  b.bp("/2020-08-01/eulas");
   const query: any = map({
-    eulaIds: [() => input.eulaIds !== void 0, () => (input.eulaIds! || []).map((_entry) => _entry as any)],
-    nextToken: [, input.nextToken!],
+    [_eI]: [() => input.eulaIds !== void 0, () => (input[_eI]! || []).map((_entry) => _entry as any)],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1107,35 +790,18 @@ export const se_ListLaunchProfileMembersCommand = async (
   input: ListLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1145,29 +811,19 @@ export const se_ListLaunchProfilesCommand = async (
   input: ListLaunchProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    principalId: [, input.principalId!],
-    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pI]: [, input[_pI]!],
+    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1177,27 +833,17 @@ export const se_ListStreamingImagesCommand = async (
   input: ListStreamingImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-images";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-images");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    owner: [, input.owner!],
+    [_nT]: [, input[_nT]!],
+    [_o]: [, input[_o]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1207,27 +853,17 @@ export const se_ListStreamingSessionBackupsCommand = async (
   input: ListStreamingSessionBackupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-session-backups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-session-backups");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    ownedBy: [, input.ownedBy!],
+    [_nT]: [, input[_nT]!],
+    [_oB]: [, input[_oB]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1237,29 +873,19 @@ export const se_ListStreamingSessionsCommand = async (
   input: ListStreamingSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    createdBy: [, input.createdBy!],
-    nextToken: [, input.nextToken!],
-    ownedBy: [, input.ownedBy!],
-    sessionIds: [, input.sessionIds!],
+    [_cB]: [, input[_cB]!],
+    [_nT]: [, input[_nT]!],
+    [_oB]: [, input[_oB]!],
+    [_sI]: [, input[_sI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1269,29 +895,19 @@ export const se_ListStudioComponentsCommand = async (
   input: ListStudioComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/studio-components";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/studio-components");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
-    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1301,26 +917,17 @@ export const se_ListStudioMembersCommand = async (
   input: ListStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/membership");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1330,23 +937,15 @@ export const se_ListStudiosCommand = async (
   input: ListStudiosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
+  b.bp("/2020-08-01/studios");
   const query: any = map({
-    nextToken: [, input.nextToken!],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1356,21 +955,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/2020-08-01/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1380,23 +971,14 @@ export const se_PutLaunchProfileMembersCommand = async (
   input: PutLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1404,15 +986,8 @@ export const se_PutLaunchProfileMembersCommand = async (
       members: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1422,14 +997,13 @@ export const se_PutStudioMembersCommand = async (
   input: PutStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/membership");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1437,15 +1011,8 @@ export const se_PutStudioMembersCommand = async (
       members: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1455,31 +1022,22 @@ export const se_StartStreamingSessionCommand = async (
   input: StartStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/start");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       backupId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1489,24 +1047,15 @@ export const se_StartStudioSSOConfigurationRepairCommand = async (
   input: StartStudioSSOConfigurationRepairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/sso-configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/sso-configuration");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1516,31 +1065,22 @@ export const se_StopStreamingSessionCommand = async (
   input: StopStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/stop");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       volumeRetentionMode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1550,28 +1090,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/2020-08-01/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1581,28 +1113,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/2020-08-01/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1612,23 +1135,14 @@ export const se_UpdateLaunchProfileCommand = async (
   input: UpdateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1639,15 +1153,8 @@ export const se_UpdateLaunchProfileCommand = async (
       studioComponentIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1657,39 +1164,23 @@ export const se_UpdateLaunchProfileMemberCommand = async (
   input: UpdateLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "launchProfileId",
-    () => input.launchProfileId!,
-    "{launchProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "principalId", () => input.principalId!, "{principalId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}");
+  b.p("launchProfileId", () => input.launchProfileId!, "{launchProfileId}", false);
+  b.p("principalId", () => input.principalId!, "{principalId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       persona: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1699,23 +1190,14 @@ export const se_UpdateStreamingImageCommand = async (
   input: UpdateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "streamingImageId",
-    () => input.streamingImageId!,
-    "{streamingImageId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}");
+  b.p("streamingImageId", () => input.streamingImageId!, "{streamingImageId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1723,15 +1205,8 @@ export const se_UpdateStreamingImageCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1741,14 +1216,13 @@ export const se_UpdateStudioCommand = async (
   input: UpdateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}");
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1757,15 +1231,8 @@ export const se_UpdateStudioCommand = async (
       userRoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1775,23 +1242,14 @@ export const se_UpdateStudioComponentCommand = async (
   input: UpdateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-client-token": input.clientToken!,
+    [_xact]: input[_cT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "studioComponentId",
-    () => input.studioComponentId!,
-    "{studioComponentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  b.bp("/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}");
+  b.p("studioComponentId", () => input.studioComponentId!, "{studioComponentId}", false);
+  b.p("studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1807,15 +1265,8 @@ export const se_UpdateStudioComponentCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5579,6 +5030,24 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _cB = "createdBy";
+const _cT = "clientToken";
+const _eI = "eulaIds";
+const _lP = "launchPurpose";
+const _lPPV = "launchProfileProtocolVersions";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _o = "owner";
+const _oB = "ownedBy";
+const _p = "platform";
+const _pI = "principalId";
+const _s = "states";
+const _sI = "sessionIds";
+const _t = "types";
+const _tK = "tagKeys";
+const _xact = "x-amz-client-token";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -5629,3 +5098,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator

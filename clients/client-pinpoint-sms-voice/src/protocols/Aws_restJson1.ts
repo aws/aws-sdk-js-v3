@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -74,27 +75,19 @@ export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/configuration-sets";
+  b.bp("/v1/sms-voice/configuration-sets");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ConfigurationSetName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -104,21 +97,12 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -126,15 +110,8 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
       EventDestinationName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -144,29 +121,13 @@ export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v1/sms-voice/configuration-sets/{ConfigurationSetName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -176,37 +137,14 @@ export const se_DeleteConfigurationSetEventDestinationCommand = async (
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventDestinationName",
-    () => input.EventDestinationName!,
-    "{EventDestinationName}",
-    false
-  );
+  b.bp("/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
+  b.p("EventDestinationName", () => input.EventDestinationName!, "{EventDestinationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -216,29 +154,13 @@ export const se_GetConfigurationSetEventDestinationsCommand = async (
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -248,25 +170,16 @@ export const se_ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/configuration-sets";
+  b.bp("/v1/sms-voice/configuration-sets");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [, input.PageSize!],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [, input[_PS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -276,12 +189,11 @@ export const se_SendVoiceMessageCommand = async (
   input: SendVoiceMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/voice/message";
+  b.bp("/v1/sms-voice/voice/message");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -292,15 +204,8 @@ export const se_SendVoiceMessageCommand = async (
       OriginationPhoneNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,44 +215,21 @@ export const se_UpdateConfigurationSetEventDestinationCommand = async (
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventDestinationName",
-    () => input.EventDestinationName!,
-    "{EventDestinationName}",
-    false
-  );
+  b.bp("/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
+  b.p("EventDestinationName", () => input.EventDestinationName!, "{EventDestinationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       EventDestination: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -948,6 +830,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+// HttpBindingProtocolGenerator
+const _NT = "NextToken";
+const _PS = "PageSize";
+
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -998,3 +884,5 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
+
+// RestJsonProtocolGenerator
