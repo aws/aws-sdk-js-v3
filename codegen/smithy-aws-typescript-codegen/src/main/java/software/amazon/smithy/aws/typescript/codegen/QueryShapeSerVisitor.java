@@ -35,6 +35,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -49,6 +50,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
+    private StringStore stringStore = getContext().getStringStore();
 
     QueryShapeSerVisitor(GenerationContext context) {
         super(context);
@@ -175,7 +177,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Serialize every member of the structure if present.
         shape.getAllMembers().forEach((memberName, memberShape) -> {
-            String inputLocation = "input." + memberName;
+            String inputLocation = "input[" + stringStore.var(memberName) + "]";
 
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
@@ -208,7 +210,10 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         if (inputVisitor.visitSuppliesEntryList(target)) {
             serializeNamedMemberEntryList(context, locationName, memberShape, target, inputVisitor, inputLocation);
         } else {
-            serializeNamedMemberValue(context, locationName, "input." + memberName, memberShape, target);
+            serializeNamedMemberValue(
+                context, locationName,
+                "input[" + stringStore.var(memberName) + "]", memberShape, target
+            );
         }
     }
 
@@ -227,7 +232,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
                         TIMESTAMP_FORMAT, dataSource)
                 : target.accept(getMemberVisitor(dataSource));
 
-        writer.write("entries[$S] = $L;", locationName, valueProvider);
+        writer.write("entries[$L] = $L;", stringStore.var(locationName), valueProvider);
     }
 
     /**
