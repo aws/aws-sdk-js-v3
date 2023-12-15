@@ -53,7 +53,7 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *   Function: "STRING_VALUE", // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS", // required
  *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
@@ -83,6 +83,34 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *           ],
  *         },
  *       },
+ *       CreateCaseAction: { // CreateCaseActionDefinition
+ *         Fields: [ // FieldValues // required
+ *           { // FieldValue
+ *             Id: "STRING_VALUE", // required
+ *             Value: { // FieldValueUnion
+ *               BooleanValue: true || false,
+ *               DoubleValue: Number("double"),
+ *               EmptyValue: {},
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         TemplateId: "STRING_VALUE", // required
+ *       },
+ *       UpdateCaseAction: { // UpdateCaseActionDefinition
+ *         Fields: [ // required
+ *           {
+ *             Id: "STRING_VALUE", // required
+ *             Value: {
+ *               BooleanValue: true || false,
+ *               DoubleValue: Number("double"),
+ *               EmptyValue: {},
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       EndAssociatedTasksAction: {},
  *     },
  *   ],
  *   PublishStatus: "DRAFT" || "PUBLISHED", // required

@@ -15,9 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribePromptRequest } from "../models/models_0";
-import { DescribePromptResponse } from "../models/models_1";
-import { de_DescribePromptCommand, se_DescribePromptCommand } from "../protocols/Aws_restJson1";
+import { ResumeContactRequest, ResumeContactResponse } from "../models/models_1";
+import { de_ResumeContactCommand, se_ResumeContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -26,52 +25,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribePromptCommand}.
+ * The input for {@link ResumeContactCommand}.
  */
-export interface DescribePromptCommandInput extends DescribePromptRequest {}
+export interface ResumeContactCommandInput extends ResumeContactRequest {}
 /**
  * @public
  *
- * The output of {@link DescribePromptCommand}.
+ * The output of {@link ResumeContactCommand}.
  */
-export interface DescribePromptCommandOutput extends DescribePromptResponse, __MetadataBearer {}
+export interface ResumeContactCommandOutput extends ResumeContactResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Describes the prompt.</p>
+ * <p>Allows resuming a task contact in a paused state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribePromptCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribePromptCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ResumeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ResumeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // DescribePromptRequest
+ * const input = { // ResumeContactRequest
+ *   ContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   PromptId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE",
  * };
- * const command = new DescribePromptCommand(input);
+ * const command = new ResumeContactCommand(input);
  * const response = await client.send(command);
- * // { // DescribePromptResponse
- * //   Prompt: { // Prompt
- * //     PromptARN: "STRING_VALUE",
- * //     PromptId: "STRING_VALUE",
- * //     Name: "STRING_VALUE",
- * //     Description: "STRING_VALUE",
- * //     Tags: { // TagMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     LastModifiedTime: new Date("TIMESTAMP"),
- * //     LastModifiedRegion: "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribePromptCommandInput - {@link DescribePromptCommandInput}
- * @returns {@link DescribePromptCommandOutput}
- * @see {@link DescribePromptCommandInput} for command's `input` shape.
- * @see {@link DescribePromptCommandOutput} for command's `response` shape.
+ * @param ResumeContactCommandInput - {@link ResumeContactCommandInput}
+ * @returns {@link ResumeContactCommandOutput}
+ * @see {@link ResumeContactCommandInput} for command's `input` shape.
+ * @see {@link ResumeContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Operation cannot be performed at this time as there is a  conflict with another operation or contact state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -92,9 +86,9 @@ export interface DescribePromptCommandOutput extends DescribePromptResponse, __M
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class DescribePromptCommand extends $Command<
-  DescribePromptCommandInput,
-  DescribePromptCommandOutput,
+export class ResumeContactCommand extends $Command<
+  ResumeContactCommandInput,
+  ResumeContactCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -109,7 +103,7 @@ export class DescribePromptCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribePromptCommandInput) {
+  constructor(readonly input: ResumeContactCommandInput) {
     super();
   }
 
@@ -120,17 +114,15 @@ export class DescribePromptCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribePromptCommandInput, DescribePromptCommandOutput> {
+  ): Handler<ResumeContactCommandInput, ResumeContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribePromptCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ResumeContactCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "DescribePromptCommand";
+    const commandName = "ResumeContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +131,7 @@ export class DescribePromptCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "DescribePrompt",
+        operation: "ResumeContact",
       },
     };
     const { requestHandler } = configuration;
@@ -153,14 +145,14 @@ export class DescribePromptCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribePromptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribePromptCommand(input, context);
+  private serialize(input: ResumeContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ResumeContactCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePromptCommandOutput> {
-    return de_DescribePromptCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResumeContactCommandOutput> {
+    return de_ResumeContactCommand(output, context);
   }
 }

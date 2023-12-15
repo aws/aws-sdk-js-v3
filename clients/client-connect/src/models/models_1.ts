@@ -36,11 +36,10 @@ import {
   ListFlowAssociationResourceType,
   MediaConcurrency,
   MonitorCapability,
+  OutboundCallerConfig,
   ParticipantRole,
   PhoneNumberCountryCode,
   PhoneNumberType,
-  Prompt,
-  Queue,
   QueueReference,
   QuickConnectConfig,
   QuickConnectType,
@@ -64,6 +63,179 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>Information about a prompt.</p>
+ */
+export interface Prompt {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
+   */
+  PromptARN?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId?: string;
+
+  /**
+   * @public
+   * <p>The name of the prompt.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the prompt.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribePromptResponse {
+  /**
+   * @public
+   * <p>Information about the prompt.</p>
+   */
+  Prompt?: Prompt;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQueueRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueueStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
+
+/**
+ * @public
+ * <p>Contains information about a queue.</p>
+ */
+export interface Queue {
+  /**
+   * @public
+   * <p>The name of the queue.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the queue.</p>
+   */
+  QueueArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId?: string;
+
+  /**
+   * @public
+   * <p>The description of the queue.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+   */
+  OutboundCallerConfig?: OutboundCallerConfig;
+
+  /**
+   * @public
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+   */
+  MaxContacts?: number;
+
+  /**
+   * @public
+   * <p>The status of the queue.</p>
+   */
+  Status?: QueueStatus;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The timestamp when this resource was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQueueResponse {
+  /**
+   * @public
+   * <p>The name of the queue.</p>
+   */
+  Queue?: Queue;
+}
 
 /**
  * @public
@@ -3016,6 +3188,11 @@ export interface GetMetricDataV2Request {
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Feature,
    *       contact/segmentAttributes/connect:Subtype</p>
    *             </dd>
+   *             <dt>AVG_ACTIVE_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
+   *             </dd>
    *             <dt>AVG_AFTER_CONTACT_WORK_TIME</dt>
    *             <dd>
    *                <p>Unit: Seconds</p>
@@ -3039,6 +3216,11 @@ export interface GetMetricDataV2Request {
    *                   <p>The <code>Negate</code> key in Metric Level Filters is not applicable for this
    *        metric.</p>
    *                </note>
+   *             </dd>
+   *             <dt>AVG_AGENT_PAUSE_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy</p>
    *             </dd>
    *             <dt>AVG_CONTACT_DURATION</dt>
    *             <dd>
@@ -7979,6 +8161,57 @@ export interface MonitorContactResponse {
 
 /**
  * @public
+ * <p>Operation cannot be performed at this time as there is a  conflict with another operation or contact state.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface PauseContactRequest {
+  /**
+   * @public
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of
+   *    the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the flow.</p>
+   */
+  ContactFlowId?: string;
+}
+
+/**
+ * @public
+ */
+export interface PauseContactResponse {}
+
+/**
+ * @public
  */
 export interface PutUserStatusRequest {
   /**
@@ -8075,6 +8308,35 @@ export interface ReplicateInstanceResponse {
    */
   Arn?: string;
 }
+
+/**
+ * @public
+ */
+export interface ResumeContactRequest {
+  /**
+   * @public
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the <code>instanceId</code> in the ARN of
+   *    the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the flow.</p>
+   */
+  ContactFlowId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactResponse {}
 
 /**
  * @public
@@ -8775,351 +9037,6 @@ export const HierarchyGroupMatchType = {
  * @public
  */
 export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
-
-/**
- * @public
- * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
- */
-export interface HierarchyGroupCondition {
-  /**
-   * @public
-   * <p>The value in the hierarchy group condition.</p>
-   */
-  Value?: string;
-
-  /**
-   * @public
-   * <p>The type of hierarchy group match.</p>
-   */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType;
-}
-
-/**
- * @public
- * <p>Filters to be applied to search results.</p>
- */
-export interface UserSearchFilter {
-  /**
-   * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
-   */
-  TagFilter?: ControlPlaneTagFilter;
-}
-
-/**
- * @public
- * <p>The user's first name and last name.</p>
- */
-export interface UserIdentityInfoLite {
-  /**
-   * @public
-   * <p>The user's first name.</p>
-   */
-  FirstName?: string;
-
-  /**
-   * @public
-   * <p>The user's last name.</p>
-   */
-  LastName?: string;
-}
-
-/**
- * @public
- * <p>Information about the returned users.</p>
- */
-export interface UserSearchSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the user.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The directory identifier of the user.</p>
-   */
-  DirectoryUserId?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the user's hierarchy group.</p>
-   */
-  HierarchyGroupId?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the user's summary.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The user's first name and last name.</p>
-   */
-  IdentityInfo?: UserIdentityInfoLite;
-
-  /**
-   * @public
-   * <p>Contains information about the phone configuration settings for a user.</p>
-   */
-  PhoneConfig?: UserPhoneConfig;
-
-  /**
-   * @public
-   * <p>The identifier of the user's routing profile.</p>
-   */
-  RoutingProfileId?: string;
-
-  /**
-   * @public
-   * <p>The identifiers of the user's security profiles.</p>
-   */
-  SecurityProfileIds?: string[];
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The name of the user.</p>
-   */
-  Username?: string;
-}
-
-/**
- * @public
- */
-export interface SearchUsersResponse {
-  /**
-   * @public
-   * <p>Information about the users.</p>
-   */
-  Users?: UserSearchSummary[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The total number of users who matched your search query.</p>
-   */
-  ApproximateTotalCount?: number;
-}
-
-/**
- * @public
- */
-export interface SearchVocabulariesRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The current state of the custom vocabulary.</p>
-   */
-  State?: VocabularyState;
-
-  /**
-   * @public
-   * <p>The starting pattern of the name of the vocabulary.</p>
-   */
-  NameStartsWith?: string;
-
-  /**
-   * @public
-   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
-   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
-   *          </p>
-   */
-  LanguageCode?: VocabularyLanguageCode;
-}
-
-/**
- * @public
- * <p>Contains summary information about the custom vocabulary.</p>
- */
-export interface VocabularySummary {
-  /**
-   * @public
-   * <p>A unique name of the custom vocabulary.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier of the custom vocabulary.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * @public
-   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
-   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
-   *          </p>
-   */
-  LanguageCode: VocabularyLanguageCode | undefined;
-
-  /**
-   * @public
-   * <p>The current state of the custom vocabulary.</p>
-   */
-  State: VocabularyState | undefined;
-
-  /**
-   * @public
-   * <p>The timestamp when the custom vocabulary was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The reason why the custom vocabulary was not created.</p>
-   */
-  FailureReason?: string;
-}
-
-/**
- * @public
- */
-export interface SearchVocabulariesResponse {
-  /**
-   * @public
-   * <p>The list of the available custom vocabularies.</p>
-   */
-  VocabularySummaryList?: VocabularySummary[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ChatEventType = {
-  DISCONNECT: "DISCONNECT",
-  EVENT: "EVENT",
-  MESSAGE: "MESSAGE",
-} as const;
-
-/**
- * @public
- */
-export type ChatEventType = (typeof ChatEventType)[keyof typeof ChatEventType];
-
-/**
- * @public
- * <p>Chat integration event containing payload to perform different chat actions such as:</p>
- *          <ul>
- *             <li>
- *                <p>Sending a chat message</p>
- *             </li>
- *             <li>
- *                <p>Sending a chat event, such as typing</p>
- *             </li>
- *             <li>
- *                <p>Disconnecting from a chat</p>
- *             </li>
- *          </ul>
- */
-export interface ChatEvent {
-  /**
-   * @public
-   * <p>Type of chat integration event. </p>
-   */
-  Type: ChatEventType | undefined;
-
-  /**
-   * @public
-   * <p>Type of content. This is required when <code>Type</code> is <code>MESSAGE</code> or
-   *     <code>EVENT</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>For allowed message content types, see the <code>ContentType</code> parameter in the
-   *       <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a> topic in the <i>Amazon Connect Participant Service API
-   *       Reference</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For allowed event content types, see the <code>ContentType</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a> topic in the <i>Amazon Connect Participant Service API
-   *       Reference</i>. </p>
-   *             </li>
-   *          </ul>
-   */
-  ContentType?: string;
-
-  /**
-   * @public
-   * <p>Content of the message or event. This is required when <code>Type</code> is
-   *     <code>MESSAGE</code> and for certain <code>ContentTypes</code> when <code>Type</code> is
-   *     <code>EVENT</code>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For allowed message content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendMessage.html">SendMessage</a> topic in the <i>Amazon Connect Participant Service API
-   *       Reference</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For allowed event content, see the <code>Content</code> parameter in the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_SendEvent.html">SendEvent</a> topic in the <i>Amazon Connect Participant Service API
-   *       Reference</i>. </p>
-   *             </li>
-   *          </ul>
-   */
-  Content?: string;
-}
-
-/**
- * @public
- * <p>The customer's details.</p>
- */
-export interface ParticipantDetails {
-  /**
-   * @public
-   * <p>Display name of the participant.</p>
-   */
-  DisplayName: string | undefined;
-}
 
 /**
  * @internal

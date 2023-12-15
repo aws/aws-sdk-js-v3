@@ -56,7 +56,7 @@ export interface CreateIntegrationAssociationCommandOutput
  *   IntegrationArn: "STRING_VALUE", // required
  *   SourceApplicationUrl: "STRING_VALUE",
  *   SourceApplicationName: "STRING_VALUE",
- *   SourceType: "SALESFORCE" || "ZENDESK",
+ *   SourceType: "SALESFORCE" || "ZENDESK" || "CASES",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

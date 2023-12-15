@@ -1447,6 +1447,14 @@ MonitorContact
 </details>
 <details>
 <summary>
+PauseContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/PauseContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/PauseContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/PauseContactCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutUserStatus
 </summary>
 
@@ -1467,6 +1475,14 @@ ReplicateInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ReplicateInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ReplicateInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ReplicateInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ResumeContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ResumeContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ResumeContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ResumeContactCommandOutput/)
 
 </details>
 <details>

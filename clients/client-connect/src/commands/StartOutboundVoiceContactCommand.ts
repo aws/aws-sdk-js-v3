@@ -62,6 +62,15 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * // const { ConnectClient, StartOutboundVoiceContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const input = { // StartOutboundVoiceContactRequest
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   References: { // ContactReferences
+ *     "<keys>": { // Reference
+ *       Value: "STRING_VALUE", // required
+ *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *     },
+ *   },
+ *   RelatedContactId: "STRING_VALUE",
  *   DestinationPhoneNumber: "STRING_VALUE", // required
  *   ContactFlowId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required

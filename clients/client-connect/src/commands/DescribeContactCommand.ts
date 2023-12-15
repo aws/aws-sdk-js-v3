@@ -74,10 +74,15 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     AgentInfo: { // AgentInfo
  * //       Id: "STRING_VALUE",
  * //       ConnectedToAgentTimestamp: new Date("TIMESTAMP"),
+ * //       AgentPauseDurationInSeconds: Number("int"),
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     LastPausedTimestamp: new Date("TIMESTAMP"),
+ * //     LastResumedTimestamp: new Date("TIMESTAMP"),
+ * //     TotalPauseCount: Number("int"),
+ * //     TotalPauseDurationInSeconds: Number("int"),
  * //     ScheduledTimestamp: new Date("TIMESTAMP"),
  * //     RelatedContactId: "STRING_VALUE",
  * //     WisdomInfo: { // WisdomInfo

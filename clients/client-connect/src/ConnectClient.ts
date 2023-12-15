@@ -457,9 +457,11 @@ import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUs
 import { ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
 import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "./commands/ListViewVersionsCommand";
 import { MonitorContactCommandInput, MonitorContactCommandOutput } from "./commands/MonitorContactCommand";
+import { PauseContactCommandInput, PauseContactCommandOutput } from "./commands/PauseContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "./commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
 import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "./commands/ReplicateInstanceCommand";
+import { ResumeContactCommandInput, ResumeContactCommandOutput } from "./commands/ResumeContactCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -845,9 +847,11 @@ export type ServiceInputTypes =
   | ListViewVersionsCommandInput
   | ListViewsCommandInput
   | MonitorContactCommandInput
+  | PauseContactCommandInput
   | PutUserStatusCommandInput
   | ReleasePhoneNumberCommandInput
   | ReplicateInstanceCommandInput
+  | ResumeContactCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
   | SearchHoursOfOperationsCommandInput
@@ -1079,9 +1083,11 @@ export type ServiceOutputTypes =
   | ListViewVersionsCommandOutput
   | ListViewsCommandOutput
   | MonitorContactCommandOutput
+  | PauseContactCommandOutput
   | PutUserStatusCommandOutput
   | ReleasePhoneNumberCommandOutput
   | ReplicateInstanceCommandOutput
+  | ResumeContactCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
   | SearchHoursOfOperationsCommandOutput

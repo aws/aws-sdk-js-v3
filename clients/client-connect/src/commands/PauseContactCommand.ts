@@ -15,9 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribePromptRequest } from "../models/models_0";
-import { DescribePromptResponse } from "../models/models_1";
-import { de_DescribePromptCommand, se_DescribePromptCommand } from "../protocols/Aws_restJson1";
+import { PauseContactRequest, PauseContactResponse } from "../models/models_1";
+import { de_PauseContactCommand, se_PauseContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -26,52 +25,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribePromptCommand}.
+ * The input for {@link PauseContactCommand}.
  */
-export interface DescribePromptCommandInput extends DescribePromptRequest {}
+export interface PauseContactCommandInput extends PauseContactRequest {}
 /**
  * @public
  *
- * The output of {@link DescribePromptCommand}.
+ * The output of {@link PauseContactCommand}.
  */
-export interface DescribePromptCommandOutput extends DescribePromptResponse, __MetadataBearer {}
+export interface PauseContactCommandOutput extends PauseContactResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Describes the prompt.</p>
+ * <p>Allows pausing an ongoing task contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DescribePromptCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DescribePromptCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, PauseContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, PauseContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // DescribePromptRequest
+ * const input = { // PauseContactRequest
+ *   ContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
- *   PromptId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE",
  * };
- * const command = new DescribePromptCommand(input);
+ * const command = new PauseContactCommand(input);
  * const response = await client.send(command);
- * // { // DescribePromptResponse
- * //   Prompt: { // Prompt
- * //     PromptARN: "STRING_VALUE",
- * //     PromptId: "STRING_VALUE",
- * //     Name: "STRING_VALUE",
- * //     Description: "STRING_VALUE",
- * //     Tags: { // TagMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     LastModifiedTime: new Date("TIMESTAMP"),
- * //     LastModifiedRegion: "STRING_VALUE",
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribePromptCommandInput - {@link DescribePromptCommandInput}
- * @returns {@link DescribePromptCommandOutput}
- * @see {@link DescribePromptCommandInput} for command's `input` shape.
- * @see {@link DescribePromptCommandOutput} for command's `response` shape.
+ * @param PauseContactCommandInput - {@link PauseContactCommandInput}
+ * @returns {@link PauseContactCommandOutput}
+ * @see {@link PauseContactCommandInput} for command's `input` shape.
+ * @see {@link PauseContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Operation cannot be performed at this time as there is a  conflict with another operation or contact state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -81,6 +75,9 @@ export interface DescribePromptCommandOutput extends DescribePromptResponse, __M
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The allowed limit for the resource has been exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -92,9 +89,9 @@ export interface DescribePromptCommandOutput extends DescribePromptResponse, __M
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class DescribePromptCommand extends $Command<
-  DescribePromptCommandInput,
-  DescribePromptCommandOutput,
+export class PauseContactCommand extends $Command<
+  PauseContactCommandInput,
+  PauseContactCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -109,7 +106,7 @@ export class DescribePromptCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: DescribePromptCommandInput) {
+  constructor(readonly input: PauseContactCommandInput) {
     super();
   }
 
@@ -120,17 +117,15 @@ export class DescribePromptCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribePromptCommandInput, DescribePromptCommandOutput> {
+  ): Handler<PauseContactCommandInput, PauseContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribePromptCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, PauseContactCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "DescribePromptCommand";
+    const commandName = "PauseContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -139,7 +134,7 @@ export class DescribePromptCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "DescribePrompt",
+        operation: "PauseContact",
       },
     };
     const { requestHandler } = configuration;
@@ -153,14 +148,14 @@ export class DescribePromptCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: DescribePromptCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribePromptCommand(input, context);
+  private serialize(input: PauseContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_PauseContactCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePromptCommandOutput> {
-    return de_DescribePromptCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseContactCommandOutput> {
+    return de_PauseContactCommand(output, context);
   }
 }

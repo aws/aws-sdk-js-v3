@@ -31,9 +31,12 @@ export class AccessDeniedException extends __BaseException {
  */
 export const ActionType = {
   ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
+  CREATE_CASE: "CREATE_CASE",
   CREATE_TASK: "CREATE_TASK",
+  END_ASSOCIATED_TASKS: "END_ASSOCIATED_TASKS",
   GENERATE_EVENTBRIDGE_EVENT: "GENERATE_EVENTBRIDGE_EVENT",
   SEND_NOTIFICATION: "SEND_NOTIFICATION",
+  UPDATE_CASE: "UPDATE_CASE",
 } as const;
 
 /**
@@ -406,6 +409,12 @@ export interface AgentInfo {
    * <p>The timestamp when the contact was connected to the agent.</p>
    */
   ConnectedToAgentTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>Agent pause duration for a contact in seconds.</p>
+   */
+  AgentPauseDurationInSeconds?: number;
 }
 
 /**
@@ -2893,6 +2902,7 @@ export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationT
  * @enum
  */
 export const SourceType = {
+  CASES: "CASES",
   SALESFORCE: "SALESFORCE",
   ZENDESK: "ZENDESK",
 } as const;
@@ -3683,6 +3693,84 @@ export interface AssignContactCategoryActionDefinition {}
 
 /**
  * @public
+ * <p>An empty value.</p>
+ */
+export interface EmptyFieldValue {}
+
+/**
+ * @public
+ * <p>Object to store union of Field values.</p>
+ */
+export interface FieldValueUnion {
+  /**
+   * @public
+   * <p>A Boolean number value type.</p>
+   */
+  BooleanValue?: boolean;
+
+  /**
+   * @public
+   * <p>a Double number value type.</p>
+   */
+  DoubleValue?: number;
+
+  /**
+   * @public
+   * <p>An empty value.</p>
+   */
+  EmptyValue?: EmptyFieldValue;
+
+  /**
+   * @public
+   * <p>String value type.</p>
+   */
+  StringValue?: string;
+}
+
+/**
+ * @public
+ * <p>Object for case field values.</p>
+ */
+export interface FieldValue {
+  /**
+   * @public
+   * <p>Unique identifier of a field.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * @public
+   * <p>Union of potential field value types.</p>
+   */
+  Value: FieldValueUnion | undefined;
+}
+
+/**
+ * @public
+ * <p>The <code>CreateCase</code> action definition.</p>
+ */
+export interface CreateCaseActionDefinition {
+  /**
+   * @public
+   * <p>An array of objects with <code>Field ID</code> and <code>Value</code> data.</p>
+   */
+  Fields: FieldValue[] | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier of a template.</p>
+   */
+  TemplateId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>End associated tasks related to a case.</p>
+ */
+export interface EndAssociatedTasksActionDefinition {}
+
+/**
+ * @public
  * <p>The EventBridge action definition.</p>
  */
 export interface EventBridgeActionDefinition {
@@ -3854,6 +3942,18 @@ export interface TaskActionDefinition {
 
 /**
  * @public
+ * <p>The <code>UpdateCase</code> action definition.</p>
+ */
+export interface UpdateCaseActionDefinition {
+  /**
+   * @public
+   * <p>An array of objects with <code>Field ID</code> and Value data.</p>
+   */
+  Fields: FieldValue[] | undefined;
+}
+
+/**
+ * @public
  * <p>Information about the action to be performed when a rule is triggered.</p>
  */
 export interface RuleAction {
@@ -3905,6 +4005,29 @@ export interface RuleAction {
    *          </p>
    */
   SendNotificationAction?: SendNotificationActionDefinition;
+
+  /**
+   * @public
+   * <p>Information about the create case action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values:
+   *     <code>OnPostCallAnalysisAvailable</code> | <code>OnPostChatAnalysisAvailable</code>.</p>
+   */
+  CreateCaseAction?: CreateCaseActionDefinition;
+
+  /**
+   * @public
+   * <p>Information about the update case action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseCreate</code> |
+   *     <code>OnCaseUpdate</code>.</p>
+   */
+  UpdateCaseAction?: UpdateCaseActionDefinition;
+
+  /**
+   * @public
+   * <p>Information about the end associated tasks action.</p>
+   *          <p>Supported only for <code>TriggerEventSource</code> values: <code>OnCaseUpdate</code>.</p>
+   */
+  EndAssociatedTasksAction?: EndAssociatedTasksActionDefinition;
 }
 
 /**
@@ -3926,6 +4049,8 @@ export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePubl
  * @enum
  */
 export const EventSourceName = {
+  OnCaseCreate: "OnCaseCreate",
+  OnCaseUpdate: "OnCaseUpdate",
   OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
   OnMetricDataUpdate: "OnMetricDataUpdate",
   OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
@@ -5879,6 +6004,30 @@ export interface Contact {
 
   /**
    * @public
+   * <p>The timestamp when the contact was last paused.</p>
+   */
+  LastPausedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when the contact was last resumed.</p>
+   */
+  LastResumedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>Total pause count for a contact.</p>
+   */
+  TotalPauseCount?: number;
+
+  /**
+   * @public
+   * <p>Total pause duration for a contact in seconds.</p>
+   */
+  TotalPauseDurationInSeconds?: number;
+
+  /**
+   * @public
    * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.
    *   </p>
    */
@@ -7223,179 +7372,6 @@ export interface DescribePromptRequest {
    * <p>A unique identifier for the prompt.</p>
    */
   PromptId: string | undefined;
-}
-
-/**
- * @public
- * <p>Information about a prompt.</p>
- */
-export interface Prompt {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the prompt.</p>
-   */
-  PromptARN?: string;
-
-  /**
-   * @public
-   * <p>A unique identifier for the prompt.</p>
-   */
-  PromptId?: string;
-
-  /**
-   * @public
-   * <p>The name of the prompt.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The description of the prompt.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- */
-export interface DescribePromptResponse {
-  /**
-   * @public
-   * <p>Information about the prompt.</p>
-   */
-  Prompt?: Prompt;
-}
-
-/**
- * @public
- */
-export interface DescribeQueueRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The identifier for the queue.</p>
-   */
-  QueueId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QueueStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
-
-/**
- * @public
- * <p>Contains information about a queue.</p>
- */
-export interface Queue {
-  /**
-   * @public
-   * <p>The name of the queue.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the queue.</p>
-   */
-  QueueArn?: string;
-
-  /**
-   * @public
-   * <p>The identifier for the queue.</p>
-   */
-  QueueId?: string;
-
-  /**
-   * @public
-   * <p>The description of the queue.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
-   */
-  OutboundCallerConfig?: OutboundCallerConfig;
-
-  /**
-   * @public
-   * <p>The identifier for the hours of operation.</p>
-   */
-  HoursOfOperationId?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
-   */
-  MaxContacts?: number;
-
-  /**
-   * @public
-   * <p>The status of the queue.</p>
-   */
-  Status?: QueueStatus;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The timestamp when this resource was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where this resource was last modified.</p>
-   */
-  LastModifiedRegion?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeQueueResponse {
-  /**
-   * @public
-   * <p>The name of the queue.</p>
-   */
-  Queue?: Queue;
 }
 
 /**

@@ -438,9 +438,11 @@ import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListU
 import { ListViewsCommandInput, ListViewsCommandOutput } from "../commands/ListViewsCommand";
 import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "../commands/ListViewVersionsCommand";
 import { MonitorContactCommandInput, MonitorContactCommandOutput } from "../commands/MonitorContactCommand";
+import { PauseContactCommandInput, PauseContactCommandOutput } from "../commands/PauseContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "../commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "../commands/ReplicateInstanceCommand";
+import { ResumeContactCommandInput, ResumeContactCommandOutput } from "../commands/ResumeContactCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -675,10 +677,13 @@ import {
   ContactDataRequest,
   ContactFlowNotPublishedException,
   ContactState,
+  CreateCaseActionDefinition,
   CrossChannelBehavior,
   Distribution,
   DuplicateResourceException,
+  EmptyFieldValue,
   EncryptionConfig,
+  EndAssociatedTasksActionDefinition,
   Endpoint,
   Evaluation,
   EvaluationAnswerData,
@@ -697,6 +702,8 @@ import {
   EvaluationNote,
   EvaluationScore,
   EventBridgeActionDefinition,
+  FieldValue,
+  FieldValueUnion,
   HoursOfOperation,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
@@ -725,9 +732,7 @@ import {
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
   PhoneNumberType,
-  Prompt,
   PropertyValidationException,
-  Queue,
   QueueInfo,
   QueueQuickConnectConfig,
   QuickConnectConfig,
@@ -754,6 +759,7 @@ import {
   TaskTemplateFieldIdentifier,
   ThrottlingException,
   TooManyRequestsException,
+  UpdateCaseActionDefinition,
   UserIdentityInfo,
   UserPhoneConfig,
   UserQuickConnectConfig,
@@ -761,7 +767,7 @@ import {
   ViewInputContent,
 } from "../models/models_0";
 import {
-  ChatEvent,
+  ConflictException,
   ContactFilter,
   ControlPlaneTagFilter,
   Credentials,
@@ -776,7 +782,6 @@ import {
   FilterV2,
   Grouping,
   HierarchyGroup,
-  HierarchyGroupCondition,
   HierarchyGroupSummary,
   HierarchyLevel,
   HierarchyPath,
@@ -795,9 +800,10 @@ import {
   MetricResultV2,
   MetricV2,
   OutputTypeNotFoundException,
-  ParticipantDetails,
+  Prompt,
   PromptSearchFilter,
   PromptSummary,
+  Queue,
   QueueSearchFilter,
   QueueSummary,
   QuickConnect,
@@ -832,13 +838,12 @@ import {
   UserData,
   UserDataFilters,
   UserNotFoundException,
-  UserSearchFilter,
   UserSummary,
   Vocabulary,
-  VocabularySummary,
 } from "../models/models_1";
 import {
   AnswerMachineDetectionConfig,
+  ChatEvent,
   ChatMessage,
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
@@ -850,11 +855,13 @@ import {
   EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
+  HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
   HoursOfOperationSearchCriteria,
   NewSessionDetails,
   OutboundContactNotPermittedException,
+  ParticipantDetails,
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
@@ -866,6 +873,8 @@ import {
   SegmentAttributeValue,
   UpdateParticipantRoleConfigChannelInfo,
   UserSearchCriteria,
+  UserSearchFilter,
+  VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_2";
 
@@ -1998,7 +2007,7 @@ export const se_CreateRuleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      Actions: (_) => _json(_),
+      Actions: (_) => se_RuleActions(_, context),
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Function: [],
       Name: [],
@@ -5866,6 +5875,37 @@ export const se_MonitorContactCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PauseContactCommand
+ */
+export const se_PauseContactCommand = async (
+  input: PauseContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/pause";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactFlowId: [],
+      ContactId: [],
+      InstanceId: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1PutUserStatusCommand
  */
 export const se_PutUserStatusCommand = async (
@@ -5952,6 +5992,37 @@ export const se_ReplicateInstanceCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ReplicaAlias: [],
       ReplicaRegion: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ResumeContactCommand
+ */
+export const se_ResumeContactCommand = async (
+  input: ResumeContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/resume";
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactFlowId: [],
+      ContactId: [],
+      InstanceId: [],
     })
   );
   return new __HttpRequest({
@@ -6528,9 +6599,13 @@ export const se_StartOutboundVoiceContactCommand = async (
       CampaignId: [],
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
+      Description: [],
       DestinationPhoneNumber: [],
       InstanceId: [],
+      Name: [],
       QueueId: [],
+      References: (_) => _json(_),
+      RelatedContactId: [],
       SourcePhoneNumber: [],
       TrafficType: [],
     })
@@ -8117,7 +8192,7 @@ export const se_UpdateRuleCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      Actions: (_) => _json(_),
+      Actions: (_) => se_RuleActions(_, context),
       Function: [],
       Name: [],
       PublishStatus: [],
@@ -17785,6 +17860,70 @@ const de_MonitorContactCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1PauseContactCommand
+ */
+export const de_PauseContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PauseContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PauseContactCommandError
+ */
+const de_PauseContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1PutUserStatusCommand
  */
 export const de_PutUserStatusCommand = async (
@@ -17959,6 +18098,67 @@ const de_ReplicateInstanceCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ResumeContactCommand
+ */
+export const de_ResumeContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ResumeContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResumeContactCommandError
+ */
+const de_ResumeContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -22172,6 +22372,23 @@ const de_AccessDeniedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ContactFlowNotPublishedExceptionRes
  */
 const de_ContactFlowNotPublishedExceptionRes = async (
@@ -22679,6 +22896,16 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_ControlPlaneTagFilter omitted.
 
+/**
+ * serializeAws_restJson1CreateCaseActionDefinition
+ */
+const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    Fields: (_) => se_FieldValues(_, context),
+    TemplateId: [],
+  });
+};
+
 // se_CrossChannelBehavior omitted.
 
 // se_CurrentMetric omitted.
@@ -22697,7 +22924,11 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_DistributionList omitted.
 
+// se_EmptyFieldValue omitted.
+
 // se_EncryptionConfig omitted.
+
+// se_EndAssociatedTasksActionDefinition omitted.
 
 // se_Endpoint omitted.
 
@@ -22814,6 +23045,39 @@ const se_EvaluationFormSection = (input: EvaluationFormSection, context: __Serde
 // se_EvaluationNotesMap omitted.
 
 // se_EventBridgeActionDefinition omitted.
+
+/**
+ * serializeAws_restJson1FieldValue
+ */
+const se_FieldValue = (input: FieldValue, context: __SerdeContext): any => {
+  return take(input, {
+    Id: [],
+    Value: (_) => se_FieldValueUnion(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1FieldValues
+ */
+const se_FieldValues = (input: FieldValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_FieldValue(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1FieldValueUnion
+ */
+const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): any => {
+  return take(input, {
+    BooleanValue: [],
+    DoubleValue: __serializeFloat,
+    EmptyValue: _json,
+    StringValue: [],
+  });
+};
 
 // se_Filters omitted.
 
@@ -23102,9 +23366,32 @@ const se_RoutingProfileSearchCriteria = (input: RoutingProfileSearchCriteria, co
 
 // se_RoutingProfileSearchFilter omitted.
 
-// se_RuleAction omitted.
+/**
+ * serializeAws_restJson1RuleAction
+ */
+const se_RuleAction = (input: RuleAction, context: __SerdeContext): any => {
+  return take(input, {
+    ActionType: [],
+    AssignContactCategoryAction: _json,
+    CreateCaseAction: (_) => se_CreateCaseActionDefinition(_, context),
+    EndAssociatedTasksAction: _json,
+    EventBridgeAction: _json,
+    SendNotificationAction: _json,
+    TaskAction: _json,
+    UpdateCaseAction: (_) => se_UpdateCaseActionDefinition(_, context),
+  });
+};
 
-// se_RuleActions omitted.
+/**
+ * serializeAws_restJson1RuleActions
+ */
+const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RuleAction(entry, context);
+    });
+};
 
 // se_RuleTriggerEventSource omitted.
 
@@ -23220,6 +23507,15 @@ const se_ThresholdV2 = (input: ThresholdV2, context: __SerdeContext): any => {
   });
 };
 
+/**
+ * serializeAws_restJson1UpdateCaseActionDefinition
+ */
+const se_UpdateCaseActionDefinition = (input: UpdateCaseActionDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    Fields: (_) => se_FieldValues(_, context),
+  });
+};
+
 // se_UpdateParticipantRoleConfigChannelInfo omitted.
 
 // se_UserDataFilters omitted.
@@ -23305,6 +23601,7 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
  */
 const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return take(output, {
+    AgentPauseDurationInSeconds: __expectInt32,
     ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
   }) as any;
@@ -23415,6 +23712,8 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     InitialContactId: __expectString,
     InitiationMethod: __expectString,
     InitiationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastPausedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastResumedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     PreviousContactId: __expectString,
@@ -23422,6 +23721,8 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     RelatedContactId: __expectString,
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
+    TotalPauseCount: __expectInt32,
+    TotalPauseDurationInSeconds: __expectInt32,
     WisdomInfo: _json,
   }) as any;
 };
@@ -23441,6 +23742,16 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 // de_ContactReferences omitted.
 
 // de_ContactTagMap omitted.
+
+/**
+ * deserializeAws_restJson1CreateCaseActionDefinition
+ */
+const de_CreateCaseActionDefinition = (output: any, context: __SerdeContext): CreateCaseActionDefinition => {
+  return take(output, {
+    Fields: (_: any) => de_FieldValues(_, context),
+    TemplateId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Credentials
@@ -23520,7 +23831,11 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
 
 // de_EmailReference omitted.
 
+// de_EmptyFieldValue omitted.
+
 // de_EncryptionConfig omitted.
+
+// de_EndAssociatedTasksActionDefinition omitted.
 
 // de_ErrorResult omitted.
 
@@ -23838,6 +24153,40 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
 // de_FailedRequest omitted.
 
 // de_FailedRequestList omitted.
+
+/**
+ * deserializeAws_restJson1FieldValue
+ */
+const de_FieldValue = (output: any, context: __SerdeContext): FieldValue => {
+  return take(output, {
+    Id: __expectString,
+    Value: (_: any) => de_FieldValueUnion(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FieldValues
+ */
+const de_FieldValues = (output: any, context: __SerdeContext): FieldValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FieldValue(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FieldValueUnion
+ */
+const de_FieldValueUnion = (output: any, context: __SerdeContext): FieldValueUnion => {
+  return take(output, {
+    BooleanValue: __expectBoolean,
+    DoubleValue: __limitedParseDouble,
+    EmptyValue: _json,
+    StringValue: __expectString,
+  }) as any;
+};
 
 // de_FlowAssociationSummary omitted.
 
@@ -24649,7 +24998,7 @@ const de_RoutingProfileSummaryList = (output: any, context: __SerdeContext): Rou
  */
 const de_Rule = (output: any, context: __SerdeContext): Rule => {
   return take(output, {
-    Actions: _json,
+    Actions: (_: any) => de_RuleActions(_, context),
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Function: __expectString,
     LastUpdatedBy: __expectString,
@@ -24663,9 +25012,33 @@ const de_Rule = (output: any, context: __SerdeContext): Rule => {
   }) as any;
 };
 
-// de_RuleAction omitted.
+/**
+ * deserializeAws_restJson1RuleAction
+ */
+const de_RuleAction = (output: any, context: __SerdeContext): RuleAction => {
+  return take(output, {
+    ActionType: __expectString,
+    AssignContactCategoryAction: _json,
+    CreateCaseAction: (_: any) => de_CreateCaseActionDefinition(_, context),
+    EndAssociatedTasksAction: _json,
+    EventBridgeAction: _json,
+    SendNotificationAction: _json,
+    TaskAction: _json,
+    UpdateCaseAction: (_: any) => de_UpdateCaseActionDefinition(_, context),
+  }) as any;
+};
 
-// de_RuleActions omitted.
+/**
+ * deserializeAws_restJson1RuleActions
+ */
+const de_RuleActions = (output: any, context: __SerdeContext): RuleAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RuleAction(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1RuleSummary
@@ -24883,6 +25256,15 @@ const de_ThresholdV2 = (output: any, context: __SerdeContext): ThresholdV2 => {
 // de_TrafficDistributionGroupUserSummary omitted.
 
 // de_TrafficDistributionGroupUserSummaryList omitted.
+
+/**
+ * deserializeAws_restJson1UpdateCaseActionDefinition
+ */
+const de_UpdateCaseActionDefinition = (output: any, context: __SerdeContext): UpdateCaseActionDefinition => {
+  return take(output, {
+    Fields: (_: any) => de_FieldValues(_, context),
+  }) as any;
+};
 
 // de_UrlReference omitted.
 

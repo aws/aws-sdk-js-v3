@@ -69,7 +69,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * //       IntegrationArn: "STRING_VALUE",
  * //       SourceApplicationUrl: "STRING_VALUE",
  * //       SourceApplicationName: "STRING_VALUE",
- * //       SourceType: "SALESFORCE" || "ZENDESK",
+ * //       SourceType: "SALESFORCE" || "ZENDESK" || "CASES",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

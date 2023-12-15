@@ -50,13 +50,13 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   TriggerEventSource: { // RuleTriggerEventSource
- *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate", // required
+ *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate", // required
  *     IntegrationAssociationId: "STRING_VALUE",
  *   },
  *   Function: "STRING_VALUE", // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS", // required
  *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
@@ -86,6 +86,34 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *           ],
  *         },
  *       },
+ *       CreateCaseAction: { // CreateCaseActionDefinition
+ *         Fields: [ // FieldValues // required
+ *           { // FieldValue
+ *             Id: "STRING_VALUE", // required
+ *             Value: { // FieldValueUnion
+ *               BooleanValue: true || false,
+ *               DoubleValue: Number("double"),
+ *               EmptyValue: {},
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         TemplateId: "STRING_VALUE", // required
+ *       },
+ *       UpdateCaseAction: { // UpdateCaseActionDefinition
+ *         Fields: [ // required
+ *           {
+ *             Id: "STRING_VALUE", // required
+ *             Value: {
+ *               BooleanValue: true || false,
+ *               DoubleValue: Number("double"),
+ *               EmptyValue: {},
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       EndAssociatedTasksAction: {},
  *     },
  *   ],
  *   PublishStatus: "DRAFT" || "PUBLISHED", // required

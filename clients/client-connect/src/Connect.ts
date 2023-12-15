@@ -713,6 +713,11 @@ import {
   MonitorContactCommandOutput,
 } from "./commands/MonitorContactCommand";
 import {
+  PauseContactCommand,
+  PauseContactCommandInput,
+  PauseContactCommandOutput,
+} from "./commands/PauseContactCommand";
+import {
   PutUserStatusCommand,
   PutUserStatusCommandInput,
   PutUserStatusCommandOutput,
@@ -727,6 +732,11 @@ import {
   ReplicateInstanceCommandInput,
   ReplicateInstanceCommandOutput,
 } from "./commands/ReplicateInstanceCommand";
+import {
+  ResumeContactCommand,
+  ResumeContactCommandInput,
+  ResumeContactCommandOutput,
+} from "./commands/ResumeContactCommand";
 import {
   ResumeContactRecordingCommand,
   ResumeContactRecordingCommandInput,
@@ -1224,9 +1234,11 @@ const commands = {
   ListViewsCommand,
   ListViewVersionsCommand,
   MonitorContactCommand,
+  PauseContactCommand,
   PutUserStatusCommand,
   ReleasePhoneNumberCommand,
   ReplicateInstanceCommand,
+  ResumeContactCommand,
   ResumeContactRecordingCommand,
   SearchAvailablePhoneNumbersCommand,
   SearchHoursOfOperationsCommand,
@@ -3717,6 +3729,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link PauseContactCommand}
+   */
+  pauseContact(args: PauseContactCommandInput, options?: __HttpHandlerOptions): Promise<PauseContactCommandOutput>;
+  pauseContact(args: PauseContactCommandInput, cb: (err: any, data?: PauseContactCommandOutput) => void): void;
+  pauseContact(
+    args: PauseContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PauseContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutUserStatusCommand}
    */
   putUserStatus(args: PutUserStatusCommandInput, options?: __HttpHandlerOptions): Promise<PutUserStatusCommandOutput>;
@@ -3759,6 +3782,17 @@ export interface Connect {
     args: ReplicateInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ReplicateInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResumeContactCommand}
+   */
+  resumeContact(args: ResumeContactCommandInput, options?: __HttpHandlerOptions): Promise<ResumeContactCommandOutput>;
+  resumeContact(args: ResumeContactCommandInput, cb: (err: any, data?: ResumeContactCommandOutput) => void): void;
+  resumeContact(
+    args: ResumeContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResumeContactCommandOutput) => void
   ): void;
 
   /**
