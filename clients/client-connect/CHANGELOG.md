@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.475.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.474.0...v3.475.0) (2023-12-15)
+
+
+### Features
+
+* **client-connect:** Adds relatedContactId field to StartOutboundVoiceContact API input. Introduces PauseContact API and ResumeContact API for Task contacts. Adds pause duration, number of pauses, timestamps for last paused and resumed events to DescribeContact API response. Adds new Rule type and new Rule action. ([370ac57](https://github.com/aws/aws-sdk-js-v3/commit/370ac5739896757c5a3266c96f626294282ac21e))
+
+
+
+
+
 # [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
 
 

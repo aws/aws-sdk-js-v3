@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.475.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.474.0...v3.475.0) (2023-12-15)
+
+
+### Features
+
+* **client-sagemaker:** This release 1) introduces a new API: DeleteCompilationJob , and 2) adds InfraCheckConfig for Create/Describe training job API ([30f3686](https://github.com/aws/aws-sdk-js-v3/commit/30f36867c6fedd3ad09698df03d63cdee424c860))
+
+
+
+
+
 # [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
