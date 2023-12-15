@@ -55,7 +55,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *             <b>Cross-account use</b>: Yes. You can retire a grant on a KMS
  *       key in a different Amazon Web Services account.</p>
  *          <p>
- *             <b>Required permissions:</b>:Permission to retire a grant is
+ *             <b>Required permissions</b>: Permission to retire a grant is
  *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in
  *       the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -83,6 +83,9 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,9 +115,7 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *       request.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>
- *       The request was rejected because the DryRun parameter was specified.
- *     </p>
+ *  <p> The request was rejected because the DryRun parameter was specified. </p>
  *
  * @throws {@link InvalidArnException} (client fault)
  *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not

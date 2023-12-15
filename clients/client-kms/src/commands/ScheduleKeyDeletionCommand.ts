@@ -48,8 +48,7 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *          <important>
  *             <p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key
  *         is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only
- *         exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica
- *           key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric or HMAC KMS
+ *         exception is a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric or HMAC KMS
  *           key with imported key material</a>.) To prevent the use of a KMS key without deleting
  *         it, use <a>DisableKey</a>. </p>
  *          </important>
@@ -95,6 +94,9 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

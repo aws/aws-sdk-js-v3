@@ -89,6 +89,9 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *          <p>
  *             <b>Related operations</b>: <a>Verify</a>
  *          </p>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,9 +132,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>
- *       The request was rejected because the DryRun parameter was specified.
- *     </p>
+ *  <p> The request was rejected because the DryRun parameter was specified. </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>

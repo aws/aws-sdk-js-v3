@@ -45,7 +45,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *       a plaintext public key, a plaintext private key, and a copy of the private key that is
  *       encrypted under the symmetric encryption KMS key you specify. You can use the data key pair to
  *       perform asymmetric cryptography and implement digital signatures outside of KMS. The bytes
- *       in the keys are random; they not related to the caller or to the KMS key that is used to
+ *       in the keys are random; they are not related to the caller or to the KMS key that is used to
  *       encrypt the private key. </p>
  *          <p>You can use the public key that <code>GenerateDataKeyPair</code> returns to encrypt data
  *       or verify a signature outside of KMS. Then, store the encrypted private key with the data.
@@ -123,6 +123,9 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -171,9 +174,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>
- *       The request was rejected because the DryRun parameter was specified.
- *     </p>
+ *  <p> The request was rejected because the DryRun parameter was specified. </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>

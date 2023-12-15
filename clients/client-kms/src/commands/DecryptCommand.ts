@@ -97,7 +97,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter to provide the
  *       attestation document for the enclave. Instead of the plaintext data, the response includes the
  *       plaintext data encrypted with the public key from the attestation document
- *         (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
+ *         (<code>CiphertextForRecipient</code>). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
@@ -131,6 +131,9 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -178,9 +181,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>
- *       The request was rejected because the DryRun parameter was specified.
- *     </p>
+ *  <p> The request was rejected because the DryRun parameter was specified. </p>
  *
  * @throws {@link IncorrectKeyException} (client fault)
  *  <p>The request was rejected because the specified KMS key cannot decrypt the data. The

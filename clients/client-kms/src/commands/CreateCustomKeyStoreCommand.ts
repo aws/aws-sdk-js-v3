@@ -130,6 +130,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -280,8 +283,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @throws {@link XksProxyVpcEndpointServiceInvalidConfigurationException} (client fault)
  *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
- *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceNotFoundException} (client fault)

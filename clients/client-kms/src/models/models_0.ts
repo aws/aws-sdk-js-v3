@@ -1060,8 +1060,7 @@ export class XksProxyVpcEndpointServiceInUseException extends __BaseException {
  * @public
  * <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
  *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
- *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  */
 export class XksProxyVpcEndpointServiceInvalidConfigurationException extends __BaseException {
@@ -1347,9 +1346,7 @@ export class DisabledException extends __BaseException {
 
 /**
  * @public
- * <p>
- *       The request was rejected because the DryRun parameter was specified.
- *     </p>
+ * <p> The request was rejected because the DryRun parameter was specified. </p>
  */
 export class DryRunOperationException extends __BaseException {
   readonly name: "DryRunOperationException" = "DryRunOperationException";
@@ -1745,7 +1742,8 @@ export interface CreateKeyRequest {
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
+   *       request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
+   *       request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 
@@ -2857,9 +2855,9 @@ export interface DecryptRequest {
 
   /**
    * @public
-   * <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-   *       an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
-   *       only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
+   * <p>A signed <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-concepts.html#term-attestdoc">attestation
+   *         document</a> from an Amazon Web Services Nitro enclave and the encryption algorithm to use with the
+   *       enclave's public key. The only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
    *          <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
    *       parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
    *          <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the
@@ -4212,8 +4210,8 @@ export interface GetParametersForImportRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — Supported only
-   *           for symmetric encryption key material (and only in legacy mode).</p>
+   *                   <b>RSAES_PKCS1_V1_5</b> (Deprecated) — As of October
+   *           10, 2023, KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.</p>
    *             </li>
    *          </ul>
    */
@@ -5118,7 +5116,8 @@ export interface PutKeyPolicyRequest {
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
+   *       request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
+   *       request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 }
@@ -5401,7 +5400,8 @@ export interface ReplicateKeyRequest {
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          </important>
    *          <p>Use this parameter only when you intend to prevent the principal that is making the
-   *       request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
+   *       request from making a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
+   *       request on the KMS key.</p>
    */
   BypassPolicyLockoutSafetyCheck?: boolean;
 

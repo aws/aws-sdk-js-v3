@@ -49,12 +49,21 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
  *          <p>
  *             <b>Cross-account use</b>: You must specify a principal in your
- *       Amazon Web Services account. However, this operation can return grants in any Amazon Web Services account. You do not need
+ *       Amazon Web Services account. This operation returns a list of grants where the retiring principal specified
+ *       in the <code>ListRetirableGrants</code> request is the same retiring principal on the grant.
+ *       This can include grants on KMS keys owned by other Amazon Web Services accounts, but you do not need
  *         <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
  *       Amazon Web Services account other than your own.</p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your
  *       Amazon Web Services account.</p>
+ *          <note>
+ *             <p>KMS authorizes <code>ListRetirableGrants</code> requests by evaluating the caller
+ *         account's kms:ListRetirableGrants permissions. The authorized resource in
+ *           <code>ListRetirableGrants</code> calls is the retiring principal specified in the request.
+ *         KMS does not evaluate the caller's permissions to verify their access to any KMS keys or
+ *         grants that might be returned by the <code>ListRetirableGrants</code> call.</p>
+ *          </note>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -80,6 +89,9 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

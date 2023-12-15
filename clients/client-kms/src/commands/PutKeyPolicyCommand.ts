@@ -50,6 +50,9 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <b>Related operations</b>: <a>GetKeyPolicy</a>
  *          </p>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,7 +39,7 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
  *         of the key material</a> of the specified symmetric encryption KMS key. </p>
- *          <p>When you enable automatic rotation of a<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
+ *          <p>When you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
  *       rotates the key material of the KMS key one year (approximately 365 days) from the enable date
  *       and every year thereafter. You can monitor rotation of the key material for your KMS keys in
  *       CloudTrail and Amazon CloudWatch. To disable rotation of the key material in a customer
@@ -78,6 +78,9 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
