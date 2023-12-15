@@ -3618,7 +3618,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-// HttpBindingProtocolGenerator
 const _aA = "analyzerArn";
 const _cT = "clientToken";
 const _iRP = "includeResourcePlaceholders";
@@ -3682,5 +3681,3 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
-
-// RestJsonProtocolGenerator

@@ -111,9 +111,8 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
         });
         writer.write("");
         writer.write(
-            context.getStringStore().getIncremental(AwsEc2.class.getSimpleName())
+            context.getStringStore().flushVariableDeclarationCode()
         );
-        writer.write("");
     }
 
     @Override

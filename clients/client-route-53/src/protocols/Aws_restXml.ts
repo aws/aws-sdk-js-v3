@@ -8522,7 +8522,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-// HttpBindingProtocolGenerator
 const _A = "Action";
 const _AHE = "AliasHealthEnabled";
 const _AI = "AlarmIdentifier";
@@ -8861,5 +8860,3 @@ const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undef
     return "NotFound";
   }
 };
-
-// AwsRestXml

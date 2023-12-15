@@ -11639,7 +11639,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-// HttpBindingProtocolGenerator
 const _A = "And";
 const _AAO = "AnalyticsAndOperator";
 const _AC = "AnalyticsConfiguration";
@@ -12327,5 +12326,3 @@ const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undef
     return "NotFound";
   }
 };
-
-// AwsRestXml

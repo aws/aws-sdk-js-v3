@@ -1380,21 +1380,12 @@ export const se_CreateCertificateProviderCommand = async (
   input: CreateCertificateProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/certificate-providers/{certificateProviderName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "certificateProviderName",
-    () => input.certificateProviderName!,
-    "{certificateProviderName}",
-    false
-  );
+  b.bp("/certificate-providers/{certificateProviderName}");
+  b.p("certificateProviderName", () => input.certificateProviderName!, "{certificateProviderName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1404,15 +1395,8 @@ export const se_CreateCertificateProviderCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2227,29 +2211,13 @@ export const se_DeleteCertificateProviderCommand = async (
   input: DeleteCertificateProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/certificate-providers/{certificateProviderName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "certificateProviderName",
-    () => input.certificateProviderName!,
-    "{certificateProviderName}",
-    false
-  );
+  b.bp("/certificate-providers/{certificateProviderName}");
+  b.p("certificateProviderName", () => input.certificateProviderName!, "{certificateProviderName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2910,29 +2878,13 @@ export const se_DescribeCertificateProviderCommand = async (
   input: DescribeCertificateProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/certificate-providers/{certificateProviderName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "certificateProviderName",
-    () => input.certificateProviderName!,
-    "{certificateProviderName}",
-    false
-  );
+  b.bp("/certificate-providers/{certificateProviderName}");
+  b.p("certificateProviderName", () => input.certificateProviderName!, "{certificateProviderName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4061,24 +4013,16 @@ export const se_ListCertificateProvidersCommand = async (
   input: ListCertificateProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/certificate-providers";
+  b.bp("/certificate-providers");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    isAscendingOrder: [() => input.ascendingOrder !== void 0, () => input.ascendingOrder!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_iAO]: [() => input.ascendingOrder !== void 0, () => input[_aO]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5866,21 +5810,12 @@ export const se_UpdateCertificateProviderCommand = async (
   input: UpdateCertificateProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/certificate-providers/{certificateProviderName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "certificateProviderName",
-    () => input.certificateProviderName!,
-    "{certificateProviderName}",
-    false
-  );
+  b.bp("/certificate-providers/{certificateProviderName}");
+  b.p("certificateProviderName", () => input.certificateProviderName!, "{certificateProviderName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5888,15 +5823,8 @@ export const se_UpdateCertificateProviderCommand = async (
       lambdaFunctionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -24558,7 +24486,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-// HttpBindingProtocolGenerator
 const _aAR = "allowAutoRegistration";
 const _aN = "attributeName";
 const _aO = "ascendingOrder";
@@ -24681,5 +24608,3 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
-
-// RestJsonProtocolGenerator

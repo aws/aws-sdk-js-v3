@@ -12,7 +12,9 @@ import {
   ResourceStatus,
   Sheet,
 } from "./models_0";
+
 import { AnalysisDefinition, AnalysisSummary, FilterOperator } from "./models_1";
+
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
@@ -91,6 +93,7 @@ import {
   TopicTimeGranularity,
   VpcConnectionProperties,
 } from "./models_2";
+
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**

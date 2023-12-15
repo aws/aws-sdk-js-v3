@@ -115,9 +115,8 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         });
         writer.write("");
         writer.write(
-            context.getStringStore().getIncremental(AwsQuery.class.getSimpleName())
+            context.getStringStore().flushVariableDeclarationCode()
         );
-        writer.write("");
     }
 
     @Override

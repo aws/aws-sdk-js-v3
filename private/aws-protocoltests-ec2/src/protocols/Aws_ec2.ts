@@ -2441,7 +2441,6 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
-// HttpRpcProtocolGenerator
 const _ = "2020-01-08";
 const _A = "Action";
 const _A_ = "A";
@@ -2620,5 +2619,3 @@ const loadEc2ErrorCode = (output: __HttpResponse, data: any): string | undefined
     return "NotFound";
   }
 };
-
-// AwsEc2

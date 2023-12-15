@@ -95282,7 +95282,6 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
-// HttpRpcProtocolGenerator
 const _ = "2016-11-15";
 const _A = "Action";
 const _AA = "AllocateAddress";
@@ -99465,5 +99464,3 @@ const loadEc2ErrorCode = (output: __HttpResponse, data: any): string | undefined
     return "NotFound";
   }
 };
-
-// AwsEc2

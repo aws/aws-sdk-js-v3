@@ -115,9 +115,8 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
 
         writer.write(
-            context.getStringStore().getIncremental(RestJsonProtocolGenerator.class.getSimpleName())
+            context.getStringStore().flushVariableDeclarationCode()
         );
-        writer.write("");
     }
 
     @Override

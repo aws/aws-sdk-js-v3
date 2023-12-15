@@ -7557,7 +7557,6 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
-// HttpRpcProtocolGenerator
 const _ = "2010-12-01";
 const _A = "Action";
 const _AA = "ApplicationArn";
@@ -7893,5 +7892,3 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
-
-// AwsQuery

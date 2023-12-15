@@ -5633,8 +5633,6 @@ function sharedHeaders(operation: string): __HeaderBag {
   };
 }
 
-// HttpRpcProtocolGenerator
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -5685,5 +5683,3 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
-
-// JsonRpcProtocolGenerator

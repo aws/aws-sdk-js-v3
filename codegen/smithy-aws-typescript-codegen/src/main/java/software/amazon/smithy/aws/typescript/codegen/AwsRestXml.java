@@ -128,9 +128,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         });
         writer.write("");
         writer.write(
-            context.getStringStore().getIncremental(AwsRestXml.class.getSimpleName())
+            context.getStringStore().flushVariableDeclarationCode()
         );
-        writer.write("");
     }
 
     @Override

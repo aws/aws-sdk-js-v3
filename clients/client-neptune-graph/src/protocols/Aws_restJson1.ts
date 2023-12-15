@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -96,28 +97,13 @@ export const se_CancelImportTaskCommand = async (
   input: CancelImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importtasks/{taskIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "taskIdentifier",
-    () => input.taskIdentifier!,
-    "{taskIdentifier}",
-    false
-  );
+  b.bp("/importtasks/{taskIdentifier}");
+  b.p("taskIdentifier", () => input.taskIdentifier!, "{taskIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -127,11 +113,11 @@ export const se_CreateGraphCommand = async (
   input: CreateGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs";
+  b.bp("/graphs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -145,15 +131,8 @@ export const se_CreateGraphCommand = async (
       vectorSearchConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -163,11 +142,11 @@ export const se_CreateGraphSnapshotCommand = async (
   input: CreateGraphSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots";
+  b.bp("/snapshots");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -176,15 +155,8 @@ export const se_CreateGraphSnapshotCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -194,11 +166,11 @@ export const se_CreateGraphUsingImportTaskCommand = async (
   input: CreateGraphUsingImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importtasks";
+  b.bp("/importtasks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -218,15 +190,8 @@ export const se_CreateGraphUsingImportTaskCommand = async (
       vectorSearchConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -236,20 +201,12 @@ export const se_CreatePrivateGraphEndpointCommand = async (
   input: CreatePrivateGraphEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/{graphIdentifier}/endpoints";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
+  b.bp("/graphs/{graphIdentifier}/endpoints");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -258,15 +215,8 @@ export const se_CreatePrivateGraphEndpointCommand = async (
       vpcSecurityGroupIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -276,32 +226,16 @@ export const se_DeleteGraphCommand = async (
   input: DeleteGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/{graphIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
+  b.bp("/graphs/{graphIdentifier}");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   const query: any = map({
-    skipSnapshot: [__expectNonNull(input.skipSnapshot, `skipSnapshot`) != null, () => input.skipSnapshot!.toString()],
+    [_sS]: [__expectNonNull(input.skipSnapshot, `skipSnapshot`) != null, () => input[_sS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -311,28 +245,13 @@ export const se_DeleteGraphSnapshotCommand = async (
   input: DeleteGraphSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/{snapshotIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "snapshotIdentifier",
-    () => input.snapshotIdentifier!,
-    "{snapshotIdentifier}",
-    false
-  );
+  b.bp("/snapshots/{snapshotIdentifier}");
+  b.p("snapshotIdentifier", () => input.snapshotIdentifier!, "{snapshotIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -342,30 +261,14 @@ export const se_DeletePrivateGraphEndpointCommand = async (
   input: DeletePrivateGraphEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/graphs/{graphIdentifier}/endpoints/{vpcId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "vpcId", () => input.vpcId!, "{vpcId}", false);
+  b.bp("/graphs/{graphIdentifier}/endpoints/{vpcId}");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
+  b.p("vpcId", () => input.vpcId!, "{vpcId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -375,28 +278,13 @@ export const se_GetGraphCommand = async (
   input: GetGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/{graphIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
+  b.bp("/graphs/{graphIdentifier}");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -406,28 +294,13 @@ export const se_GetGraphSnapshotCommand = async (
   input: GetGraphSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/{snapshotIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "snapshotIdentifier",
-    () => input.snapshotIdentifier!,
-    "{snapshotIdentifier}",
-    false
-  );
+  b.bp("/snapshots/{snapshotIdentifier}");
+  b.p("snapshotIdentifier", () => input.snapshotIdentifier!, "{snapshotIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -437,28 +310,13 @@ export const se_GetImportTaskCommand = async (
   input: GetImportTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importtasks/{taskIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "taskIdentifier",
-    () => input.taskIdentifier!,
-    "{taskIdentifier}",
-    false
-  );
+  b.bp("/importtasks/{taskIdentifier}");
+  b.p("taskIdentifier", () => input.taskIdentifier!, "{taskIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -468,30 +326,14 @@ export const se_GetPrivateGraphEndpointCommand = async (
   input: GetPrivateGraphEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/graphs/{graphIdentifier}/endpoints/{vpcId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "vpcId", () => input.vpcId!, "{vpcId}", false);
+  b.bp("/graphs/{graphIdentifier}/endpoints/{vpcId}");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
+  b.p("vpcId", () => input.vpcId!, "{vpcId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -501,24 +343,16 @@ export const se_ListGraphsCommand = async (
   input: ListGraphsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs";
+  b.bp("/graphs");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -528,25 +362,17 @@ export const se_ListGraphSnapshotsCommand = async (
   input: ListGraphSnapshotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots";
+  b.bp("/snapshots");
   const query: any = map({
-    graphIdentifier: [, input.graphIdentifier!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_gI]: [, input[_gI]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -556,24 +382,16 @@ export const se_ListImportTasksCommand = async (
   input: ListImportTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importtasks";
+  b.bp("/importtasks");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -583,33 +401,17 @@ export const se_ListPrivateGraphEndpointsCommand = async (
   input: ListPrivateGraphEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/{graphIdentifier}/endpoints";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
+  b.bp("/graphs/{graphIdentifier}/endpoints");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -619,20 +421,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -642,35 +437,20 @@ export const se_ResetGraphCommand = async (
   input: ResetGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/{graphIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
+  b.bp("/graphs/{graphIdentifier}");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       skipSnapshot: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -680,20 +460,12 @@ export const se_RestoreGraphFromSnapshotCommand = async (
   input: RestoreGraphFromSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/{snapshotIdentifier}/restore";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "snapshotIdentifier",
-    () => input.snapshotIdentifier!,
-    "{snapshotIdentifier}",
-    false
-  );
+  b.bp("/snapshots/{snapshotIdentifier}/restore");
+  b.p("snapshotIdentifier", () => input.snapshotIdentifier!, "{snapshotIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -705,15 +477,8 @@ export const se_RestoreGraphFromSnapshotCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -723,27 +488,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -753,27 +511,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -783,20 +533,12 @@ export const se_UpdateGraphCommand = async (
   input: UpdateGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/{graphIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "graphIdentifier",
-    () => input.graphIdentifier!,
-    "{graphIdentifier}",
-    false
-  );
+  b.bp("/graphs/{graphIdentifier}");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -805,15 +547,8 @@ export const se_UpdateGraphCommand = async (
       publicConnectivity: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2427,6 +2162,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _gI = "graphIdentifier";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _sS = "skipSnapshot";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

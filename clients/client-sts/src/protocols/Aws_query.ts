@@ -1415,7 +1415,6 @@ const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
 
-// HttpRpcProtocolGenerator
 const _ = "2011-06-15";
 const _A = "Action";
 const _AKI = "AccessKeyId";
@@ -1521,5 +1520,3 @@ const loadQueryErrorCode = (output: __HttpResponse, data: any): string | undefin
     return "NotFound";
   }
 };
-
-// AwsQuery

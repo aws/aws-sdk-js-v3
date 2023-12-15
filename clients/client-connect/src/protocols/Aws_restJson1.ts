@@ -4172,11 +4172,11 @@ export const se_PauseContactCommand = async (
   input: PauseContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/pause";
+  b.bp("/contact/pause");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -4185,15 +4185,8 @@ export const se_PauseContactCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4271,11 +4264,11 @@ export const se_ResumeContactCommand = async (
   input: ResumeContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/resume";
+  b.bp("/contact/resume");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -4284,15 +4277,8 @@ export const se_ResumeContactCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4941,11 +4927,11 @@ export const se_TagContactCommand = async (
   input: TagContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/tags";
+  b.bp("/contact/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -4954,15 +4940,8 @@ export const se_TagContactCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5022,29 +5001,20 @@ export const se_UntagContactCommand = async (
   input: UntagContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/tags/{InstanceId}/{ContactId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact/tags/{InstanceId}/{ContactId}");
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    TagKeys: [
+    [_TK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -22976,7 +22946,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-// HttpBindingProtocolGenerator
 const _AST = "AgentStatusTypes";
 const _BN = "BotName";
 const _CFMS = "ContactFlowModuleState";
@@ -23006,6 +22975,7 @@ const _RTe = "ReferenceTypes";
 const _S = "Status";
 const _SV = "SnapshotVersion";
 const _T = "Type";
+const _TK = "TagKeys";
 const _UI = "UserId";
 const _bN = "botName";
 const _cFT = "contactFlowTypes";
@@ -23085,5 +23055,3 @@ const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | unde
     return sanitizeErrorCode(data["__type"]);
   }
 };
-
-// RestJsonProtocolGenerator

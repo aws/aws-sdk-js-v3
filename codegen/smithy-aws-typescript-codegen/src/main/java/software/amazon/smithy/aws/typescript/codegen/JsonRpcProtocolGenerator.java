@@ -113,9 +113,8 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
             AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
         }
         writer.write(
-            context.getStringStore().getIncremental(JsonRpcProtocolGenerator.class.getSimpleName())
+            context.getStringStore().flushVariableDeclarationCode()
         );
-        writer.write("");
     }
 
     @Override

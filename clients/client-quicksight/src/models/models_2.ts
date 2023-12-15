@@ -22,6 +22,7 @@ import {
   ResourceStatus,
   TimeGranularity,
 } from "./models_0";
+
 import {
   AnalysisDefinition,
   AnalysisSourceEntity,
@@ -29,6 +30,7 @@ import {
   DataSetReference,
   SheetDefinition,
 } from "./models_1";
+
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**

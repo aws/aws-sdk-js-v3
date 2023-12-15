@@ -3006,8 +3006,6 @@ function sharedHeaders(operation: string): __HeaderBag {
   };
 }
 
-// HttpRpcProtocolGenerator
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -3067,5 +3065,3 @@ const populateBodyWithQueryCompatibility = (parsedOutput: any, headers: __Header
     parsedOutput.body.Type = codeAndType[1];
   }
 };
-
-// JsonRpcProtocolGenerator
