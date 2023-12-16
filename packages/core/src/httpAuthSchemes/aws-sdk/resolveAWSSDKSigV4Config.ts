@@ -111,7 +111,7 @@ export const resolveAWSSDKSigV4Config = <T>(
     // credentialDefaultProvider should always be populated, but in case
     // it isn't, set a default identity provider that throws an error
     if (config.credentialDefaultProvider) {
-      normalizedCreds = config.credentialDefaultProvider(config as any);
+      normalizedCreds = normalizeProvider(config.credentialDefaultProvider(config as any));
     } else {
       normalizedCreds = async () => { throw new Error("`credentials` is missing") };
     }
