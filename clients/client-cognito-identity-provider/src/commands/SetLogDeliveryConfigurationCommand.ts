@@ -20,7 +20,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse } from "../models/models_0";
+import { SetLogDeliveryConfigurationRequest } from "../models/models_0";
+import { SetLogDeliveryConfigurationResponse } from "../models/models_1";
 import { de_SetLogDeliveryConfigurationCommand, se_SetLogDeliveryConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**

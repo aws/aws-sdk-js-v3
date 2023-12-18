@@ -42,7 +42,9 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Adds the specified user to the specified group.</p>
+ * <p>Adds a user to a group. A user who is in a group can present a preferred-role claim to
+ *             an identity pool, and populates a <code>cognito:groups</code> claim to their access and
+ *             identity tokens.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *             this operation, you must use IAM credentials to authorize requests, and you must

@@ -113,6 +113,10 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *     CreateAuthChallenge: "STRING_VALUE",
  *     VerifyAuthChallengeResponse: "STRING_VALUE",
  *     PreTokenGeneration: "STRING_VALUE",
+ *     PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
+ *       LambdaVersion: "V1_0" || "V2_0", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
  *     UserMigration: "STRING_VALUE",
  *     CustomSMSSender: { // CustomSMSLambdaVersionConfigType
  *       LambdaVersion: "V1_0", // required

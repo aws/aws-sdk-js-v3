@@ -45,7 +45,11 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
 
 /**
  * @public
- * <p>Allows a user to update a specific attribute (one at a time).</p>
+ * <p>With this operation, your users can update one or more of their attributes with their
+ *             own credentials. You authorize this API request with the user's access token. To delete
+ *             an attribute from your user, submit the attribute in your API request with a blank
+ *             value. Custom attribute values in this request must include the <code>custom:</code>
+ *             prefix.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *             this operation, you can't use IAM credentials to authorize requests, and you can't

@@ -284,14 +284,24 @@ export interface StringAttributeConstraintsType {
 export interface SchemaAttributeType {
   /**
    * @public
-   * <p>The name of your user pool attribute, for example <code>username</code> or
-   *                 <code>custom:costcenter</code>.</p>
+   * <p>The name of your user pool attribute. When you create or update a user pool, adding a
+   *             schema attribute creates a custom or developer-only attribute. When you add an attribute
+   *             with a <code>Name</code> value of <code>MyAttribute</code>, Amazon Cognito creates the custom
+   *             attribute <code>custom:MyAttribute</code>. When <code>DeveloperOnlyAttribute</code> is
+   *                 <code>true</code>, Amazon Cognito creates your attribute as <code>dev:MyAttribute</code>. In
+   *             an operation that describes a user pool, Amazon Cognito returns this value as <code>value</code>
+   *             for standard attributes, <code>custom:value</code> for custom attributes, and
+   *                 <code>dev:value</code> for developer-only attributes..</p>
    */
   Name?: string;
 
   /**
    * @public
-   * <p>The data format of the values for your attribute.</p>
+   * <p>The data format of the values for your attribute. When you choose an
+   *                 <code>AttributeDataType</code>, Amazon Cognito validates the input against the data type. A
+   *             custom attribute value in your user's ID token is always a string, for example
+   *                 <code>"custom:isMember" : "true"</code> or <code>"custom:YearsAsMember" :
+   *                 "12"</code>. </p>
    */
   AttributeDataType?: AttributeDataType;
 
@@ -501,13 +511,15 @@ export interface AdminAddUserToGroupRequest {
 
   /**
    * @public
-   * <p>The username for the user.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
   /**
    * @public
-   * <p>The group name.</p>
+   * <p>The name of the group that you want to add your user to.</p>
    */
   GroupName: string | undefined;
 }
@@ -545,7 +557,9 @@ export interface AdminConfirmSignUpRequest {
 
   /**
    * @public
-   * <p>The user name for which you want to confirm user registration.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -817,14 +831,15 @@ export interface AdminCreateUserRequest {
 
   /**
    * @public
-   * <p>The user's validation data. This is an array of name-value pairs that contain user
-   *             attributes and attribute values that you can use for custom validation, such as
-   *             restricting the types of user accounts that can be registered. For example, you might
-   *             choose to allow or disallow user sign-up based on the user's domain.</p>
-   *          <p>To configure custom validation, you must create a Pre Sign-up Lambda trigger for
-   *             the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the
-   *             validation data and uses it in the validation process.</p>
-   *          <p>The user's validation data isn't persisted.</p>
+   * <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
+   *             trigger. This set of key-value pairs are for custom validation of information that you
+   *             collect from your users but don't need to retain.</p>
+   *          <p>Your Lambda function can analyze this additional data and act on it. Your function
+   *             might perform external API operations like logging user attributes and validation data
+   *             to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns
+   *             to Amazon Cognito, like automatically confirming the user if they sign up from within your
+   *             network.</p>
+   *          <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
    */
   ValidationData?: AttributeType[];
 
@@ -1225,7 +1240,8 @@ export interface AdminCreateUserConfigType {
    * <p>The user account expiration limit, in days, after which a new account that hasn't
    *             signed in is no longer usable. To reset the account after that time limit, you must call
    *                 <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the
-   *                 <code>MessageAction</code> parameter. The default value for this parameter is 7. </p>
+   *                 <code>MessageAction</code> parameter. The default value for this parameter is
+   *             7.</p>
    *          <note>
    *             <p>If you set a value for <code>TemporaryPasswordValidityDays</code> in
    *                     <code>PasswordPolicy</code>, that value will be used, and
@@ -1256,7 +1272,9 @@ export interface AdminDeleteUserRequest {
 
   /**
    * @public
-   * <p>The user name of the user you want to delete.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 }
@@ -1274,7 +1292,9 @@ export interface AdminDeleteUserAttributesRequest {
 
   /**
    * @public
-   * <p>The user name of the user from which you would like to delete attributes.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -1378,7 +1398,9 @@ export interface AdminDisableUserRequest {
 
   /**
    * @public
-   * <p>The user name of the user you want to disable.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 }
@@ -1403,7 +1425,9 @@ export interface AdminEnableUserRequest {
 
   /**
    * @public
-   * <p>The user name of the user you want to enable.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 }
@@ -1428,7 +1452,9 @@ export interface AdminForgetDeviceRequest {
 
   /**
    * @public
-   * <p>The user name.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -1478,7 +1504,9 @@ export interface AdminGetDeviceRequest {
 
   /**
    * @public
-   * <p>The user name.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 }
@@ -1545,7 +1573,9 @@ export interface AdminGetUserRequest {
 
   /**
    * @public
-   * <p>The user name of the user you want to retrieve.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 }
@@ -1877,9 +1907,6 @@ export interface AdminInitiateAuthRequest {
    *             <li>
    *                <p>Define auth challenge</p>
    *             </li>
-   *             <li>
-   *                <p>Verify auth challenge</p>
-   *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
@@ -2081,7 +2108,7 @@ export interface AdminInitiateAuthResponse {
    *                <p>
    *                   <code>MFA_SETUP</code>: For users who are required to set up an MFA factor
    *                     before they can sign in. The MFA types activated for the user pool will be
-   *                     listed in the challenge parameters <code>MFA_CAN_SETUP</code> value. </p>
+   *                     listed in the challenge parameters <code>MFAS_CAN_SETUP</code> value. </p>
    *                <p> To set up software token MFA, use the session returned here from
    *                         <code>InitiateAuth</code> as an input to
    *                     <code>AssociateSoftwareToken</code>, and use the session returned by
@@ -2274,7 +2301,9 @@ export interface AdminListDevicesRequest {
 
   /**
    * @public
-   * <p>The user name.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -2286,7 +2315,11 @@ export interface AdminListDevicesRequest {
 
   /**
    * @public
-   * <p>The pagination token.</p>
+   * <p>This API operation returns a limited number of results. The pagination token is
+   *     an identifier that you can present in an additional API request with the same parameters. When
+   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
+   *     through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -2304,7 +2337,9 @@ export interface AdminListDevicesResponse {
 
   /**
    * @public
-   * <p>The pagination token.</p>
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   *     the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -2315,7 +2350,9 @@ export interface AdminListDevicesResponse {
 export interface AdminListGroupsForUserRequest {
   /**
    * @public
-   * <p>The username for the user.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -2430,7 +2467,9 @@ export interface AdminListUserAuthEventsRequest {
 
   /**
    * @public
-   * <p>The user pool username or an alias.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -2767,7 +2806,9 @@ export interface AdminRemoveUserFromGroupRequest {
 
   /**
    * @public
-   * <p>The username for the user.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -2791,7 +2832,9 @@ export interface AdminResetUserPasswordRequest {
 
   /**
    * @public
-   * <p>The user name of the user whose password you want to reset.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -2885,61 +2928,100 @@ export interface AdminRespondToAuthChallengeRequest {
 
   /**
    * @public
-   * <p>The challenge responses. These are inputs corresponding to the value of
-   *                 <code>ChallengeName</code>, for example:</p>
-   *          <ul>
-   *             <li>
+   * <p>The responses to the challenge that you received in the previous request. Each
+   *             challenge has its own required response parameters. The following examples are partial
+   *             JSON request bodies that highlight challenge-response parameters.</p>
+   *          <important>
+   *             <p>You must provide a SECRET_HASH parameter in all challenge responses to an app
+   *                 client that has a client secret.</p>
+   *          </important>
+   *          <dl>
+   *             <dt>SMS_MFA</dt>
+   *             <dd>
    *                <p>
-   *                   <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>,
-   *                         <code>SECRET_HASH</code> (if app client is configured with client
-   *                     secret).</p>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "SMS_MFA", "ChallengeResponses": \{"SMS_MFA_CODE":
+   *                             "[SMS_code]", "USERNAME": "[username]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>PASSWORD_VERIFIER</dt>
+   *             <dd>
    *                <p>
-   *                   <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>,
-   *                         <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>,
-   *                         <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
-   *                     with client secret).</p>
-   *                <note>
-   *                   <p>
-   *                      <code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when
-   *                         signing in with a remembered device.</p>
-   *                </note>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses":
+   *                             \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
+   *                             "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
+   *                             [timestamp], "USERNAME": "[username]"\}</code>
+   *                </p>
+   *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
+   *                         device.</p>
+   *             </dd>
+   *             <dt>CUSTOM_CHALLENGE</dt>
+   *             <dd>
    *                <p>
-   *                   <code>ADMIN_NO_SRP_AUTH</code>: <code>PASSWORD</code>, <code>USERNAME</code>,
-   *                         <code>SECRET_HASH</code> (if app client is configured with client secret).
-   *                 </p>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "CUSTOM_CHALLENGE", "ChallengeResponses":
+   *                             \{"USERNAME": "[username]", "ANSWER": "[challenge_answer]"\}</code>
+   *                </p>
+   *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
+   *                         device.</p>
+   *             </dd>
+   *             <dt>NEW_PASSWORD_REQUIRED</dt>
+   *             <dd>
    *                <p>
-   *                   <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>,
-   *                         <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
-   *                     with client secret). To set any required attributes that Amazon Cognito returned as
-   *                         <code>requiredAttributes</code> in the <code>AdminInitiateAuth</code>
-   *                     response, add a <code>userAttributes.<i>attributename</i>
-   *                   </code>
-   *                     parameter. This parameter can also set values for writable attributes that
-   *                     aren't required by your user pool.</p>
+   *                   <code>"ChallengeName": "NEW_PASSWORD_REQUIRED", "ChallengeResponses":
+   *                             \{"NEW_PASSWORD": "[new_password]", "USERNAME":
+   *                         "[username]"\}</code>
+   *                </p>
+   *                <p>To set any required attributes that <code>InitiateAuth</code> returned in
+   *                         an <code>requiredAttributes</code> parameter, add
+   *                             <code>"userAttributes.[attribute_name]": "[attribute_value]"</code>.
+   *                         This parameter can also set values for writable attributes that aren't
+   *                         required by your user pool.</p>
    *                <note>
    *                   <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value.
-   * In <code>AdminRespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter,
-   * then use the <code>AdminUpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p>
+   * In <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter,
+   * then use the <code>UpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p>
    *                </note>
-   *             </li>
-   *             <li>
+   *             </dd>
+   *             <dt>SOFTWARE_TOKEN_MFA</dt>
+   *             <dd>
    *                <p>
-   *                   <code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the
-   *                     session value returned by <code>VerifySoftwareToken</code> in the
-   *                         <code>Session</code> parameter.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The value of the <code>USERNAME</code> attribute must be the user's actual username,
-   *             not an alias (such as an email address or phone number). To make this simpler, the
-   *                 <code>AdminInitiateAuth</code> response includes the actual username value in the
-   *                 <code>USERNAMEUSER_ID_FOR_SRP</code> attribute. This happens even if you specified
-   *             an alias in your call to <code>AdminInitiateAuth</code>.</p>
+   *                   <code>"ChallengeName": "SOFTWARE_TOKEN_MFA", "ChallengeResponses":
+   *                             \{"USERNAME": "[username]", "SOFTWARE_TOKEN_MFA_CODE":
+   *                             [authenticator_code]\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>DEVICE_SRP_AUTH</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "DEVICE_SRP_AUTH", "ChallengeResponses": \{"USERNAME":
+   *                         "[username]", "DEVICE_KEY": "[device_key]", "SRP_A":
+   *                         "[srp_a]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>DEVICE_PASSWORD_VERIFIER</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "DEVICE_PASSWORD_VERIFIER", "ChallengeResponses":
+   *                         \{"DEVICE_KEY": "[device_key]", "PASSWORD_CLAIM_SIGNATURE":
+   *                         "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]",
+   *                         "TIMESTAMP": [timestamp], "USERNAME": "[username]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>MFA_SETUP</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "MFA_SETUP", "ChallengeResponses": \{"USERNAME":
+   *                         "[username]"\}, "SESSION": "[Session ID from
+   *                         VerifySoftwareToken]"</code>
+   *                </p>
+   *             </dd>
+   *             <dt>SELECT_MFA_TYPE</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "SELECT_MFA_TYPE", "ChallengeResponses": \{"USERNAME":
+   *                         "[username]", "ANSWER": "[SMS_MFA or SOFTWARE_TOKEN_MFA]"\}</code>
+   *                </p>
+   *             </dd>
+   *          </dl>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
    *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
@@ -3196,7 +3278,9 @@ export interface AdminSetUserMFAPreferenceRequest {
 
   /**
    * @public
-   * <p>The user pool username or alias.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3224,7 +3308,9 @@ export interface AdminSetUserPasswordRequest {
 
   /**
    * @public
-   * <p>The user name of the user whose password you want to set.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3262,7 +3348,9 @@ export interface AdminSetUserSettingsRequest {
 
   /**
    * @public
-   * <p>The user name of the user whose options you're setting.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3293,7 +3381,9 @@ export interface AdminUpdateAuthEventFeedbackRequest {
 
   /**
    * @public
-   * <p>The user pool username.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3346,7 +3436,9 @@ export interface AdminUpdateDeviceStatusRequest {
 
   /**
    * @public
-   * <p>The user name.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3382,7 +3474,9 @@ export interface AdminUpdateUserAttributesRequest {
 
   /**
    * @public
-   * <p>The user name of the user for whom you want to update user attributes.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3463,7 +3557,9 @@ export interface AdminUserGlobalSignOutRequest {
 
   /**
    * @public
-   * <p>The user name.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 }
@@ -3778,8 +3874,9 @@ export interface ConfirmForgotPasswordRequest {
 
   /**
    * @public
-   * <p>The user name of the user for whom you want to enter a code to retrieve a forgotten
-   *             password.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -3875,7 +3972,9 @@ export interface ConfirmSignUpRequest {
 
   /**
    * @public
-   * <p>The user name of the user whose registration you want to confirm.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -4897,20 +4996,20 @@ export type CustomEmailSenderLambdaVersionType =
 
 /**
  * @public
- * <p>A custom email sender Lambda configuration type.</p>
+ * <p>The properties of a custom email sender Lambda trigger.</p>
  */
 export interface CustomEmailLambdaVersionConfigType {
   /**
    * @public
-   * <p>Signature of the "request" attribute in the "event" information Amazon Cognito passes to your
-   *             custom email Lambda function. The only supported value is <code>V1_0</code>.</p>
+   * <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+   *          <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender
+   *             function.</p>
    */
   LambdaVersion: CustomEmailSenderLambdaVersionType | undefined;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates to send
-   *             email notifications to users.</p>
+   * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
    */
   LambdaArn: string | undefined;
 }
@@ -4931,20 +5030,56 @@ export type CustomSMSSenderLambdaVersionType =
 
 /**
  * @public
- * <p>A custom SMS sender Lambda configuration type.</p>
+ * <p>The properties of a custom SMS sender Lambda trigger.</p>
  */
 export interface CustomSMSLambdaVersionConfigType {
   /**
    * @public
-   * <p>Signature of the "request" attribute in the "event" information that Amazon Cognito passes to
-   *             your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</p>
+   * <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+   *          <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender
+   *             function.</p>
    */
   LambdaVersion: CustomSMSSenderLambdaVersionType | undefined;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates to send SMS
-   *             notifications to users.</p>
+   * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+   */
+  LambdaArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PreTokenGenerationLambdaVersionType = {
+  V1_0: "V1_0",
+  V2_0: "V2_0",
+} as const;
+
+/**
+ * @public
+ */
+export type PreTokenGenerationLambdaVersionType =
+  (typeof PreTokenGenerationLambdaVersionType)[keyof typeof PreTokenGenerationLambdaVersionType];
+
+/**
+ * @public
+ * <p>The properties of a pre token generation Lambda trigger.</p>
+ */
+export interface PreTokenGenerationVersionConfigType {
+  /**
+   * @public
+   * <p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>
+   */
+  LambdaVersion: PreTokenGenerationLambdaVersionType | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+   *          <p>This parameter and the <code>PreTokenGeneration</code> property of
+   *                 <code>LambdaConfig</code> have the same value. For new instances of pre token
+   *             generation triggers, set <code>LambdaArn</code>.</p>
    */
   LambdaArn: string | undefined;
 }
@@ -5004,9 +5139,19 @@ export interface LambdaConfigType {
 
   /**
    * @public
-   * <p>A Lambda trigger that is invoked before token generation.</p>
+   * <p>The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.</p>
+   *          <p>Set this parameter for legacy purposes. If you also set an ARN in <code>PreTokenGenerationConfig</code>, its value must be identical to <code>PreTokenGeneration</code>. For new instances
+   *             of pre token generation triggers, set the <code>LambdaArn</code> of <code>PreTokenGenerationConfig</code>.</p>
+   *          <p>You can set <code></code>
+   *          </p>
    */
   PreTokenGeneration?: string;
+
+  /**
+   * @public
+   * <p>The detailed configuration of a pre token generation trigger. If you also set an ARN in <code>PreTokenGeneration</code>, its value must be identical to <code>PreTokenGenerationConfig</code>.</p>
+   */
+  PreTokenGenerationConfig?: PreTokenGenerationVersionConfigType;
 
   /**
    * @public
@@ -5093,7 +5238,9 @@ export interface PasswordPolicyType {
   /**
    * @public
    * <p>The number of days a temporary password is valid in the password policy. If the user
-   *             doesn't sign in during this time, an administrator must reset their password.</p>
+   *             doesn't sign in during this time, an administrator must reset their password. Defaults
+   *             to <code>7</code>. If you submit a value of <code>0</code>, Amazon Cognito treats it as a null
+   *             value and sets <code>TemporaryPasswordValidityDays</code> to its default value.</p>
    *          <note>
    *             <p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you can
    *                 no longer set a value for the legacy <code>UnusedAccountValidityDays</code>
@@ -5572,7 +5719,7 @@ export interface UserPoolType {
    * @public
    * @deprecated
    *
-   * <p>The status of a user pool.</p>
+   * <p>This parameter is no longer used.</p>
    */
   Status?: StatusType;
 
@@ -6032,13 +6179,36 @@ export interface CreateUserPoolClientRequest {
 
   /**
    * @public
-   * <p>The read attributes.</p>
+   * <p>The list of user attributes that you want your app client to have read-only access to.
+   *             After your user authenticates in your app, their access token authorizes them to read
+   *             their own attribute value for any attribute in this list. An example of this kind of
+   *             activity is when your user selects a link to view their profile information. Your app
+   *             makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
+   *             data.</p>
+   *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
+   *             app can read the values of <code>email_verified</code>,
+   *                 <code>phone_number_verified</code>, and the Standard attributes of your user pool.
+   *             When your user pool has read access to these default attributes,
+   *                 <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
+   *             populates <code>ReadAttributes</code> in the API response if you have specified your own
+   *             custom set of read attributes.</p>
    */
   ReadAttributes?: string[];
 
   /**
    * @public
-   * <p>The user pool attributes that the app client can write to.</p>
+   * <p>The list of user attributes that you want your app client to have write access to.
+   *             After your user authenticates in your app, their access token authorizes them to set or
+   *             modify their own attribute value for any attribute in this list. An example of this kind
+   *             of activity is when you present your user with a form to update their profile
+   *             information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
+   *             new value. </p>
+   *          <p>When you don't specify the <code>WriteAttributes</code> for your app client, your
+   *             app can write the values of the Standard attributes of your user pool. When your user
+   *             pool has write access to these default attributes, <code>WriteAttributes</code>
+   *             doesn't return any information. Amazon Cognito only populates
+   *                 <code>WriteAttributes</code> in the API response if you have specified your own
+   *             custom set of write attributes.</p>
    *          <p>If your app client allows users to sign in through an IdP, this array must include all
    *             attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
    *             users sign in to your application through an IdP. If your app client does not have write
@@ -6387,13 +6557,42 @@ export interface UserPoolClientType {
 
   /**
    * @public
-   * <p>The Read-only attributes.</p>
+   * <p>The list of user attributes that you want your app client to have read-only access to.
+   *             After your user authenticates in your app, their access token authorizes them to read
+   *             their own attribute value for any attribute in this list. An example of this kind of
+   *             activity is when your user selects a link to view their profile information. Your app
+   *             makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
+   *             data.</p>
+   *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
+   *             app can read the values of <code>email_verified</code>,
+   *                 <code>phone_number_verified</code>, and the Standard attributes of your user pool.
+   *             When your user pool has read access to these default attributes,
+   *                 <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
+   *             populates <code>ReadAttributes</code> in the API response if you have specified your own
+   *             custom set of read attributes.</p>
    */
   ReadAttributes?: string[];
 
   /**
    * @public
-   * <p>The writeable attributes.</p>
+   * <p>The list of user attributes that you want your app client to have write access to.
+   *             After your user authenticates in your app, their access token authorizes them to set or
+   *             modify their own attribute value for any attribute in this list. An example of this kind
+   *             of activity is when you present your user with a form to update their profile
+   *             information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
+   *             new value. </p>
+   *          <p>When you don't specify the <code>WriteAttributes</code> for your app client, your
+   *             app can write the values of the Standard attributes of your user pool. When your user
+   *             pool has write access to these default attributes, <code>WriteAttributes</code>
+   *             doesn't return any information. Amazon Cognito only populates
+   *                 <code>WriteAttributes</code> in the API response if you have specified your own
+   *             custom set of write attributes.</p>
+   *          <p>If your app client allows users to sign in through an IdP, this array must include all
+   *             attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
+   *             users sign in to your application through an IdP. If your app client does not have write
+   *             access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
+   *             attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
+   *             pool</a>.</p>
    */
   WriteAttributes?: string[];
 
@@ -7358,8 +7557,9 @@ export interface ForgotPasswordRequest {
 
   /**
    * @public
-   * <p>The user name of the user for whom you want to enter a code to reset a forgotten
-   *             password.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -8141,9 +8341,6 @@ export interface InitiateAuthRequest {
    *             <li>
    *                <p>Define auth challenge</p>
    *             </li>
-   *             <li>
-   *                <p>Verify auth challenge</p>
-   *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
    * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
@@ -8199,7 +8396,7 @@ export interface InitiateAuthResponse {
   /**
    * @public
    * <p>The name of the challenge that you're responding to with this call. This name is
-   *             returned in the <code>AdminInitiateAuth</code> response if you must pass another
+   *             returned in the <code>InitiateAuth</code> response if you must pass another
    *             challenge.</p>
    *          <p>Valid values include the following:</p>
    *          <note>
@@ -8254,7 +8451,7 @@ export interface InitiateAuthResponse {
    *                <p>
    *                   <code>MFA_SETUP</code>: For users who are required to setup an MFA factor
    *                     before they can sign in. The MFA types activated for the user pool will be
-   *                     listed in the challenge parameters <code>MFA_CAN_SETUP</code> value. </p>
+   *                     listed in the challenge parameters <code>MFAS_CAN_SETUP</code> value. </p>
    *                <p> To set up software token MFA, use the session returned here from
    *                         <code>InitiateAuth</code> as an input to
    *                     <code>AssociateSoftwareToken</code>. Use the session returned by
@@ -8318,7 +8515,11 @@ export interface ListDevicesRequest {
 
   /**
    * @public
-   * <p>The pagination token for the list request.</p>
+   * <p>This API operation returns a limited number of results. The pagination token is
+   *     an identifier that you can present in an additional API request with the same parameters. When
+   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
+   *     through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8336,7 +8537,9 @@ export interface ListDevicesResponse {
 
   /**
    * @public
-   * <p>The pagination token for the list device response.</p>
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   *     the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8534,9 +8737,11 @@ export interface ListUserImportJobsRequest {
 
   /**
    * @public
-   * <p>An identifier that was returned from the previous call to
-   *                 <code>ListUserImportJobs</code>, which can be used to return the next set of import
-   *             jobs in the list.</p>
+   * <p>This API operation returns a limited number of results. The pagination token is
+   *     an identifier that you can present in an additional API request with the same parameters. When
+   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
+   *     through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8555,8 +8760,9 @@ export interface ListUserImportJobsResponse {
 
   /**
    * @public
-   * <p>An identifier that can be used to return the next set of user import jobs in the
-   *             list.</p>
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   *     the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8731,6 +8937,11 @@ export interface ListUsersRequest {
    *             want Amazon Cognito to include in the response for each user. When you don't provide an
    *                 <code>AttributesToGet</code> parameter, Amazon Cognito returns all attributes for each
    *             user.</p>
+   *          <p>Use <code>AttributesToGet</code> with required attributes in your user pool, or in
+   *             conjunction with <code>Filter</code>. Amazon Cognito returns an error if not all users in the
+   *             results have set a value for the attribute you request. Attributes that you can't
+   *             filter on, including custom attributes, must have a value set in every user profile
+   *             before an <code>AttributesToGet</code> parameter returns results.</p>
    */
   AttributesToGet?: string[];
 
@@ -8742,8 +8953,11 @@ export interface ListUsersRequest {
 
   /**
    * @public
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
+   * <p>This API operation returns a limited number of results. The pagination token is
+   *     an identifier that you can present in an additional API request with the same parameters. When
+   *     you include the pagination token, Amazon Cognito returns the next set of items after the current list.
+   *     Subsequent requests return a new pagination token. By use of this token, you can paginate
+   *     through the full list of items.</p>
    */
   PaginationToken?: string;
 
@@ -8864,8 +9078,9 @@ export interface ListUsersResponse {
 
   /**
    * @public
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
+   * <p>The identifier that Amazon Cognito returned with the previous request to this operation. When
+   *     you include a pagination token in your request, Amazon Cognito returns the next set of items in
+   *     the list. By use of this token, you can paginate through the full list of items.</p>
    */
   PaginationToken?: string;
 }
@@ -8888,7 +9103,7 @@ export interface ListUsersInGroupRequest {
 
   /**
    * @public
-   * <p>The limit of the request to list users.</p>
+   * <p>The maximum number of users that you want to retrieve before pagination.</p>
    */
   Limit?: number;
 
@@ -8906,7 +9121,7 @@ export interface ListUsersInGroupRequest {
 export interface ListUsersInGroupResponse {
   /**
    * @public
-   * <p>The users returned in the request to list users.</p>
+   * <p>A list of users in the group, and their attributes.</p>
    */
   Users?: UserType[];
 
@@ -8946,8 +9161,9 @@ export interface ResendConfirmationCodeRequest {
 
   /**
    * @public
-   * <p>The <code>username</code> attribute of the user to whom you want to resend a
-   *             confirmation code.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -9040,69 +9256,100 @@ export interface RespondToAuthChallengeRequest {
 
   /**
    * @public
-   * <p>The challenge responses. These are inputs corresponding to the value of
-   *                 <code>ChallengeName</code>, for example:</p>
-   *          <note>
-   *             <p>
-   *                <code>SECRET_HASH</code> (if app client is configured with client secret) applies
-   *                 to all of the inputs that follow (including <code>SOFTWARE_TOKEN_MFA</code>).</p>
-   *          </note>
-   *          <ul>
-   *             <li>
+   * <p>The responses to the challenge that you received in the previous request. Each
+   *             challenge has its own required response parameters. The following examples are partial
+   *             JSON request bodies that highlight challenge-response parameters.</p>
+   *          <important>
+   *             <p>You must provide a SECRET_HASH parameter in all challenge responses to an app
+   *                 client that has a client secret.</p>
+   *          </important>
+   *          <dl>
+   *             <dt>SMS_MFA</dt>
+   *             <dd>
    *                <p>
-   *                   <code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>.</p>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "SMS_MFA", "ChallengeResponses": \{"SMS_MFA_CODE":
+   *                             "[SMS_code]", "USERNAME": "[username]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>PASSWORD_VERIFIER</dt>
+   *             <dd>
    *                <p>
-   *                   <code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>,
-   *                         <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>,
-   *                         <code>USERNAME</code>.</p>
-   *                <note>
-   *                   <p>
-   *                      <code>PASSWORD_VERIFIER</code> requires <code>DEVICE_KEY</code> when you
-   *                         sign in with a remembered device.</p>
-   *                </note>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses":
+   *                             \{"PASSWORD_CLAIM_SIGNATURE": "[claim_signature]",
+   *                             "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
+   *                             [timestamp], "USERNAME": "[username]"\}</code>
+   *                </p>
+   *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
+   *                         device.</p>
+   *             </dd>
+   *             <dt>CUSTOM_CHALLENGE</dt>
+   *             <dd>
    *                <p>
-   *                   <code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>,
-   *                         <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured
-   *                     with client secret). To set any required attributes that Amazon Cognito returned as
-   *                         <code>requiredAttributes</code> in the <code>InitiateAuth</code> response,
-   *                     add a <code>userAttributes.<i>attributename</i>
-   *                   </code> parameter.
-   *                     This parameter can also set values for writable attributes that aren't required
-   *                     by your user pool.</p>
+   *                   <code>"ChallengeName": "CUSTOM_CHALLENGE", "ChallengeResponses":
+   *                             \{"USERNAME": "[username]", "ANSWER": "[challenge_answer]"\}</code>
+   *                </p>
+   *                <p>Add <code>"DEVICE_KEY"</code> when you sign in with a remembered
+   *                         device.</p>
+   *             </dd>
+   *             <dt>NEW_PASSWORD_REQUIRED</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "NEW_PASSWORD_REQUIRED", "ChallengeResponses":
+   *                             \{"NEW_PASSWORD": "[new_password]", "USERNAME":
+   *                         "[username]"\}</code>
+   *                </p>
+   *                <p>To set any required attributes that <code>InitiateAuth</code> returned in
+   *                         an <code>requiredAttributes</code> parameter, add
+   *                             <code>"userAttributes.[attribute_name]": "[attribute_value]"</code>.
+   *                         This parameter can also set values for writable attributes that aren't
+   *                         required by your user pool.</p>
    *                <note>
    *                   <p>In a <code>NEW_PASSWORD_REQUIRED</code> challenge response, you can't modify a required attribute that already has a value.
    * In <code>RespondToAuthChallenge</code>, set a value for any keys that Amazon Cognito returned in the <code>requiredAttributes</code> parameter,
    * then use the <code>UpdateUserAttributes</code> API operation to modify the value of any additional attributes.</p>
    *                </note>
-   *             </li>
-   *             <li>
+   *             </dd>
+   *             <dt>SOFTWARE_TOKEN_MFA</dt>
+   *             <dd>
    *                <p>
-   *                   <code>SOFTWARE_TOKEN_MFA</code>: <code>USERNAME</code> and
-   *                         <code>SOFTWARE_TOKEN_MFA_CODE</code> are required attributes.</p>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "SOFTWARE_TOKEN_MFA", "ChallengeResponses":
+   *                             \{"USERNAME": "[username]", "SOFTWARE_TOKEN_MFA_CODE":
+   *                             [authenticator_code]\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>DEVICE_SRP_AUTH</dt>
+   *             <dd>
    *                <p>
-   *                   <code>DEVICE_SRP_AUTH</code> requires <code>USERNAME</code>,
-   *                         <code>DEVICE_KEY</code>, <code>SRP_A</code> (and
-   *                     <code>SECRET_HASH</code>).</p>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "DEVICE_SRP_AUTH", "ChallengeResponses": \{"USERNAME":
+   *                         "[username]", "DEVICE_KEY": "[device_key]", "SRP_A":
+   *                         "[srp_a]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>DEVICE_PASSWORD_VERIFIER</dt>
+   *             <dd>
    *                <p>
-   *                   <code>DEVICE_PASSWORD_VERIFIER</code> requires everything that
-   *                         <code>PASSWORD_VERIFIER</code> requires, plus
-   *                     <code>DEVICE_KEY</code>.</p>
-   *             </li>
-   *             <li>
+   *                   <code>"ChallengeName": "DEVICE_PASSWORD_VERIFIER", "ChallengeResponses":
+   *                         \{"DEVICE_KEY": "[device_key]", "PASSWORD_CLAIM_SIGNATURE":
+   *                         "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]",
+   *                         "TIMESTAMP": [timestamp], "USERNAME": "[username]"\}</code>
+   *                </p>
+   *             </dd>
+   *             <dt>MFA_SETUP</dt>
+   *             <dd>
    *                <p>
-   *                   <code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you must use the
-   *                     session value returned by <code>VerifySoftwareToken</code> in the
-   *                         <code>Session</code> parameter.</p>
-   *             </li>
-   *          </ul>
+   *                   <code>"ChallengeName": "MFA_SETUP", "ChallengeResponses": \{"USERNAME":
+   *                         "[username]"\}, "SESSION": "[Session ID from
+   *                         VerifySoftwareToken]"</code>
+   *                </p>
+   *             </dd>
+   *             <dt>SELECT_MFA_TYPE</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>"ChallengeName": "SELECT_MFA_TYPE", "ChallengeResponses": \{"USERNAME":
+   *                         "[username]", "ANSWER": "[SMS_MFA or SOFTWARE_TOKEN_MFA]"\}</code>
+   *                </p>
+   *             </dd>
+   *          </dl>
    *          <p>For more information about <code>SECRET_HASH</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>. For information about
    *             <code>DEVICE_KEY</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
    */
@@ -9305,58 +9552,6 @@ export interface SetLogDeliveryConfigurationRequest {
    *             pool.</p>
    */
   LogConfigurations: LogConfigurationType[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SetLogDeliveryConfigurationResponse {
-  /**
-   * @public
-   * <p>The detailed activity logging configuration that you applied to the requested user
-   *             pool.</p>
-   */
-  LogDeliveryConfiguration?: LogDeliveryConfigurationType;
-}
-
-/**
- * @public
- */
-export interface SetRiskConfigurationRequest {
-  /**
-   * @public
-   * <p>The user pool ID. </p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * @public
-   * <p>The app client ID. If <code>ClientId</code> is null, then the risk configuration is
-   *             mapped to <code>userPoolId</code>. When the client ID is null, the same risk
-   *             configuration is applied to all the clients in the userPool.</p>
-   *          <p>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID isn't
-   *             null, the user pool configuration is overridden and the risk configuration for the
-   *             client is used instead.</p>
-   */
-  ClientId?: string;
-
-  /**
-   * @public
-   * <p>The compromised credentials risk configuration.</p>
-   */
-  CompromisedCredentialsRiskConfiguration?: CompromisedCredentialsRiskConfigurationType;
-
-  /**
-   * @public
-   * <p>The account takeover risk configuration.</p>
-   */
-  AccountTakeoverRiskConfiguration?: AccountTakeoverRiskConfigurationType;
-
-  /**
-   * @public
-   * <p>The configuration to override the risk decision.</p>
-   */
-  RiskExceptionConfiguration?: RiskExceptionConfigurationType;
 }
 
 /**
@@ -10016,12 +10211,4 @@ export const RevokeTokenRequestFilterSensitiveLog = (obj: RevokeTokenRequest): a
   ...(obj.Token && { Token: SENSITIVE_STRING }),
   ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
   ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SetRiskConfigurationRequestFilterSensitiveLog = (obj: SetRiskConfigurationRequest): any => ({
-  ...obj,
-  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
 });

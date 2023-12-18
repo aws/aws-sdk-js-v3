@@ -46,7 +46,13 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
 
 /**
  * @public
- * <p>Responds to the authentication challenge.</p>
+ * <p>Some API operations in a user pool generate a challenge, like a prompt for an MFA
+ *             code, for device authentication that bypasses MFA, or for a custom authentication
+ *             challenge. A <code>RespondToAuthChallenge</code> API request provides the answer to that
+ *             challenge, like a code or a secure remote password (SRP). The parameters of a response
+ *             to an authentication challenge vary with the type of challenge.</p>
+ *          <p>For more information about custom authentication challenges, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">Custom
+ *                 authentication challenge Lambda triggers</a>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *             this operation, you can't use IAM credentials to authorize requests, and you can't

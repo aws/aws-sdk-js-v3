@@ -20,8 +20,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetRiskConfigurationRequest, SetRiskConfigurationRequestFilterSensitiveLog } from "../models/models_0";
-import { SetRiskConfigurationResponse, SetRiskConfigurationResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  SetRiskConfigurationRequest,
+  SetRiskConfigurationRequestFilterSensitiveLog,
+  SetRiskConfigurationResponse,
+  SetRiskConfigurationResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_SetRiskConfigurationCommand, se_SetRiskConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**

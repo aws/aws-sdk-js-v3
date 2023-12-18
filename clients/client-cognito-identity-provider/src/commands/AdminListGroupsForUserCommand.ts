@@ -46,7 +46,7 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
 
 /**
  * @public
- * <p>Lists the groups that the user belongs to.</p>
+ * <p>Lists the groups that a user belongs to.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *             this operation, you must use IAM credentials to authorize requests, and you must
