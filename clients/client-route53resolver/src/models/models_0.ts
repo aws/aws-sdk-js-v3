@@ -373,7 +373,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
- * <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  */
 export class ValidationException extends __BaseException {
@@ -463,6 +463,21 @@ export const ResolverEndpointDirection = {
  * @public
  */
 export type ResolverEndpointDirection = (typeof ResolverEndpointDirection)[keyof typeof ResolverEndpointDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  DO53: "Do53",
+  DOH: "DoH",
+  DOHFIPS: "DoH-FIPS",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -642,14 +657,6 @@ export interface ResolverEndpoint {
 
   /**
    * @public
-   * <p>
-   * 			The Resolver endpoint IP address type.
-   * 		</p>
-   */
-  ResolverEndpointType?: ResolverEndpointType;
-
-  /**
-   * @public
    * <p>The ARN (Amazon Resource Name) for the Outpost.</p>
    */
   OutpostArn?: string;
@@ -661,6 +668,58 @@ export interface ResolverEndpoint {
    * 		</p>
    */
   PreferredInstanceType?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The Resolver endpoint IP address type.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType;
+
+  /**
+   * @public
+   * <p>
+   * 			Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   */
+  Protocols?: Protocol[];
 }
 
 /**
@@ -1193,8 +1252,7 @@ export interface FirewallDomainList {
 export interface CreateFirewallDomainListResponse {
   /**
    * @public
-   * <p>The
-   * 			domain list that you just created.</p>
+   * <p>The domain list that you just created.</p>
    */
   FirewallDomainList?: FirewallDomainList;
 }
@@ -1819,8 +1877,24 @@ export interface CreateResolverEndpointRequest {
    * @public
    * <p>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward
    * 			DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC. </p>
+   *          <note>
+   *             <p>Even though the minimum is 1, Route 53 requires that you create at least two.</p>
+   *          </note>
    */
   IpAddresses: IpAddressRequest[] | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a
+   * 			value for the <code>PreferredInstanceType</code>. </p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * @public
+   * <p>The  instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</p>
+   */
+  PreferredInstanceType?: string;
 
   /**
    * @public
@@ -1840,16 +1914,47 @@ export interface CreateResolverEndpointRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a
-   * 			value for the <code>PreferredInstanceType</code>. </p>
+   * <p>
+   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
    */
-  OutpostArn?: string;
-
-  /**
-   * @public
-   * <p>The  instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</p>
-   */
-  PreferredInstanceType?: string;
+  Protocols?: Protocol[];
 }
 
 /**
@@ -2095,6 +2200,51 @@ export interface TargetAddress {
    * 		</p>
    */
   Ipv6?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The protocols for the Resolver endpoints. DoH-FIPS is applicable for inbound endpoints only.
+   *
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   */
+  Protocol?: Protocol;
 }
 
 /**
@@ -2133,7 +2283,7 @@ export interface CreateResolverRuleRequest {
    * 			multiple Resolver rules (example.com and www.example.com), outbound DNS queries are routed using the Resolver rule that contains
    * 			the most specific domain name (www.example.com).</p>
    */
-  DomainName: string | undefined;
+  DomainName?: string;
 
   /**
    * @public
@@ -4193,7 +4343,8 @@ export interface ListResolverDnssecConfigsResponse {
    * @public
    * <p>An array that contains one
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResolverDnssecConfig.html">ResolverDnssecConfig</a> element
-   * 			for each configuration for DNSSEC validation that is associated with the current Amazon Web Services account.</p>
+   * 			for each configuration for DNSSEC validation that is associated with the current Amazon Web Services account.
+   * 			 It doesn't contain disabled DNSSEC configurations for the resource.</p>
    */
   ResolverDnssecConfigs?: ResolverDnssecConfig[];
 }
@@ -5512,6 +5663,58 @@ export interface UpdateResolverEndpointRequest {
    * 		</p>
    */
   UpdateIpAddresses?: UpdateIpAddress[];
+
+  /**
+   * @public
+   * <p>
+   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p> You can't change the protocol of an inbound endpoint directly from only Do53 to only DoH, or DoH-FIPS.
+   * 			This is to prevent a sudden disruption to incoming traffic that
+   * 			relies on Do53. To change the protocol from Do53 to DoH, or DoH-FIPS, you must
+   * 			first enable both Do53 and DoH, or Do53 and DoH-FIPS, to make sure that all incoming traffic
+   * 			has transferred to using the DoH protocol, or DoH-FIPS, and then remove the
+   * 			Do53.</p>
+   *          </important>
+   */
+  Protocols?: Protocol[];
 }
 
 /**

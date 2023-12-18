@@ -37,7 +37,7 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
 
 /**
  * @public
- * <p>Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+ * <p>Updates the name, or endpoint type for an inbound or an outbound Resolver endpoint.
  * 			You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated to other type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +54,9 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  *       IpId: "STRING_VALUE", // required
  *       Ipv6: "STRING_VALUE", // required
  *     },
+ *   ],
+ *   Protocols: [ // ProtocolList
+ *     "DoH" || "Do53" || "DoH-FIPS",
  *   ],
  * };
  * const command = new UpdateResolverEndpointCommand(input);
@@ -74,9 +77,12 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * //     StatusMessage: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
- * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
  * //     OutpostArn: "STRING_VALUE",
  * //     PreferredInstanceType: "STRING_VALUE",
+ * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     Protocols: [ // ProtocolList
+ * //       "DoH" || "Do53" || "DoH-FIPS",
+ * //     ],
  * //   },
  * // };
  *
@@ -87,6 +93,9 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * @see {@link UpdateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>

@@ -68,6 +68,8 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *       Ipv6: "STRING_VALUE",
  *     },
  *   ],
+ *   OutpostArn: "STRING_VALUE",
+ *   PreferredInstanceType: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -75,8 +77,9 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *     },
  *   ],
  *   ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
- *   OutpostArn: "STRING_VALUE",
- *   PreferredInstanceType: "STRING_VALUE",
+ *   Protocols: [ // ProtocolList
+ *     "DoH" || "Do53" || "DoH-FIPS",
+ *   ],
  * };
  * const command = new CreateResolverEndpointCommand(input);
  * const response = await client.send(command);
@@ -96,9 +99,12 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * //     StatusMessage: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
- * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
  * //     OutpostArn: "STRING_VALUE",
  * //     PreferredInstanceType: "STRING_VALUE",
+ * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     Protocols: [ // ProtocolList
+ * //       "DoH" || "Do53" || "DoH-FIPS",
+ * //     ],
  * //   },
  * // };
  *
@@ -109,6 +115,9 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * @see {@link CreateResolverEndpointCommandInput} for command's `input` shape.
  * @see {@link CreateResolverEndpointCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>

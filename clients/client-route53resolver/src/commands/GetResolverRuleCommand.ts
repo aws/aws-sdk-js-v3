@@ -65,6 +65,7 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  * //         Ip: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         Ipv6: "STRING_VALUE",
+ * //         Protocol: "DoH" || "Do53" || "DoH-FIPS",
  * //       },
  * //     ],
  * //     ResolverEndpointId: "STRING_VALUE",

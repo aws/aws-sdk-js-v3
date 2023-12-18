@@ -49,12 +49,13 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  *   CreatorRequestId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
  *   TargetIps: [ // TargetList
  *     { // TargetAddress
  *       Ip: "STRING_VALUE",
  *       Port: Number("int"),
  *       Ipv6: "STRING_VALUE",
+ *       Protocol: "DoH" || "Do53" || "DoH-FIPS",
  *     },
  *   ],
  *   ResolverEndpointId: "STRING_VALUE",
@@ -82,6 +83,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * //         Ip: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         Ipv6: "STRING_VALUE",
+ * //         Protocol: "DoH" || "Do53" || "DoH-FIPS",
  * //       },
  * //     ],
  * //     ResolverEndpointId: "STRING_VALUE",
@@ -99,6 +101,9 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * @see {@link CreateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link CreateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>

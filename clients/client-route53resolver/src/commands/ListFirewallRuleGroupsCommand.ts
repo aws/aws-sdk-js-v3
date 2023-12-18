@@ -83,7 +83,7 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  *  <p>The request was throttled. Try again in a few minutes.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ *  <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
  * @throws {@link Route53ResolverServiceException}

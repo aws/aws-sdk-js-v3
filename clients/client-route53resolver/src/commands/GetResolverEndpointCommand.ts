@@ -66,9 +66,12 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  * //     StatusMessage: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
- * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
  * //     OutpostArn: "STRING_VALUE",
  * //     PreferredInstanceType: "STRING_VALUE",
+ * //     ResolverEndpointType: "IPV6" || "IPV4" || "DUALSTACK",
+ * //     Protocols: [ // ProtocolList
+ * //       "DoH" || "Do53" || "DoH-FIPS",
+ * //     ],
  * //   },
  * // };
  *
