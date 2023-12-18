@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
+
+
+### Bug Fixes
+
+* **core:** wrap `credentialDefaultProvider` with `normalizeProvider` ([#5592](https://github.com/aws/aws-sdk-js-v3/issues/5592)) ([9faa8ad](https://github.com/aws/aws-sdk-js-v3/commit/9faa8ad8dfd3eeb642c7a237a72c8be745ab5ba4))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito now supports trigger versions that define the fields in the request sent to pre token generation Lambda triggers. ([54b56e9](https://github.com/aws/aws-sdk-js-v3/commit/54b56e971d598a90994a660f330a5da03b3d5bf2))
+* **client-eks:** Add support for EKS Cluster Access Management. ([d92c38d](https://github.com/aws/aws-sdk-js-v3/commit/d92c38db0cec7c724fe234c538108259a088c4c1))
+* **client-route53resolver:** Add DOH protocols in resolver endpoints. ([5ef61b5](https://github.com/aws/aws-sdk-js-v3/commit/5ef61b5f0516e319ce8b89ba22c3d6e3ae79a1e8))
+* **clients:** update client endpoints as of 2023-12-18 ([ffad8fd](https://github.com/aws/aws-sdk-js-v3/commit/ffad8fd839b05061642e6d47ab5cd8ce3ac3b05d))
+
+
+
+
+
 # [3.475.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.474.0...v3.475.0) (2023-12-15)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
+
+
+### Bug Fixes
+
+* **core:** wrap `credentialDefaultProvider` with `normalizeProvider` ([#5592](https://github.com/aws/aws-sdk-js-v3/issues/5592)) ([9faa8ad](https://github.com/aws/aws-sdk-js-v3/commit/9faa8ad8dfd3eeb642c7a237a72c8be745ab5ba4))
+
+
+
+
+
 # [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
 
 

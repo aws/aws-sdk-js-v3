@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito now supports trigger versions that define the fields in the request sent to pre token generation Lambda triggers. ([54b56e9](https://github.com/aws/aws-sdk-js-v3/commit/54b56e971d598a90994a660f330a5da03b3d5bf2))
+
+
+
+
+
 # [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
