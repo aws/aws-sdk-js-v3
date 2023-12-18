@@ -22,6 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/client-cognito-identity": "*",
+    "@aws-sdk/core": "*",
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^2.0.0",
     "@smithy/types": "^2.7.0",
