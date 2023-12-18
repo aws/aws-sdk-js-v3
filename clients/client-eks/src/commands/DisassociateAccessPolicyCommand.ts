@@ -15,11 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { UpdatePodIdentityAssociationRequest, UpdatePodIdentityAssociationResponse } from "../models/models_0";
-import {
-  de_UpdatePodIdentityAssociationCommand,
-  se_UpdatePodIdentityAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DisassociateAccessPolicyRequest, DisassociateAccessPolicyResponse } from "../models/models_0";
+import { de_DisassociateAccessPolicyCommand, se_DisassociateAccessPolicyCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,65 +25,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdatePodIdentityAssociationCommand}.
+ * The input for {@link DisassociateAccessPolicyCommand}.
  */
-export interface UpdatePodIdentityAssociationCommandInput extends UpdatePodIdentityAssociationRequest {}
+export interface DisassociateAccessPolicyCommandInput extends DisassociateAccessPolicyRequest {}
 /**
  * @public
  *
- * The output of {@link UpdatePodIdentityAssociationCommand}.
+ * The output of {@link DisassociateAccessPolicyCommand}.
  */
-export interface UpdatePodIdentityAssociationCommandOutput
-  extends UpdatePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface DisassociateAccessPolicyCommandOutput extends DisassociateAccessPolicyResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates a EKS Pod Identity association. Only the IAM role can be changed; an association can't be moved
- *             between clusters, namespaces, or service accounts. If you need to edit the namespace
- *             or service account, you need to delete the association and then create a new
- *             association with your desired settings.</p>
+ * <p>Disassociates an access policy from an access entry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, UpdatePodIdentityAssociationCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, UpdatePodIdentityAssociationCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DisassociateAccessPolicyCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DisassociateAccessPolicyCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // UpdatePodIdentityAssociationRequest
+ * const input = { // DisassociateAccessPolicyRequest
  *   clusterName: "STRING_VALUE", // required
- *   associationId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
+ *   principalArn: "STRING_VALUE", // required
+ *   policyArn: "STRING_VALUE", // required
  * };
- * const command = new UpdatePodIdentityAssociationCommand(input);
+ * const command = new DisassociateAccessPolicyCommand(input);
  * const response = await client.send(command);
- * // { // UpdatePodIdentityAssociationResponse
- * //   association: { // PodIdentityAssociation
- * //     clusterName: "STRING_VALUE",
- * //     namespace: "STRING_VALUE",
- * //     serviceAccount: "STRING_VALUE",
- * //     roleArn: "STRING_VALUE",
- * //     associationArn: "STRING_VALUE",
- * //     associationId: "STRING_VALUE",
- * //     tags: { // TagMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
- * //     createdAt: new Date("TIMESTAMP"),
- * //     modifiedAt: new Date("TIMESTAMP"),
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param UpdatePodIdentityAssociationCommandInput - {@link UpdatePodIdentityAssociationCommandInput}
- * @returns {@link UpdatePodIdentityAssociationCommandOutput}
- * @see {@link UpdatePodIdentityAssociationCommandInput} for command's `input` shape.
- * @see {@link UpdatePodIdentityAssociationCommandOutput} for command's `response` shape.
+ * @param DisassociateAccessPolicyCommandInput - {@link DisassociateAccessPolicyCommandInput}
+ * @returns {@link DisassociateAccessPolicyCommandOutput}
+ * @see {@link DisassociateAccessPolicyCommandInput} for command's `input` shape.
+ * @see {@link DisassociateAccessPolicyCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
@@ -104,9 +77,9 @@ export interface UpdatePodIdentityAssociationCommandOutput
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class UpdatePodIdentityAssociationCommand extends $Command<
-  UpdatePodIdentityAssociationCommandInput,
-  UpdatePodIdentityAssociationCommandOutput,
+export class DisassociateAccessPolicyCommand extends $Command<
+  DisassociateAccessPolicyCommandInput,
+  DisassociateAccessPolicyCommandOutput,
   EKSClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -121,7 +94,7 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdatePodIdentityAssociationCommandInput) {
+  constructor(readonly input: DisassociateAccessPolicyCommandInput) {
     super();
   }
 
@@ -132,17 +105,17 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdatePodIdentityAssociationCommandInput, UpdatePodIdentityAssociationCommandOutput> {
+  ): Handler<DisassociateAccessPolicyCommandInput, DisassociateAccessPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdatePodIdentityAssociationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DisassociateAccessPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "UpdatePodIdentityAssociationCommand";
+    const commandName = "DisassociateAccessPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,7 +124,7 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "UpdatePodIdentityAssociation",
+        operation: "DisassociateAccessPolicy",
       },
     };
     const { requestHandler } = configuration;
@@ -165,17 +138,14 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdatePodIdentityAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdatePodIdentityAssociationCommand(input, context);
+  private serialize(input: DisassociateAccessPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DisassociateAccessPolicyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdatePodIdentityAssociationCommandOutput> {
-    return de_UpdatePodIdentityAssociationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateAccessPolicyCommandOutput> {
+    return de_DisassociateAccessPolicyCommand(output, context);
   }
 }

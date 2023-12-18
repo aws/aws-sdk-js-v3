@@ -64,10 +64,10 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -110,9 +110,8 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

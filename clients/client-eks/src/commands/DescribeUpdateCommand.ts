@@ -37,8 +37,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
 
 /**
  * @public
- * <p>Returns descriptive information about an update against your Amazon EKS
- *             cluster or associated managed node group or Amazon EKS add-on.</p>
+ * <p>Describes an update to an Amazon EKS resource.</p>
  *          <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
  *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
  *             for the failure.</p>
@@ -60,10 +59,10 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -99,9 +98,8 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

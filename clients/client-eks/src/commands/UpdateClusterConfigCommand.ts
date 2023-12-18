@@ -39,11 +39,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * @public
  * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to
  *             function during the update. The response output includes an update ID that you can use
- *             to track the status of your cluster update with the <a>DescribeUpdate</a> API
- *             operation.</p>
+ *             to track the status of your cluster update with <code>DescribeUpdate</code>"/>.</p>
  *          <p>You can use this API operation to enable or disable exporting the Kubernetes control plane
  *             logs for your cluster to CloudWatch Logs. By default, cluster control plane logs
- *             aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
+ *             aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster control plane logs</a> in the
  *                 <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>.</p>
@@ -101,6 +100,9 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *     ],
  *   },
  *   clientRequestToken: "STRING_VALUE",
+ *   accessConfig: { // UpdateAccessConfigRequest
+ *     authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
+ *   },
  * };
  * const command = new UpdateClusterConfigCommand(input);
  * const response = await client.send(command);
@@ -108,10 +110,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -154,9 +156,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

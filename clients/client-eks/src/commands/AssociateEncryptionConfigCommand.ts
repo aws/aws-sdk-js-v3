@@ -37,10 +37,10 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
 
 /**
  * @public
- * <p>Associate encryption configuration to an existing cluster.</p>
- *          <p>You can use this API to enable encryption on existing clusters which do not have
- *             encryption already enabled. This allows you to implement a defense-in-depth security
- *             strategy without migrating applications to new Amazon EKS clusters.</p>
+ * <p>Associates an encryption configuration to an existing cluster.</p>
+ *          <p>Use this API to enable encryption on existing clusters that don't already have
+ *             encryption enabled. This allows you to implement a defense-in-depth security strategy
+ *             without migrating applications to new Amazon EKS clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,10 +67,10 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -113,9 +113,8 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

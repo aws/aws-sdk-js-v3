@@ -7,9 +7,9 @@
 AWS SDK for JavaScript EKS Client for Node.js, Browser and React Native.
 
 <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
-for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain your
-own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
-scaling, and management of containerized applications. </p>
+for you to run Kubernetes on Amazon Web Services without needing to setup or maintain your own
+Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
+scaling, and management of containerized applications.</p>
 <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you
 can use all the existing plugins and tooling from the Kubernetes community. Applications
 running on Amazon EKS are fully compatible with applications running on any
@@ -213,6 +213,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateAccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/AssociateAccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/AssociateAccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/AssociateAccessPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateEncryptionConfig
 </summary>
 
@@ -225,6 +233,14 @@ AssociateIdentityProviderConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/AssociateIdentityProviderConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/AssociateIdentityProviderConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/AssociateIdentityProviderConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAccessEntry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/CreateAccessEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CreateAccessEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CreateAccessEntryCommandOutput/)
 
 </details>
 <details>
@@ -273,6 +289,14 @@ CreatePodIdentityAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/CreatePodIdentityAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CreatePodIdentityAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/CreatePodIdentityAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAccessEntry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DeleteAccessEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeleteAccessEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeleteAccessEntryCommandOutput/)
 
 </details>
 <details>
@@ -329,6 +353,14 @@ DeregisterCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DeregisterClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeregisterClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DeregisterClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeAccessEntry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DescribeAccessEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DescribeAccessEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DescribeAccessEntryCommandOutput/)
 
 </details>
 <details>
@@ -413,6 +445,14 @@ DescribeUpdate
 </details>
 <details>
 <summary>
+DisassociateAccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/DisassociateAccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DisassociateAccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/DisassociateAccessPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateIdentityProviderConfig
 </summary>
 
@@ -421,10 +461,34 @@ DisassociateIdentityProviderConfig
 </details>
 <details>
 <summary>
+ListAccessEntries
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/ListAccessEntriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAccessEntriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAccessEntriesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAccessPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/ListAccessPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAccessPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAccessPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAddons
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/ListAddonsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAddonsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAddonsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAssociatedAccessPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/ListAssociatedAccessPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAssociatedAccessPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/ListAssociatedAccessPoliciesCommandOutput/)
 
 </details>
 <details>
@@ -513,6 +577,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAccessEntry
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/eks/command/UpdateAccessEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UpdateAccessEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-eks/Interface/UpdateAccessEntryCommandOutput/)
 
 </details>
 <details>

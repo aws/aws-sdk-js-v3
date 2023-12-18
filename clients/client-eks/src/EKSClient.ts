@@ -49,6 +49,10 @@ import {
 } from "@smithy/types";
 
 import {
+  AssociateAccessPolicyCommandInput,
+  AssociateAccessPolicyCommandOutput,
+} from "./commands/AssociateAccessPolicyCommand";
+import {
   AssociateEncryptionConfigCommandInput,
   AssociateEncryptionConfigCommandOutput,
 } from "./commands/AssociateEncryptionConfigCommand";
@@ -56,6 +60,7 @@ import {
   AssociateIdentityProviderConfigCommandInput,
   AssociateIdentityProviderConfigCommandOutput,
 } from "./commands/AssociateIdentityProviderConfigCommand";
+import { CreateAccessEntryCommandInput, CreateAccessEntryCommandOutput } from "./commands/CreateAccessEntryCommand";
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
@@ -71,6 +76,7 @@ import {
   CreatePodIdentityAssociationCommandInput,
   CreatePodIdentityAssociationCommandOutput,
 } from "./commands/CreatePodIdentityAssociationCommand";
+import { DeleteAccessEntryCommandInput, DeleteAccessEntryCommandOutput } from "./commands/DeleteAccessEntryCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
@@ -87,6 +93,10 @@ import {
   DeletePodIdentityAssociationCommandOutput,
 } from "./commands/DeletePodIdentityAssociationCommand";
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "./commands/DeregisterClusterCommand";
+import {
+  DescribeAccessEntryCommandInput,
+  DescribeAccessEntryCommandOutput,
+} from "./commands/DescribeAccessEntryCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
 import {
   DescribeAddonConfigurationCommandInput,
@@ -116,10 +126,20 @@ import {
 } from "./commands/DescribePodIdentityAssociationCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand";
 import {
+  DisassociateAccessPolicyCommandInput,
+  DisassociateAccessPolicyCommandOutput,
+} from "./commands/DisassociateAccessPolicyCommand";
+import {
   DisassociateIdentityProviderConfigCommandInput,
   DisassociateIdentityProviderConfigCommandOutput,
 } from "./commands/DisassociateIdentityProviderConfigCommand";
+import { ListAccessEntriesCommandInput, ListAccessEntriesCommandOutput } from "./commands/ListAccessEntriesCommand";
+import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
 import { ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
+import {
+  ListAssociatedAccessPoliciesCommandInput,
+  ListAssociatedAccessPoliciesCommandOutput,
+} from "./commands/ListAssociatedAccessPoliciesCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListEksAnywhereSubscriptionsCommandInput,
@@ -146,6 +166,7 @@ import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/Li
 import { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "./commands/RegisterClusterCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAccessEntryCommandInput, UpdateAccessEntryCommandOutput } from "./commands/UpdateAccessEntryCommand";
 import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
 import {
   UpdateClusterConfigCommandInput,
@@ -186,14 +207,17 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateAccessPolicyCommandInput
   | AssociateEncryptionConfigCommandInput
   | AssociateIdentityProviderConfigCommandInput
+  | CreateAccessEntryCommandInput
   | CreateAddonCommandInput
   | CreateClusterCommandInput
   | CreateEksAnywhereSubscriptionCommandInput
   | CreateFargateProfileCommandInput
   | CreateNodegroupCommandInput
   | CreatePodIdentityAssociationCommandInput
+  | DeleteAccessEntryCommandInput
   | DeleteAddonCommandInput
   | DeleteClusterCommandInput
   | DeleteEksAnywhereSubscriptionCommandInput
@@ -201,6 +225,7 @@ export type ServiceInputTypes =
   | DeleteNodegroupCommandInput
   | DeletePodIdentityAssociationCommandInput
   | DeregisterClusterCommandInput
+  | DescribeAccessEntryCommandInput
   | DescribeAddonCommandInput
   | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
@@ -211,8 +236,12 @@ export type ServiceInputTypes =
   | DescribeNodegroupCommandInput
   | DescribePodIdentityAssociationCommandInput
   | DescribeUpdateCommandInput
+  | DisassociateAccessPolicyCommandInput
   | DisassociateIdentityProviderConfigCommandInput
+  | ListAccessEntriesCommandInput
+  | ListAccessPoliciesCommandInput
   | ListAddonsCommandInput
+  | ListAssociatedAccessPoliciesCommandInput
   | ListClustersCommandInput
   | ListEksAnywhereSubscriptionsCommandInput
   | ListFargateProfilesCommandInput
@@ -224,6 +253,7 @@ export type ServiceInputTypes =
   | RegisterClusterCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccessEntryCommandInput
   | UpdateAddonCommandInput
   | UpdateClusterConfigCommandInput
   | UpdateClusterVersionCommandInput
@@ -236,14 +266,17 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateAccessPolicyCommandOutput
   | AssociateEncryptionConfigCommandOutput
   | AssociateIdentityProviderConfigCommandOutput
+  | CreateAccessEntryCommandOutput
   | CreateAddonCommandOutput
   | CreateClusterCommandOutput
   | CreateEksAnywhereSubscriptionCommandOutput
   | CreateFargateProfileCommandOutput
   | CreateNodegroupCommandOutput
   | CreatePodIdentityAssociationCommandOutput
+  | DeleteAccessEntryCommandOutput
   | DeleteAddonCommandOutput
   | DeleteClusterCommandOutput
   | DeleteEksAnywhereSubscriptionCommandOutput
@@ -251,6 +284,7 @@ export type ServiceOutputTypes =
   | DeleteNodegroupCommandOutput
   | DeletePodIdentityAssociationCommandOutput
   | DeregisterClusterCommandOutput
+  | DescribeAccessEntryCommandOutput
   | DescribeAddonCommandOutput
   | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
@@ -261,8 +295,12 @@ export type ServiceOutputTypes =
   | DescribeNodegroupCommandOutput
   | DescribePodIdentityAssociationCommandOutput
   | DescribeUpdateCommandOutput
+  | DisassociateAccessPolicyCommandOutput
   | DisassociateIdentityProviderConfigCommandOutput
+  | ListAccessEntriesCommandOutput
+  | ListAccessPoliciesCommandOutput
   | ListAddonsCommandOutput
+  | ListAssociatedAccessPoliciesCommandOutput
   | ListClustersCommandOutput
   | ListEksAnywhereSubscriptionsCommandOutput
   | ListFargateProfilesCommandOutput
@@ -274,6 +312,7 @@ export type ServiceOutputTypes =
   | RegisterClusterCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccessEntryCommandOutput
   | UpdateAddonCommandOutput
   | UpdateClusterConfigCommandOutput
   | UpdateClusterVersionCommandOutput
@@ -455,9 +494,9 @@ export interface EKSClientResolvedConfig extends EKSClientResolvedConfigType {}
 /**
  * @public
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
- *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain your
- *             own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
- *             scaling, and management of containerized applications. </p>
+ *             for you to run Kubernetes on Amazon Web Services without needing to setup or maintain your own
+ *             Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
+ *             scaling, and management of containerized applications.</p>
  *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you
  *             can use all the existing plugins and tooling from the Kubernetes community. Applications
  *             running on Amazon EKS are fully compatible with applications running on any

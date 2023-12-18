@@ -38,7 +38,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
 /**
  * @public
  * <p>Lists the Amazon EKS clusters in your Amazon Web Services account in the
- *             specified Region.</p>
+ *             specified Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

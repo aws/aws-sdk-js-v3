@@ -42,13 +42,13 @@ export interface AssociateIdentityProviderConfigCommandOutput
 
 /**
  * @public
- * <p>Associate an identity provider configuration to a cluster.</p>
+ * <p>Associates an identity provider configuration to a cluster.</p>
  *          <p>If you want to authenticate identities using an identity provider, you can create an
  *             identity provider configuration and associate it to your cluster. After configuring
- *             authentication to your cluster you can create Kubernetes <code>roles</code> and
- *                 <code>clusterroles</code> to assign permissions to the roles, and then bind the
- *             roles to the identities using Kubernetes <code>rolebindings</code> and
- *                 <code>clusterrolebindings</code>. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
+ *             authentication to your cluster you can create Kubernetes <code>Role</code> and
+ *                 <code>ClusterRole</code> objects, assign permissions to them, and then bind them to
+ *             the identities using Kubernetes <code>RoleBinding</code> and <code>ClusterRoleBinding</code>
+ *             objects. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
  *                 Authorization</a> in the Kubernetes documentation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,10 +81,10 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -130,9 +130,8 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

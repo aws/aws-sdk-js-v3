@@ -25,6 +25,10 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AssociateAccessPolicyCommandInput,
+  AssociateAccessPolicyCommandOutput,
+} from "../commands/AssociateAccessPolicyCommand";
+import {
   AssociateEncryptionConfigCommandInput,
   AssociateEncryptionConfigCommandOutput,
 } from "../commands/AssociateEncryptionConfigCommand";
@@ -32,6 +36,7 @@ import {
   AssociateIdentityProviderConfigCommandInput,
   AssociateIdentityProviderConfigCommandOutput,
 } from "../commands/AssociateIdentityProviderConfigCommand";
+import { CreateAccessEntryCommandInput, CreateAccessEntryCommandOutput } from "../commands/CreateAccessEntryCommand";
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "../commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
@@ -47,6 +52,7 @@ import {
   CreatePodIdentityAssociationCommandInput,
   CreatePodIdentityAssociationCommandOutput,
 } from "../commands/CreatePodIdentityAssociationCommand";
+import { DeleteAccessEntryCommandInput, DeleteAccessEntryCommandOutput } from "../commands/DeleteAccessEntryCommand";
 import { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "../commands/DeleteAddonCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import {
@@ -63,6 +69,10 @@ import {
   DeletePodIdentityAssociationCommandOutput,
 } from "../commands/DeletePodIdentityAssociationCommand";
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "../commands/DeregisterClusterCommand";
+import {
+  DescribeAccessEntryCommandInput,
+  DescribeAccessEntryCommandOutput,
+} from "../commands/DescribeAccessEntryCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "../commands/DescribeAddonCommand";
 import {
   DescribeAddonConfigurationCommandInput,
@@ -92,10 +102,20 @@ import {
 } from "../commands/DescribePodIdentityAssociationCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "../commands/DescribeUpdateCommand";
 import {
+  DisassociateAccessPolicyCommandInput,
+  DisassociateAccessPolicyCommandOutput,
+} from "../commands/DisassociateAccessPolicyCommand";
+import {
   DisassociateIdentityProviderConfigCommandInput,
   DisassociateIdentityProviderConfigCommandOutput,
 } from "../commands/DisassociateIdentityProviderConfigCommand";
+import { ListAccessEntriesCommandInput, ListAccessEntriesCommandOutput } from "../commands/ListAccessEntriesCommand";
+import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
 import { ListAddonsCommandInput, ListAddonsCommandOutput } from "../commands/ListAddonsCommand";
+import {
+  ListAssociatedAccessPoliciesCommandInput,
+  ListAssociatedAccessPoliciesCommandOutput,
+} from "../commands/ListAssociatedAccessPoliciesCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListEksAnywhereSubscriptionsCommandInput,
@@ -122,6 +142,7 @@ import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "../commands/L
 import { RegisterClusterCommandInput, RegisterClusterCommandOutput } from "../commands/RegisterClusterCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAccessEntryCommandInput, UpdateAccessEntryCommandOutput } from "../commands/UpdateAccessEntryCommand";
 import { UpdateAddonCommandInput, UpdateAddonCommandOutput } from "../commands/UpdateAddonCommand";
 import {
   UpdateClusterConfigCommandInput,
@@ -150,13 +171,17 @@ import {
 import { EKSServiceException as __BaseException } from "../models/EKSServiceException";
 import {
   AccessDeniedException,
+  AccessEntry,
+  AccessScope,
   Addon,
+  AssociatedAccessPolicy,
   BadRequestException,
   ClientException,
   Cluster,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
   ControlPlanePlacementRequest,
+  CreateAccessConfigRequest,
   EksAnywhereSubscription,
   EksAnywhereSubscriptionTerm,
   EncryptionConfig,
@@ -188,10 +213,52 @@ import {
   Taint,
   UnsupportedAvailabilityZoneException,
   Update,
+  UpdateAccessConfigRequest,
   UpdateLabelsPayload,
   UpdateTaintsPayload,
   VpcConfigRequest,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AssociateAccessPolicyCommand
+ */
+export const se_AssociateAccessPolicyCommand = async (
+  input: AssociateAccessPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/access-entries/{principalArn}/access-policies";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "principalArn",
+    () => input.principalArn!,
+    "{principalArn}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accessScope: (_) => _json(_),
+      policyArn: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 /**
  * serializeAws_restJson1AssociateEncryptionConfigCommand
@@ -261,6 +328,42 @@ export const se_AssociateIdentityProviderConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateAccessEntryCommand
+ */
+export const se_CreateAccessEntryCommand = async (
+  input: CreateAccessEntryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/access-entries";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      kubernetesGroups: (_) => _json(_),
+      principalArn: [],
+      tags: (_) => _json(_),
+      type: [],
+      username: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1CreateAddonCommand
  */
 export const se_CreateAddonCommand = async (
@@ -312,6 +415,7 @@ export const se_CreateClusterCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accessConfig: (_) => _json(_),
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       encryptionConfig: (_) => _json(_),
       kubernetesNetworkConfig: (_) => _json(_),
@@ -484,6 +588,39 @@ export const se_CreatePodIdentityAssociationCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DeleteAccessEntryCommand
+ */
+export const se_DeleteAccessEntryCommand = async (
+  input: DeleteAccessEntryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/access-entries/{principalArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "principalArn",
+    () => input.principalArn!,
+    "{principalArn}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -684,6 +821,39 @@ export const se_DeregisterClusterCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1DescribeAccessEntryCommand
+ */
+export const se_DescribeAccessEntryCommand = async (
+  input: DescribeAccessEntryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/access-entries/{principalArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "principalArn",
+    () => input.principalArn!,
+    "{principalArn}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     body,
@@ -986,6 +1156,40 @@ export const se_DescribeUpdateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisassociateAccessPolicyCommand
+ */
+export const se_DisassociateAccessPolicyCommand = async (
+  input: DisassociateAccessPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/access-entries/{principalArn}/access-policies/{policyArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "principalArn",
+    () => input.principalArn!,
+    "{principalArn}",
+    false
+  );
+  resolvedPath = __resolvedPath(resolvedPath, input, "policyArn", () => input.policyArn!, "{policyArn}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1DisassociateIdentityProviderConfigCommand
  */
 export const se_DisassociateIdentityProviderConfigCommand = async (
@@ -1019,6 +1223,63 @@ export const se_DisassociateIdentityProviderConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAccessEntriesCommand
+ */
+export const se_ListAccessEntriesCommand = async (
+  input: ListAccessEntriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/access-entries";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  const query: any = map({
+    associatedPolicyArn: [, input.associatedPolicyArn!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListAccessPoliciesCommand
+ */
+export const se_ListAccessPoliciesCommand = async (
+  input: ListAccessPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1ListAddonsCommand
  */
 export const se_ListAddonsCommand = async (
@@ -1030,6 +1291,44 @@ export const se_ListAddonsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/addons";
   resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+/**
+ * serializeAws_restJson1ListAssociatedAccessPoliciesCommand
+ */
+export const se_ListAssociatedAccessPoliciesCommand = async (
+  input: ListAssociatedAccessPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/access-entries/{principalArn}/access-policies";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "principalArn",
+    () => input.principalArn!,
+    "{principalArn}",
+    false
+  );
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -1373,6 +1672,48 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAccessEntryCommand
+ */
+export const se_UpdateAccessEntryCommand = async (
+  input: UpdateAccessEntryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/access-entries/{principalArn}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "principalArn",
+    () => input.principalArn!,
+    "{principalArn}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      kubernetesGroups: (_) => _json(_),
+      username: [],
+    })
+  );
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+/**
  * serializeAws_restJson1UpdateAddonCommand
  */
 export const se_UpdateAddonCommand = async (
@@ -1426,6 +1767,7 @@ export const se_UpdateClusterConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      accessConfig: (_) => _json(_),
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       logging: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
@@ -1635,6 +1977,64 @@ export const se_UpdatePodIdentityAssociationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateAccessPolicyCommand
+ */
+export const de_AssociateAccessPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAccessPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateAccessPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    associatedAccessPolicy: (_) => de_AssociatedAccessPolicy(_, context),
+    clusterName: __expectString,
+    principalArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateAccessPolicyCommandError
+ */
+const de_AssociateAccessPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAccessPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1AssociateEncryptionConfigCommand
  */
 export const de_AssociateEncryptionConfigCommand = async (
@@ -1743,6 +2143,68 @@ const de_AssociateIdentityProviderConfigCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.eks#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateAccessEntryCommand
+ */
+export const de_CreateAccessEntryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessEntryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateAccessEntryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessEntry: (_) => de_AccessEntry(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAccessEntryCommandError
+ */
+const de_CreateAccessEntryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessEntryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.eks#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.eks#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2118,6 +2580,55 @@ const de_CreatePodIdentityAssociationCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.eks#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteAccessEntryCommand
+ */
+export const de_DeleteAccessEntryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessEntryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteAccessEntryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAccessEntryCommandError
+ */
+const de_DeleteAccessEntryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessEntryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.eks#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2534,6 +3045,59 @@ const de_DeregisterClusterCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.eks#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeAccessEntryCommand
+ */
+export const de_DescribeAccessEntryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccessEntryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeAccessEntryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessEntry: (_) => de_AccessEntry(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAccessEntryCommandError
+ */
+const de_DescribeAccessEntryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccessEntryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3111,6 +3675,55 @@ const de_DescribeUpdateCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateAccessPolicyCommand
+ */
+export const de_DisassociateAccessPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAccessPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateAccessPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateAccessPolicyCommandError
+ */
+const de_DisassociateAccessPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAccessPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DisassociateIdentityProviderConfigCommand
  */
 export const de_DisassociateIdentityProviderConfigCommand = async (
@@ -3173,6 +3786,111 @@ const de_DisassociateIdentityProviderConfigCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAccessEntriesCommand
+ */
+export const de_ListAccessEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessEntriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAccessEntriesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessEntries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAccessEntriesCommandError
+ */
+const de_ListAccessEntriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessEntriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAccessPoliciesCommand
+ */
+export const de_ListAccessPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAccessPoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessPolicies: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAccessPoliciesCommandError
+ */
+const de_ListAccessPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListAddonsCommand
  */
 export const de_ListAddonsCommand = async (
@@ -3213,6 +3931,62 @@ const de_ListAddonsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.eks#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAssociatedAccessPoliciesCommand
+ */
+export const de_ListAssociatedAccessPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociatedAccessPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAssociatedAccessPoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    associatedAccessPolicies: (_) => de_AssociatedAccessPoliciesList(_, context),
+    clusterName: __expectString,
+    nextToken: __expectString,
+    principalArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssociatedAccessPoliciesCommandError
+ */
+const de_ListAssociatedAccessPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociatedAccessPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.eks#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -3837,6 +4611,62 @@ const de_UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.eks#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateAccessEntryCommand
+ */
+export const de_UpdateAccessEntryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccessEntryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateAccessEntryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessEntry: (_) => de_AccessEntry(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAccessEntryCommandError
+ */
+const de_UpdateAccessEntryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAccessEntryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4552,9 +5382,13 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AccessScope omitted.
+
 // se_ConnectorConfigRequest omitted.
 
 // se_ControlPlanePlacementRequest omitted.
+
+// se_CreateAccessConfigRequest omitted.
 
 // se_EksAnywhereSubscriptionTerm omitted.
 
@@ -4608,11 +5442,38 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_taintsList omitted.
 
+// se_UpdateAccessConfigRequest omitted.
+
 // se_UpdateLabelsPayload omitted.
 
 // se_UpdateTaintsPayload omitted.
 
 // se_VpcConfigRequest omitted.
+
+// de_AccessConfigResponse omitted.
+
+/**
+ * deserializeAws_restJson1AccessEntry
+ */
+const de_AccessEntry = (output: any, context: __SerdeContext): AccessEntry => {
+  return take(output, {
+    accessEntryArn: __expectString,
+    clusterName: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    kubernetesGroups: _json,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    principalArn: __expectString,
+    tags: _json,
+    type: __expectString,
+    username: __expectString,
+  }) as any;
+};
+
+// de_AccessPoliciesList omitted.
+
+// de_AccessPolicy omitted.
+
+// de_AccessScope omitted.
 
 /**
  * deserializeAws_restJson1Addon
@@ -4650,6 +5511,30 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
 
 // de_AddonVersionInfoList omitted.
 
+/**
+ * deserializeAws_restJson1AssociatedAccessPoliciesList
+ */
+const de_AssociatedAccessPoliciesList = (output: any, context: __SerdeContext): AssociatedAccessPolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssociatedAccessPolicy(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AssociatedAccessPolicy
+ */
+const de_AssociatedAccessPolicy = (output: any, context: __SerdeContext): AssociatedAccessPolicy => {
+  return take(output, {
+    accessScope: _json,
+    associatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    policyArn: __expectString,
+  }) as any;
+};
+
 // de_AutoScalingGroup omitted.
 
 // de_AutoScalingGroupList omitted.
@@ -4661,6 +5546,7 @@ const de_Addon = (output: any, context: __SerdeContext): Addon => {
  */
 const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
   return take(output, {
+    accessConfig: _json,
     arn: __expectString,
     certificateAuthority: _json,
     clientRequestToken: __expectString,

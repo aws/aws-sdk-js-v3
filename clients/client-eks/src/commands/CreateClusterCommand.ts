@@ -37,7 +37,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
 
 /**
  * @public
- * <p>Creates an Amazon EKS control plane. </p>
+ * <p>Creates an Amazon EKS control plane.</p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
  *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane runs in
  *             an account managed by Amazon Web Services, and the Kubernetes API is exposed by the Amazon EKS API server endpoint. Each Amazon EKS cluster control plane is
@@ -135,6 +135,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       groupName: "STRING_VALUE",
  *     },
  *   },
+ *   accessConfig: { // CreateAccessConfigRequest
+ *     bootstrapClusterCreatorAdminPermissions: true || false,
+ *     authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -223,6 +227,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       controlPlanePlacement: { // ControlPlanePlacementResponse
  * //         groupName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     accessConfig: { // AccessConfigResponse
+ * //       bootstrapClusterCreatorAdminPermissions: true || false,
+ * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
  * //   },
  * // };

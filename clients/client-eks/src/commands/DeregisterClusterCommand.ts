@@ -39,6 +39,8 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * @public
  * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
  *             plane.</p>
+ *          <p>A connected cluster is a Kubernetes cluster that you've connected to your control plane
+ *             using the <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html">Amazon EKS Connector</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,6 +138,10 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //         groupName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     accessConfig: { // AccessConfigResponse
+ * //       bootstrapClusterCreatorAdminPermissions: true || false,
+ * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
+ * //     },
  * //   },
  * // };
  *
@@ -164,9 +170,8 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

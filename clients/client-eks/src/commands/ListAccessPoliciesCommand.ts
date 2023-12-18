@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
-import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
+import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_0";
+import { de_ListAccessPoliciesCommand, se_ListAccessPoliciesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,58 +25,59 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UntagResourceCommand}.
+ * The input for {@link ListAccessPoliciesCommand}.
  */
-export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesRequest {}
 /**
  * @public
  *
- * The output of {@link UntagResourceCommand}.
+ * The output of {@link ListAccessPoliciesCommand}.
  */
-export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
+export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes specified tags from an Amazon EKS resource.</p>
+ * <p>Lists the available access policies. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, UntagResourceCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, UntagResourceCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ListAccessPoliciesCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // UntagResourceRequest
- *   resourceArn: "STRING_VALUE", // required
- *   tagKeys: [ // TagKeyList // required
- *     "STRING_VALUE",
- *   ],
+ * const input = { // ListAccessPoliciesRequest
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
  * };
- * const command = new UntagResourceCommand(input);
+ * const command = new ListAccessPoliciesCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListAccessPoliciesResponse
+ * //   accessPolicies: [ // AccessPoliciesList
+ * //     { // AccessPolicy
+ * //       name: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   nextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param UntagResourceCommandInput - {@link UntagResourceCommandInput}
- * @returns {@link UntagResourceCommandOutput}
- * @see {@link UntagResourceCommandInput} for command's `input` shape.
- * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @param ListAccessPoliciesCommandInput - {@link ListAccessPoliciesCommandInput}
+ * @returns {@link ListAccessPoliciesCommandOutput}
+ * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
- * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning
- *             will depend on the API, and will be documented in the error message.</p>
- *
- * @throws {@link NotFoundException} (client fault)
- *  <p>A service resource associated with the request could not be found. Clients should not
- *             retry such requests.</p>
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class UntagResourceCommand extends $Command<
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+export class ListAccessPoliciesCommand extends $Command<
+  ListAccessPoliciesCommandInput,
+  ListAccessPoliciesCommandOutput,
   EKSClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -91,7 +92,7 @@ export class UntagResourceCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UntagResourceCommandInput) {
+  constructor(readonly input: ListAccessPoliciesCommandInput) {
     super();
   }
 
@@ -102,15 +103,17 @@ export class UntagResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
+  ): Handler<ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListAccessPoliciesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "UntagResourceCommand";
+    const commandName = "ListAccessPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -119,7 +122,7 @@ export class UntagResourceCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "UntagResource",
+        operation: "ListAccessPolicies",
       },
     };
     const { requestHandler } = configuration;
@@ -133,14 +136,14 @@ export class UntagResourceCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UntagResourceCommand(input, context);
+  private serialize(input: ListAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_ListAccessPoliciesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
-    return de_UntagResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccessPoliciesCommandOutput> {
+    return de_ListAccessPoliciesCommand(output, context);
   }
 }

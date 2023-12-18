@@ -15,11 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { UpdatePodIdentityAssociationRequest, UpdatePodIdentityAssociationResponse } from "../models/models_0";
-import {
-  de_UpdatePodIdentityAssociationCommand,
-  se_UpdatePodIdentityAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeAccessEntryRequest, DescribeAccessEntryResponse } from "../models/models_0";
+import { de_DescribeAccessEntryCommand, se_DescribeAccessEntryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,65 +25,56 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdatePodIdentityAssociationCommand}.
+ * The input for {@link DescribeAccessEntryCommand}.
  */
-export interface UpdatePodIdentityAssociationCommandInput extends UpdatePodIdentityAssociationRequest {}
+export interface DescribeAccessEntryCommandInput extends DescribeAccessEntryRequest {}
 /**
  * @public
  *
- * The output of {@link UpdatePodIdentityAssociationCommand}.
+ * The output of {@link DescribeAccessEntryCommand}.
  */
-export interface UpdatePodIdentityAssociationCommandOutput
-  extends UpdatePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface DescribeAccessEntryCommandOutput extends DescribeAccessEntryResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Updates a EKS Pod Identity association. Only the IAM role can be changed; an association can't be moved
- *             between clusters, namespaces, or service accounts. If you need to edit the namespace
- *             or service account, you need to delete the association and then create a new
- *             association with your desired settings.</p>
+ * <p>Describes an access entry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, UpdatePodIdentityAssociationCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, UpdatePodIdentityAssociationCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DescribeAccessEntryCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DescribeAccessEntryCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // UpdatePodIdentityAssociationRequest
+ * const input = { // DescribeAccessEntryRequest
  *   clusterName: "STRING_VALUE", // required
- *   associationId: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE",
- *   clientRequestToken: "STRING_VALUE",
+ *   principalArn: "STRING_VALUE", // required
  * };
- * const command = new UpdatePodIdentityAssociationCommand(input);
+ * const command = new DescribeAccessEntryCommand(input);
  * const response = await client.send(command);
- * // { // UpdatePodIdentityAssociationResponse
- * //   association: { // PodIdentityAssociation
+ * // { // DescribeAccessEntryResponse
+ * //   accessEntry: { // AccessEntry
  * //     clusterName: "STRING_VALUE",
- * //     namespace: "STRING_VALUE",
- * //     serviceAccount: "STRING_VALUE",
- * //     roleArn: "STRING_VALUE",
- * //     associationArn: "STRING_VALUE",
- * //     associationId: "STRING_VALUE",
+ * //     principalArn: "STRING_VALUE",
+ * //     kubernetesGroups: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     accessEntryArn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     modifiedAt: new Date("TIMESTAMP"),
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     createdAt: new Date("TIMESTAMP"),
- * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     username: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdatePodIdentityAssociationCommandInput - {@link UpdatePodIdentityAssociationCommandInput}
- * @returns {@link UpdatePodIdentityAssociationCommandOutput}
- * @see {@link UpdatePodIdentityAssociationCommandInput} for command's `input` shape.
- * @see {@link UpdatePodIdentityAssociationCommandOutput} for command's `response` shape.
+ * @param DescribeAccessEntryCommandInput - {@link DescribeAccessEntryCommandInput}
+ * @returns {@link DescribeAccessEntryCommandOutput}
+ * @see {@link DescribeAccessEntryCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccessEntryCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
@@ -104,9 +92,9 @@ export interface UpdatePodIdentityAssociationCommandOutput
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class UpdatePodIdentityAssociationCommand extends $Command<
-  UpdatePodIdentityAssociationCommandInput,
-  UpdatePodIdentityAssociationCommandOutput,
+export class DescribeAccessEntryCommand extends $Command<
+  DescribeAccessEntryCommandInput,
+  DescribeAccessEntryCommandOutput,
   EKSClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -121,7 +109,7 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdatePodIdentityAssociationCommandInput) {
+  constructor(readonly input: DescribeAccessEntryCommandInput) {
     super();
   }
 
@@ -132,17 +120,17 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdatePodIdentityAssociationCommandInput, UpdatePodIdentityAssociationCommandOutput> {
+  ): Handler<DescribeAccessEntryCommandInput, DescribeAccessEntryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdatePodIdentityAssociationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeAccessEntryCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "UpdatePodIdentityAssociationCommand";
+    const commandName = "DescribeAccessEntryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -151,7 +139,7 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "UpdatePodIdentityAssociation",
+        operation: "DescribeAccessEntry",
       },
     };
     const { requestHandler } = configuration;
@@ -165,17 +153,14 @@ export class UpdatePodIdentityAssociationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdatePodIdentityAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdatePodIdentityAssociationCommand(input, context);
+  private serialize(input: DescribeAccessEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DescribeAccessEntryCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdatePodIdentityAssociationCommandOutput> {
-    return de_UpdatePodIdentityAssociationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessEntryCommandOutput> {
+    return de_DescribeAccessEntryCommand(output, context);
   }
 }

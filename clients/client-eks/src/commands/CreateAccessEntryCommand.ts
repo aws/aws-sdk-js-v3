@@ -15,11 +15,8 @@ import {
 } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { CreatePodIdentityAssociationRequest, CreatePodIdentityAssociationResponse } from "../models/models_0";
-import {
-  de_CreatePodIdentityAssociationCommand,
-  se_CreatePodIdentityAssociationCommand,
-} from "../protocols/Aws_restJson1";
+import { CreateAccessEntryRequest, CreateAccessEntryResponse } from "../models/models_0";
+import { de_CreateAccessEntryCommand, se_CreateAccessEntryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -28,71 +25,76 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreatePodIdentityAssociationCommand}.
+ * The input for {@link CreateAccessEntryCommand}.
  */
-export interface CreatePodIdentityAssociationCommandInput extends CreatePodIdentityAssociationRequest {}
+export interface CreateAccessEntryCommandInput extends CreateAccessEntryRequest {}
 /**
  * @public
  *
- * The output of {@link CreatePodIdentityAssociationCommand}.
+ * The output of {@link CreateAccessEntryCommand}.
  */
-export interface CreatePodIdentityAssociationCommandOutput
-  extends CreatePodIdentityAssociationResponse,
-    __MetadataBearer {}
+export interface CreateAccessEntryCommandOutput extends CreateAccessEntryResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates an EKS Pod Identity association between a service account in an Amazon EKS cluster and an IAM role
- *             with <i>EKS Pod Identity</i>. Use EKS Pod Identity to give temporary IAM credentials to
- *             pods and the credentials are rotated automatically.</p>
- *          <p>Amazon EKS Pod Identity associations provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances.</p>
- *          <p>If a pod uses a service account that has an association, Amazon EKS sets environment variables
- *             in the containers of the pod. The environment variables configure the Amazon Web Services SDKs,
- *             including the Command Line Interface, to use the EKS Pod Identity credentials.</p>
- *          <p>Pod Identity is a simpler method than <i>IAM roles for service
- *                 accounts</i>, as this method doesn't use OIDC identity providers.
- *             Additionally, you can configure a role for Pod Identity once, and reuse it across
- *             clusters.</p>
+ * <p>Creates an access entry.</p>
+ *          <p>An access entry allows an IAM principal to access your cluster. Access
+ *             entries can replace the need to maintain entries in the <code>aws-auth</code>
+ *             <code>ConfigMap</code> for authentication. You have the following options for
+ *             authorizing an IAM principal to access Kubernetes objects on your cluster: Kubernetes
+ *             role-based access control (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization
+ *             requires you to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
+ *                 <code>RoleBinding</code>, and <code>ClusterRoleBinding</code> objects, in addition
+ *             to managing access entries. If you use Amazon EKS authorization exclusively, you
+ *             don't need to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
+ *                 <code>RoleBinding</code>, and <code>ClusterRoleBinding</code> objects.</p>
+ *          <p>For more information about access entries, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access entries</a> in the
+ *             <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, CreatePodIdentityAssociationCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, CreatePodIdentityAssociationCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, CreateAccessEntryCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, CreateAccessEntryCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
- * const input = { // CreatePodIdentityAssociationRequest
+ * const input = { // CreateAccessEntryRequest
  *   clusterName: "STRING_VALUE", // required
- *   namespace: "STRING_VALUE", // required
- *   serviceAccount: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
- *   clientRequestToken: "STRING_VALUE",
+ *   principalArn: "STRING_VALUE", // required
+ *   kubernetesGroups: [ // StringList
+ *     "STRING_VALUE",
+ *   ],
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   clientRequestToken: "STRING_VALUE",
+ *   username: "STRING_VALUE",
+ *   type: "STRING_VALUE",
  * };
- * const command = new CreatePodIdentityAssociationCommand(input);
+ * const command = new CreateAccessEntryCommand(input);
  * const response = await client.send(command);
- * // { // CreatePodIdentityAssociationResponse
- * //   association: { // PodIdentityAssociation
+ * // { // CreateAccessEntryResponse
+ * //   accessEntry: { // AccessEntry
  * //     clusterName: "STRING_VALUE",
- * //     namespace: "STRING_VALUE",
- * //     serviceAccount: "STRING_VALUE",
- * //     roleArn: "STRING_VALUE",
- * //     associationArn: "STRING_VALUE",
- * //     associationId: "STRING_VALUE",
+ * //     principalArn: "STRING_VALUE",
+ * //     kubernetesGroups: [ // StringList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     accessEntryArn: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     modifiedAt: new Date("TIMESTAMP"),
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     createdAt: new Date("TIMESTAMP"),
- * //     modifiedAt: new Date("TIMESTAMP"),
+ * //     username: "STRING_VALUE",
+ * //     type: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param CreatePodIdentityAssociationCommandInput - {@link CreatePodIdentityAssociationCommandInput}
- * @returns {@link CreatePodIdentityAssociationCommandOutput}
- * @see {@link CreatePodIdentityAssociationCommandInput} for command's `input` shape.
- * @see {@link CreatePodIdentityAssociationCommandOutput} for command's `response` shape.
+ * @param CreateAccessEntryCommandInput - {@link CreateAccessEntryCommandInput}
+ * @returns {@link CreateAccessEntryCommandOutput}
+ * @see {@link CreateAccessEntryCommandInput} for command's `input` shape.
+ * @see {@link CreateAccessEntryCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
@@ -121,9 +123,9 @@ export interface CreatePodIdentityAssociationCommandOutput
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class CreatePodIdentityAssociationCommand extends $Command<
-  CreatePodIdentityAssociationCommandInput,
-  CreatePodIdentityAssociationCommandOutput,
+export class CreateAccessEntryCommand extends $Command<
+  CreateAccessEntryCommandInput,
+  CreateAccessEntryCommandOutput,
   EKSClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -138,7 +140,7 @@ export class CreatePodIdentityAssociationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreatePodIdentityAssociationCommandInput) {
+  constructor(readonly input: CreateAccessEntryCommandInput) {
     super();
   }
 
@@ -149,17 +151,17 @@ export class CreatePodIdentityAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreatePodIdentityAssociationCommandInput, CreatePodIdentityAssociationCommandOutput> {
+  ): Handler<CreateAccessEntryCommandInput, CreateAccessEntryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreatePodIdentityAssociationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CreateAccessEntryCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EKSClient";
-    const commandName = "CreatePodIdentityAssociationCommand";
+    const commandName = "CreateAccessEntryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -168,7 +170,7 @@ export class CreatePodIdentityAssociationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AWSWesleyFrontend",
-        operation: "CreatePodIdentityAssociation",
+        operation: "CreateAccessEntry",
       },
     };
     const { requestHandler } = configuration;
@@ -182,17 +184,14 @@ export class CreatePodIdentityAssociationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreatePodIdentityAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreatePodIdentityAssociationCommand(input, context);
+  private serialize(input: CreateAccessEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_CreateAccessEntryCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePodIdentityAssociationCommandOutput> {
-    return de_CreatePodIdentityAssociationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessEntryCommandOutput> {
+    return de_CreateAccessEntryCommand(output, context);
   }
 }

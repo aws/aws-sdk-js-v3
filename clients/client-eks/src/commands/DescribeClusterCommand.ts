@@ -37,11 +37,12 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
 
 /**
  * @public
- * <p>Returns descriptive information about an Amazon EKS cluster.</p>
+ * <p>Describes an Amazon EKS cluster.</p>
  *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
- *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create a
- *                 kubeconfig for Amazon EKS</a>.</p>
+ *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Creating or
+ *                 updating a <code>kubeconfig</code> file for an Amazon EKS
+ *             cluster</a>.</p>
  *          <note>
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
@@ -143,6 +144,10 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         groupName: "STRING_VALUE",
  * //       },
  * //     },
+ * //     accessConfig: { // AccessConfigResponse
+ * //       bootstrapClusterCreatorAdminPermissions: true || false,
+ * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
+ * //     },
  * //   },
  * // };
  *
@@ -161,9 +166,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

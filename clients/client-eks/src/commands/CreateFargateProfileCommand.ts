@@ -62,7 +62,7 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *          <p>If any Fargate profiles in a cluster are in the <code>DELETING</code>
  *             status, you must wait for that Fargate profile to finish deleting before
  *             you can create any other profiles in that cluster.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate Profile</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate profile</a> in the
  *             <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

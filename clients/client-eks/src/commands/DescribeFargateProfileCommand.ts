@@ -37,7 +37,7 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
 
 /**
  * @public
- * <p>Returns descriptive information about an Fargate profile.</p>
+ * <p>Describes an Fargate profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,9 +94,8 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

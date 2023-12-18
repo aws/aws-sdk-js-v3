@@ -37,9 +37,10 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
 
 /**
  * @public
- * <p>Describes the versions for an add-on. Information such as the Kubernetes versions that you
- *             can use the add-on with, the <code>owner</code>, <code>publisher</code>, and the
- *                 <code>type</code> of the add-on are returned. </p>
+ * <p>Describes the versions for an add-on.</p>
+ *          <p>Information such as the Kubernetes versions that you can use the add-on with, the
+ *                 <code>owner</code>, <code>publisher</code>, and the <code>type</code> of the add-on
+ *             are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,9 +112,8 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>

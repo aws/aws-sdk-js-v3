@@ -37,12 +37,13 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
- * <p>Associates the specified tags to a resource with the specified
+ * <p>Associates the specified tags to an Amazon EKS resource with the specified
  *                 <code>resourceArn</code>. If existing tags on a resource are not specified in the
- *             request parameters, they are not changed. When a resource is deleted, the tags
- *             associated with that resource are deleted as well. Tags that you create for Amazon EKS resources do not propagate to any other resources associated with the
- *             cluster. For example, if you tag a cluster with this operation, that tag does not
- *             automatically propagate to the subnets and nodes associated with the cluster.</p>
+ *             request parameters, they aren't changed. When a resource is deleted, the tags associated
+ *             with that resource are also deleted. Tags that you create for Amazon EKS
+ *             resources don't propagate to any other resources associated with the cluster. For
+ *             example, if you tag a cluster with this operation, that tag doesn't automatically
+ *             propagate to the subnets and nodes associated with the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

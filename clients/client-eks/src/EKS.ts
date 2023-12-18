@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AssociateAccessPolicyCommand,
+  AssociateAccessPolicyCommandInput,
+  AssociateAccessPolicyCommandOutput,
+} from "./commands/AssociateAccessPolicyCommand";
+import {
   AssociateEncryptionConfigCommand,
   AssociateEncryptionConfigCommandInput,
   AssociateEncryptionConfigCommandOutput,
@@ -12,6 +17,11 @@ import {
   AssociateIdentityProviderConfigCommandInput,
   AssociateIdentityProviderConfigCommandOutput,
 } from "./commands/AssociateIdentityProviderConfigCommand";
+import {
+  CreateAccessEntryCommand,
+  CreateAccessEntryCommandInput,
+  CreateAccessEntryCommandOutput,
+} from "./commands/CreateAccessEntryCommand";
 import { CreateAddonCommand, CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import {
   CreateClusterCommand,
@@ -38,6 +48,11 @@ import {
   CreatePodIdentityAssociationCommandInput,
   CreatePodIdentityAssociationCommandOutput,
 } from "./commands/CreatePodIdentityAssociationCommand";
+import {
+  DeleteAccessEntryCommand,
+  DeleteAccessEntryCommandInput,
+  DeleteAccessEntryCommandOutput,
+} from "./commands/DeleteAccessEntryCommand";
 import { DeleteAddonCommand, DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import {
   DeleteClusterCommand,
@@ -69,6 +84,11 @@ import {
   DeregisterClusterCommandInput,
   DeregisterClusterCommandOutput,
 } from "./commands/DeregisterClusterCommand";
+import {
+  DescribeAccessEntryCommand,
+  DescribeAccessEntryCommandInput,
+  DescribeAccessEntryCommandOutput,
+} from "./commands/DescribeAccessEntryCommand";
 import {
   DescribeAddonCommand,
   DescribeAddonCommandInput,
@@ -120,11 +140,31 @@ import {
   DescribeUpdateCommandOutput,
 } from "./commands/DescribeUpdateCommand";
 import {
+  DisassociateAccessPolicyCommand,
+  DisassociateAccessPolicyCommandInput,
+  DisassociateAccessPolicyCommandOutput,
+} from "./commands/DisassociateAccessPolicyCommand";
+import {
   DisassociateIdentityProviderConfigCommand,
   DisassociateIdentityProviderConfigCommandInput,
   DisassociateIdentityProviderConfigCommandOutput,
 } from "./commands/DisassociateIdentityProviderConfigCommand";
+import {
+  ListAccessEntriesCommand,
+  ListAccessEntriesCommandInput,
+  ListAccessEntriesCommandOutput,
+} from "./commands/ListAccessEntriesCommand";
+import {
+  ListAccessPoliciesCommand,
+  ListAccessPoliciesCommandInput,
+  ListAccessPoliciesCommandOutput,
+} from "./commands/ListAccessPoliciesCommand";
 import { ListAddonsCommand, ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
+import {
+  ListAssociatedAccessPoliciesCommand,
+  ListAssociatedAccessPoliciesCommandInput,
+  ListAssociatedAccessPoliciesCommandOutput,
+} from "./commands/ListAssociatedAccessPoliciesCommand";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
@@ -172,6 +212,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccessEntryCommand,
+  UpdateAccessEntryCommandInput,
+  UpdateAccessEntryCommandOutput,
+} from "./commands/UpdateAccessEntryCommand";
 import { UpdateAddonCommand, UpdateAddonCommandInput, UpdateAddonCommandOutput } from "./commands/UpdateAddonCommand";
 import {
   UpdateClusterConfigCommand,
@@ -206,14 +251,17 @@ import {
 import { EKSClient, EKSClientConfig } from "./EKSClient";
 
 const commands = {
+  AssociateAccessPolicyCommand,
   AssociateEncryptionConfigCommand,
   AssociateIdentityProviderConfigCommand,
+  CreateAccessEntryCommand,
   CreateAddonCommand,
   CreateClusterCommand,
   CreateEksAnywhereSubscriptionCommand,
   CreateFargateProfileCommand,
   CreateNodegroupCommand,
   CreatePodIdentityAssociationCommand,
+  DeleteAccessEntryCommand,
   DeleteAddonCommand,
   DeleteClusterCommand,
   DeleteEksAnywhereSubscriptionCommand,
@@ -221,6 +269,7 @@ const commands = {
   DeleteNodegroupCommand,
   DeletePodIdentityAssociationCommand,
   DeregisterClusterCommand,
+  DescribeAccessEntryCommand,
   DescribeAddonCommand,
   DescribeAddonConfigurationCommand,
   DescribeAddonVersionsCommand,
@@ -231,8 +280,12 @@ const commands = {
   DescribeNodegroupCommand,
   DescribePodIdentityAssociationCommand,
   DescribeUpdateCommand,
+  DisassociateAccessPolicyCommand,
   DisassociateIdentityProviderConfigCommand,
+  ListAccessEntriesCommand,
+  ListAccessPoliciesCommand,
   ListAddonsCommand,
+  ListAssociatedAccessPoliciesCommand,
   ListClustersCommand,
   ListEksAnywhereSubscriptionsCommand,
   ListFargateProfilesCommand,
@@ -244,6 +297,7 @@ const commands = {
   RegisterClusterCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccessEntryCommand,
   UpdateAddonCommand,
   UpdateClusterConfigCommand,
   UpdateClusterVersionCommand,
@@ -254,6 +308,23 @@ const commands = {
 };
 
 export interface EKS {
+  /**
+   * @see {@link AssociateAccessPolicyCommand}
+   */
+  associateAccessPolicy(
+    args: AssociateAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAccessPolicyCommandOutput>;
+  associateAccessPolicy(
+    args: AssociateAccessPolicyCommandInput,
+    cb: (err: any, data?: AssociateAccessPolicyCommandOutput) => void
+  ): void;
+  associateAccessPolicy(
+    args: AssociateAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAccessPolicyCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateEncryptionConfigCommand}
    */
@@ -286,6 +357,23 @@ export interface EKS {
     args: AssociateIdentityProviderConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateIdentityProviderConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessEntryCommand}
+   */
+  createAccessEntry(
+    args: CreateAccessEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessEntryCommandOutput>;
+  createAccessEntry(
+    args: CreateAccessEntryCommandInput,
+    cb: (err: any, data?: CreateAccessEntryCommandOutput) => void
+  ): void;
+  createAccessEntry(
+    args: CreateAccessEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessEntryCommandOutput) => void
   ): void;
 
   /**
@@ -373,6 +461,23 @@ export interface EKS {
     args: CreatePodIdentityAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePodIdentityAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessEntryCommand}
+   */
+  deleteAccessEntry(
+    args: DeleteAccessEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessEntryCommandOutput>;
+  deleteAccessEntry(
+    args: DeleteAccessEntryCommandInput,
+    cb: (err: any, data?: DeleteAccessEntryCommandOutput) => void
+  ): void;
+  deleteAccessEntry(
+    args: DeleteAccessEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessEntryCommandOutput) => void
   ): void;
 
   /**
@@ -477,6 +582,23 @@ export interface EKS {
     args: DeregisterClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeregisterClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccessEntryCommand}
+   */
+  describeAccessEntry(
+    args: DescribeAccessEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccessEntryCommandOutput>;
+  describeAccessEntry(
+    args: DescribeAccessEntryCommandInput,
+    cb: (err: any, data?: DescribeAccessEntryCommandOutput) => void
+  ): void;
+  describeAccessEntry(
+    args: DescribeAccessEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccessEntryCommandOutput) => void
   ): void;
 
   /**
@@ -638,6 +760,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link DisassociateAccessPolicyCommand}
+   */
+  disassociateAccessPolicy(
+    args: DisassociateAccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateAccessPolicyCommandOutput>;
+  disassociateAccessPolicy(
+    args: DisassociateAccessPolicyCommandInput,
+    cb: (err: any, data?: DisassociateAccessPolicyCommandOutput) => void
+  ): void;
+  disassociateAccessPolicy(
+    args: DisassociateAccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateIdentityProviderConfigCommand}
    */
   disassociateIdentityProviderConfig(
@@ -655,6 +794,40 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link ListAccessEntriesCommand}
+   */
+  listAccessEntries(
+    args: ListAccessEntriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessEntriesCommandOutput>;
+  listAccessEntries(
+    args: ListAccessEntriesCommandInput,
+    cb: (err: any, data?: ListAccessEntriesCommandOutput) => void
+  ): void;
+  listAccessEntries(
+    args: ListAccessEntriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessEntriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccessPoliciesCommand}
+   */
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPoliciesCommandOutput>;
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+  listAccessPolicies(
+    args: ListAccessPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAddonsCommand}
    */
   listAddons(args: ListAddonsCommandInput, options?: __HttpHandlerOptions): Promise<ListAddonsCommandOutput>;
@@ -663,6 +836,23 @@ export interface EKS {
     args: ListAddonsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAddonsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociatedAccessPoliciesCommand}
+   */
+  listAssociatedAccessPolicies(
+    args: ListAssociatedAccessPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociatedAccessPoliciesCommandOutput>;
+  listAssociatedAccessPolicies(
+    args: ListAssociatedAccessPoliciesCommandInput,
+    cb: (err: any, data?: ListAssociatedAccessPoliciesCommandOutput) => void
+  ): void;
+  listAssociatedAccessPolicies(
+    args: ListAssociatedAccessPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociatedAccessPoliciesCommandOutput) => void
   ): void;
 
   /**
@@ -823,6 +1013,23 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link UpdateAccessEntryCommand}
+   */
+  updateAccessEntry(
+    args: UpdateAccessEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessEntryCommandOutput>;
+  updateAccessEntry(
+    args: UpdateAccessEntryCommandInput,
+    cb: (err: any, data?: UpdateAccessEntryCommandOutput) => void
+  ): void;
+  updateAccessEntry(
+    args: UpdateAccessEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccessEntryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateAddonCommand}
    */
   updateAddon(args: UpdateAddonCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAddonCommandOutput>;
@@ -939,9 +1146,9 @@ export interface EKS {
 /**
  * @public
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
- *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain your
- *             own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
- *             scaling, and management of containerized applications. </p>
+ *             for you to run Kubernetes on Amazon Web Services without needing to setup or maintain your own
+ *             Kubernetes control plane. Kubernetes is an open-source system for automating the deployment,
+ *             scaling, and management of containerized applications.</p>
  *          <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you
  *             can use all the existing plugins and tooling from the Kubernetes community. Applications
  *             running on Amazon EKS are fully compatible with applications running on any

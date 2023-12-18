@@ -47,9 +47,10 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  *          <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and
  *                 <code>activationCode</code> must be applied to the Kubernetes cluster through it's native
  *             provider to provide visibility.</p>
- *          <p>After the Manifest is updated and applied, then the connected cluster is visible to
- *             the Amazon EKS control plane. If the Manifest is not applied within three days,
- *             then the connected cluster will no longer be visible and must be deregistered. See <a>DeregisterCluster</a>.</p>
+ *          <p>After the manifest is updated and applied, the connected cluster is visible to the
+ *                 Amazon EKS control plane. If the manifest isn't applied within three days,
+ *             the connected cluster will no longer be visible and must be deregistered using
+ *                 <code>DeregisterCluster</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,6 +155,10 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //       controlPlanePlacement: { // ControlPlanePlacementResponse
  * //         groupName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     accessConfig: { // AccessConfigResponse
+ * //       bootstrapClusterCreatorAdminPermissions: true || false,
+ * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
  * //   },
  * // };
