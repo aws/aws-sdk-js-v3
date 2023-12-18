@@ -38,7 +38,6 @@ import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
-import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 
@@ -66,7 +65,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class AwsRestXml extends HttpBindingProtocolGenerator {
 
-    AwsRestXml() { super(true); }
+    AwsRestXml() {
+        super(true);
+    }
 
     @Override
     protected String getDocumentContentType() {
