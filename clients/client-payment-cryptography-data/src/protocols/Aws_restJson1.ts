@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -99,20 +100,12 @@ export const se_DecryptDataCommand = async (
   input: DecryptDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/keys/{KeyIdentifier}/decrypt";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "KeyIdentifier",
-    () => input.KeyIdentifier!,
-    "{KeyIdentifier}",
-    false
-  );
+  b.bp("/keys/{KeyIdentifier}/decrypt");
+  b.p("KeyIdentifier", () => input.KeyIdentifier!, "{KeyIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -120,15 +113,8 @@ export const se_DecryptDataCommand = async (
       DecryptionAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -138,20 +124,12 @@ export const se_EncryptDataCommand = async (
   input: EncryptDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/keys/{KeyIdentifier}/encrypt";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "KeyIdentifier",
-    () => input.KeyIdentifier!,
-    "{KeyIdentifier}",
-    false
-  );
+  b.bp("/keys/{KeyIdentifier}/encrypt");
+  b.p("KeyIdentifier", () => input.KeyIdentifier!, "{KeyIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -159,15 +137,8 @@ export const se_EncryptDataCommand = async (
       PlainText: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -177,12 +148,11 @@ export const se_GenerateCardValidationDataCommand = async (
   input: GenerateCardValidationDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cardvalidationdata/generate";
+  b.bp("/cardvalidationdata/generate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -192,15 +162,8 @@ export const se_GenerateCardValidationDataCommand = async (
       ValidationDataLength: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -210,11 +173,11 @@ export const se_GenerateMacCommand = async (
   input: GenerateMacCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/mac/generate";
+  b.bp("/mac/generate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -224,15 +187,8 @@ export const se_GenerateMacCommand = async (
       MessageData: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -242,11 +198,11 @@ export const se_GeneratePinDataCommand = async (
   input: GeneratePinDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pindata/generate";
+  b.bp("/pindata/generate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -258,15 +214,8 @@ export const se_GeneratePinDataCommand = async (
       PrimaryAccountNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -276,20 +225,12 @@ export const se_ReEncryptDataCommand = async (
   input: ReEncryptDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/keys/{IncomingKeyIdentifier}/reencrypt";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IncomingKeyIdentifier",
-    () => input.IncomingKeyIdentifier!,
-    "{IncomingKeyIdentifier}",
-    false
-  );
+  b.bp("/keys/{IncomingKeyIdentifier}/reencrypt");
+  b.p("IncomingKeyIdentifier", () => input.IncomingKeyIdentifier!, "{IncomingKeyIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -299,15 +240,8 @@ export const se_ReEncryptDataCommand = async (
       OutgoingKeyIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -317,11 +251,11 @@ export const se_TranslatePinDataCommand = async (
   input: TranslatePinDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pindata/translate";
+  b.bp("/pindata/translate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -334,15 +268,8 @@ export const se_TranslatePinDataCommand = async (
       OutgoingTranslationAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -352,11 +279,11 @@ export const se_VerifyAuthRequestCryptogramCommand = async (
   input: VerifyAuthRequestCryptogramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cryptogram/verify";
+  b.bp("/cryptogram/verify");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -368,15 +295,8 @@ export const se_VerifyAuthRequestCryptogramCommand = async (
       TransactionData: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -386,12 +306,11 @@ export const se_VerifyCardValidationDataCommand = async (
   input: VerifyCardValidationDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cardvalidationdata/verify";
+  b.bp("/cardvalidationdata/verify");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -401,15 +320,8 @@ export const se_VerifyCardValidationDataCommand = async (
       VerificationAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -419,11 +331,11 @@ export const se_VerifyMacCommand = async (
   input: VerifyMacCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/mac/verify";
+  b.bp("/mac/verify");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -434,15 +346,8 @@ export const se_VerifyMacCommand = async (
       VerificationAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -452,11 +357,11 @@ export const se_VerifyPinDataCommand = async (
   input: VerifyPinDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pindata/verify";
+  b.bp("/pindata/verify");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -470,15 +375,8 @@ export const se_VerifyPinDataCommand = async (
       VerificationKeyIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**

@@ -36,6 +36,7 @@
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@smithy/config-resolver": "^2.0.21",
+    "@smithy/core": "^1.2.0",
     "@smithy/eventstream-serde-browser": "^2.0.15",
     "@smithy/eventstream-serde-config-resolver": "^2.0.15",
     "@smithy/eventstream-serde-node": "^2.0.15",

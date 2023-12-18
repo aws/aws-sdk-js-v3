@@ -559,8 +559,8 @@ export const se_AddTagsToResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsToResourceMessage(input, context),
-    Action: "AddTagsToResource",
-    Version: "2015-02-02",
+    [_A]: _ATTR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -576,8 +576,8 @@ export const se_AuthorizeCacheSecurityGroupIngressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AuthorizeCacheSecurityGroupIngressMessage(input, context),
-    Action: "AuthorizeCacheSecurityGroupIngress",
-    Version: "2015-02-02",
+    [_A]: _ACSGI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -593,8 +593,8 @@ export const se_BatchApplyUpdateActionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BatchApplyUpdateActionMessage(input, context),
-    Action: "BatchApplyUpdateAction",
-    Version: "2015-02-02",
+    [_A]: _BAUA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -610,8 +610,8 @@ export const se_BatchStopUpdateActionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BatchStopUpdateActionMessage(input, context),
-    Action: "BatchStopUpdateAction",
-    Version: "2015-02-02",
+    [_A]: _BSUA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -627,8 +627,8 @@ export const se_CompleteMigrationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CompleteMigrationMessage(input, context),
-    Action: "CompleteMigration",
-    Version: "2015-02-02",
+    [_A]: _CM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -644,8 +644,8 @@ export const se_CopyServerlessCacheSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyServerlessCacheSnapshotRequest(input, context),
-    Action: "CopyServerlessCacheSnapshot",
-    Version: "2015-02-02",
+    [_A]: _CSCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -661,8 +661,8 @@ export const se_CopySnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopySnapshotMessage(input, context),
-    Action: "CopySnapshot",
-    Version: "2015-02-02",
+    [_A]: _CS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -678,8 +678,8 @@ export const se_CreateCacheClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheClusterMessage(input, context),
-    Action: "CreateCacheCluster",
-    Version: "2015-02-02",
+    [_A]: _CCC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -695,8 +695,8 @@ export const se_CreateCacheParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheParameterGroupMessage(input, context),
-    Action: "CreateCacheParameterGroup",
-    Version: "2015-02-02",
+    [_A]: _CCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -712,8 +712,8 @@ export const se_CreateCacheSecurityGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheSecurityGroupMessage(input, context),
-    Action: "CreateCacheSecurityGroup",
-    Version: "2015-02-02",
+    [_A]: _CCSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -729,8 +729,8 @@ export const se_CreateCacheSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCacheSubnetGroupMessage(input, context),
-    Action: "CreateCacheSubnetGroup",
-    Version: "2015-02-02",
+    [_A]: _CCSGr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -746,8 +746,8 @@ export const se_CreateGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateGlobalReplicationGroupMessage(input, context),
-    Action: "CreateGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _CGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -763,8 +763,8 @@ export const se_CreateReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateReplicationGroupMessage(input, context),
-    Action: "CreateReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _CRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -780,8 +780,8 @@ export const se_CreateServerlessCacheCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateServerlessCacheRequest(input, context),
-    Action: "CreateServerlessCache",
-    Version: "2015-02-02",
+    [_A]: _CSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -797,8 +797,8 @@ export const se_CreateServerlessCacheSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateServerlessCacheSnapshotRequest(input, context),
-    Action: "CreateServerlessCacheSnapshot",
-    Version: "2015-02-02",
+    [_A]: _CSCSr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -814,8 +814,8 @@ export const se_CreateSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateSnapshotMessage(input, context),
-    Action: "CreateSnapshot",
-    Version: "2015-02-02",
+    [_A]: _CSr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -831,8 +831,8 @@ export const se_CreateUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateUserMessage(input, context),
-    Action: "CreateUser",
-    Version: "2015-02-02",
+    [_A]: _CU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -848,8 +848,8 @@ export const se_CreateUserGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateUserGroupMessage(input, context),
-    Action: "CreateUserGroup",
-    Version: "2015-02-02",
+    [_A]: _CUG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -865,8 +865,8 @@ export const se_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DecreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
-    Action: "DecreaseNodeGroupsInGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _DNGIGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -882,8 +882,8 @@ export const se_DecreaseReplicaCountCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DecreaseReplicaCountMessage(input, context),
-    Action: "DecreaseReplicaCount",
-    Version: "2015-02-02",
+    [_A]: _DRC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -899,8 +899,8 @@ export const se_DeleteCacheClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheClusterMessage(input, context),
-    Action: "DeleteCacheCluster",
-    Version: "2015-02-02",
+    [_A]: _DCC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -916,8 +916,8 @@ export const se_DeleteCacheParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheParameterGroupMessage(input, context),
-    Action: "DeleteCacheParameterGroup",
-    Version: "2015-02-02",
+    [_A]: _DCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -933,8 +933,8 @@ export const se_DeleteCacheSecurityGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheSecurityGroupMessage(input, context),
-    Action: "DeleteCacheSecurityGroup",
-    Version: "2015-02-02",
+    [_A]: _DCSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -950,8 +950,8 @@ export const se_DeleteCacheSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCacheSubnetGroupMessage(input, context),
-    Action: "DeleteCacheSubnetGroup",
-    Version: "2015-02-02",
+    [_A]: _DCSGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -967,8 +967,8 @@ export const se_DeleteGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGlobalReplicationGroupMessage(input, context),
-    Action: "DeleteGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _DGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -984,8 +984,8 @@ export const se_DeleteReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteReplicationGroupMessage(input, context),
-    Action: "DeleteReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _DRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1001,8 +1001,8 @@ export const se_DeleteServerlessCacheCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServerlessCacheRequest(input, context),
-    Action: "DeleteServerlessCache",
-    Version: "2015-02-02",
+    [_A]: _DSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1018,8 +1018,8 @@ export const se_DeleteServerlessCacheSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteServerlessCacheSnapshotRequest(input, context),
-    Action: "DeleteServerlessCacheSnapshot",
-    Version: "2015-02-02",
+    [_A]: _DSCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1035,8 +1035,8 @@ export const se_DeleteSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSnapshotMessage(input, context),
-    Action: "DeleteSnapshot",
-    Version: "2015-02-02",
+    [_A]: _DS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1052,8 +1052,8 @@ export const se_DeleteUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserMessage(input, context),
-    Action: "DeleteUser",
-    Version: "2015-02-02",
+    [_A]: _DU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1069,8 +1069,8 @@ export const se_DeleteUserGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteUserGroupMessage(input, context),
-    Action: "DeleteUserGroup",
-    Version: "2015-02-02",
+    [_A]: _DUG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1086,8 +1086,8 @@ export const se_DescribeCacheClustersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheClustersMessage(input, context),
-    Action: "DescribeCacheClusters",
-    Version: "2015-02-02",
+    [_A]: _DCCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1103,8 +1103,8 @@ export const se_DescribeCacheEngineVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheEngineVersionsMessage(input, context),
-    Action: "DescribeCacheEngineVersions",
-    Version: "2015-02-02",
+    [_A]: _DCEV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1120,8 +1120,8 @@ export const se_DescribeCacheParameterGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheParameterGroupsMessage(input, context),
-    Action: "DescribeCacheParameterGroups",
-    Version: "2015-02-02",
+    [_A]: _DCPGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1137,8 +1137,8 @@ export const se_DescribeCacheParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheParametersMessage(input, context),
-    Action: "DescribeCacheParameters",
-    Version: "2015-02-02",
+    [_A]: _DCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1154,8 +1154,8 @@ export const se_DescribeCacheSecurityGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheSecurityGroupsMessage(input, context),
-    Action: "DescribeCacheSecurityGroups",
-    Version: "2015-02-02",
+    [_A]: _DCSGes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1171,8 +1171,8 @@ export const se_DescribeCacheSubnetGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCacheSubnetGroupsMessage(input, context),
-    Action: "DescribeCacheSubnetGroups",
-    Version: "2015-02-02",
+    [_A]: _DCSGesc,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1188,8 +1188,8 @@ export const se_DescribeEngineDefaultParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEngineDefaultParametersMessage(input, context),
-    Action: "DescribeEngineDefaultParameters",
-    Version: "2015-02-02",
+    [_A]: _DEDP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1205,8 +1205,8 @@ export const se_DescribeEventsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventsMessage(input, context),
-    Action: "DescribeEvents",
-    Version: "2015-02-02",
+    [_A]: _DE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1222,8 +1222,8 @@ export const se_DescribeGlobalReplicationGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeGlobalReplicationGroupsMessage(input, context),
-    Action: "DescribeGlobalReplicationGroups",
-    Version: "2015-02-02",
+    [_A]: _DGRGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1239,8 +1239,8 @@ export const se_DescribeReplicationGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReplicationGroupsMessage(input, context),
-    Action: "DescribeReplicationGroups",
-    Version: "2015-02-02",
+    [_A]: _DRGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1256,8 +1256,8 @@ export const se_DescribeReservedCacheNodesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReservedCacheNodesMessage(input, context),
-    Action: "DescribeReservedCacheNodes",
-    Version: "2015-02-02",
+    [_A]: _DRCN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1273,8 +1273,8 @@ export const se_DescribeReservedCacheNodesOfferingsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReservedCacheNodesOfferingsMessage(input, context),
-    Action: "DescribeReservedCacheNodesOfferings",
-    Version: "2015-02-02",
+    [_A]: _DRCNO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1290,8 +1290,8 @@ export const se_DescribeServerlessCachesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeServerlessCachesRequest(input, context),
-    Action: "DescribeServerlessCaches",
-    Version: "2015-02-02",
+    [_A]: _DSCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1307,8 +1307,8 @@ export const se_DescribeServerlessCacheSnapshotsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeServerlessCacheSnapshotsRequest(input, context),
-    Action: "DescribeServerlessCacheSnapshots",
-    Version: "2015-02-02",
+    [_A]: _DSCSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1324,8 +1324,8 @@ export const se_DescribeServiceUpdatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeServiceUpdatesMessage(input, context),
-    Action: "DescribeServiceUpdates",
-    Version: "2015-02-02",
+    [_A]: _DSU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1341,8 +1341,8 @@ export const se_DescribeSnapshotsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeSnapshotsMessage(input, context),
-    Action: "DescribeSnapshots",
-    Version: "2015-02-02",
+    [_A]: _DSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1358,8 +1358,8 @@ export const se_DescribeUpdateActionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeUpdateActionsMessage(input, context),
-    Action: "DescribeUpdateActions",
-    Version: "2015-02-02",
+    [_A]: _DUA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1375,8 +1375,8 @@ export const se_DescribeUserGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeUserGroupsMessage(input, context),
-    Action: "DescribeUserGroups",
-    Version: "2015-02-02",
+    [_A]: _DUGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1392,8 +1392,8 @@ export const se_DescribeUsersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeUsersMessage(input, context),
-    Action: "DescribeUsers",
-    Version: "2015-02-02",
+    [_A]: _DUe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1409,8 +1409,8 @@ export const se_DisassociateGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DisassociateGlobalReplicationGroupMessage(input, context),
-    Action: "DisassociateGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _DGRGi,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1426,8 +1426,8 @@ export const se_ExportServerlessCacheSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ExportServerlessCacheSnapshotRequest(input, context),
-    Action: "ExportServerlessCacheSnapshot",
-    Version: "2015-02-02",
+    [_A]: _ESCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1443,8 +1443,8 @@ export const se_FailoverGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_FailoverGlobalReplicationGroupMessage(input, context),
-    Action: "FailoverGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _FGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1460,8 +1460,8 @@ export const se_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_IncreaseNodeGroupsInGlobalReplicationGroupMessage(input, context),
-    Action: "IncreaseNodeGroupsInGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _INGIGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1477,8 +1477,8 @@ export const se_IncreaseReplicaCountCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_IncreaseReplicaCountMessage(input, context),
-    Action: "IncreaseReplicaCount",
-    Version: "2015-02-02",
+    [_A]: _IRC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1494,8 +1494,8 @@ export const se_ListAllowedNodeTypeModificationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListAllowedNodeTypeModificationsMessage(input, context),
-    Action: "ListAllowedNodeTypeModifications",
-    Version: "2015-02-02",
+    [_A]: _LANTM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1511,8 +1511,8 @@ export const se_ListTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceMessage(input, context),
-    Action: "ListTagsForResource",
-    Version: "2015-02-02",
+    [_A]: _LTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1528,8 +1528,8 @@ export const se_ModifyCacheClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCacheClusterMessage(input, context),
-    Action: "ModifyCacheCluster",
-    Version: "2015-02-02",
+    [_A]: _MCC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1545,8 +1545,8 @@ export const se_ModifyCacheParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCacheParameterGroupMessage(input, context),
-    Action: "ModifyCacheParameterGroup",
-    Version: "2015-02-02",
+    [_A]: _MCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1562,8 +1562,8 @@ export const se_ModifyCacheSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCacheSubnetGroupMessage(input, context),
-    Action: "ModifyCacheSubnetGroup",
-    Version: "2015-02-02",
+    [_A]: _MCSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1579,8 +1579,8 @@ export const se_ModifyGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyGlobalReplicationGroupMessage(input, context),
-    Action: "ModifyGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _MGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1596,8 +1596,8 @@ export const se_ModifyReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyReplicationGroupMessage(input, context),
-    Action: "ModifyReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _MRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1613,8 +1613,8 @@ export const se_ModifyReplicationGroupShardConfigurationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyReplicationGroupShardConfigurationMessage(input, context),
-    Action: "ModifyReplicationGroupShardConfiguration",
-    Version: "2015-02-02",
+    [_A]: _MRGSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1630,8 +1630,8 @@ export const se_ModifyServerlessCacheCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyServerlessCacheRequest(input, context),
-    Action: "ModifyServerlessCache",
-    Version: "2015-02-02",
+    [_A]: _MSC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1647,8 +1647,8 @@ export const se_ModifyUserCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyUserMessage(input, context),
-    Action: "ModifyUser",
-    Version: "2015-02-02",
+    [_A]: _MU,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1664,8 +1664,8 @@ export const se_ModifyUserGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyUserGroupMessage(input, context),
-    Action: "ModifyUserGroup",
-    Version: "2015-02-02",
+    [_A]: _MUG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1681,8 +1681,8 @@ export const se_PurchaseReservedCacheNodesOfferingCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PurchaseReservedCacheNodesOfferingMessage(input, context),
-    Action: "PurchaseReservedCacheNodesOffering",
-    Version: "2015-02-02",
+    [_A]: _PRCNO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1698,8 +1698,8 @@ export const se_RebalanceSlotsInGlobalReplicationGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebalanceSlotsInGlobalReplicationGroupMessage(input, context),
-    Action: "RebalanceSlotsInGlobalReplicationGroup",
-    Version: "2015-02-02",
+    [_A]: _RSIGRG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1715,8 +1715,8 @@ export const se_RebootCacheClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebootCacheClusterMessage(input, context),
-    Action: "RebootCacheCluster",
-    Version: "2015-02-02",
+    [_A]: _RCC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1732,8 +1732,8 @@ export const se_RemoveTagsFromResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsFromResourceMessage(input, context),
-    Action: "RemoveTagsFromResource",
-    Version: "2015-02-02",
+    [_A]: _RTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1749,8 +1749,8 @@ export const se_ResetCacheParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetCacheParameterGroupMessage(input, context),
-    Action: "ResetCacheParameterGroup",
-    Version: "2015-02-02",
+    [_A]: _RCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1766,8 +1766,8 @@ export const se_RevokeCacheSecurityGroupIngressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RevokeCacheSecurityGroupIngressMessage(input, context),
-    Action: "RevokeCacheSecurityGroupIngress",
-    Version: "2015-02-02",
+    [_A]: _RCSGI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1783,8 +1783,8 @@ export const se_StartMigrationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartMigrationMessage(input, context),
-    Action: "StartMigration",
-    Version: "2015-02-02",
+    [_A]: _SM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1800,8 +1800,8 @@ export const se_TestFailoverCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestFailoverMessage(input, context),
-    Action: "TestFailover",
-    Version: "2015-02-02",
+    [_A]: _TF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1817,8 +1817,8 @@ export const se_TestMigrationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestMigrationMessage(input, context),
-    Action: "TestMigration",
-    Version: "2015-02-02",
+    [_A]: _TM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -7538,12 +7538,12 @@ const de_UserQuotaExceededFaultRes = async (
  */
 const se_AddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7559,12 +7559,12 @@ const se_AddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: _
  */
 const se_AuthenticationMode = (input: AuthenticationMode, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_Ty] != null) {
+    entries[_Ty] = input[_Ty];
   }
-  if (input.Passwords != null) {
-    const memberEntries = se_PasswordListInput(input.Passwords, context);
-    if (input.Passwords?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_PasswordListInput(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Passwords = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7583,14 +7583,14 @@ const se_AuthorizeCacheSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName != null) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  if (input[_CSGN] != null) {
+    entries[_CSGN] = input[_CSGN];
   }
-  if (input.EC2SecurityGroupName != null) {
-    entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
+  if (input[_ECSGN] != null) {
+    entries[_ECSGN] = input[_ECSGN];
   }
-  if (input.EC2SecurityGroupOwnerId != null) {
-    entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  if (input[_ECSGOI] != null) {
+    entries[_ECSGOI] = input[_ECSGOI];
   }
   return entries;
 };
@@ -7616,9 +7616,9 @@ const se_AvailabilityZonesList = (input: string[], context: __SerdeContext): any
  */
 const se_BatchApplyUpdateActionMessage = (input: BatchApplyUpdateActionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupIds != null) {
-    const memberEntries = se_ReplicationGroupIdList(input.ReplicationGroupIds, context);
-    if (input.ReplicationGroupIds?.length === 0) {
+  if (input[_RGI] != null) {
+    const memberEntries = se_ReplicationGroupIdList(input[_RGI], context);
+    if (input[_RGI]?.length === 0) {
       entries.ReplicationGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7626,9 +7626,9 @@ const se_BatchApplyUpdateActionMessage = (input: BatchApplyUpdateActionMessage, 
       entries[loc] = value;
     });
   }
-  if (input.CacheClusterIds != null) {
-    const memberEntries = se_CacheClusterIdList(input.CacheClusterIds, context);
-    if (input.CacheClusterIds?.length === 0) {
+  if (input[_CCI] != null) {
+    const memberEntries = se_CacheClusterIdList(input[_CCI], context);
+    if (input[_CCI]?.length === 0) {
       entries.CacheClusterIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7636,8 +7636,8 @@ const se_BatchApplyUpdateActionMessage = (input: BatchApplyUpdateActionMessage, 
       entries[loc] = value;
     });
   }
-  if (input.ServiceUpdateName != null) {
-    entries["ServiceUpdateName"] = input.ServiceUpdateName;
+  if (input[_SUN] != null) {
+    entries[_SUN] = input[_SUN];
   }
   return entries;
 };
@@ -7647,9 +7647,9 @@ const se_BatchApplyUpdateActionMessage = (input: BatchApplyUpdateActionMessage, 
  */
 const se_BatchStopUpdateActionMessage = (input: BatchStopUpdateActionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupIds != null) {
-    const memberEntries = se_ReplicationGroupIdList(input.ReplicationGroupIds, context);
-    if (input.ReplicationGroupIds?.length === 0) {
+  if (input[_RGI] != null) {
+    const memberEntries = se_ReplicationGroupIdList(input[_RGI], context);
+    if (input[_RGI]?.length === 0) {
       entries.ReplicationGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7657,9 +7657,9 @@ const se_BatchStopUpdateActionMessage = (input: BatchStopUpdateActionMessage, co
       entries[loc] = value;
     });
   }
-  if (input.CacheClusterIds != null) {
-    const memberEntries = se_CacheClusterIdList(input.CacheClusterIds, context);
-    if (input.CacheClusterIds?.length === 0) {
+  if (input[_CCI] != null) {
+    const memberEntries = se_CacheClusterIdList(input[_CCI], context);
+    if (input[_CCI]?.length === 0) {
       entries.CacheClusterIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7667,8 +7667,8 @@ const se_BatchStopUpdateActionMessage = (input: BatchStopUpdateActionMessage, co
       entries[loc] = value;
     });
   }
-  if (input.ServiceUpdateName != null) {
-    entries["ServiceUpdateName"] = input.ServiceUpdateName;
+  if (input[_SUN] != null) {
+    entries[_SUN] = input[_SUN];
   }
   return entries;
 };
@@ -7726,15 +7726,15 @@ const se_CacheSecurityGroupNameList = (input: string[], context: __SerdeContext)
  */
 const se_CacheUsageLimits = (input: CacheUsageLimits, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DataStorage != null) {
-    const memberEntries = se_DataStorage(input.DataStorage, context);
+  if (input[_DSa] != null) {
+    const memberEntries = se_DataStorage(input[_DSa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DataStorage.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ECPUPerSecond != null) {
-    const memberEntries = se_ECPUPerSecond(input.ECPUPerSecond, context);
+  if (input[_ECPUPS] != null) {
+    const memberEntries = se_ECPUPerSecond(input[_ECPUPS], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ECPUPerSecond.${key}`;
       entries[loc] = value;
@@ -7748,8 +7748,8 @@ const se_CacheUsageLimits = (input: CacheUsageLimits, context: __SerdeContext): 
  */
 const se_CloudWatchLogsDestinationDetails = (input: CloudWatchLogsDestinationDetails, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogGroup != null) {
-    entries["LogGroup"] = input.LogGroup;
+  if (input[_LG] != null) {
+    entries[_LG] = input[_LG];
   }
   return entries;
 };
@@ -7759,11 +7759,11 @@ const se_CloudWatchLogsDestinationDetails = (input: CloudWatchLogsDestinationDet
  */
 const se_CompleteMigrationMessage = (input: CompleteMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.Force != null) {
-    entries["Force"] = input.Force;
+  if (input[_F] != null) {
+    entries[_F] = input[_F];
   }
   return entries;
 };
@@ -7773,15 +7773,15 @@ const se_CompleteMigrationMessage = (input: CompleteMigrationMessage, context: _
  */
 const se_ConfigureShard = (input: ConfigureShard, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId != null) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input[_NGI] != null) {
+    entries[_NGI] = input[_NGI];
   }
-  if (input.NewReplicaCount != null) {
-    entries["NewReplicaCount"] = input.NewReplicaCount;
+  if (input[_NRC] != null) {
+    entries[_NRC] = input[_NRC];
   }
-  if (input.PreferredAvailabilityZones != null) {
-    const memberEntries = se_PreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
-    if (input.PreferredAvailabilityZones?.length === 0) {
+  if (input[_PAZ] != null) {
+    const memberEntries = se_PreferredAvailabilityZoneList(input[_PAZ], context);
+    if (input[_PAZ]?.length === 0) {
       entries.PreferredAvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7789,9 +7789,9 @@ const se_ConfigureShard = (input: ConfigureShard, context: __SerdeContext): any 
       entries[loc] = value;
     });
   }
-  if (input.PreferredOutpostArns != null) {
-    const memberEntries = se_PreferredOutpostArnList(input.PreferredOutpostArns, context);
-    if (input.PreferredOutpostArns?.length === 0) {
+  if (input[_POA] != null) {
+    const memberEntries = se_PreferredOutpostArnList(input[_POA], context);
+    if (input[_POA]?.length === 0) {
       entries.PreferredOutpostArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7810,18 +7810,18 @@ const se_CopyServerlessCacheSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceServerlessCacheSnapshotName != null) {
-    entries["SourceServerlessCacheSnapshotName"] = input.SourceServerlessCacheSnapshotName;
+  if (input[_SSCSN] != null) {
+    entries[_SSCSN] = input[_SSCSN];
   }
-  if (input.TargetServerlessCacheSnapshotName != null) {
-    entries["TargetServerlessCacheSnapshotName"] = input.TargetServerlessCacheSnapshotName;
+  if (input[_TSCSN] != null) {
+    entries[_TSCSN] = input[_TSCSN];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7837,21 +7837,21 @@ const se_CopyServerlessCacheSnapshotRequest = (
  */
 const se_CopySnapshotMessage = (input: CopySnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceSnapshotName != null) {
-    entries["SourceSnapshotName"] = input.SourceSnapshotName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.TargetSnapshotName != null) {
-    entries["TargetSnapshotName"] = input.TargetSnapshotName;
+  if (input[_TSN] != null) {
+    entries[_TSN] = input[_TSN];
   }
-  if (input.TargetBucket != null) {
-    entries["TargetBucket"] = input.TargetBucket;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7867,21 +7867,21 @@ const se_CopySnapshotMessage = (input: CopySnapshotMessage, context: __SerdeCont
  */
 const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.AZMode != null) {
-    entries["AZMode"] = input.AZMode;
+  if (input[_AZM] != null) {
+    entries[_AZM] = input[_AZM];
   }
-  if (input.PreferredAvailabilityZone != null) {
-    entries["PreferredAvailabilityZone"] = input.PreferredAvailabilityZone;
+  if (input[_PAZr] != null) {
+    entries[_PAZr] = input[_PAZr];
   }
-  if (input.PreferredAvailabilityZones != null) {
-    const memberEntries = se_PreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
-    if (input.PreferredAvailabilityZones?.length === 0) {
+  if (input[_PAZ] != null) {
+    const memberEntries = se_PreferredAvailabilityZoneList(input[_PAZ], context);
+    if (input[_PAZ]?.length === 0) {
       entries.PreferredAvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7889,27 +7889,27 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.NumCacheNodes != null) {
-    entries["NumCacheNodes"] = input.NumCacheNodes;
+  if (input[_NCN] != null) {
+    entries[_NCN] = input[_NCN];
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.CacheSubnetGroupName != null) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  if (input[_CSGNa] != null) {
+    entries[_CSGNa] = input[_CSGNa];
   }
-  if (input.CacheSecurityGroupNames != null) {
-    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    if (input.CacheSecurityGroupNames?.length === 0) {
+  if (input[_CSGNac] != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input[_CSGNac], context);
+    if (input[_CSGNac]?.length === 0) {
       entries.CacheSecurityGroupNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7917,9 +7917,9 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds != null) {
-    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
-    if (input.SecurityGroupIds?.length === 0) {
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdsList(input[_SGI], context);
+    if (input[_SGI]?.length === 0) {
       entries.SecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7927,9 +7927,9 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7937,9 +7937,9 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.SnapshotArns != null) {
-    const memberEntries = se_SnapshotArnsList(input.SnapshotArns, context);
-    if (input.SnapshotArns?.length === 0) {
+  if (input[_SA] != null) {
+    const memberEntries = se_SnapshotArnsList(input[_SA], context);
+    if (input[_SA]?.length === 0) {
       entries.SnapshotArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7947,39 +7947,39 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.SnapshotName != null) {
-    entries["SnapshotName"] = input.SnapshotName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.NotificationTopicArn != null) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  if (input[_NTA] != null) {
+    entries[_NTA] = input[_NTA];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.SnapshotRetentionLimit != null) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input[_SRL] != null) {
+    entries[_SRL] = input[_SRL];
   }
-  if (input.SnapshotWindow != null) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
+  if (input[_SW] != null) {
+    entries[_SW] = input[_SW];
   }
-  if (input.AuthToken != null) {
-    entries["AuthToken"] = input.AuthToken;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.OutpostMode != null) {
-    entries["OutpostMode"] = input.OutpostMode;
+  if (input[_OM] != null) {
+    entries[_OM] = input[_OM];
   }
-  if (input.PreferredOutpostArn != null) {
-    entries["PreferredOutpostArn"] = input.PreferredOutpostArn;
+  if (input[_POAr] != null) {
+    entries[_POAr] = input[_POAr];
   }
-  if (input.PreferredOutpostArns != null) {
-    const memberEntries = se_PreferredOutpostArnList(input.PreferredOutpostArns, context);
-    if (input.PreferredOutpostArns?.length === 0) {
+  if (input[_POA] != null) {
+    const memberEntries = se_PreferredOutpostArnList(input[_POA], context);
+    if (input[_POA]?.length === 0) {
       entries.PreferredOutpostArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7987,9 +7987,9 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.LogDeliveryConfigurations != null) {
-    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
-    if (input.LogDeliveryConfigurations?.length === 0) {
+  if (input[_LDC] != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input[_LDC], context);
+    if (input[_LDC]?.length === 0) {
       entries.LogDeliveryConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7997,14 +7997,14 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.TransitEncryptionEnabled != null) {
-    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  if (input[_TEE] != null) {
+    entries[_TEE] = input[_TEE];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.IpDiscovery != null) {
-    entries["IpDiscovery"] = input.IpDiscovery;
+  if (input[_ID] != null) {
+    entries[_ID] = input[_ID];
   }
   return entries;
 };
@@ -8014,18 +8014,18 @@ const se_CreateCacheClusterMessage = (input: CreateCacheClusterMessage, context:
  */
 const se_CreateCacheParameterGroupMessage = (input: CreateCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.CacheParameterGroupFamily != null) {
-    entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
+  if (input[_CPGF] != null) {
+    entries[_CPGF] = input[_CPGF];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8041,15 +8041,15 @@ const se_CreateCacheParameterGroupMessage = (input: CreateCacheParameterGroupMes
  */
 const se_CreateCacheSecurityGroupMessage = (input: CreateCacheSecurityGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName != null) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  if (input[_CSGN] != null) {
+    entries[_CSGN] = input[_CSGN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8065,15 +8065,15 @@ const se_CreateCacheSecurityGroupMessage = (input: CreateCacheSecurityGroupMessa
  */
 const se_CreateCacheSubnetGroupMessage = (input: CreateCacheSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName != null) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  if (input[_CSGNa] != null) {
+    entries[_CSGNa] = input[_CSGNa];
   }
-  if (input.CacheSubnetGroupDescription != null) {
-    entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
+  if (input[_CSGD] != null) {
+    entries[_CSGD] = input[_CSGD];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SI] != null) {
+    const memberEntries = se_SubnetIdentifierList(input[_SI], context);
+    if (input[_SI]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8081,9 +8081,9 @@ const se_CreateCacheSubnetGroupMessage = (input: CreateCacheSubnetGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8102,14 +8102,14 @@ const se_CreateGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupIdSuffix != null) {
-    entries["GlobalReplicationGroupIdSuffix"] = input.GlobalReplicationGroupIdSuffix;
+  if (input[_GRGIS] != null) {
+    entries[_GRGIS] = input[_GRGIS];
   }
-  if (input.GlobalReplicationGroupDescription != null) {
-    entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
+  if (input[_GRGD] != null) {
+    entries[_GRGD] = input[_GRGD];
   }
-  if (input.PrimaryReplicationGroupId != null) {
-    entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
+  if (input[_PRGI] != null) {
+    entries[_PRGI] = input[_PRGI];
   }
   return entries;
 };
@@ -8119,30 +8119,30 @@ const se_CreateGlobalReplicationGroupMessage = (
  */
 const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.ReplicationGroupDescription != null) {
-    entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
+  if (input[_RGD] != null) {
+    entries[_RGD] = input[_RGD];
   }
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.PrimaryClusterId != null) {
-    entries["PrimaryClusterId"] = input.PrimaryClusterId;
+  if (input[_PCI] != null) {
+    entries[_PCI] = input[_PCI];
   }
-  if (input.AutomaticFailoverEnabled != null) {
-    entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
+  if (input[_AFE] != null) {
+    entries[_AFE] = input[_AFE];
   }
-  if (input.MultiAZEnabled != null) {
-    entries["MultiAZEnabled"] = input.MultiAZEnabled;
+  if (input[_MAZE] != null) {
+    entries[_MAZE] = input[_MAZE];
   }
-  if (input.NumCacheClusters != null) {
-    entries["NumCacheClusters"] = input.NumCacheClusters;
+  if (input[_NCC] != null) {
+    entries[_NCC] = input[_NCC];
   }
-  if (input.PreferredCacheClusterAZs != null) {
-    const memberEntries = se_AvailabilityZonesList(input.PreferredCacheClusterAZs, context);
-    if (input.PreferredCacheClusterAZs?.length === 0) {
+  if (input[_PCCAZ] != null) {
+    const memberEntries = se_AvailabilityZonesList(input[_PCCAZ], context);
+    if (input[_PCCAZ]?.length === 0) {
       entries.PreferredCacheClusterAZs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8150,15 +8150,15 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.NumNodeGroups != null) {
-    entries["NumNodeGroups"] = input.NumNodeGroups;
+  if (input[_NNG] != null) {
+    entries[_NNG] = input[_NNG];
   }
-  if (input.ReplicasPerNodeGroup != null) {
-    entries["ReplicasPerNodeGroup"] = input.ReplicasPerNodeGroup;
+  if (input[_RPNG] != null) {
+    entries[_RPNG] = input[_RPNG];
   }
-  if (input.NodeGroupConfiguration != null) {
-    const memberEntries = se_NodeGroupConfigurationList(input.NodeGroupConfiguration, context);
-    if (input.NodeGroupConfiguration?.length === 0) {
+  if (input[_NGC] != null) {
+    const memberEntries = se_NodeGroupConfigurationList(input[_NGC], context);
+    if (input[_NGC]?.length === 0) {
       entries.NodeGroupConfiguration = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8166,24 +8166,24 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.CacheSubnetGroupName != null) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  if (input[_CSGNa] != null) {
+    entries[_CSGNa] = input[_CSGNa];
   }
-  if (input.CacheSecurityGroupNames != null) {
-    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    if (input.CacheSecurityGroupNames?.length === 0) {
+  if (input[_CSGNac] != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input[_CSGNac], context);
+    if (input[_CSGNac]?.length === 0) {
       entries.CacheSecurityGroupNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8191,9 +8191,9 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds != null) {
-    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
-    if (input.SecurityGroupIds?.length === 0) {
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdsList(input[_SGI], context);
+    if (input[_SGI]?.length === 0) {
       entries.SecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8201,9 +8201,9 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8211,9 +8211,9 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.SnapshotArns != null) {
-    const memberEntries = se_SnapshotArnsList(input.SnapshotArns, context);
-    if (input.SnapshotArns?.length === 0) {
+  if (input[_SA] != null) {
+    const memberEntries = se_SnapshotArnsList(input[_SA], context);
+    if (input[_SA]?.length === 0) {
       entries.SnapshotArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8221,42 +8221,42 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.SnapshotName != null) {
-    entries["SnapshotName"] = input.SnapshotName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
-  if (input.NotificationTopicArn != null) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  if (input[_NTA] != null) {
+    entries[_NTA] = input[_NTA];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.SnapshotRetentionLimit != null) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input[_SRL] != null) {
+    entries[_SRL] = input[_SRL];
   }
-  if (input.SnapshotWindow != null) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
+  if (input[_SW] != null) {
+    entries[_SW] = input[_SW];
   }
-  if (input.AuthToken != null) {
-    entries["AuthToken"] = input.AuthToken;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.TransitEncryptionEnabled != null) {
-    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  if (input[_TEE] != null) {
+    entries[_TEE] = input[_TEE];
   }
-  if (input.AtRestEncryptionEnabled != null) {
-    entries["AtRestEncryptionEnabled"] = input.AtRestEncryptionEnabled;
+  if (input[_AREE] != null) {
+    entries[_AREE] = input[_AREE];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.UserGroupIds != null) {
-    const memberEntries = se_UserGroupIdListInput(input.UserGroupIds, context);
-    if (input.UserGroupIds?.length === 0) {
+  if (input[_UGI] != null) {
+    const memberEntries = se_UserGroupIdListInput(input[_UGI], context);
+    if (input[_UGI]?.length === 0) {
       entries.UserGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8264,9 +8264,9 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.LogDeliveryConfigurations != null) {
-    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
-    if (input.LogDeliveryConfigurations?.length === 0) {
+  if (input[_LDC] != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input[_LDC], context);
+    if (input[_LDC]?.length === 0) {
       entries.LogDeliveryConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8274,23 +8274,23 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.DataTieringEnabled != null) {
-    entries["DataTieringEnabled"] = input.DataTieringEnabled;
+  if (input[_DTE] != null) {
+    entries[_DTE] = input[_DTE];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.IpDiscovery != null) {
-    entries["IpDiscovery"] = input.IpDiscovery;
+  if (input[_ID] != null) {
+    entries[_ID] = input[_ID];
   }
-  if (input.TransitEncryptionMode != null) {
-    entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  if (input[_TEM] != null) {
+    entries[_TEM] = input[_TEM];
   }
-  if (input.ClusterMode != null) {
-    entries["ClusterMode"] = input.ClusterMode;
+  if (input[_CMl] != null) {
+    entries[_CMl] = input[_CMl];
   }
-  if (input.ServerlessCacheSnapshotName != null) {
-    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  if (input[_SCSN] != null) {
+    entries[_SCSN] = input[_SCSN];
   }
   return entries;
 };
@@ -8300,31 +8300,31 @@ const se_CreateReplicationGroupMessage = (input: CreateReplicationGroupMessage, 
  */
 const se_CreateServerlessCacheRequest = (input: CreateServerlessCacheRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerlessCacheName != null) {
-    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.MajorEngineVersion != null) {
-    entries["MajorEngineVersion"] = input.MajorEngineVersion;
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
   }
-  if (input.CacheUsageLimits != null) {
-    const memberEntries = se_CacheUsageLimits(input.CacheUsageLimits, context);
+  if (input[_CUL] != null) {
+    const memberEntries = se_CacheUsageLimits(input[_CUL], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheUsageLimits.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.SecurityGroupIds != null) {
-    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
-    if (input.SecurityGroupIds?.length === 0) {
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdsList(input[_SGI], context);
+    if (input[_SGI]?.length === 0) {
       entries.SecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8332,9 +8332,9 @@ const se_CreateServerlessCacheRequest = (input: CreateServerlessCacheRequest, co
       entries[loc] = value;
     });
   }
-  if (input.SnapshotArnsToRestore != null) {
-    const memberEntries = se_SnapshotArnsList(input.SnapshotArnsToRestore, context);
-    if (input.SnapshotArnsToRestore?.length === 0) {
+  if (input[_SATR] != null) {
+    const memberEntries = se_SnapshotArnsList(input[_SATR], context);
+    if (input[_SATR]?.length === 0) {
       entries.SnapshotArnsToRestore = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8342,9 +8342,9 @@ const se_CreateServerlessCacheRequest = (input: CreateServerlessCacheRequest, co
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8352,12 +8352,12 @@ const se_CreateServerlessCacheRequest = (input: CreateServerlessCacheRequest, co
       entries[loc] = value;
     });
   }
-  if (input.UserGroupId != null) {
-    entries["UserGroupId"] = input.UserGroupId;
+  if (input[_UGIs] != null) {
+    entries[_UGIs] = input[_UGIs];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdsList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SI] != null) {
+    const memberEntries = se_SubnetIdsList(input[_SI], context);
+    if (input[_SI]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8365,11 +8365,11 @@ const se_CreateServerlessCacheRequest = (input: CreateServerlessCacheRequest, co
       entries[loc] = value;
     });
   }
-  if (input.SnapshotRetentionLimit != null) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input[_SRL] != null) {
+    entries[_SRL] = input[_SRL];
   }
-  if (input.DailySnapshotTime != null) {
-    entries["DailySnapshotTime"] = input.DailySnapshotTime;
+  if (input[_DST] != null) {
+    entries[_DST] = input[_DST];
   }
   return entries;
 };
@@ -8382,18 +8382,18 @@ const se_CreateServerlessCacheSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerlessCacheSnapshotName != null) {
-    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  if (input[_SCSN] != null) {
+    entries[_SCSN] = input[_SCSN];
   }
-  if (input.ServerlessCacheName != null) {
-    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8409,21 +8409,21 @@ const se_CreateServerlessCacheSnapshotRequest = (
  */
 const se_CreateSnapshotMessage = (input: CreateSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.SnapshotName != null) {
-    entries["SnapshotName"] = input.SnapshotName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8439,15 +8439,15 @@ const se_CreateSnapshotMessage = (input: CreateSnapshotMessage, context: __Serde
  */
 const se_CreateUserGroupMessage = (input: CreateUserGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId != null) {
-    entries["UserGroupId"] = input.UserGroupId;
+  if (input[_UGIs] != null) {
+    entries[_UGIs] = input[_UGIs];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.UserIds != null) {
-    const memberEntries = se_UserIdListInput(input.UserIds, context);
-    if (input.UserIds?.length === 0) {
+  if (input[_UI] != null) {
+    const memberEntries = se_UserIdListInput(input[_UI], context);
+    if (input[_UI]?.length === 0) {
       entries.UserIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8455,9 +8455,9 @@ const se_CreateUserGroupMessage = (input: CreateUserGroupMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8473,18 +8473,18 @@ const se_CreateUserGroupMessage = (input: CreateUserGroupMessage, context: __Ser
  */
 const se_CreateUserMessage = (input: CreateUserMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserId != null) {
-    entries["UserId"] = input.UserId;
+  if (input[_UIs] != null) {
+    entries[_UIs] = input[_UIs];
   }
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.Passwords != null) {
-    const memberEntries = se_PasswordListInput(input.Passwords, context);
-    if (input.Passwords?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_PasswordListInput(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Passwords = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8492,15 +8492,15 @@ const se_CreateUserMessage = (input: CreateUserMessage, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.AccessString != null) {
-    entries["AccessString"] = input.AccessString;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.NoPasswordRequired != null) {
-    entries["NoPasswordRequired"] = input.NoPasswordRequired;
+  if (input[_NPR] != null) {
+    entries[_NPR] = input[_NPR];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8508,8 +8508,8 @@ const se_CreateUserMessage = (input: CreateUserMessage, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.AuthenticationMode != null) {
-    const memberEntries = se_AuthenticationMode(input.AuthenticationMode, context);
+  if (input[_AM] != null) {
+    const memberEntries = se_AuthenticationMode(input[_AM], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
@@ -8523,11 +8523,11 @@ const se_CreateUserMessage = (input: CreateUserMessage, context: __SerdeContext)
  */
 const se_CustomerNodeEndpoint = (input: CustomerNodeEndpoint, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Address != null) {
-    entries["Address"] = input.Address;
+  if (input[_Ad] != null) {
+    entries[_Ad] = input[_Ad];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_Po] != null) {
+    entries[_Po] = input[_Po];
   }
   return entries;
 };
@@ -8556,11 +8556,11 @@ const se_CustomerNodeEndpointList = (input: CustomerNodeEndpoint[], context: __S
  */
 const se_DataStorage = (input: DataStorage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Maximum != null) {
-    entries["Maximum"] = input.Maximum;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.Unit != null) {
-    entries["Unit"] = input.Unit;
+  if (input[_U] != null) {
+    entries[_U] = input[_U];
   }
   return entries;
 };
@@ -8573,15 +8573,15 @@ const se_DecreaseNodeGroupsInGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.NodeGroupCount != null) {
-    entries["NodeGroupCount"] = input.NodeGroupCount;
+  if (input[_NGCo] != null) {
+    entries[_NGCo] = input[_NGCo];
   }
-  if (input.GlobalNodeGroupsToRemove != null) {
-    const memberEntries = se_GlobalNodeGroupIdList(input.GlobalNodeGroupsToRemove, context);
-    if (input.GlobalNodeGroupsToRemove?.length === 0) {
+  if (input[_GNGTR] != null) {
+    const memberEntries = se_GlobalNodeGroupIdList(input[_GNGTR], context);
+    if (input[_GNGTR]?.length === 0) {
       entries.GlobalNodeGroupsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8589,9 +8589,9 @@ const se_DecreaseNodeGroupsInGlobalReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.GlobalNodeGroupsToRetain != null) {
-    const memberEntries = se_GlobalNodeGroupIdList(input.GlobalNodeGroupsToRetain, context);
-    if (input.GlobalNodeGroupsToRetain?.length === 0) {
+  if (input[_GNGTRl] != null) {
+    const memberEntries = se_GlobalNodeGroupIdList(input[_GNGTRl], context);
+    if (input[_GNGTRl]?.length === 0) {
       entries.GlobalNodeGroupsToRetain = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8599,8 +8599,8 @@ const se_DecreaseNodeGroupsInGlobalReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -8610,15 +8610,15 @@ const se_DecreaseNodeGroupsInGlobalReplicationGroupMessage = (
  */
 const se_DecreaseReplicaCountMessage = (input: DecreaseReplicaCountMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.NewReplicaCount != null) {
-    entries["NewReplicaCount"] = input.NewReplicaCount;
+  if (input[_NRC] != null) {
+    entries[_NRC] = input[_NRC];
   }
-  if (input.ReplicaConfiguration != null) {
-    const memberEntries = se_ReplicaConfigurationList(input.ReplicaConfiguration, context);
-    if (input.ReplicaConfiguration?.length === 0) {
+  if (input[_RC] != null) {
+    const memberEntries = se_ReplicaConfigurationList(input[_RC], context);
+    if (input[_RC]?.length === 0) {
       entries.ReplicaConfiguration = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8626,9 +8626,9 @@ const se_DecreaseReplicaCountMessage = (input: DecreaseReplicaCountMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.ReplicasToRemove != null) {
-    const memberEntries = se_RemoveReplicasList(input.ReplicasToRemove, context);
-    if (input.ReplicasToRemove?.length === 0) {
+  if (input[_RTR] != null) {
+    const memberEntries = se_RemoveReplicasList(input[_RTR], context);
+    if (input[_RTR]?.length === 0) {
       entries.ReplicasToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -8636,8 +8636,8 @@ const se_DecreaseReplicaCountMessage = (input: DecreaseReplicaCountMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -8647,11 +8647,11 @@ const se_DecreaseReplicaCountMessage = (input: DecreaseReplicaCountMessage, cont
  */
 const se_DeleteCacheClusterMessage = (input: DeleteCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.FinalSnapshotIdentifier != null) {
-    entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
+  if (input[_FSI] != null) {
+    entries[_FSI] = input[_FSI];
   }
   return entries;
 };
@@ -8661,8 +8661,8 @@ const se_DeleteCacheClusterMessage = (input: DeleteCacheClusterMessage, context:
  */
 const se_DeleteCacheParameterGroupMessage = (input: DeleteCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
   return entries;
 };
@@ -8672,8 +8672,8 @@ const se_DeleteCacheParameterGroupMessage = (input: DeleteCacheParameterGroupMes
  */
 const se_DeleteCacheSecurityGroupMessage = (input: DeleteCacheSecurityGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName != null) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  if (input[_CSGN] != null) {
+    entries[_CSGN] = input[_CSGN];
   }
   return entries;
 };
@@ -8683,8 +8683,8 @@ const se_DeleteCacheSecurityGroupMessage = (input: DeleteCacheSecurityGroupMessa
  */
 const se_DeleteCacheSubnetGroupMessage = (input: DeleteCacheSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName != null) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  if (input[_CSGNa] != null) {
+    entries[_CSGNa] = input[_CSGNa];
   }
   return entries;
 };
@@ -8697,11 +8697,11 @@ const se_DeleteGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.RetainPrimaryReplicationGroup != null) {
-    entries["RetainPrimaryReplicationGroup"] = input.RetainPrimaryReplicationGroup;
+  if (input[_RPRG] != null) {
+    entries[_RPRG] = input[_RPRG];
   }
   return entries;
 };
@@ -8711,14 +8711,14 @@ const se_DeleteGlobalReplicationGroupMessage = (
  */
 const se_DeleteReplicationGroupMessage = (input: DeleteReplicationGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.RetainPrimaryCluster != null) {
-    entries["RetainPrimaryCluster"] = input.RetainPrimaryCluster;
+  if (input[_RPC] != null) {
+    entries[_RPC] = input[_RPC];
   }
-  if (input.FinalSnapshotIdentifier != null) {
-    entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
+  if (input[_FSI] != null) {
+    entries[_FSI] = input[_FSI];
   }
   return entries;
 };
@@ -8728,11 +8728,11 @@ const se_DeleteReplicationGroupMessage = (input: DeleteReplicationGroupMessage, 
  */
 const se_DeleteServerlessCacheRequest = (input: DeleteServerlessCacheRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerlessCacheName != null) {
-    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.FinalSnapshotName != null) {
-    entries["FinalSnapshotName"] = input.FinalSnapshotName;
+  if (input[_FSN] != null) {
+    entries[_FSN] = input[_FSN];
   }
   return entries;
 };
@@ -8745,8 +8745,8 @@ const se_DeleteServerlessCacheSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerlessCacheSnapshotName != null) {
-    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  if (input[_SCSN] != null) {
+    entries[_SCSN] = input[_SCSN];
   }
   return entries;
 };
@@ -8756,8 +8756,8 @@ const se_DeleteServerlessCacheSnapshotRequest = (
  */
 const se_DeleteSnapshotMessage = (input: DeleteSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SnapshotName != null) {
-    entries["SnapshotName"] = input.SnapshotName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -8767,8 +8767,8 @@ const se_DeleteSnapshotMessage = (input: DeleteSnapshotMessage, context: __Serde
  */
 const se_DeleteUserGroupMessage = (input: DeleteUserGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId != null) {
-    entries["UserGroupId"] = input.UserGroupId;
+  if (input[_UGIs] != null) {
+    entries[_UGIs] = input[_UGIs];
   }
   return entries;
 };
@@ -8778,8 +8778,8 @@ const se_DeleteUserGroupMessage = (input: DeleteUserGroupMessage, context: __Ser
  */
 const se_DeleteUserMessage = (input: DeleteUserMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserId != null) {
-    entries["UserId"] = input.UserId;
+  if (input[_UIs] != null) {
+    entries[_UIs] = input[_UIs];
   }
   return entries;
 };
@@ -8789,20 +8789,20 @@ const se_DeleteUserMessage = (input: DeleteUserMessage, context: __SerdeContext)
  */
 const se_DescribeCacheClustersMessage = (input: DescribeCacheClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.ShowCacheNodeInfo != null) {
-    entries["ShowCacheNodeInfo"] = input.ShowCacheNodeInfo;
+  if (input[_SCNI] != null) {
+    entries[_SCNI] = input[_SCNI];
   }
-  if (input.ShowCacheClustersNotInReplicationGroups != null) {
-    entries["ShowCacheClustersNotInReplicationGroups"] = input.ShowCacheClustersNotInReplicationGroups;
+  if (input[_SCCNIRG] != null) {
+    entries[_SCCNIRG] = input[_SCCNIRG];
   }
   return entries;
 };
@@ -8815,23 +8815,23 @@ const se_DescribeCacheEngineVersionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.CacheParameterGroupFamily != null) {
-    entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
+  if (input[_CPGF] != null) {
+    entries[_CPGF] = input[_CPGF];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.DefaultOnly != null) {
-    entries["DefaultOnly"] = input.DefaultOnly;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
   return entries;
 };
@@ -8844,14 +8844,14 @@ const se_DescribeCacheParameterGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -8861,17 +8861,17 @@ const se_DescribeCacheParameterGroupsMessage = (
  */
 const se_DescribeCacheParametersMessage = (input: DescribeCacheParametersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -8884,14 +8884,14 @@ const se_DescribeCacheSecurityGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName != null) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  if (input[_CSGN] != null) {
+    entries[_CSGN] = input[_CSGN];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -8901,14 +8901,14 @@ const se_DescribeCacheSecurityGroupsMessage = (
  */
 const se_DescribeCacheSubnetGroupsMessage = (input: DescribeCacheSubnetGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName != null) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  if (input[_CSGNa] != null) {
+    entries[_CSGNa] = input[_CSGNa];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -8921,14 +8921,14 @@ const se_DescribeEngineDefaultParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupFamily != null) {
-    entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
+  if (input[_CPGF] != null) {
+    entries[_CPGF] = input[_CPGF];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -8938,26 +8938,26 @@ const se_DescribeEngineDefaultParametersMessage = (
  */
 const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SIo] != null) {
+    entries[_SIo] = input[_SIo];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -8970,17 +8970,17 @@ const se_DescribeGlobalReplicationGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.ShowMemberInfo != null) {
-    entries["ShowMemberInfo"] = input.ShowMemberInfo;
+  if (input[_SMI] != null) {
+    entries[_SMI] = input[_SMI];
   }
   return entries;
 };
@@ -8990,14 +8990,14 @@ const se_DescribeGlobalReplicationGroupsMessage = (
  */
 const se_DescribeReplicationGroupsMessage = (input: DescribeReplicationGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9010,29 +9010,29 @@ const se_DescribeReservedCacheNodesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedCacheNodeId != null) {
-    entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
+  if (input[_RCNI] != null) {
+    entries[_RCNI] = input[_RCNI];
   }
-  if (input.ReservedCacheNodesOfferingId != null) {
-    entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
+  if (input[_RCNOI] != null) {
+    entries[_RCNOI] = input[_RCNOI];
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.ProductDescription != null) {
-    entries["ProductDescription"] = input.ProductDescription;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
-  if (input.OfferingType != null) {
-    entries["OfferingType"] = input.OfferingType;
+  if (input[_OT] != null) {
+    entries[_OT] = input[_OT];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9045,26 +9045,26 @@ const se_DescribeReservedCacheNodesOfferingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedCacheNodesOfferingId != null) {
-    entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
+  if (input[_RCNOI] != null) {
+    entries[_RCNOI] = input[_RCNOI];
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.ProductDescription != null) {
-    entries["ProductDescription"] = input.ProductDescription;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
-  if (input.OfferingType != null) {
-    entries["OfferingType"] = input.OfferingType;
+  if (input[_OT] != null) {
+    entries[_OT] = input[_OT];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9077,20 +9077,20 @@ const se_DescribeServerlessCacheSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerlessCacheName != null) {
-    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.ServerlessCacheSnapshotName != null) {
-    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  if (input[_SCSN] != null) {
+    entries[_SCSN] = input[_SCSN];
   }
-  if (input.SnapshotType != null) {
-    entries["SnapshotType"] = input.SnapshotType;
+  if (input[_STn] != null) {
+    entries[_STn] = input[_STn];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NTe] != null) {
+    entries[_NTe] = input[_NTe];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MRa] != null) {
+    entries[_MRa] = input[_MRa];
   }
   return entries;
 };
@@ -9100,14 +9100,14 @@ const se_DescribeServerlessCacheSnapshotsRequest = (
  */
 const se_DescribeServerlessCachesRequest = (input: DescribeServerlessCachesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerlessCacheName != null) {
-    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MRa] != null) {
+    entries[_MRa] = input[_MRa];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NTe] != null) {
+    entries[_NTe] = input[_NTe];
   }
   return entries;
 };
@@ -9117,12 +9117,12 @@ const se_DescribeServerlessCachesRequest = (input: DescribeServerlessCachesReque
  */
 const se_DescribeServiceUpdatesMessage = (input: DescribeServiceUpdatesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServiceUpdateName != null) {
-    entries["ServiceUpdateName"] = input.ServiceUpdateName;
+  if (input[_SUN] != null) {
+    entries[_SUN] = input[_SUN];
   }
-  if (input.ServiceUpdateStatus != null) {
-    const memberEntries = se_ServiceUpdateStatusList(input.ServiceUpdateStatus, context);
-    if (input.ServiceUpdateStatus?.length === 0) {
+  if (input[_SUS] != null) {
+    const memberEntries = se_ServiceUpdateStatusList(input[_SUS], context);
+    if (input[_SUS]?.length === 0) {
       entries.ServiceUpdateStatus = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9130,11 +9130,11 @@ const se_DescribeServiceUpdatesMessage = (input: DescribeServiceUpdatesMessage, 
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9144,26 +9144,26 @@ const se_DescribeServiceUpdatesMessage = (input: DescribeServiceUpdatesMessage, 
  */
 const se_DescribeSnapshotsMessage = (input: DescribeSnapshotsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.SnapshotName != null) {
-    entries["SnapshotName"] = input.SnapshotName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SnapshotSource != null) {
-    entries["SnapshotSource"] = input.SnapshotSource;
+  if (input[_SS] != null) {
+    entries[_SS] = input[_SS];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.ShowNodeGroupConfig != null) {
-    entries["ShowNodeGroupConfig"] = input.ShowNodeGroupConfig;
+  if (input[_SNGC] != null) {
+    entries[_SNGC] = input[_SNGC];
   }
   return entries;
 };
@@ -9173,12 +9173,12 @@ const se_DescribeSnapshotsMessage = (input: DescribeSnapshotsMessage, context: _
  */
 const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServiceUpdateName != null) {
-    entries["ServiceUpdateName"] = input.ServiceUpdateName;
+  if (input[_SUN] != null) {
+    entries[_SUN] = input[_SUN];
   }
-  if (input.ReplicationGroupIds != null) {
-    const memberEntries = se_ReplicationGroupIdList(input.ReplicationGroupIds, context);
-    if (input.ReplicationGroupIds?.length === 0) {
+  if (input[_RGI] != null) {
+    const memberEntries = se_ReplicationGroupIdList(input[_RGI], context);
+    if (input[_RGI]?.length === 0) {
       entries.ReplicationGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9186,9 +9186,9 @@ const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, co
       entries[loc] = value;
     });
   }
-  if (input.CacheClusterIds != null) {
-    const memberEntries = se_CacheClusterIdList(input.CacheClusterIds, context);
-    if (input.CacheClusterIds?.length === 0) {
+  if (input[_CCI] != null) {
+    const memberEntries = se_CacheClusterIdList(input[_CCI], context);
+    if (input[_CCI]?.length === 0) {
       entries.CacheClusterIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9196,12 +9196,12 @@ const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, co
       entries[loc] = value;
     });
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.ServiceUpdateStatus != null) {
-    const memberEntries = se_ServiceUpdateStatusList(input.ServiceUpdateStatus, context);
-    if (input.ServiceUpdateStatus?.length === 0) {
+  if (input[_SUS] != null) {
+    const memberEntries = se_ServiceUpdateStatusList(input[_SUS], context);
+    if (input[_SUS]?.length === 0) {
       entries.ServiceUpdateStatus = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9209,16 +9209,16 @@ const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, co
       entries[loc] = value;
     });
   }
-  if (input.ServiceUpdateTimeRange != null) {
-    const memberEntries = se_TimeRangeFilter(input.ServiceUpdateTimeRange, context);
+  if (input[_SUTR] != null) {
+    const memberEntries = se_TimeRangeFilter(input[_SUTR], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateTimeRange.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.UpdateActionStatus != null) {
-    const memberEntries = se_UpdateActionStatusList(input.UpdateActionStatus, context);
-    if (input.UpdateActionStatus?.length === 0) {
+  if (input[_UAS] != null) {
+    const memberEntries = se_UpdateActionStatusList(input[_UAS], context);
+    if (input[_UAS]?.length === 0) {
       entries.UpdateActionStatus = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9226,14 +9226,14 @@ const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, co
       entries[loc] = value;
     });
   }
-  if (input.ShowNodeLevelUpdateStatus != null) {
-    entries["ShowNodeLevelUpdateStatus"] = input.ShowNodeLevelUpdateStatus;
+  if (input[_SNLUS] != null) {
+    entries[_SNLUS] = input[_SNLUS];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9243,14 +9243,14 @@ const se_DescribeUpdateActionsMessage = (input: DescribeUpdateActionsMessage, co
  */
 const se_DescribeUserGroupsMessage = (input: DescribeUserGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId != null) {
-    entries["UserGroupId"] = input.UserGroupId;
+  if (input[_UGIs] != null) {
+    entries[_UGIs] = input[_UGIs];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9260,15 +9260,15 @@ const se_DescribeUserGroupsMessage = (input: DescribeUserGroupsMessage, context:
  */
 const se_DescribeUsersMessage = (input: DescribeUsersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.UserId != null) {
-    entries["UserId"] = input.UserId;
+  if (input[_UIs] != null) {
+    entries[_UIs] = input[_UIs];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9276,11 +9276,11 @@ const se_DescribeUsersMessage = (input: DescribeUsersMessage, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -9290,15 +9290,15 @@ const se_DescribeUsersMessage = (input: DescribeUsersMessage, context: __SerdeCo
  */
 const se_DestinationDetails = (input: DestinationDetails, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CloudWatchLogsDetails != null) {
-    const memberEntries = se_CloudWatchLogsDestinationDetails(input.CloudWatchLogsDetails, context);
+  if (input[_CWLD] != null) {
+    const memberEntries = se_CloudWatchLogsDestinationDetails(input[_CWLD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudWatchLogsDetails.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.KinesisFirehoseDetails != null) {
-    const memberEntries = se_KinesisFirehoseDestinationDetails(input.KinesisFirehoseDetails, context);
+  if (input[_KFD] != null) {
+    const memberEntries = se_KinesisFirehoseDestinationDetails(input[_KFD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `KinesisFirehoseDetails.${key}`;
       entries[loc] = value;
@@ -9315,14 +9315,14 @@ const se_DisassociateGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.ReplicationGroupRegion != null) {
-    entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
+  if (input[_RGR] != null) {
+    entries[_RGR] = input[_RGR];
   }
   return entries;
 };
@@ -9332,8 +9332,8 @@ const se_DisassociateGlobalReplicationGroupMessage = (
  */
 const se_ECPUPerSecond = (input: ECPUPerSecond, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Maximum != null) {
-    entries["Maximum"] = input.Maximum;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -9346,11 +9346,11 @@ const se_ExportServerlessCacheSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerlessCacheSnapshotName != null) {
-    entries["ServerlessCacheSnapshotName"] = input.ServerlessCacheSnapshotName;
+  if (input[_SCSN] != null) {
+    entries[_SCSN] = input[_SCSN];
   }
-  if (input.S3BucketName != null) {
-    entries["S3BucketName"] = input.S3BucketName;
+  if (input[_SBN] != null) {
+    entries[_SBN] = input[_SBN];
   }
   return entries;
 };
@@ -9363,14 +9363,14 @@ const se_FailoverGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.PrimaryRegion != null) {
-    entries["PrimaryRegion"] = input.PrimaryRegion;
+  if (input[_PR] != null) {
+    entries[_PR] = input[_PR];
   }
-  if (input.PrimaryReplicationGroupId != null) {
-    entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
+  if (input[_PRGI] != null) {
+    entries[_PRGI] = input[_PRGI];
   }
   return entries;
 };
@@ -9380,12 +9380,12 @@ const se_FailoverGlobalReplicationGroupMessage = (
  */
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Values != null) {
-    const memberEntries = se_FilterValueList(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_FilterValueList(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9455,15 +9455,15 @@ const se_IncreaseNodeGroupsInGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.NodeGroupCount != null) {
-    entries["NodeGroupCount"] = input.NodeGroupCount;
+  if (input[_NGCo] != null) {
+    entries[_NGCo] = input[_NGCo];
   }
-  if (input.RegionalConfigurations != null) {
-    const memberEntries = se_RegionalConfigurationList(input.RegionalConfigurations, context);
-    if (input.RegionalConfigurations?.length === 0) {
+  if (input[_RCe] != null) {
+    const memberEntries = se_RegionalConfigurationList(input[_RCe], context);
+    if (input[_RCe]?.length === 0) {
       entries.RegionalConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9471,8 +9471,8 @@ const se_IncreaseNodeGroupsInGlobalReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -9482,15 +9482,15 @@ const se_IncreaseNodeGroupsInGlobalReplicationGroupMessage = (
  */
 const se_IncreaseReplicaCountMessage = (input: IncreaseReplicaCountMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.NewReplicaCount != null) {
-    entries["NewReplicaCount"] = input.NewReplicaCount;
+  if (input[_NRC] != null) {
+    entries[_NRC] = input[_NRC];
   }
-  if (input.ReplicaConfiguration != null) {
-    const memberEntries = se_ReplicaConfigurationList(input.ReplicaConfiguration, context);
-    if (input.ReplicaConfiguration?.length === 0) {
+  if (input[_RC] != null) {
+    const memberEntries = se_ReplicaConfigurationList(input[_RC], context);
+    if (input[_RC]?.length === 0) {
       entries.ReplicaConfiguration = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9498,8 +9498,8 @@ const se_IncreaseReplicaCountMessage = (input: IncreaseReplicaCountMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -9528,8 +9528,8 @@ const se_KinesisFirehoseDestinationDetails = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeliveryStream != null) {
-    entries["DeliveryStream"] = input.DeliveryStream;
+  if (input[_DSel] != null) {
+    entries[_DSel] = input[_DSel];
   }
   return entries;
 };
@@ -9542,11 +9542,11 @@ const se_ListAllowedNodeTypeModificationsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
   return entries;
 };
@@ -9556,8 +9556,8 @@ const se_ListAllowedNodeTypeModificationsMessage = (
  */
 const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
   return entries;
 };
@@ -9567,24 +9567,24 @@ const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, contex
  */
 const se_LogDeliveryConfigurationRequest = (input: LogDeliveryConfigurationRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogType != null) {
-    entries["LogType"] = input.LogType;
+  if (input[_LT] != null) {
+    entries[_LT] = input[_LT];
   }
-  if (input.DestinationType != null) {
-    entries["DestinationType"] = input.DestinationType;
+  if (input[_DT] != null) {
+    entries[_DT] = input[_DT];
   }
-  if (input.DestinationDetails != null) {
-    const memberEntries = se_DestinationDetails(input.DestinationDetails, context);
+  if (input[_DD] != null) {
+    const memberEntries = se_DestinationDetails(input[_DD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DestinationDetails.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LogFormat != null) {
-    entries["LogFormat"] = input.LogFormat;
+  if (input[_LF] != null) {
+    entries[_LF] = input[_LF];
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_En] != null) {
+    entries[_En] = input[_En];
   }
   return entries;
 };
@@ -9616,15 +9616,15 @@ const se_LogDeliveryConfigurationRequestList = (
  */
 const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.NumCacheNodes != null) {
-    entries["NumCacheNodes"] = input.NumCacheNodes;
+  if (input[_NCN] != null) {
+    entries[_NCN] = input[_NCN];
   }
-  if (input.CacheNodeIdsToRemove != null) {
-    const memberEntries = se_CacheNodeIdsList(input.CacheNodeIdsToRemove, context);
-    if (input.CacheNodeIdsToRemove?.length === 0) {
+  if (input[_CNITR] != null) {
+    const memberEntries = se_CacheNodeIdsList(input[_CNITR], context);
+    if (input[_CNITR]?.length === 0) {
       entries.CacheNodeIdsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9632,12 +9632,12 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.AZMode != null) {
-    entries["AZMode"] = input.AZMode;
+  if (input[_AZM] != null) {
+    entries[_AZM] = input[_AZM];
   }
-  if (input.NewAvailabilityZones != null) {
-    const memberEntries = se_PreferredAvailabilityZoneList(input.NewAvailabilityZones, context);
-    if (input.NewAvailabilityZones?.length === 0) {
+  if (input[_NAZ] != null) {
+    const memberEntries = se_PreferredAvailabilityZoneList(input[_NAZ], context);
+    if (input[_NAZ]?.length === 0) {
       entries.NewAvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9645,9 +9645,9 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.CacheSecurityGroupNames != null) {
-    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    if (input.CacheSecurityGroupNames?.length === 0) {
+  if (input[_CSGNac] != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input[_CSGNac], context);
+    if (input[_CSGNac]?.length === 0) {
       entries.CacheSecurityGroupNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9655,9 +9655,9 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds != null) {
-    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
-    if (input.SecurityGroupIds?.length === 0) {
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdsList(input[_SGI], context);
+    if (input[_SGI]?.length === 0) {
       entries.SecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9665,45 +9665,45 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.NotificationTopicArn != null) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  if (input[_NTA] != null) {
+    entries[_NTA] = input[_NTA];
   }
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.NotificationTopicStatus != null) {
-    entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
+  if (input[_NTS] != null) {
+    entries[_NTS] = input[_NTS];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.SnapshotRetentionLimit != null) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input[_SRL] != null) {
+    entries[_SRL] = input[_SRL];
   }
-  if (input.SnapshotWindow != null) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
+  if (input[_SW] != null) {
+    entries[_SW] = input[_SW];
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.AuthToken != null) {
-    entries["AuthToken"] = input.AuthToken;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.AuthTokenUpdateStrategy != null) {
-    entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
+  if (input[_ATUS] != null) {
+    entries[_ATUS] = input[_ATUS];
   }
-  if (input.LogDeliveryConfigurations != null) {
-    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
-    if (input.LogDeliveryConfigurations?.length === 0) {
+  if (input[_LDC] != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input[_LDC], context);
+    if (input[_LDC]?.length === 0) {
       entries.LogDeliveryConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9711,8 +9711,8 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.IpDiscovery != null) {
-    entries["IpDiscovery"] = input.IpDiscovery;
+  if (input[_ID] != null) {
+    entries[_ID] = input[_ID];
   }
   return entries;
 };
@@ -9722,12 +9722,12 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
  */
 const se_ModifyCacheParameterGroupMessage = (input: ModifyCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.ParameterNameValues != null) {
-    const memberEntries = se_ParameterNameValueList(input.ParameterNameValues, context);
-    if (input.ParameterNameValues?.length === 0) {
+  if (input[_PNV] != null) {
+    const memberEntries = se_ParameterNameValueList(input[_PNV], context);
+    if (input[_PNV]?.length === 0) {
       entries.ParameterNameValues = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9743,15 +9743,15 @@ const se_ModifyCacheParameterGroupMessage = (input: ModifyCacheParameterGroupMes
  */
 const se_ModifyCacheSubnetGroupMessage = (input: ModifyCacheSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheSubnetGroupName != null) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  if (input[_CSGNa] != null) {
+    entries[_CSGNa] = input[_CSGNa];
   }
-  if (input.CacheSubnetGroupDescription != null) {
-    entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
+  if (input[_CSGD] != null) {
+    entries[_CSGD] = input[_CSGD];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SI] != null) {
+    const memberEntries = se_SubnetIdentifierList(input[_SI], context);
+    if (input[_SI]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9770,26 +9770,26 @@ const se_ModifyGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.GlobalReplicationGroupDescription != null) {
-    entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
+  if (input[_GRGD] != null) {
+    entries[_GRGD] = input[_GRGD];
   }
-  if (input.AutomaticFailoverEnabled != null) {
-    entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
+  if (input[_AFE] != null) {
+    entries[_AFE] = input[_AFE];
   }
   return entries;
 };
@@ -9799,30 +9799,30 @@ const se_ModifyGlobalReplicationGroupMessage = (
  */
 const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.ReplicationGroupDescription != null) {
-    entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
+  if (input[_RGD] != null) {
+    entries[_RGD] = input[_RGD];
   }
-  if (input.PrimaryClusterId != null) {
-    entries["PrimaryClusterId"] = input.PrimaryClusterId;
+  if (input[_PCI] != null) {
+    entries[_PCI] = input[_PCI];
   }
-  if (input.SnapshottingClusterId != null) {
-    entries["SnapshottingClusterId"] = input.SnapshottingClusterId;
+  if (input[_SCI] != null) {
+    entries[_SCI] = input[_SCI];
   }
-  if (input.AutomaticFailoverEnabled != null) {
-    entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
+  if (input[_AFE] != null) {
+    entries[_AFE] = input[_AFE];
   }
-  if (input.MultiAZEnabled != null) {
-    entries["MultiAZEnabled"] = input.MultiAZEnabled;
+  if (input[_MAZE] != null) {
+    entries[_MAZE] = input[_MAZE];
   }
-  if (input.NodeGroupId != null) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input[_NGI] != null) {
+    entries[_NGI] = input[_NGI];
   }
-  if (input.CacheSecurityGroupNames != null) {
-    const memberEntries = se_CacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    if (input.CacheSecurityGroupNames?.length === 0) {
+  if (input[_CSGNac] != null) {
+    const memberEntries = se_CacheSecurityGroupNameList(input[_CSGNac], context);
+    if (input[_CSGNac]?.length === 0) {
       entries.CacheSecurityGroupNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9830,9 +9830,9 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroupIds != null) {
-    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
-    if (input.SecurityGroupIds?.length === 0) {
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdsList(input[_SGI], context);
+    if (input[_SGI]?.length === 0) {
       entries.SecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9840,45 +9840,45 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.NotificationTopicArn != null) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  if (input[_NTA] != null) {
+    entries[_NTA] = input[_NTA];
   }
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.NotificationTopicStatus != null) {
-    entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
+  if (input[_NTS] != null) {
+    entries[_NTS] = input[_NTS];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.SnapshotRetentionLimit != null) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input[_SRL] != null) {
+    entries[_SRL] = input[_SRL];
   }
-  if (input.SnapshotWindow != null) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
+  if (input[_SW] != null) {
+    entries[_SW] = input[_SW];
   }
-  if (input.CacheNodeType != null) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input[_CNT] != null) {
+    entries[_CNT] = input[_CNT];
   }
-  if (input.AuthToken != null) {
-    entries["AuthToken"] = input.AuthToken;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.AuthTokenUpdateStrategy != null) {
-    entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
+  if (input[_ATUS] != null) {
+    entries[_ATUS] = input[_ATUS];
   }
-  if (input.UserGroupIdsToAdd != null) {
-    const memberEntries = se_UserGroupIdList(input.UserGroupIdsToAdd, context);
-    if (input.UserGroupIdsToAdd?.length === 0) {
+  if (input[_UGITA] != null) {
+    const memberEntries = se_UserGroupIdList(input[_UGITA], context);
+    if (input[_UGITA]?.length === 0) {
       entries.UserGroupIdsToAdd = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9886,9 +9886,9 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.UserGroupIdsToRemove != null) {
-    const memberEntries = se_UserGroupIdList(input.UserGroupIdsToRemove, context);
-    if (input.UserGroupIdsToRemove?.length === 0) {
+  if (input[_UGITR] != null) {
+    const memberEntries = se_UserGroupIdList(input[_UGITR], context);
+    if (input[_UGITR]?.length === 0) {
       entries.UserGroupIdsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9896,12 +9896,12 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.RemoveUserGroups != null) {
-    entries["RemoveUserGroups"] = input.RemoveUserGroups;
+  if (input[_RUG] != null) {
+    entries[_RUG] = input[_RUG];
   }
-  if (input.LogDeliveryConfigurations != null) {
-    const memberEntries = se_LogDeliveryConfigurationRequestList(input.LogDeliveryConfigurations, context);
-    if (input.LogDeliveryConfigurations?.length === 0) {
+  if (input[_LDC] != null) {
+    const memberEntries = se_LogDeliveryConfigurationRequestList(input[_LDC], context);
+    if (input[_LDC]?.length === 0) {
       entries.LogDeliveryConfigurations = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9909,17 +9909,17 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
       entries[loc] = value;
     });
   }
-  if (input.IpDiscovery != null) {
-    entries["IpDiscovery"] = input.IpDiscovery;
+  if (input[_ID] != null) {
+    entries[_ID] = input[_ID];
   }
-  if (input.TransitEncryptionEnabled != null) {
-    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  if (input[_TEE] != null) {
+    entries[_TEE] = input[_TEE];
   }
-  if (input.TransitEncryptionMode != null) {
-    entries["TransitEncryptionMode"] = input.TransitEncryptionMode;
+  if (input[_TEM] != null) {
+    entries[_TEM] = input[_TEM];
   }
-  if (input.ClusterMode != null) {
-    entries["ClusterMode"] = input.ClusterMode;
+  if (input[_CMl] != null) {
+    entries[_CMl] = input[_CMl];
   }
   return entries;
 };
@@ -9932,18 +9932,18 @@ const se_ModifyReplicationGroupShardConfigurationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.NodeGroupCount != null) {
-    entries["NodeGroupCount"] = input.NodeGroupCount;
+  if (input[_NGCo] != null) {
+    entries[_NGCo] = input[_NGCo];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.ReshardingConfiguration != null) {
-    const memberEntries = se_ReshardingConfigurationList(input.ReshardingConfiguration, context);
-    if (input.ReshardingConfiguration?.length === 0) {
+  if (input[_RCes] != null) {
+    const memberEntries = se_ReshardingConfigurationList(input[_RCes], context);
+    if (input[_RCes]?.length === 0) {
       entries.ReshardingConfiguration = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9951,9 +9951,9 @@ const se_ModifyReplicationGroupShardConfigurationMessage = (
       entries[loc] = value;
     });
   }
-  if (input.NodeGroupsToRemove != null) {
-    const memberEntries = se_NodeGroupsToRemoveList(input.NodeGroupsToRemove, context);
-    if (input.NodeGroupsToRemove?.length === 0) {
+  if (input[_NGTR] != null) {
+    const memberEntries = se_NodeGroupsToRemoveList(input[_NGTR], context);
+    if (input[_NGTR]?.length === 0) {
       entries.NodeGroupsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9961,9 +9961,9 @@ const se_ModifyReplicationGroupShardConfigurationMessage = (
       entries[loc] = value;
     });
   }
-  if (input.NodeGroupsToRetain != null) {
-    const memberEntries = se_NodeGroupsToRetainList(input.NodeGroupsToRetain, context);
-    if (input.NodeGroupsToRetain?.length === 0) {
+  if (input[_NGTRo] != null) {
+    const memberEntries = se_NodeGroupsToRetainList(input[_NGTRo], context);
+    if (input[_NGTRo]?.length === 0) {
       entries.NodeGroupsToRetain = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -9979,28 +9979,28 @@ const se_ModifyReplicationGroupShardConfigurationMessage = (
  */
 const se_ModifyServerlessCacheRequest = (input: ModifyServerlessCacheRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ServerlessCacheName != null) {
-    entries["ServerlessCacheName"] = input.ServerlessCacheName;
+  if (input[_SCN] != null) {
+    entries[_SCN] = input[_SCN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.CacheUsageLimits != null) {
-    const memberEntries = se_CacheUsageLimits(input.CacheUsageLimits, context);
+  if (input[_CUL] != null) {
+    const memberEntries = se_CacheUsageLimits(input[_CUL], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CacheUsageLimits.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RemoveUserGroup != null) {
-    entries["RemoveUserGroup"] = input.RemoveUserGroup;
+  if (input[_RUGe] != null) {
+    entries[_RUGe] = input[_RUGe];
   }
-  if (input.UserGroupId != null) {
-    entries["UserGroupId"] = input.UserGroupId;
+  if (input[_UGIs] != null) {
+    entries[_UGIs] = input[_UGIs];
   }
-  if (input.SecurityGroupIds != null) {
-    const memberEntries = se_SecurityGroupIdsList(input.SecurityGroupIds, context);
-    if (input.SecurityGroupIds?.length === 0) {
+  if (input[_SGI] != null) {
+    const memberEntries = se_SecurityGroupIdsList(input[_SGI], context);
+    if (input[_SGI]?.length === 0) {
       entries.SecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10008,11 +10008,11 @@ const se_ModifyServerlessCacheRequest = (input: ModifyServerlessCacheRequest, co
       entries[loc] = value;
     });
   }
-  if (input.SnapshotRetentionLimit != null) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input[_SRL] != null) {
+    entries[_SRL] = input[_SRL];
   }
-  if (input.DailySnapshotTime != null) {
-    entries["DailySnapshotTime"] = input.DailySnapshotTime;
+  if (input[_DST] != null) {
+    entries[_DST] = input[_DST];
   }
   return entries;
 };
@@ -10022,12 +10022,12 @@ const se_ModifyServerlessCacheRequest = (input: ModifyServerlessCacheRequest, co
  */
 const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserGroupId != null) {
-    entries["UserGroupId"] = input.UserGroupId;
+  if (input[_UGIs] != null) {
+    entries[_UGIs] = input[_UGIs];
   }
-  if (input.UserIdsToAdd != null) {
-    const memberEntries = se_UserIdListInput(input.UserIdsToAdd, context);
-    if (input.UserIdsToAdd?.length === 0) {
+  if (input[_UITA] != null) {
+    const memberEntries = se_UserIdListInput(input[_UITA], context);
+    if (input[_UITA]?.length === 0) {
       entries.UserIdsToAdd = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10035,9 +10035,9 @@ const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.UserIdsToRemove != null) {
-    const memberEntries = se_UserIdListInput(input.UserIdsToRemove, context);
-    if (input.UserIdsToRemove?.length === 0) {
+  if (input[_UITR] != null) {
+    const memberEntries = se_UserIdListInput(input[_UITR], context);
+    if (input[_UITR]?.length === 0) {
       entries.UserIdsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10053,18 +10053,18 @@ const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __Ser
  */
 const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserId != null) {
-    entries["UserId"] = input.UserId;
+  if (input[_UIs] != null) {
+    entries[_UIs] = input[_UIs];
   }
-  if (input.AccessString != null) {
-    entries["AccessString"] = input.AccessString;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.AppendAccessString != null) {
-    entries["AppendAccessString"] = input.AppendAccessString;
+  if (input[_AAS] != null) {
+    entries[_AAS] = input[_AAS];
   }
-  if (input.Passwords != null) {
-    const memberEntries = se_PasswordListInput(input.Passwords, context);
-    if (input.Passwords?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_PasswordListInput(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Passwords = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10072,11 +10072,11 @@ const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.NoPasswordRequired != null) {
-    entries["NoPasswordRequired"] = input.NoPasswordRequired;
+  if (input[_NPR] != null) {
+    entries[_NPR] = input[_NPR];
   }
-  if (input.AuthenticationMode != null) {
-    const memberEntries = se_AuthenticationMode(input.AuthenticationMode, context);
+  if (input[_AM] != null) {
+    const memberEntries = se_AuthenticationMode(input[_AM], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
@@ -10090,21 +10090,21 @@ const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext)
  */
 const se_NodeGroupConfiguration = (input: NodeGroupConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId != null) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input[_NGI] != null) {
+    entries[_NGI] = input[_NGI];
   }
-  if (input.Slots != null) {
-    entries["Slots"] = input.Slots;
+  if (input[_Sl] != null) {
+    entries[_Sl] = input[_Sl];
   }
-  if (input.ReplicaCount != null) {
-    entries["ReplicaCount"] = input.ReplicaCount;
+  if (input[_RCep] != null) {
+    entries[_RCep] = input[_RCep];
   }
-  if (input.PrimaryAvailabilityZone != null) {
-    entries["PrimaryAvailabilityZone"] = input.PrimaryAvailabilityZone;
+  if (input[_PAZri] != null) {
+    entries[_PAZri] = input[_PAZri];
   }
-  if (input.ReplicaAvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZonesList(input.ReplicaAvailabilityZones, context);
-    if (input.ReplicaAvailabilityZones?.length === 0) {
+  if (input[_RAZ] != null) {
+    const memberEntries = se_AvailabilityZonesList(input[_RAZ], context);
+    if (input[_RAZ]?.length === 0) {
       entries.ReplicaAvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10112,12 +10112,12 @@ const se_NodeGroupConfiguration = (input: NodeGroupConfiguration, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.PrimaryOutpostArn != null) {
-    entries["PrimaryOutpostArn"] = input.PrimaryOutpostArn;
+  if (input[_POAri] != null) {
+    entries[_POAri] = input[_POAri];
   }
-  if (input.ReplicaOutpostArns != null) {
-    const memberEntries = se_OutpostArnsList(input.ReplicaOutpostArns, context);
-    if (input.ReplicaOutpostArns?.length === 0) {
+  if (input[_ROA] != null) {
+    const memberEntries = se_OutpostArnsList(input[_ROA], context);
+    if (input[_ROA]?.length === 0) {
       entries.ReplicaOutpostArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10200,11 +10200,11 @@ const se_OutpostArnsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ParameterNameValue = (input: ParameterNameValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterName != null) {
-    entries["ParameterName"] = input.ParameterName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.ParameterValue != null) {
-    entries["ParameterValue"] = input.ParameterValue;
+  if (input[_PV] != null) {
+    entries[_PV] = input[_PV];
   }
   return entries;
 };
@@ -10284,18 +10284,18 @@ const se_PurchaseReservedCacheNodesOfferingMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedCacheNodesOfferingId != null) {
-    entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
+  if (input[_RCNOI] != null) {
+    entries[_RCNOI] = input[_RCNOI];
   }
-  if (input.ReservedCacheNodeId != null) {
-    entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
+  if (input[_RCNI] != null) {
+    entries[_RCNI] = input[_RCNI];
   }
-  if (input.CacheNodeCount != null) {
-    entries["CacheNodeCount"] = input.CacheNodeCount;
+  if (input[_CNC] != null) {
+    entries[_CNC] = input[_CNC];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10314,11 +10314,11 @@ const se_RebalanceSlotsInGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalReplicationGroupId != null) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input[_GRGI] != null) {
+    entries[_GRGI] = input[_GRGI];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -10328,12 +10328,12 @@ const se_RebalanceSlotsInGlobalReplicationGroupMessage = (
  */
 const se_RebootCacheClusterMessage = (input: RebootCacheClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheClusterId != null) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input[_CCIa] != null) {
+    entries[_CCIa] = input[_CCIa];
   }
-  if (input.CacheNodeIdsToReboot != null) {
-    const memberEntries = se_CacheNodeIdsList(input.CacheNodeIdsToReboot, context);
-    if (input.CacheNodeIdsToReboot?.length === 0) {
+  if (input[_CNITRa] != null) {
+    const memberEntries = se_CacheNodeIdsList(input[_CNITRa], context);
+    if (input[_CNITRa]?.length === 0) {
       entries.CacheNodeIdsToReboot = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10349,15 +10349,15 @@ const se_RebootCacheClusterMessage = (input: RebootCacheClusterMessage, context:
  */
 const se_RegionalConfiguration = (input: RegionalConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.ReplicationGroupRegion != null) {
-    entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
+  if (input[_RGR] != null) {
+    entries[_RGR] = input[_RGR];
   }
-  if (input.ReshardingConfiguration != null) {
-    const memberEntries = se_ReshardingConfigurationList(input.ReshardingConfiguration, context);
-    if (input.ReshardingConfiguration?.length === 0) {
+  if (input[_RCes] != null) {
+    const memberEntries = se_ReshardingConfigurationList(input[_RCes], context);
+    if (input[_RCes]?.length === 0) {
       entries.ReshardingConfiguration = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10408,12 +10408,12 @@ const se_RemoveReplicasList = (input: string[], context: __SerdeContext): any =>
  */
 const se_RemoveTagsFromResourceMessage = (input: RemoveTagsFromResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_KeyList(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_KeyList(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10464,15 +10464,15 @@ const se_ReplicationGroupIdList = (input: string[], context: __SerdeContext): an
  */
 const se_ResetCacheParameterGroupMessage = (input: ResetCacheParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CacheParameterGroupName != null) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input[_CPGN] != null) {
+    entries[_CPGN] = input[_CPGN];
   }
-  if (input.ResetAllParameters != null) {
-    entries["ResetAllParameters"] = input.ResetAllParameters;
+  if (input[_RAP] != null) {
+    entries[_RAP] = input[_RAP];
   }
-  if (input.ParameterNameValues != null) {
-    const memberEntries = se_ParameterNameValueList(input.ParameterNameValues, context);
-    if (input.ParameterNameValues?.length === 0) {
+  if (input[_PNV] != null) {
+    const memberEntries = se_ParameterNameValueList(input[_PNV], context);
+    if (input[_PNV]?.length === 0) {
       entries.ParameterNameValues = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10488,12 +10488,12 @@ const se_ResetCacheParameterGroupMessage = (input: ResetCacheParameterGroupMessa
  */
 const se_ReshardingConfiguration = (input: ReshardingConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId != null) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input[_NGI] != null) {
+    entries[_NGI] = input[_NGI];
   }
-  if (input.PreferredAvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZonesList(input.PreferredAvailabilityZones, context);
-    if (input.PreferredAvailabilityZones?.length === 0) {
+  if (input[_PAZ] != null) {
+    const memberEntries = se_AvailabilityZonesList(input[_PAZ], context);
+    if (input[_PAZ]?.length === 0) {
       entries.PreferredAvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10531,14 +10531,14 @@ const se_RevokeCacheSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheSecurityGroupName != null) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  if (input[_CSGN] != null) {
+    entries[_CSGN] = input[_CSGN];
   }
-  if (input.EC2SecurityGroupName != null) {
-    entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
+  if (input[_ECSGN] != null) {
+    entries[_ECSGN] = input[_ECSGN];
   }
-  if (input.EC2SecurityGroupOwnerId != null) {
-    entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  if (input[_ECSGOI] != null) {
+    entries[_ECSGOI] = input[_ECSGOI];
   }
   return entries;
 };
@@ -10596,12 +10596,12 @@ const se_SnapshotArnsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_StartMigrationMessage = (input: StartMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.CustomerNodeEndpointList != null) {
-    const memberEntries = se_CustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
-    if (input.CustomerNodeEndpointList?.length === 0) {
+  if (input[_CNEL] != null) {
+    const memberEntries = se_CustomerNodeEndpointList(input[_CNEL], context);
+    if (input[_CNEL]?.length === 0) {
       entries.CustomerNodeEndpointList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10649,11 +10649,11 @@ const se_SubnetIdsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -10682,11 +10682,11 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TestFailoverMessage = (input: TestFailoverMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.NodeGroupId != null) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input[_NGI] != null) {
+    entries[_NGI] = input[_NGI];
   }
   return entries;
 };
@@ -10696,12 +10696,12 @@ const se_TestFailoverMessage = (input: TestFailoverMessage, context: __SerdeCont
  */
 const se_TestMigrationMessage = (input: TestMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId != null) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input[_RGIe] != null) {
+    entries[_RGIe] = input[_RGIe];
   }
-  if (input.CustomerNodeEndpointList != null) {
-    const memberEntries = se_CustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
-    if (input.CustomerNodeEndpointList?.length === 0) {
+  if (input[_CNEL] != null) {
+    const memberEntries = se_CustomerNodeEndpointList(input[_CNEL], context);
+    if (input[_CNEL]?.length === 0) {
       entries.CustomerNodeEndpointList = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -10717,11 +10717,11 @@ const se_TestMigrationMessage = (input: TestMigrationMessage, context: __SerdeCo
  */
 const se_TimeRangeFilter = (input: TimeRangeFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -10799,23 +10799,14 @@ const de_AllowedNodeTypeModificationsMessage = (
 ): AllowedNodeTypeModificationsMessage => {
   const contents: any = {};
   if (output.ScaleUpModifications === "") {
-    contents.ScaleUpModifications = [];
-  } else if (output["ScaleUpModifications"] !== undefined && output["ScaleUpModifications"]["member"] !== undefined) {
-    contents.ScaleUpModifications = de_NodeTypeList(
-      __getArrayIfSingleItem(output["ScaleUpModifications"]["member"]),
-      context
-    );
+    contents[_SUM] = [];
+  } else if (output[_SUM] != null && output[_SUM][_m] != null) {
+    contents[_SUM] = de_NodeTypeList(__getArrayIfSingleItem(output[_SUM][_m]), context);
   }
   if (output.ScaleDownModifications === "") {
-    contents.ScaleDownModifications = [];
-  } else if (
-    output["ScaleDownModifications"] !== undefined &&
-    output["ScaleDownModifications"]["member"] !== undefined
-  ) {
-    contents.ScaleDownModifications = de_NodeTypeList(
-      __getArrayIfSingleItem(output["ScaleDownModifications"]["member"]),
-      context
-    );
+    contents[_SDM] = [];
+  } else if (output[_SDM] != null && output[_SDM][_m] != null) {
+    contents[_SDM] = de_NodeTypeList(__getArrayIfSingleItem(output[_SDM][_m]), context);
   }
   return contents;
 };
@@ -10828,8 +10819,8 @@ const de_APICallRateForCustomerExceededFault = (
   context: __SerdeContext
 ): APICallRateForCustomerExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -10839,11 +10830,11 @@ const de_APICallRateForCustomerExceededFault = (
  */
 const de_Authentication = (output: any, context: __SerdeContext): Authentication => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
-  if (output["PasswordCount"] !== undefined) {
-    contents.PasswordCount = __strictParseInt32(output["PasswordCount"]) as number;
+  if (output[_PC] != null) {
+    contents[_PC] = __strictParseInt32(output[_PC]) as number;
   }
   return contents;
 };
@@ -10853,8 +10844,8 @@ const de_Authentication = (output: any, context: __SerdeContext): Authentication
  */
 const de_AuthorizationAlreadyExistsFault = (output: any, context: __SerdeContext): AuthorizationAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -10864,8 +10855,8 @@ const de_AuthorizationAlreadyExistsFault = (output: any, context: __SerdeContext
  */
 const de_AuthorizationNotFoundFault = (output: any, context: __SerdeContext): AuthorizationNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -10878,8 +10869,8 @@ const de_AuthorizeCacheSecurityGroupIngressResult = (
   context: __SerdeContext
 ): AuthorizeCacheSecurityGroupIngressResult => {
   const contents: any = {};
-  if (output["CacheSecurityGroup"] !== undefined) {
-    contents.CacheSecurityGroup = de_CacheSecurityGroup(output["CacheSecurityGroup"], context);
+  if (output[_CSG] != null) {
+    contents[_CSG] = de_CacheSecurityGroup(output[_CSG], context);
   }
   return contents;
 };
@@ -10889,8 +10880,8 @@ const de_AuthorizeCacheSecurityGroupIngressResult = (
  */
 const de_AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   return contents;
 };
@@ -10911,131 +10902,112 @@ const de_AvailabilityZonesList = (output: any, context: __SerdeContext): string[
  */
 const de_CacheCluster = (output: any, context: __SerdeContext): CacheCluster => {
   const contents: any = {};
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["ConfigurationEndpoint"] !== undefined) {
-    contents.ConfigurationEndpoint = de_Endpoint(output["ConfigurationEndpoint"], context);
+  if (output[_CE] != null) {
+    contents[_CE] = de_Endpoint(output[_CE], context);
   }
-  if (output["ClientDownloadLandingPage"] !== undefined) {
-    contents.ClientDownloadLandingPage = __expectString(output["ClientDownloadLandingPage"]);
+  if (output[_CDLP] != null) {
+    contents[_CDLP] = __expectString(output[_CDLP]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["CacheClusterStatus"] !== undefined) {
-    contents.CacheClusterStatus = __expectString(output["CacheClusterStatus"]);
+  if (output[_CCS] != null) {
+    contents[_CCS] = __expectString(output[_CCS]);
   }
-  if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
+  if (output[_NCN] != null) {
+    contents[_NCN] = __strictParseInt32(output[_NCN]) as number;
   }
-  if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
+  if (output[_PAZr] != null) {
+    contents[_PAZr] = __expectString(output[_PAZr]);
   }
-  if (output["PreferredOutpostArn"] !== undefined) {
-    contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
+  if (output[_POAr] != null) {
+    contents[_POAr] = __expectString(output[_POAr]);
   }
-  if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["CacheClusterCreateTime"])
-    );
+  if (output[_CCCT] != null) {
+    contents[_CCCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCCT]));
   }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  if (output[_PMW] != null) {
+    contents[_PMW] = __expectString(output[_PMW]);
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = de_PendingModifiedValues(output["PendingModifiedValues"], context);
+  if (output[_PMV] != null) {
+    contents[_PMV] = de_PendingModifiedValues(output[_PMV], context);
   }
-  if (output["NotificationConfiguration"] !== undefined) {
-    contents.NotificationConfiguration = de_NotificationConfiguration(output["NotificationConfiguration"], context);
+  if (output[_NC] != null) {
+    contents[_NC] = de_NotificationConfiguration(output[_NC], context);
   }
   if (output.CacheSecurityGroups === "") {
-    contents.CacheSecurityGroups = [];
-  } else if (
-    output["CacheSecurityGroups"] !== undefined &&
-    output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
-  ) {
-    contents.CacheSecurityGroups = de_CacheSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["CacheSecurityGroups"]["CacheSecurityGroup"]),
-      context
-    );
+    contents[_CSGa] = [];
+  } else if (output[_CSGa] != null && output[_CSGa][_CSG] != null) {
+    contents[_CSGa] = de_CacheSecurityGroupMembershipList(__getArrayIfSingleItem(output[_CSGa][_CSG]), context);
   }
-  if (output["CacheParameterGroup"] !== undefined) {
-    contents.CacheParameterGroup = de_CacheParameterGroupStatus(output["CacheParameterGroup"], context);
+  if (output[_CPG] != null) {
+    contents[_CPG] = de_CacheParameterGroupStatus(output[_CPG], context);
   }
-  if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
+  if (output[_CSGNa] != null) {
+    contents[_CSGNa] = __expectString(output[_CSGNa]);
   }
   if (output.CacheNodes === "") {
-    contents.CacheNodes = [];
-  } else if (output["CacheNodes"] !== undefined && output["CacheNodes"]["CacheNode"] !== undefined) {
-    contents.CacheNodes = de_CacheNodeList(__getArrayIfSingleItem(output["CacheNodes"]["CacheNode"]), context);
+    contents[_CN] = [];
+  } else if (output[_CN] != null && output[_CN][_CNa] != null) {
+    contents[_CN] = de_CacheNodeList(__getArrayIfSingleItem(output[_CN][_CNa]), context);
   }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  if (output[_AMVU] != null) {
+    contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
   if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = de_SecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
-      context
-    );
+    contents[_SG] = [];
+  } else if (output[_SG] != null && output[_SG][_m] != null) {
+    contents[_SG] = de_SecurityGroupMembershipList(__getArrayIfSingleItem(output[_SG][_m]), context);
   }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
+  if (output[_SRL] != null) {
+    contents[_SRL] = __strictParseInt32(output[_SRL]) as number;
   }
-  if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
+  if (output[_SW] != null) {
+    contents[_SW] = __expectString(output[_SW]);
   }
-  if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
+  if (output[_ATE] != null) {
+    contents[_ATE] = __parseBoolean(output[_ATE]);
   }
-  if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["AuthTokenLastModifiedDate"])
-    );
+  if (output[_ATLMD] != null) {
+    contents[_ATLMD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ATLMD]));
   }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  if (output[_TEE] != null) {
+    contents[_TEE] = __parseBoolean(output[_TEE]);
   }
-  if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
+  if (output[_AREE] != null) {
+    contents[_AREE] = __parseBoolean(output[_AREE]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["ReplicationGroupLogDeliveryEnabled"] !== undefined) {
-    contents.ReplicationGroupLogDeliveryEnabled = __parseBoolean(output["ReplicationGroupLogDeliveryEnabled"]);
+  if (output[_RGLDE] != null) {
+    contents[_RGLDE] = __parseBoolean(output[_RGLDE]);
   }
   if (output.LogDeliveryConfigurations === "") {
-    contents.LogDeliveryConfigurations = [];
-  } else if (
-    output["LogDeliveryConfigurations"] !== undefined &&
-    output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"] !== undefined
-  ) {
-    contents.LogDeliveryConfigurations = de_LogDeliveryConfigurationList(
-      __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
-      context
-    );
+    contents[_LDC] = [];
+  } else if (output[_LDC] != null && output[_LDC][_LDCo] != null) {
+    contents[_LDC] = de_LogDeliveryConfigurationList(__getArrayIfSingleItem(output[_LDC][_LDCo]), context);
   }
-  if (output["NetworkType"] !== undefined) {
-    contents.NetworkType = __expectString(output["NetworkType"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
-  if (output["IpDiscovery"] !== undefined) {
-    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __expectString(output[_ID]);
   }
-  if (output["TransitEncryptionMode"] !== undefined) {
-    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  if (output[_TEM] != null) {
+    contents[_TEM] = __expectString(output[_TEM]);
   }
   return contents;
 };
@@ -11045,8 +11017,8 @@ const de_CacheCluster = (output: any, context: __SerdeContext): CacheCluster => 
  */
 const de_CacheClusterAlreadyExistsFault = (output: any, context: __SerdeContext): CacheClusterAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11067,16 +11039,13 @@ const de_CacheClusterList = (output: any, context: __SerdeContext): CacheCluster
  */
 const de_CacheClusterMessage = (output: any, context: __SerdeContext): CacheClusterMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.CacheClusters === "") {
-    contents.CacheClusters = [];
-  } else if (output["CacheClusters"] !== undefined && output["CacheClusters"]["CacheCluster"] !== undefined) {
-    contents.CacheClusters = de_CacheClusterList(
-      __getArrayIfSingleItem(output["CacheClusters"]["CacheCluster"]),
-      context
-    );
+    contents[_CC] = [];
+  } else if (output[_CC] != null && output[_CC][_CCa] != null) {
+    contents[_CC] = de_CacheClusterList(__getArrayIfSingleItem(output[_CC][_CCa]), context);
   }
   return contents;
 };
@@ -11086,8 +11055,8 @@ const de_CacheClusterMessage = (output: any, context: __SerdeContext): CacheClus
  */
 const de_CacheClusterNotFoundFault = (output: any, context: __SerdeContext): CacheClusterNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11097,20 +11066,20 @@ const de_CacheClusterNotFoundFault = (output: any, context: __SerdeContext): Cac
  */
 const de_CacheEngineVersion = (output: any, context: __SerdeContext): CacheEngineVersion => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["CacheParameterGroupFamily"] !== undefined) {
-    contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
+  if (output[_CPGF] != null) {
+    contents[_CPGF] = __expectString(output[_CPGF]);
   }
-  if (output["CacheEngineDescription"] !== undefined) {
-    contents.CacheEngineDescription = __expectString(output["CacheEngineDescription"]);
+  if (output[_CED] != null) {
+    contents[_CED] = __expectString(output[_CED]);
   }
-  if (output["CacheEngineVersionDescription"] !== undefined) {
-    contents.CacheEngineVersionDescription = __expectString(output["CacheEngineVersionDescription"]);
+  if (output[_CEVD] != null) {
+    contents[_CEVD] = __expectString(output[_CEVD]);
   }
   return contents;
 };
@@ -11131,19 +11100,13 @@ const de_CacheEngineVersionList = (output: any, context: __SerdeContext): CacheE
  */
 const de_CacheEngineVersionMessage = (output: any, context: __SerdeContext): CacheEngineVersionMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.CacheEngineVersions === "") {
-    contents.CacheEngineVersions = [];
-  } else if (
-    output["CacheEngineVersions"] !== undefined &&
-    output["CacheEngineVersions"]["CacheEngineVersion"] !== undefined
-  ) {
-    contents.CacheEngineVersions = de_CacheEngineVersionList(
-      __getArrayIfSingleItem(output["CacheEngineVersions"]["CacheEngineVersion"]),
-      context
-    );
+    contents[_CEV] = [];
+  } else if (output[_CEV] != null && output[_CEV][_CEVa] != null) {
+    contents[_CEV] = de_CacheEngineVersionList(__getArrayIfSingleItem(output[_CEV][_CEVa]), context);
   }
   return contents;
 };
@@ -11153,29 +11116,29 @@ const de_CacheEngineVersionMessage = (output: any, context: __SerdeContext): Cac
  */
 const de_CacheNode = (output: any, context: __SerdeContext): CacheNode => {
   const contents: any = {};
-  if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
+  if (output[_CNI] != null) {
+    contents[_CNI] = __expectString(output[_CNI]);
   }
-  if (output["CacheNodeStatus"] !== undefined) {
-    contents.CacheNodeStatus = __expectString(output["CacheNodeStatus"]);
+  if (output[_CNS] != null) {
+    contents[_CNS] = __expectString(output[_CNS]);
   }
-  if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CacheNodeCreateTime"]));
+  if (output[_CNCT] != null) {
+    contents[_CNCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CNCT]));
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = de_Endpoint(output["Endpoint"], context);
+  if (output[_End] != null) {
+    contents[_End] = de_Endpoint(output[_End], context);
   }
-  if (output["ParameterGroupStatus"] !== undefined) {
-    contents.ParameterGroupStatus = __expectString(output["ParameterGroupStatus"]);
+  if (output[_PGS] != null) {
+    contents[_PGS] = __expectString(output[_PGS]);
   }
-  if (output["SourceCacheNodeId"] !== undefined) {
-    contents.SourceCacheNodeId = __expectString(output["SourceCacheNodeId"]);
+  if (output[_SCNIo] != null) {
+    contents[_SCNIo] = __expectString(output[_SCNIo]);
   }
-  if (output["CustomerAvailabilityZone"] !== undefined) {
-    contents.CustomerAvailabilityZone = __expectString(output["CustomerAvailabilityZone"]);
+  if (output[_CAZ] != null) {
+    contents[_CAZ] = __expectString(output[_CAZ]);
   }
-  if (output["CustomerOutpostArn"] !== undefined) {
-    contents.CustomerOutpostArn = __expectString(output["CustomerOutpostArn"]);
+  if (output[_COA] != null) {
+    contents[_COA] = __expectString(output[_COA]);
   }
   return contents;
 };
@@ -11207,40 +11170,34 @@ const de_CacheNodeList = (output: any, context: __SerdeContext): CacheNode[] => 
  */
 const de_CacheNodeTypeSpecificParameter = (output: any, context: __SerdeContext): CacheNodeTypeSpecificParameter => {
   const contents: any = {};
-  if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = __expectString(output["ParameterName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Source"] !== undefined) {
-    contents.Source = __expectString(output["Source"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["DataType"] !== undefined) {
-    contents.DataType = __expectString(output["DataType"]);
+  if (output[_DTa] != null) {
+    contents[_DTa] = __expectString(output[_DTa]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
+  if (output[_IM] != null) {
+    contents[_IM] = __parseBoolean(output[_IM]);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEVi] != null) {
+    contents[_MEVi] = __expectString(output[_MEVi]);
   }
   if (output.CacheNodeTypeSpecificValues === "") {
-    contents.CacheNodeTypeSpecificValues = [];
-  } else if (
-    output["CacheNodeTypeSpecificValues"] !== undefined &&
-    output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"] !== undefined
-  ) {
-    contents.CacheNodeTypeSpecificValues = de_CacheNodeTypeSpecificValueList(
-      __getArrayIfSingleItem(output["CacheNodeTypeSpecificValues"]["CacheNodeTypeSpecificValue"]),
-      context
-    );
+    contents[_CNTSV] = [];
+  } else if (output[_CNTSV] != null && output[_CNTSV][_CNTSVa] != null) {
+    contents[_CNTSV] = de_CacheNodeTypeSpecificValueList(__getArrayIfSingleItem(output[_CNTSV][_CNTSVa]), context);
   }
-  if (output["ChangeType"] !== undefined) {
-    contents.ChangeType = __expectString(output["ChangeType"]);
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   return contents;
 };
@@ -11264,11 +11221,11 @@ const de_CacheNodeTypeSpecificParametersList = (
  */
 const de_CacheNodeTypeSpecificValue = (output: any, context: __SerdeContext): CacheNodeTypeSpecificValue => {
   const contents: any = {};
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -11289,33 +11246,29 @@ const de_CacheNodeTypeSpecificValueList = (output: any, context: __SerdeContext)
  */
 const de_CacheNodeUpdateStatus = (output: any, context: __SerdeContext): CacheNodeUpdateStatus => {
   const contents: any = {};
-  if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
+  if (output[_CNI] != null) {
+    contents[_CNI] = __expectString(output[_CNI]);
   }
-  if (output["NodeUpdateStatus"] !== undefined) {
-    contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
+  if (output[_NUS] != null) {
+    contents[_NUS] = __expectString(output[_NUS]);
   }
-  if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeDeletionDate"]));
+  if (output[_NDD] != null) {
+    contents[_NDD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NDD]));
   }
-  if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateStartDate"]));
+  if (output[_NUSD] != null) {
+    contents[_NUSD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUSD]));
   }
-  if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateEndDate"]));
+  if (output[_NUED] != null) {
+    contents[_NUED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUED]));
   }
-  if (output["NodeUpdateInitiatedBy"] !== undefined) {
-    contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
+  if (output[_NUIB] != null) {
+    contents[_NUIB] = __expectString(output[_NUIB]);
   }
-  if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["NodeUpdateInitiatedDate"])
-    );
+  if (output[_NUID] != null) {
+    contents[_NUID] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUID]));
   }
-  if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
-    contents.NodeUpdateStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["NodeUpdateStatusModifiedDate"])
-    );
+  if (output[_NUSMD] != null) {
+    contents[_NUSMD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUSMD]));
   }
   return contents;
 };
@@ -11336,20 +11289,20 @@ const de_CacheNodeUpdateStatusList = (output: any, context: __SerdeContext): Cac
  */
 const de_CacheParameterGroup = (output: any, context: __SerdeContext): CacheParameterGroup => {
   const contents: any = {};
-  if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
+  if (output[_CPGN] != null) {
+    contents[_CPGN] = __expectString(output[_CPGN]);
   }
-  if (output["CacheParameterGroupFamily"] !== undefined) {
-    contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
+  if (output[_CPGF] != null) {
+    contents[_CPGF] = __expectString(output[_CPGF]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["IsGlobal"] !== undefined) {
-    contents.IsGlobal = __parseBoolean(output["IsGlobal"]);
+  if (output[_IG] != null) {
+    contents[_IG] = __parseBoolean(output[_IG]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   return contents;
 };
@@ -11362,8 +11315,8 @@ const de_CacheParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheParameterGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11373,24 +11326,18 @@ const de_CacheParameterGroupAlreadyExistsFault = (
  */
 const de_CacheParameterGroupDetails = (output: any, context: __SerdeContext): CacheParameterGroupDetails => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
   if (output.CacheNodeTypeSpecificParameters === "") {
-    contents.CacheNodeTypeSpecificParameters = [];
-  } else if (
-    output["CacheNodeTypeSpecificParameters"] !== undefined &&
-    output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"] !== undefined
-  ) {
-    contents.CacheNodeTypeSpecificParameters = de_CacheNodeTypeSpecificParametersList(
-      __getArrayIfSingleItem(output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"]),
-      context
-    );
+    contents[_CNTSP] = [];
+  } else if (output[_CNTSP] != null && output[_CNTSP][_CNTSPa] != null) {
+    contents[_CNTSP] = de_CacheNodeTypeSpecificParametersList(__getArrayIfSingleItem(output[_CNTSP][_CNTSPa]), context);
   }
   return contents;
 };
@@ -11411,8 +11358,8 @@ const de_CacheParameterGroupList = (output: any, context: __SerdeContext): Cache
  */
 const de_CacheParameterGroupNameMessage = (output: any, context: __SerdeContext): CacheParameterGroupNameMessage => {
   const contents: any = {};
-  if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
+  if (output[_CPGN] != null) {
+    contents[_CPGN] = __expectString(output[_CPGN]);
   }
   return contents;
 };
@@ -11425,8 +11372,8 @@ const de_CacheParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): CacheParameterGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11439,8 +11386,8 @@ const de_CacheParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): CacheParameterGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11450,19 +11397,13 @@ const de_CacheParameterGroupQuotaExceededFault = (
  */
 const de_CacheParameterGroupsMessage = (output: any, context: __SerdeContext): CacheParameterGroupsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.CacheParameterGroups === "") {
-    contents.CacheParameterGroups = [];
-  } else if (
-    output["CacheParameterGroups"] !== undefined &&
-    output["CacheParameterGroups"]["CacheParameterGroup"] !== undefined
-  ) {
-    contents.CacheParameterGroups = de_CacheParameterGroupList(
-      __getArrayIfSingleItem(output["CacheParameterGroups"]["CacheParameterGroup"]),
-      context
-    );
+    contents[_CPGa] = [];
+  } else if (output[_CPGa] != null && output[_CPGa][_CPG] != null) {
+    contents[_CPGa] = de_CacheParameterGroupList(__getArrayIfSingleItem(output[_CPGa][_CPG]), context);
   }
   return contents;
 };
@@ -11472,22 +11413,16 @@ const de_CacheParameterGroupsMessage = (output: any, context: __SerdeContext): C
  */
 const de_CacheParameterGroupStatus = (output: any, context: __SerdeContext): CacheParameterGroupStatus => {
   const contents: any = {};
-  if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
+  if (output[_CPGN] != null) {
+    contents[_CPGN] = __expectString(output[_CPGN]);
   }
-  if (output["ParameterApplyStatus"] !== undefined) {
-    contents.ParameterApplyStatus = __expectString(output["ParameterApplyStatus"]);
+  if (output[_PAS] != null) {
+    contents[_PAS] = __expectString(output[_PAS]);
   }
   if (output.CacheNodeIdsToReboot === "") {
-    contents.CacheNodeIdsToReboot = [];
-  } else if (
-    output["CacheNodeIdsToReboot"] !== undefined &&
-    output["CacheNodeIdsToReboot"]["CacheNodeId"] !== undefined
-  ) {
-    contents.CacheNodeIdsToReboot = de_CacheNodeIdsList(
-      __getArrayIfSingleItem(output["CacheNodeIdsToReboot"]["CacheNodeId"]),
-      context
-    );
+    contents[_CNITRa] = [];
+  } else if (output[_CNITRa] != null && output[_CNITRa][_CNI] != null) {
+    contents[_CNITRa] = de_CacheNodeIdsList(__getArrayIfSingleItem(output[_CNITRa][_CNI]), context);
   }
   return contents;
 };
@@ -11497,28 +11432,22 @@ const de_CacheParameterGroupStatus = (output: any, context: __SerdeContext): Cac
  */
 const de_CacheSecurityGroup = (output: any, context: __SerdeContext): CacheSecurityGroup => {
   const contents: any = {};
-  if (output["OwnerId"] !== undefined) {
-    contents.OwnerId = __expectString(output["OwnerId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
-  if (output["CacheSecurityGroupName"] !== undefined) {
-    contents.CacheSecurityGroupName = __expectString(output["CacheSecurityGroupName"]);
+  if (output[_CSGN] != null) {
+    contents[_CSGN] = __expectString(output[_CSGN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   if (output.EC2SecurityGroups === "") {
-    contents.EC2SecurityGroups = [];
-  } else if (
-    output["EC2SecurityGroups"] !== undefined &&
-    output["EC2SecurityGroups"]["EC2SecurityGroup"] !== undefined
-  ) {
-    contents.EC2SecurityGroups = de_EC2SecurityGroupList(
-      __getArrayIfSingleItem(output["EC2SecurityGroups"]["EC2SecurityGroup"]),
-      context
-    );
+    contents[_ECSG] = [];
+  } else if (output[_ECSG] != null && output[_ECSG][_ECSGe] != null) {
+    contents[_ECSG] = de_EC2SecurityGroupList(__getArrayIfSingleItem(output[_ECSG][_ECSGe]), context);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   return contents;
 };
@@ -11531,8 +11460,8 @@ const de_CacheSecurityGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheSecurityGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11542,11 +11471,11 @@ const de_CacheSecurityGroupAlreadyExistsFault = (
  */
 const de_CacheSecurityGroupMembership = (output: any, context: __SerdeContext): CacheSecurityGroupMembership => {
   const contents: any = {};
-  if (output["CacheSecurityGroupName"] !== undefined) {
-    contents.CacheSecurityGroupName = __expectString(output["CacheSecurityGroupName"]);
+  if (output[_CSGN] != null) {
+    contents[_CSGN] = __expectString(output[_CSGN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -11567,19 +11496,13 @@ const de_CacheSecurityGroupMembershipList = (output: any, context: __SerdeContex
  */
 const de_CacheSecurityGroupMessage = (output: any, context: __SerdeContext): CacheSecurityGroupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.CacheSecurityGroups === "") {
-    contents.CacheSecurityGroups = [];
-  } else if (
-    output["CacheSecurityGroups"] !== undefined &&
-    output["CacheSecurityGroups"]["CacheSecurityGroup"] !== undefined
-  ) {
-    contents.CacheSecurityGroups = de_CacheSecurityGroups(
-      __getArrayIfSingleItem(output["CacheSecurityGroups"]["CacheSecurityGroup"]),
-      context
-    );
+    contents[_CSGa] = [];
+  } else if (output[_CSGa] != null && output[_CSGa][_CSG] != null) {
+    contents[_CSGa] = de_CacheSecurityGroups(__getArrayIfSingleItem(output[_CSGa][_CSG]), context);
   }
   return contents;
 };
@@ -11589,8 +11512,8 @@ const de_CacheSecurityGroupMessage = (output: any, context: __SerdeContext): Cac
  */
 const de_CacheSecurityGroupNotFoundFault = (output: any, context: __SerdeContext): CacheSecurityGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11603,8 +11526,8 @@ const de_CacheSecurityGroupQuotaExceededFault = (
   context: __SerdeContext
 ): CacheSecurityGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11625,30 +11548,27 @@ const de_CacheSecurityGroups = (output: any, context: __SerdeContext): CacheSecu
  */
 const de_CacheSubnetGroup = (output: any, context: __SerdeContext): CacheSubnetGroup => {
   const contents: any = {};
-  if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
+  if (output[_CSGNa] != null) {
+    contents[_CSGNa] = __expectString(output[_CSGNa]);
   }
-  if (output["CacheSubnetGroupDescription"] !== undefined) {
-    contents.CacheSubnetGroupDescription = __expectString(output["CacheSubnetGroupDescription"]);
+  if (output[_CSGD] != null) {
+    contents[_CSGD] = __expectString(output[_CSGD]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
   if (output.Subnets === "") {
-    contents.Subnets = [];
-  } else if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
-    contents.Subnets = de_SubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_Sub] != null) {
+    contents[_Su] = de_SubnetList(__getArrayIfSingleItem(output[_Su][_Sub]), context);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   if (output.SupportedNetworkTypes === "") {
-    contents.SupportedNetworkTypes = [];
-  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
-    contents.SupportedNetworkTypes = de_NetworkTypeList(
-      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
-      context
-    );
+    contents[_SNT] = [];
+  } else if (output[_SNT] != null && output[_SNT][_m] != null) {
+    contents[_SNT] = de_NetworkTypeList(__getArrayIfSingleItem(output[_SNT][_m]), context);
   }
   return contents;
 };
@@ -11661,8 +11581,8 @@ const de_CacheSubnetGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): CacheSubnetGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11672,8 +11592,8 @@ const de_CacheSubnetGroupAlreadyExistsFault = (
  */
 const de_CacheSubnetGroupInUse = (output: any, context: __SerdeContext): CacheSubnetGroupInUse => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11683,19 +11603,13 @@ const de_CacheSubnetGroupInUse = (output: any, context: __SerdeContext): CacheSu
  */
 const de_CacheSubnetGroupMessage = (output: any, context: __SerdeContext): CacheSubnetGroupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.CacheSubnetGroups === "") {
-    contents.CacheSubnetGroups = [];
-  } else if (
-    output["CacheSubnetGroups"] !== undefined &&
-    output["CacheSubnetGroups"]["CacheSubnetGroup"] !== undefined
-  ) {
-    contents.CacheSubnetGroups = de_CacheSubnetGroups(
-      __getArrayIfSingleItem(output["CacheSubnetGroups"]["CacheSubnetGroup"]),
-      context
-    );
+    contents[_CSGac] = [];
+  } else if (output[_CSGac] != null && output[_CSGac][_CSGach] != null) {
+    contents[_CSGac] = de_CacheSubnetGroups(__getArrayIfSingleItem(output[_CSGac][_CSGach]), context);
   }
   return contents;
 };
@@ -11705,8 +11619,8 @@ const de_CacheSubnetGroupMessage = (output: any, context: __SerdeContext): Cache
  */
 const de_CacheSubnetGroupNotFoundFault = (output: any, context: __SerdeContext): CacheSubnetGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11719,8 +11633,8 @@ const de_CacheSubnetGroupQuotaExceededFault = (
   context: __SerdeContext
 ): CacheSubnetGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11741,8 +11655,8 @@ const de_CacheSubnetGroups = (output: any, context: __SerdeContext): CacheSubnet
  */
 const de_CacheSubnetQuotaExceededFault = (output: any, context: __SerdeContext): CacheSubnetQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11752,11 +11666,11 @@ const de_CacheSubnetQuotaExceededFault = (output: any, context: __SerdeContext):
  */
 const de_CacheUsageLimits = (output: any, context: __SerdeContext): CacheUsageLimits => {
   const contents: any = {};
-  if (output["DataStorage"] !== undefined) {
-    contents.DataStorage = de_DataStorage(output["DataStorage"], context);
+  if (output[_DSa] != null) {
+    contents[_DSa] = de_DataStorage(output[_DSa], context);
   }
-  if (output["ECPUPerSecond"] !== undefined) {
-    contents.ECPUPerSecond = de_ECPUPerSecond(output["ECPUPerSecond"], context);
+  if (output[_ECPUPS] != null) {
+    contents[_ECPUPS] = de_ECPUPerSecond(output[_ECPUPS], context);
   }
   return contents;
 };
@@ -11769,8 +11683,8 @@ const de_CloudWatchLogsDestinationDetails = (
   context: __SerdeContext
 ): CloudWatchLogsDestinationDetails => {
   const contents: any = {};
-  if (output["LogGroup"] !== undefined) {
-    contents.LogGroup = __expectString(output["LogGroup"]);
+  if (output[_LG] != null) {
+    contents[_LG] = __expectString(output[_LG]);
   }
   return contents;
 };
@@ -11794,8 +11708,8 @@ const de_ClusterQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): ClusterQuotaForCustomerExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11805,8 +11719,8 @@ const de_ClusterQuotaForCustomerExceededFault = (
  */
 const de_CompleteMigrationResponse = (output: any, context: __SerdeContext): CompleteMigrationResponse => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -11819,8 +11733,8 @@ const de_CopyServerlessCacheSnapshotResponse = (
   context: __SerdeContext
 ): CopyServerlessCacheSnapshotResponse => {
   const contents: any = {};
-  if (output["ServerlessCacheSnapshot"] !== undefined) {
-    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
+  if (output[_SCS] != null) {
+    contents[_SCS] = de_ServerlessCacheSnapshot(output[_SCS], context);
   }
   return contents;
 };
@@ -11830,8 +11744,8 @@ const de_CopyServerlessCacheSnapshotResponse = (
  */
 const de_CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
   const contents: any = {};
-  if (output["Snapshot"] !== undefined) {
-    contents.Snapshot = de_Snapshot(output["Snapshot"], context);
+  if (output[_Sn] != null) {
+    contents[_Sn] = de_Snapshot(output[_Sn], context);
   }
   return contents;
 };
@@ -11841,8 +11755,8 @@ const de_CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapsh
  */
 const de_CreateCacheClusterResult = (output: any, context: __SerdeContext): CreateCacheClusterResult => {
   const contents: any = {};
-  if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
+  if (output[_CCa] != null) {
+    contents[_CCa] = de_CacheCluster(output[_CCa], context);
   }
   return contents;
 };
@@ -11852,8 +11766,8 @@ const de_CreateCacheClusterResult = (output: any, context: __SerdeContext): Crea
  */
 const de_CreateCacheParameterGroupResult = (output: any, context: __SerdeContext): CreateCacheParameterGroupResult => {
   const contents: any = {};
-  if (output["CacheParameterGroup"] !== undefined) {
-    contents.CacheParameterGroup = de_CacheParameterGroup(output["CacheParameterGroup"], context);
+  if (output[_CPG] != null) {
+    contents[_CPG] = de_CacheParameterGroup(output[_CPG], context);
   }
   return contents;
 };
@@ -11863,8 +11777,8 @@ const de_CreateCacheParameterGroupResult = (output: any, context: __SerdeContext
  */
 const de_CreateCacheSecurityGroupResult = (output: any, context: __SerdeContext): CreateCacheSecurityGroupResult => {
   const contents: any = {};
-  if (output["CacheSecurityGroup"] !== undefined) {
-    contents.CacheSecurityGroup = de_CacheSecurityGroup(output["CacheSecurityGroup"], context);
+  if (output[_CSG] != null) {
+    contents[_CSG] = de_CacheSecurityGroup(output[_CSG], context);
   }
   return contents;
 };
@@ -11874,8 +11788,8 @@ const de_CreateCacheSecurityGroupResult = (output: any, context: __SerdeContext)
  */
 const de_CreateCacheSubnetGroupResult = (output: any, context: __SerdeContext): CreateCacheSubnetGroupResult => {
   const contents: any = {};
-  if (output["CacheSubnetGroup"] !== undefined) {
-    contents.CacheSubnetGroup = de_CacheSubnetGroup(output["CacheSubnetGroup"], context);
+  if (output[_CSGach] != null) {
+    contents[_CSGach] = de_CacheSubnetGroup(output[_CSGach], context);
   }
   return contents;
 };
@@ -11888,8 +11802,8 @@ const de_CreateGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): CreateGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -11899,8 +11813,8 @@ const de_CreateGlobalReplicationGroupResult = (
  */
 const de_CreateReplicationGroupResult = (output: any, context: __SerdeContext): CreateReplicationGroupResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -11910,8 +11824,8 @@ const de_CreateReplicationGroupResult = (output: any, context: __SerdeContext): 
  */
 const de_CreateServerlessCacheResponse = (output: any, context: __SerdeContext): CreateServerlessCacheResponse => {
   const contents: any = {};
-  if (output["ServerlessCache"] !== undefined) {
-    contents.ServerlessCache = de_ServerlessCache(output["ServerlessCache"], context);
+  if (output[_SC] != null) {
+    contents[_SC] = de_ServerlessCache(output[_SC], context);
   }
   return contents;
 };
@@ -11924,8 +11838,8 @@ const de_CreateServerlessCacheSnapshotResponse = (
   context: __SerdeContext
 ): CreateServerlessCacheSnapshotResponse => {
   const contents: any = {};
-  if (output["ServerlessCacheSnapshot"] !== undefined) {
-    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
+  if (output[_SCS] != null) {
+    contents[_SCS] = de_ServerlessCacheSnapshot(output[_SCS], context);
   }
   return contents;
 };
@@ -11935,8 +11849,8 @@ const de_CreateServerlessCacheSnapshotResponse = (
  */
 const de_CreateSnapshotResult = (output: any, context: __SerdeContext): CreateSnapshotResult => {
   const contents: any = {};
-  if (output["Snapshot"] !== undefined) {
-    contents.Snapshot = de_Snapshot(output["Snapshot"], context);
+  if (output[_Sn] != null) {
+    contents[_Sn] = de_Snapshot(output[_Sn], context);
   }
   return contents;
 };
@@ -11946,11 +11860,11 @@ const de_CreateSnapshotResult = (output: any, context: __SerdeContext): CreateSn
  */
 const de_DataStorage = (output: any, context: __SerdeContext): DataStorage => {
   const contents: any = {};
-  if (output["Maximum"] !== undefined) {
-    contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
+  if (output[_M] != null) {
+    contents[_M] = __strictParseInt32(output[_M]) as number;
   }
-  if (output["Unit"] !== undefined) {
-    contents.Unit = __expectString(output["Unit"]);
+  if (output[_U] != null) {
+    contents[_U] = __expectString(output[_U]);
   }
   return contents;
 };
@@ -11963,8 +11877,8 @@ const de_DecreaseNodeGroupsInGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): DecreaseNodeGroupsInGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -11974,8 +11888,8 @@ const de_DecreaseNodeGroupsInGlobalReplicationGroupResult = (
  */
 const de_DecreaseReplicaCountResult = (output: any, context: __SerdeContext): DecreaseReplicaCountResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -11988,8 +11902,8 @@ const de_DefaultUserAssociatedToUserGroupFault = (
   context: __SerdeContext
 ): DefaultUserAssociatedToUserGroupFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -11999,8 +11913,8 @@ const de_DefaultUserAssociatedToUserGroupFault = (
  */
 const de_DefaultUserRequired = (output: any, context: __SerdeContext): DefaultUserRequired => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12010,8 +11924,8 @@ const de_DefaultUserRequired = (output: any, context: __SerdeContext): DefaultUs
  */
 const de_DeleteCacheClusterResult = (output: any, context: __SerdeContext): DeleteCacheClusterResult => {
   const contents: any = {};
-  if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
+  if (output[_CCa] != null) {
+    contents[_CCa] = de_CacheCluster(output[_CCa], context);
   }
   return contents;
 };
@@ -12024,8 +11938,8 @@ const de_DeleteGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): DeleteGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -12035,8 +11949,8 @@ const de_DeleteGlobalReplicationGroupResult = (
  */
 const de_DeleteReplicationGroupResult = (output: any, context: __SerdeContext): DeleteReplicationGroupResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -12046,8 +11960,8 @@ const de_DeleteReplicationGroupResult = (output: any, context: __SerdeContext): 
  */
 const de_DeleteServerlessCacheResponse = (output: any, context: __SerdeContext): DeleteServerlessCacheResponse => {
   const contents: any = {};
-  if (output["ServerlessCache"] !== undefined) {
-    contents.ServerlessCache = de_ServerlessCache(output["ServerlessCache"], context);
+  if (output[_SC] != null) {
+    contents[_SC] = de_ServerlessCache(output[_SC], context);
   }
   return contents;
 };
@@ -12060,8 +11974,8 @@ const de_DeleteServerlessCacheSnapshotResponse = (
   context: __SerdeContext
 ): DeleteServerlessCacheSnapshotResponse => {
   const contents: any = {};
-  if (output["ServerlessCacheSnapshot"] !== undefined) {
-    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
+  if (output[_SCS] != null) {
+    contents[_SCS] = de_ServerlessCacheSnapshot(output[_SCS], context);
   }
   return contents;
 };
@@ -12071,8 +11985,8 @@ const de_DeleteServerlessCacheSnapshotResponse = (
  */
 const de_DeleteSnapshotResult = (output: any, context: __SerdeContext): DeleteSnapshotResult => {
   const contents: any = {};
-  if (output["Snapshot"] !== undefined) {
-    contents.Snapshot = de_Snapshot(output["Snapshot"], context);
+  if (output[_Sn] != null) {
+    contents[_Sn] = de_Snapshot(output[_Sn], context);
   }
   return contents;
 };
@@ -12085,8 +11999,8 @@ const de_DescribeEngineDefaultParametersResult = (
   context: __SerdeContext
 ): DescribeEngineDefaultParametersResult => {
   const contents: any = {};
-  if (output["EngineDefaults"] !== undefined) {
-    contents.EngineDefaults = de_EngineDefaults(output["EngineDefaults"], context);
+  if (output[_ED] != null) {
+    contents[_ED] = de_EngineDefaults(output[_ED], context);
   }
   return contents;
 };
@@ -12099,19 +12013,13 @@ const de_DescribeGlobalReplicationGroupsResult = (
   context: __SerdeContext
 ): DescribeGlobalReplicationGroupsResult => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.GlobalReplicationGroups === "") {
-    contents.GlobalReplicationGroups = [];
-  } else if (
-    output["GlobalReplicationGroups"] !== undefined &&
-    output["GlobalReplicationGroups"]["GlobalReplicationGroup"] !== undefined
-  ) {
-    contents.GlobalReplicationGroups = de_GlobalReplicationGroupList(
-      __getArrayIfSingleItem(output["GlobalReplicationGroups"]["GlobalReplicationGroup"]),
-      context
-    );
+    contents[_GRGl] = [];
+  } else if (output[_GRGl] != null && output[_GRGl][_GRG] != null) {
+    contents[_GRGl] = de_GlobalReplicationGroupList(__getArrayIfSingleItem(output[_GRGl][_GRG]), context);
   }
   return contents;
 };
@@ -12124,19 +12032,13 @@ const de_DescribeServerlessCacheSnapshotsResponse = (
   context: __SerdeContext
 ): DescribeServerlessCacheSnapshotsResponse => {
   const contents: any = {};
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NTe] != null) {
+    contents[_NTe] = __expectString(output[_NTe]);
   }
   if (output.ServerlessCacheSnapshots === "") {
-    contents.ServerlessCacheSnapshots = [];
-  } else if (
-    output["ServerlessCacheSnapshots"] !== undefined &&
-    output["ServerlessCacheSnapshots"]["ServerlessCacheSnapshot"] !== undefined
-  ) {
-    contents.ServerlessCacheSnapshots = de_ServerlessCacheSnapshotList(
-      __getArrayIfSingleItem(output["ServerlessCacheSnapshots"]["ServerlessCacheSnapshot"]),
-      context
-    );
+    contents[_SCSe] = [];
+  } else if (output[_SCSe] != null && output[_SCSe][_SCS] != null) {
+    contents[_SCSe] = de_ServerlessCacheSnapshotList(__getArrayIfSingleItem(output[_SCSe][_SCS]), context);
   }
   return contents;
 };
@@ -12149,16 +12051,13 @@ const de_DescribeServerlessCachesResponse = (
   context: __SerdeContext
 ): DescribeServerlessCachesResponse => {
   const contents: any = {};
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NTe] != null) {
+    contents[_NTe] = __expectString(output[_NTe]);
   }
   if (output.ServerlessCaches === "") {
-    contents.ServerlessCaches = [];
-  } else if (output["ServerlessCaches"] !== undefined && output["ServerlessCaches"]["member"] !== undefined) {
-    contents.ServerlessCaches = de_ServerlessCacheList(
-      __getArrayIfSingleItem(output["ServerlessCaches"]["member"]),
-      context
-    );
+    contents[_SCe] = [];
+  } else if (output[_SCe] != null && output[_SCe][_m] != null) {
+    contents[_SCe] = de_ServerlessCacheList(__getArrayIfSingleItem(output[_SCe][_m]), context);
   }
   return contents;
 };
@@ -12168,13 +12067,13 @@ const de_DescribeServerlessCachesResponse = (
  */
 const de_DescribeSnapshotsListMessage = (output: any, context: __SerdeContext): DescribeSnapshotsListMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Snapshots === "") {
-    contents.Snapshots = [];
-  } else if (output["Snapshots"] !== undefined && output["Snapshots"]["Snapshot"] !== undefined) {
-    contents.Snapshots = de_SnapshotList(__getArrayIfSingleItem(output["Snapshots"]["Snapshot"]), context);
+    contents[_Sna] = [];
+  } else if (output[_Sna] != null && output[_Sna][_Sn] != null) {
+    contents[_Sna] = de_SnapshotList(__getArrayIfSingleItem(output[_Sna][_Sn]), context);
   }
   return contents;
 };
@@ -12185,12 +12084,12 @@ const de_DescribeSnapshotsListMessage = (output: any, context: __SerdeContext): 
 const de_DescribeUserGroupsResult = (output: any, context: __SerdeContext): DescribeUserGroupsResult => {
   const contents: any = {};
   if (output.UserGroups === "") {
-    contents.UserGroups = [];
-  } else if (output["UserGroups"] !== undefined && output["UserGroups"]["member"] !== undefined) {
-    contents.UserGroups = de_UserGroupList(__getArrayIfSingleItem(output["UserGroups"]["member"]), context);
+    contents[_UG] = [];
+  } else if (output[_UG] != null && output[_UG][_m] != null) {
+    contents[_UG] = de_UserGroupList(__getArrayIfSingleItem(output[_UG][_m]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -12201,12 +12100,12 @@ const de_DescribeUserGroupsResult = (output: any, context: __SerdeContext): Desc
 const de_DescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
   const contents: any = {};
   if (output.Users === "") {
-    contents.Users = [];
-  } else if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
-    contents.Users = de_UserList(__getArrayIfSingleItem(output["Users"]["member"]), context);
+    contents[_Us] = [];
+  } else if (output[_Us] != null && output[_Us][_m] != null) {
+    contents[_Us] = de_UserList(__getArrayIfSingleItem(output[_Us][_m]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -12216,11 +12115,11 @@ const de_DescribeUsersResult = (output: any, context: __SerdeContext): DescribeU
  */
 const de_DestinationDetails = (output: any, context: __SerdeContext): DestinationDetails => {
   const contents: any = {};
-  if (output["CloudWatchLogsDetails"] !== undefined) {
-    contents.CloudWatchLogsDetails = de_CloudWatchLogsDestinationDetails(output["CloudWatchLogsDetails"], context);
+  if (output[_CWLD] != null) {
+    contents[_CWLD] = de_CloudWatchLogsDestinationDetails(output[_CWLD], context);
   }
-  if (output["KinesisFirehoseDetails"] !== undefined) {
-    contents.KinesisFirehoseDetails = de_KinesisFirehoseDestinationDetails(output["KinesisFirehoseDetails"], context);
+  if (output[_KFD] != null) {
+    contents[_KFD] = de_KinesisFirehoseDestinationDetails(output[_KFD], context);
   }
   return contents;
 };
@@ -12233,8 +12132,8 @@ const de_DisassociateGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): DisassociateGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -12244,8 +12143,8 @@ const de_DisassociateGlobalReplicationGroupResult = (
  */
 const de_DuplicateUserNameFault = (output: any, context: __SerdeContext): DuplicateUserNameFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12255,14 +12154,14 @@ const de_DuplicateUserNameFault = (output: any, context: __SerdeContext): Duplic
  */
 const de_EC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["EC2SecurityGroupName"] !== undefined) {
-    contents.EC2SecurityGroupName = __expectString(output["EC2SecurityGroupName"]);
+  if (output[_ECSGN] != null) {
+    contents[_ECSGN] = __expectString(output[_ECSGN]);
   }
-  if (output["EC2SecurityGroupOwnerId"] !== undefined) {
-    contents.EC2SecurityGroupOwnerId = __expectString(output["EC2SecurityGroupOwnerId"]);
+  if (output[_ECSGOI] != null) {
+    contents[_ECSGOI] = __expectString(output[_ECSGOI]);
   }
   return contents;
 };
@@ -12283,8 +12182,8 @@ const de_EC2SecurityGroupList = (output: any, context: __SerdeContext): EC2Secur
  */
 const de_ECPUPerSecond = (output: any, context: __SerdeContext): ECPUPerSecond => {
   const contents: any = {};
-  if (output["Maximum"] !== undefined) {
-    contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
+  if (output[_M] != null) {
+    contents[_M] = __strictParseInt32(output[_M]) as number;
   }
   return contents;
 };
@@ -12294,11 +12193,11 @@ const de_ECPUPerSecond = (output: any, context: __SerdeContext): ECPUPerSecond =
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   const contents: any = {};
-  if (output["Address"] !== undefined) {
-    contents.Address = __expectString(output["Address"]);
+  if (output[_Ad] != null) {
+    contents[_Ad] = __expectString(output[_Ad]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_Po] != null) {
+    contents[_Po] = __strictParseInt32(output[_Po]) as number;
   }
   return contents;
 };
@@ -12308,27 +12207,21 @@ const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
  */
 const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
   const contents: any = {};
-  if (output["CacheParameterGroupFamily"] !== undefined) {
-    contents.CacheParameterGroupFamily = __expectString(output["CacheParameterGroupFamily"]);
+  if (output[_CPGF] != null) {
+    contents[_CPGF] = __expectString(output[_CPGF]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
   if (output.CacheNodeTypeSpecificParameters === "") {
-    contents.CacheNodeTypeSpecificParameters = [];
-  } else if (
-    output["CacheNodeTypeSpecificParameters"] !== undefined &&
-    output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"] !== undefined
-  ) {
-    contents.CacheNodeTypeSpecificParameters = de_CacheNodeTypeSpecificParametersList(
-      __getArrayIfSingleItem(output["CacheNodeTypeSpecificParameters"]["CacheNodeTypeSpecificParameter"]),
-      context
-    );
+    contents[_CNTSP] = [];
+  } else if (output[_CNTSP] != null && output[_CNTSP][_CNTSPa] != null) {
+    contents[_CNTSP] = de_CacheNodeTypeSpecificParametersList(__getArrayIfSingleItem(output[_CNTSP][_CNTSPa]), context);
   }
   return contents;
 };
@@ -12338,17 +12231,17 @@ const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults
  */
 const de_Event = (output: any, context: __SerdeContext): Event => {
   const contents: any = {};
-  if (output["SourceIdentifier"] !== undefined) {
-    contents.SourceIdentifier = __expectString(output["SourceIdentifier"]);
+  if (output[_SIo] != null) {
+    contents[_SIo] = __expectString(output[_SIo]);
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Da] != null) {
+    contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
   return contents;
 };
@@ -12369,13 +12262,13 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
  */
 const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Events === "") {
-    contents.Events = [];
-  } else if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
-    contents.Events = de_EventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
+    contents[_Ev] = [];
+  } else if (output[_Ev] != null && output[_Ev][_Eve] != null) {
+    contents[_Ev] = de_EventList(__getArrayIfSingleItem(output[_Ev][_Eve]), context);
   }
   return contents;
 };
@@ -12388,8 +12281,8 @@ const de_ExportServerlessCacheSnapshotResponse = (
   context: __SerdeContext
 ): ExportServerlessCacheSnapshotResponse => {
   const contents: any = {};
-  if (output["ServerlessCacheSnapshot"] !== undefined) {
-    contents.ServerlessCacheSnapshot = de_ServerlessCacheSnapshot(output["ServerlessCacheSnapshot"], context);
+  if (output[_SCS] != null) {
+    contents[_SCS] = de_ServerlessCacheSnapshot(output[_SCS], context);
   }
   return contents;
 };
@@ -12402,8 +12295,8 @@ const de_FailoverGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): FailoverGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -12413,11 +12306,11 @@ const de_FailoverGlobalReplicationGroupResult = (
  */
 const de_GlobalNodeGroup = (output: any, context: __SerdeContext): GlobalNodeGroup => {
   const contents: any = {};
-  if (output["GlobalNodeGroupId"] !== undefined) {
-    contents.GlobalNodeGroupId = __expectString(output["GlobalNodeGroupId"]);
+  if (output[_GNGI] != null) {
+    contents[_GNGI] = __expectString(output[_GNGI]);
   }
-  if (output["Slots"] !== undefined) {
-    contents.Slots = __expectString(output["Slots"]);
+  if (output[_Sl] != null) {
+    contents[_Sl] = __expectString(output[_Sl]);
   }
   return contents;
 };
@@ -12438,54 +12331,48 @@ const de_GlobalNodeGroupList = (output: any, context: __SerdeContext): GlobalNod
  */
 const de_GlobalReplicationGroup = (output: any, context: __SerdeContext): GlobalReplicationGroup => {
   const contents: any = {};
-  if (output["GlobalReplicationGroupId"] !== undefined) {
-    contents.GlobalReplicationGroupId = __expectString(output["GlobalReplicationGroupId"]);
+  if (output[_GRGI] != null) {
+    contents[_GRGI] = __expectString(output[_GRGI]);
   }
-  if (output["GlobalReplicationGroupDescription"] !== undefined) {
-    contents.GlobalReplicationGroupDescription = __expectString(output["GlobalReplicationGroupDescription"]);
+  if (output[_GRGD] != null) {
+    contents[_GRGD] = __expectString(output[_GRGD]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
   if (output.Members === "") {
-    contents.Members = [];
-  } else if (output["Members"] !== undefined && output["Members"]["GlobalReplicationGroupMember"] !== undefined) {
-    contents.Members = de_GlobalReplicationGroupMemberList(
-      __getArrayIfSingleItem(output["Members"]["GlobalReplicationGroupMember"]),
-      context
-    );
+    contents[_Mem] = [];
+  } else if (output[_Mem] != null && output[_Mem][_GRGM] != null) {
+    contents[_Mem] = de_GlobalReplicationGroupMemberList(__getArrayIfSingleItem(output[_Mem][_GRGM]), context);
   }
-  if (output["ClusterEnabled"] !== undefined) {
-    contents.ClusterEnabled = __parseBoolean(output["ClusterEnabled"]);
+  if (output[_CEl] != null) {
+    contents[_CEl] = __parseBoolean(output[_CEl]);
   }
   if (output.GlobalNodeGroups === "") {
-    contents.GlobalNodeGroups = [];
-  } else if (output["GlobalNodeGroups"] !== undefined && output["GlobalNodeGroups"]["GlobalNodeGroup"] !== undefined) {
-    contents.GlobalNodeGroups = de_GlobalNodeGroupList(
-      __getArrayIfSingleItem(output["GlobalNodeGroups"]["GlobalNodeGroup"]),
-      context
-    );
+    contents[_GNG] = [];
+  } else if (output[_GNG] != null && output[_GNG][_GNGl] != null) {
+    contents[_GNG] = de_GlobalNodeGroupList(__getArrayIfSingleItem(output[_GNG][_GNGl]), context);
   }
-  if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
+  if (output[_ATE] != null) {
+    contents[_ATE] = __parseBoolean(output[_ATE]);
   }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  if (output[_TEE] != null) {
+    contents[_TEE] = __parseBoolean(output[_TEE]);
   }
-  if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
+  if (output[_AREE] != null) {
+    contents[_AREE] = __parseBoolean(output[_AREE]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   return contents;
 };
@@ -12498,8 +12385,8 @@ const de_GlobalReplicationGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): GlobalReplicationGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12509,11 +12396,11 @@ const de_GlobalReplicationGroupAlreadyExistsFault = (
  */
 const de_GlobalReplicationGroupInfo = (output: any, context: __SerdeContext): GlobalReplicationGroupInfo => {
   const contents: any = {};
-  if (output["GlobalReplicationGroupId"] !== undefined) {
-    contents.GlobalReplicationGroupId = __expectString(output["GlobalReplicationGroupId"]);
+  if (output[_GRGI] != null) {
+    contents[_GRGI] = __expectString(output[_GRGI]);
   }
-  if (output["GlobalReplicationGroupMemberRole"] !== undefined) {
-    contents.GlobalReplicationGroupMemberRole = __expectString(output["GlobalReplicationGroupMemberRole"]);
+  if (output[_GRGMR] != null) {
+    contents[_GRGMR] = __expectString(output[_GRGMR]);
   }
   return contents;
 };
@@ -12534,20 +12421,20 @@ const de_GlobalReplicationGroupList = (output: any, context: __SerdeContext): Gl
  */
 const de_GlobalReplicationGroupMember = (output: any, context: __SerdeContext): GlobalReplicationGroupMember => {
   const contents: any = {};
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["ReplicationGroupRegion"] !== undefined) {
-    contents.ReplicationGroupRegion = __expectString(output["ReplicationGroupRegion"]);
+  if (output[_RGR] != null) {
+    contents[_RGR] = __expectString(output[_RGR]);
   }
-  if (output["Role"] !== undefined) {
-    contents.Role = __expectString(output["Role"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
-  if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);
+  if (output[_AF] != null) {
+    contents[_AF] = __expectString(output[_AF]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -12571,8 +12458,8 @@ const de_GlobalReplicationGroupNotFoundFault = (
   context: __SerdeContext
 ): GlobalReplicationGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12585,8 +12472,8 @@ const de_IncreaseNodeGroupsInGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): IncreaseNodeGroupsInGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -12596,8 +12483,8 @@ const de_IncreaseNodeGroupsInGlobalReplicationGroupResult = (
  */
 const de_IncreaseReplicaCountResult = (output: any, context: __SerdeContext): IncreaseReplicaCountResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -12610,8 +12497,8 @@ const de_InsufficientCacheClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientCacheClusterCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12621,8 +12508,8 @@ const de_InsufficientCacheClusterCapacityFault = (
  */
 const de_InvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12632,8 +12519,8 @@ const de_InvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFau
  */
 const de_InvalidCacheClusterStateFault = (output: any, context: __SerdeContext): InvalidCacheClusterStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12646,8 +12533,8 @@ const de_InvalidCacheParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidCacheParameterGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12660,8 +12547,8 @@ const de_InvalidCacheSecurityGroupStateFault = (
   context: __SerdeContext
 ): InvalidCacheSecurityGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12671,8 +12558,8 @@ const de_InvalidCacheSecurityGroupStateFault = (
  */
 const de_InvalidCredentialsException = (output: any, context: __SerdeContext): InvalidCredentialsException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12685,8 +12572,8 @@ const de_InvalidGlobalReplicationGroupStateFault = (
   context: __SerdeContext
 ): InvalidGlobalReplicationGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12696,8 +12583,8 @@ const de_InvalidGlobalReplicationGroupStateFault = (
  */
 const de_InvalidKMSKeyFault = (output: any, context: __SerdeContext): InvalidKMSKeyFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12710,8 +12597,8 @@ const de_InvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12721,8 +12608,8 @@ const de_InvalidParameterCombinationException = (
  */
 const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12735,8 +12622,8 @@ const de_InvalidReplicationGroupStateFault = (
   context: __SerdeContext
 ): InvalidReplicationGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12749,8 +12636,8 @@ const de_InvalidServerlessCacheSnapshotStateFault = (
   context: __SerdeContext
 ): InvalidServerlessCacheSnapshotStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12763,8 +12650,8 @@ const de_InvalidServerlessCacheStateFault = (
   context: __SerdeContext
 ): InvalidServerlessCacheStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12774,8 +12661,8 @@ const de_InvalidServerlessCacheStateFault = (
  */
 const de_InvalidSnapshotStateFault = (output: any, context: __SerdeContext): InvalidSnapshotStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12785,8 +12672,8 @@ const de_InvalidSnapshotStateFault = (output: any, context: __SerdeContext): Inv
  */
 const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12796,8 +12683,8 @@ const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet =
  */
 const de_InvalidUserGroupStateFault = (output: any, context: __SerdeContext): InvalidUserGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12807,8 +12694,8 @@ const de_InvalidUserGroupStateFault = (output: any, context: __SerdeContext): In
  */
 const de_InvalidUserStateFault = (output: any, context: __SerdeContext): InvalidUserStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12818,8 +12705,8 @@ const de_InvalidUserStateFault = (output: any, context: __SerdeContext): Invalid
  */
 const de_InvalidVPCNetworkStateFault = (output: any, context: __SerdeContext): InvalidVPCNetworkStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -12832,8 +12719,8 @@ const de_KinesisFirehoseDestinationDetails = (
   context: __SerdeContext
 ): KinesisFirehoseDestinationDetails => {
   const contents: any = {};
-  if (output["DeliveryStream"] !== undefined) {
-    contents.DeliveryStream = __expectString(output["DeliveryStream"]);
+  if (output[_DSel] != null) {
+    contents[_DSel] = __expectString(output[_DSel]);
   }
   return contents;
 };
@@ -12843,23 +12730,23 @@ const de_KinesisFirehoseDestinationDetails = (
  */
 const de_LogDeliveryConfiguration = (output: any, context: __SerdeContext): LogDeliveryConfiguration => {
   const contents: any = {};
-  if (output["LogType"] !== undefined) {
-    contents.LogType = __expectString(output["LogType"]);
+  if (output[_LT] != null) {
+    contents[_LT] = __expectString(output[_LT]);
   }
-  if (output["DestinationType"] !== undefined) {
-    contents.DestinationType = __expectString(output["DestinationType"]);
+  if (output[_DT] != null) {
+    contents[_DT] = __expectString(output[_DT]);
   }
-  if (output["DestinationDetails"] !== undefined) {
-    contents.DestinationDetails = de_DestinationDetails(output["DestinationDetails"], context);
+  if (output[_DD] != null) {
+    contents[_DD] = de_DestinationDetails(output[_DD], context);
   }
-  if (output["LogFormat"] !== undefined) {
-    contents.LogFormat = __expectString(output["LogFormat"]);
+  if (output[_LF] != null) {
+    contents[_LF] = __expectString(output[_LF]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -12880,8 +12767,8 @@ const de_LogDeliveryConfigurationList = (output: any, context: __SerdeContext): 
  */
 const de_ModifyCacheClusterResult = (output: any, context: __SerdeContext): ModifyCacheClusterResult => {
   const contents: any = {};
-  if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
+  if (output[_CCa] != null) {
+    contents[_CCa] = de_CacheCluster(output[_CCa], context);
   }
   return contents;
 };
@@ -12891,8 +12778,8 @@ const de_ModifyCacheClusterResult = (output: any, context: __SerdeContext): Modi
  */
 const de_ModifyCacheSubnetGroupResult = (output: any, context: __SerdeContext): ModifyCacheSubnetGroupResult => {
   const contents: any = {};
-  if (output["CacheSubnetGroup"] !== undefined) {
-    contents.CacheSubnetGroup = de_CacheSubnetGroup(output["CacheSubnetGroup"], context);
+  if (output[_CSGach] != null) {
+    contents[_CSGach] = de_CacheSubnetGroup(output[_CSGach], context);
   }
   return contents;
 };
@@ -12905,8 +12792,8 @@ const de_ModifyGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): ModifyGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -12916,8 +12803,8 @@ const de_ModifyGlobalReplicationGroupResult = (
  */
 const de_ModifyReplicationGroupResult = (output: any, context: __SerdeContext): ModifyReplicationGroupResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -12930,8 +12817,8 @@ const de_ModifyReplicationGroupShardConfigurationResult = (
   context: __SerdeContext
 ): ModifyReplicationGroupShardConfigurationResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -12941,8 +12828,8 @@ const de_ModifyReplicationGroupShardConfigurationResult = (
  */
 const de_ModifyServerlessCacheResponse = (output: any, context: __SerdeContext): ModifyServerlessCacheResponse => {
   const contents: any = {};
-  if (output["ServerlessCache"] !== undefined) {
-    contents.ServerlessCache = de_ServerlessCache(output["ServerlessCache"], context);
+  if (output[_SC] != null) {
+    contents[_SC] = de_ServerlessCache(output[_SC], context);
   }
   return contents;
 };
@@ -12963,28 +12850,25 @@ const de_NetworkTypeList = (output: any, context: __SerdeContext): NetworkType[]
  */
 const de_NodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
   const contents: any = {};
-  if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
+  if (output[_NGI] != null) {
+    contents[_NGI] = __expectString(output[_NGI]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["PrimaryEndpoint"] !== undefined) {
-    contents.PrimaryEndpoint = de_Endpoint(output["PrimaryEndpoint"], context);
+  if (output[_PE] != null) {
+    contents[_PE] = de_Endpoint(output[_PE], context);
   }
-  if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = de_Endpoint(output["ReaderEndpoint"], context);
+  if (output[_RE] != null) {
+    contents[_RE] = de_Endpoint(output[_RE], context);
   }
-  if (output["Slots"] !== undefined) {
-    contents.Slots = __expectString(output["Slots"]);
+  if (output[_Sl] != null) {
+    contents[_Sl] = __expectString(output[_Sl]);
   }
   if (output.NodeGroupMembers === "") {
-    contents.NodeGroupMembers = [];
-  } else if (output["NodeGroupMembers"] !== undefined && output["NodeGroupMembers"]["NodeGroupMember"] !== undefined) {
-    contents.NodeGroupMembers = de_NodeGroupMemberList(
-      __getArrayIfSingleItem(output["NodeGroupMembers"]["NodeGroupMember"]),
-      context
-    );
+    contents[_NGM] = [];
+  } else if (output[_NGM] != null && output[_NGM][_NGMo] != null) {
+    contents[_NGM] = de_NodeGroupMemberList(__getArrayIfSingleItem(output[_NGM][_NGMo]), context);
   }
   return contents;
 };
@@ -12994,39 +12878,30 @@ const de_NodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
  */
 const de_NodeGroupConfiguration = (output: any, context: __SerdeContext): NodeGroupConfiguration => {
   const contents: any = {};
-  if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
+  if (output[_NGI] != null) {
+    contents[_NGI] = __expectString(output[_NGI]);
   }
-  if (output["Slots"] !== undefined) {
-    contents.Slots = __expectString(output["Slots"]);
+  if (output[_Sl] != null) {
+    contents[_Sl] = __expectString(output[_Sl]);
   }
-  if (output["ReplicaCount"] !== undefined) {
-    contents.ReplicaCount = __strictParseInt32(output["ReplicaCount"]) as number;
+  if (output[_RCep] != null) {
+    contents[_RCep] = __strictParseInt32(output[_RCep]) as number;
   }
-  if (output["PrimaryAvailabilityZone"] !== undefined) {
-    contents.PrimaryAvailabilityZone = __expectString(output["PrimaryAvailabilityZone"]);
+  if (output[_PAZri] != null) {
+    contents[_PAZri] = __expectString(output[_PAZri]);
   }
   if (output.ReplicaAvailabilityZones === "") {
-    contents.ReplicaAvailabilityZones = [];
-  } else if (
-    output["ReplicaAvailabilityZones"] !== undefined &&
-    output["ReplicaAvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.ReplicaAvailabilityZones = de_AvailabilityZonesList(
-      __getArrayIfSingleItem(output["ReplicaAvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_RAZ] = [];
+  } else if (output[_RAZ] != null && output[_RAZ][_AZ] != null) {
+    contents[_RAZ] = de_AvailabilityZonesList(__getArrayIfSingleItem(output[_RAZ][_AZ]), context);
   }
-  if (output["PrimaryOutpostArn"] !== undefined) {
-    contents.PrimaryOutpostArn = __expectString(output["PrimaryOutpostArn"]);
+  if (output[_POAri] != null) {
+    contents[_POAri] = __expectString(output[_POAri]);
   }
   if (output.ReplicaOutpostArns === "") {
-    contents.ReplicaOutpostArns = [];
-  } else if (output["ReplicaOutpostArns"] !== undefined && output["ReplicaOutpostArns"]["OutpostArn"] !== undefined) {
-    contents.ReplicaOutpostArns = de_OutpostArnsList(
-      __getArrayIfSingleItem(output["ReplicaOutpostArns"]["OutpostArn"]),
-      context
-    );
+    contents[_ROA] = [];
+  } else if (output[_ROA] != null && output[_ROA][_OA] != null) {
+    contents[_ROA] = de_OutpostArnsList(__getArrayIfSingleItem(output[_ROA][_OA]), context);
   }
   return contents;
 };
@@ -13047,23 +12922,23 @@ const de_NodeGroupList = (output: any, context: __SerdeContext): NodeGroup[] => 
  */
 const de_NodeGroupMember = (output: any, context: __SerdeContext): NodeGroupMember => {
   const contents: any = {};
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
+  if (output[_CNI] != null) {
+    contents[_CNI] = __expectString(output[_CNI]);
   }
-  if (output["ReadEndpoint"] !== undefined) {
-    contents.ReadEndpoint = de_Endpoint(output["ReadEndpoint"], context);
+  if (output[_REe] != null) {
+    contents[_REe] = de_Endpoint(output[_REe], context);
   }
-  if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
+  if (output[_PAZr] != null) {
+    contents[_PAZr] = __expectString(output[_PAZr]);
   }
-  if (output["PreferredOutpostArn"] !== undefined) {
-    contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
+  if (output[_POAr] != null) {
+    contents[_POAr] = __expectString(output[_POAr]);
   }
-  if (output["CurrentRole"] !== undefined) {
-    contents.CurrentRole = __expectString(output["CurrentRole"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
   return contents;
 };
@@ -13084,36 +12959,32 @@ const de_NodeGroupMemberList = (output: any, context: __SerdeContext): NodeGroup
  */
 const de_NodeGroupMemberUpdateStatus = (output: any, context: __SerdeContext): NodeGroupMemberUpdateStatus => {
   const contents: any = {};
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
+  if (output[_CNI] != null) {
+    contents[_CNI] = __expectString(output[_CNI]);
   }
-  if (output["NodeUpdateStatus"] !== undefined) {
-    contents.NodeUpdateStatus = __expectString(output["NodeUpdateStatus"]);
+  if (output[_NUS] != null) {
+    contents[_NUS] = __expectString(output[_NUS]);
   }
-  if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeDeletionDate"]));
+  if (output[_NDD] != null) {
+    contents[_NDD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NDD]));
   }
-  if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateStartDate"]));
+  if (output[_NUSD] != null) {
+    contents[_NUSD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUSD]));
   }
-  if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["NodeUpdateEndDate"]));
+  if (output[_NUED] != null) {
+    contents[_NUED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUED]));
   }
-  if (output["NodeUpdateInitiatedBy"] !== undefined) {
-    contents.NodeUpdateInitiatedBy = __expectString(output["NodeUpdateInitiatedBy"]);
+  if (output[_NUIB] != null) {
+    contents[_NUIB] = __expectString(output[_NUIB]);
   }
-  if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["NodeUpdateInitiatedDate"])
-    );
+  if (output[_NUID] != null) {
+    contents[_NUID] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUID]));
   }
-  if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
-    contents.NodeUpdateStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["NodeUpdateStatusModifiedDate"])
-    );
+  if (output[_NUSMD] != null) {
+    contents[_NUSMD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_NUSMD]));
   }
   return contents;
 };
@@ -13134,8 +13005,8 @@ const de_NodeGroupMemberUpdateStatusList = (output: any, context: __SerdeContext
  */
 const de_NodeGroupNotFoundFault = (output: any, context: __SerdeContext): NodeGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13148,8 +13019,8 @@ const de_NodeGroupsPerReplicationGroupQuotaExceededFault = (
   context: __SerdeContext
 ): NodeGroupsPerReplicationGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13159,19 +13030,13 @@ const de_NodeGroupsPerReplicationGroupQuotaExceededFault = (
  */
 const de_NodeGroupUpdateStatus = (output: any, context: __SerdeContext): NodeGroupUpdateStatus => {
   const contents: any = {};
-  if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
+  if (output[_NGI] != null) {
+    contents[_NGI] = __expectString(output[_NGI]);
   }
   if (output.NodeGroupMemberUpdateStatus === "") {
-    contents.NodeGroupMemberUpdateStatus = [];
-  } else if (
-    output["NodeGroupMemberUpdateStatus"] !== undefined &&
-    output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"] !== undefined
-  ) {
-    contents.NodeGroupMemberUpdateStatus = de_NodeGroupMemberUpdateStatusList(
-      __getArrayIfSingleItem(output["NodeGroupMemberUpdateStatus"]["NodeGroupMemberUpdateStatus"]),
-      context
-    );
+    contents[_NGMUS] = [];
+  } else if (output[_NGMUS] != null && output[_NGMUS][_NGMUS] != null) {
+    contents[_NGMUS] = de_NodeGroupMemberUpdateStatusList(__getArrayIfSingleItem(output[_NGMUS][_NGMUS]), context);
   }
   return contents;
 };
@@ -13195,8 +13060,8 @@ const de_NodeQuotaForClusterExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForClusterExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13209,8 +13074,8 @@ const de_NodeQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForCustomerExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13220,26 +13085,26 @@ const de_NodeQuotaForCustomerExceededFault = (
  */
 const de_NodeSnapshot = (output: any, context: __SerdeContext): NodeSnapshot => {
   const contents: any = {};
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = __expectString(output["NodeGroupId"]);
+  if (output[_NGI] != null) {
+    contents[_NGI] = __expectString(output[_NGI]);
   }
-  if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = __expectString(output["CacheNodeId"]);
+  if (output[_CNI] != null) {
+    contents[_CNI] = __expectString(output[_CNI]);
   }
-  if (output["NodeGroupConfiguration"] !== undefined) {
-    contents.NodeGroupConfiguration = de_NodeGroupConfiguration(output["NodeGroupConfiguration"], context);
+  if (output[_NGC] != null) {
+    contents[_NGC] = de_NodeGroupConfiguration(output[_NGC], context);
   }
-  if (output["CacheSize"] !== undefined) {
-    contents.CacheSize = __expectString(output["CacheSize"]);
+  if (output[_CSa] != null) {
+    contents[_CSa] = __expectString(output[_CSa]);
   }
-  if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CacheNodeCreateTime"]));
+  if (output[_CNCT] != null) {
+    contents[_CNCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CNCT]));
   }
-  if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
+  if (output[_SCT] != null) {
+    contents[_SCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SCT]));
   }
   return contents;
 };
@@ -13271,8 +13136,8 @@ const de_NodeTypeList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_NoOperationFault = (output: any, context: __SerdeContext): NoOperationFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13282,11 +13147,11 @@ const de_NoOperationFault = (output: any, context: __SerdeContext): NoOperationF
  */
 const de_NotificationConfiguration = (output: any, context: __SerdeContext): NotificationConfiguration => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["TopicStatus"] !== undefined) {
-    contents.TopicStatus = __expectString(output["TopicStatus"]);
+  if (output[_TS] != null) {
+    contents[_TS] = __expectString(output[_TS]);
   }
   return contents;
 };
@@ -13307,32 +13172,32 @@ const de_OutpostArnsList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
   const contents: any = {};
-  if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = __expectString(output["ParameterName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = __expectString(output["ParameterValue"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Source"] !== undefined) {
-    contents.Source = __expectString(output["Source"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["DataType"] !== undefined) {
-    contents.DataType = __expectString(output["DataType"]);
+  if (output[_DTa] != null) {
+    contents[_DTa] = __expectString(output[_DTa]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
+  if (output[_IM] != null) {
+    contents[_IM] = __parseBoolean(output[_IM]);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEVi] != null) {
+    contents[_MEVi] = __expectString(output[_MEVi]);
   }
-  if (output["ChangeType"] !== undefined) {
-    contents.ChangeType = __expectString(output["ChangeType"]);
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   return contents;
 };
@@ -13353,17 +13218,17 @@ const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] =>
  */
 const de_PendingLogDeliveryConfiguration = (output: any, context: __SerdeContext): PendingLogDeliveryConfiguration => {
   const contents: any = {};
-  if (output["LogType"] !== undefined) {
-    contents.LogType = __expectString(output["LogType"]);
+  if (output[_LT] != null) {
+    contents[_LT] = __expectString(output[_LT]);
   }
-  if (output["DestinationType"] !== undefined) {
-    contents.DestinationType = __expectString(output["DestinationType"]);
+  if (output[_DT] != null) {
+    contents[_DT] = __expectString(output[_DT]);
   }
-  if (output["DestinationDetails"] !== undefined) {
-    contents.DestinationDetails = de_DestinationDetails(output["DestinationDetails"], context);
+  if (output[_DD] != null) {
+    contents[_DD] = de_DestinationDetails(output[_DD], context);
   }
-  if (output["LogFormat"] !== undefined) {
-    contents.LogFormat = __expectString(output["LogFormat"]);
+  if (output[_LF] != null) {
+    contents[_LF] = __expectString(output[_LF]);
   }
   return contents;
 };
@@ -13387,45 +13252,33 @@ const de_PendingLogDeliveryConfigurationList = (
  */
 const de_PendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
   const contents: any = {};
-  if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
+  if (output[_NCN] != null) {
+    contents[_NCN] = __strictParseInt32(output[_NCN]) as number;
   }
   if (output.CacheNodeIdsToRemove === "") {
-    contents.CacheNodeIdsToRemove = [];
-  } else if (
-    output["CacheNodeIdsToRemove"] !== undefined &&
-    output["CacheNodeIdsToRemove"]["CacheNodeId"] !== undefined
-  ) {
-    contents.CacheNodeIdsToRemove = de_CacheNodeIdsList(
-      __getArrayIfSingleItem(output["CacheNodeIdsToRemove"]["CacheNodeId"]),
-      context
-    );
+    contents[_CNITR] = [];
+  } else if (output[_CNITR] != null && output[_CNITR][_CNI] != null) {
+    contents[_CNITR] = de_CacheNodeIdsList(__getArrayIfSingleItem(output[_CNITR][_CNI]), context);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["AuthTokenStatus"] !== undefined) {
-    contents.AuthTokenStatus = __expectString(output["AuthTokenStatus"]);
+  if (output[_ATS] != null) {
+    contents[_ATS] = __expectString(output[_ATS]);
   }
   if (output.LogDeliveryConfigurations === "") {
-    contents.LogDeliveryConfigurations = [];
-  } else if (
-    output["LogDeliveryConfigurations"] !== undefined &&
-    output["LogDeliveryConfigurations"]["member"] !== undefined
-  ) {
-    contents.LogDeliveryConfigurations = de_PendingLogDeliveryConfigurationList(
-      __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["member"]),
-      context
-    );
+    contents[_LDC] = [];
+  } else if (output[_LDC] != null && output[_LDC][_m] != null) {
+    contents[_LDC] = de_PendingLogDeliveryConfigurationList(__getArrayIfSingleItem(output[_LDC][_m]), context);
   }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  if (output[_TEE] != null) {
+    contents[_TEE] = __parseBoolean(output[_TEE]);
   }
-  if (output["TransitEncryptionMode"] !== undefined) {
-    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  if (output[_TEM] != null) {
+    contents[_TEM] = __expectString(output[_TEM]);
   }
   return contents;
 };
@@ -13435,17 +13288,17 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
  */
 const de_ProcessedUpdateAction = (output: any, context: __SerdeContext): ProcessedUpdateAction => {
   const contents: any = {};
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
+  if (output[_SUN] != null) {
+    contents[_SUN] = __expectString(output[_SUN]);
   }
-  if (output["UpdateActionStatus"] !== undefined) {
-    contents.UpdateActionStatus = __expectString(output["UpdateActionStatus"]);
+  if (output[_UAS] != null) {
+    contents[_UAS] = __expectString(output[_UAS]);
   }
   return contents;
 };
@@ -13469,8 +13322,8 @@ const de_PurchaseReservedCacheNodesOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedCacheNodesOfferingResult => {
   const contents: any = {};
-  if (output["ReservedCacheNode"] !== undefined) {
-    contents.ReservedCacheNode = de_ReservedCacheNode(output["ReservedCacheNode"], context);
+  if (output[_RCN] != null) {
+    contents[_RCN] = de_ReservedCacheNode(output[_RCN], context);
   }
   return contents;
 };
@@ -13483,8 +13336,8 @@ const de_RebalanceSlotsInGlobalReplicationGroupResult = (
   context: __SerdeContext
 ): RebalanceSlotsInGlobalReplicationGroupResult => {
   const contents: any = {};
-  if (output["GlobalReplicationGroup"] !== undefined) {
-    contents.GlobalReplicationGroup = de_GlobalReplicationGroup(output["GlobalReplicationGroup"], context);
+  if (output[_GRG] != null) {
+    contents[_GRG] = de_GlobalReplicationGroup(output[_GRG], context);
   }
   return contents;
 };
@@ -13494,8 +13347,8 @@ const de_RebalanceSlotsInGlobalReplicationGroupResult = (
  */
 const de_RebootCacheClusterResult = (output: any, context: __SerdeContext): RebootCacheClusterResult => {
   const contents: any = {};
-  if (output["CacheCluster"] !== undefined) {
-    contents.CacheCluster = de_CacheCluster(output["CacheCluster"], context);
+  if (output[_CCa] != null) {
+    contents[_CCa] = de_CacheCluster(output[_CCa], context);
   }
   return contents;
 };
@@ -13505,11 +13358,11 @@ const de_RebootCacheClusterResult = (output: any, context: __SerdeContext): Rebo
  */
 const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   const contents: any = {};
-  if (output["RecurringChargeAmount"] !== undefined) {
-    contents.RecurringChargeAmount = __strictParseFloat(output["RecurringChargeAmount"]) as number;
+  if (output[_RCA] != null) {
+    contents[_RCA] = __strictParseFloat(output[_RCA]) as number;
   }
-  if (output["RecurringChargeFrequency"] !== undefined) {
-    contents.RecurringChargeFrequency = __expectString(output["RecurringChargeFrequency"]);
+  if (output[_RCF] != null) {
+    contents[_RCF] = __expectString(output[_RCF]);
   }
   return contents;
 };
@@ -13530,124 +13383,108 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
  */
 const de_ReplicationGroup = (output: any, context: __SerdeContext): ReplicationGroup => {
   const contents: any = {};
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["GlobalReplicationGroupInfo"] !== undefined) {
-    contents.GlobalReplicationGroupInfo = de_GlobalReplicationGroupInfo(output["GlobalReplicationGroupInfo"], context);
+  if (output[_GRGIl] != null) {
+    contents[_GRGIl] = de_GlobalReplicationGroupInfo(output[_GRGIl], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = de_ReplicationGroupPendingModifiedValues(output["PendingModifiedValues"], context);
+  if (output[_PMV] != null) {
+    contents[_PMV] = de_ReplicationGroupPendingModifiedValues(output[_PMV], context);
   }
   if (output.MemberClusters === "") {
-    contents.MemberClusters = [];
-  } else if (output["MemberClusters"] !== undefined && output["MemberClusters"]["ClusterId"] !== undefined) {
-    contents.MemberClusters = de_ClusterIdList(__getArrayIfSingleItem(output["MemberClusters"]["ClusterId"]), context);
+    contents[_MC] = [];
+  } else if (output[_MC] != null && output[_MC][_CI] != null) {
+    contents[_MC] = de_ClusterIdList(__getArrayIfSingleItem(output[_MC][_CI]), context);
   }
   if (output.NodeGroups === "") {
-    contents.NodeGroups = [];
-  } else if (output["NodeGroups"] !== undefined && output["NodeGroups"]["NodeGroup"] !== undefined) {
-    contents.NodeGroups = de_NodeGroupList(__getArrayIfSingleItem(output["NodeGroups"]["NodeGroup"]), context);
+    contents[_NG] = [];
+  } else if (output[_NG] != null && output[_NG][_NGo] != null) {
+    contents[_NG] = de_NodeGroupList(__getArrayIfSingleItem(output[_NG][_NGo]), context);
   }
-  if (output["SnapshottingClusterId"] !== undefined) {
-    contents.SnapshottingClusterId = __expectString(output["SnapshottingClusterId"]);
+  if (output[_SCI] != null) {
+    contents[_SCI] = __expectString(output[_SCI]);
   }
-  if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);
+  if (output[_AF] != null) {
+    contents[_AF] = __expectString(output[_AF]);
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __expectString(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __expectString(output[_MAZ]);
   }
-  if (output["ConfigurationEndpoint"] !== undefined) {
-    contents.ConfigurationEndpoint = de_Endpoint(output["ConfigurationEndpoint"], context);
+  if (output[_CE] != null) {
+    contents[_CE] = de_Endpoint(output[_CE], context);
   }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
+  if (output[_SRL] != null) {
+    contents[_SRL] = __strictParseInt32(output[_SRL]) as number;
   }
-  if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
+  if (output[_SW] != null) {
+    contents[_SW] = __expectString(output[_SW]);
   }
-  if (output["ClusterEnabled"] !== undefined) {
-    contents.ClusterEnabled = __parseBoolean(output["ClusterEnabled"]);
+  if (output[_CEl] != null) {
+    contents[_CEl] = __parseBoolean(output[_CEl]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
+  if (output[_ATE] != null) {
+    contents[_ATE] = __parseBoolean(output[_ATE]);
   }
-  if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["AuthTokenLastModifiedDate"])
-    );
+  if (output[_ATLMD] != null) {
+    contents[_ATLMD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ATLMD]));
   }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  if (output[_TEE] != null) {
+    contents[_TEE] = __parseBoolean(output[_TEE]);
   }
-  if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
+  if (output[_AREE] != null) {
+    contents[_AREE] = __parseBoolean(output[_AREE]);
   }
   if (output.MemberClustersOutpostArns === "") {
-    contents.MemberClustersOutpostArns = [];
-  } else if (
-    output["MemberClustersOutpostArns"] !== undefined &&
-    output["MemberClustersOutpostArns"]["ReplicationGroupOutpostArn"] !== undefined
-  ) {
-    contents.MemberClustersOutpostArns = de_ReplicationGroupOutpostArnList(
-      __getArrayIfSingleItem(output["MemberClustersOutpostArns"]["ReplicationGroupOutpostArn"]),
-      context
-    );
+    contents[_MCOA] = [];
+  } else if (output[_MCOA] != null && output[_MCOA][_RGOA] != null) {
+    contents[_MCOA] = de_ReplicationGroupOutpostArnList(__getArrayIfSingleItem(output[_MCOA][_RGOA]), context);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   if (output.UserGroupIds === "") {
-    contents.UserGroupIds = [];
-  } else if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
-    contents.UserGroupIds = de_UserGroupIdList(__getArrayIfSingleItem(output["UserGroupIds"]["member"]), context);
+    contents[_UGI] = [];
+  } else if (output[_UGI] != null && output[_UGI][_m] != null) {
+    contents[_UGI] = de_UserGroupIdList(__getArrayIfSingleItem(output[_UGI][_m]), context);
   }
   if (output.LogDeliveryConfigurations === "") {
-    contents.LogDeliveryConfigurations = [];
-  } else if (
-    output["LogDeliveryConfigurations"] !== undefined &&
-    output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"] !== undefined
-  ) {
-    contents.LogDeliveryConfigurations = de_LogDeliveryConfigurationList(
-      __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
-      context
-    );
+    contents[_LDC] = [];
+  } else if (output[_LDC] != null && output[_LDC][_LDCo] != null) {
+    contents[_LDC] = de_LogDeliveryConfigurationList(__getArrayIfSingleItem(output[_LDC][_LDCo]), context);
   }
-  if (output["ReplicationGroupCreateTime"] !== undefined) {
-    contents.ReplicationGroupCreateTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ReplicationGroupCreateTime"])
-    );
+  if (output[_RGCT] != null) {
+    contents[_RGCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RGCT]));
   }
-  if (output["DataTiering"] !== undefined) {
-    contents.DataTiering = __expectString(output["DataTiering"]);
+  if (output[_DTat] != null) {
+    contents[_DTat] = __expectString(output[_DTat]);
   }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  if (output[_AMVU] != null) {
+    contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
-  if (output["NetworkType"] !== undefined) {
-    contents.NetworkType = __expectString(output["NetworkType"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
-  if (output["IpDiscovery"] !== undefined) {
-    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __expectString(output[_ID]);
   }
-  if (output["TransitEncryptionMode"] !== undefined) {
-    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  if (output[_TEM] != null) {
+    contents[_TEM] = __expectString(output[_TEM]);
   }
-  if (output["ClusterMode"] !== undefined) {
-    contents.ClusterMode = __expectString(output["ClusterMode"]);
+  if (output[_CMl] != null) {
+    contents[_CMl] = __expectString(output[_CMl]);
   }
   return contents;
 };
@@ -13660,8 +13497,8 @@ const de_ReplicationGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ReplicationGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13674,8 +13511,8 @@ const de_ReplicationGroupAlreadyUnderMigrationFault = (
   context: __SerdeContext
 ): ReplicationGroupAlreadyUnderMigrationFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13696,19 +13533,13 @@ const de_ReplicationGroupList = (output: any, context: __SerdeContext): Replicat
  */
 const de_ReplicationGroupMessage = (output: any, context: __SerdeContext): ReplicationGroupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ReplicationGroups === "") {
-    contents.ReplicationGroups = [];
-  } else if (
-    output["ReplicationGroups"] !== undefined &&
-    output["ReplicationGroups"]["ReplicationGroup"] !== undefined
-  ) {
-    contents.ReplicationGroups = de_ReplicationGroupList(
-      __getArrayIfSingleItem(output["ReplicationGroups"]["ReplicationGroup"]),
-      context
-    );
+    contents[_RGe] = [];
+  } else if (output[_RGe] != null && output[_RGe][_RG] != null) {
+    contents[_RGe] = de_ReplicationGroupList(__getArrayIfSingleItem(output[_RGe][_RG]), context);
   }
   return contents;
 };
@@ -13718,8 +13549,8 @@ const de_ReplicationGroupMessage = (output: any, context: __SerdeContext): Repli
  */
 const de_ReplicationGroupNotFoundFault = (output: any, context: __SerdeContext): ReplicationGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13732,8 +13563,8 @@ const de_ReplicationGroupNotUnderMigrationFault = (
   context: __SerdeContext
 ): ReplicationGroupNotUnderMigrationFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13757,40 +13588,34 @@ const de_ReplicationGroupPendingModifiedValues = (
   context: __SerdeContext
 ): ReplicationGroupPendingModifiedValues => {
   const contents: any = {};
-  if (output["PrimaryClusterId"] !== undefined) {
-    contents.PrimaryClusterId = __expectString(output["PrimaryClusterId"]);
+  if (output[_PCI] != null) {
+    contents[_PCI] = __expectString(output[_PCI]);
   }
-  if (output["AutomaticFailoverStatus"] !== undefined) {
-    contents.AutomaticFailoverStatus = __expectString(output["AutomaticFailoverStatus"]);
+  if (output[_AFS] != null) {
+    contents[_AFS] = __expectString(output[_AFS]);
   }
-  if (output["Resharding"] !== undefined) {
-    contents.Resharding = de_ReshardingStatus(output["Resharding"], context);
+  if (output[_Re] != null) {
+    contents[_Re] = de_ReshardingStatus(output[_Re], context);
   }
-  if (output["AuthTokenStatus"] !== undefined) {
-    contents.AuthTokenStatus = __expectString(output["AuthTokenStatus"]);
+  if (output[_ATS] != null) {
+    contents[_ATS] = __expectString(output[_ATS]);
   }
-  if (output["UserGroups"] !== undefined) {
-    contents.UserGroups = de_UserGroupsUpdateStatus(output["UserGroups"], context);
+  if (output[_UG] != null) {
+    contents[_UG] = de_UserGroupsUpdateStatus(output[_UG], context);
   }
   if (output.LogDeliveryConfigurations === "") {
-    contents.LogDeliveryConfigurations = [];
-  } else if (
-    output["LogDeliveryConfigurations"] !== undefined &&
-    output["LogDeliveryConfigurations"]["member"] !== undefined
-  ) {
-    contents.LogDeliveryConfigurations = de_PendingLogDeliveryConfigurationList(
-      __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["member"]),
-      context
-    );
+    contents[_LDC] = [];
+  } else if (output[_LDC] != null && output[_LDC][_m] != null) {
+    contents[_LDC] = de_PendingLogDeliveryConfigurationList(__getArrayIfSingleItem(output[_LDC][_m]), context);
   }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
+  if (output[_TEE] != null) {
+    contents[_TEE] = __parseBoolean(output[_TEE]);
   }
-  if (output["TransitEncryptionMode"] !== undefined) {
-    contents.TransitEncryptionMode = __expectString(output["TransitEncryptionMode"]);
+  if (output[_TEM] != null) {
+    contents[_TEM] = __expectString(output[_TEM]);
   }
-  if (output["ClusterMode"] !== undefined) {
-    contents.ClusterMode = __expectString(output["ClusterMode"]);
+  if (output[_CMl] != null) {
+    contents[_CMl] = __expectString(output[_CMl]);
   }
   return contents;
 };
@@ -13800,49 +13625,46 @@ const de_ReplicationGroupPendingModifiedValues = (
  */
 const de_ReservedCacheNode = (output: any, context: __SerdeContext): ReservedCacheNode => {
   const contents: any = {};
-  if (output["ReservedCacheNodeId"] !== undefined) {
-    contents.ReservedCacheNodeId = __expectString(output["ReservedCacheNodeId"]);
+  if (output[_RCNI] != null) {
+    contents[_RCNI] = __expectString(output[_RCNI]);
   }
-  if (output["ReservedCacheNodesOfferingId"] !== undefined) {
-    contents.ReservedCacheNodesOfferingId = __expectString(output["ReservedCacheNodesOfferingId"]);
+  if (output[_RCNOI] != null) {
+    contents[_RCNOI] = __expectString(output[_RCNOI]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
+  if (output[_STt] != null) {
+    contents[_STt] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STt]));
   }
-  if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt32(output["Duration"]) as number;
+  if (output[_Du] != null) {
+    contents[_Du] = __strictParseInt32(output[_Du]) as number;
   }
-  if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
+  if (output[_FP] != null) {
+    contents[_FP] = __strictParseFloat(output[_FP]) as number;
   }
-  if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
+  if (output[_UP] != null) {
+    contents[_UP] = __strictParseFloat(output[_UP]) as number;
   }
-  if (output["CacheNodeCount"] !== undefined) {
-    contents.CacheNodeCount = __strictParseInt32(output["CacheNodeCount"]) as number;
+  if (output[_CNC] != null) {
+    contents[_CNC] = __strictParseInt32(output[_CNC]) as number;
   }
-  if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = __expectString(output["ProductDescription"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
-  if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = __expectString(output["OfferingType"]);
+  if (output[_OT] != null) {
+    contents[_OT] = __expectString(output[_OT]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
   if (output.RecurringCharges === "") {
-    contents.RecurringCharges = [];
-  } else if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
-    contents.RecurringCharges = de_RecurringChargeList(
-      __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
-      context
-    );
+    contents[_RCec] = [];
+  } else if (output[_RCec] != null && output[_RCec][_RCecu] != null) {
+    contents[_RCec] = de_RecurringChargeList(__getArrayIfSingleItem(output[_RCec][_RCecu]), context);
   }
-  if (output["ReservationARN"] !== undefined) {
-    contents.ReservationARN = __expectString(output["ReservationARN"]);
+  if (output[_RARN] != null) {
+    contents[_RARN] = __expectString(output[_RARN]);
   }
   return contents;
 };
@@ -13855,8 +13677,8 @@ const de_ReservedCacheNodeAlreadyExistsFault = (
   context: __SerdeContext
 ): ReservedCacheNodeAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13877,19 +13699,13 @@ const de_ReservedCacheNodeList = (output: any, context: __SerdeContext): Reserve
  */
 const de_ReservedCacheNodeMessage = (output: any, context: __SerdeContext): ReservedCacheNodeMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ReservedCacheNodes === "") {
-    contents.ReservedCacheNodes = [];
-  } else if (
-    output["ReservedCacheNodes"] !== undefined &&
-    output["ReservedCacheNodes"]["ReservedCacheNode"] !== undefined
-  ) {
-    contents.ReservedCacheNodes = de_ReservedCacheNodeList(
-      __getArrayIfSingleItem(output["ReservedCacheNodes"]["ReservedCacheNode"]),
-      context
-    );
+    contents[_RCNe] = [];
+  } else if (output[_RCNe] != null && output[_RCNe][_RCN] != null) {
+    contents[_RCNe] = de_ReservedCacheNodeList(__getArrayIfSingleItem(output[_RCNe][_RCN]), context);
   }
   return contents;
 };
@@ -13899,8 +13715,8 @@ const de_ReservedCacheNodeMessage = (output: any, context: __SerdeContext): Rese
  */
 const de_ReservedCacheNodeNotFoundFault = (output: any, context: __SerdeContext): ReservedCacheNodeNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13913,8 +13729,8 @@ const de_ReservedCacheNodeQuotaExceededFault = (
   context: __SerdeContext
 ): ReservedCacheNodeQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -13924,34 +13740,31 @@ const de_ReservedCacheNodeQuotaExceededFault = (
  */
 const de_ReservedCacheNodesOffering = (output: any, context: __SerdeContext): ReservedCacheNodesOffering => {
   const contents: any = {};
-  if (output["ReservedCacheNodesOfferingId"] !== undefined) {
-    contents.ReservedCacheNodesOfferingId = __expectString(output["ReservedCacheNodesOfferingId"]);
+  if (output[_RCNOI] != null) {
+    contents[_RCNOI] = __expectString(output[_RCNOI]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt32(output["Duration"]) as number;
+  if (output[_Du] != null) {
+    contents[_Du] = __strictParseInt32(output[_Du]) as number;
   }
-  if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
+  if (output[_FP] != null) {
+    contents[_FP] = __strictParseFloat(output[_FP]) as number;
   }
-  if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
+  if (output[_UP] != null) {
+    contents[_UP] = __strictParseFloat(output[_UP]) as number;
   }
-  if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = __expectString(output["ProductDescription"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
-  if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = __expectString(output["OfferingType"]);
+  if (output[_OT] != null) {
+    contents[_OT] = __expectString(output[_OT]);
   }
   if (output.RecurringCharges === "") {
-    contents.RecurringCharges = [];
-  } else if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
-    contents.RecurringCharges = de_RecurringChargeList(
-      __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
-      context
-    );
+    contents[_RCec] = [];
+  } else if (output[_RCec] != null && output[_RCec][_RCecu] != null) {
+    contents[_RCec] = de_RecurringChargeList(__getArrayIfSingleItem(output[_RCec][_RCecu]), context);
   }
   return contents;
 };
@@ -13975,19 +13788,13 @@ const de_ReservedCacheNodesOfferingMessage = (
   context: __SerdeContext
 ): ReservedCacheNodesOfferingMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ReservedCacheNodesOfferings === "") {
-    contents.ReservedCacheNodesOfferings = [];
-  } else if (
-    output["ReservedCacheNodesOfferings"] !== undefined &&
-    output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"] !== undefined
-  ) {
-    contents.ReservedCacheNodesOfferings = de_ReservedCacheNodesOfferingList(
-      __getArrayIfSingleItem(output["ReservedCacheNodesOfferings"]["ReservedCacheNodesOffering"]),
-      context
-    );
+    contents[_RCNO] = [];
+  } else if (output[_RCNO] != null && output[_RCNO][_RCNOe] != null) {
+    contents[_RCNO] = de_ReservedCacheNodesOfferingList(__getArrayIfSingleItem(output[_RCNO][_RCNOe]), context);
   }
   return contents;
 };
@@ -14000,8 +13807,8 @@ const de_ReservedCacheNodesOfferingNotFoundFault = (
   context: __SerdeContext
 ): ReservedCacheNodesOfferingNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14011,8 +13818,8 @@ const de_ReservedCacheNodesOfferingNotFoundFault = (
  */
 const de_ReshardingStatus = (output: any, context: __SerdeContext): ReshardingStatus => {
   const contents: any = {};
-  if (output["SlotMigration"] !== undefined) {
-    contents.SlotMigration = de_SlotMigration(output["SlotMigration"], context);
+  if (output[_SMl] != null) {
+    contents[_SMl] = de_SlotMigration(output[_SMl], context);
   }
   return contents;
 };
@@ -14025,8 +13832,8 @@ const de_RevokeCacheSecurityGroupIngressResult = (
   context: __SerdeContext
 ): RevokeCacheSecurityGroupIngressResult => {
   const contents: any = {};
-  if (output["CacheSecurityGroup"] !== undefined) {
-    contents.CacheSecurityGroup = de_CacheSecurityGroup(output["CacheSecurityGroup"], context);
+  if (output[_CSG] != null) {
+    contents[_CSG] = de_CacheSecurityGroup(output[_CSG], context);
   }
   return contents;
 };
@@ -14047,11 +13854,11 @@ const de_SecurityGroupIdsList = (output: any, context: __SerdeContext): string[]
  */
 const de_SecurityGroupMembership = (output: any, context: __SerdeContext): SecurityGroupMembership => {
   const contents: any = {};
-  if (output["SecurityGroupId"] !== undefined) {
-    contents.SecurityGroupId = __expectString(output["SecurityGroupId"]);
+  if (output[_SGIe] != null) {
+    contents[_SGIe] = __expectString(output[_SGIe]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -14072,63 +13879,60 @@ const de_SecurityGroupMembershipList = (output: any, context: __SerdeContext): S
  */
 const de_ServerlessCache = (output: any, context: __SerdeContext): ServerlessCache => {
   const contents: any = {};
-  if (output["ServerlessCacheName"] !== undefined) {
-    contents.ServerlessCacheName = __expectString(output["ServerlessCacheName"]);
+  if (output[_SCN] != null) {
+    contents[_SCN] = __expectString(output[_SCN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["MajorEngineVersion"] !== undefined) {
-    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
   }
-  if (output["FullEngineVersion"] !== undefined) {
-    contents.FullEngineVersion = __expectString(output["FullEngineVersion"]);
+  if (output[_FEV] != null) {
+    contents[_FEV] = __expectString(output[_FEV]);
   }
-  if (output["CacheUsageLimits"] !== undefined) {
-    contents.CacheUsageLimits = de_CacheUsageLimits(output["CacheUsageLimits"], context);
+  if (output[_CUL] != null) {
+    contents[_CUL] = de_CacheUsageLimits(output[_CUL], context);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
   if (output.SecurityGroupIds === "") {
-    contents.SecurityGroupIds = [];
-  } else if (output["SecurityGroupIds"] !== undefined && output["SecurityGroupIds"]["SecurityGroupId"] !== undefined) {
-    contents.SecurityGroupIds = de_SecurityGroupIdsList(
-      __getArrayIfSingleItem(output["SecurityGroupIds"]["SecurityGroupId"]),
-      context
-    );
+    contents[_SGI] = [];
+  } else if (output[_SGI] != null && output[_SGI][_SGIe] != null) {
+    contents[_SGI] = de_SecurityGroupIdsList(__getArrayIfSingleItem(output[_SGI][_SGIe]), context);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = de_Endpoint(output["Endpoint"], context);
+  if (output[_End] != null) {
+    contents[_End] = de_Endpoint(output[_End], context);
   }
-  if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = de_Endpoint(output["ReaderEndpoint"], context);
+  if (output[_RE] != null) {
+    contents[_RE] = de_Endpoint(output[_RE], context);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["UserGroupId"] !== undefined) {
-    contents.UserGroupId = __expectString(output["UserGroupId"]);
+  if (output[_UGIs] != null) {
+    contents[_UGIs] = __expectString(output[_UGIs]);
   }
   if (output.SubnetIds === "") {
-    contents.SubnetIds = [];
-  } else if (output["SubnetIds"] !== undefined && output["SubnetIds"]["SubnetId"] !== undefined) {
-    contents.SubnetIds = de_SubnetIdsList(__getArrayIfSingleItem(output["SubnetIds"]["SubnetId"]), context);
+    contents[_SI] = [];
+  } else if (output[_SI] != null && output[_SI][_SIu] != null) {
+    contents[_SI] = de_SubnetIdsList(__getArrayIfSingleItem(output[_SI][_SIu]), context);
   }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
+  if (output[_SRL] != null) {
+    contents[_SRL] = __strictParseInt32(output[_SRL]) as number;
   }
-  if (output["DailySnapshotTime"] !== undefined) {
-    contents.DailySnapshotTime = __expectString(output["DailySnapshotTime"]);
+  if (output[_DST] != null) {
+    contents[_DST] = __expectString(output[_DST]);
   }
   return contents;
 };
@@ -14141,8 +13945,8 @@ const de_ServerlessCacheAlreadyExistsFault = (
   context: __SerdeContext
 ): ServerlessCacheAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14152,14 +13956,14 @@ const de_ServerlessCacheAlreadyExistsFault = (
  */
 const de_ServerlessCacheConfiguration = (output: any, context: __SerdeContext): ServerlessCacheConfiguration => {
   const contents: any = {};
-  if (output["ServerlessCacheName"] !== undefined) {
-    contents.ServerlessCacheName = __expectString(output["ServerlessCacheName"]);
+  if (output[_SCN] != null) {
+    contents[_SCN] = __expectString(output[_SCN]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["MajorEngineVersion"] !== undefined) {
-    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
   }
   return contents;
 };
@@ -14180,8 +13984,8 @@ const de_ServerlessCacheList = (output: any, context: __SerdeContext): Serverles
  */
 const de_ServerlessCacheNotFoundFault = (output: any, context: __SerdeContext): ServerlessCacheNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14194,8 +13998,8 @@ const de_ServerlessCacheQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): ServerlessCacheQuotaForCustomerExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14205,35 +14009,32 @@ const de_ServerlessCacheQuotaForCustomerExceededFault = (
  */
 const de_ServerlessCacheSnapshot = (output: any, context: __SerdeContext): ServerlessCacheSnapshot => {
   const contents: any = {};
-  if (output["ServerlessCacheSnapshotName"] !== undefined) {
-    contents.ServerlessCacheSnapshotName = __expectString(output["ServerlessCacheSnapshotName"]);
+  if (output[_SCSN] != null) {
+    contents[_SCSN] = __expectString(output[_SCSN]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["SnapshotType"] !== undefined) {
-    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  if (output[_STn] != null) {
+    contents[_STn] = __expectString(output[_STn]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["ExpiryTime"] !== undefined) {
-    contents.ExpiryTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ExpiryTime"]));
+  if (output[_ETx] != null) {
+    contents[_ETx] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ETx]));
   }
-  if (output["BytesUsedForCache"] !== undefined) {
-    contents.BytesUsedForCache = __expectString(output["BytesUsedForCache"]);
+  if (output[_BUFC] != null) {
+    contents[_BUFC] = __expectString(output[_BUFC]);
   }
-  if (output["ServerlessCacheConfiguration"] !== undefined) {
-    contents.ServerlessCacheConfiguration = de_ServerlessCacheConfiguration(
-      output["ServerlessCacheConfiguration"],
-      context
-    );
+  if (output[_SCC] != null) {
+    contents[_SCC] = de_ServerlessCacheConfiguration(output[_SCC], context);
   }
   return contents;
 };
@@ -14246,8 +14047,8 @@ const de_ServerlessCacheSnapshotAlreadyExistsFault = (
   context: __SerdeContext
 ): ServerlessCacheSnapshotAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14271,8 +14072,8 @@ const de_ServerlessCacheSnapshotNotFoundFault = (
   context: __SerdeContext
 ): ServerlessCacheSnapshotNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14285,8 +14086,8 @@ const de_ServerlessCacheSnapshotQuotaExceededFault = (
   context: __SerdeContext
 ): ServerlessCacheSnapshotQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14296,8 +14097,8 @@ const de_ServerlessCacheSnapshotQuotaExceededFault = (
  */
 const de_ServiceLinkedRoleNotFoundFault = (output: any, context: __SerdeContext): ServiceLinkedRoleNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14307,45 +14108,41 @@ const de_ServiceLinkedRoleNotFoundFault = (output: any, context: __SerdeContext)
  */
 const de_ServiceUpdate = (output: any, context: __SerdeContext): ServiceUpdate => {
   const contents: any = {};
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
+  if (output[_SUN] != null) {
+    contents[_SUN] = __expectString(output[_SUN]);
   }
-  if (output["ServiceUpdateReleaseDate"] !== undefined) {
-    contents.ServiceUpdateReleaseDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateReleaseDate"])
-    );
+  if (output[_SURD] != null) {
+    contents[_SURD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SURD]));
   }
-  if (output["ServiceUpdateEndDate"] !== undefined) {
-    contents.ServiceUpdateEndDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ServiceUpdateEndDate"]));
+  if (output[_SUED] != null) {
+    contents[_SUED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SUED]));
   }
-  if (output["ServiceUpdateSeverity"] !== undefined) {
-    contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
+  if (output[_SUSe] != null) {
+    contents[_SUSe] = __expectString(output[_SUSe]);
   }
-  if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
-    contents.ServiceUpdateRecommendedApplyByDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateRecommendedApplyByDate"])
-    );
+  if (output[_SURABD] != null) {
+    contents[_SURABD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SURABD]));
   }
-  if (output["ServiceUpdateStatus"] !== undefined) {
-    contents.ServiceUpdateStatus = __expectString(output["ServiceUpdateStatus"]);
+  if (output[_SUS] != null) {
+    contents[_SUS] = __expectString(output[_SUS]);
   }
-  if (output["ServiceUpdateDescription"] !== undefined) {
-    contents.ServiceUpdateDescription = __expectString(output["ServiceUpdateDescription"]);
+  if (output[_SUD] != null) {
+    contents[_SUD] = __expectString(output[_SUD]);
   }
-  if (output["ServiceUpdateType"] !== undefined) {
-    contents.ServiceUpdateType = __expectString(output["ServiceUpdateType"]);
+  if (output[_SUT] != null) {
+    contents[_SUT] = __expectString(output[_SUT]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["AutoUpdateAfterRecommendedApplyByDate"] !== undefined) {
-    contents.AutoUpdateAfterRecommendedApplyByDate = __parseBoolean(output["AutoUpdateAfterRecommendedApplyByDate"]);
+  if (output[_AUARABD] != null) {
+    contents[_AUARABD] = __parseBoolean(output[_AUARABD]);
   }
-  if (output["EstimatedUpdateTime"] !== undefined) {
-    contents.EstimatedUpdateTime = __expectString(output["EstimatedUpdateTime"]);
+  if (output[_EUT] != null) {
+    contents[_EUT] = __expectString(output[_EUT]);
   }
   return contents;
 };
@@ -14366,8 +14163,8 @@ const de_ServiceUpdateList = (output: any, context: __SerdeContext): ServiceUpda
  */
 const de_ServiceUpdateNotFoundFault = (output: any, context: __SerdeContext): ServiceUpdateNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14377,16 +14174,13 @@ const de_ServiceUpdateNotFoundFault = (output: any, context: __SerdeContext): Se
  */
 const de_ServiceUpdatesMessage = (output: any, context: __SerdeContext): ServiceUpdatesMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ServiceUpdates === "") {
-    contents.ServiceUpdates = [];
-  } else if (output["ServiceUpdates"] !== undefined && output["ServiceUpdates"]["ServiceUpdate"] !== undefined) {
-    contents.ServiceUpdates = de_ServiceUpdateList(
-      __getArrayIfSingleItem(output["ServiceUpdates"]["ServiceUpdate"]),
-      context
-    );
+    contents[_SU] = [];
+  } else if (output[_SU] != null && output[_SU][_SUe] != null) {
+    contents[_SU] = de_ServiceUpdateList(__getArrayIfSingleItem(output[_SU][_SUe]), context);
   }
   return contents;
 };
@@ -14396,8 +14190,8 @@ const de_ServiceUpdatesMessage = (output: any, context: __SerdeContext): Service
  */
 const de_SlotMigration = (output: any, context: __SerdeContext): SlotMigration => {
   const contents: any = {};
-  if (output["ProgressPercentage"] !== undefined) {
-    contents.ProgressPercentage = __strictParseFloat(output["ProgressPercentage"]) as number;
+  if (output[_PP] != null) {
+    contents[_PP] = __strictParseFloat(output[_PP]) as number;
   }
   return contents;
 };
@@ -14407,96 +14201,91 @@ const de_SlotMigration = (output: any, context: __SerdeContext): SlotMigration =
  */
 const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   const contents: any = {};
-  if (output["SnapshotName"] !== undefined) {
-    contents.SnapshotName = __expectString(output["SnapshotName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["ReplicationGroupDescription"] !== undefined) {
-    contents.ReplicationGroupDescription = __expectString(output["ReplicationGroupDescription"]);
+  if (output[_RGD] != null) {
+    contents[_RGD] = __expectString(output[_RGD]);
   }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["SnapshotStatus"] !== undefined) {
-    contents.SnapshotStatus = __expectString(output["SnapshotStatus"]);
+  if (output[_SSn] != null) {
+    contents[_SSn] = __expectString(output[_SSn]);
   }
-  if (output["SnapshotSource"] !== undefined) {
-    contents.SnapshotSource = __expectString(output["SnapshotSource"]);
+  if (output[_SS] != null) {
+    contents[_SS] = __expectString(output[_SS]);
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = __expectString(output["CacheNodeType"]);
+  if (output[_CNT] != null) {
+    contents[_CNT] = __expectString(output[_CNT]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = __strictParseInt32(output["NumCacheNodes"]) as number;
+  if (output[_NCN] != null) {
+    contents[_NCN] = __strictParseInt32(output[_NCN]) as number;
   }
-  if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = __expectString(output["PreferredAvailabilityZone"]);
+  if (output[_PAZr] != null) {
+    contents[_PAZr] = __expectString(output[_PAZr]);
   }
-  if (output["PreferredOutpostArn"] !== undefined) {
-    contents.PreferredOutpostArn = __expectString(output["PreferredOutpostArn"]);
+  if (output[_POAr] != null) {
+    contents[_POAr] = __expectString(output[_POAr]);
   }
-  if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["CacheClusterCreateTime"])
-    );
+  if (output[_CCCT] != null) {
+    contents[_CCCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCCT]));
   }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  if (output[_PMW] != null) {
+    contents[_PMW] = __expectString(output[_PMW]);
   }
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_Po] != null) {
+    contents[_Po] = __strictParseInt32(output[_Po]) as number;
   }
-  if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = __expectString(output["CacheParameterGroupName"]);
+  if (output[_CPGN] != null) {
+    contents[_CPGN] = __expectString(output[_CPGN]);
   }
-  if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
+  if (output[_CSGNa] != null) {
+    contents[_CSGNa] = __expectString(output[_CSGNa]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  if (output[_AMVU] != null) {
+    contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = __strictParseInt32(output["SnapshotRetentionLimit"]) as number;
+  if (output[_SRL] != null) {
+    contents[_SRL] = __strictParseInt32(output[_SRL]) as number;
   }
-  if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = __expectString(output["SnapshotWindow"]);
+  if (output[_SW] != null) {
+    contents[_SW] = __expectString(output[_SW]);
   }
-  if (output["NumNodeGroups"] !== undefined) {
-    contents.NumNodeGroups = __strictParseInt32(output["NumNodeGroups"]) as number;
+  if (output[_NNG] != null) {
+    contents[_NNG] = __strictParseInt32(output[_NNG]) as number;
   }
-  if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = __expectString(output["AutomaticFailover"]);
+  if (output[_AF] != null) {
+    contents[_AF] = __expectString(output[_AF]);
   }
   if (output.NodeSnapshots === "") {
-    contents.NodeSnapshots = [];
-  } else if (output["NodeSnapshots"] !== undefined && output["NodeSnapshots"]["NodeSnapshot"] !== undefined) {
-    contents.NodeSnapshots = de_NodeSnapshotList(
-      __getArrayIfSingleItem(output["NodeSnapshots"]["NodeSnapshot"]),
-      context
-    );
+    contents[_NS] = [];
+  } else if (output[_NS] != null && output[_NS][_NSo] != null) {
+    contents[_NS] = de_NodeSnapshotList(__getArrayIfSingleItem(output[_NS][_NSo]), context);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["DataTiering"] !== undefined) {
-    contents.DataTiering = __expectString(output["DataTiering"]);
+  if (output[_DTat] != null) {
+    contents[_DTat] = __expectString(output[_DTat]);
   }
   return contents;
 };
@@ -14506,8 +14295,8 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
  */
 const de_SnapshotAlreadyExistsFault = (output: any, context: __SerdeContext): SnapshotAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14520,8 +14309,8 @@ const de_SnapshotFeatureNotSupportedFault = (
   context: __SerdeContext
 ): SnapshotFeatureNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14542,8 +14331,8 @@ const de_SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
  */
 const de_SnapshotNotFoundFault = (output: any, context: __SerdeContext): SnapshotNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14553,8 +14342,8 @@ const de_SnapshotNotFoundFault = (output: any, context: __SerdeContext): Snapsho
  */
 const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): SnapshotQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14564,8 +14353,8 @@ const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): Sn
  */
 const de_StartMigrationResponse = (output: any, context: __SerdeContext): StartMigrationResponse => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -14575,22 +14364,19 @@ const de_StartMigrationResponse = (output: any, context: __SerdeContext): StartM
  */
 const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   const contents: any = {};
-  if (output["SubnetIdentifier"] !== undefined) {
-    contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
+  if (output[_SIub] != null) {
+    contents[_SIub] = __expectString(output[_SIub]);
   }
-  if (output["SubnetAvailabilityZone"] !== undefined) {
-    contents.SubnetAvailabilityZone = de_AvailabilityZone(output["SubnetAvailabilityZone"], context);
+  if (output[_SAZ] != null) {
+    contents[_SAZ] = de_AvailabilityZone(output[_SAZ], context);
   }
-  if (output["SubnetOutpost"] !== undefined) {
-    contents.SubnetOutpost = de_SubnetOutpost(output["SubnetOutpost"], context);
+  if (output[_SO] != null) {
+    contents[_SO] = de_SubnetOutpost(output[_SO], context);
   }
   if (output.SupportedNetworkTypes === "") {
-    contents.SupportedNetworkTypes = [];
-  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
-    contents.SupportedNetworkTypes = de_NetworkTypeList(
-      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
-      context
-    );
+    contents[_SNT] = [];
+  } else if (output[_SNT] != null && output[_SNT][_m] != null) {
+    contents[_SNT] = de_NetworkTypeList(__getArrayIfSingleItem(output[_SNT][_m]), context);
   }
   return contents;
 };
@@ -14611,8 +14397,8 @@ const de_SubnetIdsList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_SubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14633,8 +14419,8 @@ const de_SubnetList = (output: any, context: __SerdeContext): Subnet[] => {
  */
 const de_SubnetNotAllowedFault = (output: any, context: __SerdeContext): SubnetNotAllowedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14644,8 +14430,8 @@ const de_SubnetNotAllowedFault = (output: any, context: __SerdeContext): SubnetN
  */
 const de_SubnetOutpost = (output: any, context: __SerdeContext): SubnetOutpost => {
   const contents: any = {};
-  if (output["SubnetOutpostArn"] !== undefined) {
-    contents.SubnetOutpostArn = __expectString(output["SubnetOutpostArn"]);
+  if (output[_SOA] != null) {
+    contents[_SOA] = __expectString(output[_SOA]);
   }
   return contents;
 };
@@ -14655,11 +14441,11 @@ const de_SubnetOutpost = (output: any, context: __SerdeContext): SubnetOutpost =
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -14681,9 +14467,9 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
 const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
   const contents: any = {};
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Ta] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Ta]), context);
   }
   return contents;
 };
@@ -14693,8 +14479,8 @@ const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage
  */
 const de_TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14704,8 +14490,8 @@ const de_TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundF
  */
 const de_TagQuotaPerResourceExceeded = (output: any, context: __SerdeContext): TagQuotaPerResourceExceeded => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14715,8 +14501,8 @@ const de_TagQuotaPerResourceExceeded = (output: any, context: __SerdeContext): T
  */
 const de_TestFailoverNotAvailableFault = (output: any, context: __SerdeContext): TestFailoverNotAvailableFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14726,8 +14512,8 @@ const de_TestFailoverNotAvailableFault = (output: any, context: __SerdeContext):
  */
 const de_TestFailoverResult = (output: any, context: __SerdeContext): TestFailoverResult => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -14737,8 +14523,8 @@ const de_TestFailoverResult = (output: any, context: __SerdeContext): TestFailov
  */
 const de_TestMigrationResponse = (output: any, context: __SerdeContext): TestMigrationResponse => {
   const contents: any = {};
-  if (output["ReplicationGroup"] !== undefined) {
-    contents.ReplicationGroup = de_ReplicationGroup(output["ReplicationGroup"], context);
+  if (output[_RG] != null) {
+    contents[_RG] = de_ReplicationGroup(output[_RG], context);
   }
   return contents;
 };
@@ -14770,20 +14556,20 @@ const de_UGServerlessCacheIdList = (output: any, context: __SerdeContext): strin
  */
 const de_UnprocessedUpdateAction = (output: any, context: __SerdeContext): UnprocessedUpdateAction => {
   const contents: any = {};
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
+  if (output[_SUN] != null) {
+    contents[_SUN] = __expectString(output[_SUN]);
   }
-  if (output["ErrorType"] !== undefined) {
-    contents.ErrorType = __expectString(output["ErrorType"]);
+  if (output[_ETr] != null) {
+    contents[_ETr] = __expectString(output[_ETr]);
   }
-  if (output["ErrorMessage"] !== undefined) {
-    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
+  if (output[_EM] != null) {
+    contents[_EM] = __expectString(output[_EM]);
   }
   return contents;
 };
@@ -14804,80 +14590,60 @@ const de_UnprocessedUpdateActionList = (output: any, context: __SerdeContext): U
  */
 const de_UpdateAction = (output: any, context: __SerdeContext): UpdateAction => {
   const contents: any = {};
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
+  if (output[_RGIe] != null) {
+    contents[_RGIe] = __expectString(output[_RGIe]);
   }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = __expectString(output["CacheClusterId"]);
+  if (output[_CCIa] != null) {
+    contents[_CCIa] = __expectString(output[_CCIa]);
   }
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = __expectString(output["ServiceUpdateName"]);
+  if (output[_SUN] != null) {
+    contents[_SUN] = __expectString(output[_SUN]);
   }
-  if (output["ServiceUpdateReleaseDate"] !== undefined) {
-    contents.ServiceUpdateReleaseDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateReleaseDate"])
-    );
+  if (output[_SURD] != null) {
+    contents[_SURD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SURD]));
   }
-  if (output["ServiceUpdateSeverity"] !== undefined) {
-    contents.ServiceUpdateSeverity = __expectString(output["ServiceUpdateSeverity"]);
+  if (output[_SUSe] != null) {
+    contents[_SUSe] = __expectString(output[_SUSe]);
   }
-  if (output["ServiceUpdateStatus"] !== undefined) {
-    contents.ServiceUpdateStatus = __expectString(output["ServiceUpdateStatus"]);
+  if (output[_SUS] != null) {
+    contents[_SUS] = __expectString(output[_SUS]);
   }
-  if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
-    contents.ServiceUpdateRecommendedApplyByDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ServiceUpdateRecommendedApplyByDate"])
-    );
+  if (output[_SURABD] != null) {
+    contents[_SURABD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SURABD]));
   }
-  if (output["ServiceUpdateType"] !== undefined) {
-    contents.ServiceUpdateType = __expectString(output["ServiceUpdateType"]);
+  if (output[_SUT] != null) {
+    contents[_SUT] = __expectString(output[_SUT]);
   }
-  if (output["UpdateActionAvailableDate"] !== undefined) {
-    contents.UpdateActionAvailableDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["UpdateActionAvailableDate"])
-    );
+  if (output[_UAAD] != null) {
+    contents[_UAAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UAAD]));
   }
-  if (output["UpdateActionStatus"] !== undefined) {
-    contents.UpdateActionStatus = __expectString(output["UpdateActionStatus"]);
+  if (output[_UAS] != null) {
+    contents[_UAS] = __expectString(output[_UAS]);
   }
-  if (output["NodesUpdated"] !== undefined) {
-    contents.NodesUpdated = __expectString(output["NodesUpdated"]);
+  if (output[_NU] != null) {
+    contents[_NU] = __expectString(output[_NU]);
   }
-  if (output["UpdateActionStatusModifiedDate"] !== undefined) {
-    contents.UpdateActionStatusModifiedDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["UpdateActionStatusModifiedDate"])
-    );
+  if (output[_UASMD] != null) {
+    contents[_UASMD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UASMD]));
   }
-  if (output["SlaMet"] !== undefined) {
-    contents.SlaMet = __expectString(output["SlaMet"]);
+  if (output[_SMla] != null) {
+    contents[_SMla] = __expectString(output[_SMla]);
   }
   if (output.NodeGroupUpdateStatus === "") {
-    contents.NodeGroupUpdateStatus = [];
-  } else if (
-    output["NodeGroupUpdateStatus"] !== undefined &&
-    output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"] !== undefined
-  ) {
-    contents.NodeGroupUpdateStatus = de_NodeGroupUpdateStatusList(
-      __getArrayIfSingleItem(output["NodeGroupUpdateStatus"]["NodeGroupUpdateStatus"]),
-      context
-    );
+    contents[_NGUS] = [];
+  } else if (output[_NGUS] != null && output[_NGUS][_NGUS] != null) {
+    contents[_NGUS] = de_NodeGroupUpdateStatusList(__getArrayIfSingleItem(output[_NGUS][_NGUS]), context);
   }
   if (output.CacheNodeUpdateStatus === "") {
-    contents.CacheNodeUpdateStatus = [];
-  } else if (
-    output["CacheNodeUpdateStatus"] !== undefined &&
-    output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] !== undefined
-  ) {
-    contents.CacheNodeUpdateStatus = de_CacheNodeUpdateStatusList(
-      __getArrayIfSingleItem(output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]),
-      context
-    );
+    contents[_CNUS] = [];
+  } else if (output[_CNUS] != null && output[_CNUS][_CNUS] != null) {
+    contents[_CNUS] = de_CacheNodeUpdateStatusList(__getArrayIfSingleItem(output[_CNUS][_CNUS]), context);
   }
-  if (output["EstimatedUpdateTime"] !== undefined) {
-    contents.EstimatedUpdateTime = __expectString(output["EstimatedUpdateTime"]);
+  if (output[_EUT] != null) {
+    contents[_EUT] = __expectString(output[_EUT]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
   return contents;
 };
@@ -14899,26 +14665,14 @@ const de_UpdateActionList = (output: any, context: __SerdeContext): UpdateAction
 const de_UpdateActionResultsMessage = (output: any, context: __SerdeContext): UpdateActionResultsMessage => {
   const contents: any = {};
   if (output.ProcessedUpdateActions === "") {
-    contents.ProcessedUpdateActions = [];
-  } else if (
-    output["ProcessedUpdateActions"] !== undefined &&
-    output["ProcessedUpdateActions"]["ProcessedUpdateAction"] !== undefined
-  ) {
-    contents.ProcessedUpdateActions = de_ProcessedUpdateActionList(
-      __getArrayIfSingleItem(output["ProcessedUpdateActions"]["ProcessedUpdateAction"]),
-      context
-    );
+    contents[_PUA] = [];
+  } else if (output[_PUA] != null && output[_PUA][_PUAr] != null) {
+    contents[_PUA] = de_ProcessedUpdateActionList(__getArrayIfSingleItem(output[_PUA][_PUAr]), context);
   }
   if (output.UnprocessedUpdateActions === "") {
-    contents.UnprocessedUpdateActions = [];
-  } else if (
-    output["UnprocessedUpdateActions"] !== undefined &&
-    output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"] !== undefined
-  ) {
-    contents.UnprocessedUpdateActions = de_UnprocessedUpdateActionList(
-      __getArrayIfSingleItem(output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]),
-      context
-    );
+    contents[_UUA] = [];
+  } else if (output[_UUA] != null && output[_UUA][_UUAn] != null) {
+    contents[_UUA] = de_UnprocessedUpdateActionList(__getArrayIfSingleItem(output[_UUA][_UUAn]), context);
   }
   return contents;
 };
@@ -14928,16 +14682,13 @@ const de_UpdateActionResultsMessage = (output: any, context: __SerdeContext): Up
  */
 const de_UpdateActionsMessage = (output: any, context: __SerdeContext): UpdateActionsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.UpdateActions === "") {
-    contents.UpdateActions = [];
-  } else if (output["UpdateActions"] !== undefined && output["UpdateActions"]["UpdateAction"] !== undefined) {
-    contents.UpdateActions = de_UpdateActionList(
-      __getArrayIfSingleItem(output["UpdateActions"]["UpdateAction"]),
-      context
-    );
+    contents[_UA] = [];
+  } else if (output[_UA] != null && output[_UA][_UAp] != null) {
+    contents[_UA] = de_UpdateActionList(__getArrayIfSingleItem(output[_UA][_UAp]), context);
   }
   return contents;
 };
@@ -14947,34 +14698,34 @@ const de_UpdateActionsMessage = (output: any, context: __SerdeContext): UpdateAc
  */
 const de_User = (output: any, context: __SerdeContext): User => {
   const contents: any = {};
-  if (output["UserId"] !== undefined) {
-    contents.UserId = __expectString(output["UserId"]);
+  if (output[_UIs] != null) {
+    contents[_UIs] = __expectString(output[_UIs]);
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEVi] != null) {
+    contents[_MEVi] = __expectString(output[_MEVi]);
   }
-  if (output["AccessString"] !== undefined) {
-    contents.AccessString = __expectString(output["AccessString"]);
+  if (output[_AS] != null) {
+    contents[_AS] = __expectString(output[_AS]);
   }
   if (output.UserGroupIds === "") {
-    contents.UserGroupIds = [];
-  } else if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
-    contents.UserGroupIds = de_UserGroupIdList(__getArrayIfSingleItem(output["UserGroupIds"]["member"]), context);
+    contents[_UGI] = [];
+  } else if (output[_UGI] != null && output[_UGI][_m] != null) {
+    contents[_UGI] = de_UserGroupIdList(__getArrayIfSingleItem(output[_UGI][_m]), context);
   }
-  if (output["Authentication"] !== undefined) {
-    contents.Authentication = de_Authentication(output["Authentication"], context);
+  if (output[_Au] != null) {
+    contents[_Au] = de_Authentication(output[_Au], context);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   return contents;
 };
@@ -14984,8 +14735,8 @@ const de_User = (output: any, context: __SerdeContext): User => {
  */
 const de_UserAlreadyExistsFault = (output: any, context: __SerdeContext): UserAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -14995,44 +14746,38 @@ const de_UserAlreadyExistsFault = (output: any, context: __SerdeContext): UserAl
  */
 const de_UserGroup = (output: any, context: __SerdeContext): UserGroup => {
   const contents: any = {};
-  if (output["UserGroupId"] !== undefined) {
-    contents.UserGroupId = __expectString(output["UserGroupId"]);
+  if (output[_UGIs] != null) {
+    contents[_UGIs] = __expectString(output[_UGIs]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
   if (output.UserIds === "") {
-    contents.UserIds = [];
-  } else if (output["UserIds"] !== undefined && output["UserIds"]["member"] !== undefined) {
-    contents.UserIds = de_UserIdList(__getArrayIfSingleItem(output["UserIds"]["member"]), context);
+    contents[_UI] = [];
+  } else if (output[_UI] != null && output[_UI][_m] != null) {
+    contents[_UI] = de_UserIdList(__getArrayIfSingleItem(output[_UI][_m]), context);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEVi] != null) {
+    contents[_MEVi] = __expectString(output[_MEVi]);
   }
-  if (output["PendingChanges"] !== undefined) {
-    contents.PendingChanges = de_UserGroupPendingChanges(output["PendingChanges"], context);
+  if (output[_PCe] != null) {
+    contents[_PCe] = de_UserGroupPendingChanges(output[_PCe], context);
   }
   if (output.ReplicationGroups === "") {
-    contents.ReplicationGroups = [];
-  } else if (output["ReplicationGroups"] !== undefined && output["ReplicationGroups"]["member"] !== undefined) {
-    contents.ReplicationGroups = de_UGReplicationGroupIdList(
-      __getArrayIfSingleItem(output["ReplicationGroups"]["member"]),
-      context
-    );
+    contents[_RGe] = [];
+  } else if (output[_RGe] != null && output[_RGe][_m] != null) {
+    contents[_RGe] = de_UGReplicationGroupIdList(__getArrayIfSingleItem(output[_RGe][_m]), context);
   }
   if (output.ServerlessCaches === "") {
-    contents.ServerlessCaches = [];
-  } else if (output["ServerlessCaches"] !== undefined && output["ServerlessCaches"]["member"] !== undefined) {
-    contents.ServerlessCaches = de_UGServerlessCacheIdList(
-      __getArrayIfSingleItem(output["ServerlessCaches"]["member"]),
-      context
-    );
+    contents[_SCe] = [];
+  } else if (output[_SCe] != null && output[_SCe][_m] != null) {
+    contents[_SCe] = de_UGServerlessCacheIdList(__getArrayIfSingleItem(output[_SCe][_m]), context);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
   return contents;
 };
@@ -15042,8 +14787,8 @@ const de_UserGroup = (output: any, context: __SerdeContext): UserGroup => {
  */
 const de_UserGroupAlreadyExistsFault = (output: any, context: __SerdeContext): UserGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -15075,8 +14820,8 @@ const de_UserGroupList = (output: any, context: __SerdeContext): UserGroup[] => 
  */
 const de_UserGroupNotFoundFault = (output: any, context: __SerdeContext): UserGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -15087,14 +14832,14 @@ const de_UserGroupNotFoundFault = (output: any, context: __SerdeContext): UserGr
 const de_UserGroupPendingChanges = (output: any, context: __SerdeContext): UserGroupPendingChanges => {
   const contents: any = {};
   if (output.UserIdsToRemove === "") {
-    contents.UserIdsToRemove = [];
-  } else if (output["UserIdsToRemove"] !== undefined && output["UserIdsToRemove"]["member"] !== undefined) {
-    contents.UserIdsToRemove = de_UserIdList(__getArrayIfSingleItem(output["UserIdsToRemove"]["member"]), context);
+    contents[_UITR] = [];
+  } else if (output[_UITR] != null && output[_UITR][_m] != null) {
+    contents[_UITR] = de_UserIdList(__getArrayIfSingleItem(output[_UITR][_m]), context);
   }
   if (output.UserIdsToAdd === "") {
-    contents.UserIdsToAdd = [];
-  } else if (output["UserIdsToAdd"] !== undefined && output["UserIdsToAdd"]["member"] !== undefined) {
-    contents.UserIdsToAdd = de_UserIdList(__getArrayIfSingleItem(output["UserIdsToAdd"]["member"]), context);
+    contents[_UITA] = [];
+  } else if (output[_UITA] != null && output[_UITA][_m] != null) {
+    contents[_UITA] = de_UserIdList(__getArrayIfSingleItem(output[_UITA][_m]), context);
   }
   return contents;
 };
@@ -15104,8 +14849,8 @@ const de_UserGroupPendingChanges = (output: any, context: __SerdeContext): UserG
  */
 const de_UserGroupQuotaExceededFault = (output: any, context: __SerdeContext): UserGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -15116,20 +14861,14 @@ const de_UserGroupQuotaExceededFault = (output: any, context: __SerdeContext): U
 const de_UserGroupsUpdateStatus = (output: any, context: __SerdeContext): UserGroupsUpdateStatus => {
   const contents: any = {};
   if (output.UserGroupIdsToAdd === "") {
-    contents.UserGroupIdsToAdd = [];
-  } else if (output["UserGroupIdsToAdd"] !== undefined && output["UserGroupIdsToAdd"]["member"] !== undefined) {
-    contents.UserGroupIdsToAdd = de_UserGroupIdList(
-      __getArrayIfSingleItem(output["UserGroupIdsToAdd"]["member"]),
-      context
-    );
+    contents[_UGITA] = [];
+  } else if (output[_UGITA] != null && output[_UGITA][_m] != null) {
+    contents[_UGITA] = de_UserGroupIdList(__getArrayIfSingleItem(output[_UGITA][_m]), context);
   }
   if (output.UserGroupIdsToRemove === "") {
-    contents.UserGroupIdsToRemove = [];
-  } else if (output["UserGroupIdsToRemove"] !== undefined && output["UserGroupIdsToRemove"]["member"] !== undefined) {
-    contents.UserGroupIdsToRemove = de_UserGroupIdList(
-      __getArrayIfSingleItem(output["UserGroupIdsToRemove"]["member"]),
-      context
-    );
+    contents[_UGITR] = [];
+  } else if (output[_UGITR] != null && output[_UGITR][_m] != null) {
+    contents[_UGITR] = de_UserGroupIdList(__getArrayIfSingleItem(output[_UGITR][_m]), context);
   }
   return contents;
 };
@@ -15161,8 +14900,8 @@ const de_UserList = (output: any, context: __SerdeContext): User[] => {
  */
 const de_UserNotFoundFault = (output: any, context: __SerdeContext): UserNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -15172,8 +14911,8 @@ const de_UserNotFoundFault = (output: any, context: __SerdeContext): UserNotFoun
  */
 const de_UserQuotaExceededFault = (output: any, context: __SerdeContext): UserQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_me] != null) {
+    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };
@@ -15218,6 +14957,430 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2015-02-02";
+const _A = "Action";
+const _AAS = "AppendAccessString";
+const _ACSGI = "AuthorizeCacheSecurityGroupIngress";
+const _AF = "AutomaticFailover";
+const _AFE = "AutomaticFailoverEnabled";
+const _AFS = "AutomaticFailoverStatus";
+const _AI = "ApplyImmediately";
+const _AM = "AuthenticationMode";
+const _AMVU = "AutoMinorVersionUpgrade";
+const _AREE = "AtRestEncryptionEnabled";
+const _ARN = "ARN";
+const _AS = "AccessString";
+const _AT = "AuthToken";
+const _ATE = "AuthTokenEnabled";
+const _ATLMD = "AuthTokenLastModifiedDate";
+const _ATS = "AuthTokenStatus";
+const _ATTR = "AddTagsToResource";
+const _ATUS = "AuthTokenUpdateStrategy";
+const _AUARABD = "AutoUpdateAfterRecommendedApplyByDate";
+const _AV = "AllowedValues";
+const _AZ = "AvailabilityZone";
+const _AZM = "AZMode";
+const _Ad = "Address";
+const _Au = "Authentication";
+const _BAUA = "BatchApplyUpdateAction";
+const _BSUA = "BatchStopUpdateAction";
+const _BUFC = "BytesUsedForCache";
+const _CAZ = "CustomerAvailabilityZone";
+const _CC = "CacheClusters";
+const _CCC = "CreateCacheCluster";
+const _CCCT = "CacheClusterCreateTime";
+const _CCI = "CacheClusterIds";
+const _CCIa = "CacheClusterId";
+const _CCPG = "CreateCacheParameterGroup";
+const _CCS = "CacheClusterStatus";
+const _CCSG = "CreateCacheSecurityGroup";
+const _CCSGr = "CreateCacheSubnetGroup";
+const _CCa = "CacheCluster";
+const _CDLP = "ClientDownloadLandingPage";
+const _CE = "ConfigurationEndpoint";
+const _CED = "CacheEngineDescription";
+const _CEV = "CacheEngineVersions";
+const _CEVD = "CacheEngineVersionDescription";
+const _CEVa = "CacheEngineVersion";
+const _CEl = "ClusterEnabled";
+const _CGRG = "CreateGlobalReplicationGroup";
+const _CI = "ClusterId";
+const _CM = "CompleteMigration";
+const _CMl = "ClusterMode";
+const _CN = "CacheNodes";
+const _CNC = "CacheNodeCount";
+const _CNCT = "CacheNodeCreateTime";
+const _CNEL = "CustomerNodeEndpointList";
+const _CNI = "CacheNodeId";
+const _CNITR = "CacheNodeIdsToRemove";
+const _CNITRa = "CacheNodeIdsToReboot";
+const _CNS = "CacheNodeStatus";
+const _CNT = "CacheNodeType";
+const _CNTSP = "CacheNodeTypeSpecificParameters";
+const _CNTSPa = "CacheNodeTypeSpecificParameter";
+const _CNTSV = "CacheNodeTypeSpecificValues";
+const _CNTSVa = "CacheNodeTypeSpecificValue";
+const _CNUS = "CacheNodeUpdateStatus";
+const _CNa = "CacheNode";
+const _COA = "CustomerOutpostArn";
+const _CPG = "CacheParameterGroup";
+const _CPGF = "CacheParameterGroupFamily";
+const _CPGN = "CacheParameterGroupName";
+const _CPGa = "CacheParameterGroups";
+const _CR = "CurrentRole";
+const _CRG = "CreateReplicationGroup";
+const _CS = "CopySnapshot";
+const _CSC = "CreateServerlessCache";
+const _CSCS = "CopyServerlessCacheSnapshot";
+const _CSCSr = "CreateServerlessCacheSnapshot";
+const _CSG = "CacheSecurityGroup";
+const _CSGD = "CacheSubnetGroupDescription";
+const _CSGN = "CacheSecurityGroupName";
+const _CSGNa = "CacheSubnetGroupName";
+const _CSGNac = "CacheSecurityGroupNames";
+const _CSGa = "CacheSecurityGroups";
+const _CSGac = "CacheSubnetGroups";
+const _CSGach = "CacheSubnetGroup";
+const _CSa = "CacheSize";
+const _CSr = "CreateSnapshot";
+const _CT = "ChangeType";
+const _CTr = "CreateTime";
+const _CU = "CreateUser";
+const _CUG = "CreateUserGroup";
+const _CUL = "CacheUsageLimits";
+const _CWLD = "CloudWatchLogsDetails";
+const _D = "Description";
+const _DCC = "DeleteCacheCluster";
+const _DCCe = "DescribeCacheClusters";
+const _DCEV = "DescribeCacheEngineVersions";
+const _DCP = "DescribeCacheParameters";
+const _DCPG = "DeleteCacheParameterGroup";
+const _DCPGe = "DescribeCacheParameterGroups";
+const _DCSG = "DeleteCacheSecurityGroup";
+const _DCSGe = "DeleteCacheSubnetGroup";
+const _DCSGes = "DescribeCacheSecurityGroups";
+const _DCSGesc = "DescribeCacheSubnetGroups";
+const _DD = "DestinationDetails";
+const _DE = "DescribeEvents";
+const _DEDP = "DescribeEngineDefaultParameters";
+const _DGRG = "DeleteGlobalReplicationGroup";
+const _DGRGe = "DescribeGlobalReplicationGroups";
+const _DGRGi = "DisassociateGlobalReplicationGroup";
+const _DNGIGRG = "DecreaseNodeGroupsInGlobalReplicationGroup";
+const _DO = "DefaultOnly";
+const _DRC = "DecreaseReplicaCount";
+const _DRCN = "DescribeReservedCacheNodes";
+const _DRCNO = "DescribeReservedCacheNodesOfferings";
+const _DRG = "DeleteReplicationGroup";
+const _DRGe = "DescribeReplicationGroups";
+const _DS = "DeleteSnapshot";
+const _DSC = "DeleteServerlessCache";
+const _DSCS = "DeleteServerlessCacheSnapshot";
+const _DSCSe = "DescribeServerlessCacheSnapshots";
+const _DSCe = "DescribeServerlessCaches";
+const _DST = "DailySnapshotTime";
+const _DSU = "DescribeServiceUpdates";
+const _DSa = "DataStorage";
+const _DSe = "DescribeSnapshots";
+const _DSel = "DeliveryStream";
+const _DT = "DestinationType";
+const _DTE = "DataTieringEnabled";
+const _DTa = "DataType";
+const _DTat = "DataTiering";
+const _DU = "DeleteUser";
+const _DUA = "DescribeUpdateActions";
+const _DUG = "DeleteUserGroup";
+const _DUGe = "DescribeUserGroups";
+const _DUe = "DescribeUsers";
+const _Da = "Date";
+const _Du = "Duration";
+const _E = "Engine";
+const _ECPUPS = "ECPUPerSecond";
+const _ECSG = "EC2SecurityGroups";
+const _ECSGN = "EC2SecurityGroupName";
+const _ECSGOI = "EC2SecurityGroupOwnerId";
+const _ECSGe = "EC2SecurityGroup";
+const _ED = "EngineDefaults";
+const _EM = "ErrorMessage";
+const _ESCS = "ExportServerlessCacheSnapshot";
+const _ET = "EndTime";
+const _ETr = "ErrorType";
+const _ETx = "ExpiryTime";
+const _EUT = "EstimatedUpdateTime";
+const _EV = "EngineVersion";
+const _En = "Enabled";
+const _End = "Endpoint";
+const _Ev = "Events";
+const _Eve = "Event";
+const _F = "Force";
+const _FEV = "FullEngineVersion";
+const _FGRG = "FailoverGlobalReplicationGroup";
+const _FP = "FixedPrice";
+const _FSI = "FinalSnapshotIdentifier";
+const _FSN = "FinalSnapshotName";
+const _Fi = "Filters";
+const _GNG = "GlobalNodeGroups";
+const _GNGI = "GlobalNodeGroupId";
+const _GNGTR = "GlobalNodeGroupsToRemove";
+const _GNGTRl = "GlobalNodeGroupsToRetain";
+const _GNGl = "GlobalNodeGroup";
+const _GRG = "GlobalReplicationGroup";
+const _GRGD = "GlobalReplicationGroupDescription";
+const _GRGI = "GlobalReplicationGroupId";
+const _GRGIS = "GlobalReplicationGroupIdSuffix";
+const _GRGIl = "GlobalReplicationGroupInfo";
+const _GRGM = "GlobalReplicationGroupMember";
+const _GRGMR = "GlobalReplicationGroupMemberRole";
+const _GRGl = "GlobalReplicationGroups";
+const _ID = "IpDiscovery";
+const _IG = "IsGlobal";
+const _IM = "IsModifiable";
+const _INGIGRG = "IncreaseNodeGroupsInGlobalReplicationGroup";
+const _IRC = "IncreaseReplicaCount";
+const _K = "Key";
+const _KFD = "KinesisFirehoseDetails";
+const _KKI = "KmsKeyId";
+const _LANTM = "ListAllowedNodeTypeModifications";
+const _LDC = "LogDeliveryConfigurations";
+const _LDCo = "LogDeliveryConfiguration";
+const _LF = "LogFormat";
+const _LG = "LogGroup";
+const _LT = "LogType";
+const _LTFR = "ListTagsForResource";
+const _M = "Maximum";
+const _MAZ = "MultiAZ";
+const _MAZE = "MultiAZEnabled";
+const _MC = "MemberClusters";
+const _MCC = "ModifyCacheCluster";
+const _MCOA = "MemberClustersOutpostArns";
+const _MCPG = "ModifyCacheParameterGroup";
+const _MCSG = "ModifyCacheSubnetGroup";
+const _MEV = "MajorEngineVersion";
+const _MEVi = "MinimumEngineVersion";
+const _MGRG = "ModifyGlobalReplicationGroup";
+const _MR = "MaxRecords";
+const _MRG = "ModifyReplicationGroup";
+const _MRGSC = "ModifyReplicationGroupShardConfiguration";
+const _MRa = "MaxResults";
+const _MSC = "ModifyServerlessCache";
+const _MU = "ModifyUser";
+const _MUG = "ModifyUserGroup";
+const _Ma = "Marker";
+const _Me = "Message";
+const _Mem = "Members";
+const _N = "Name";
+const _NAZ = "NewAvailabilityZones";
+const _NC = "NotificationConfiguration";
+const _NCC = "NumCacheClusters";
+const _NCN = "NumCacheNodes";
+const _NDD = "NodeDeletionDate";
+const _NG = "NodeGroups";
+const _NGC = "NodeGroupConfiguration";
+const _NGCo = "NodeGroupCount";
+const _NGI = "NodeGroupId";
+const _NGM = "NodeGroupMembers";
+const _NGMUS = "NodeGroupMemberUpdateStatus";
+const _NGMo = "NodeGroupMember";
+const _NGTR = "NodeGroupsToRemove";
+const _NGTRo = "NodeGroupsToRetain";
+const _NGUS = "NodeGroupUpdateStatus";
+const _NGo = "NodeGroup";
+const _NNG = "NumNodeGroups";
+const _NPR = "NoPasswordRequired";
+const _NRC = "NewReplicaCount";
+const _NS = "NodeSnapshots";
+const _NSo = "NodeSnapshot";
+const _NT = "NetworkType";
+const _NTA = "NotificationTopicArn";
+const _NTS = "NotificationTopicStatus";
+const _NTe = "NextToken";
+const _NU = "NodesUpdated";
+const _NUED = "NodeUpdateEndDate";
+const _NUIB = "NodeUpdateInitiatedBy";
+const _NUID = "NodeUpdateInitiatedDate";
+const _NUS = "NodeUpdateStatus";
+const _NUSD = "NodeUpdateStartDate";
+const _NUSMD = "NodeUpdateStatusModifiedDate";
+const _OA = "OutpostArn";
+const _OI = "OwnerId";
+const _OM = "OutpostMode";
+const _OT = "OfferingType";
+const _P = "Passwords";
+const _PAS = "ParameterApplyStatus";
+const _PAZ = "PreferredAvailabilityZones";
+const _PAZr = "PreferredAvailabilityZone";
+const _PAZri = "PrimaryAvailabilityZone";
+const _PC = "PasswordCount";
+const _PCCAZ = "PreferredCacheClusterAZs";
+const _PCI = "PrimaryClusterId";
+const _PCe = "PendingChanges";
+const _PD = "ProductDescription";
+const _PE = "PrimaryEndpoint";
+const _PGS = "ParameterGroupStatus";
+const _PMV = "PendingModifiedValues";
+const _PMW = "PreferredMaintenanceWindow";
+const _PN = "ParameterName";
+const _PNV = "ParameterNameValues";
+const _POA = "PreferredOutpostArns";
+const _POAr = "PreferredOutpostArn";
+const _POAri = "PrimaryOutpostArn";
+const _PP = "ProgressPercentage";
+const _PR = "PrimaryRegion";
+const _PRCNO = "PurchaseReservedCacheNodesOffering";
+const _PRGI = "PrimaryReplicationGroupId";
+const _PUA = "ProcessedUpdateActions";
+const _PUAr = "ProcessedUpdateAction";
+const _PV = "ParameterValue";
+const _Pa = "Parameters";
+const _Par = "Parameter";
+const _Po = "Port";
+const _R = "Role";
+const _RAP = "ResetAllParameters";
+const _RARN = "ReservationARN";
+const _RAZ = "ReplicaAvailabilityZones";
+const _RC = "ReplicaConfiguration";
+const _RCA = "RecurringChargeAmount";
+const _RCC = "RebootCacheCluster";
+const _RCF = "RecurringChargeFrequency";
+const _RCN = "ReservedCacheNode";
+const _RCNI = "ReservedCacheNodeId";
+const _RCNO = "ReservedCacheNodesOfferings";
+const _RCNOI = "ReservedCacheNodesOfferingId";
+const _RCNOe = "ReservedCacheNodesOffering";
+const _RCNe = "ReservedCacheNodes";
+const _RCPG = "ResetCacheParameterGroup";
+const _RCSGI = "RevokeCacheSecurityGroupIngress";
+const _RCe = "RegionalConfigurations";
+const _RCec = "RecurringCharges";
+const _RCecu = "RecurringCharge";
+const _RCep = "ReplicaCount";
+const _RCes = "ReshardingConfiguration";
+const _RE = "ReaderEndpoint";
+const _REe = "ReadEndpoint";
+const _RG = "ReplicationGroup";
+const _RGCT = "ReplicationGroupCreateTime";
+const _RGD = "ReplicationGroupDescription";
+const _RGI = "ReplicationGroupIds";
+const _RGIe = "ReplicationGroupId";
+const _RGLDE = "ReplicationGroupLogDeliveryEnabled";
+const _RGOA = "ReplicationGroupOutpostArn";
+const _RGR = "ReplicationGroupRegion";
+const _RGe = "ReplicationGroups";
+const _RN = "ResourceName";
+const _ROA = "ReplicaOutpostArns";
+const _RPC = "RetainPrimaryCluster";
+const _RPNG = "ReplicasPerNodeGroup";
+const _RPRG = "RetainPrimaryReplicationGroup";
+const _RSIGRG = "RebalanceSlotsInGlobalReplicationGroup";
+const _RTFR = "RemoveTagsFromResource";
+const _RTR = "ReplicasToRemove";
+const _RUG = "RemoveUserGroups";
+const _RUGe = "RemoveUserGroup";
+const _Re = "Resharding";
+const _S = "Source";
+const _SA = "SnapshotArns";
+const _SATR = "SnapshotArnsToRestore";
+const _SAZ = "SubnetAvailabilityZone";
+const _SBN = "S3BucketName";
+const _SC = "ServerlessCache";
+const _SCC = "ServerlessCacheConfiguration";
+const _SCCNIRG = "ShowCacheClustersNotInReplicationGroups";
+const _SCI = "SnapshottingClusterId";
+const _SCN = "ServerlessCacheName";
+const _SCNI = "ShowCacheNodeInfo";
+const _SCNIo = "SourceCacheNodeId";
+const _SCS = "ServerlessCacheSnapshot";
+const _SCSN = "ServerlessCacheSnapshotName";
+const _SCSe = "ServerlessCacheSnapshots";
+const _SCT = "SnapshotCreateTime";
+const _SCe = "ServerlessCaches";
+const _SDM = "ScaleDownModifications";
+const _SG = "SecurityGroups";
+const _SGI = "SecurityGroupIds";
+const _SGIe = "SecurityGroupId";
+const _SI = "SubnetIds";
+const _SIo = "SourceIdentifier";
+const _SIu = "SubnetId";
+const _SIub = "SubnetIdentifier";
+const _SM = "StartMigration";
+const _SMI = "ShowMemberInfo";
+const _SMl = "SlotMigration";
+const _SMla = "SlaMet";
+const _SN = "SnapshotName";
+const _SNGC = "ShowNodeGroupConfig";
+const _SNLUS = "ShowNodeLevelUpdateStatus";
+const _SNT = "SupportedNetworkTypes";
+const _SO = "SubnetOutpost";
+const _SOA = "SubnetOutpostArn";
+const _SRL = "SnapshotRetentionLimit";
+const _SS = "SnapshotSource";
+const _SSCSN = "SourceServerlessCacheSnapshotName";
+const _SSN = "SourceSnapshotName";
+const _SSn = "SnapshotStatus";
+const _ST = "SourceType";
+const _STn = "SnapshotType";
+const _STt = "StartTime";
+const _SU = "ServiceUpdates";
+const _SUD = "ServiceUpdateDescription";
+const _SUED = "ServiceUpdateEndDate";
+const _SUM = "ScaleUpModifications";
+const _SUN = "ServiceUpdateName";
+const _SURABD = "ServiceUpdateRecommendedApplyByDate";
+const _SURD = "ServiceUpdateReleaseDate";
+const _SUS = "ServiceUpdateStatus";
+const _SUSe = "ServiceUpdateSeverity";
+const _SUT = "ServiceUpdateType";
+const _SUTR = "ServiceUpdateTimeRange";
+const _SUe = "ServiceUpdate";
+const _SW = "SnapshotWindow";
+const _Sl = "Slots";
+const _Sn = "Snapshot";
+const _Sna = "Snapshots";
+const _St = "Status";
+const _Sta = "State";
+const _Su = "Subnets";
+const _Sub = "Subnet";
+const _T = "Tags";
+const _TA = "TopicArn";
+const _TB = "TargetBucket";
+const _TEE = "TransitEncryptionEnabled";
+const _TEM = "TransitEncryptionMode";
+const _TF = "TestFailover";
+const _TK = "TagKeys";
+const _TL = "TagList";
+const _TM = "TestMigration";
+const _TS = "TopicStatus";
+const _TSCSN = "TargetServerlessCacheSnapshotName";
+const _TSN = "TargetSnapshotName";
+const _Ta = "Tag";
+const _Ty = "Type";
+const _U = "Unit";
+const _UA = "UpdateActions";
+const _UAAD = "UpdateActionAvailableDate";
+const _UAS = "UpdateActionStatus";
+const _UASMD = "UpdateActionStatusModifiedDate";
+const _UAp = "UpdateAction";
+const _UG = "UserGroups";
+const _UGI = "UserGroupIds";
+const _UGITA = "UserGroupIdsToAdd";
+const _UGITR = "UserGroupIdsToRemove";
+const _UGIs = "UserGroupId";
+const _UI = "UserIds";
+const _UITA = "UserIdsToAdd";
+const _UITR = "UserIdsToRemove";
+const _UIs = "UserId";
+const _UN = "UserName";
+const _UP = "UsagePrice";
+const _UUA = "UnprocessedUpdateActions";
+const _UUAn = "UnprocessedUpdateAction";
+const _Us = "Users";
+const _V = "Version";
+const _VI = "VpcId";
+const _Va = "Values";
+const _Val = "Value";
+const _m = "member";
+const _me = "message";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

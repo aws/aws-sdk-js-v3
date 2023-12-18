@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -256,29 +257,18 @@ export const se_AcceptInboundCrossClusterSearchConnectionCommand = async (
   input: AcceptInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/accept");
+  b.p(
     "CrossClusterSearchConnectionId",
     () => input.CrossClusterSearchConnectionId!,
     "{CrossClusterSearchConnectionId}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -288,11 +278,11 @@ export const se_AddTagsCommand = async (
   input: AddTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
+  b.bp("/2015-01-01/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -300,15 +290,8 @@ export const se_AddTagsCommand = async (
       TagList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -318,23 +301,14 @@ export const se_AssociatePackageCommand = async (
   input: AssociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/packages/associate/{PackageID}/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/packages/associate/{PackageID}/{DomainName}");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -344,29 +318,20 @@ export const se_AuthorizeVpcEndpointAccessCommand = async (
   input: AuthorizeVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/authorizeVpcEndpointAccess");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Account: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -376,28 +341,19 @@ export const se_CancelElasticsearchServiceSoftwareUpdateCommand = async (
   input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/serviceSoftwareUpdate/cancel";
+  b.bp("/2015-01-01/es/serviceSoftwareUpdate/cancel");
   let body: any;
   body = JSON.stringify(
     take(input, {
       DomainName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -407,11 +363,11 @@ export const se_CreateElasticsearchDomainCommand = async (
   input: CreateElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain";
+  b.bp("/2015-01-01/es/domain");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -433,15 +389,8 @@ export const se_CreateElasticsearchDomainCommand = async (
       VPCOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -451,12 +400,11 @@ export const se_CreateOutboundCrossClusterSearchConnectionCommand = async (
   input: CreateOutboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/ccs/outboundConnection";
+  b.bp("/2015-01-01/es/ccs/outboundConnection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -465,15 +413,8 @@ export const se_CreateOutboundCrossClusterSearchConnectionCommand = async (
       SourceDomainInfo: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -483,11 +424,11 @@ export const se_CreatePackageCommand = async (
   input: CreatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages";
+  b.bp("/2015-01-01/packages");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -497,15 +438,8 @@ export const se_CreatePackageCommand = async (
       PackageType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -515,12 +449,11 @@ export const se_CreateVpcEndpointCommand = async (
   input: CreateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/vpcEndpoints";
+  b.bp("/2015-01-01/es/vpcEndpoints");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -529,15 +462,8 @@ export const se_CreateVpcEndpointCommand = async (
       VpcOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -547,21 +473,13 @@ export const se_DeleteElasticsearchDomainCommand = async (
   input: DeleteElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -571,22 +489,15 @@ export const se_DeleteElasticsearchServiceRoleCommand = async (
   input: DeleteElasticsearchServiceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/role";
+  b.bp("/2015-01-01/es/role");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -596,29 +507,18 @@ export const se_DeleteInboundCrossClusterSearchConnectionCommand = async (
   input: DeleteInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}");
+  b.p(
     "CrossClusterSearchConnectionId",
     () => input.CrossClusterSearchConnectionId!,
     "{CrossClusterSearchConnectionId}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -628,29 +528,18 @@ export const se_DeleteOutboundCrossClusterSearchConnectionCommand = async (
   input: DeleteOutboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/2015-01-01/es/ccs/outboundConnection/{CrossClusterSearchConnectionId}");
+  b.p(
     "CrossClusterSearchConnectionId",
     () => input.CrossClusterSearchConnectionId!,
     "{CrossClusterSearchConnectionId}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -660,21 +549,13 @@ export const se_DeletePackageCommand = async (
   input: DeletePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/{PackageID}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.bp("/2015-01-01/packages/{PackageID}");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -684,29 +565,13 @@ export const se_DeleteVpcEndpointCommand = async (
   input: DeleteVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/vpcEndpoints/{VpcEndpointId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VpcEndpointId",
-    () => input.VpcEndpointId!,
-    "{VpcEndpointId}",
-    false
-  );
+  b.bp("/2015-01-01/es/vpcEndpoints/{VpcEndpointId}");
+  b.p("VpcEndpointId", () => input.VpcEndpointId!, "{VpcEndpointId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -716,14 +581,12 @@ export const se_DescribeDomainAutoTunesCommand = async (
   input: DescribeDomainAutoTunesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/domain/{DomainName}/autoTunes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/autoTunes");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -731,15 +594,8 @@ export const se_DescribeDomainAutoTunesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -749,26 +605,16 @@ export const se_DescribeDomainChangeProgressCommand = async (
   input: DescribeDomainChangeProgressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/domain/{DomainName}/progress";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/progress");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    changeid: [, input.ChangeId!],
+    [_c]: [, input[_CI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -778,21 +624,13 @@ export const se_DescribeElasticsearchDomainCommand = async (
   input: DescribeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -802,21 +640,13 @@ export const se_DescribeElasticsearchDomainConfigCommand = async (
   input: DescribeElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/config");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -826,27 +656,19 @@ export const se_DescribeElasticsearchDomainsCommand = async (
   input: DescribeElasticsearchDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain-info";
+  b.bp("/2015-01-01/es/domain-info");
   let body: any;
   body = JSON.stringify(
     take(input, {
       DomainNames: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -856,41 +678,17 @@ export const se_DescribeElasticsearchInstanceTypeLimitsCommand = async (
   input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InstanceType",
-    () => input.InstanceType!,
-    "{InstanceType}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ElasticsearchVersion",
-    () => input.ElasticsearchVersion!,
-    "{ElasticsearchVersion}",
-    false
-  );
+  b.bp("/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}");
+  b.p("InstanceType", () => input.InstanceType!, "{InstanceType}", false);
+  b.p("ElasticsearchVersion", () => input.ElasticsearchVersion!, "{ElasticsearchVersion}", false);
   const query: any = map({
-    domainName: [, input.DomainName!],
+    [_dN]: [, input[_DN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -900,13 +698,11 @@ export const se_DescribeInboundCrossClusterSearchConnectionsCommand = async (
   input: DescribeInboundCrossClusterSearchConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/ccs/inboundConnection/search";
+  b.bp("/2015-01-01/es/ccs/inboundConnection/search");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -915,15 +711,8 @@ export const se_DescribeInboundCrossClusterSearchConnectionsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -933,13 +722,11 @@ export const se_DescribeOutboundCrossClusterSearchConnectionsCommand = async (
   input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/ccs/outboundConnection/search";
+  b.bp("/2015-01-01/es/ccs/outboundConnection/search");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -948,15 +735,8 @@ export const se_DescribeOutboundCrossClusterSearchConnectionsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -966,12 +746,11 @@ export const se_DescribePackagesCommand = async (
   input: DescribePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/describe";
+  b.bp("/2015-01-01/packages/describe");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -980,15 +759,8 @@ export const se_DescribePackagesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -998,26 +770,17 @@ export const se_DescribeReservedElasticsearchInstanceOfferingsCommand = async (
   input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/reservedInstanceOfferings";
+  b.bp("/2015-01-01/es/reservedInstanceOfferings");
   const query: any = map({
-    offeringId: [, input.ReservedElasticsearchInstanceOfferingId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_oI]: [, input[_REIOI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1027,26 +790,17 @@ export const se_DescribeReservedElasticsearchInstancesCommand = async (
   input: DescribeReservedElasticsearchInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/reservedInstances";
+  b.bp("/2015-01-01/es/reservedInstances");
   const query: any = map({
-    reservationId: [, input.ReservedElasticsearchInstanceId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_rI]: [, input[_REII]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1056,27 +810,19 @@ export const se_DescribeVpcEndpointsCommand = async (
   input: DescribeVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/vpcEndpoints/describe";
+  b.bp("/2015-01-01/es/vpcEndpoints/describe");
   let body: any;
   body = JSON.stringify(
     take(input, {
       VpcEndpointIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1086,23 +832,14 @@ export const se_DissociatePackageCommand = async (
   input: DissociatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/packages/dissociate/{PackageID}/{DomainName}");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1112,24 +849,15 @@ export const se_GetCompatibleElasticsearchVersionsCommand = async (
   input: GetCompatibleElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/compatibleVersions";
+  b.bp("/2015-01-01/es/compatibleVersions");
   const query: any = map({
-    domainName: [, input.DomainName!],
+    [_dN]: [, input[_DN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1139,26 +867,17 @@ export const se_GetPackageVersionHistoryCommand = async (
   input: GetPackageVersionHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/{PackageID}/history";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.bp("/2015-01-01/packages/{PackageID}/history");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1168,27 +887,17 @@ export const se_GetUpgradeHistoryCommand = async (
   input: GetUpgradeHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/upgradeDomain/{DomainName}/history";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/upgradeDomain/{DomainName}/history");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1198,22 +907,13 @@ export const se_GetUpgradeStatusCommand = async (
   input: GetUpgradeStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/upgradeDomain/{DomainName}/status";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/upgradeDomain/{DomainName}/status");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1223,23 +923,15 @@ export const se_ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain";
+  b.bp("/2015-01-01/domain");
   const query: any = map({
-    engineType: [, input.EngineType!],
+    [_eT]: [, input[_ET]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1249,26 +941,17 @@ export const se_ListDomainsForPackageCommand = async (
   input: ListDomainsForPackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/{PackageID}/domains";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PackageID", () => input.PackageID!, "{PackageID}", false);
+  b.bp("/2015-01-01/packages/{PackageID}/domains");
+  b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1278,35 +961,18 @@ export const se_ListElasticsearchInstanceTypesCommand = async (
   input: ListElasticsearchInstanceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/instanceTypes/{ElasticsearchVersion}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ElasticsearchVersion",
-    () => input.ElasticsearchVersion!,
-    "{ElasticsearchVersion}",
-    false
-  );
+  b.bp("/2015-01-01/es/instanceTypes/{ElasticsearchVersion}");
+  b.p("ElasticsearchVersion", () => input.ElasticsearchVersion!, "{ElasticsearchVersion}", false);
   const query: any = map({
-    domainName: [, input.DomainName!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_dN]: [, input[_DN]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1316,25 +982,16 @@ export const se_ListElasticsearchVersionsCommand = async (
   input: ListElasticsearchVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/versions";
+  b.bp("/2015-01-01/es/versions");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1344,26 +1001,17 @@ export const se_ListPackagesForDomainCommand = async (
   input: ListPackagesForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain/{DomainName}/packages";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/domain/{DomainName}/packages");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1373,23 +1021,15 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
+  b.bp("/2015-01-01/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ARN!, `ARN`)],
+    [_a]: [, __expectNonNull(input[_ARN]!, `ARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1399,26 +1039,16 @@ export const se_ListVpcEndpointAccessCommand = async (
   input: ListVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/listVpcEndpointAccess");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1428,24 +1058,15 @@ export const se_ListVpcEndpointsCommand = async (
   input: ListVpcEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/vpcEndpoints";
+  b.bp("/2015-01-01/es/vpcEndpoints");
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1455,26 +1076,16 @@ export const se_ListVpcEndpointsForDomainCommand = async (
   input: ListVpcEndpointsForDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/domain/{DomainName}/vpcEndpoints";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/vpcEndpoints");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1484,13 +1095,11 @@ export const se_PurchaseReservedElasticsearchInstanceOfferingCommand = async (
   input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/purchaseReservedInstanceOffering";
+  b.bp("/2015-01-01/es/purchaseReservedInstanceOffering");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1499,15 +1108,8 @@ export const se_PurchaseReservedElasticsearchInstanceOfferingCommand = async (
       ReservedElasticsearchInstanceOfferingId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1517,29 +1119,18 @@ export const se_RejectInboundCrossClusterSearchConnectionCommand = async (
   input: RejectInboundCrossClusterSearchConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/2015-01-01/es/ccs/inboundConnection/{CrossClusterSearchConnectionId}/reject");
+  b.p(
     "CrossClusterSearchConnectionId",
     () => input.CrossClusterSearchConnectionId!,
     "{CrossClusterSearchConnectionId}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1549,12 +1140,11 @@ export const se_RemoveTagsCommand = async (
   input: RemoveTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags-removal";
+  b.bp("/2015-01-01/tags-removal");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1562,15 +1152,8 @@ export const se_RemoveTagsCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1580,29 +1163,20 @@ export const se_RevokeVpcEndpointAccessCommand = async (
   input: RevokeVpcEndpointAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/revokeVpcEndpointAccess");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Account: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1612,28 +1186,19 @@ export const se_StartElasticsearchServiceSoftwareUpdateCommand = async (
   input: StartElasticsearchServiceSoftwareUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-01-01/es/serviceSoftwareUpdate/start";
+  b.bp("/2015-01-01/es/serviceSoftwareUpdate/start");
   let body: any;
   body = JSON.stringify(
     take(input, {
       DomainName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1643,13 +1208,12 @@ export const se_UpdateElasticsearchDomainConfigCommand = async (
   input: UpdateElasticsearchDomainConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain/{DomainName}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/2015-01-01/es/domain/{DomainName}/config");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1669,15 +1233,8 @@ export const se_UpdateElasticsearchDomainConfigCommand = async (
       VPCOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1687,12 +1244,11 @@ export const se_UpdatePackageCommand = async (
   input: UpdatePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/update";
+  b.bp("/2015-01-01/packages/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1702,15 +1258,8 @@ export const se_UpdatePackageCommand = async (
       PackageSource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1720,12 +1269,11 @@ export const se_UpdateVpcEndpointCommand = async (
   input: UpdateVpcEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/vpcEndpoints/update";
+  b.bp("/2015-01-01/es/vpcEndpoints/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1733,15 +1281,8 @@ export const se_UpdateVpcEndpointCommand = async (
       VpcOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1751,12 +1292,11 @@ export const se_UpgradeElasticsearchDomainCommand = async (
   input: UpgradeElasticsearchDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/upgradeDomain";
+  b.bp("/2015-01-01/es/upgradeDomain");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1765,15 +1305,8 @@ export const se_UpgradeElasticsearchDomainCommand = async (
       TargetVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5698,6 +5231,23 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _ARN = "ARN";
+const _CI = "ChangeId";
+const _DN = "DomainName";
+const _ET = "EngineType";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _REII = "ReservedElasticsearchInstanceId";
+const _REIOI = "ReservedElasticsearchInstanceOfferingId";
+const _a = "arn";
+const _c = "changeid";
+const _dN = "domainName";
+const _eT = "engineType";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _oI = "offeringId";
+const _rI = "reservationId";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

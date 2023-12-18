@@ -1,8 +1,10 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
+
 import {
   ArchiveGroupSettings,
   AudioDescription,

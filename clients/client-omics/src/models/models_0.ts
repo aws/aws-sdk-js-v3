@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import { OmicsServiceException as __BaseException } from "./OmicsServiceException";

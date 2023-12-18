@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
+
 import { ReplicationGroup } from "./models_0";
 
 /**

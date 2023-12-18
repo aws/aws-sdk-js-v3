@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -385,28 +386,20 @@ export const se_AssociateRoleToGroupCommand = async (
   input: AssociateRoleToGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/role");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       RoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -416,27 +409,19 @@ export const se_AssociateServiceRoleToAccountCommand = async (
   input: AssociateServiceRoleToAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
+  b.bp("/greengrass/servicerole");
   let body: any;
   body = JSON.stringify(
     take(input, {
       RoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -446,13 +431,12 @@ export const se_CreateConnectorDefinitionCommand = async (
   input: CreateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/connectors";
+  b.bp("/greengrass/definition/connectors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -461,15 +445,8 @@ export const se_CreateConnectorDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -479,37 +456,21 @@ export const se_CreateConnectorDefinitionVersionCommand = async (
   input: CreateConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorDefinitionId",
-    () => input.ConnectorDefinitionId!,
-    "{ConnectorDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/connectors/{ConnectorDefinitionId}/versions");
+  b.p("ConnectorDefinitionId", () => input.ConnectorDefinitionId!, "{ConnectorDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Connectors: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -519,13 +480,12 @@ export const se_CreateCoreDefinitionCommand = async (
   input: CreateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/cores";
+  b.bp("/greengrass/definition/cores");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -534,15 +494,8 @@ export const se_CreateCoreDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -552,37 +505,21 @@ export const se_CreateCoreDefinitionVersionCommand = async (
   input: CreateCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/cores/{CoreDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionId",
-    () => input.CoreDefinitionId!,
-    "{CoreDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/cores/{CoreDefinitionId}/versions");
+  b.p("CoreDefinitionId", () => input.CoreDefinitionId!, "{CoreDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Cores: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -592,14 +529,13 @@ export const se_CreateDeploymentCommand = async (
   input: CreateDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/deployments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/deployments");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -608,15 +544,8 @@ export const se_CreateDeploymentCommand = async (
       GroupVersionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -626,13 +555,12 @@ export const se_CreateDeviceDefinitionCommand = async (
   input: CreateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/devices";
+  b.bp("/greengrass/definition/devices");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -641,15 +569,8 @@ export const se_CreateDeviceDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -659,37 +580,21 @@ export const se_CreateDeviceDefinitionVersionCommand = async (
   input: CreateDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionId",
-    () => input.DeviceDefinitionId!,
-    "{DeviceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/devices/{DeviceDefinitionId}/versions");
+  b.p("DeviceDefinitionId", () => input.DeviceDefinitionId!, "{DeviceDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Devices: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -699,13 +604,12 @@ export const se_CreateFunctionDefinitionCommand = async (
   input: CreateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/functions";
+  b.bp("/greengrass/definition/functions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -714,15 +618,8 @@ export const se_CreateFunctionDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -732,22 +629,13 @@ export const se_CreateFunctionDefinitionVersionCommand = async (
   input: CreateFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionId",
-    () => input.FunctionDefinitionId!,
-    "{FunctionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/functions/{FunctionDefinitionId}/versions");
+  b.p("FunctionDefinitionId", () => input.FunctionDefinitionId!, "{FunctionDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -755,15 +643,8 @@ export const se_CreateFunctionDefinitionVersionCommand = async (
       Functions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -773,12 +654,12 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups";
+  b.bp("/greengrass/groups");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -787,15 +668,8 @@ export const se_CreateGroupCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -805,24 +679,15 @@ export const se_CreateGroupCertificateAuthorityCommand = async (
   input: CreateGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/certificateauthorities";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/certificateauthorities");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -832,14 +697,13 @@ export const se_CreateGroupVersionCommand = async (
   input: CreateGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/versions");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -852,15 +716,8 @@ export const se_CreateGroupVersionCommand = async (
       SubscriptionDefinitionVersionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -870,13 +727,12 @@ export const se_CreateLoggerDefinitionCommand = async (
   input: CreateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/loggers";
+  b.bp("/greengrass/definition/loggers");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -885,15 +741,8 @@ export const se_CreateLoggerDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -903,37 +752,21 @@ export const se_CreateLoggerDefinitionVersionCommand = async (
   input: CreateLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionId",
-    () => input.LoggerDefinitionId!,
-    "{LoggerDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/loggers/{LoggerDefinitionId}/versions");
+  b.p("LoggerDefinitionId", () => input.LoggerDefinitionId!, "{LoggerDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Loggers: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -943,13 +776,12 @@ export const se_CreateResourceDefinitionCommand = async (
   input: CreateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/resources";
+  b.bp("/greengrass/definition/resources");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -958,15 +790,8 @@ export const se_CreateResourceDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -976,37 +801,21 @@ export const se_CreateResourceDefinitionVersionCommand = async (
   input: CreateResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionId",
-    () => input.ResourceDefinitionId!,
-    "{ResourceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/resources/{ResourceDefinitionId}/versions");
+  b.p("ResourceDefinitionId", () => input.ResourceDefinitionId!, "{ResourceDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Resources: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1016,12 +825,12 @@ export const se_CreateSoftwareUpdateJobCommand = async (
   input: CreateSoftwareUpdateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/updates";
+  b.bp("/greengrass/updates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1033,15 +842,8 @@ export const se_CreateSoftwareUpdateJobCommand = async (
       UpdateTargetsOperatingSystem: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1051,13 +853,12 @@ export const se_CreateSubscriptionDefinitionCommand = async (
   input: CreateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/subscriptions";
+  b.bp("/greengrass/definition/subscriptions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1066,15 +867,8 @@ export const se_CreateSubscriptionDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1084,37 +878,21 @@ export const se_CreateSubscriptionDefinitionVersionCommand = async (
   input: CreateSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionDefinitionId",
-    () => input.SubscriptionDefinitionId!,
-    "{SubscriptionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions");
+  b.p("SubscriptionDefinitionId", () => input.SubscriptionDefinitionId!, "{SubscriptionDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Subscriptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1124,29 +902,13 @@ export const se_DeleteConnectorDefinitionCommand = async (
   input: DeleteConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorDefinitionId",
-    () => input.ConnectorDefinitionId!,
-    "{ConnectorDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/connectors/{ConnectorDefinitionId}");
+  b.p("ConnectorDefinitionId", () => input.ConnectorDefinitionId!, "{ConnectorDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1156,29 +918,13 @@ export const se_DeleteCoreDefinitionCommand = async (
   input: DeleteCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/cores/{CoreDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionId",
-    () => input.CoreDefinitionId!,
-    "{CoreDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/cores/{CoreDefinitionId}");
+  b.p("CoreDefinitionId", () => input.CoreDefinitionId!, "{CoreDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1188,29 +934,13 @@ export const se_DeleteDeviceDefinitionCommand = async (
   input: DeleteDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/devices/{DeviceDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionId",
-    () => input.DeviceDefinitionId!,
-    "{DeviceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/devices/{DeviceDefinitionId}");
+  b.p("DeviceDefinitionId", () => input.DeviceDefinitionId!, "{DeviceDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1220,29 +950,13 @@ export const se_DeleteFunctionDefinitionCommand = async (
   input: DeleteFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/functions/{FunctionDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionId",
-    () => input.FunctionDefinitionId!,
-    "{FunctionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/functions/{FunctionDefinitionId}");
+  b.p("FunctionDefinitionId", () => input.FunctionDefinitionId!, "{FunctionDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1252,21 +966,13 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1276,29 +982,13 @@ export const se_DeleteLoggerDefinitionCommand = async (
   input: DeleteLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/loggers/{LoggerDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionId",
-    () => input.LoggerDefinitionId!,
-    "{LoggerDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/loggers/{LoggerDefinitionId}");
+  b.p("LoggerDefinitionId", () => input.LoggerDefinitionId!, "{LoggerDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1308,29 +998,13 @@ export const se_DeleteResourceDefinitionCommand = async (
   input: DeleteResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/resources/{ResourceDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionId",
-    () => input.ResourceDefinitionId!,
-    "{ResourceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/resources/{ResourceDefinitionId}");
+  b.p("ResourceDefinitionId", () => input.ResourceDefinitionId!, "{ResourceDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1340,29 +1014,13 @@ export const se_DeleteSubscriptionDefinitionCommand = async (
   input: DeleteSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionDefinitionId",
-    () => input.SubscriptionDefinitionId!,
-    "{SubscriptionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/subscriptions/{SubscriptionDefinitionId}");
+  b.p("SubscriptionDefinitionId", () => input.SubscriptionDefinitionId!, "{SubscriptionDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1372,21 +1030,13 @@ export const se_DisassociateRoleFromGroupCommand = async (
   input: DisassociateRoleFromGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/role");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1396,23 +1046,15 @@ export const se_DisassociateServiceRoleFromAccountCommand = async (
   input: DisassociateServiceRoleFromAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
+  b.bp("/greengrass/servicerole");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1422,21 +1064,13 @@ export const se_GetAssociatedRoleCommand = async (
   input: GetAssociatedRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/role";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/role");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1446,29 +1080,13 @@ export const se_GetBulkDeploymentStatusCommand = async (
   input: GetBulkDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/bulk/deployments/{BulkDeploymentId}/status";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BulkDeploymentId",
-    () => input.BulkDeploymentId!,
-    "{BulkDeploymentId}",
-    false
-  );
+  b.bp("/greengrass/bulk/deployments/{BulkDeploymentId}/status");
+  b.p("BulkDeploymentId", () => input.BulkDeploymentId!, "{BulkDeploymentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1478,22 +1096,13 @@ export const se_GetConnectivityInfoCommand = async (
   input: GetConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/things/{ThingName}/connectivityInfo";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThingName", () => input.ThingName!, "{ThingName}", false);
+  b.bp("/greengrass/things/{ThingName}/connectivityInfo");
+  b.p("ThingName", () => input.ThingName!, "{ThingName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1503,29 +1112,13 @@ export const se_GetConnectorDefinitionCommand = async (
   input: GetConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorDefinitionId",
-    () => input.ConnectorDefinitionId!,
-    "{ConnectorDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/connectors/{ConnectorDefinitionId}");
+  b.p("ConnectorDefinitionId", () => input.ConnectorDefinitionId!, "{ConnectorDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1535,41 +1128,22 @@ export const se_GetConnectorDefinitionVersionCommand = async (
   input: GetConnectorDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorDefinitionId",
-    () => input.ConnectorDefinitionId!,
-    "{ConnectorDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/greengrass/definition/connectors/{ConnectorDefinitionId}/versions/{ConnectorDefinitionVersionId}");
+  b.p("ConnectorDefinitionId", () => input.ConnectorDefinitionId!, "{ConnectorDefinitionId}", false);
+  b.p(
     "ConnectorDefinitionVersionId",
     () => input.ConnectorDefinitionVersionId!,
     "{ConnectorDefinitionVersionId}",
     false
   );
   const query: any = map({
-    NextToken: [, input.NextToken!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1579,29 +1153,13 @@ export const se_GetCoreDefinitionCommand = async (
   input: GetCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/cores/{CoreDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionId",
-    () => input.CoreDefinitionId!,
-    "{CoreDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/cores/{CoreDefinitionId}");
+  b.p("CoreDefinitionId", () => input.CoreDefinitionId!, "{CoreDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1611,37 +1169,14 @@ export const se_GetCoreDefinitionVersionCommand = async (
   input: GetCoreDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionId",
-    () => input.CoreDefinitionId!,
-    "{CoreDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionVersionId",
-    () => input.CoreDefinitionVersionId!,
-    "{CoreDefinitionVersionId}",
-    false
-  );
+  b.bp("/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}");
+  b.p("CoreDefinitionId", () => input.CoreDefinitionId!, "{CoreDefinitionId}", false);
+  b.p("CoreDefinitionVersionId", () => input.CoreDefinitionVersionId!, "{CoreDefinitionVersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1651,30 +1186,14 @@ export const se_GetDeploymentStatusCommand = async (
   input: GetDeploymentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeploymentId",
-    () => input.DeploymentId!,
-    "{DeploymentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status");
+  b.p("DeploymentId", () => input.DeploymentId!, "{DeploymentId}", false);
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1684,29 +1203,13 @@ export const se_GetDeviceDefinitionCommand = async (
   input: GetDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/devices/{DeviceDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionId",
-    () => input.DeviceDefinitionId!,
-    "{DeviceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/devices/{DeviceDefinitionId}");
+  b.p("DeviceDefinitionId", () => input.DeviceDefinitionId!, "{DeviceDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1716,41 +1219,17 @@ export const se_GetDeviceDefinitionVersionCommand = async (
   input: GetDeviceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionId",
-    () => input.DeviceDefinitionId!,
-    "{DeviceDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionVersionId",
-    () => input.DeviceDefinitionVersionId!,
-    "{DeviceDefinitionVersionId}",
-    false
-  );
+  b.bp("/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}");
+  b.p("DeviceDefinitionId", () => input.DeviceDefinitionId!, "{DeviceDefinitionId}", false);
+  b.p("DeviceDefinitionVersionId", () => input.DeviceDefinitionVersionId!, "{DeviceDefinitionVersionId}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1760,29 +1239,13 @@ export const se_GetFunctionDefinitionCommand = async (
   input: GetFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/functions/{FunctionDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionId",
-    () => input.FunctionDefinitionId!,
-    "{FunctionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/functions/{FunctionDefinitionId}");
+  b.p("FunctionDefinitionId", () => input.FunctionDefinitionId!, "{FunctionDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1792,41 +1255,17 @@ export const se_GetFunctionDefinitionVersionCommand = async (
   input: GetFunctionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionId",
-    () => input.FunctionDefinitionId!,
-    "{FunctionDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionVersionId",
-    () => input.FunctionDefinitionVersionId!,
-    "{FunctionDefinitionVersionId}",
-    false
-  );
+  b.bp("/greengrass/definition/functions/{FunctionDefinitionId}/versions/{FunctionDefinitionVersionId}");
+  b.p("FunctionDefinitionId", () => input.FunctionDefinitionId!, "{FunctionDefinitionId}", false);
+  b.p("FunctionDefinitionVersionId", () => input.FunctionDefinitionVersionId!, "{FunctionDefinitionVersionId}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1836,21 +1275,13 @@ export const se_GetGroupCommand = async (
   input: GetGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1860,30 +1291,14 @@ export const se_GetGroupCertificateAuthorityCommand = async (
   input: GetGroupCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CertificateAuthorityId",
-    () => input.CertificateAuthorityId!,
-    "{CertificateAuthorityId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}");
+  b.p("CertificateAuthorityId", () => input.CertificateAuthorityId!, "{CertificateAuthorityId}", false);
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1893,22 +1308,13 @@ export const se_GetGroupCertificateConfigurationCommand = async (
   input: GetGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1918,30 +1324,14 @@ export const se_GetGroupVersionCommand = async (
   input: GetGroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/versions/{GroupVersionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GroupVersionId",
-    () => input.GroupVersionId!,
-    "{GroupVersionId}",
-    false
-  );
+  b.bp("/greengrass/groups/{GroupId}/versions/{GroupVersionId}");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.p("GroupVersionId", () => input.GroupVersionId!, "{GroupVersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1951,29 +1341,13 @@ export const se_GetLoggerDefinitionCommand = async (
   input: GetLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/loggers/{LoggerDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionId",
-    () => input.LoggerDefinitionId!,
-    "{LoggerDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/loggers/{LoggerDefinitionId}");
+  b.p("LoggerDefinitionId", () => input.LoggerDefinitionId!, "{LoggerDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1983,41 +1357,17 @@ export const se_GetLoggerDefinitionVersionCommand = async (
   input: GetLoggerDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionId",
-    () => input.LoggerDefinitionId!,
-    "{LoggerDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionVersionId",
-    () => input.LoggerDefinitionVersionId!,
-    "{LoggerDefinitionVersionId}",
-    false
-  );
+  b.bp("/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}");
+  b.p("LoggerDefinitionId", () => input.LoggerDefinitionId!, "{LoggerDefinitionId}", false);
+  b.p("LoggerDefinitionVersionId", () => input.LoggerDefinitionVersionId!, "{LoggerDefinitionVersionId}", false);
   const query: any = map({
-    NextToken: [, input.NextToken!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2027,29 +1377,13 @@ export const se_GetResourceDefinitionCommand = async (
   input: GetResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/resources/{ResourceDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionId",
-    () => input.ResourceDefinitionId!,
-    "{ResourceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/resources/{ResourceDefinitionId}");
+  b.p("ResourceDefinitionId", () => input.ResourceDefinitionId!, "{ResourceDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2059,37 +1393,14 @@ export const se_GetResourceDefinitionVersionCommand = async (
   input: GetResourceDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionId",
-    () => input.ResourceDefinitionId!,
-    "{ResourceDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionVersionId",
-    () => input.ResourceDefinitionVersionId!,
-    "{ResourceDefinitionVersionId}",
-    false
-  );
+  b.bp("/greengrass/definition/resources/{ResourceDefinitionId}/versions/{ResourceDefinitionVersionId}");
+  b.p("ResourceDefinitionId", () => input.ResourceDefinitionId!, "{ResourceDefinitionId}", false);
+  b.p("ResourceDefinitionVersionId", () => input.ResourceDefinitionVersionId!, "{ResourceDefinitionVersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2099,23 +1410,15 @@ export const se_GetServiceRoleForAccountCommand = async (
   input: GetServiceRoleForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/servicerole";
+  b.bp("/greengrass/servicerole");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2125,29 +1428,13 @@ export const se_GetSubscriptionDefinitionCommand = async (
   input: GetSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionDefinitionId",
-    () => input.SubscriptionDefinitionId!,
-    "{SubscriptionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/subscriptions/{SubscriptionDefinitionId}");
+  b.p("SubscriptionDefinitionId", () => input.SubscriptionDefinitionId!, "{SubscriptionDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2157,41 +1444,22 @@ export const se_GetSubscriptionDefinitionVersionCommand = async (
   input: GetSubscriptionDefinitionVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionDefinitionId",
-    () => input.SubscriptionDefinitionId!,
-    "{SubscriptionDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions/{SubscriptionDefinitionVersionId}");
+  b.p("SubscriptionDefinitionId", () => input.SubscriptionDefinitionId!, "{SubscriptionDefinitionId}", false);
+  b.p(
     "SubscriptionDefinitionVersionId",
     () => input.SubscriptionDefinitionVersionId!,
     "{SubscriptionDefinitionVersionId}",
     false
   );
   const query: any = map({
-    NextToken: [, input.NextToken!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2201,22 +1469,13 @@ export const se_GetThingRuntimeConfigurationCommand = async (
   input: GetThingRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/things/{ThingName}/runtimeconfig";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThingName", () => input.ThingName!, "{ThingName}", false);
+  b.bp("/greengrass/things/{ThingName}/runtimeconfig");
+  b.p("ThingName", () => input.ThingName!, "{ThingName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2226,34 +1485,17 @@ export const se_ListBulkDeploymentDetailedReportsCommand = async (
   input: ListBulkDeploymentDetailedReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BulkDeploymentId",
-    () => input.BulkDeploymentId!,
-    "{BulkDeploymentId}",
-    false
-  );
+  b.bp("/greengrass/bulk/deployments/{BulkDeploymentId}/detailed-reports");
+  b.p("BulkDeploymentId", () => input.BulkDeploymentId!, "{BulkDeploymentId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2263,25 +1505,16 @@ export const se_ListBulkDeploymentsCommand = async (
   input: ListBulkDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/bulk/deployments";
+  b.bp("/greengrass/bulk/deployments");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2291,25 +1524,16 @@ export const se_ListConnectorDefinitionsCommand = async (
   input: ListConnectorDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/connectors";
+  b.bp("/greengrass/definition/connectors");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2319,34 +1543,17 @@ export const se_ListConnectorDefinitionVersionsCommand = async (
   input: ListConnectorDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorDefinitionId",
-    () => input.ConnectorDefinitionId!,
-    "{ConnectorDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/connectors/{ConnectorDefinitionId}/versions");
+  b.p("ConnectorDefinitionId", () => input.ConnectorDefinitionId!, "{ConnectorDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2356,25 +1563,16 @@ export const se_ListCoreDefinitionsCommand = async (
   input: ListCoreDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/cores";
+  b.bp("/greengrass/definition/cores");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2384,34 +1582,17 @@ export const se_ListCoreDefinitionVersionsCommand = async (
   input: ListCoreDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/cores/{CoreDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionId",
-    () => input.CoreDefinitionId!,
-    "{CoreDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/cores/{CoreDefinitionId}/versions");
+  b.p("CoreDefinitionId", () => input.CoreDefinitionId!, "{CoreDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2421,26 +1602,17 @@ export const se_ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/deployments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/deployments");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2450,25 +1622,16 @@ export const se_ListDeviceDefinitionsCommand = async (
   input: ListDeviceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/devices";
+  b.bp("/greengrass/definition/devices");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2478,34 +1641,17 @@ export const se_ListDeviceDefinitionVersionsCommand = async (
   input: ListDeviceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/devices/{DeviceDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionId",
-    () => input.DeviceDefinitionId!,
-    "{DeviceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/devices/{DeviceDefinitionId}/versions");
+  b.p("DeviceDefinitionId", () => input.DeviceDefinitionId!, "{DeviceDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2515,25 +1661,16 @@ export const se_ListFunctionDefinitionsCommand = async (
   input: ListFunctionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/functions";
+  b.bp("/greengrass/definition/functions");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2543,34 +1680,17 @@ export const se_ListFunctionDefinitionVersionsCommand = async (
   input: ListFunctionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/functions/{FunctionDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionId",
-    () => input.FunctionDefinitionId!,
-    "{FunctionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/functions/{FunctionDefinitionId}/versions");
+  b.p("FunctionDefinitionId", () => input.FunctionDefinitionId!, "{FunctionDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2580,22 +1700,13 @@ export const se_ListGroupCertificateAuthoritiesCommand = async (
   input: ListGroupCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/certificateauthorities";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/certificateauthorities");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2605,24 +1716,16 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups";
+  b.bp("/greengrass/groups");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2632,26 +1735,17 @@ export const se_ListGroupVersionsCommand = async (
   input: ListGroupVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/versions");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2661,25 +1755,16 @@ export const se_ListLoggerDefinitionsCommand = async (
   input: ListLoggerDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/loggers";
+  b.bp("/greengrass/definition/loggers");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2689,34 +1774,17 @@ export const se_ListLoggerDefinitionVersionsCommand = async (
   input: ListLoggerDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/loggers/{LoggerDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionId",
-    () => input.LoggerDefinitionId!,
-    "{LoggerDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/loggers/{LoggerDefinitionId}/versions");
+  b.p("LoggerDefinitionId", () => input.LoggerDefinitionId!, "{LoggerDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2726,25 +1794,16 @@ export const se_ListResourceDefinitionsCommand = async (
   input: ListResourceDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/resources";
+  b.bp("/greengrass/definition/resources");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2754,34 +1813,17 @@ export const se_ListResourceDefinitionVersionsCommand = async (
   input: ListResourceDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/resources/{ResourceDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionId",
-    () => input.ResourceDefinitionId!,
-    "{ResourceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/resources/{ResourceDefinitionId}/versions");
+  b.p("ResourceDefinitionId", () => input.ResourceDefinitionId!, "{ResourceDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2791,25 +1833,16 @@ export const se_ListSubscriptionDefinitionsCommand = async (
   input: ListSubscriptionDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/definition/subscriptions";
+  b.bp("/greengrass/definition/subscriptions");
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2819,34 +1852,17 @@ export const se_ListSubscriptionDefinitionVersionsCommand = async (
   input: ListSubscriptionDefinitionVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionDefinitionId",
-    () => input.SubscriptionDefinitionId!,
-    "{SubscriptionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/subscriptions/{SubscriptionDefinitionId}/versions");
+  b.p("SubscriptionDefinitionId", () => input.SubscriptionDefinitionId!, "{SubscriptionDefinitionId}", false);
   const query: any = map({
-    MaxResults: [, input.MaxResults!],
-    NextToken: [, input.NextToken!],
+    [_MR]: [, input[_MR]!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2856,20 +1872,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2879,30 +1888,21 @@ export const se_ResetDeploymentsCommand = async (
   input: ResetDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/deployments/$reset";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/deployments/$reset");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Force: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2912,13 +1912,12 @@ export const se_StartBulkDeploymentCommand = async (
   input: StartBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amzn-client-token": input.AmznClientToken!,
+    [_xact]: input[_ACT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/bulk/deployments";
+  b.bp("/greengrass/bulk/deployments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2927,15 +1926,8 @@ export const se_StartBulkDeploymentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2945,29 +1937,13 @@ export const se_StopBulkDeploymentCommand = async (
   input: StopBulkDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/bulk/deployments/{BulkDeploymentId}/$stop";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BulkDeploymentId",
-    () => input.BulkDeploymentId!,
-    "{BulkDeploymentId}",
-    false
-  );
+  b.bp("/greengrass/bulk/deployments/{BulkDeploymentId}/$stop");
+  b.p("BulkDeploymentId", () => input.BulkDeploymentId!, "{BulkDeploymentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2977,27 +1953,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3007,27 +1976,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3037,29 +1998,20 @@ export const se_UpdateConnectivityInfoCommand = async (
   input: UpdateConnectivityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/things/{ThingName}/connectivityInfo";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThingName", () => input.ThingName!, "{ThingName}", false);
+  b.bp("/greengrass/things/{ThingName}/connectivityInfo");
+  b.p("ThingName", () => input.ThingName!, "{ThingName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ConnectivityInfo: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3069,36 +2021,20 @@ export const se_UpdateConnectorDefinitionCommand = async (
   input: UpdateConnectorDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/connectors/{ConnectorDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectorDefinitionId",
-    () => input.ConnectorDefinitionId!,
-    "{ConnectorDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/connectors/{ConnectorDefinitionId}");
+  b.p("ConnectorDefinitionId", () => input.ConnectorDefinitionId!, "{ConnectorDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3108,36 +2044,20 @@ export const se_UpdateCoreDefinitionCommand = async (
   input: UpdateCoreDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/cores/{CoreDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreDefinitionId",
-    () => input.CoreDefinitionId!,
-    "{CoreDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/cores/{CoreDefinitionId}");
+  b.p("CoreDefinitionId", () => input.CoreDefinitionId!, "{CoreDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3147,36 +2067,20 @@ export const se_UpdateDeviceDefinitionCommand = async (
   input: UpdateDeviceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/devices/{DeviceDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeviceDefinitionId",
-    () => input.DeviceDefinitionId!,
-    "{DeviceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/devices/{DeviceDefinitionId}");
+  b.p("DeviceDefinitionId", () => input.DeviceDefinitionId!, "{DeviceDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3186,36 +2090,20 @@ export const se_UpdateFunctionDefinitionCommand = async (
   input: UpdateFunctionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/functions/{FunctionDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FunctionDefinitionId",
-    () => input.FunctionDefinitionId!,
-    "{FunctionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/functions/{FunctionDefinitionId}");
+  b.p("FunctionDefinitionId", () => input.FunctionDefinitionId!, "{FunctionDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3225,28 +2113,20 @@ export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/groups/{GroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3256,29 +2136,20 @@ export const se_UpdateGroupCertificateConfigurationCommand = async (
   input: UpdateGroupCertificateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupId", () => input.GroupId!, "{GroupId}", false);
+  b.bp("/greengrass/groups/{GroupId}/certificateauthorities/configuration/expiry");
+  b.p("GroupId", () => input.GroupId!, "{GroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       CertificateExpiryInMilliseconds: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3288,36 +2159,20 @@ export const se_UpdateLoggerDefinitionCommand = async (
   input: UpdateLoggerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/loggers/{LoggerDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LoggerDefinitionId",
-    () => input.LoggerDefinitionId!,
-    "{LoggerDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/loggers/{LoggerDefinitionId}");
+  b.p("LoggerDefinitionId", () => input.LoggerDefinitionId!, "{LoggerDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3327,36 +2182,20 @@ export const se_UpdateResourceDefinitionCommand = async (
   input: UpdateResourceDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/resources/{ResourceDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResourceDefinitionId",
-    () => input.ResourceDefinitionId!,
-    "{ResourceDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/resources/{ResourceDefinitionId}");
+  b.p("ResourceDefinitionId", () => input.ResourceDefinitionId!, "{ResourceDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3366,36 +2205,20 @@ export const se_UpdateSubscriptionDefinitionCommand = async (
   input: UpdateSubscriptionDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/definition/subscriptions/{SubscriptionDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscriptionDefinitionId",
-    () => input.SubscriptionDefinitionId!,
-    "{SubscriptionDefinitionId}",
-    false
-  );
+  b.bp("/greengrass/definition/subscriptions/{SubscriptionDefinitionId}");
+  b.p("SubscriptionDefinitionId", () => input.SubscriptionDefinitionId!, "{SubscriptionDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3405,29 +2228,20 @@ export const se_UpdateThingRuntimeConfigurationCommand = async (
   input: UpdateThingRuntimeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/greengrass/things/{ThingName}/runtimeconfig";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThingName", () => input.ThingName!, "{ThingName}", false);
+  b.bp("/greengrass/things/{ThingName}/runtimeconfig");
+  b.p("ThingName", () => input.ThingName!, "{ThingName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TelemetryConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -8172,6 +6986,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _ACT = "AmznClientToken";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
+const _xact = "x-amzn-client-token";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

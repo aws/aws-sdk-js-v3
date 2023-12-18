@@ -113,6 +113,10 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         writer.addUseImports(getApplicationProtocol().getResponseType());
         writer.addImport("take", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         writer.write(IoUtils.readUtf8Resource(getClass(), "load-json-error-code-stub.ts"));
+
+        writer.write(
+            context.getStringStore().flushVariableDeclarationCode()
+        );
     }
 
     @Override

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { SageMakerGeospatialServiceException as __BaseException } from "./SageMakerGeospatialServiceException";

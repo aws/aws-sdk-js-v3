@@ -1056,8 +1056,8 @@ export const se_AddRoleToDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddRoleToDBClusterMessage(input, context),
-    Action: "AddRoleToDBCluster",
-    Version: "2014-10-31",
+    [_A]: _ARTDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1073,8 +1073,8 @@ export const se_AddRoleToDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddRoleToDBInstanceMessage(input, context),
-    Action: "AddRoleToDBInstance",
-    Version: "2014-10-31",
+    [_A]: _ARTDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1090,8 +1090,8 @@ export const se_AddSourceIdentifierToSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddSourceIdentifierToSubscriptionMessage(input, context),
-    Action: "AddSourceIdentifierToSubscription",
-    Version: "2014-10-31",
+    [_A]: _ASITS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1107,8 +1107,8 @@ export const se_AddTagsToResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsToResourceMessage(input, context),
-    Action: "AddTagsToResource",
-    Version: "2014-10-31",
+    [_A]: _ATTR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1124,8 +1124,8 @@ export const se_ApplyPendingMaintenanceActionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ApplyPendingMaintenanceActionMessage(input, context),
-    Action: "ApplyPendingMaintenanceAction",
-    Version: "2014-10-31",
+    [_A]: _APMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1141,8 +1141,8 @@ export const se_AuthorizeDBSecurityGroupIngressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AuthorizeDBSecurityGroupIngressMessage(input, context),
-    Action: "AuthorizeDBSecurityGroupIngress",
-    Version: "2014-10-31",
+    [_A]: _ADBSGI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1158,8 +1158,8 @@ export const se_BacktrackDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BacktrackDBClusterMessage(input, context),
-    Action: "BacktrackDBCluster",
-    Version: "2014-10-31",
+    [_A]: _BDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1175,8 +1175,8 @@ export const se_CancelExportTaskCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CancelExportTaskMessage(input, context),
-    Action: "CancelExportTask",
-    Version: "2014-10-31",
+    [_A]: _CET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1192,8 +1192,8 @@ export const se_CopyDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyDBClusterParameterGroupMessage(input, context),
-    Action: "CopyDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1209,8 +1209,8 @@ export const se_CopyDBClusterSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyDBClusterSnapshotMessage(input, context),
-    Action: "CopyDBClusterSnapshot",
-    Version: "2014-10-31",
+    [_A]: _CDBCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1226,8 +1226,8 @@ export const se_CopyDBParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyDBParameterGroupMessage(input, context),
-    Action: "CopyDBParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1243,8 +1243,8 @@ export const se_CopyDBSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyDBSnapshotMessage(input, context),
-    Action: "CopyDBSnapshot",
-    Version: "2014-10-31",
+    [_A]: _CDBS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1260,8 +1260,8 @@ export const se_CopyOptionGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyOptionGroupMessage(input, context),
-    Action: "CopyOptionGroup",
-    Version: "2014-10-31",
+    [_A]: _COG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1277,8 +1277,8 @@ export const se_CreateBlueGreenDeploymentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateBlueGreenDeploymentRequest(input, context),
-    Action: "CreateBlueGreenDeployment",
-    Version: "2014-10-31",
+    [_A]: _CBGD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1294,8 +1294,8 @@ export const se_CreateCustomDBEngineVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateCustomDBEngineVersionMessage(input, context),
-    Action: "CreateCustomDBEngineVersion",
-    Version: "2014-10-31",
+    [_A]: _CCDBEV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1311,8 +1311,8 @@ export const se_CreateDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterMessage(input, context),
-    Action: "CreateDBCluster",
-    Version: "2014-10-31",
+    [_A]: _CDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1328,8 +1328,8 @@ export const se_CreateDBClusterEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterEndpointMessage(input, context),
-    Action: "CreateDBClusterEndpoint",
-    Version: "2014-10-31",
+    [_A]: _CDBCE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1345,8 +1345,8 @@ export const se_CreateDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterParameterGroupMessage(input, context),
-    Action: "CreateDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBCPGr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1362,8 +1362,8 @@ export const se_CreateDBClusterSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterSnapshotMessage(input, context),
-    Action: "CreateDBClusterSnapshot",
-    Version: "2014-10-31",
+    [_A]: _CDBCSr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1379,8 +1379,8 @@ export const se_CreateDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBInstanceMessage(input, context),
-    Action: "CreateDBInstance",
-    Version: "2014-10-31",
+    [_A]: _CDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1396,8 +1396,8 @@ export const se_CreateDBInstanceReadReplicaCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBInstanceReadReplicaMessage(input, context),
-    Action: "CreateDBInstanceReadReplica",
-    Version: "2014-10-31",
+    [_A]: _CDBIRR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1413,8 +1413,8 @@ export const se_CreateDBParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBParameterGroupMessage(input, context),
-    Action: "CreateDBParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBPGr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1430,8 +1430,8 @@ export const se_CreateDBProxyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBProxyRequest(input, context),
-    Action: "CreateDBProxy",
-    Version: "2014-10-31",
+    [_A]: _CDBP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1447,8 +1447,8 @@ export const se_CreateDBProxyEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBProxyEndpointRequest(input, context),
-    Action: "CreateDBProxyEndpoint",
-    Version: "2014-10-31",
+    [_A]: _CDBPE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1464,8 +1464,8 @@ export const se_CreateDBSecurityGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBSecurityGroupMessage(input, context),
-    Action: "CreateDBSecurityGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1481,8 +1481,8 @@ export const se_CreateDBSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBSnapshotMessage(input, context),
-    Action: "CreateDBSnapshot",
-    Version: "2014-10-31",
+    [_A]: _CDBSr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1498,8 +1498,8 @@ export const se_CreateDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBSubnetGroupMessage(input, context),
-    Action: "CreateDBSubnetGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBSGr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1515,8 +1515,8 @@ export const se_CreateEventSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateEventSubscriptionMessage(input, context),
-    Action: "CreateEventSubscription",
-    Version: "2014-10-31",
+    [_A]: _CES,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1532,8 +1532,8 @@ export const se_CreateGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateGlobalClusterMessage(input, context),
-    Action: "CreateGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _CGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1549,8 +1549,8 @@ export const se_CreateIntegrationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateIntegrationMessage(input, context),
-    Action: "CreateIntegration",
-    Version: "2014-10-31",
+    [_A]: _CI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1566,8 +1566,8 @@ export const se_CreateOptionGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateOptionGroupMessage(input, context),
-    Action: "CreateOptionGroup",
-    Version: "2014-10-31",
+    [_A]: _COGr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1583,8 +1583,8 @@ export const se_CreateTenantDatabaseCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateTenantDatabaseMessage(input, context),
-    Action: "CreateTenantDatabase",
-    Version: "2014-10-31",
+    [_A]: _CTD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1600,8 +1600,8 @@ export const se_DeleteBlueGreenDeploymentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteBlueGreenDeploymentRequest(input, context),
-    Action: "DeleteBlueGreenDeployment",
-    Version: "2014-10-31",
+    [_A]: _DBGD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1617,8 +1617,8 @@ export const se_DeleteCustomDBEngineVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteCustomDBEngineVersionMessage(input, context),
-    Action: "DeleteCustomDBEngineVersion",
-    Version: "2014-10-31",
+    [_A]: _DCDBEV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1634,8 +1634,8 @@ export const se_DeleteDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterMessage(input, context),
-    Action: "DeleteDBCluster",
-    Version: "2014-10-31",
+    [_A]: _DDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1651,8 +1651,8 @@ export const se_DeleteDBClusterAutomatedBackupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterAutomatedBackupMessage(input, context),
-    Action: "DeleteDBClusterAutomatedBackup",
-    Version: "2014-10-31",
+    [_A]: _DDBCAB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1668,8 +1668,8 @@ export const se_DeleteDBClusterEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterEndpointMessage(input, context),
-    Action: "DeleteDBClusterEndpoint",
-    Version: "2014-10-31",
+    [_A]: _DDBCE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1685,8 +1685,8 @@ export const se_DeleteDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterParameterGroupMessage(input, context),
-    Action: "DeleteDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _DDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1702,8 +1702,8 @@ export const se_DeleteDBClusterSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterSnapshotMessage(input, context),
-    Action: "DeleteDBClusterSnapshot",
-    Version: "2014-10-31",
+    [_A]: _DDBCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1719,8 +1719,8 @@ export const se_DeleteDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBInstanceMessage(input, context),
-    Action: "DeleteDBInstance",
-    Version: "2014-10-31",
+    [_A]: _DDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1736,8 +1736,8 @@ export const se_DeleteDBInstanceAutomatedBackupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBInstanceAutomatedBackupMessage(input, context),
-    Action: "DeleteDBInstanceAutomatedBackup",
-    Version: "2014-10-31",
+    [_A]: _DDBIAB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1753,8 +1753,8 @@ export const se_DeleteDBParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBParameterGroupMessage(input, context),
-    Action: "DeleteDBParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _DDBPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1770,8 +1770,8 @@ export const se_DeleteDBProxyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBProxyRequest(input, context),
-    Action: "DeleteDBProxy",
-    Version: "2014-10-31",
+    [_A]: _DDBP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1787,8 +1787,8 @@ export const se_DeleteDBProxyEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBProxyEndpointRequest(input, context),
-    Action: "DeleteDBProxyEndpoint",
-    Version: "2014-10-31",
+    [_A]: _DDBPE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1804,8 +1804,8 @@ export const se_DeleteDBSecurityGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBSecurityGroupMessage(input, context),
-    Action: "DeleteDBSecurityGroup",
-    Version: "2014-10-31",
+    [_A]: _DDBSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1821,8 +1821,8 @@ export const se_DeleteDBSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBSnapshotMessage(input, context),
-    Action: "DeleteDBSnapshot",
-    Version: "2014-10-31",
+    [_A]: _DDBS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1838,8 +1838,8 @@ export const se_DeleteDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBSubnetGroupMessage(input, context),
-    Action: "DeleteDBSubnetGroup",
-    Version: "2014-10-31",
+    [_A]: _DDBSGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1855,8 +1855,8 @@ export const se_DeleteEventSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteEventSubscriptionMessage(input, context),
-    Action: "DeleteEventSubscription",
-    Version: "2014-10-31",
+    [_A]: _DES,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1872,8 +1872,8 @@ export const se_DeleteGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGlobalClusterMessage(input, context),
-    Action: "DeleteGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _DGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1889,8 +1889,8 @@ export const se_DeleteIntegrationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteIntegrationMessage(input, context),
-    Action: "DeleteIntegration",
-    Version: "2014-10-31",
+    [_A]: _DI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1906,8 +1906,8 @@ export const se_DeleteOptionGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteOptionGroupMessage(input, context),
-    Action: "DeleteOptionGroup",
-    Version: "2014-10-31",
+    [_A]: _DOG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1923,8 +1923,8 @@ export const se_DeleteTenantDatabaseCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteTenantDatabaseMessage(input, context),
-    Action: "DeleteTenantDatabase",
-    Version: "2014-10-31",
+    [_A]: _DTD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1940,8 +1940,8 @@ export const se_DeregisterDBProxyTargetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeregisterDBProxyTargetsRequest(input, context),
-    Action: "DeregisterDBProxyTargets",
-    Version: "2014-10-31",
+    [_A]: _DDBPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1957,8 +1957,8 @@ export const se_DescribeAccountAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccountAttributesMessage(input, context),
-    Action: "DescribeAccountAttributes",
-    Version: "2014-10-31",
+    [_A]: _DAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1974,8 +1974,8 @@ export const se_DescribeBlueGreenDeploymentsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeBlueGreenDeploymentsRequest(input, context),
-    Action: "DescribeBlueGreenDeployments",
-    Version: "2014-10-31",
+    [_A]: _DBGDe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1991,8 +1991,8 @@ export const se_DescribeCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCertificatesMessage(input, context),
-    Action: "DescribeCertificates",
-    Version: "2014-10-31",
+    [_A]: _DC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2008,8 +2008,8 @@ export const se_DescribeDBClusterAutomatedBackupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterAutomatedBackupsMessage(input, context),
-    Action: "DescribeDBClusterAutomatedBackups",
-    Version: "2014-10-31",
+    [_A]: _DDBCABe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2025,8 +2025,8 @@ export const se_DescribeDBClusterBacktracksCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterBacktracksMessage(input, context),
-    Action: "DescribeDBClusterBacktracks",
-    Version: "2014-10-31",
+    [_A]: _DDBCB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2042,8 +2042,8 @@ export const se_DescribeDBClusterEndpointsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterEndpointsMessage(input, context),
-    Action: "DescribeDBClusterEndpoints",
-    Version: "2014-10-31",
+    [_A]: _DDBCEe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2059,8 +2059,8 @@ export const se_DescribeDBClusterParameterGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterParameterGroupsMessage(input, context),
-    Action: "DescribeDBClusterParameterGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBCPGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2076,8 +2076,8 @@ export const se_DescribeDBClusterParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterParametersMessage(input, context),
-    Action: "DescribeDBClusterParameters",
-    Version: "2014-10-31",
+    [_A]: _DDBCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2093,8 +2093,8 @@ export const se_DescribeDBClustersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClustersMessage(input, context),
-    Action: "DescribeDBClusters",
-    Version: "2014-10-31",
+    [_A]: _DDBCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2110,8 +2110,8 @@ export const se_DescribeDBClusterSnapshotAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterSnapshotAttributesMessage(input, context),
-    Action: "DescribeDBClusterSnapshotAttributes",
-    Version: "2014-10-31",
+    [_A]: _DDBCSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2127,8 +2127,8 @@ export const se_DescribeDBClusterSnapshotsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterSnapshotsMessage(input, context),
-    Action: "DescribeDBClusterSnapshots",
-    Version: "2014-10-31",
+    [_A]: _DDBCSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2144,8 +2144,8 @@ export const se_DescribeDBEngineVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBEngineVersionsMessage(input, context),
-    Action: "DescribeDBEngineVersions",
-    Version: "2014-10-31",
+    [_A]: _DDBEV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2161,8 +2161,8 @@ export const se_DescribeDBInstanceAutomatedBackupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBInstanceAutomatedBackupsMessage(input, context),
-    Action: "DescribeDBInstanceAutomatedBackups",
-    Version: "2014-10-31",
+    [_A]: _DDBIABe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2178,8 +2178,8 @@ export const se_DescribeDBInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBInstancesMessage(input, context),
-    Action: "DescribeDBInstances",
-    Version: "2014-10-31",
+    [_A]: _DDBIe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2195,8 +2195,8 @@ export const se_DescribeDBLogFilesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBLogFilesMessage(input, context),
-    Action: "DescribeDBLogFiles",
-    Version: "2014-10-31",
+    [_A]: _DDBLF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2212,8 +2212,8 @@ export const se_DescribeDBParameterGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBParameterGroupsMessage(input, context),
-    Action: "DescribeDBParameterGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBPGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2229,8 +2229,8 @@ export const se_DescribeDBParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBParametersMessage(input, context),
-    Action: "DescribeDBParameters",
-    Version: "2014-10-31",
+    [_A]: _DDBPe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2246,8 +2246,8 @@ export const se_DescribeDBProxiesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBProxiesRequest(input, context),
-    Action: "DescribeDBProxies",
-    Version: "2014-10-31",
+    [_A]: _DDBPes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2263,8 +2263,8 @@ export const se_DescribeDBProxyEndpointsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBProxyEndpointsRequest(input, context),
-    Action: "DescribeDBProxyEndpoints",
-    Version: "2014-10-31",
+    [_A]: _DDBPEe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2280,8 +2280,8 @@ export const se_DescribeDBProxyTargetGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBProxyTargetGroupsRequest(input, context),
-    Action: "DescribeDBProxyTargetGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBPTG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2297,8 +2297,8 @@ export const se_DescribeDBProxyTargetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBProxyTargetsRequest(input, context),
-    Action: "DescribeDBProxyTargets",
-    Version: "2014-10-31",
+    [_A]: _DDBPTe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2314,8 +2314,8 @@ export const se_DescribeDBSecurityGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSecurityGroupsMessage(input, context),
-    Action: "DescribeDBSecurityGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBSGes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2331,8 +2331,8 @@ export const se_DescribeDBSnapshotAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSnapshotAttributesMessage(input, context),
-    Action: "DescribeDBSnapshotAttributes",
-    Version: "2014-10-31",
+    [_A]: _DDBSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2348,8 +2348,8 @@ export const se_DescribeDBSnapshotsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSnapshotsMessage(input, context),
-    Action: "DescribeDBSnapshots",
-    Version: "2014-10-31",
+    [_A]: _DDBSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2365,8 +2365,8 @@ export const se_DescribeDBSnapshotTenantDatabasesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSnapshotTenantDatabasesMessage(input, context),
-    Action: "DescribeDBSnapshotTenantDatabases",
-    Version: "2014-10-31",
+    [_A]: _DDBSTD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2382,8 +2382,8 @@ export const se_DescribeDBSubnetGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSubnetGroupsMessage(input, context),
-    Action: "DescribeDBSubnetGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBSGesc,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2399,8 +2399,8 @@ export const se_DescribeEngineDefaultClusterParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEngineDefaultClusterParametersMessage(input, context),
-    Action: "DescribeEngineDefaultClusterParameters",
-    Version: "2014-10-31",
+    [_A]: _DEDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2416,8 +2416,8 @@ export const se_DescribeEngineDefaultParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEngineDefaultParametersMessage(input, context),
-    Action: "DescribeEngineDefaultParameters",
-    Version: "2014-10-31",
+    [_A]: _DEDP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2433,8 +2433,8 @@ export const se_DescribeEventCategoriesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventCategoriesMessage(input, context),
-    Action: "DescribeEventCategories",
-    Version: "2014-10-31",
+    [_A]: _DEC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2450,8 +2450,8 @@ export const se_DescribeEventsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventsMessage(input, context),
-    Action: "DescribeEvents",
-    Version: "2014-10-31",
+    [_A]: _DE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2467,8 +2467,8 @@ export const se_DescribeEventSubscriptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventSubscriptionsMessage(input, context),
-    Action: "DescribeEventSubscriptions",
-    Version: "2014-10-31",
+    [_A]: _DESe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2484,8 +2484,8 @@ export const se_DescribeExportTasksCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeExportTasksMessage(input, context),
-    Action: "DescribeExportTasks",
-    Version: "2014-10-31",
+    [_A]: _DET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2501,8 +2501,8 @@ export const se_DescribeGlobalClustersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeGlobalClustersMessage(input, context),
-    Action: "DescribeGlobalClusters",
-    Version: "2014-10-31",
+    [_A]: _DGCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2518,8 +2518,8 @@ export const se_DescribeIntegrationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeIntegrationsMessage(input, context),
-    Action: "DescribeIntegrations",
-    Version: "2014-10-31",
+    [_A]: _DIe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2535,8 +2535,8 @@ export const se_DescribeOptionGroupOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeOptionGroupOptionsMessage(input, context),
-    Action: "DescribeOptionGroupOptions",
-    Version: "2014-10-31",
+    [_A]: _DOGO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2552,8 +2552,8 @@ export const se_DescribeOptionGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeOptionGroupsMessage(input, context),
-    Action: "DescribeOptionGroups",
-    Version: "2014-10-31",
+    [_A]: _DOGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2569,8 +2569,8 @@ export const se_DescribeOrderableDBInstanceOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeOrderableDBInstanceOptionsMessage(input, context),
-    Action: "DescribeOrderableDBInstanceOptions",
-    Version: "2014-10-31",
+    [_A]: _DODBIO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2586,8 +2586,8 @@ export const se_DescribePendingMaintenanceActionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribePendingMaintenanceActionsMessage(input, context),
-    Action: "DescribePendingMaintenanceActions",
-    Version: "2014-10-31",
+    [_A]: _DPMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2603,8 +2603,8 @@ export const se_DescribeReservedDBInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReservedDBInstancesMessage(input, context),
-    Action: "DescribeReservedDBInstances",
-    Version: "2014-10-31",
+    [_A]: _DRDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2620,8 +2620,8 @@ export const se_DescribeReservedDBInstancesOfferingsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeReservedDBInstancesOfferingsMessage(input, context),
-    Action: "DescribeReservedDBInstancesOfferings",
-    Version: "2014-10-31",
+    [_A]: _DRDBIO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2637,8 +2637,8 @@ export const se_DescribeSourceRegionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeSourceRegionsMessage(input, context),
-    Action: "DescribeSourceRegions",
-    Version: "2014-10-31",
+    [_A]: _DSR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2654,8 +2654,8 @@ export const se_DescribeTenantDatabasesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTenantDatabasesMessage(input, context),
-    Action: "DescribeTenantDatabases",
-    Version: "2014-10-31",
+    [_A]: _DTDe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2671,8 +2671,8 @@ export const se_DescribeValidDBInstanceModificationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeValidDBInstanceModificationsMessage(input, context),
-    Action: "DescribeValidDBInstanceModifications",
-    Version: "2014-10-31",
+    [_A]: _DVDBIM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2688,8 +2688,8 @@ export const se_DownloadDBLogFilePortionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DownloadDBLogFilePortionMessage(input, context),
-    Action: "DownloadDBLogFilePortion",
-    Version: "2014-10-31",
+    [_A]: _DDBLFP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2705,8 +2705,8 @@ export const se_FailoverDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_FailoverDBClusterMessage(input, context),
-    Action: "FailoverDBCluster",
-    Version: "2014-10-31",
+    [_A]: _FDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2722,8 +2722,8 @@ export const se_FailoverGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_FailoverGlobalClusterMessage(input, context),
-    Action: "FailoverGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _FGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2739,8 +2739,8 @@ export const se_ListTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceMessage(input, context),
-    Action: "ListTagsForResource",
-    Version: "2014-10-31",
+    [_A]: _LTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2756,8 +2756,8 @@ export const se_ModifyActivityStreamCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyActivityStreamRequest(input, context),
-    Action: "ModifyActivityStream",
-    Version: "2014-10-31",
+    [_A]: _MAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2773,8 +2773,8 @@ export const se_ModifyCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCertificatesMessage(input, context),
-    Action: "ModifyCertificates",
-    Version: "2014-10-31",
+    [_A]: _MC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2790,8 +2790,8 @@ export const se_ModifyCurrentDBClusterCapacityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCurrentDBClusterCapacityMessage(input, context),
-    Action: "ModifyCurrentDBClusterCapacity",
-    Version: "2014-10-31",
+    [_A]: _MCDBCC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2807,8 +2807,8 @@ export const se_ModifyCustomDBEngineVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyCustomDBEngineVersionMessage(input, context),
-    Action: "ModifyCustomDBEngineVersion",
-    Version: "2014-10-31",
+    [_A]: _MCDBEV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2824,8 +2824,8 @@ export const se_ModifyDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterMessage(input, context),
-    Action: "ModifyDBCluster",
-    Version: "2014-10-31",
+    [_A]: _MDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2841,8 +2841,8 @@ export const se_ModifyDBClusterEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterEndpointMessage(input, context),
-    Action: "ModifyDBClusterEndpoint",
-    Version: "2014-10-31",
+    [_A]: _MDBCE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2858,8 +2858,8 @@ export const se_ModifyDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterParameterGroupMessage(input, context),
-    Action: "ModifyDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _MDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2875,8 +2875,8 @@ export const se_ModifyDBClusterSnapshotAttributeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterSnapshotAttributeMessage(input, context),
-    Action: "ModifyDBClusterSnapshotAttribute",
-    Version: "2014-10-31",
+    [_A]: _MDBCSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2892,8 +2892,8 @@ export const se_ModifyDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBInstanceMessage(input, context),
-    Action: "ModifyDBInstance",
-    Version: "2014-10-31",
+    [_A]: _MDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2909,8 +2909,8 @@ export const se_ModifyDBParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBParameterGroupMessage(input, context),
-    Action: "ModifyDBParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _MDBPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2926,8 +2926,8 @@ export const se_ModifyDBProxyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBProxyRequest(input, context),
-    Action: "ModifyDBProxy",
-    Version: "2014-10-31",
+    [_A]: _MDBP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2943,8 +2943,8 @@ export const se_ModifyDBProxyEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBProxyEndpointRequest(input, context),
-    Action: "ModifyDBProxyEndpoint",
-    Version: "2014-10-31",
+    [_A]: _MDBPE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2960,8 +2960,8 @@ export const se_ModifyDBProxyTargetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBProxyTargetGroupRequest(input, context),
-    Action: "ModifyDBProxyTargetGroup",
-    Version: "2014-10-31",
+    [_A]: _MDBPTG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2977,8 +2977,8 @@ export const se_ModifyDBSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBSnapshotMessage(input, context),
-    Action: "ModifyDBSnapshot",
-    Version: "2014-10-31",
+    [_A]: _MDBS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2994,8 +2994,8 @@ export const se_ModifyDBSnapshotAttributeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBSnapshotAttributeMessage(input, context),
-    Action: "ModifyDBSnapshotAttribute",
-    Version: "2014-10-31",
+    [_A]: _MDBSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3011,8 +3011,8 @@ export const se_ModifyDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBSubnetGroupMessage(input, context),
-    Action: "ModifyDBSubnetGroup",
-    Version: "2014-10-31",
+    [_A]: _MDBSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3028,8 +3028,8 @@ export const se_ModifyEventSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyEventSubscriptionMessage(input, context),
-    Action: "ModifyEventSubscription",
-    Version: "2014-10-31",
+    [_A]: _MES,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3045,8 +3045,8 @@ export const se_ModifyGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyGlobalClusterMessage(input, context),
-    Action: "ModifyGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _MGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3062,8 +3062,8 @@ export const se_ModifyOptionGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyOptionGroupMessage(input, context),
-    Action: "ModifyOptionGroup",
-    Version: "2014-10-31",
+    [_A]: _MOG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3079,8 +3079,8 @@ export const se_ModifyTenantDatabaseCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyTenantDatabaseMessage(input, context),
-    Action: "ModifyTenantDatabase",
-    Version: "2014-10-31",
+    [_A]: _MTD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3096,8 +3096,8 @@ export const se_PromoteReadReplicaCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PromoteReadReplicaMessage(input, context),
-    Action: "PromoteReadReplica",
-    Version: "2014-10-31",
+    [_A]: _PRR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3113,8 +3113,8 @@ export const se_PromoteReadReplicaDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PromoteReadReplicaDBClusterMessage(input, context),
-    Action: "PromoteReadReplicaDBCluster",
-    Version: "2014-10-31",
+    [_A]: _PRRDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3130,8 +3130,8 @@ export const se_PurchaseReservedDBInstancesOfferingCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PurchaseReservedDBInstancesOfferingMessage(input, context),
-    Action: "PurchaseReservedDBInstancesOffering",
-    Version: "2014-10-31",
+    [_A]: _PRDBIO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3147,8 +3147,8 @@ export const se_RebootDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebootDBClusterMessage(input, context),
-    Action: "RebootDBCluster",
-    Version: "2014-10-31",
+    [_A]: _RDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3164,8 +3164,8 @@ export const se_RebootDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebootDBInstanceMessage(input, context),
-    Action: "RebootDBInstance",
-    Version: "2014-10-31",
+    [_A]: _RDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3181,8 +3181,8 @@ export const se_RegisterDBProxyTargetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterDBProxyTargetsRequest(input, context),
-    Action: "RegisterDBProxyTargets",
-    Version: "2014-10-31",
+    [_A]: _RDBPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3198,8 +3198,8 @@ export const se_RemoveFromGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveFromGlobalClusterMessage(input, context),
-    Action: "RemoveFromGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _RFGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3215,8 +3215,8 @@ export const se_RemoveRoleFromDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveRoleFromDBClusterMessage(input, context),
-    Action: "RemoveRoleFromDBCluster",
-    Version: "2014-10-31",
+    [_A]: _RRFDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3232,8 +3232,8 @@ export const se_RemoveRoleFromDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveRoleFromDBInstanceMessage(input, context),
-    Action: "RemoveRoleFromDBInstance",
-    Version: "2014-10-31",
+    [_A]: _RRFDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3249,8 +3249,8 @@ export const se_RemoveSourceIdentifierFromSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveSourceIdentifierFromSubscriptionMessage(input, context),
-    Action: "RemoveSourceIdentifierFromSubscription",
-    Version: "2014-10-31",
+    [_A]: _RSIFS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3266,8 +3266,8 @@ export const se_RemoveTagsFromResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsFromResourceMessage(input, context),
-    Action: "RemoveTagsFromResource",
-    Version: "2014-10-31",
+    [_A]: _RTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3283,8 +3283,8 @@ export const se_ResetDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetDBClusterParameterGroupMessage(input, context),
-    Action: "ResetDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _RDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3300,8 +3300,8 @@ export const se_ResetDBParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetDBParameterGroupMessage(input, context),
-    Action: "ResetDBParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _RDBPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3317,8 +3317,8 @@ export const se_RestoreDBClusterFromS3Command = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBClusterFromS3Message(input, context),
-    Action: "RestoreDBClusterFromS3",
-    Version: "2014-10-31",
+    [_A]: _RDBCFS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3334,8 +3334,8 @@ export const se_RestoreDBClusterFromSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBClusterFromSnapshotMessage(input, context),
-    Action: "RestoreDBClusterFromSnapshot",
-    Version: "2014-10-31",
+    [_A]: _RDBCFSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3351,8 +3351,8 @@ export const se_RestoreDBClusterToPointInTimeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBClusterToPointInTimeMessage(input, context),
-    Action: "RestoreDBClusterToPointInTime",
-    Version: "2014-10-31",
+    [_A]: _RDBCTPIT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3368,8 +3368,8 @@ export const se_RestoreDBInstanceFromDBSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBInstanceFromDBSnapshotMessage(input, context),
-    Action: "RestoreDBInstanceFromDBSnapshot",
-    Version: "2014-10-31",
+    [_A]: _RDBIFDBS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3385,8 +3385,8 @@ export const se_RestoreDBInstanceFromS3Command = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBInstanceFromS3Message(input, context),
-    Action: "RestoreDBInstanceFromS3",
-    Version: "2014-10-31",
+    [_A]: _RDBIFS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3402,8 +3402,8 @@ export const se_RestoreDBInstanceToPointInTimeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBInstanceToPointInTimeMessage(input, context),
-    Action: "RestoreDBInstanceToPointInTime",
-    Version: "2014-10-31",
+    [_A]: _RDBITPIT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3419,8 +3419,8 @@ export const se_RevokeDBSecurityGroupIngressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RevokeDBSecurityGroupIngressMessage(input, context),
-    Action: "RevokeDBSecurityGroupIngress",
-    Version: "2014-10-31",
+    [_A]: _RDBSGI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3436,8 +3436,8 @@ export const se_StartActivityStreamCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartActivityStreamRequest(input, context),
-    Action: "StartActivityStream",
-    Version: "2014-10-31",
+    [_A]: _SAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3453,8 +3453,8 @@ export const se_StartDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartDBClusterMessage(input, context),
-    Action: "StartDBCluster",
-    Version: "2014-10-31",
+    [_A]: _SDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3470,8 +3470,8 @@ export const se_StartDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartDBInstanceMessage(input, context),
-    Action: "StartDBInstance",
-    Version: "2014-10-31",
+    [_A]: _SDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3487,8 +3487,8 @@ export const se_StartDBInstanceAutomatedBackupsReplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartDBInstanceAutomatedBackupsReplicationMessage(input, context),
-    Action: "StartDBInstanceAutomatedBackupsReplication",
-    Version: "2014-10-31",
+    [_A]: _SDBIABR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3504,8 +3504,8 @@ export const se_StartExportTaskCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartExportTaskMessage(input, context),
-    Action: "StartExportTask",
-    Version: "2014-10-31",
+    [_A]: _SET,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3521,8 +3521,8 @@ export const se_StopActivityStreamCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopActivityStreamRequest(input, context),
-    Action: "StopActivityStream",
-    Version: "2014-10-31",
+    [_A]: _SASt,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3538,8 +3538,8 @@ export const se_StopDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopDBClusterMessage(input, context),
-    Action: "StopDBCluster",
-    Version: "2014-10-31",
+    [_A]: _SDBCt,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3555,8 +3555,8 @@ export const se_StopDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopDBInstanceMessage(input, context),
-    Action: "StopDBInstance",
-    Version: "2014-10-31",
+    [_A]: _SDBIt,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3572,8 +3572,8 @@ export const se_StopDBInstanceAutomatedBackupsReplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopDBInstanceAutomatedBackupsReplicationMessage(input, context),
-    Action: "StopDBInstanceAutomatedBackupsReplication",
-    Version: "2014-10-31",
+    [_A]: _SDBIABRt,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3589,8 +3589,8 @@ export const se_SwitchoverBlueGreenDeploymentCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SwitchoverBlueGreenDeploymentRequest(input, context),
-    Action: "SwitchoverBlueGreenDeployment",
-    Version: "2014-10-31",
+    [_A]: _SBGD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3606,8 +3606,8 @@ export const se_SwitchoverGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SwitchoverGlobalClusterMessage(input, context),
-    Action: "SwitchoverGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _SGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -3623,8 +3623,8 @@ export const se_SwitchoverReadReplicaCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SwitchoverReadReplicaMessage(input, context),
-    Action: "SwitchoverReadReplica",
-    Version: "2014-10-31",
+    [_A]: _SRR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -14181,14 +14181,14 @@ const de_TenantDatabaseQuotaExceededFaultRes = async (
  */
 const se_AddRoleToDBClusterMessage = (input: AddRoleToDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.FeatureName != null) {
-    entries["FeatureName"] = input.FeatureName;
+  if (input[_FN] != null) {
+    entries[_FN] = input[_FN];
   }
   return entries;
 };
@@ -14198,14 +14198,14 @@ const se_AddRoleToDBClusterMessage = (input: AddRoleToDBClusterMessage, context:
  */
 const se_AddRoleToDBInstanceMessage = (input: AddRoleToDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.FeatureName != null) {
-    entries["FeatureName"] = input.FeatureName;
+  if (input[_FN] != null) {
+    entries[_FN] = input[_FN];
   }
   return entries;
 };
@@ -14218,11 +14218,11 @@ const se_AddSourceIdentifierToSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
   return entries;
 };
@@ -14232,12 +14232,12 @@ const se_AddSourceIdentifierToSubscriptionMessage = (
  */
 const se_AddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14256,14 +14256,14 @@ const se_ApplyPendingMaintenanceActionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ResourceIdentifier != null) {
-    entries["ResourceIdentifier"] = input.ResourceIdentifier;
+  if (input[_RI] != null) {
+    entries[_RI] = input[_RI];
   }
-  if (input.ApplyAction != null) {
-    entries["ApplyAction"] = input.ApplyAction;
+  if (input[_AA] != null) {
+    entries[_AA] = input[_AA];
   }
-  if (input.OptInType != null) {
-    entries["OptInType"] = input.OptInType;
+  if (input[_OIT] != null) {
+    entries[_OIT] = input[_OIT];
   }
   return entries;
 };
@@ -14292,20 +14292,20 @@ const se_AuthorizeDBSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBSecurityGroupName != null) {
-    entries["DBSecurityGroupName"] = input.DBSecurityGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.CIDRIP != null) {
-    entries["CIDRIP"] = input.CIDRIP;
+  if (input[_CIDRIP] != null) {
+    entries[_CIDRIP] = input[_CIDRIP];
   }
-  if (input.EC2SecurityGroupName != null) {
-    entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
+  if (input[_ECSGN] != null) {
+    entries[_ECSGN] = input[_ECSGN];
   }
-  if (input.EC2SecurityGroupId != null) {
-    entries["EC2SecurityGroupId"] = input.EC2SecurityGroupId;
+  if (input[_ECSGI] != null) {
+    entries[_ECSGI] = input[_ECSGI];
   }
-  if (input.EC2SecurityGroupOwnerId != null) {
-    entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  if (input[_ECSGOI] != null) {
+    entries[_ECSGOI] = input[_ECSGOI];
   }
   return entries;
 };
@@ -14331,17 +14331,17 @@ const se_AvailabilityZones = (input: string[], context: __SerdeContext): any => 
  */
 const se_BacktrackDBClusterMessage = (input: BacktrackDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.BacktrackTo != null) {
-    entries["BacktrackTo"] = input.BacktrackTo.toISOString().split(".")[0] + "Z";
+  if (input[_BT] != null) {
+    entries[_BT] = input[_BT].toISOString().split(".")[0] + "Z";
   }
-  if (input.Force != null) {
-    entries["Force"] = input.Force;
+  if (input[_F] != null) {
+    entries[_F] = input[_F];
   }
-  if (input.UseEarliestTimeOnPointInTimeUnavailable != null) {
-    entries["UseEarliestTimeOnPointInTimeUnavailable"] = input.UseEarliestTimeOnPointInTimeUnavailable;
+  if (input[_UETOPITU] != null) {
+    entries[_UETOPITU] = input[_UETOPITU];
   }
   return entries;
 };
@@ -14351,8 +14351,8 @@ const se_BacktrackDBClusterMessage = (input: BacktrackDBClusterMessage, context:
  */
 const se_CancelExportTaskMessage = (input: CancelExportTaskMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExportTaskIdentifier != null) {
-    entries["ExportTaskIdentifier"] = input.ExportTaskIdentifier;
+  if (input[_ETI] != null) {
+    entries[_ETI] = input[_ETI];
   }
   return entries;
 };
@@ -14365,9 +14365,9 @@ const se_CloudwatchLogsExportConfiguration = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnableLogTypes != null) {
-    const memberEntries = se_LogTypeList(input.EnableLogTypes, context);
-    if (input.EnableLogTypes?.length === 0) {
+  if (input[_ELT] != null) {
+    const memberEntries = se_LogTypeList(input[_ELT], context);
+    if (input[_ELT]?.length === 0) {
       entries.EnableLogTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14375,9 +14375,9 @@ const se_CloudwatchLogsExportConfiguration = (
       entries[loc] = value;
     });
   }
-  if (input.DisableLogTypes != null) {
-    const memberEntries = se_LogTypeList(input.DisableLogTypes, context);
-    if (input.DisableLogTypes?.length === 0) {
+  if (input[_DLT] != null) {
+    const memberEntries = se_LogTypeList(input[_DLT], context);
+    if (input[_DLT]?.length === 0) {
       entries.DisableLogTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14393,18 +14393,18 @@ const se_CloudwatchLogsExportConfiguration = (
  */
 const se_ConnectionPoolConfiguration = (input: ConnectionPoolConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxConnectionsPercent != null) {
-    entries["MaxConnectionsPercent"] = input.MaxConnectionsPercent;
+  if (input[_MCP] != null) {
+    entries[_MCP] = input[_MCP];
   }
-  if (input.MaxIdleConnectionsPercent != null) {
-    entries["MaxIdleConnectionsPercent"] = input.MaxIdleConnectionsPercent;
+  if (input[_MICP] != null) {
+    entries[_MICP] = input[_MICP];
   }
-  if (input.ConnectionBorrowTimeout != null) {
-    entries["ConnectionBorrowTimeout"] = input.ConnectionBorrowTimeout;
+  if (input[_CBT] != null) {
+    entries[_CBT] = input[_CBT];
   }
-  if (input.SessionPinningFilters != null) {
-    const memberEntries = se_StringList(input.SessionPinningFilters, context);
-    if (input.SessionPinningFilters?.length === 0) {
+  if (input[_SPF] != null) {
+    const memberEntries = se_StringList(input[_SPF], context);
+    if (input[_SPF]?.length === 0) {
       entries.SessionPinningFilters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14412,8 +14412,8 @@ const se_ConnectionPoolConfiguration = (input: ConnectionPoolConfiguration, cont
       entries[loc] = value;
     });
   }
-  if (input.InitQuery != null) {
-    entries["InitQuery"] = input.InitQuery;
+  if (input[_IQ] != null) {
+    entries[_IQ] = input[_IQ];
   }
   return entries;
 };
@@ -14426,18 +14426,18 @@ const se_CopyDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceDBClusterParameterGroupIdentifier != null) {
-    entries["SourceDBClusterParameterGroupIdentifier"] = input.SourceDBClusterParameterGroupIdentifier;
+  if (input[_SDBCPGI] != null) {
+    entries[_SDBCPGI] = input[_SDBCPGI];
   }
-  if (input.TargetDBClusterParameterGroupIdentifier != null) {
-    entries["TargetDBClusterParameterGroupIdentifier"] = input.TargetDBClusterParameterGroupIdentifier;
+  if (input[_TDBCPGI] != null) {
+    entries[_TDBCPGI] = input[_TDBCPGI];
   }
-  if (input.TargetDBClusterParameterGroupDescription != null) {
-    entries["TargetDBClusterParameterGroupDescription"] = input.TargetDBClusterParameterGroupDescription;
+  if (input[_TDBCPGD] != null) {
+    entries[_TDBCPGD] = input[_TDBCPGD];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14453,24 +14453,24 @@ const se_CopyDBClusterParameterGroupMessage = (
  */
 const se_CopyDBClusterSnapshotMessage = (input: CopyDBClusterSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceDBClusterSnapshotIdentifier != null) {
-    entries["SourceDBClusterSnapshotIdentifier"] = input.SourceDBClusterSnapshotIdentifier;
+  if (input[_SDBCSI] != null) {
+    entries[_SDBCSI] = input[_SDBCSI];
   }
-  if (input.TargetDBClusterSnapshotIdentifier != null) {
-    entries["TargetDBClusterSnapshotIdentifier"] = input.TargetDBClusterSnapshotIdentifier;
+  if (input[_TDBCSI] != null) {
+    entries[_TDBCSI] = input[_TDBCSI];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
-  if (input.CopyTags != null) {
-    entries["CopyTags"] = input.CopyTags;
+  if (input[_CT] != null) {
+    entries[_CT] = input[_CT];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14486,18 +14486,18 @@ const se_CopyDBClusterSnapshotMessage = (input: CopyDBClusterSnapshotMessage, co
  */
 const se_CopyDBParameterGroupMessage = (input: CopyDBParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceDBParameterGroupIdentifier != null) {
-    entries["SourceDBParameterGroupIdentifier"] = input.SourceDBParameterGroupIdentifier;
+  if (input[_SDBPGI] != null) {
+    entries[_SDBPGI] = input[_SDBPGI];
   }
-  if (input.TargetDBParameterGroupIdentifier != null) {
-    entries["TargetDBParameterGroupIdentifier"] = input.TargetDBParameterGroupIdentifier;
+  if (input[_TDBPGI] != null) {
+    entries[_TDBPGI] = input[_TDBPGI];
   }
-  if (input.TargetDBParameterGroupDescription != null) {
-    entries["TargetDBParameterGroupDescription"] = input.TargetDBParameterGroupDescription;
+  if (input[_TDBPGD] != null) {
+    entries[_TDBPGD] = input[_TDBPGD];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14513,18 +14513,18 @@ const se_CopyDBParameterGroupMessage = (input: CopyDBParameterGroupMessage, cont
  */
 const se_CopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceDBSnapshotIdentifier != null) {
-    entries["SourceDBSnapshotIdentifier"] = input.SourceDBSnapshotIdentifier;
+  if (input[_SDBSI] != null) {
+    entries[_SDBSI] = input[_SDBSI];
   }
-  if (input.TargetDBSnapshotIdentifier != null) {
-    entries["TargetDBSnapshotIdentifier"] = input.TargetDBSnapshotIdentifier;
+  if (input[_TDBSI] != null) {
+    entries[_TDBSI] = input[_TDBSI];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14532,20 +14532,20 @@ const se_CopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, context: __Serde
       entries[loc] = value;
     });
   }
-  if (input.CopyTags != null) {
-    entries["CopyTags"] = input.CopyTags;
+  if (input[_CT] != null) {
+    entries[_CT] = input[_CT];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.TargetCustomAvailabilityZone != null) {
-    entries["TargetCustomAvailabilityZone"] = input.TargetCustomAvailabilityZone;
+  if (input[_TCAZ] != null) {
+    entries[_TCAZ] = input[_TCAZ];
   }
-  if (input.CopyOptionGroup != null) {
-    entries["CopyOptionGroup"] = input.CopyOptionGroup;
+  if (input[_COG] != null) {
+    entries[_COG] = input[_COG];
   }
   return entries;
 };
@@ -14555,18 +14555,18 @@ const se_CopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, context: __Serde
  */
 const se_CopyOptionGroupMessage = (input: CopyOptionGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceOptionGroupIdentifier != null) {
-    entries["SourceOptionGroupIdentifier"] = input.SourceOptionGroupIdentifier;
+  if (input[_SOGI] != null) {
+    entries[_SOGI] = input[_SOGI];
   }
-  if (input.TargetOptionGroupIdentifier != null) {
-    entries["TargetOptionGroupIdentifier"] = input.TargetOptionGroupIdentifier;
+  if (input[_TOGI] != null) {
+    entries[_TOGI] = input[_TOGI];
   }
-  if (input.TargetOptionGroupDescription != null) {
-    entries["TargetOptionGroupDescription"] = input.TargetOptionGroupDescription;
+  if (input[_TOGD] != null) {
+    entries[_TOGD] = input[_TOGD];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14582,24 +14582,24 @@ const se_CopyOptionGroupMessage = (input: CopyOptionGroupMessage, context: __Ser
  */
 const se_CreateBlueGreenDeploymentRequest = (input: CreateBlueGreenDeploymentRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.BlueGreenDeploymentName != null) {
-    entries["BlueGreenDeploymentName"] = input.BlueGreenDeploymentName;
+  if (input[_BGDN] != null) {
+    entries[_BGDN] = input[_BGDN];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.TargetEngineVersion != null) {
-    entries["TargetEngineVersion"] = input.TargetEngineVersion;
+  if (input[_TEV] != null) {
+    entries[_TEV] = input[_TEV];
   }
-  if (input.TargetDBParameterGroupName != null) {
-    entries["TargetDBParameterGroupName"] = input.TargetDBParameterGroupName;
+  if (input[_TDBPGN] != null) {
+    entries[_TDBPGN] = input[_TDBPGN];
   }
-  if (input.TargetDBClusterParameterGroupName != null) {
-    entries["TargetDBClusterParameterGroupName"] = input.TargetDBClusterParameterGroupName;
+  if (input[_TDBCPGN] != null) {
+    entries[_TDBCPGN] = input[_TDBCPGN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14607,11 +14607,11 @@ const se_CreateBlueGreenDeploymentRequest = (input: CreateBlueGreenDeploymentReq
       entries[loc] = value;
     });
   }
-  if (input.TargetDBInstanceClass != null) {
-    entries["TargetDBInstanceClass"] = input.TargetDBInstanceClass;
+  if (input[_TDBIC] != null) {
+    entries[_TDBIC] = input[_TDBIC];
   }
-  if (input.UpgradeTargetStorageConfig != null) {
-    entries["UpgradeTargetStorageConfig"] = input.UpgradeTargetStorageConfig;
+  if (input[_UTSC] != null) {
+    entries[_UTSC] = input[_UTSC];
   }
   return entries;
 };
@@ -14624,33 +14624,33 @@ const se_CreateCustomDBEngineVersionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DatabaseInstallationFilesS3BucketName != null) {
-    entries["DatabaseInstallationFilesS3BucketName"] = input.DatabaseInstallationFilesS3BucketName;
+  if (input[_DIFSBN] != null) {
+    entries[_DIFSBN] = input[_DIFSBN];
   }
-  if (input.DatabaseInstallationFilesS3Prefix != null) {
-    entries["DatabaseInstallationFilesS3Prefix"] = input.DatabaseInstallationFilesS3Prefix;
+  if (input[_DIFSP] != null) {
+    entries[_DIFSP] = input[_DIFSP];
   }
-  if (input.ImageId != null) {
-    entries["ImageId"] = input.ImageId;
+  if (input[_II] != null) {
+    entries[_II] = input[_II];
   }
-  if (input.KMSKeyId != null) {
-    entries["KMSKeyId"] = input.KMSKeyId;
+  if (input[_KMSKI] != null) {
+    entries[_KMSKI] = input[_KMSKI];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Manifest != null) {
-    entries["Manifest"] = input.Manifest;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14658,11 +14658,11 @@ const se_CreateCustomDBEngineVersionMessage = (
       entries[loc] = value;
     });
   }
-  if (input.SourceCustomDbEngineVersionIdentifier != null) {
-    entries["SourceCustomDbEngineVersionIdentifier"] = input.SourceCustomDbEngineVersionIdentifier;
+  if (input[_SCDEVI] != null) {
+    entries[_SCDEVI] = input[_SCDEVI];
   }
-  if (input.UseAwsProvidedLatestImage != null) {
-    entries["UseAwsProvidedLatestImage"] = input.UseAwsProvidedLatestImage;
+  if (input[_UAPLI] != null) {
+    entries[_UAPLI] = input[_UAPLI];
   }
   return entries;
 };
@@ -14672,18 +14672,18 @@ const se_CreateCustomDBEngineVersionMessage = (
  */
 const se_CreateDBClusterEndpointMessage = (input: CreateDBClusterEndpointMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterEndpointIdentifier != null) {
-    entries["DBClusterEndpointIdentifier"] = input.DBClusterEndpointIdentifier;
+  if (input[_DBCEI] != null) {
+    entries[_DBCEI] = input[_DBCEI];
   }
-  if (input.EndpointType != null) {
-    entries["EndpointType"] = input.EndpointType;
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET];
   }
-  if (input.StaticMembers != null) {
-    const memberEntries = se_StringList(input.StaticMembers, context);
-    if (input.StaticMembers?.length === 0) {
+  if (input[_SM] != null) {
+    const memberEntries = se_StringList(input[_SM], context);
+    if (input[_SM]?.length === 0) {
       entries.StaticMembers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14691,9 +14691,9 @@ const se_CreateDBClusterEndpointMessage = (input: CreateDBClusterEndpointMessage
       entries[loc] = value;
     });
   }
-  if (input.ExcludedMembers != null) {
-    const memberEntries = se_StringList(input.ExcludedMembers, context);
-    if (input.ExcludedMembers?.length === 0) {
+  if (input[_EM] != null) {
+    const memberEntries = se_StringList(input[_EM], context);
+    if (input[_EM]?.length === 0) {
       entries.ExcludedMembers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14701,9 +14701,9 @@ const se_CreateDBClusterEndpointMessage = (input: CreateDBClusterEndpointMessage
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14719,9 +14719,9 @@ const se_CreateDBClusterEndpointMessage = (input: CreateDBClusterEndpointMessage
  */
 const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14729,24 +14729,24 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.CharacterSetName != null) {
-    entries["CharacterSetName"] = input.CharacterSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.DatabaseName != null) {
-    entries["DatabaseName"] = input.DatabaseName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14754,39 +14754,39 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MasterUsername != null) {
-    entries["MasterUsername"] = input.MasterUsername;
+  if (input[_MU] != null) {
+    entries[_MU] = input[_MU];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.ReplicationSourceIdentifier != null) {
-    entries["ReplicationSourceIdentifier"] = input.ReplicationSourceIdentifier;
+  if (input[_RSI] != null) {
+    entries[_RSI] = input[_RSI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14794,24 +14794,24 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.BacktrackWindow != null) {
-    entries["BacktrackWindow"] = input.BacktrackWindow;
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14819,98 +14819,98 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.EngineMode != null) {
-    entries["EngineMode"] = input.EngineMode;
+  if (input[_EMn] != null) {
+    entries[_EMn] = input[_EMn];
   }
-  if (input.ScalingConfiguration != null) {
-    const memberEntries = se_ScalingConfiguration(input.ScalingConfiguration, context);
+  if (input[_SC] != null) {
+    const memberEntries = se_ScalingConfiguration(input[_SC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RdsCustomClusterConfiguration != null) {
-    const memberEntries = se_RdsCustomClusterConfiguration(input.RdsCustomClusterConfiguration, context);
+  if (input[_RCCC] != null) {
+    const memberEntries = se_RdsCustomClusterConfiguration(input[_RCCC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RdsCustomClusterConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.EnableHttpEndpoint != null) {
-    entries["EnableHttpEndpoint"] = input.EnableHttpEndpoint;
+  if (input[_EHE] != null) {
+    entries[_EHE] = input[_EHE];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.EnableGlobalWriteForwarding != null) {
-    entries["EnableGlobalWriteForwarding"] = input.EnableGlobalWriteForwarding;
+  if (input[_EGWF] != null) {
+    entries[_EGWF] = input[_EGWF];
   }
-  if (input.DBClusterInstanceClass != null) {
-    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  if (input[_DBCIC] != null) {
+    entries[_DBCIC] = input[_DBCIC];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.MonitoringInterval != null) {
-    entries["MonitoringInterval"] = input.MonitoringInterval;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.MonitoringRoleArn != null) {
-    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.PerformanceInsightsRetentionPeriod != null) {
-    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
-  if (input.ServerlessV2ScalingConfiguration != null) {
-    const memberEntries = se_ServerlessV2ScalingConfiguration(input.ServerlessV2ScalingConfiguration, context);
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.DBSystemId != null) {
-    entries["DBSystemId"] = input.DBSystemId;
+  if (input[_DBSI] != null) {
+    entries[_DBSI] = input[_DBSI];
   }
-  if (input.ManageMasterUserPassword != null) {
-    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
   }
-  if (input.MasterUserSecretKmsKeyId != null) {
-    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input.EnableLocalWriteForwarding != null) {
-    entries["EnableLocalWriteForwarding"] = input.EnableLocalWriteForwarding;
+  if (input[_ELWF] != null) {
+    entries[_ELWF] = input[_ELWF];
   }
   return entries;
 };
@@ -14923,18 +14923,18 @@ const se_CreateDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14950,15 +14950,15 @@ const se_CreateDBClusterParameterGroupMessage = (
  */
 const se_CreateDBClusterSnapshotMessage = (input: CreateDBClusterSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14974,30 +14974,30 @@ const se_CreateDBClusterSnapshotMessage = (input: CreateDBClusterSnapshotMessage
  */
 const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBName != null) {
-    entries["DBName"] = input.DBName;
+  if (input[_DBN] != null) {
+    entries[_DBN] = input[_DBN];
   }
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.MasterUsername != null) {
-    entries["MasterUsername"] = input.MasterUsername;
+  if (input[_MU] != null) {
+    entries[_MU] = input[_MU];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.DBSecurityGroups != null) {
-    const memberEntries = se_DBSecurityGroupNameList(input.DBSecurityGroups, context);
-    if (input.DBSecurityGroups?.length === 0) {
+  if (input[_DBSG] != null) {
+    const memberEntries = se_DBSecurityGroupNameList(input[_DBSG], context);
+    if (input[_DBSG]?.length === 0) {
       entries.DBSecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15005,9 +15005,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15015,57 +15015,57 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZv] != null) {
+    entries[_AZv] = input[_AZv];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.CharacterSetName != null) {
-    entries["CharacterSetName"] = input.CharacterSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.NcharCharacterSetName != null) {
-    entries["NcharCharacterSetName"] = input.NcharCharacterSetName;
+  if (input[_NCSN] != null) {
+    entries[_NCSN] = input[_NCSN];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15073,39 +15073,39 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.TdeCredentialArn != null) {
-    entries["TdeCredentialArn"] = input.TdeCredentialArn;
+  if (input[_TCA] != null) {
+    entries[_TCA] = input[_TCA];
   }
-  if (input.TdeCredentialPassword != null) {
-    entries["TdeCredentialPassword"] = input.TdeCredentialPassword;
+  if (input[_TCP] != null) {
+    entries[_TCP] = input[_TCP];
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainFqdn != null) {
-    entries["DomainFqdn"] = input.DomainFqdn;
+  if (input[_DF] != null) {
+    entries[_DF] = input[_DF];
   }
-  if (input.DomainOu != null) {
-    entries["DomainOu"] = input.DomainOu;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
-  if (input.DomainAuthSecretArn != null) {
-    entries["DomainAuthSecretArn"] = input.DomainAuthSecretArn;
+  if (input[_DASA] != null) {
+    entries[_DASA] = input[_DASA];
   }
-  if (input.DomainDnsIps != null) {
-    const memberEntries = se_StringList(input.DomainDnsIps, context);
-    if (input.DomainDnsIps?.length === 0) {
+  if (input[_DDI] != null) {
+    const memberEntries = se_StringList(input[_DDI], context);
+    if (input[_DDI]?.length === 0) {
       entries.DomainDnsIps = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15113,39 +15113,39 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.MonitoringInterval != null) {
-    entries["MonitoringInterval"] = input.MonitoringInterval;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.MonitoringRoleArn != null) {
-    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.PromotionTier != null) {
-    entries["PromotionTier"] = input.PromotionTier;
+  if (input[_PT] != null) {
+    entries[_PT] = input[_PT];
   }
-  if (input.Timezone != null) {
-    entries["Timezone"] = input.Timezone;
+  if (input[_Ti] != null) {
+    entries[_Ti] = input[_Ti];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.PerformanceInsightsRetentionPeriod != null) {
-    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15153,9 +15153,9 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.ProcessorFeatures != null) {
-    const memberEntries = se_ProcessorFeatureList(input.ProcessorFeatures, context);
-    if (input.ProcessorFeatures?.length === 0) {
+  if (input[_PF] != null) {
+    const memberEntries = se_ProcessorFeatureList(input[_PF], context);
+    if (input[_PF]?.length === 0) {
       entries.ProcessorFeatures = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15163,44 +15163,44 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.MaxAllocatedStorage != null) {
-    entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
+  if (input[_MASa] != null) {
+    entries[_MASa] = input[_MASa];
   }
-  if (input.EnableCustomerOwnedIp != null) {
-    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  if (input[_ECOI] != null) {
+    entries[_ECOI] = input[_ECOI];
   }
-  if (input.CustomIamInstanceProfile != null) {
-    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  if (input[_CIIP] != null) {
+    entries[_CIIP] = input[_CIIP];
   }
-  if (input.BackupTarget != null) {
-    entries["BackupTarget"] = input.BackupTarget;
+  if (input[_BTa] != null) {
+    entries[_BTa] = input[_BTa];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StorageThroughput != null) {
-    entries["StorageThroughput"] = input.StorageThroughput;
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
-  if (input.ManageMasterUserPassword != null) {
-    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
   }
-  if (input.MasterUserSecretKmsKeyId != null) {
-    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input.CACertificateIdentifier != null) {
-    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
   }
-  if (input.DBSystemId != null) {
-    entries["DBSystemId"] = input.DBSystemId;
+  if (input[_DBSI] != null) {
+    entries[_DBSI] = input[_DBSI];
   }
-  if (input.DedicatedLogVolume != null) {
-    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  if (input[_DLV] != null) {
+    entries[_DLV] = input[_DLV];
   }
-  if (input.MultiTenant != null) {
-    entries["MultiTenant"] = input.MultiTenant;
+  if (input[_MT] != null) {
+    entries[_MT] = input[_MT];
   }
   return entries;
 };
@@ -15213,42 +15213,42 @@ const se_CreateDBInstanceReadReplicaMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.SourceDBInstanceIdentifier != null) {
-    entries["SourceDBInstanceIdentifier"] = input.SourceDBInstanceIdentifier;
+  if (input[_SDBII] != null) {
+    entries[_SDBII] = input[_SDBII];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZv] != null) {
+    entries[_AZv] = input[_AZv];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15256,12 +15256,12 @@ const se_CreateDBInstanceReadReplicaMessage = (
       entries[loc] = value;
     });
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15269,39 +15269,39 @@ const se_CreateDBInstanceReadReplicaMessage = (
       entries[loc] = value;
     });
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.MonitoringInterval != null) {
-    entries["MonitoringInterval"] = input.MonitoringInterval;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.MonitoringRoleArn != null) {
-    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.PerformanceInsightsRetentionPeriod != null) {
-    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15309,9 +15309,9 @@ const se_CreateDBInstanceReadReplicaMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ProcessorFeatures != null) {
-    const memberEntries = se_ProcessorFeatureList(input.ProcessorFeatures, context);
-    if (input.ProcessorFeatures?.length === 0) {
+  if (input[_PF] != null) {
+    const memberEntries = se_ProcessorFeatureList(input[_PF], context);
+    if (input[_PF]?.length === 0) {
       entries.ProcessorFeatures = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15319,30 +15319,30 @@ const se_CreateDBInstanceReadReplicaMessage = (
       entries[loc] = value;
     });
   }
-  if (input.UseDefaultProcessorFeatures != null) {
-    entries["UseDefaultProcessorFeatures"] = input.UseDefaultProcessorFeatures;
+  if (input[_UDPF] != null) {
+    entries[_UDPF] = input[_UDPF];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.DomainFqdn != null) {
-    entries["DomainFqdn"] = input.DomainFqdn;
+  if (input[_DF] != null) {
+    entries[_DF] = input[_DF];
   }
-  if (input.DomainOu != null) {
-    entries["DomainOu"] = input.DomainOu;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
-  if (input.DomainAuthSecretArn != null) {
-    entries["DomainAuthSecretArn"] = input.DomainAuthSecretArn;
+  if (input[_DASA] != null) {
+    entries[_DASA] = input[_DASA];
   }
-  if (input.DomainDnsIps != null) {
-    const memberEntries = se_StringList(input.DomainDnsIps, context);
-    if (input.DomainDnsIps?.length === 0) {
+  if (input[_DDI] != null) {
+    const memberEntries = se_StringList(input[_DDI], context);
+    if (input[_DDI]?.length === 0) {
       entries.DomainDnsIps = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15350,35 +15350,35 @@ const se_CreateDBInstanceReadReplicaMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ReplicaMode != null) {
-    entries["ReplicaMode"] = input.ReplicaMode;
+  if (input[_RM] != null) {
+    entries[_RM] = input[_RM];
   }
-  if (input.MaxAllocatedStorage != null) {
-    entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
+  if (input[_MASa] != null) {
+    entries[_MASa] = input[_MASa];
   }
-  if (input.CustomIamInstanceProfile != null) {
-    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  if (input[_CIIP] != null) {
+    entries[_CIIP] = input[_CIIP];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StorageThroughput != null) {
-    entries["StorageThroughput"] = input.StorageThroughput;
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
-  if (input.EnableCustomerOwnedIp != null) {
-    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  if (input[_ECOI] != null) {
+    entries[_ECOI] = input[_ECOI];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.SourceDBClusterIdentifier != null) {
-    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  if (input[_SDBCI] != null) {
+    entries[_SDBCI] = input[_SDBCI];
   }
-  if (input.DedicatedLogVolume != null) {
-    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  if (input[_DLV] != null) {
+    entries[_DLV] = input[_DLV];
   }
-  if (input.UpgradeStorageConfig != null) {
-    entries["UpgradeStorageConfig"] = input.UpgradeStorageConfig;
+  if (input[_USC] != null) {
+    entries[_USC] = input[_USC];
   }
   return entries;
 };
@@ -15388,18 +15388,18 @@ const se_CreateDBInstanceReadReplicaMessage = (
  */
 const se_CreateDBParameterGroupMessage = (input: CreateDBParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15415,15 +15415,15 @@ const se_CreateDBParameterGroupMessage = (input: CreateDBParameterGroupMessage, 
  */
 const se_CreateDBProxyEndpointRequest = (input: CreateDBProxyEndpointRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.DBProxyEndpointName != null) {
-    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
+  if (input[_DBPEN] != null) {
+    entries[_DBPEN] = input[_DBPEN];
   }
-  if (input.VpcSubnetIds != null) {
-    const memberEntries = se_StringList(input.VpcSubnetIds, context);
-    if (input.VpcSubnetIds?.length === 0) {
+  if (input[_VSI] != null) {
+    const memberEntries = se_StringList(input[_VSI], context);
+    if (input[_VSI]?.length === 0) {
       entries.VpcSubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15431,9 +15431,9 @@ const se_CreateDBProxyEndpointRequest = (input: CreateDBProxyEndpointRequest, co
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_StringList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_StringList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15441,12 +15441,12 @@ const se_CreateDBProxyEndpointRequest = (input: CreateDBProxyEndpointRequest, co
       entries[loc] = value;
     });
   }
-  if (input.TargetRole != null) {
-    entries["TargetRole"] = input.TargetRole;
+  if (input[_TR] != null) {
+    entries[_TR] = input[_TR];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15462,15 +15462,15 @@ const se_CreateDBProxyEndpointRequest = (input: CreateDBProxyEndpointRequest, co
  */
 const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.EngineFamily != null) {
-    entries["EngineFamily"] = input.EngineFamily;
+  if (input[_EF] != null) {
+    entries[_EF] = input[_EF];
   }
-  if (input.Auth != null) {
-    const memberEntries = se_UserAuthConfigList(input.Auth, context);
-    if (input.Auth?.length === 0) {
+  if (input[_Au] != null) {
+    const memberEntries = se_UserAuthConfigList(input[_Au], context);
+    if (input[_Au]?.length === 0) {
       entries.Auth = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15478,12 +15478,12 @@ const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.VpcSubnetIds != null) {
-    const memberEntries = se_StringList(input.VpcSubnetIds, context);
-    if (input.VpcSubnetIds?.length === 0) {
+  if (input[_VSI] != null) {
+    const memberEntries = se_StringList(input[_VSI], context);
+    if (input[_VSI]?.length === 0) {
       entries.VpcSubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15491,9 +15491,9 @@ const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_StringList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_StringList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15501,18 +15501,18 @@ const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.RequireTLS != null) {
-    entries["RequireTLS"] = input.RequireTLS;
+  if (input[_RTLS] != null) {
+    entries[_RTLS] = input[_RTLS];
   }
-  if (input.IdleClientTimeout != null) {
-    entries["IdleClientTimeout"] = input.IdleClientTimeout;
+  if (input[_ICT] != null) {
+    entries[_ICT] = input[_ICT];
   }
-  if (input.DebugLogging != null) {
-    entries["DebugLogging"] = input.DebugLogging;
+  if (input[_DL] != null) {
+    entries[_DL] = input[_DL];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15528,15 +15528,15 @@ const se_CreateDBProxyRequest = (input: CreateDBProxyRequest, context: __SerdeCo
  */
 const se_CreateDBSecurityGroupMessage = (input: CreateDBSecurityGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSecurityGroupName != null) {
-    entries["DBSecurityGroupName"] = input.DBSecurityGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.DBSecurityGroupDescription != null) {
-    entries["DBSecurityGroupDescription"] = input.DBSecurityGroupDescription;
+  if (input[_DBSGD] != null) {
+    entries[_DBSGD] = input[_DBSGD];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15552,15 +15552,15 @@ const se_CreateDBSecurityGroupMessage = (input: CreateDBSecurityGroupMessage, co
  */
 const se_CreateDBSnapshotMessage = (input: CreateDBSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15576,15 +15576,15 @@ const se_CreateDBSnapshotMessage = (input: CreateDBSnapshotMessage, context: __S
  */
 const se_CreateDBSubnetGroupMessage = (input: CreateDBSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.DBSubnetGroupDescription != null) {
-    entries["DBSubnetGroupDescription"] = input.DBSubnetGroupDescription;
+  if (input[_DBSGDu] != null) {
+    entries[_DBSGDu] = input[_DBSGDu];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SIu] != null) {
+    const memberEntries = se_SubnetIdentifierList(input[_SIu], context);
+    if (input[_SIu]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15592,9 +15592,9 @@ const se_CreateDBSubnetGroupMessage = (input: CreateDBSubnetGroupMessage, contex
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15610,18 +15610,18 @@ const se_CreateDBSubnetGroupMessage = (input: CreateDBSubnetGroupMessage, contex
  */
 const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SnsTopicArn != null) {
-    entries["SnsTopicArn"] = input.SnsTopicArn;
+  if (input[_STA] != null) {
+    entries[_STA] = input[_STA];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.EventCategories != null) {
-    const memberEntries = se_EventCategoriesList(input.EventCategories, context);
-    if (input.EventCategories?.length === 0) {
+  if (input[_EC] != null) {
+    const memberEntries = se_EventCategoriesList(input[_EC], context);
+    if (input[_EC]?.length === 0) {
       entries.EventCategories = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15629,9 +15629,9 @@ const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage
       entries[loc] = value;
     });
   }
-  if (input.SourceIds != null) {
-    const memberEntries = se_SourceIdsList(input.SourceIds, context);
-    if (input.SourceIds?.length === 0) {
+  if (input[_SIo] != null) {
+    const memberEntries = se_SourceIdsList(input[_SIo], context);
+    if (input[_SIo]?.length === 0) {
       entries.SourceIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15639,12 +15639,12 @@ const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage
       entries[loc] = value;
     });
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_En] != null) {
+    entries[_En] = input[_En];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15660,26 +15660,26 @@ const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage
  */
 const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.SourceDBClusterIdentifier != null) {
-    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  if (input[_SDBCI] != null) {
+    entries[_SDBCI] = input[_SDBCI];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.DatabaseName != null) {
-    entries["DatabaseName"] = input.DatabaseName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
   return entries;
 };
@@ -15689,28 +15689,28 @@ const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, contex
  */
 const se_CreateIntegrationMessage = (input: CreateIntegrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
-  if (input.TargetArn != null) {
-    entries["TargetArn"] = input.TargetArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.IntegrationName != null) {
-    entries["IntegrationName"] = input.IntegrationName;
+  if (input[_IN] != null) {
+    entries[_IN] = input[_IN];
   }
-  if (input.KMSKeyId != null) {
-    entries["KMSKeyId"] = input.KMSKeyId;
+  if (input[_KMSKI] != null) {
+    entries[_KMSKI] = input[_KMSKI];
   }
-  if (input.AdditionalEncryptionContext != null) {
-    const memberEntries = se_EncryptionContextMap(input.AdditionalEncryptionContext, context);
+  if (input[_AEC] != null) {
+    const memberEntries = se_EncryptionContextMap(input[_AEC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AdditionalEncryptionContext.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15726,21 +15726,21 @@ const se_CreateIntegrationMessage = (input: CreateIntegrationMessage, context: _
  */
 const se_CreateOptionGroupMessage = (input: CreateOptionGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.EngineName != null) {
-    entries["EngineName"] = input.EngineName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.MajorEngineVersion != null) {
-    entries["MajorEngineVersion"] = input.MajorEngineVersion;
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
   }
-  if (input.OptionGroupDescription != null) {
-    entries["OptionGroupDescription"] = input.OptionGroupDescription;
+  if (input[_OGD] != null) {
+    entries[_OGD] = input[_OGD];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15756,27 +15756,27 @@ const se_CreateOptionGroupMessage = (input: CreateOptionGroupMessage, context: _
  */
 const se_CreateTenantDatabaseMessage = (input: CreateTenantDatabaseMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.TenantDBName != null) {
-    entries["TenantDBName"] = input.TenantDBName;
+  if (input[_TDBN] != null) {
+    entries[_TDBN] = input[_TDBN];
   }
-  if (input.MasterUsername != null) {
-    entries["MasterUsername"] = input.MasterUsername;
+  if (input[_MU] != null) {
+    entries[_MU] = input[_MU];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.CharacterSetName != null) {
-    entries["CharacterSetName"] = input.CharacterSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.NcharCharacterSetName != null) {
-    entries["NcharCharacterSetName"] = input.NcharCharacterSetName;
+  if (input[_NCSN] != null) {
+    entries[_NCSN] = input[_NCSN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -15808,11 +15808,11 @@ const se_DBSecurityGroupNameList = (input: string[], context: __SerdeContext): a
  */
 const se_DeleteBlueGreenDeploymentRequest = (input: DeleteBlueGreenDeploymentRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.BlueGreenDeploymentIdentifier != null) {
-    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  if (input[_BGDI] != null) {
+    entries[_BGDI] = input[_BGDI];
   }
-  if (input.DeleteTarget != null) {
-    entries["DeleteTarget"] = input.DeleteTarget;
+  if (input[_DT] != null) {
+    entries[_DT] = input[_DT];
   }
   return entries;
 };
@@ -15825,11 +15825,11 @@ const se_DeleteCustomDBEngineVersionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
   return entries;
 };
@@ -15842,8 +15842,8 @@ const se_DeleteDBClusterAutomatedBackupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DbClusterResourceId != null) {
-    entries["DbClusterResourceId"] = input.DbClusterResourceId;
+  if (input[_DCRI] != null) {
+    entries[_DCRI] = input[_DCRI];
   }
   return entries;
 };
@@ -15853,8 +15853,8 @@ const se_DeleteDBClusterAutomatedBackupMessage = (
  */
 const se_DeleteDBClusterEndpointMessage = (input: DeleteDBClusterEndpointMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterEndpointIdentifier != null) {
-    entries["DBClusterEndpointIdentifier"] = input.DBClusterEndpointIdentifier;
+  if (input[_DBCEI] != null) {
+    entries[_DBCEI] = input[_DBCEI];
   }
   return entries;
 };
@@ -15864,17 +15864,17 @@ const se_DeleteDBClusterEndpointMessage = (input: DeleteDBClusterEndpointMessage
  */
 const se_DeleteDBClusterMessage = (input: DeleteDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.SkipFinalSnapshot != null) {
-    entries["SkipFinalSnapshot"] = input.SkipFinalSnapshot;
+  if (input[_SFS] != null) {
+    entries[_SFS] = input[_SFS];
   }
-  if (input.FinalDBSnapshotIdentifier != null) {
-    entries["FinalDBSnapshotIdentifier"] = input.FinalDBSnapshotIdentifier;
+  if (input[_FDBSI] != null) {
+    entries[_FDBSI] = input[_FDBSI];
   }
-  if (input.DeleteAutomatedBackups != null) {
-    entries["DeleteAutomatedBackups"] = input.DeleteAutomatedBackups;
+  if (input[_DAB] != null) {
+    entries[_DAB] = input[_DAB];
   }
   return entries;
 };
@@ -15887,8 +15887,8 @@ const se_DeleteDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
   return entries;
 };
@@ -15898,8 +15898,8 @@ const se_DeleteDBClusterParameterGroupMessage = (
  */
 const se_DeleteDBClusterSnapshotMessage = (input: DeleteDBClusterSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
   return entries;
 };
@@ -15912,11 +15912,11 @@ const se_DeleteDBInstanceAutomatedBackupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DbiResourceId != null) {
-    entries["DbiResourceId"] = input.DbiResourceId;
+  if (input[_DRI] != null) {
+    entries[_DRI] = input[_DRI];
   }
-  if (input.DBInstanceAutomatedBackupsArn != null) {
-    entries["DBInstanceAutomatedBackupsArn"] = input.DBInstanceAutomatedBackupsArn;
+  if (input[_DBIABA] != null) {
+    entries[_DBIABA] = input[_DBIABA];
   }
   return entries;
 };
@@ -15926,17 +15926,17 @@ const se_DeleteDBInstanceAutomatedBackupMessage = (
  */
 const se_DeleteDBInstanceMessage = (input: DeleteDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.SkipFinalSnapshot != null) {
-    entries["SkipFinalSnapshot"] = input.SkipFinalSnapshot;
+  if (input[_SFS] != null) {
+    entries[_SFS] = input[_SFS];
   }
-  if (input.FinalDBSnapshotIdentifier != null) {
-    entries["FinalDBSnapshotIdentifier"] = input.FinalDBSnapshotIdentifier;
+  if (input[_FDBSI] != null) {
+    entries[_FDBSI] = input[_FDBSI];
   }
-  if (input.DeleteAutomatedBackups != null) {
-    entries["DeleteAutomatedBackups"] = input.DeleteAutomatedBackups;
+  if (input[_DAB] != null) {
+    entries[_DAB] = input[_DAB];
   }
   return entries;
 };
@@ -15946,8 +15946,8 @@ const se_DeleteDBInstanceMessage = (input: DeleteDBInstanceMessage, context: __S
  */
 const se_DeleteDBParameterGroupMessage = (input: DeleteDBParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
   return entries;
 };
@@ -15957,8 +15957,8 @@ const se_DeleteDBParameterGroupMessage = (input: DeleteDBParameterGroupMessage, 
  */
 const se_DeleteDBProxyEndpointRequest = (input: DeleteDBProxyEndpointRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyEndpointName != null) {
-    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
+  if (input[_DBPEN] != null) {
+    entries[_DBPEN] = input[_DBPEN];
   }
   return entries;
 };
@@ -15968,8 +15968,8 @@ const se_DeleteDBProxyEndpointRequest = (input: DeleteDBProxyEndpointRequest, co
  */
 const se_DeleteDBProxyRequest = (input: DeleteDBProxyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
   return entries;
 };
@@ -15979,8 +15979,8 @@ const se_DeleteDBProxyRequest = (input: DeleteDBProxyRequest, context: __SerdeCo
  */
 const se_DeleteDBSecurityGroupMessage = (input: DeleteDBSecurityGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSecurityGroupName != null) {
-    entries["DBSecurityGroupName"] = input.DBSecurityGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
   return entries;
 };
@@ -15990,8 +15990,8 @@ const se_DeleteDBSecurityGroupMessage = (input: DeleteDBSecurityGroupMessage, co
  */
 const se_DeleteDBSnapshotMessage = (input: DeleteDBSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
   return entries;
 };
@@ -16001,8 +16001,8 @@ const se_DeleteDBSnapshotMessage = (input: DeleteDBSnapshotMessage, context: __S
  */
 const se_DeleteDBSubnetGroupMessage = (input: DeleteDBSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
   return entries;
 };
@@ -16012,8 +16012,8 @@ const se_DeleteDBSubnetGroupMessage = (input: DeleteDBSubnetGroupMessage, contex
  */
 const se_DeleteEventSubscriptionMessage = (input: DeleteEventSubscriptionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -16023,8 +16023,8 @@ const se_DeleteEventSubscriptionMessage = (input: DeleteEventSubscriptionMessage
  */
 const se_DeleteGlobalClusterMessage = (input: DeleteGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
   return entries;
 };
@@ -16034,8 +16034,8 @@ const se_DeleteGlobalClusterMessage = (input: DeleteGlobalClusterMessage, contex
  */
 const se_DeleteIntegrationMessage = (input: DeleteIntegrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IntegrationIdentifier != null) {
-    entries["IntegrationIdentifier"] = input.IntegrationIdentifier;
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
   }
   return entries;
 };
@@ -16045,8 +16045,8 @@ const se_DeleteIntegrationMessage = (input: DeleteIntegrationMessage, context: _
  */
 const se_DeleteOptionGroupMessage = (input: DeleteOptionGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
   return entries;
 };
@@ -16056,17 +16056,17 @@ const se_DeleteOptionGroupMessage = (input: DeleteOptionGroupMessage, context: _
  */
 const se_DeleteTenantDatabaseMessage = (input: DeleteTenantDatabaseMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.TenantDBName != null) {
-    entries["TenantDBName"] = input.TenantDBName;
+  if (input[_TDBN] != null) {
+    entries[_TDBN] = input[_TDBN];
   }
-  if (input.SkipFinalSnapshot != null) {
-    entries["SkipFinalSnapshot"] = input.SkipFinalSnapshot;
+  if (input[_SFS] != null) {
+    entries[_SFS] = input[_SFS];
   }
-  if (input.FinalDBSnapshotIdentifier != null) {
-    entries["FinalDBSnapshotIdentifier"] = input.FinalDBSnapshotIdentifier;
+  if (input[_FDBSI] != null) {
+    entries[_FDBSI] = input[_FDBSI];
   }
   return entries;
 };
@@ -16076,15 +16076,15 @@ const se_DeleteTenantDatabaseMessage = (input: DeleteTenantDatabaseMessage, cont
  */
 const se_DeregisterDBProxyTargetsRequest = (input: DeregisterDBProxyTargetsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.TargetGroupName != null) {
-    entries["TargetGroupName"] = input.TargetGroupName;
+  if (input[_TGN] != null) {
+    entries[_TGN] = input[_TGN];
   }
-  if (input.DBInstanceIdentifiers != null) {
-    const memberEntries = se_StringList(input.DBInstanceIdentifiers, context);
-    if (input.DBInstanceIdentifiers?.length === 0) {
+  if (input[_DBIIn] != null) {
+    const memberEntries = se_StringList(input[_DBIIn], context);
+    if (input[_DBIIn]?.length === 0) {
       entries.DBInstanceIdentifiers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16092,9 +16092,9 @@ const se_DeregisterDBProxyTargetsRequest = (input: DeregisterDBProxyTargetsReque
       entries[loc] = value;
     });
   }
-  if (input.DBClusterIdentifiers != null) {
-    const memberEntries = se_StringList(input.DBClusterIdentifiers, context);
-    if (input.DBClusterIdentifiers?.length === 0) {
+  if (input[_DBCIl] != null) {
+    const memberEntries = se_StringList(input[_DBCIl], context);
+    if (input[_DBCIl]?.length === 0) {
       entries.DBClusterIdentifiers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16121,12 +16121,12 @@ const se_DescribeBlueGreenDeploymentsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.BlueGreenDeploymentIdentifier != null) {
-    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  if (input[_BGDI] != null) {
+    entries[_BGDI] = input[_BGDI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16134,11 +16134,11 @@ const se_DescribeBlueGreenDeploymentsRequest = (
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -16148,12 +16148,12 @@ const se_DescribeBlueGreenDeploymentsRequest = (
  */
 const se_DescribeCertificatesMessage = (input: DescribeCertificatesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CertificateIdentifier != null) {
-    entries["CertificateIdentifier"] = input.CertificateIdentifier;
+  if (input[_CIe] != null) {
+    entries[_CIe] = input[_CIe];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16161,11 +16161,11 @@ const se_DescribeCertificatesMessage = (input: DescribeCertificatesMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16178,15 +16178,15 @@ const se_DescribeDBClusterAutomatedBackupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DbClusterResourceId != null) {
-    entries["DbClusterResourceId"] = input.DbClusterResourceId;
+  if (input[_DCRI] != null) {
+    entries[_DCRI] = input[_DCRI];
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16194,11 +16194,11 @@ const se_DescribeDBClusterAutomatedBackupsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16211,15 +16211,15 @@ const se_DescribeDBClusterBacktracksMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.BacktrackIdentifier != null) {
-    entries["BacktrackIdentifier"] = input.BacktrackIdentifier;
+  if (input[_BI] != null) {
+    entries[_BI] = input[_BI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16227,11 +16227,11 @@ const se_DescribeDBClusterBacktracksMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16244,15 +16244,15 @@ const se_DescribeDBClusterEndpointsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterEndpointIdentifier != null) {
-    entries["DBClusterEndpointIdentifier"] = input.DBClusterEndpointIdentifier;
+  if (input[_DBCEI] != null) {
+    entries[_DBCEI] = input[_DBCEI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16260,11 +16260,11 @@ const se_DescribeDBClusterEndpointsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16277,12 +16277,12 @@ const se_DescribeDBClusterParameterGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16290,11 +16290,11 @@ const se_DescribeDBClusterParameterGroupsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16307,15 +16307,15 @@ const se_DescribeDBClusterParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16323,11 +16323,11 @@ const se_DescribeDBClusterParametersMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16337,12 +16337,12 @@ const se_DescribeDBClusterParametersMessage = (
  */
 const se_DescribeDBClustersMessage = (input: DescribeDBClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16350,14 +16350,14 @@ const se_DescribeDBClustersMessage = (input: DescribeDBClustersMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.IncludeShared != null) {
-    entries["IncludeShared"] = input.IncludeShared;
+  if (input[_IS] != null) {
+    entries[_IS] = input[_IS];
   }
   return entries;
 };
@@ -16370,8 +16370,8 @@ const se_DescribeDBClusterSnapshotAttributesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
   return entries;
 };
@@ -16384,18 +16384,18 @@ const se_DescribeDBClusterSnapshotsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.SnapshotType != null) {
-    entries["SnapshotType"] = input.SnapshotType;
+  if (input[_STn] != null) {
+    entries[_STn] = input[_STn];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16403,20 +16403,20 @@ const se_DescribeDBClusterSnapshotsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.IncludeShared != null) {
-    entries["IncludeShared"] = input.IncludeShared;
+  if (input[_IS] != null) {
+    entries[_IS] = input[_IS];
   }
-  if (input.IncludePublic != null) {
-    entries["IncludePublic"] = input.IncludePublic;
+  if (input[_IP] != null) {
+    entries[_IP] = input[_IP];
   }
-  if (input.DbClusterResourceId != null) {
-    entries["DbClusterResourceId"] = input.DbClusterResourceId;
+  if (input[_DCRI] != null) {
+    entries[_DCRI] = input[_DCRI];
   }
   return entries;
 };
@@ -16426,18 +16426,18 @@ const se_DescribeDBClusterSnapshotsMessage = (
  */
 const se_DescribeDBEngineVersionsMessage = (input: DescribeDBEngineVersionsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16445,23 +16445,23 @@ const se_DescribeDBEngineVersionsMessage = (input: DescribeDBEngineVersionsMessa
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.DefaultOnly != null) {
-    entries["DefaultOnly"] = input.DefaultOnly;
+  if (input[_DOe] != null) {
+    entries[_DOe] = input[_DOe];
   }
-  if (input.ListSupportedCharacterSets != null) {
-    entries["ListSupportedCharacterSets"] = input.ListSupportedCharacterSets;
+  if (input[_LSCS] != null) {
+    entries[_LSCS] = input[_LSCS];
   }
-  if (input.ListSupportedTimezones != null) {
-    entries["ListSupportedTimezones"] = input.ListSupportedTimezones;
+  if (input[_LST] != null) {
+    entries[_LST] = input[_LST];
   }
-  if (input.IncludeAll != null) {
-    entries["IncludeAll"] = input.IncludeAll;
+  if (input[_IA] != null) {
+    entries[_IA] = input[_IA];
   }
   return entries;
 };
@@ -16474,15 +16474,15 @@ const se_DescribeDBInstanceAutomatedBackupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DbiResourceId != null) {
-    entries["DbiResourceId"] = input.DbiResourceId;
+  if (input[_DRI] != null) {
+    entries[_DRI] = input[_DRI];
   }
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16490,14 +16490,14 @@ const se_DescribeDBInstanceAutomatedBackupsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.DBInstanceAutomatedBackupsArn != null) {
-    entries["DBInstanceAutomatedBackupsArn"] = input.DBInstanceAutomatedBackupsArn;
+  if (input[_DBIABA] != null) {
+    entries[_DBIABA] = input[_DBIABA];
   }
   return entries;
 };
@@ -16507,12 +16507,12 @@ const se_DescribeDBInstanceAutomatedBackupsMessage = (
  */
 const se_DescribeDBInstancesMessage = (input: DescribeDBInstancesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16520,11 +16520,11 @@ const se_DescribeDBInstancesMessage = (input: DescribeDBInstancesMessage, contex
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16534,21 +16534,21 @@ const se_DescribeDBInstancesMessage = (input: DescribeDBInstancesMessage, contex
  */
 const se_DescribeDBLogFilesMessage = (input: DescribeDBLogFilesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.FilenameContains != null) {
-    entries["FilenameContains"] = input.FilenameContains;
+  if (input[_FC] != null) {
+    entries[_FC] = input[_FC];
   }
-  if (input.FileLastWritten != null) {
-    entries["FileLastWritten"] = input.FileLastWritten;
+  if (input[_FLW] != null) {
+    entries[_FLW] = input[_FLW];
   }
-  if (input.FileSize != null) {
-    entries["FileSize"] = input.FileSize;
+  if (input[_FS] != null) {
+    entries[_FS] = input[_FS];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16556,11 +16556,11 @@ const se_DescribeDBLogFilesMessage = (input: DescribeDBLogFilesMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16570,12 +16570,12 @@ const se_DescribeDBLogFilesMessage = (input: DescribeDBLogFilesMessage, context:
  */
 const se_DescribeDBParameterGroupsMessage = (input: DescribeDBParameterGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16583,11 +16583,11 @@ const se_DescribeDBParameterGroupsMessage = (input: DescribeDBParameterGroupsMes
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16597,15 +16597,15 @@ const se_DescribeDBParameterGroupsMessage = (input: DescribeDBParameterGroupsMes
  */
 const se_DescribeDBParametersMessage = (input: DescribeDBParametersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16613,11 +16613,11 @@ const se_DescribeDBParametersMessage = (input: DescribeDBParametersMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16627,12 +16627,12 @@ const se_DescribeDBParametersMessage = (input: DescribeDBParametersMessage, cont
  */
 const se_DescribeDBProxiesRequest = (input: DescribeDBProxiesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16640,11 +16640,11 @@ const se_DescribeDBProxiesRequest = (input: DescribeDBProxiesRequest, context: _
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -16654,15 +16654,15 @@ const se_DescribeDBProxiesRequest = (input: DescribeDBProxiesRequest, context: _
  */
 const se_DescribeDBProxyEndpointsRequest = (input: DescribeDBProxyEndpointsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.DBProxyEndpointName != null) {
-    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
+  if (input[_DBPEN] != null) {
+    entries[_DBPEN] = input[_DBPEN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16670,11 +16670,11 @@ const se_DescribeDBProxyEndpointsRequest = (input: DescribeDBProxyEndpointsReque
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -16687,15 +16687,15 @@ const se_DescribeDBProxyTargetGroupsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.TargetGroupName != null) {
-    entries["TargetGroupName"] = input.TargetGroupName;
+  if (input[_TGN] != null) {
+    entries[_TGN] = input[_TGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16703,11 +16703,11 @@ const se_DescribeDBProxyTargetGroupsRequest = (
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -16717,15 +16717,15 @@ const se_DescribeDBProxyTargetGroupsRequest = (
  */
 const se_DescribeDBProxyTargetsRequest = (input: DescribeDBProxyTargetsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.TargetGroupName != null) {
-    entries["TargetGroupName"] = input.TargetGroupName;
+  if (input[_TGN] != null) {
+    entries[_TGN] = input[_TGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16733,11 +16733,11 @@ const se_DescribeDBProxyTargetsRequest = (input: DescribeDBProxyTargetsRequest, 
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -16747,12 +16747,12 @@ const se_DescribeDBProxyTargetsRequest = (input: DescribeDBProxyTargetsRequest, 
  */
 const se_DescribeDBSecurityGroupsMessage = (input: DescribeDBSecurityGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSecurityGroupName != null) {
-    entries["DBSecurityGroupName"] = input.DBSecurityGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16760,11 +16760,11 @@ const se_DescribeDBSecurityGroupsMessage = (input: DescribeDBSecurityGroupsMessa
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16777,8 +16777,8 @@ const se_DescribeDBSnapshotAttributesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
   return entries;
 };
@@ -16788,18 +16788,18 @@ const se_DescribeDBSnapshotAttributesMessage = (
  */
 const se_DescribeDBSnapshotsMessage = (input: DescribeDBSnapshotsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
-  if (input.SnapshotType != null) {
-    entries["SnapshotType"] = input.SnapshotType;
+  if (input[_STn] != null) {
+    entries[_STn] = input[_STn];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16807,20 +16807,20 @@ const se_DescribeDBSnapshotsMessage = (input: DescribeDBSnapshotsMessage, contex
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.IncludeShared != null) {
-    entries["IncludeShared"] = input.IncludeShared;
+  if (input[_IS] != null) {
+    entries[_IS] = input[_IS];
   }
-  if (input.IncludePublic != null) {
-    entries["IncludePublic"] = input.IncludePublic;
+  if (input[_IP] != null) {
+    entries[_IP] = input[_IP];
   }
-  if (input.DbiResourceId != null) {
-    entries["DbiResourceId"] = input.DbiResourceId;
+  if (input[_DRI] != null) {
+    entries[_DRI] = input[_DRI];
   }
   return entries;
 };
@@ -16833,18 +16833,18 @@ const se_DescribeDBSnapshotTenantDatabasesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
-  if (input.SnapshotType != null) {
-    entries["SnapshotType"] = input.SnapshotType;
+  if (input[_STn] != null) {
+    entries[_STn] = input[_STn];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16852,14 +16852,14 @@ const se_DescribeDBSnapshotTenantDatabasesMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.DbiResourceId != null) {
-    entries["DbiResourceId"] = input.DbiResourceId;
+  if (input[_DRI] != null) {
+    entries[_DRI] = input[_DRI];
   }
   return entries;
 };
@@ -16869,12 +16869,12 @@ const se_DescribeDBSnapshotTenantDatabasesMessage = (
  */
 const se_DescribeDBSubnetGroupsMessage = (input: DescribeDBSubnetGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16882,11 +16882,11 @@ const se_DescribeDBSubnetGroupsMessage = (input: DescribeDBSubnetGroupsMessage, 
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16899,12 +16899,12 @@ const se_DescribeEngineDefaultClusterParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16912,11 +16912,11 @@ const se_DescribeEngineDefaultClusterParametersMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16929,12 +16929,12 @@ const se_DescribeEngineDefaultParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16942,11 +16942,11 @@ const se_DescribeEngineDefaultParametersMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -16956,12 +16956,12 @@ const se_DescribeEngineDefaultParametersMessage = (
  */
 const se_DescribeEventCategoriesMessage = (input: DescribeEventCategoriesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -16977,24 +16977,24 @@ const se_DescribeEventCategoriesMessage = (input: DescribeEventCategoriesMessage
  */
 const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_STta] != null) {
+    entries[_STta] = input[_STta].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ETn] != null) {
+    entries[_ETn] = input[_ETn].toISOString().split(".")[0] + "Z";
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.EventCategories != null) {
-    const memberEntries = se_EventCategoriesList(input.EventCategories, context);
-    if (input.EventCategories?.length === 0) {
+  if (input[_EC] != null) {
+    const memberEntries = se_EventCategoriesList(input[_EC], context);
+    if (input[_EC]?.length === 0) {
       entries.EventCategories = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17002,9 +17002,9 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
       entries[loc] = value;
     });
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17012,11 +17012,11 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17029,12 +17029,12 @@ const se_DescribeEventSubscriptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17042,11 +17042,11 @@ const se_DescribeEventSubscriptionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17056,15 +17056,15 @@ const se_DescribeEventSubscriptionsMessage = (
  */
 const se_DescribeExportTasksMessage = (input: DescribeExportTasksMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExportTaskIdentifier != null) {
-    entries["ExportTaskIdentifier"] = input.ExportTaskIdentifier;
+  if (input[_ETI] != null) {
+    entries[_ETI] = input[_ETI];
   }
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17072,14 +17072,14 @@ const se_DescribeExportTasksMessage = (input: DescribeExportTasksMessage, contex
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
   return entries;
 };
@@ -17089,12 +17089,12 @@ const se_DescribeExportTasksMessage = (input: DescribeExportTasksMessage, contex
  */
 const se_DescribeGlobalClustersMessage = (input: DescribeGlobalClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17102,11 +17102,11 @@ const se_DescribeGlobalClustersMessage = (input: DescribeGlobalClustersMessage, 
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17116,12 +17116,12 @@ const se_DescribeGlobalClustersMessage = (input: DescribeGlobalClustersMessage, 
  */
 const se_DescribeIntegrationsMessage = (input: DescribeIntegrationsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IntegrationIdentifier != null) {
-    entries["IntegrationIdentifier"] = input.IntegrationIdentifier;
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17129,11 +17129,11 @@ const se_DescribeIntegrationsMessage = (input: DescribeIntegrationsMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17146,15 +17146,15 @@ const se_DescribeOptionGroupOptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EngineName != null) {
-    entries["EngineName"] = input.EngineName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.MajorEngineVersion != null) {
-    entries["MajorEngineVersion"] = input.MajorEngineVersion;
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17162,11 +17162,11 @@ const se_DescribeOptionGroupOptionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17176,12 +17176,12 @@ const se_DescribeOptionGroupOptionsMessage = (
  */
 const se_DescribeOptionGroupsMessage = (input: DescribeOptionGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17189,17 +17189,17 @@ const se_DescribeOptionGroupsMessage = (input: DescribeOptionGroupsMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.EngineName != null) {
-    entries["EngineName"] = input.EngineName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.MajorEngineVersion != null) {
-    entries["MajorEngineVersion"] = input.MajorEngineVersion;
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
   }
   return entries;
 };
@@ -17212,27 +17212,27 @@ const se_DescribeOrderableDBInstanceOptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.AvailabilityZoneGroup != null) {
-    entries["AvailabilityZoneGroup"] = input.AvailabilityZoneGroup;
+  if (input[_AZG] != null) {
+    entries[_AZG] = input[_AZG];
   }
-  if (input.Vpc != null) {
-    entries["Vpc"] = input.Vpc;
+  if (input[_Vp] != null) {
+    entries[_Vp] = input[_Vp];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17240,11 +17240,11 @@ const se_DescribeOrderableDBInstanceOptionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17257,12 +17257,12 @@ const se_DescribePendingMaintenanceActionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ResourceIdentifier != null) {
-    entries["ResourceIdentifier"] = input.ResourceIdentifier;
+  if (input[_RI] != null) {
+    entries[_RI] = input[_RI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17270,11 +17270,11 @@ const se_DescribePendingMaintenanceActionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -17287,33 +17287,33 @@ const se_DescribeReservedDBInstancesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedDBInstanceId != null) {
-    entries["ReservedDBInstanceId"] = input.ReservedDBInstanceId;
+  if (input[_RDBII] != null) {
+    entries[_RDBII] = input[_RDBII];
   }
-  if (input.ReservedDBInstancesOfferingId != null) {
-    entries["ReservedDBInstancesOfferingId"] = input.ReservedDBInstancesOfferingId;
+  if (input[_RDBIOI] != null) {
+    entries[_RDBIOI] = input[_RDBIOI];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.ProductDescription != null) {
-    entries["ProductDescription"] = input.ProductDescription;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
-  if (input.OfferingType != null) {
-    entries["OfferingType"] = input.OfferingType;
+  if (input[_OT] != null) {
+    entries[_OT] = input[_OT];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.LeaseId != null) {
-    entries["LeaseId"] = input.LeaseId;
+  if (input[_LI] != null) {
+    entries[_LI] = input[_LI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17321,11 +17321,11 @@ const se_DescribeReservedDBInstancesMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17338,27 +17338,27 @@ const se_DescribeReservedDBInstancesOfferingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedDBInstancesOfferingId != null) {
-    entries["ReservedDBInstancesOfferingId"] = input.ReservedDBInstancesOfferingId;
+  if (input[_RDBIOI] != null) {
+    entries[_RDBIOI] = input[_RDBIOI];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.ProductDescription != null) {
-    entries["ProductDescription"] = input.ProductDescription;
+  if (input[_PD] != null) {
+    entries[_PD] = input[_PD];
   }
-  if (input.OfferingType != null) {
-    entries["OfferingType"] = input.OfferingType;
+  if (input[_OT] != null) {
+    entries[_OT] = input[_OT];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17366,11 +17366,11 @@ const se_DescribeReservedDBInstancesOfferingsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
   return entries;
 };
@@ -17380,18 +17380,18 @@ const se_DescribeReservedDBInstancesOfferingsMessage = (
  */
 const se_DescribeSourceRegionsMessage = (input: DescribeSourceRegionsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RegionName != null) {
-    entries["RegionName"] = input.RegionName;
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17407,15 +17407,15 @@ const se_DescribeSourceRegionsMessage = (input: DescribeSourceRegionsMessage, co
  */
 const se_DescribeTenantDatabasesMessage = (input: DescribeTenantDatabasesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.TenantDBName != null) {
-    entries["TenantDBName"] = input.TenantDBName;
+  if (input[_TDBN] != null) {
+    entries[_TDBN] = input[_TDBN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17423,11 +17423,11 @@ const se_DescribeTenantDatabasesMessage = (input: DescribeTenantDatabasesMessage
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -17440,8 +17440,8 @@ const se_DescribeValidDBInstanceModificationsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
   return entries;
 };
@@ -17451,17 +17451,17 @@ const se_DescribeValidDBInstanceModificationsMessage = (
  */
 const se_DownloadDBLogFilePortionMessage = (input: DownloadDBLogFilePortionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.LogFileName != null) {
-    entries["LogFileName"] = input.LogFileName;
+  if (input[_LFN] != null) {
+    entries[_LFN] = input[_LFN];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
   }
-  if (input.NumberOfLines != null) {
-    entries["NumberOfLines"] = input.NumberOfLines;
+  if (input[_NOL] != null) {
+    entries[_NOL] = input[_NOL];
   }
   return entries;
 };
@@ -17519,11 +17519,11 @@ const se_EventCategoriesList = (input: string[], context: __SerdeContext): any =
  */
 const se_FailoverDBClusterMessage = (input: FailoverDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.TargetDBInstanceIdentifier != null) {
-    entries["TargetDBInstanceIdentifier"] = input.TargetDBInstanceIdentifier;
+  if (input[_TDBII] != null) {
+    entries[_TDBII] = input[_TDBII];
   }
   return entries;
 };
@@ -17533,17 +17533,17 @@ const se_FailoverDBClusterMessage = (input: FailoverDBClusterMessage, context: _
  */
 const se_FailoverGlobalClusterMessage = (input: FailoverGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.TargetDbClusterIdentifier != null) {
-    entries["TargetDbClusterIdentifier"] = input.TargetDbClusterIdentifier;
+  if (input[_TDCI] != null) {
+    entries[_TDCI] = input[_TDCI];
   }
-  if (input.AllowDataLoss != null) {
-    entries["AllowDataLoss"] = input.AllowDataLoss;
+  if (input[_ADL] != null) {
+    entries[_ADL] = input[_ADL];
   }
-  if (input.Switchover != null) {
-    entries["Switchover"] = input.Switchover;
+  if (input[_Sw] != null) {
+    entries[_Sw] = input[_Sw];
   }
   return entries;
 };
@@ -17553,12 +17553,12 @@ const se_FailoverGlobalClusterMessage = (input: FailoverGlobalClusterMessage, co
  */
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Values != null) {
-    const memberEntries = se_FilterValueList(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_FilterValueList(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17625,12 +17625,12 @@ const se_KeyList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17662,11 +17662,11 @@ const se_LogTypeList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ModifyActivityStreamRequest = (input: ModifyActivityStreamRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
   }
-  if (input.AuditPolicyState != null) {
-    entries["AuditPolicyState"] = input.AuditPolicyState;
+  if (input[_APS] != null) {
+    entries[_APS] = input[_APS];
   }
   return entries;
 };
@@ -17676,11 +17676,11 @@ const se_ModifyActivityStreamRequest = (input: ModifyActivityStreamRequest, cont
  */
 const se_ModifyCertificatesMessage = (input: ModifyCertificatesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CertificateIdentifier != null) {
-    entries["CertificateIdentifier"] = input.CertificateIdentifier;
+  if (input[_CIe] != null) {
+    entries[_CIe] = input[_CIe];
   }
-  if (input.RemoveCustomerOverride != null) {
-    entries["RemoveCustomerOverride"] = input.RemoveCustomerOverride;
+  if (input[_RCO] != null) {
+    entries[_RCO] = input[_RCO];
   }
   return entries;
 };
@@ -17693,17 +17693,17 @@ const se_ModifyCurrentDBClusterCapacityMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.Capacity != null) {
-    entries["Capacity"] = input.Capacity;
+  if (input[_C] != null) {
+    entries[_C] = input[_C];
   }
-  if (input.SecondsBeforeTimeout != null) {
-    entries["SecondsBeforeTimeout"] = input.SecondsBeforeTimeout;
+  if (input[_SBT] != null) {
+    entries[_SBT] = input[_SBT];
   }
-  if (input.TimeoutAction != null) {
-    entries["TimeoutAction"] = input.TimeoutAction;
+  if (input[_TAi] != null) {
+    entries[_TAi] = input[_TAi];
   }
   return entries;
 };
@@ -17716,17 +17716,17 @@ const se_ModifyCustomDBEngineVersionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
   }
   return entries;
 };
@@ -17736,15 +17736,15 @@ const se_ModifyCustomDBEngineVersionMessage = (
  */
 const se_ModifyDBClusterEndpointMessage = (input: ModifyDBClusterEndpointMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterEndpointIdentifier != null) {
-    entries["DBClusterEndpointIdentifier"] = input.DBClusterEndpointIdentifier;
+  if (input[_DBCEI] != null) {
+    entries[_DBCEI] = input[_DBCEI];
   }
-  if (input.EndpointType != null) {
-    entries["EndpointType"] = input.EndpointType;
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET];
   }
-  if (input.StaticMembers != null) {
-    const memberEntries = se_StringList(input.StaticMembers, context);
-    if (input.StaticMembers?.length === 0) {
+  if (input[_SM] != null) {
+    const memberEntries = se_StringList(input[_SM], context);
+    if (input[_SM]?.length === 0) {
       entries.StaticMembers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17752,9 +17752,9 @@ const se_ModifyDBClusterEndpointMessage = (input: ModifyDBClusterEndpointMessage
       entries[loc] = value;
     });
   }
-  if (input.ExcludedMembers != null) {
-    const memberEntries = se_StringList(input.ExcludedMembers, context);
-    if (input.ExcludedMembers?.length === 0) {
+  if (input[_EM] != null) {
+    const memberEntries = se_StringList(input[_EM], context);
+    if (input[_EM]?.length === 0) {
       entries.ExcludedMembers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17770,24 +17770,24 @@ const se_ModifyDBClusterEndpointMessage = (input: ModifyDBClusterEndpointMessage
  */
 const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.NewDBClusterIdentifier != null) {
-    entries["NewDBClusterIdentifier"] = input.NewDBClusterIdentifier;
+  if (input[_NDBCI] != null) {
+    entries[_NDBCI] = input[_NDBCI];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17795,128 +17795,128 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.BacktrackWindow != null) {
-    entries["BacktrackWindow"] = input.BacktrackWindow;
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
   }
-  if (input.CloudwatchLogsExportConfiguration != null) {
-    const memberEntries = se_CloudwatchLogsExportConfiguration(input.CloudwatchLogsExportConfiguration, context);
+  if (input[_CLEC] != null) {
+    const memberEntries = se_CloudwatchLogsExportConfiguration(input[_CLEC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudwatchLogsExportConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AllowMajorVersionUpgrade != null) {
-    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  if (input[_AMVUl] != null) {
+    entries[_AMVUl] = input[_AMVUl];
   }
-  if (input.DBInstanceParameterGroupName != null) {
-    entries["DBInstanceParameterGroupName"] = input.DBInstanceParameterGroupName;
+  if (input[_DBIPGN] != null) {
+    entries[_DBIPGN] = input[_DBIPGN];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.ScalingConfiguration != null) {
-    const memberEntries = se_ScalingConfiguration(input.ScalingConfiguration, context);
+  if (input[_SC] != null) {
+    const memberEntries = se_ScalingConfiguration(input[_SC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.EnableHttpEndpoint != null) {
-    entries["EnableHttpEndpoint"] = input.EnableHttpEndpoint;
+  if (input[_EHE] != null) {
+    entries[_EHE] = input[_EHE];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.EnableGlobalWriteForwarding != null) {
-    entries["EnableGlobalWriteForwarding"] = input.EnableGlobalWriteForwarding;
+  if (input[_EGWF] != null) {
+    entries[_EGWF] = input[_EGWF];
   }
-  if (input.DBClusterInstanceClass != null) {
-    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  if (input[_DBCIC] != null) {
+    entries[_DBCIC] = input[_DBCIC];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.MonitoringInterval != null) {
-    entries["MonitoringInterval"] = input.MonitoringInterval;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.MonitoringRoleArn != null) {
-    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.PerformanceInsightsRetentionPeriod != null) {
-    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
-  if (input.ServerlessV2ScalingConfiguration != null) {
-    const memberEntries = se_ServerlessV2ScalingConfiguration(input.ServerlessV2ScalingConfiguration, context);
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.ManageMasterUserPassword != null) {
-    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
   }
-  if (input.RotateMasterUserPassword != null) {
-    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  if (input[_RMUP] != null) {
+    entries[_RMUP] = input[_RMUP];
   }
-  if (input.MasterUserSecretKmsKeyId != null) {
-    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input.EngineMode != null) {
-    entries["EngineMode"] = input.EngineMode;
+  if (input[_EMn] != null) {
+    entries[_EMn] = input[_EMn];
   }
-  if (input.AllowEngineModeChange != null) {
-    entries["AllowEngineModeChange"] = input.AllowEngineModeChange;
+  if (input[_AEMC] != null) {
+    entries[_AEMC] = input[_AEMC];
   }
-  if (input.EnableLocalWriteForwarding != null) {
-    entries["EnableLocalWriteForwarding"] = input.EnableLocalWriteForwarding;
+  if (input[_ELWF] != null) {
+    entries[_ELWF] = input[_ELWF];
   }
-  if (input.AwsBackupRecoveryPointArn != null) {
-    entries["AwsBackupRecoveryPointArn"] = input.AwsBackupRecoveryPointArn;
+  if (input[_ABRPA] != null) {
+    entries[_ABRPA] = input[_ABRPA];
   }
   return entries;
 };
@@ -17929,12 +17929,12 @@ const se_ModifyDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_ParametersList(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_Pa] != null) {
+    const memberEntries = se_ParametersList(input[_Pa], context);
+    if (input[_Pa]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17953,15 +17953,15 @@ const se_ModifyDBClusterSnapshotAttributeMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.AttributeName != null) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input[_AN] != null) {
+    entries[_AN] = input[_AN];
   }
-  if (input.ValuesToAdd != null) {
-    const memberEntries = se_AttributeValueList(input.ValuesToAdd, context);
-    if (input.ValuesToAdd?.length === 0) {
+  if (input[_VTA] != null) {
+    const memberEntries = se_AttributeValueList(input[_VTA], context);
+    if (input[_VTA]?.length === 0) {
       entries.ValuesToAdd = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17969,9 +17969,9 @@ const se_ModifyDBClusterSnapshotAttributeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ValuesToRemove != null) {
-    const memberEntries = se_AttributeValueList(input.ValuesToRemove, context);
-    if (input.ValuesToRemove?.length === 0) {
+  if (input[_VTR] != null) {
+    const memberEntries = se_AttributeValueList(input[_VTR], context);
+    if (input[_VTR]?.length === 0) {
       entries.ValuesToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -17987,21 +17987,21 @@ const se_ModifyDBClusterSnapshotAttributeMessage = (
  */
 const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.DBSecurityGroups != null) {
-    const memberEntries = se_DBSecurityGroupNameList(input.DBSecurityGroups, context);
-    if (input.DBSecurityGroups?.length === 0) {
+  if (input[_DBSG] != null) {
+    const memberEntries = se_DBSecurityGroupNameList(input[_DBSG], context);
+    if (input[_DBSG]?.length === 0) {
       entries.DBSecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18009,9 +18009,9 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18019,75 +18019,75 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AllowMajorVersionUpgrade != null) {
-    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  if (input[_AMVUl] != null) {
+    entries[_AMVUl] = input[_AMVUl];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.NewDBInstanceIdentifier != null) {
-    entries["NewDBInstanceIdentifier"] = input.NewDBInstanceIdentifier;
+  if (input[_NDBII] != null) {
+    entries[_NDBII] = input[_NDBII];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.TdeCredentialArn != null) {
-    entries["TdeCredentialArn"] = input.TdeCredentialArn;
+  if (input[_TCA] != null) {
+    entries[_TCA] = input[_TCA];
   }
-  if (input.TdeCredentialPassword != null) {
-    entries["TdeCredentialPassword"] = input.TdeCredentialPassword;
+  if (input[_TCP] != null) {
+    entries[_TCP] = input[_TCP];
   }
-  if (input.CACertificateIdentifier != null) {
-    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainFqdn != null) {
-    entries["DomainFqdn"] = input.DomainFqdn;
+  if (input[_DF] != null) {
+    entries[_DF] = input[_DF];
   }
-  if (input.DomainOu != null) {
-    entries["DomainOu"] = input.DomainOu;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
-  if (input.DomainAuthSecretArn != null) {
-    entries["DomainAuthSecretArn"] = input.DomainAuthSecretArn;
+  if (input[_DASA] != null) {
+    entries[_DASA] = input[_DASA];
   }
-  if (input.DomainDnsIps != null) {
-    const memberEntries = se_StringList(input.DomainDnsIps, context);
-    if (input.DomainDnsIps?.length === 0) {
+  if (input[_DDI] != null) {
+    const memberEntries = se_StringList(input[_DDI], context);
+    if (input[_DDI]?.length === 0) {
       entries.DomainDnsIps = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18095,52 +18095,52 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.MonitoringInterval != null) {
-    entries["MonitoringInterval"] = input.MonitoringInterval;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.DBPortNumber != null) {
-    entries["DBPortNumber"] = input.DBPortNumber;
+  if (input[_DBPNo] != null) {
+    entries[_DBPNo] = input[_DBPNo];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.MonitoringRoleArn != null) {
-    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.DisableDomain != null) {
-    entries["DisableDomain"] = input.DisableDomain;
+  if (input[_DD] != null) {
+    entries[_DD] = input[_DD];
   }
-  if (input.PromotionTier != null) {
-    entries["PromotionTier"] = input.PromotionTier;
+  if (input[_PT] != null) {
+    entries[_PT] = input[_PT];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.PerformanceInsightsRetentionPeriod != null) {
-    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
-  if (input.CloudwatchLogsExportConfiguration != null) {
-    const memberEntries = se_CloudwatchLogsExportConfiguration(input.CloudwatchLogsExportConfiguration, context);
+  if (input[_CLEC] != null) {
+    const memberEntries = se_CloudwatchLogsExportConfiguration(input[_CLEC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudwatchLogsExportConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ProcessorFeatures != null) {
-    const memberEntries = se_ProcessorFeatureList(input.ProcessorFeatures, context);
-    if (input.ProcessorFeatures?.length === 0) {
+  if (input[_PF] != null) {
+    const memberEntries = se_ProcessorFeatureList(input[_PF], context);
+    if (input[_PF]?.length === 0) {
       entries.ProcessorFeatures = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18148,56 +18148,56 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.UseDefaultProcessorFeatures != null) {
-    entries["UseDefaultProcessorFeatures"] = input.UseDefaultProcessorFeatures;
+  if (input[_UDPF] != null) {
+    entries[_UDPF] = input[_UDPF];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.MaxAllocatedStorage != null) {
-    entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
+  if (input[_MASa] != null) {
+    entries[_MASa] = input[_MASa];
   }
-  if (input.CertificateRotationRestart != null) {
-    entries["CertificateRotationRestart"] = input.CertificateRotationRestart;
+  if (input[_CRR] != null) {
+    entries[_CRR] = input[_CRR];
   }
-  if (input.ReplicaMode != null) {
-    entries["ReplicaMode"] = input.ReplicaMode;
+  if (input[_RM] != null) {
+    entries[_RM] = input[_RM];
   }
-  if (input.EnableCustomerOwnedIp != null) {
-    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  if (input[_ECOI] != null) {
+    entries[_ECOI] = input[_ECOI];
   }
-  if (input.AwsBackupRecoveryPointArn != null) {
-    entries["AwsBackupRecoveryPointArn"] = input.AwsBackupRecoveryPointArn;
+  if (input[_ABRPA] != null) {
+    entries[_ABRPA] = input[_ABRPA];
   }
-  if (input.AutomationMode != null) {
-    entries["AutomationMode"] = input.AutomationMode;
+  if (input[_AM] != null) {
+    entries[_AM] = input[_AM];
   }
-  if (input.ResumeFullAutomationModeMinutes != null) {
-    entries["ResumeFullAutomationModeMinutes"] = input.ResumeFullAutomationModeMinutes;
+  if (input[_RFAMM] != null) {
+    entries[_RFAMM] = input[_RFAMM];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StorageThroughput != null) {
-    entries["StorageThroughput"] = input.StorageThroughput;
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
-  if (input.ManageMasterUserPassword != null) {
-    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
   }
-  if (input.RotateMasterUserPassword != null) {
-    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  if (input[_RMUP] != null) {
+    entries[_RMUP] = input[_RMUP];
   }
-  if (input.MasterUserSecretKmsKeyId != null) {
-    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.DedicatedLogVolume != null) {
-    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  if (input[_DLV] != null) {
+    entries[_DLV] = input[_DLV];
   }
-  if (input.MultiTenant != null) {
-    entries["MultiTenant"] = input.MultiTenant;
+  if (input[_MT] != null) {
+    entries[_MT] = input[_MT];
   }
   return entries;
 };
@@ -18207,12 +18207,12 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
  */
 const se_ModifyDBParameterGroupMessage = (input: ModifyDBParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_ParametersList(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_Pa] != null) {
+    const memberEntries = se_ParametersList(input[_Pa], context);
+    if (input[_Pa]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18228,15 +18228,15 @@ const se_ModifyDBParameterGroupMessage = (input: ModifyDBParameterGroupMessage, 
  */
 const se_ModifyDBProxyEndpointRequest = (input: ModifyDBProxyEndpointRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyEndpointName != null) {
-    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
+  if (input[_DBPEN] != null) {
+    entries[_DBPEN] = input[_DBPEN];
   }
-  if (input.NewDBProxyEndpointName != null) {
-    entries["NewDBProxyEndpointName"] = input.NewDBProxyEndpointName;
+  if (input[_NDBPEN] != null) {
+    entries[_NDBPEN] = input[_NDBPEN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_StringList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_StringList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18252,15 +18252,15 @@ const se_ModifyDBProxyEndpointRequest = (input: ModifyDBProxyEndpointRequest, co
  */
 const se_ModifyDBProxyRequest = (input: ModifyDBProxyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.NewDBProxyName != null) {
-    entries["NewDBProxyName"] = input.NewDBProxyName;
+  if (input[_NDBPN] != null) {
+    entries[_NDBPN] = input[_NDBPN];
   }
-  if (input.Auth != null) {
-    const memberEntries = se_UserAuthConfigList(input.Auth, context);
-    if (input.Auth?.length === 0) {
+  if (input[_Au] != null) {
+    const memberEntries = se_UserAuthConfigList(input[_Au], context);
+    if (input[_Au]?.length === 0) {
       entries.Auth = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18268,21 +18268,21 @@ const se_ModifyDBProxyRequest = (input: ModifyDBProxyRequest, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.RequireTLS != null) {
-    entries["RequireTLS"] = input.RequireTLS;
+  if (input[_RTLS] != null) {
+    entries[_RTLS] = input[_RTLS];
   }
-  if (input.IdleClientTimeout != null) {
-    entries["IdleClientTimeout"] = input.IdleClientTimeout;
+  if (input[_ICT] != null) {
+    entries[_ICT] = input[_ICT];
   }
-  if (input.DebugLogging != null) {
-    entries["DebugLogging"] = input.DebugLogging;
+  if (input[_DL] != null) {
+    entries[_DL] = input[_DL];
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.SecurityGroups != null) {
-    const memberEntries = se_StringList(input.SecurityGroups, context);
-    if (input.SecurityGroups?.length === 0) {
+  if (input[_SG] != null) {
+    const memberEntries = se_StringList(input[_SG], context);
+    if (input[_SG]?.length === 0) {
       entries.SecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18298,21 +18298,21 @@ const se_ModifyDBProxyRequest = (input: ModifyDBProxyRequest, context: __SerdeCo
  */
 const se_ModifyDBProxyTargetGroupRequest = (input: ModifyDBProxyTargetGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupName != null) {
-    entries["TargetGroupName"] = input.TargetGroupName;
+  if (input[_TGN] != null) {
+    entries[_TGN] = input[_TGN];
   }
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.ConnectionPoolConfig != null) {
-    const memberEntries = se_ConnectionPoolConfiguration(input.ConnectionPoolConfig, context);
+  if (input[_CPC] != null) {
+    const memberEntries = se_ConnectionPoolConfiguration(input[_CPC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionPoolConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NewName != null) {
-    entries["NewName"] = input.NewName;
+  if (input[_NN] != null) {
+    entries[_NN] = input[_NN];
   }
   return entries;
 };
@@ -18322,15 +18322,15 @@ const se_ModifyDBProxyTargetGroupRequest = (input: ModifyDBProxyTargetGroupReque
  */
 const se_ModifyDBSnapshotAttributeMessage = (input: ModifyDBSnapshotAttributeMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
-  if (input.AttributeName != null) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input[_AN] != null) {
+    entries[_AN] = input[_AN];
   }
-  if (input.ValuesToAdd != null) {
-    const memberEntries = se_AttributeValueList(input.ValuesToAdd, context);
-    if (input.ValuesToAdd?.length === 0) {
+  if (input[_VTA] != null) {
+    const memberEntries = se_AttributeValueList(input[_VTA], context);
+    if (input[_VTA]?.length === 0) {
       entries.ValuesToAdd = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18338,9 +18338,9 @@ const se_ModifyDBSnapshotAttributeMessage = (input: ModifyDBSnapshotAttributeMes
       entries[loc] = value;
     });
   }
-  if (input.ValuesToRemove != null) {
-    const memberEntries = se_AttributeValueList(input.ValuesToRemove, context);
-    if (input.ValuesToRemove?.length === 0) {
+  if (input[_VTR] != null) {
+    const memberEntries = se_AttributeValueList(input[_VTR], context);
+    if (input[_VTR]?.length === 0) {
       entries.ValuesToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18356,14 +18356,14 @@ const se_ModifyDBSnapshotAttributeMessage = (input: ModifyDBSnapshotAttributeMes
  */
 const se_ModifyDBSnapshotMessage = (input: ModifyDBSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
   return entries;
 };
@@ -18373,15 +18373,15 @@ const se_ModifyDBSnapshotMessage = (input: ModifyDBSnapshotMessage, context: __S
  */
 const se_ModifyDBSubnetGroupMessage = (input: ModifyDBSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.DBSubnetGroupDescription != null) {
-    entries["DBSubnetGroupDescription"] = input.DBSubnetGroupDescription;
+  if (input[_DBSGDu] != null) {
+    entries[_DBSGDu] = input[_DBSGDu];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SIu] != null) {
+    const memberEntries = se_SubnetIdentifierList(input[_SIu], context);
+    if (input[_SIu]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18397,18 +18397,18 @@ const se_ModifyDBSubnetGroupMessage = (input: ModifyDBSubnetGroupMessage, contex
  */
 const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SnsTopicArn != null) {
-    entries["SnsTopicArn"] = input.SnsTopicArn;
+  if (input[_STA] != null) {
+    entries[_STA] = input[_STA];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.EventCategories != null) {
-    const memberEntries = se_EventCategoriesList(input.EventCategories, context);
-    if (input.EventCategories?.length === 0) {
+  if (input[_EC] != null) {
+    const memberEntries = se_EventCategoriesList(input[_EC], context);
+    if (input[_EC]?.length === 0) {
       entries.EventCategories = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18416,8 +18416,8 @@ const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage
       entries[loc] = value;
     });
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_En] != null) {
+    entries[_En] = input[_En];
   }
   return entries;
 };
@@ -18427,20 +18427,20 @@ const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage
  */
 const se_ModifyGlobalClusterMessage = (input: ModifyGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.NewGlobalClusterIdentifier != null) {
-    entries["NewGlobalClusterIdentifier"] = input.NewGlobalClusterIdentifier;
+  if (input[_NGCI] != null) {
+    entries[_NGCI] = input[_NGCI];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AllowMajorVersionUpgrade != null) {
-    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  if (input[_AMVUl] != null) {
+    entries[_AMVUl] = input[_AMVUl];
   }
   return entries;
 };
@@ -18450,12 +18450,12 @@ const se_ModifyGlobalClusterMessage = (input: ModifyGlobalClusterMessage, contex
  */
 const se_ModifyOptionGroupMessage = (input: ModifyOptionGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.OptionsToInclude != null) {
-    const memberEntries = se_OptionConfigurationList(input.OptionsToInclude, context);
-    if (input.OptionsToInclude?.length === 0) {
+  if (input[_OTI] != null) {
+    const memberEntries = se_OptionConfigurationList(input[_OTI], context);
+    if (input[_OTI]?.length === 0) {
       entries.OptionsToInclude = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18463,9 +18463,9 @@ const se_ModifyOptionGroupMessage = (input: ModifyOptionGroupMessage, context: _
       entries[loc] = value;
     });
   }
-  if (input.OptionsToRemove != null) {
-    const memberEntries = se_OptionNamesList(input.OptionsToRemove, context);
-    if (input.OptionsToRemove?.length === 0) {
+  if (input[_OTR] != null) {
+    const memberEntries = se_OptionNamesList(input[_OTR], context);
+    if (input[_OTR]?.length === 0) {
       entries.OptionsToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18473,8 +18473,8 @@ const se_ModifyOptionGroupMessage = (input: ModifyOptionGroupMessage, context: _
       entries[loc] = value;
     });
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -18484,17 +18484,17 @@ const se_ModifyOptionGroupMessage = (input: ModifyOptionGroupMessage, context: _
  */
 const se_ModifyTenantDatabaseMessage = (input: ModifyTenantDatabaseMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.TenantDBName != null) {
-    entries["TenantDBName"] = input.TenantDBName;
+  if (input[_TDBN] != null) {
+    entries[_TDBN] = input[_TDBN];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.NewTenantDBName != null) {
-    entries["NewTenantDBName"] = input.NewTenantDBName;
+  if (input[_NTDBN] != null) {
+    entries[_NTDBN] = input[_NTDBN];
   }
   return entries;
 };
@@ -18504,18 +18504,18 @@ const se_ModifyTenantDatabaseMessage = (input: ModifyTenantDatabaseMessage, cont
  */
 const se_OptionConfiguration = (input: OptionConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OptionName != null) {
-    entries["OptionName"] = input.OptionName;
+  if (input[_ON] != null) {
+    entries[_ON] = input[_ON];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.OptionVersion != null) {
-    entries["OptionVersion"] = input.OptionVersion;
+  if (input[_OV] != null) {
+    entries[_OV] = input[_OV];
   }
-  if (input.DBSecurityGroupMemberships != null) {
-    const memberEntries = se_DBSecurityGroupNameList(input.DBSecurityGroupMemberships, context);
-    if (input.DBSecurityGroupMemberships?.length === 0) {
+  if (input[_DBSGM] != null) {
+    const memberEntries = se_DBSecurityGroupNameList(input[_DBSGM], context);
+    if (input[_DBSGM]?.length === 0) {
       entries.DBSecurityGroupMemberships = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18523,9 +18523,9 @@ const se_OptionConfiguration = (input: OptionConfiguration, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupMemberships != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupMemberships, context);
-    if (input.VpcSecurityGroupMemberships?.length === 0) {
+  if (input[_VSGM] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGM], context);
+    if (input[_VSGM]?.length === 0) {
       entries.VpcSecurityGroupMemberships = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18533,9 +18533,9 @@ const se_OptionConfiguration = (input: OptionConfiguration, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.OptionSettings != null) {
-    const memberEntries = se_OptionSettingsList(input.OptionSettings, context);
-    if (input.OptionSettings?.length === 0) {
+  if (input[_OS] != null) {
+    const memberEntries = se_OptionSettingsList(input[_OS], context);
+    if (input[_OS]?.length === 0) {
       entries.OptionSettings = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18586,32 +18586,32 @@ const se_OptionNamesList = (input: string[], context: __SerdeContext): any => {
  */
 const se_OptionSetting = (input: OptionSetting, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
-  if (input.DefaultValue != null) {
-    entries["DefaultValue"] = input.DefaultValue;
+  if (input[_DV] != null) {
+    entries[_DV] = input[_DV];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.ApplyType != null) {
-    entries["ApplyType"] = input.ApplyType;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.DataType != null) {
-    entries["DataType"] = input.DataType;
+  if (input[_DTa] != null) {
+    entries[_DTa] = input[_DTa];
   }
-  if (input.AllowedValues != null) {
-    entries["AllowedValues"] = input.AllowedValues;
+  if (input[_AV] != null) {
+    entries[_AV] = input[_AV];
   }
-  if (input.IsModifiable != null) {
-    entries["IsModifiable"] = input.IsModifiable;
+  if (input[_IM] != null) {
+    entries[_IM] = input[_IM];
   }
-  if (input.IsCollection != null) {
-    entries["IsCollection"] = input.IsCollection;
+  if (input[_IC] != null) {
+    entries[_IC] = input[_IC];
   }
   return entries;
 };
@@ -18640,39 +18640,39 @@ const se_OptionSettingsList = (input: OptionSetting[], context: __SerdeContext):
  */
 const se_Parameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterName != null) {
-    entries["ParameterName"] = input.ParameterName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.ParameterValue != null) {
-    entries["ParameterValue"] = input.ParameterValue;
+  if (input[_PV] != null) {
+    entries[_PV] = input[_PV];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.ApplyType != null) {
-    entries["ApplyType"] = input.ApplyType;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.DataType != null) {
-    entries["DataType"] = input.DataType;
+  if (input[_DTa] != null) {
+    entries[_DTa] = input[_DTa];
   }
-  if (input.AllowedValues != null) {
-    entries["AllowedValues"] = input.AllowedValues;
+  if (input[_AV] != null) {
+    entries[_AV] = input[_AV];
   }
-  if (input.IsModifiable != null) {
-    entries["IsModifiable"] = input.IsModifiable;
+  if (input[_IM] != null) {
+    entries[_IM] = input[_IM];
   }
-  if (input.MinimumEngineVersion != null) {
-    entries["MinimumEngineVersion"] = input.MinimumEngineVersion;
+  if (input[_MEVi] != null) {
+    entries[_MEVi] = input[_MEVi];
   }
-  if (input.ApplyMethod != null) {
-    entries["ApplyMethod"] = input.ApplyMethod;
+  if (input[_AMp] != null) {
+    entries[_AMp] = input[_AMp];
   }
-  if (input.SupportedEngineModes != null) {
-    const memberEntries = se_EngineModeList(input.SupportedEngineModes, context);
-    if (input.SupportedEngineModes?.length === 0) {
+  if (input[_SEM] != null) {
+    const memberEntries = se_EngineModeList(input[_SEM], context);
+    if (input[_SEM]?.length === 0) {
       entries.SupportedEngineModes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18707,11 +18707,11 @@ const se_ParametersList = (input: Parameter[], context: __SerdeContext): any => 
  */
 const se_ProcessorFeature = (input: ProcessorFeature, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -18743,8 +18743,8 @@ const se_PromoteReadReplicaDBClusterMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
   return entries;
 };
@@ -18754,14 +18754,14 @@ const se_PromoteReadReplicaDBClusterMessage = (
  */
 const se_PromoteReadReplicaMessage = (input: PromoteReadReplicaMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
   return entries;
 };
@@ -18774,18 +18774,18 @@ const se_PurchaseReservedDBInstancesOfferingMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReservedDBInstancesOfferingId != null) {
-    entries["ReservedDBInstancesOfferingId"] = input.ReservedDBInstancesOfferingId;
+  if (input[_RDBIOI] != null) {
+    entries[_RDBIOI] = input[_RDBIOI];
   }
-  if (input.ReservedDBInstanceId != null) {
-    entries["ReservedDBInstanceId"] = input.ReservedDBInstanceId;
+  if (input[_RDBII] != null) {
+    entries[_RDBII] = input[_RDBII];
   }
-  if (input.DBInstanceCount != null) {
-    entries["DBInstanceCount"] = input.DBInstanceCount;
+  if (input[_DBICn] != null) {
+    entries[_DBICn] = input[_DBICn];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18801,14 +18801,14 @@ const se_PurchaseReservedDBInstancesOfferingMessage = (
  */
 const se_RdsCustomClusterConfiguration = (input: RdsCustomClusterConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InterconnectSubnetId != null) {
-    entries["InterconnectSubnetId"] = input.InterconnectSubnetId;
+  if (input[_ISI] != null) {
+    entries[_ISI] = input[_ISI];
   }
-  if (input.TransitGatewayMulticastDomainId != null) {
-    entries["TransitGatewayMulticastDomainId"] = input.TransitGatewayMulticastDomainId;
+  if (input[_TGMDI] != null) {
+    entries[_TGMDI] = input[_TGMDI];
   }
-  if (input.ReplicaMode != null) {
-    entries["ReplicaMode"] = input.ReplicaMode;
+  if (input[_RM] != null) {
+    entries[_RM] = input[_RM];
   }
   return entries;
 };
@@ -18818,8 +18818,8 @@ const se_RdsCustomClusterConfiguration = (input: RdsCustomClusterConfiguration, 
  */
 const se_RebootDBClusterMessage = (input: RebootDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
   return entries;
 };
@@ -18829,11 +18829,11 @@ const se_RebootDBClusterMessage = (input: RebootDBClusterMessage, context: __Ser
  */
 const se_RebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.ForceFailover != null) {
-    entries["ForceFailover"] = input.ForceFailover;
+  if (input[_FF] != null) {
+    entries[_FF] = input[_FF];
   }
   return entries;
 };
@@ -18843,15 +18843,15 @@ const se_RebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __S
  */
 const se_RegisterDBProxyTargetsRequest = (input: RegisterDBProxyTargetsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBProxyName != null) {
-    entries["DBProxyName"] = input.DBProxyName;
+  if (input[_DBPN] != null) {
+    entries[_DBPN] = input[_DBPN];
   }
-  if (input.TargetGroupName != null) {
-    entries["TargetGroupName"] = input.TargetGroupName;
+  if (input[_TGN] != null) {
+    entries[_TGN] = input[_TGN];
   }
-  if (input.DBInstanceIdentifiers != null) {
-    const memberEntries = se_StringList(input.DBInstanceIdentifiers, context);
-    if (input.DBInstanceIdentifiers?.length === 0) {
+  if (input[_DBIIn] != null) {
+    const memberEntries = se_StringList(input[_DBIIn], context);
+    if (input[_DBIIn]?.length === 0) {
       entries.DBInstanceIdentifiers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18859,9 +18859,9 @@ const se_RegisterDBProxyTargetsRequest = (input: RegisterDBProxyTargetsRequest, 
       entries[loc] = value;
     });
   }
-  if (input.DBClusterIdentifiers != null) {
-    const memberEntries = se_StringList(input.DBClusterIdentifiers, context);
-    if (input.DBClusterIdentifiers?.length === 0) {
+  if (input[_DBCIl] != null) {
+    const memberEntries = se_StringList(input[_DBCIl], context);
+    if (input[_DBCIl]?.length === 0) {
       entries.DBClusterIdentifiers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18877,11 +18877,11 @@ const se_RegisterDBProxyTargetsRequest = (input: RegisterDBProxyTargetsRequest, 
  */
 const se_RemoveFromGlobalClusterMessage = (input: RemoveFromGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.DbClusterIdentifier != null) {
-    entries["DbClusterIdentifier"] = input.DbClusterIdentifier;
+  if (input[_DCI] != null) {
+    entries[_DCI] = input[_DCI];
   }
   return entries;
 };
@@ -18891,14 +18891,14 @@ const se_RemoveFromGlobalClusterMessage = (input: RemoveFromGlobalClusterMessage
  */
 const se_RemoveRoleFromDBClusterMessage = (input: RemoveRoleFromDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.FeatureName != null) {
-    entries["FeatureName"] = input.FeatureName;
+  if (input[_FN] != null) {
+    entries[_FN] = input[_FN];
   }
   return entries;
 };
@@ -18908,14 +18908,14 @@ const se_RemoveRoleFromDBClusterMessage = (input: RemoveRoleFromDBClusterMessage
  */
 const se_RemoveRoleFromDBInstanceMessage = (input: RemoveRoleFromDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.FeatureName != null) {
-    entries["FeatureName"] = input.FeatureName;
+  if (input[_FN] != null) {
+    entries[_FN] = input[_FN];
   }
   return entries;
 };
@@ -18928,11 +18928,11 @@ const se_RemoveSourceIdentifierFromSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
   return entries;
 };
@@ -18942,12 +18942,12 @@ const se_RemoveSourceIdentifierFromSubscriptionMessage = (
  */
 const se_RemoveTagsFromResourceMessage = (input: RemoveTagsFromResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_KeyList(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_KeyList(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18966,15 +18966,15 @@ const se_ResetDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.ResetAllParameters != null) {
-    entries["ResetAllParameters"] = input.ResetAllParameters;
+  if (input[_RAP] != null) {
+    entries[_RAP] = input[_RAP];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_ParametersList(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_Pa] != null) {
+    const memberEntries = se_ParametersList(input[_Pa], context);
+    if (input[_Pa]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -18990,15 +18990,15 @@ const se_ResetDBClusterParameterGroupMessage = (
  */
 const se_ResetDBParameterGroupMessage = (input: ResetDBParameterGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.ResetAllParameters != null) {
-    entries["ResetAllParameters"] = input.ResetAllParameters;
+  if (input[_RAP] != null) {
+    entries[_RAP] = input[_RAP];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_ParametersList(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_Pa] != null) {
+    const memberEntries = se_ParametersList(input[_Pa], context);
+    if (input[_Pa]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19014,9 +19014,9 @@ const se_ResetDBParameterGroupMessage = (input: ResetDBParameterGroupMessage, co
  */
 const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19024,24 +19024,24 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
       entries[loc] = value;
     });
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.CharacterSetName != null) {
-    entries["CharacterSetName"] = input.CharacterSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.DatabaseName != null) {
-    entries["DatabaseName"] = input.DatabaseName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19049,36 +19049,36 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
       entries[loc] = value;
     });
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MasterUsername != null) {
-    entries["MasterUsername"] = input.MasterUsername;
+  if (input[_MU] != null) {
+    entries[_MU] = input[_MU];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19086,36 +19086,36 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
       entries[loc] = value;
     });
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.SourceEngine != null) {
-    entries["SourceEngine"] = input.SourceEngine;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
-  if (input.SourceEngineVersion != null) {
-    entries["SourceEngineVersion"] = input.SourceEngineVersion;
+  if (input[_SEV] != null) {
+    entries[_SEV] = input[_SEV];
   }
-  if (input.S3BucketName != null) {
-    entries["S3BucketName"] = input.S3BucketName;
+  if (input[_SBN] != null) {
+    entries[_SBN] = input[_SBN];
   }
-  if (input.S3Prefix != null) {
-    entries["S3Prefix"] = input.S3Prefix;
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
   }
-  if (input.S3IngestionRoleArn != null) {
-    entries["S3IngestionRoleArn"] = input.S3IngestionRoleArn;
+  if (input[_SIRA] != null) {
+    entries[_SIRA] = input[_SIRA];
   }
-  if (input.BacktrackWindow != null) {
-    entries["BacktrackWindow"] = input.BacktrackWindow;
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19123,36 +19123,36 @@ const se_RestoreDBClusterFromS3Message = (input: RestoreDBClusterFromS3Message, 
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.ServerlessV2ScalingConfiguration != null) {
-    const memberEntries = se_ServerlessV2ScalingConfiguration(input.ServerlessV2ScalingConfiguration, context);
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.ManageMasterUserPassword != null) {
-    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
   }
-  if (input.MasterUserSecretKmsKeyId != null) {
-    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
   return entries;
 };
@@ -19165,9 +19165,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19175,33 +19175,33 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.SnapshotIdentifier != null) {
-    entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
+  if (input[_SIn] != null) {
+    entries[_SIn] = input[_SIn];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.DatabaseName != null) {
-    entries["DatabaseName"] = input.DatabaseName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19209,9 +19209,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19219,18 +19219,18 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.BacktrackWindow != null) {
-    entries["BacktrackWindow"] = input.BacktrackWindow;
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19238,55 +19238,55 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.EngineMode != null) {
-    entries["EngineMode"] = input.EngineMode;
+  if (input[_EMn] != null) {
+    entries[_EMn] = input[_EMn];
   }
-  if (input.ScalingConfiguration != null) {
-    const memberEntries = se_ScalingConfiguration(input.ScalingConfiguration, context);
+  if (input[_SC] != null) {
+    const memberEntries = se_ScalingConfiguration(input[_SC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.DBClusterInstanceClass != null) {
-    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  if (input[_DBCIC] != null) {
+    entries[_DBCIC] = input[_DBCIC];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.ServerlessV2ScalingConfiguration != null) {
-    const memberEntries = se_ServerlessV2ScalingConfiguration(input.ServerlessV2ScalingConfiguration, context);
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.RdsCustomClusterConfiguration != null) {
-    const memberEntries = se_RdsCustomClusterConfiguration(input.RdsCustomClusterConfiguration, context);
+  if (input[_RCCC] != null) {
+    const memberEntries = se_RdsCustomClusterConfiguration(input[_RCCC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RdsCustomClusterConfiguration.${key}`;
       entries[loc] = value;
@@ -19303,33 +19303,33 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.RestoreType != null) {
-    entries["RestoreType"] = input.RestoreType;
+  if (input[_RT] != null) {
+    entries[_RT] = input[_RT];
   }
-  if (input.SourceDBClusterIdentifier != null) {
-    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  if (input[_SDBCI] != null) {
+    entries[_SDBCI] = input[_SDBCI];
   }
-  if (input.RestoreToTime != null) {
-    entries["RestoreToTime"] = input.RestoreToTime.toISOString().split(".")[0] + "Z";
+  if (input[_RTT] != null) {
+    entries[_RTT] = input[_RTT].toISOString().split(".")[0] + "Z";
   }
-  if (input.UseLatestRestorableTime != null) {
-    entries["UseLatestRestorableTime"] = input.UseLatestRestorableTime;
+  if (input[_ULRT] != null) {
+    entries[_ULRT] = input[_ULRT];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19337,9 +19337,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19347,18 +19347,18 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.BacktrackWindow != null) {
-    entries["BacktrackWindow"] = input.BacktrackWindow;
+  if (input[_BW] != null) {
+    entries[_BW] = input[_BW];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19366,58 +19366,58 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.ScalingConfiguration != null) {
-    const memberEntries = se_ScalingConfiguration(input.ScalingConfiguration, context);
+  if (input[_SC] != null) {
+    const memberEntries = se_ScalingConfiguration(input[_SC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EngineMode != null) {
-    entries["EngineMode"] = input.EngineMode;
+  if (input[_EMn] != null) {
+    entries[_EMn] = input[_EMn];
   }
-  if (input.DBClusterInstanceClass != null) {
-    entries["DBClusterInstanceClass"] = input.DBClusterInstanceClass;
+  if (input[_DBCIC] != null) {
+    entries[_DBCIC] = input[_DBCIC];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.ServerlessV2ScalingConfiguration != null) {
-    const memberEntries = se_ServerlessV2ScalingConfiguration(input.ServerlessV2ScalingConfiguration, context);
+  if (input[_SVSC] != null) {
+    const memberEntries = se_ServerlessV2ScalingConfiguration(input[_SVSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServerlessV2ScalingConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.SourceDbClusterResourceId != null) {
-    entries["SourceDbClusterResourceId"] = input.SourceDbClusterResourceId;
+  if (input[_SDCRI] != null) {
+    entries[_SDCRI] = input[_SDCRI];
   }
-  if (input.RdsCustomClusterConfiguration != null) {
-    const memberEntries = se_RdsCustomClusterConfiguration(input.RdsCustomClusterConfiguration, context);
+  if (input[_RCCC] != null) {
+    const memberEntries = se_RdsCustomClusterConfiguration(input[_RCCC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RdsCustomClusterConfiguration.${key}`;
       entries[loc] = value;
@@ -19434,51 +19434,51 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZv] != null) {
+    entries[_AZv] = input[_AZv];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.DBName != null) {
-    entries["DBName"] = input.DBName;
+  if (input[_DBN] != null) {
+    entries[_DBN] = input[_DBN];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19486,18 +19486,18 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.TdeCredentialArn != null) {
-    entries["TdeCredentialArn"] = input.TdeCredentialArn;
+  if (input[_TCA] != null) {
+    entries[_TCA] = input[_TCA];
   }
-  if (input.TdeCredentialPassword != null) {
-    entries["TdeCredentialPassword"] = input.TdeCredentialPassword;
+  if (input[_TCP] != null) {
+    entries[_TCP] = input[_TCP];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19505,21 +19505,21 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainFqdn != null) {
-    entries["DomainFqdn"] = input.DomainFqdn;
+  if (input[_DF] != null) {
+    entries[_DF] = input[_DF];
   }
-  if (input.DomainOu != null) {
-    entries["DomainOu"] = input.DomainOu;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
-  if (input.DomainAuthSecretArn != null) {
-    entries["DomainAuthSecretArn"] = input.DomainAuthSecretArn;
+  if (input[_DASA] != null) {
+    entries[_DASA] = input[_DASA];
   }
-  if (input.DomainDnsIps != null) {
-    const memberEntries = se_StringList(input.DomainDnsIps, context);
-    if (input.DomainDnsIps?.length === 0) {
+  if (input[_DDI] != null) {
+    const memberEntries = se_StringList(input[_DDI], context);
+    if (input[_DDI]?.length === 0) {
       entries.DomainDnsIps = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19527,18 +19527,18 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19546,9 +19546,9 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ProcessorFeatures != null) {
-    const memberEntries = se_ProcessorFeatureList(input.ProcessorFeatures, context);
-    if (input.ProcessorFeatures?.length === 0) {
+  if (input[_PF] != null) {
+    const memberEntries = se_ProcessorFeatureList(input[_PF], context);
+    if (input[_PF]?.length === 0) {
       entries.ProcessorFeatures = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19556,38 +19556,38 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.UseDefaultProcessorFeatures != null) {
-    entries["UseDefaultProcessorFeatures"] = input.UseDefaultProcessorFeatures;
+  if (input[_UDPF] != null) {
+    entries[_UDPF] = input[_UDPF];
   }
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.EnableCustomerOwnedIp != null) {
-    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  if (input[_ECOI] != null) {
+    entries[_ECOI] = input[_ECOI];
   }
-  if (input.CustomIamInstanceProfile != null) {
-    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  if (input[_CIIP] != null) {
+    entries[_CIIP] = input[_CIIP];
   }
-  if (input.BackupTarget != null) {
-    entries["BackupTarget"] = input.BackupTarget;
+  if (input[_BTa] != null) {
+    entries[_BTa] = input[_BTa];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StorageThroughput != null) {
-    entries["StorageThroughput"] = input.StorageThroughput;
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.DedicatedLogVolume != null) {
-    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  if (input[_DLV] != null) {
+    entries[_DLV] = input[_DLV];
   }
   return entries;
 };
@@ -19597,30 +19597,30 @@ const se_RestoreDBInstanceFromDBSnapshotMessage = (
  */
 const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBName != null) {
-    entries["DBName"] = input.DBName;
+  if (input[_DBN] != null) {
+    entries[_DBN] = input[_DBN];
   }
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.MasterUsername != null) {
-    entries["MasterUsername"] = input.MasterUsername;
+  if (input[_MU] != null) {
+    entries[_MU] = input[_MU];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.DBSecurityGroups != null) {
-    const memberEntries = se_DBSecurityGroupNameList(input.DBSecurityGroups, context);
-    if (input.DBSecurityGroups?.length === 0) {
+  if (input[_DBSG] != null) {
+    const memberEntries = se_DBSecurityGroupNameList(input[_DBSG], context);
+    if (input[_DBSG]?.length === 0) {
       entries.DBSecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19628,9 +19628,9 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
       entries[loc] = value;
     });
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19638,51 +19638,51 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
       entries[loc] = value;
     });
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZv] != null) {
+    entries[_AZv] = input[_AZv];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19690,54 +19690,54 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
       entries[loc] = value;
     });
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.MonitoringInterval != null) {
-    entries["MonitoringInterval"] = input.MonitoringInterval;
+  if (input[_MI] != null) {
+    entries[_MI] = input[_MI];
   }
-  if (input.MonitoringRoleArn != null) {
-    entries["MonitoringRoleArn"] = input.MonitoringRoleArn;
+  if (input[_MRA] != null) {
+    entries[_MRA] = input[_MRA];
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.SourceEngine != null) {
-    entries["SourceEngine"] = input.SourceEngine;
+  if (input[_SEo] != null) {
+    entries[_SEo] = input[_SEo];
   }
-  if (input.SourceEngineVersion != null) {
-    entries["SourceEngineVersion"] = input.SourceEngineVersion;
+  if (input[_SEV] != null) {
+    entries[_SEV] = input[_SEV];
   }
-  if (input.S3BucketName != null) {
-    entries["S3BucketName"] = input.S3BucketName;
+  if (input[_SBN] != null) {
+    entries[_SBN] = input[_SBN];
   }
-  if (input.S3Prefix != null) {
-    entries["S3Prefix"] = input.S3Prefix;
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
   }
-  if (input.S3IngestionRoleArn != null) {
-    entries["S3IngestionRoleArn"] = input.S3IngestionRoleArn;
+  if (input[_SIRA] != null) {
+    entries[_SIRA] = input[_SIRA];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.PerformanceInsightsRetentionPeriod != null) {
-    entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
+  if (input[_PIRP] != null) {
+    entries[_PIRP] = input[_PIRP];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19745,9 +19745,9 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
       entries[loc] = value;
     });
   }
-  if (input.ProcessorFeatures != null) {
-    const memberEntries = se_ProcessorFeatureList(input.ProcessorFeatures, context);
-    if (input.ProcessorFeatures?.length === 0) {
+  if (input[_PF] != null) {
+    const memberEntries = se_ProcessorFeatureList(input[_PF], context);
+    if (input[_PF]?.length === 0) {
       entries.ProcessorFeatures = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19755,29 +19755,29 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
       entries[loc] = value;
     });
   }
-  if (input.UseDefaultProcessorFeatures != null) {
-    entries["UseDefaultProcessorFeatures"] = input.UseDefaultProcessorFeatures;
+  if (input[_UDPF] != null) {
+    entries[_UDPF] = input[_UDPF];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.MaxAllocatedStorage != null) {
-    entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
+  if (input[_MASa] != null) {
+    entries[_MASa] = input[_MASa];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StorageThroughput != null) {
-    entries["StorageThroughput"] = input.StorageThroughput;
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
-  if (input.ManageMasterUserPassword != null) {
-    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  if (input[_MMUP] != null) {
+    entries[_MMUP] = input[_MMUP];
   }
-  if (input.MasterUserSecretKmsKeyId != null) {
-    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  if (input[_MUSKKI] != null) {
+    entries[_MUSKKI] = input[_MUSKKI];
   }
-  if (input.DedicatedLogVolume != null) {
-    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  if (input[_DLV] != null) {
+    entries[_DLV] = input[_DLV];
   }
   return entries;
 };
@@ -19790,60 +19790,60 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceDBInstanceIdentifier != null) {
-    entries["SourceDBInstanceIdentifier"] = input.SourceDBInstanceIdentifier;
+  if (input[_SDBII] != null) {
+    entries[_SDBII] = input[_SDBII];
   }
-  if (input.TargetDBInstanceIdentifier != null) {
-    entries["TargetDBInstanceIdentifier"] = input.TargetDBInstanceIdentifier;
+  if (input[_TDBII] != null) {
+    entries[_TDBII] = input[_TDBII];
   }
-  if (input.RestoreTime != null) {
-    entries["RestoreTime"] = input.RestoreTime.toISOString().split(".")[0] + "Z";
+  if (input[_RTe] != null) {
+    entries[_RTe] = input[_RTe].toISOString().split(".")[0] + "Z";
   }
-  if (input.UseLatestRestorableTime != null) {
-    entries["UseLatestRestorableTime"] = input.UseLatestRestorableTime;
+  if (input[_ULRT] != null) {
+    entries[_ULRT] = input[_ULRT];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZv] != null) {
+    entries[_AZv] = input[_AZv];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGNu] != null) {
+    entries[_DBSGNu] = input[_DBSGNu];
   }
-  if (input.MultiAZ != null) {
-    entries["MultiAZ"] = input.MultiAZ;
+  if (input[_MAZ] != null) {
+    entries[_MAZ] = input[_MAZ];
   }
-  if (input.PubliclyAccessible != null) {
-    entries["PubliclyAccessible"] = input.PubliclyAccessible;
+  if (input[_PA] != null) {
+    entries[_PA] = input[_PA];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.DBName != null) {
-    entries["DBName"] = input.DBName;
+  if (input[_DBN] != null) {
+    entries[_DBN] = input[_DBN];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.Iops != null) {
-    entries["Iops"] = input.Iops;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.OptionGroupName != null) {
-    entries["OptionGroupName"] = input.OptionGroupName;
+  if (input[_OGN] != null) {
+    entries[_OGN] = input[_OGN];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19851,18 +19851,18 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
-  if (input.TdeCredentialArn != null) {
-    entries["TdeCredentialArn"] = input.TdeCredentialArn;
+  if (input[_TCA] != null) {
+    entries[_TCA] = input[_TCA];
   }
-  if (input.TdeCredentialPassword != null) {
-    entries["TdeCredentialPassword"] = input.TdeCredentialPassword;
+  if (input[_TCP] != null) {
+    entries[_TCP] = input[_TCP];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19870,24 +19870,24 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Domain != null) {
-    entries["Domain"] = input.Domain;
+  if (input[_Do] != null) {
+    entries[_Do] = input[_Do];
   }
-  if (input.DomainIAMRoleName != null) {
-    entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
+  if (input[_DIAMRN] != null) {
+    entries[_DIAMRN] = input[_DIAMRN];
   }
-  if (input.DomainFqdn != null) {
-    entries["DomainFqdn"] = input.DomainFqdn;
+  if (input[_DF] != null) {
+    entries[_DF] = input[_DF];
   }
-  if (input.DomainOu != null) {
-    entries["DomainOu"] = input.DomainOu;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
-  if (input.DomainAuthSecretArn != null) {
-    entries["DomainAuthSecretArn"] = input.DomainAuthSecretArn;
+  if (input[_DASA] != null) {
+    entries[_DASA] = input[_DASA];
   }
-  if (input.DomainDnsIps != null) {
-    const memberEntries = se_StringList(input.DomainDnsIps, context);
-    if (input.DomainDnsIps?.length === 0) {
+  if (input[_DDI] != null) {
+    const memberEntries = se_StringList(input[_DDI], context);
+    if (input[_DDI]?.length === 0) {
       entries.DomainDnsIps = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19895,12 +19895,12 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.EnableIAMDatabaseAuthentication != null) {
-    entries["EnableIAMDatabaseAuthentication"] = input.EnableIAMDatabaseAuthentication;
+  if (input[_EIAMDA] != null) {
+    entries[_EIAMDA] = input[_EIAMDA];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19908,9 +19908,9 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ProcessorFeatures != null) {
-    const memberEntries = se_ProcessorFeatureList(input.ProcessorFeatures, context);
-    if (input.ProcessorFeatures?.length === 0) {
+  if (input[_PF] != null) {
+    const memberEntries = se_ProcessorFeatureList(input[_PF], context);
+    if (input[_PF]?.length === 0) {
       entries.ProcessorFeatures = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -19918,44 +19918,44 @@ const se_RestoreDBInstanceToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.UseDefaultProcessorFeatures != null) {
-    entries["UseDefaultProcessorFeatures"] = input.UseDefaultProcessorFeatures;
+  if (input[_UDPF] != null) {
+    entries[_UDPF] = input[_UDPF];
   }
-  if (input.DBParameterGroupName != null) {
-    entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  if (input[_DBPGN] != null) {
+    entries[_DBPGN] = input[_DBPGN];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.SourceDbiResourceId != null) {
-    entries["SourceDbiResourceId"] = input.SourceDbiResourceId;
+  if (input[_SDRI] != null) {
+    entries[_SDRI] = input[_SDRI];
   }
-  if (input.MaxAllocatedStorage != null) {
-    entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
+  if (input[_MASa] != null) {
+    entries[_MASa] = input[_MASa];
   }
-  if (input.SourceDBInstanceAutomatedBackupsArn != null) {
-    entries["SourceDBInstanceAutomatedBackupsArn"] = input.SourceDBInstanceAutomatedBackupsArn;
+  if (input[_SDBIABA] != null) {
+    entries[_SDBIABA] = input[_SDBIABA];
   }
-  if (input.EnableCustomerOwnedIp != null) {
-    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  if (input[_ECOI] != null) {
+    entries[_ECOI] = input[_ECOI];
   }
-  if (input.CustomIamInstanceProfile != null) {
-    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  if (input[_CIIP] != null) {
+    entries[_CIIP] = input[_CIIP];
   }
-  if (input.BackupTarget != null) {
-    entries["BackupTarget"] = input.BackupTarget;
+  if (input[_BTa] != null) {
+    entries[_BTa] = input[_BTa];
   }
-  if (input.NetworkType != null) {
-    entries["NetworkType"] = input.NetworkType;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StorageThroughput != null) {
-    entries["StorageThroughput"] = input.StorageThroughput;
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt];
   }
-  if (input.AllocatedStorage != null) {
-    entries["AllocatedStorage"] = input.AllocatedStorage;
+  if (input[_AS] != null) {
+    entries[_AS] = input[_AS];
   }
-  if (input.DedicatedLogVolume != null) {
-    entries["DedicatedLogVolume"] = input.DedicatedLogVolume;
+  if (input[_DLV] != null) {
+    entries[_DLV] = input[_DLV];
   }
   return entries;
 };
@@ -19968,20 +19968,20 @@ const se_RevokeDBSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBSecurityGroupName != null) {
-    entries["DBSecurityGroupName"] = input.DBSecurityGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.CIDRIP != null) {
-    entries["CIDRIP"] = input.CIDRIP;
+  if (input[_CIDRIP] != null) {
+    entries[_CIDRIP] = input[_CIDRIP];
   }
-  if (input.EC2SecurityGroupName != null) {
-    entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
+  if (input[_ECSGN] != null) {
+    entries[_ECSGN] = input[_ECSGN];
   }
-  if (input.EC2SecurityGroupId != null) {
-    entries["EC2SecurityGroupId"] = input.EC2SecurityGroupId;
+  if (input[_ECSGI] != null) {
+    entries[_ECSGI] = input[_ECSGI];
   }
-  if (input.EC2SecurityGroupOwnerId != null) {
-    entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  if (input[_ECSGOI] != null) {
+    entries[_ECSGOI] = input[_ECSGOI];
   }
   return entries;
 };
@@ -19991,23 +19991,23 @@ const se_RevokeDBSecurityGroupIngressMessage = (
  */
 const se_ScalingConfiguration = (input: ScalingConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MinCapacity != null) {
-    entries["MinCapacity"] = input.MinCapacity;
+  if (input[_MCi] != null) {
+    entries[_MCi] = input[_MCi];
   }
-  if (input.MaxCapacity != null) {
-    entries["MaxCapacity"] = input.MaxCapacity;
+  if (input[_MCa] != null) {
+    entries[_MCa] = input[_MCa];
   }
-  if (input.AutoPause != null) {
-    entries["AutoPause"] = input.AutoPause;
+  if (input[_AP] != null) {
+    entries[_AP] = input[_AP];
   }
-  if (input.SecondsUntilAutoPause != null) {
-    entries["SecondsUntilAutoPause"] = input.SecondsUntilAutoPause;
+  if (input[_SUAP] != null) {
+    entries[_SUAP] = input[_SUAP];
   }
-  if (input.TimeoutAction != null) {
-    entries["TimeoutAction"] = input.TimeoutAction;
+  if (input[_TAi] != null) {
+    entries[_TAi] = input[_TAi];
   }
-  if (input.SecondsBeforeTimeout != null) {
-    entries["SecondsBeforeTimeout"] = input.SecondsBeforeTimeout;
+  if (input[_SBT] != null) {
+    entries[_SBT] = input[_SBT];
   }
   return entries;
 };
@@ -20017,11 +20017,11 @@ const se_ScalingConfiguration = (input: ScalingConfiguration, context: __SerdeCo
  */
 const se_ServerlessV2ScalingConfiguration = (input: ServerlessV2ScalingConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MinCapacity != null) {
-    entries["MinCapacity"] = __serializeFloat(input.MinCapacity);
+  if (input[_MCi] != null) {
+    entries[_MCi] = __serializeFloat(input[_MCi]);
   }
-  if (input.MaxCapacity != null) {
-    entries["MaxCapacity"] = __serializeFloat(input.MaxCapacity);
+  if (input[_MCa] != null) {
+    entries[_MCa] = __serializeFloat(input[_MCa]);
   }
   return entries;
 };
@@ -20047,20 +20047,20 @@ const se_SourceIdsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_StartActivityStreamRequest = (input: StartActivityStreamRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
   }
-  if (input.Mode != null) {
-    entries["Mode"] = input.Mode;
+  if (input[_Mo] != null) {
+    entries[_Mo] = input[_Mo];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.EngineNativeAuditFieldsIncluded != null) {
-    entries["EngineNativeAuditFieldsIncluded"] = input.EngineNativeAuditFieldsIncluded;
+  if (input[_ENAFI] != null) {
+    entries[_ENAFI] = input[_ENAFI];
   }
   return entries;
 };
@@ -20070,8 +20070,8 @@ const se_StartActivityStreamRequest = (input: StartActivityStreamRequest, contex
  */
 const se_StartDBClusterMessage = (input: StartDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
   return entries;
 };
@@ -20084,17 +20084,17 @@ const se_StartDBInstanceAutomatedBackupsReplicationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceDBInstanceArn != null) {
-    entries["SourceDBInstanceArn"] = input.SourceDBInstanceArn;
+  if (input[_SDBIA] != null) {
+    entries[_SDBIA] = input[_SDBIA];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
   return entries;
 };
@@ -20104,8 +20104,8 @@ const se_StartDBInstanceAutomatedBackupsReplicationMessage = (
  */
 const se_StartDBInstanceMessage = (input: StartDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
   return entries;
 };
@@ -20115,27 +20115,27 @@ const se_StartDBInstanceMessage = (input: StartDBInstanceMessage, context: __Ser
  */
 const se_StartExportTaskMessage = (input: StartExportTaskMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExportTaskIdentifier != null) {
-    entries["ExportTaskIdentifier"] = input.ExportTaskIdentifier;
+  if (input[_ETI] != null) {
+    entries[_ETI] = input[_ETI];
   }
-  if (input.SourceArn != null) {
-    entries["SourceArn"] = input.SourceArn;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
-  if (input.S3BucketName != null) {
-    entries["S3BucketName"] = input.S3BucketName;
+  if (input[_SBN] != null) {
+    entries[_SBN] = input[_SBN];
   }
-  if (input.IamRoleArn != null) {
-    entries["IamRoleArn"] = input.IamRoleArn;
+  if (input[_IRA] != null) {
+    entries[_IRA] = input[_IRA];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.S3Prefix != null) {
-    entries["S3Prefix"] = input.S3Prefix;
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
   }
-  if (input.ExportOnly != null) {
-    const memberEntries = se_StringList(input.ExportOnly, context);
-    if (input.ExportOnly?.length === 0) {
+  if (input[_EO] != null) {
+    const memberEntries = se_StringList(input[_EO], context);
+    if (input[_EO]?.length === 0) {
       entries.ExportOnly = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -20151,11 +20151,11 @@ const se_StartExportTaskMessage = (input: StartExportTaskMessage, context: __Ser
  */
 const se_StopActivityStreamRequest = (input: StopActivityStreamRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
   return entries;
 };
@@ -20165,8 +20165,8 @@ const se_StopActivityStreamRequest = (input: StopActivityStreamRequest, context:
  */
 const se_StopDBClusterMessage = (input: StopDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
   return entries;
 };
@@ -20179,8 +20179,8 @@ const se_StopDBInstanceAutomatedBackupsReplicationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceDBInstanceArn != null) {
-    entries["SourceDBInstanceArn"] = input.SourceDBInstanceArn;
+  if (input[_SDBIA] != null) {
+    entries[_SDBIA] = input[_SDBIA];
   }
   return entries;
 };
@@ -20190,11 +20190,11 @@ const se_StopDBInstanceAutomatedBackupsReplicationMessage = (
  */
 const se_StopDBInstanceMessage = (input: StopDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.DBSnapshotIdentifier != null) {
-    entries["DBSnapshotIdentifier"] = input.DBSnapshotIdentifier;
+  if (input[_DBSIn] != null) {
+    entries[_DBSIn] = input[_DBSIn];
   }
   return entries;
 };
@@ -20239,11 +20239,11 @@ const se_SwitchoverBlueGreenDeploymentRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.BlueGreenDeploymentIdentifier != null) {
-    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  if (input[_BGDI] != null) {
+    entries[_BGDI] = input[_BGDI];
   }
-  if (input.SwitchoverTimeout != null) {
-    entries["SwitchoverTimeout"] = input.SwitchoverTimeout;
+  if (input[_STw] != null) {
+    entries[_STw] = input[_STw];
   }
   return entries;
 };
@@ -20253,11 +20253,11 @@ const se_SwitchoverBlueGreenDeploymentRequest = (
  */
 const se_SwitchoverGlobalClusterMessage = (input: SwitchoverGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.TargetDbClusterIdentifier != null) {
-    entries["TargetDbClusterIdentifier"] = input.TargetDbClusterIdentifier;
+  if (input[_TDCI] != null) {
+    entries[_TDCI] = input[_TDCI];
   }
   return entries;
 };
@@ -20267,8 +20267,8 @@ const se_SwitchoverGlobalClusterMessage = (input: SwitchoverGlobalClusterMessage
  */
 const se_SwitchoverReadReplicaMessage = (input: SwitchoverReadReplicaMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
   return entries;
 };
@@ -20278,11 +20278,11 @@ const se_SwitchoverReadReplicaMessage = (input: SwitchoverReadReplicaMessage, co
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -20311,23 +20311,23 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_UserAuthConfig = (input: UserAuthConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.UserName != null) {
-    entries["UserName"] = input.UserName;
+  if (input[_UN] != null) {
+    entries[_UN] = input[_UN];
   }
-  if (input.AuthScheme != null) {
-    entries["AuthScheme"] = input.AuthScheme;
+  if (input[_ASu] != null) {
+    entries[_ASu] = input[_ASu];
   }
-  if (input.SecretArn != null) {
-    entries["SecretArn"] = input.SecretArn;
+  if (input[_SAe] != null) {
+    entries[_SAe] = input[_SAe];
   }
-  if (input.IAMAuth != null) {
-    entries["IAMAuth"] = input.IAMAuth;
+  if (input[_IAMA] != null) {
+    entries[_IAMA] = input[_IAMA];
   }
-  if (input.ClientPasswordAuthType != null) {
-    entries["ClientPasswordAuthType"] = input.ClientPasswordAuthType;
+  if (input[_CPAT] != null) {
+    entries[_CPAT] = input[_CPAT];
   }
   return entries;
 };
@@ -20373,12 +20373,9 @@ const se_VpcSecurityGroupIdList = (input: string[], context: __SerdeContext): an
 const de_AccountAttributesMessage = (output: any, context: __SerdeContext): AccountAttributesMessage => {
   const contents: any = {};
   if (output.AccountQuotas === "") {
-    contents.AccountQuotas = [];
-  } else if (output["AccountQuotas"] !== undefined && output["AccountQuotas"]["AccountQuota"] !== undefined) {
-    contents.AccountQuotas = de_AccountQuotaList(
-      __getArrayIfSingleItem(output["AccountQuotas"]["AccountQuota"]),
-      context
-    );
+    contents[_AQ] = [];
+  } else if (output[_AQ] != null && output[_AQ][_AQc] != null) {
+    contents[_AQ] = de_AccountQuotaList(__getArrayIfSingleItem(output[_AQ][_AQc]), context);
   }
   return contents;
 };
@@ -20388,14 +20385,14 @@ const de_AccountAttributesMessage = (output: any, context: __SerdeContext): Acco
  */
 const de_AccountQuota = (output: any, context: __SerdeContext): AccountQuota => {
   const contents: any = {};
-  if (output["AccountQuotaName"] !== undefined) {
-    contents.AccountQuotaName = __expectString(output["AccountQuotaName"]);
+  if (output[_AQN] != null) {
+    contents[_AQN] = __expectString(output[_AQN]);
   }
-  if (output["Used"] !== undefined) {
-    contents.Used = __strictParseLong(output["Used"]) as number;
+  if (output[_U] != null) {
+    contents[_U] = __strictParseLong(output[_U]) as number;
   }
-  if (output["Max"] !== undefined) {
-    contents.Max = __strictParseLong(output["Max"]) as number;
+  if (output[_Max] != null) {
+    contents[_Max] = __strictParseLong(output[_Max]) as number;
   }
   return contents;
 };
@@ -20430,8 +20427,8 @@ const de_AddSourceIdentifierToSubscriptionResult = (
   context: __SerdeContext
 ): AddSourceIdentifierToSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -20444,11 +20441,8 @@ const de_ApplyPendingMaintenanceActionResult = (
   context: __SerdeContext
 ): ApplyPendingMaintenanceActionResult => {
   const contents: any = {};
-  if (output["ResourcePendingMaintenanceActions"] !== undefined) {
-    contents.ResourcePendingMaintenanceActions = de_ResourcePendingMaintenanceActions(
-      output["ResourcePendingMaintenanceActions"],
-      context
-    );
+  if (output[_RPMA] != null) {
+    contents[_RPMA] = de_ResourcePendingMaintenanceActions(output[_RPMA], context);
   }
   return contents;
 };
@@ -20469,8 +20463,8 @@ const de_AttributeValueList = (output: any, context: __SerdeContext): string[] =
  */
 const de_AuthorizationAlreadyExistsFault = (output: any, context: __SerdeContext): AuthorizationAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20480,8 +20474,8 @@ const de_AuthorizationAlreadyExistsFault = (output: any, context: __SerdeContext
  */
 const de_AuthorizationNotFoundFault = (output: any, context: __SerdeContext): AuthorizationNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20491,8 +20485,8 @@ const de_AuthorizationNotFoundFault = (output: any, context: __SerdeContext): Au
  */
 const de_AuthorizationQuotaExceededFault = (output: any, context: __SerdeContext): AuthorizationQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20505,8 +20499,8 @@ const de_AuthorizeDBSecurityGroupIngressResult = (
   context: __SerdeContext
 ): AuthorizeDBSecurityGroupIngressResult => {
   const contents: any = {};
-  if (output["DBSecurityGroup"] !== undefined) {
-    contents.DBSecurityGroup = de_DBSecurityGroup(output["DBSecurityGroup"], context);
+  if (output[_DBSGe] != null) {
+    contents[_DBSGe] = de_DBSecurityGroup(output[_DBSGe], context);
   }
   return contents;
 };
@@ -20516,8 +20510,8 @@ const de_AuthorizeDBSecurityGroupIngressResult = (
  */
 const de_AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   return contents;
 };
@@ -20549,14 +20543,14 @@ const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] =>
  */
 const de_AvailableProcessorFeature = (output: any, context: __SerdeContext): AvailableProcessorFeature => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
   return contents;
 };
@@ -20577,8 +20571,8 @@ const de_AvailableProcessorFeatureList = (output: any, context: __SerdeContext):
  */
 const de_BackupPolicyNotFoundFault = (output: any, context: __SerdeContext): BackupPolicyNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20588,47 +20582,44 @@ const de_BackupPolicyNotFoundFault = (output: any, context: __SerdeContext): Bac
  */
 const de_BlueGreenDeployment = (output: any, context: __SerdeContext): BlueGreenDeployment => {
   const contents: any = {};
-  if (output["BlueGreenDeploymentIdentifier"] !== undefined) {
-    contents.BlueGreenDeploymentIdentifier = __expectString(output["BlueGreenDeploymentIdentifier"]);
+  if (output[_BGDI] != null) {
+    contents[_BGDI] = __expectString(output[_BGDI]);
   }
-  if (output["BlueGreenDeploymentName"] !== undefined) {
-    contents.BlueGreenDeploymentName = __expectString(output["BlueGreenDeploymentName"]);
+  if (output[_BGDN] != null) {
+    contents[_BGDN] = __expectString(output[_BGDN]);
   }
-  if (output["Source"] !== undefined) {
-    contents.Source = __expectString(output["Source"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Target"] !== undefined) {
-    contents.Target = __expectString(output["Target"]);
+  if (output[_Ta] != null) {
+    contents[_Ta] = __expectString(output[_Ta]);
   }
   if (output.SwitchoverDetails === "") {
-    contents.SwitchoverDetails = [];
-  } else if (output["SwitchoverDetails"] !== undefined && output["SwitchoverDetails"]["member"] !== undefined) {
-    contents.SwitchoverDetails = de_SwitchoverDetailList(
-      __getArrayIfSingleItem(output["SwitchoverDetails"]["member"]),
-      context
-    );
+    contents[_SD] = [];
+  } else if (output[_SD] != null && output[_SD][_me] != null) {
+    contents[_SD] = de_SwitchoverDetailList(__getArrayIfSingleItem(output[_SD][_me]), context);
   }
   if (output.Tasks === "") {
-    contents.Tasks = [];
-  } else if (output["Tasks"] !== undefined && output["Tasks"]["member"] !== undefined) {
-    contents.Tasks = de_BlueGreenDeploymentTaskList(__getArrayIfSingleItem(output["Tasks"]["member"]), context);
+    contents[_Tas] = [];
+  } else if (output[_Tas] != null && output[_Tas][_me] != null) {
+    contents[_Tas] = de_BlueGreenDeploymentTaskList(__getArrayIfSingleItem(output[_Tas][_me]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["StatusDetails"] !== undefined) {
-    contents.StatusDetails = __expectString(output["StatusDetails"]);
+  if (output[_SDt] != null) {
+    contents[_SDt] = __expectString(output[_SDt]);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["DeleteTime"] !== undefined) {
-    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeleteTime"]));
+  if (output[_DTe] != null) {
+    contents[_DTe] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DTe]));
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   return contents;
 };
@@ -20641,8 +20632,8 @@ const de_BlueGreenDeploymentAlreadyExistsFault = (
   context: __SerdeContext
 ): BlueGreenDeploymentAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20666,8 +20657,8 @@ const de_BlueGreenDeploymentNotFoundFault = (
   context: __SerdeContext
 ): BlueGreenDeploymentNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20677,11 +20668,11 @@ const de_BlueGreenDeploymentNotFoundFault = (
  */
 const de_BlueGreenDeploymentTask = (output: any, context: __SerdeContext): BlueGreenDeploymentTask => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -20713,31 +20704,29 @@ const de_CACertificateIdentifiersList = (output: any, context: __SerdeContext): 
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {};
-  if (output["CertificateIdentifier"] !== undefined) {
-    contents.CertificateIdentifier = __expectString(output["CertificateIdentifier"]);
+  if (output[_CIe] != null) {
+    contents[_CIe] = __expectString(output[_CIe]);
   }
-  if (output["CertificateType"] !== undefined) {
-    contents.CertificateType = __expectString(output["CertificateType"]);
+  if (output[_CTe] != null) {
+    contents[_CTe] = __expectString(output[_CTe]);
   }
-  if (output["Thumbprint"] !== undefined) {
-    contents.Thumbprint = __expectString(output["Thumbprint"]);
+  if (output[_Th] != null) {
+    contents[_Th] = __expectString(output[_Th]);
   }
-  if (output["ValidFrom"] !== undefined) {
-    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidFrom"]));
+  if (output[_VF] != null) {
+    contents[_VF] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VF]));
   }
-  if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
+  if (output[_VT] != null) {
+    contents[_VT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VT]));
   }
-  if (output["CertificateArn"] !== undefined) {
-    contents.CertificateArn = __expectString(output["CertificateArn"]);
+  if (output[_CA] != null) {
+    contents[_CA] = __expectString(output[_CA]);
   }
-  if (output["CustomerOverride"] !== undefined) {
-    contents.CustomerOverride = __parseBoolean(output["CustomerOverride"]);
+  if (output[_CO] != null) {
+    contents[_CO] = __parseBoolean(output[_CO]);
   }
-  if (output["CustomerOverrideValidTill"] !== undefined) {
-    contents.CustomerOverrideValidTill = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["CustomerOverrideValidTill"])
-    );
+  if (output[_COVT] != null) {
+    contents[_COVT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_COVT]));
   }
   return contents;
 };
@@ -20747,11 +20736,11 @@ const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
  */
 const de_CertificateDetails = (output: any, context: __SerdeContext): CertificateDetails => {
   const contents: any = {};
-  if (output["CAIdentifier"] !== undefined) {
-    contents.CAIdentifier = __expectString(output["CAIdentifier"]);
+  if (output[_CAI] != null) {
+    contents[_CAI] = __expectString(output[_CAI]);
   }
-  if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
+  if (output[_VT] != null) {
+    contents[_VT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VT]));
   }
   return contents;
 };
@@ -20772,16 +20761,16 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
  */
 const de_CertificateMessage = (output: any, context: __SerdeContext): CertificateMessage => {
   const contents: any = {};
-  if (output["DefaultCertificateForNewLaunches"] !== undefined) {
-    contents.DefaultCertificateForNewLaunches = __expectString(output["DefaultCertificateForNewLaunches"]);
+  if (output[_DCFNL] != null) {
+    contents[_DCFNL] = __expectString(output[_DCFNL]);
   }
   if (output.Certificates === "") {
-    contents.Certificates = [];
-  } else if (output["Certificates"] !== undefined && output["Certificates"]["Certificate"] !== undefined) {
-    contents.Certificates = de_CertificateList(__getArrayIfSingleItem(output["Certificates"]["Certificate"]), context);
+    contents[_Ce] = [];
+  } else if (output[_Ce] != null && output[_Ce][_Cer] != null) {
+    contents[_Ce] = de_CertificateList(__getArrayIfSingleItem(output[_Ce][_Cer]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -20791,8 +20780,8 @@ const de_CertificateMessage = (output: any, context: __SerdeContext): Certificat
  */
 const de_CertificateNotFoundFault = (output: any, context: __SerdeContext): CertificateNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20802,11 +20791,11 @@ const de_CertificateNotFoundFault = (output: any, context: __SerdeContext): Cert
  */
 const de_CharacterSet = (output: any, context: __SerdeContext): CharacterSet => {
   const contents: any = {};
-  if (output["CharacterSetName"] !== undefined) {
-    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["CharacterSetDescription"] !== undefined) {
-    contents.CharacterSetDescription = __expectString(output["CharacterSetDescription"]);
+  if (output[_CSD] != null) {
+    contents[_CSD] = __expectString(output[_CSD]);
   }
   return contents;
 };
@@ -20816,41 +20805,35 @@ const de_CharacterSet = (output: any, context: __SerdeContext): CharacterSet => 
  */
 const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): ClusterPendingModifiedValues => {
   const contents: any = {};
-  if (output["PendingCloudwatchLogsExports"] !== undefined) {
-    contents.PendingCloudwatchLogsExports = de_PendingCloudwatchLogsExports(
-      output["PendingCloudwatchLogsExports"],
-      context
-    );
+  if (output[_PCLE] != null) {
+    contents[_PCLE] = de_PendingCloudwatchLogsExports(output[_PCLE], context);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["MasterUserPassword"] !== undefined) {
-    contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
+  if (output[_MUP] != null) {
+    contents[_MUP] = __expectString(output[_MUP]);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["RdsCustomClusterConfiguration"] !== undefined) {
-    contents.RdsCustomClusterConfiguration = de_RdsCustomClusterConfiguration(
-      output["RdsCustomClusterConfiguration"],
-      context
-    );
+  if (output[_RCCC] != null) {
+    contents[_RCCC] = de_RdsCustomClusterConfiguration(output[_RCCC], context);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
   return contents;
 };
@@ -20860,25 +20843,22 @@ const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): 
  */
 const de_ConnectionPoolConfigurationInfo = (output: any, context: __SerdeContext): ConnectionPoolConfigurationInfo => {
   const contents: any = {};
-  if (output["MaxConnectionsPercent"] !== undefined) {
-    contents.MaxConnectionsPercent = __strictParseInt32(output["MaxConnectionsPercent"]) as number;
+  if (output[_MCP] != null) {
+    contents[_MCP] = __strictParseInt32(output[_MCP]) as number;
   }
-  if (output["MaxIdleConnectionsPercent"] !== undefined) {
-    contents.MaxIdleConnectionsPercent = __strictParseInt32(output["MaxIdleConnectionsPercent"]) as number;
+  if (output[_MICP] != null) {
+    contents[_MICP] = __strictParseInt32(output[_MICP]) as number;
   }
-  if (output["ConnectionBorrowTimeout"] !== undefined) {
-    contents.ConnectionBorrowTimeout = __strictParseInt32(output["ConnectionBorrowTimeout"]) as number;
+  if (output[_CBT] != null) {
+    contents[_CBT] = __strictParseInt32(output[_CBT]) as number;
   }
   if (output.SessionPinningFilters === "") {
-    contents.SessionPinningFilters = [];
-  } else if (output["SessionPinningFilters"] !== undefined && output["SessionPinningFilters"]["member"] !== undefined) {
-    contents.SessionPinningFilters = de_StringList(
-      __getArrayIfSingleItem(output["SessionPinningFilters"]["member"]),
-      context
-    );
+    contents[_SPF] = [];
+  } else if (output[_SPF] != null && output[_SPF][_me] != null) {
+    contents[_SPF] = de_StringList(__getArrayIfSingleItem(output[_SPF][_me]), context);
   }
-  if (output["InitQuery"] !== undefined) {
-    contents.InitQuery = __expectString(output["InitQuery"]);
+  if (output[_IQ] != null) {
+    contents[_IQ] = __expectString(output[_IQ]);
   }
   return contents;
 };
@@ -20891,8 +20871,8 @@ const de_CopyDBClusterParameterGroupResult = (
   context: __SerdeContext
 ): CopyDBClusterParameterGroupResult => {
   const contents: any = {};
-  if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = de_DBClusterParameterGroup(output["DBClusterParameterGroup"], context);
+  if (output[_DBCPG] != null) {
+    contents[_DBCPG] = de_DBClusterParameterGroup(output[_DBCPG], context);
   }
   return contents;
 };
@@ -20902,8 +20882,8 @@ const de_CopyDBClusterParameterGroupResult = (
  */
 const de_CopyDBClusterSnapshotResult = (output: any, context: __SerdeContext): CopyDBClusterSnapshotResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshot"] !== undefined) {
-    contents.DBClusterSnapshot = de_DBClusterSnapshot(output["DBClusterSnapshot"], context);
+  if (output[_DBCS] != null) {
+    contents[_DBCS] = de_DBClusterSnapshot(output[_DBCS], context);
   }
   return contents;
 };
@@ -20913,8 +20893,8 @@ const de_CopyDBClusterSnapshotResult = (output: any, context: __SerdeContext): C
  */
 const de_CopyDBParameterGroupResult = (output: any, context: __SerdeContext): CopyDBParameterGroupResult => {
   const contents: any = {};
-  if (output["DBParameterGroup"] !== undefined) {
-    contents.DBParameterGroup = de_DBParameterGroup(output["DBParameterGroup"], context);
+  if (output[_DBPG] != null) {
+    contents[_DBPG] = de_DBParameterGroup(output[_DBPG], context);
   }
   return contents;
 };
@@ -20924,8 +20904,8 @@ const de_CopyDBParameterGroupResult = (output: any, context: __SerdeContext): Co
  */
 const de_CopyDBSnapshotResult = (output: any, context: __SerdeContext): CopyDBSnapshotResult => {
   const contents: any = {};
-  if (output["DBSnapshot"] !== undefined) {
-    contents.DBSnapshot = de_DBSnapshot(output["DBSnapshot"], context);
+  if (output[_DBS] != null) {
+    contents[_DBS] = de_DBSnapshot(output[_DBS], context);
   }
   return contents;
 };
@@ -20935,8 +20915,8 @@ const de_CopyDBSnapshotResult = (output: any, context: __SerdeContext): CopyDBSn
  */
 const de_CopyOptionGroupResult = (output: any, context: __SerdeContext): CopyOptionGroupResult => {
   const contents: any = {};
-  if (output["OptionGroup"] !== undefined) {
-    contents.OptionGroup = de_OptionGroup(output["OptionGroup"], context);
+  if (output[_OG] != null) {
+    contents[_OG] = de_OptionGroup(output[_OG], context);
   }
   return contents;
 };
@@ -20949,8 +20929,8 @@ const de_CreateBlueGreenDeploymentResponse = (
   context: __SerdeContext
 ): CreateBlueGreenDeploymentResponse => {
   const contents: any = {};
-  if (output["BlueGreenDeployment"] !== undefined) {
-    contents.BlueGreenDeployment = de_BlueGreenDeployment(output["BlueGreenDeployment"], context);
+  if (output[_BGD] != null) {
+    contents[_BGD] = de_BlueGreenDeployment(output[_BGD], context);
   }
   return contents;
 };
@@ -20963,8 +20943,8 @@ const de_CreateCustomDBEngineVersionFault = (
   context: __SerdeContext
 ): CreateCustomDBEngineVersionFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -20977,8 +20957,8 @@ const de_CreateDBClusterParameterGroupResult = (
   context: __SerdeContext
 ): CreateDBClusterParameterGroupResult => {
   const contents: any = {};
-  if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = de_DBClusterParameterGroup(output["DBClusterParameterGroup"], context);
+  if (output[_DBCPG] != null) {
+    contents[_DBCPG] = de_DBClusterParameterGroup(output[_DBCPG], context);
   }
   return contents;
 };
@@ -20988,8 +20968,8 @@ const de_CreateDBClusterParameterGroupResult = (
  */
 const de_CreateDBClusterResult = (output: any, context: __SerdeContext): CreateDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -20999,8 +20979,8 @@ const de_CreateDBClusterResult = (output: any, context: __SerdeContext): CreateD
  */
 const de_CreateDBClusterSnapshotResult = (output: any, context: __SerdeContext): CreateDBClusterSnapshotResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshot"] !== undefined) {
-    contents.DBClusterSnapshot = de_DBClusterSnapshot(output["DBClusterSnapshot"], context);
+  if (output[_DBCS] != null) {
+    contents[_DBCS] = de_DBClusterSnapshot(output[_DBCS], context);
   }
   return contents;
 };
@@ -21013,8 +20993,8 @@ const de_CreateDBInstanceReadReplicaResult = (
   context: __SerdeContext
 ): CreateDBInstanceReadReplicaResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -21024,8 +21004,8 @@ const de_CreateDBInstanceReadReplicaResult = (
  */
 const de_CreateDBInstanceResult = (output: any, context: __SerdeContext): CreateDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -21035,8 +21015,8 @@ const de_CreateDBInstanceResult = (output: any, context: __SerdeContext): Create
  */
 const de_CreateDBParameterGroupResult = (output: any, context: __SerdeContext): CreateDBParameterGroupResult => {
   const contents: any = {};
-  if (output["DBParameterGroup"] !== undefined) {
-    contents.DBParameterGroup = de_DBParameterGroup(output["DBParameterGroup"], context);
+  if (output[_DBPG] != null) {
+    contents[_DBPG] = de_DBParameterGroup(output[_DBPG], context);
   }
   return contents;
 };
@@ -21046,8 +21026,8 @@ const de_CreateDBParameterGroupResult = (output: any, context: __SerdeContext): 
  */
 const de_CreateDBProxyEndpointResponse = (output: any, context: __SerdeContext): CreateDBProxyEndpointResponse => {
   const contents: any = {};
-  if (output["DBProxyEndpoint"] !== undefined) {
-    contents.DBProxyEndpoint = de_DBProxyEndpoint(output["DBProxyEndpoint"], context);
+  if (output[_DBPE] != null) {
+    contents[_DBPE] = de_DBProxyEndpoint(output[_DBPE], context);
   }
   return contents;
 };
@@ -21057,8 +21037,8 @@ const de_CreateDBProxyEndpointResponse = (output: any, context: __SerdeContext):
  */
 const de_CreateDBProxyResponse = (output: any, context: __SerdeContext): CreateDBProxyResponse => {
   const contents: any = {};
-  if (output["DBProxy"] !== undefined) {
-    contents.DBProxy = de_DBProxy(output["DBProxy"], context);
+  if (output[_DBP] != null) {
+    contents[_DBP] = de_DBProxy(output[_DBP], context);
   }
   return contents;
 };
@@ -21068,8 +21048,8 @@ const de_CreateDBProxyResponse = (output: any, context: __SerdeContext): CreateD
  */
 const de_CreateDBSecurityGroupResult = (output: any, context: __SerdeContext): CreateDBSecurityGroupResult => {
   const contents: any = {};
-  if (output["DBSecurityGroup"] !== undefined) {
-    contents.DBSecurityGroup = de_DBSecurityGroup(output["DBSecurityGroup"], context);
+  if (output[_DBSGe] != null) {
+    contents[_DBSGe] = de_DBSecurityGroup(output[_DBSGe], context);
   }
   return contents;
 };
@@ -21079,8 +21059,8 @@ const de_CreateDBSecurityGroupResult = (output: any, context: __SerdeContext): C
  */
 const de_CreateDBSnapshotResult = (output: any, context: __SerdeContext): CreateDBSnapshotResult => {
   const contents: any = {};
-  if (output["DBSnapshot"] !== undefined) {
-    contents.DBSnapshot = de_DBSnapshot(output["DBSnapshot"], context);
+  if (output[_DBS] != null) {
+    contents[_DBS] = de_DBSnapshot(output[_DBS], context);
   }
   return contents;
 };
@@ -21090,8 +21070,8 @@ const de_CreateDBSnapshotResult = (output: any, context: __SerdeContext): Create
  */
 const de_CreateDBSubnetGroupResult = (output: any, context: __SerdeContext): CreateDBSubnetGroupResult => {
   const contents: any = {};
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = de_DBSubnetGroup(output["DBSubnetGroup"], context);
+  if (output[_DBSGu] != null) {
+    contents[_DBSGu] = de_DBSubnetGroup(output[_DBSGu], context);
   }
   return contents;
 };
@@ -21101,8 +21081,8 @@ const de_CreateDBSubnetGroupResult = (output: any, context: __SerdeContext): Cre
  */
 const de_CreateEventSubscriptionResult = (output: any, context: __SerdeContext): CreateEventSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -21112,8 +21092,8 @@ const de_CreateEventSubscriptionResult = (output: any, context: __SerdeContext):
  */
 const de_CreateGlobalClusterResult = (output: any, context: __SerdeContext): CreateGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -21123,8 +21103,8 @@ const de_CreateGlobalClusterResult = (output: any, context: __SerdeContext): Cre
  */
 const de_CreateOptionGroupResult = (output: any, context: __SerdeContext): CreateOptionGroupResult => {
   const contents: any = {};
-  if (output["OptionGroup"] !== undefined) {
-    contents.OptionGroup = de_OptionGroup(output["OptionGroup"], context);
+  if (output[_OG] != null) {
+    contents[_OG] = de_OptionGroup(output[_OG], context);
   }
   return contents;
 };
@@ -21134,8 +21114,8 @@ const de_CreateOptionGroupResult = (output: any, context: __SerdeContext): Creat
  */
 const de_CreateTenantDatabaseResult = (output: any, context: __SerdeContext): CreateTenantDatabaseResult => {
   const contents: any = {};
-  if (output["TenantDatabase"] !== undefined) {
-    contents.TenantDatabase = de_TenantDatabase(output["TenantDatabase"], context);
+  if (output[_TD] != null) {
+    contents[_TD] = de_TenantDatabase(output[_TD], context);
   }
   return contents;
 };
@@ -21148,8 +21128,8 @@ const de_CustomAvailabilityZoneNotFoundFault = (
   context: __SerdeContext
 ): CustomAvailabilityZoneNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21162,8 +21142,8 @@ const de_CustomDBEngineVersionAlreadyExistsFault = (
   context: __SerdeContext
 ): CustomDBEngineVersionAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21173,11 +21153,11 @@ const de_CustomDBEngineVersionAlreadyExistsFault = (
  */
 const de_CustomDBEngineVersionAMI = (output: any, context: __SerdeContext): CustomDBEngineVersionAMI => {
   const contents: any = {};
-  if (output["ImageId"] !== undefined) {
-    contents.ImageId = __expectString(output["ImageId"]);
+  if (output[_II] != null) {
+    contents[_II] = __expectString(output[_II]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -21190,8 +21170,8 @@ const de_CustomDBEngineVersionNotFoundFault = (
   context: __SerdeContext
 ): CustomDBEngineVersionNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21204,8 +21184,8 @@ const de_CustomDBEngineVersionQuotaExceededFault = (
   context: __SerdeContext
 ): CustomDBEngineVersionQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21215,312 +21195,255 @@ const de_CustomDBEngineVersionQuotaExceededFault = (
  */
 const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   const contents: any = {};
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["CharacterSetName"] !== undefined) {
-    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["DatabaseName"] !== undefined) {
-    contents.DatabaseName = __expectString(output["DatabaseName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = __expectString(output["DBClusterParameterGroup"]);
+  if (output[_DBCPG] != null) {
+    contents[_DBCPG] = __expectString(output[_DBCPG]);
   }
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = __expectString(output["DBSubnetGroup"]);
+  if (output[_DBSGu] != null) {
+    contents[_DBSGu] = __expectString(output[_DBSGu]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["AutomaticRestartTime"] !== undefined) {
-    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutomaticRestartTime"]));
+  if (output[_ART] != null) {
+    contents[_ART] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ART]));
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __expectString(output["PercentProgress"]);
+  if (output[_PP] != null) {
+    contents[_PP] = __expectString(output[_PP]);
   }
-  if (output["EarliestRestorableTime"] !== undefined) {
-    contents.EarliestRestorableTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["EarliestRestorableTime"])
-    );
+  if (output[_ERT] != null) {
+    contents[_ERT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ERT]));
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = __expectString(output["ReaderEndpoint"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __expectString(output[_RE]);
   }
   if (output.CustomEndpoints === "") {
-    contents.CustomEndpoints = [];
-  } else if (output["CustomEndpoints"] !== undefined && output["CustomEndpoints"]["member"] !== undefined) {
-    contents.CustomEndpoints = de_StringList(__getArrayIfSingleItem(output["CustomEndpoints"]["member"]), context);
+    contents[_CE] = [];
+  } else if (output[_CE] != null && output[_CE][_me] != null) {
+    contents[_CE] = de_StringList(__getArrayIfSingleItem(output[_CE][_me]), context);
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestRestorableTime"]));
+  if (output[_LRT] != null) {
+    contents[_LRT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LRT]));
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
   if (output.DBClusterOptionGroupMemberships === "") {
-    contents.DBClusterOptionGroupMemberships = [];
-  } else if (
-    output["DBClusterOptionGroupMemberships"] !== undefined &&
-    output["DBClusterOptionGroupMemberships"]["DBClusterOptionGroup"] !== undefined
-  ) {
-    contents.DBClusterOptionGroupMemberships = de_DBClusterOptionGroupMemberships(
-      __getArrayIfSingleItem(output["DBClusterOptionGroupMemberships"]["DBClusterOptionGroup"]),
-      context
-    );
+    contents[_DBCOGM] = [];
+  } else if (output[_DBCOGM] != null && output[_DBCOGM][_DBCOG] != null) {
+    contents[_DBCOGM] = de_DBClusterOptionGroupMemberships(__getArrayIfSingleItem(output[_DBCOGM][_DBCOG]), context);
   }
-  if (output["PreferredBackupWindow"] !== undefined) {
-    contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
+  if (output[_PBW] != null) {
+    contents[_PBW] = __expectString(output[_PBW]);
   }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  if (output[_PMW] != null) {
+    contents[_PMW] = __expectString(output[_PMW]);
   }
-  if (output["ReplicationSourceIdentifier"] !== undefined) {
-    contents.ReplicationSourceIdentifier = __expectString(output["ReplicationSourceIdentifier"]);
+  if (output[_RSI] != null) {
+    contents[_RSI] = __expectString(output[_RSI]);
   }
   if (output.ReadReplicaIdentifiers === "") {
-    contents.ReadReplicaIdentifiers = [];
-  } else if (
-    output["ReadReplicaIdentifiers"] !== undefined &&
-    output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"] !== undefined
-  ) {
-    contents.ReadReplicaIdentifiers = de_ReadReplicaIdentifierList(
-      __getArrayIfSingleItem(output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"]),
-      context
-    );
+    contents[_RRI] = [];
+  } else if (output[_RRI] != null && output[_RRI][_RRIe] != null) {
+    contents[_RRI] = de_ReadReplicaIdentifierList(__getArrayIfSingleItem(output[_RRI][_RRIe]), context);
   }
   if (output.StatusInfos === "") {
-    contents.StatusInfos = [];
-  } else if (output["StatusInfos"] !== undefined && output["StatusInfos"]["DBClusterStatusInfo"] !== undefined) {
-    contents.StatusInfos = de_DBClusterStatusInfoList(
-      __getArrayIfSingleItem(output["StatusInfos"]["DBClusterStatusInfo"]),
-      context
-    );
+    contents[_SIt] = [];
+  } else if (output[_SIt] != null && output[_SIt][_DBCSIl] != null) {
+    contents[_SIt] = de_DBClusterStatusInfoList(__getArrayIfSingleItem(output[_SIt][_DBCSIl]), context);
   }
   if (output.DBClusterMembers === "") {
-    contents.DBClusterMembers = [];
-  } else if (output["DBClusterMembers"] !== undefined && output["DBClusterMembers"]["DBClusterMember"] !== undefined) {
-    contents.DBClusterMembers = de_DBClusterMemberList(
-      __getArrayIfSingleItem(output["DBClusterMembers"]["DBClusterMember"]),
-      context
-    );
+    contents[_DBCM] = [];
+  } else if (output[_DBCM] != null && output[_DBCM][_DBCMl] != null) {
+    contents[_DBCM] = de_DBClusterMemberList(__getArrayIfSingleItem(output[_DBCM][_DBCMl]), context);
   }
   if (output.VpcSecurityGroups === "") {
-    contents.VpcSecurityGroups = [];
-  } else if (
-    output["VpcSecurityGroups"] !== undefined &&
-    output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
-  ) {
-    contents.VpcSecurityGroups = de_VpcSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]),
-      context
-    );
+    contents[_VSG] = [];
+  } else if (output[_VSG] != null && output[_VSG][_VSGMp] != null) {
+    contents[_VSG] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSG][_VSGMp]), context);
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DbClusterResourceId"] !== undefined) {
-    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
+  if (output[_DCRI] != null) {
+    contents[_DCRI] = __expectString(output[_DCRI]);
   }
-  if (output["DBClusterArn"] !== undefined) {
-    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  if (output[_DBCA] != null) {
+    contents[_DBCA] = __expectString(output[_DBCA]);
   }
   if (output.AssociatedRoles === "") {
-    contents.AssociatedRoles = [];
-  } else if (output["AssociatedRoles"] !== undefined && output["AssociatedRoles"]["DBClusterRole"] !== undefined) {
-    contents.AssociatedRoles = de_DBClusterRoles(
-      __getArrayIfSingleItem(output["AssociatedRoles"]["DBClusterRole"]),
-      context
-    );
+    contents[_AR] = [];
+  } else if (output[_AR] != null && output[_AR][_DBCR] != null) {
+    contents[_AR] = de_DBClusterRoles(__getArrayIfSingleItem(output[_AR][_DBCR]), context);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
-  if (output["CloneGroupId"] !== undefined) {
-    contents.CloneGroupId = __expectString(output["CloneGroupId"]);
+  if (output[_CGI] != null) {
+    contents[_CGI] = __expectString(output[_CGI]);
   }
-  if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
+  if (output[_CCT] != null) {
+    contents[_CCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCT]));
   }
-  if (output["EarliestBacktrackTime"] !== undefined) {
-    contents.EarliestBacktrackTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EarliestBacktrackTime"]));
+  if (output[_EBT] != null) {
+    contents[_EBT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_EBT]));
   }
-  if (output["BacktrackWindow"] !== undefined) {
-    contents.BacktrackWindow = __strictParseLong(output["BacktrackWindow"]) as number;
+  if (output[_BW] != null) {
+    contents[_BW] = __strictParseLong(output[_BW]) as number;
   }
-  if (output["BacktrackConsumedChangeRecords"] !== undefined) {
-    contents.BacktrackConsumedChangeRecords = __strictParseLong(output["BacktrackConsumedChangeRecords"]) as number;
+  if (output[_BCCR] != null) {
+    contents[_BCCR] = __strictParseLong(output[_BCCR]) as number;
   }
   if (output.EnabledCloudwatchLogsExports === "") {
-    contents.EnabledCloudwatchLogsExports = [];
-  } else if (
-    output["EnabledCloudwatchLogsExports"] !== undefined &&
-    output["EnabledCloudwatchLogsExports"]["member"] !== undefined
-  ) {
-    contents.EnabledCloudwatchLogsExports = de_LogTypeList(
-      __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
-      context
-    );
+    contents[_ECLEn] = [];
+  } else if (output[_ECLEn] != null && output[_ECLEn][_me] != null) {
+    contents[_ECLEn] = de_LogTypeList(__getArrayIfSingleItem(output[_ECLEn][_me]), context);
   }
-  if (output["Capacity"] !== undefined) {
-    contents.Capacity = __strictParseInt32(output["Capacity"]) as number;
+  if (output[_C] != null) {
+    contents[_C] = __strictParseInt32(output[_C]) as number;
   }
-  if (output["EngineMode"] !== undefined) {
-    contents.EngineMode = __expectString(output["EngineMode"]);
+  if (output[_EMn] != null) {
+    contents[_EMn] = __expectString(output[_EMn]);
   }
-  if (output["ScalingConfigurationInfo"] !== undefined) {
-    contents.ScalingConfigurationInfo = de_ScalingConfigurationInfo(output["ScalingConfigurationInfo"], context);
+  if (output[_SCI] != null) {
+    contents[_SCI] = de_ScalingConfigurationInfo(output[_SCI], context);
   }
-  if (output["RdsCustomClusterConfiguration"] !== undefined) {
-    contents.RdsCustomClusterConfiguration = de_RdsCustomClusterConfiguration(
-      output["RdsCustomClusterConfiguration"],
-      context
-    );
+  if (output[_RCCC] != null) {
+    contents[_RCCC] = de_RdsCustomClusterConfiguration(output[_RCCC], context);
   }
-  if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __parseBoolean(output[_DP]);
   }
-  if (output["HttpEndpointEnabled"] !== undefined) {
-    contents.HttpEndpointEnabled = __parseBoolean(output["HttpEndpointEnabled"]);
+  if (output[_HEE] != null) {
+    contents[_HEE] = __parseBoolean(output[_HEE]);
   }
-  if (output["ActivityStreamMode"] !== undefined) {
-    contents.ActivityStreamMode = __expectString(output["ActivityStreamMode"]);
+  if (output[_ASM] != null) {
+    contents[_ASM] = __expectString(output[_ASM]);
   }
-  if (output["ActivityStreamStatus"] !== undefined) {
-    contents.ActivityStreamStatus = __expectString(output["ActivityStreamStatus"]);
+  if (output[_ASS] != null) {
+    contents[_ASS] = __expectString(output[_ASS]);
   }
-  if (output["ActivityStreamKmsKeyId"] !== undefined) {
-    contents.ActivityStreamKmsKeyId = __expectString(output["ActivityStreamKmsKeyId"]);
+  if (output[_ASKKI] != null) {
+    contents[_ASKKI] = __expectString(output[_ASKKI]);
   }
-  if (output["ActivityStreamKinesisStreamName"] !== undefined) {
-    contents.ActivityStreamKinesisStreamName = __expectString(output["ActivityStreamKinesisStreamName"]);
+  if (output[_ASKSN] != null) {
+    contents[_ASKSN] = __expectString(output[_ASKSN]);
   }
-  if (output["CopyTagsToSnapshot"] !== undefined) {
-    contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
+  if (output[_CTTS] != null) {
+    contents[_CTTS] = __parseBoolean(output[_CTTS]);
   }
-  if (output["CrossAccountClone"] !== undefined) {
-    contents.CrossAccountClone = __parseBoolean(output["CrossAccountClone"]);
+  if (output[_CAC] != null) {
+    contents[_CAC] = __parseBoolean(output[_CAC]);
   }
   if (output.DomainMemberships === "") {
-    contents.DomainMemberships = [];
-  } else if (
-    output["DomainMemberships"] !== undefined &&
-    output["DomainMemberships"]["DomainMembership"] !== undefined
-  ) {
-    contents.DomainMemberships = de_DomainMembershipList(
-      __getArrayIfSingleItem(output["DomainMemberships"]["DomainMembership"]),
-      context
-    );
+    contents[_DM] = [];
+  } else if (output[_DM] != null && output[_DM][_DMo] != null) {
+    contents[_DM] = de_DomainMembershipList(__getArrayIfSingleItem(output[_DM][_DMo]), context);
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
-  if (output["GlobalWriteForwardingStatus"] !== undefined) {
-    contents.GlobalWriteForwardingStatus = __expectString(output["GlobalWriteForwardingStatus"]);
+  if (output[_GWFS] != null) {
+    contents[_GWFS] = __expectString(output[_GWFS]);
   }
-  if (output["GlobalWriteForwardingRequested"] !== undefined) {
-    contents.GlobalWriteForwardingRequested = __parseBoolean(output["GlobalWriteForwardingRequested"]);
+  if (output[_GWFR] != null) {
+    contents[_GWFR] = __parseBoolean(output[_GWFR]);
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = de_ClusterPendingModifiedValues(output["PendingModifiedValues"], context);
+  if (output[_PMV] != null) {
+    contents[_PMV] = de_ClusterPendingModifiedValues(output[_PMV], context);
   }
-  if (output["DBClusterInstanceClass"] !== undefined) {
-    contents.DBClusterInstanceClass = __expectString(output["DBClusterInstanceClass"]);
+  if (output[_DBCIC] != null) {
+    contents[_DBCIC] = __expectString(output[_DBCIC]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __parseBoolean(output[_PA]);
   }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  if (output[_AMVU] != null) {
+    contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
-  if (output["MonitoringInterval"] !== undefined) {
-    contents.MonitoringInterval = __strictParseInt32(output["MonitoringInterval"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["MonitoringRoleArn"] !== undefined) {
-    contents.MonitoringRoleArn = __expectString(output["MonitoringRoleArn"]);
+  if (output[_MRA] != null) {
+    contents[_MRA] = __expectString(output[_MRA]);
   }
-  if (output["PerformanceInsightsEnabled"] !== undefined) {
-    contents.PerformanceInsightsEnabled = __parseBoolean(output["PerformanceInsightsEnabled"]);
+  if (output[_PIE] != null) {
+    contents[_PIE] = __parseBoolean(output[_PIE]);
   }
-  if (output["PerformanceInsightsKMSKeyId"] !== undefined) {
-    contents.PerformanceInsightsKMSKeyId = __expectString(output["PerformanceInsightsKMSKeyId"]);
+  if (output[_PIKMSKI] != null) {
+    contents[_PIKMSKI] = __expectString(output[_PIKMSKI]);
   }
-  if (output["PerformanceInsightsRetentionPeriod"] !== undefined) {
-    contents.PerformanceInsightsRetentionPeriod = __strictParseInt32(
-      output["PerformanceInsightsRetentionPeriod"]
-    ) as number;
+  if (output[_PIRP] != null) {
+    contents[_PIRP] = __strictParseInt32(output[_PIRP]) as number;
   }
-  if (output["ServerlessV2ScalingConfiguration"] !== undefined) {
-    contents.ServerlessV2ScalingConfiguration = de_ServerlessV2ScalingConfigurationInfo(
-      output["ServerlessV2ScalingConfiguration"],
-      context
-    );
+  if (output[_SVSC] != null) {
+    contents[_SVSC] = de_ServerlessV2ScalingConfigurationInfo(output[_SVSC], context);
   }
-  if (output["NetworkType"] !== undefined) {
-    contents.NetworkType = __expectString(output["NetworkType"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
-  if (output["DBSystemId"] !== undefined) {
-    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  if (output[_DBSI] != null) {
+    contents[_DBSI] = __expectString(output[_DBSI]);
   }
-  if (output["MasterUserSecret"] !== undefined) {
-    contents.MasterUserSecret = de_MasterUserSecret(output["MasterUserSecret"], context);
+  if (output[_MUS] != null) {
+    contents[_MUS] = de_MasterUserSecret(output[_MUS], context);
   }
-  if (output["IOOptimizedNextAllowedModificationTime"] !== undefined) {
-    contents.IOOptimizedNextAllowedModificationTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["IOOptimizedNextAllowedModificationTime"])
-    );
+  if (output[_IOONAMT] != null) {
+    contents[_IOONAMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_IOONAMT]));
   }
-  if (output["LocalWriteForwardingStatus"] !== undefined) {
-    contents.LocalWriteForwardingStatus = __expectString(output["LocalWriteForwardingStatus"]);
+  if (output[_LWFS] != null) {
+    contents[_LWFS] = __expectString(output[_LWFS]);
   }
-  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
-    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
+  if (output[_ABRPA] != null) {
+    contents[_ABRPA] = __expectString(output[_ABRPA]);
   }
   return contents;
 };
@@ -21530,8 +21453,8 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
  */
 const de_DBClusterAlreadyExistsFault = (output: any, context: __SerdeContext): DBClusterAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21541,85 +21464,79 @@ const de_DBClusterAlreadyExistsFault = (output: any, context: __SerdeContext): D
  */
 const de_DBClusterAutomatedBackup = (output: any, context: __SerdeContext): DBClusterAutomatedBackup => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["DBClusterAutomatedBackupsArn"] !== undefined) {
-    contents.DBClusterAutomatedBackupsArn = __expectString(output["DBClusterAutomatedBackupsArn"]);
+  if (output[_DBCABA] != null) {
+    contents[_DBCABA] = __expectString(output[_DBCABA]);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["RestoreWindow"] !== undefined) {
-    contents.RestoreWindow = de_RestoreWindow(output["RestoreWindow"], context);
+  if (output[_RW] != null) {
+    contents[_RW] = de_RestoreWindow(output[_RW], context);
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["DbClusterResourceId"] !== undefined) {
-    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
+  if (output[_DCRI] != null) {
+    contents[_DCRI] = __expectString(output[_DCRI]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
-  if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
+  if (output[_CCT] != null) {
+    contents[_CCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCT]));
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DBClusterArn"] !== undefined) {
-    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  if (output[_DBCA] != null) {
+    contents[_DBCA] = __expectString(output[_DBCA]);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["EngineMode"] !== undefined) {
-    contents.EngineMode = __expectString(output["EngineMode"]);
+  if (output[_EMn] != null) {
+    contents[_EMn] = __expectString(output[_EMn]);
   }
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
-    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
+  if (output[_ABRPA] != null) {
+    contents[_ABRPA] = __expectString(output[_ABRPA]);
   }
   return contents;
 };
@@ -21640,19 +21557,13 @@ const de_DBClusterAutomatedBackupList = (output: any, context: __SerdeContext): 
  */
 const de_DBClusterAutomatedBackupMessage = (output: any, context: __SerdeContext): DBClusterAutomatedBackupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBClusterAutomatedBackups === "") {
-    contents.DBClusterAutomatedBackups = [];
-  } else if (
-    output["DBClusterAutomatedBackups"] !== undefined &&
-    output["DBClusterAutomatedBackups"]["DBClusterAutomatedBackup"] !== undefined
-  ) {
-    contents.DBClusterAutomatedBackups = de_DBClusterAutomatedBackupList(
-      __getArrayIfSingleItem(output["DBClusterAutomatedBackups"]["DBClusterAutomatedBackup"]),
-      context
-    );
+    contents[_DBCAB] = [];
+  } else if (output[_DBCAB] != null && output[_DBCAB][_DBCABl] != null) {
+    contents[_DBCAB] = de_DBClusterAutomatedBackupList(__getArrayIfSingleItem(output[_DBCAB][_DBCABl]), context);
   }
   return contents;
 };
@@ -21665,8 +21576,8 @@ const de_DBClusterAutomatedBackupNotFoundFault = (
   context: __SerdeContext
 ): DBClusterAutomatedBackupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21679,8 +21590,8 @@ const de_DBClusterAutomatedBackupQuotaExceededFault = (
   context: __SerdeContext
 ): DBClusterAutomatedBackupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21690,25 +21601,23 @@ const de_DBClusterAutomatedBackupQuotaExceededFault = (
  */
 const de_DBClusterBacktrack = (output: any, context: __SerdeContext): DBClusterBacktrack => {
   const contents: any = {};
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["BacktrackIdentifier"] !== undefined) {
-    contents.BacktrackIdentifier = __expectString(output["BacktrackIdentifier"]);
+  if (output[_BI] != null) {
+    contents[_BI] = __expectString(output[_BI]);
   }
-  if (output["BacktrackTo"] !== undefined) {
-    contents.BacktrackTo = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["BacktrackTo"]));
+  if (output[_BT] != null) {
+    contents[_BT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_BT]));
   }
-  if (output["BacktrackedFrom"] !== undefined) {
-    contents.BacktrackedFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["BacktrackedFrom"]));
+  if (output[_BF] != null) {
+    contents[_BF] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_BF]));
   }
-  if (output["BacktrackRequestCreationTime"] !== undefined) {
-    contents.BacktrackRequestCreationTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["BacktrackRequestCreationTime"])
-    );
+  if (output[_BRCT] != null) {
+    contents[_BRCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_BRCT]));
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -21729,19 +21638,13 @@ const de_DBClusterBacktrackList = (output: any, context: __SerdeContext): DBClus
  */
 const de_DBClusterBacktrackMessage = (output: any, context: __SerdeContext): DBClusterBacktrackMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBClusterBacktracks === "") {
-    contents.DBClusterBacktracks = [];
-  } else if (
-    output["DBClusterBacktracks"] !== undefined &&
-    output["DBClusterBacktracks"]["DBClusterBacktrack"] !== undefined
-  ) {
-    contents.DBClusterBacktracks = de_DBClusterBacktrackList(
-      __getArrayIfSingleItem(output["DBClusterBacktracks"]["DBClusterBacktrack"]),
-      context
-    );
+    contents[_DBCB] = [];
+  } else if (output[_DBCB] != null && output[_DBCB][_DBCBl] != null) {
+    contents[_DBCB] = de_DBClusterBacktrackList(__getArrayIfSingleItem(output[_DBCB][_DBCBl]), context);
   }
   return contents;
 };
@@ -21751,8 +21654,8 @@ const de_DBClusterBacktrackMessage = (output: any, context: __SerdeContext): DBC
  */
 const de_DBClusterBacktrackNotFoundFault = (output: any, context: __SerdeContext): DBClusterBacktrackNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21762,20 +21665,20 @@ const de_DBClusterBacktrackNotFoundFault = (output: any, context: __SerdeContext
  */
 const de_DBClusterCapacityInfo = (output: any, context: __SerdeContext): DBClusterCapacityInfo => {
   const contents: any = {};
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["PendingCapacity"] !== undefined) {
-    contents.PendingCapacity = __strictParseInt32(output["PendingCapacity"]) as number;
+  if (output[_PC] != null) {
+    contents[_PC] = __strictParseInt32(output[_PC]) as number;
   }
-  if (output["CurrentCapacity"] !== undefined) {
-    contents.CurrentCapacity = __strictParseInt32(output["CurrentCapacity"]) as number;
+  if (output[_CC] != null) {
+    contents[_CC] = __strictParseInt32(output[_CC]) as number;
   }
-  if (output["SecondsBeforeTimeout"] !== undefined) {
-    contents.SecondsBeforeTimeout = __strictParseInt32(output["SecondsBeforeTimeout"]) as number;
+  if (output[_SBT] != null) {
+    contents[_SBT] = __strictParseInt32(output[_SBT]) as number;
   }
-  if (output["TimeoutAction"] !== undefined) {
-    contents.TimeoutAction = __expectString(output["TimeoutAction"]);
+  if (output[_TAi] != null) {
+    contents[_TAi] = __expectString(output[_TAi]);
   }
   return contents;
 };
@@ -21785,39 +21688,39 @@ const de_DBClusterCapacityInfo = (output: any, context: __SerdeContext): DBClust
  */
 const de_DBClusterEndpoint = (output: any, context: __SerdeContext): DBClusterEndpoint => {
   const contents: any = {};
-  if (output["DBClusterEndpointIdentifier"] !== undefined) {
-    contents.DBClusterEndpointIdentifier = __expectString(output["DBClusterEndpointIdentifier"]);
+  if (output[_DBCEI] != null) {
+    contents[_DBCEI] = __expectString(output[_DBCEI]);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["DBClusterEndpointResourceIdentifier"] !== undefined) {
-    contents.DBClusterEndpointResourceIdentifier = __expectString(output["DBClusterEndpointResourceIdentifier"]);
+  if (output[_DBCERI] != null) {
+    contents[_DBCERI] = __expectString(output[_DBCERI]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["EndpointType"] !== undefined) {
-    contents.EndpointType = __expectString(output["EndpointType"]);
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
   }
-  if (output["CustomEndpointType"] !== undefined) {
-    contents.CustomEndpointType = __expectString(output["CustomEndpointType"]);
+  if (output[_CETu] != null) {
+    contents[_CETu] = __expectString(output[_CETu]);
   }
   if (output.StaticMembers === "") {
-    contents.StaticMembers = [];
-  } else if (output["StaticMembers"] !== undefined && output["StaticMembers"]["member"] !== undefined) {
-    contents.StaticMembers = de_StringList(__getArrayIfSingleItem(output["StaticMembers"]["member"]), context);
+    contents[_SM] = [];
+  } else if (output[_SM] != null && output[_SM][_me] != null) {
+    contents[_SM] = de_StringList(__getArrayIfSingleItem(output[_SM][_me]), context);
   }
   if (output.ExcludedMembers === "") {
-    contents.ExcludedMembers = [];
-  } else if (output["ExcludedMembers"] !== undefined && output["ExcludedMembers"]["member"] !== undefined) {
-    contents.ExcludedMembers = de_StringList(__getArrayIfSingleItem(output["ExcludedMembers"]["member"]), context);
+    contents[_EM] = [];
+  } else if (output[_EM] != null && output[_EM][_me] != null) {
+    contents[_EM] = de_StringList(__getArrayIfSingleItem(output[_EM][_me]), context);
   }
-  if (output["DBClusterEndpointArn"] !== undefined) {
-    contents.DBClusterEndpointArn = __expectString(output["DBClusterEndpointArn"]);
+  if (output[_DBCEA] != null) {
+    contents[_DBCEA] = __expectString(output[_DBCEA]);
   }
   return contents;
 };
@@ -21830,8 +21733,8 @@ const de_DBClusterEndpointAlreadyExistsFault = (
   context: __SerdeContext
 ): DBClusterEndpointAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21852,19 +21755,13 @@ const de_DBClusterEndpointList = (output: any, context: __SerdeContext): DBClust
  */
 const de_DBClusterEndpointMessage = (output: any, context: __SerdeContext): DBClusterEndpointMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBClusterEndpoints === "") {
-    contents.DBClusterEndpoints = [];
-  } else if (
-    output["DBClusterEndpoints"] !== undefined &&
-    output["DBClusterEndpoints"]["DBClusterEndpointList"] !== undefined
-  ) {
-    contents.DBClusterEndpoints = de_DBClusterEndpointList(
-      __getArrayIfSingleItem(output["DBClusterEndpoints"]["DBClusterEndpointList"]),
-      context
-    );
+    contents[_DBCE] = [];
+  } else if (output[_DBCE] != null && output[_DBCE][_DBCEL] != null) {
+    contents[_DBCE] = de_DBClusterEndpointList(__getArrayIfSingleItem(output[_DBCE][_DBCEL]), context);
   }
   return contents;
 };
@@ -21874,8 +21771,8 @@ const de_DBClusterEndpointMessage = (output: any, context: __SerdeContext): DBCl
  */
 const de_DBClusterEndpointNotFoundFault = (output: any, context: __SerdeContext): DBClusterEndpointNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21888,8 +21785,8 @@ const de_DBClusterEndpointQuotaExceededFault = (
   context: __SerdeContext
 ): DBClusterEndpointQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21910,17 +21807,17 @@ const de_DBClusterList = (output: any, context: __SerdeContext): DBCluster[] => 
  */
 const de_DBClusterMember = (output: any, context: __SerdeContext): DBClusterMember => {
   const contents: any = {};
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["IsClusterWriter"] !== undefined) {
-    contents.IsClusterWriter = __parseBoolean(output["IsClusterWriter"]);
+  if (output[_ICW] != null) {
+    contents[_ICW] = __parseBoolean(output[_ICW]);
   }
-  if (output["DBClusterParameterGroupStatus"] !== undefined) {
-    contents.DBClusterParameterGroupStatus = __expectString(output["DBClusterParameterGroupStatus"]);
+  if (output[_DBCPGS] != null) {
+    contents[_DBCPGS] = __expectString(output[_DBCPGS]);
   }
-  if (output["PromotionTier"] !== undefined) {
-    contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;
+  if (output[_PT] != null) {
+    contents[_PT] = __strictParseInt32(output[_PT]) as number;
   }
   return contents;
 };
@@ -21941,13 +21838,13 @@ const de_DBClusterMemberList = (output: any, context: __SerdeContext): DBCluster
  */
 const de_DBClusterMessage = (output: any, context: __SerdeContext): DBClusterMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBClusters === "") {
-    contents.DBClusters = [];
-  } else if (output["DBClusters"] !== undefined && output["DBClusters"]["DBCluster"] !== undefined) {
-    contents.DBClusters = de_DBClusterList(__getArrayIfSingleItem(output["DBClusters"]["DBCluster"]), context);
+    contents[_DBCl] = [];
+  } else if (output[_DBCl] != null && output[_DBCl][_DBC] != null) {
+    contents[_DBCl] = de_DBClusterList(__getArrayIfSingleItem(output[_DBCl][_DBC]), context);
   }
   return contents;
 };
@@ -21957,8 +21854,8 @@ const de_DBClusterMessage = (output: any, context: __SerdeContext): DBClusterMes
  */
 const de_DBClusterNotFoundFault = (output: any, context: __SerdeContext): DBClusterNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -21979,11 +21876,11 @@ const de_DBClusterOptionGroupMemberships = (output: any, context: __SerdeContext
  */
 const de_DBClusterOptionGroupStatus = (output: any, context: __SerdeContext): DBClusterOptionGroupStatus => {
   const contents: any = {};
-  if (output["DBClusterOptionGroupName"] !== undefined) {
-    contents.DBClusterOptionGroupName = __expectString(output["DBClusterOptionGroupName"]);
+  if (output[_DBCOGN] != null) {
+    contents[_DBCOGN] = __expectString(output[_DBCOGN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -21993,17 +21890,17 @@ const de_DBClusterOptionGroupStatus = (output: any, context: __SerdeContext): DB
  */
 const de_DBClusterParameterGroup = (output: any, context: __SerdeContext): DBClusterParameterGroup => {
   const contents: any = {};
-  if (output["DBClusterParameterGroupName"] !== undefined) {
-    contents.DBClusterParameterGroupName = __expectString(output["DBClusterParameterGroupName"]);
+  if (output[_DBCPGN] != null) {
+    contents[_DBCPGN] = __expectString(output[_DBCPGN]);
   }
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["DBClusterParameterGroupArn"] !== undefined) {
-    contents.DBClusterParameterGroupArn = __expectString(output["DBClusterParameterGroupArn"]);
+  if (output[_DBCPGA] != null) {
+    contents[_DBCPGA] = __expectString(output[_DBCPGA]);
   }
   return contents;
 };
@@ -22014,12 +21911,12 @@ const de_DBClusterParameterGroup = (output: any, context: __SerdeContext): DBClu
 const de_DBClusterParameterGroupDetails = (output: any, context: __SerdeContext): DBClusterParameterGroupDetails => {
   const contents: any = {};
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -22043,8 +21940,8 @@ const de_DBClusterParameterGroupNameMessage = (
   context: __SerdeContext
 ): DBClusterParameterGroupNameMessage => {
   const contents: any = {};
-  if (output["DBClusterParameterGroupName"] !== undefined) {
-    contents.DBClusterParameterGroupName = __expectString(output["DBClusterParameterGroupName"]);
+  if (output[_DBCPGN] != null) {
+    contents[_DBCPGN] = __expectString(output[_DBCPGN]);
   }
   return contents;
 };
@@ -22057,8 +21954,8 @@ const de_DBClusterParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): DBClusterParameterGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22068,19 +21965,13 @@ const de_DBClusterParameterGroupNotFoundFault = (
  */
 const de_DBClusterParameterGroupsMessage = (output: any, context: __SerdeContext): DBClusterParameterGroupsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBClusterParameterGroups === "") {
-    contents.DBClusterParameterGroups = [];
-  } else if (
-    output["DBClusterParameterGroups"] !== undefined &&
-    output["DBClusterParameterGroups"]["DBClusterParameterGroup"] !== undefined
-  ) {
-    contents.DBClusterParameterGroups = de_DBClusterParameterGroupList(
-      __getArrayIfSingleItem(output["DBClusterParameterGroups"]["DBClusterParameterGroup"]),
-      context
-    );
+    contents[_DBCPGl] = [];
+  } else if (output[_DBCPGl] != null && output[_DBCPGl][_DBCPG] != null) {
+    contents[_DBCPGl] = de_DBClusterParameterGroupList(__getArrayIfSingleItem(output[_DBCPGl][_DBCPG]), context);
   }
   return contents;
 };
@@ -22090,8 +21981,8 @@ const de_DBClusterParameterGroupsMessage = (output: any, context: __SerdeContext
  */
 const de_DBClusterQuotaExceededFault = (output: any, context: __SerdeContext): DBClusterQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22101,14 +21992,14 @@ const de_DBClusterQuotaExceededFault = (output: any, context: __SerdeContext): D
  */
 const de_DBClusterRole = (output: any, context: __SerdeContext): DBClusterRole => {
   const contents: any = {};
-  if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = __expectString(output["RoleArn"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["FeatureName"] !== undefined) {
-    contents.FeatureName = __expectString(output["FeatureName"]);
+  if (output[_FN] != null) {
+    contents[_FN] = __expectString(output[_FN]);
   }
   return contents;
 };
@@ -22118,8 +22009,8 @@ const de_DBClusterRole = (output: any, context: __SerdeContext): DBClusterRole =
  */
 const de_DBClusterRoleAlreadyExistsFault = (output: any, context: __SerdeContext): DBClusterRoleAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22129,8 +22020,8 @@ const de_DBClusterRoleAlreadyExistsFault = (output: any, context: __SerdeContext
  */
 const de_DBClusterRoleNotFoundFault = (output: any, context: __SerdeContext): DBClusterRoleNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22140,8 +22031,8 @@ const de_DBClusterRoleNotFoundFault = (output: any, context: __SerdeContext): DB
  */
 const de_DBClusterRoleQuotaExceededFault = (output: any, context: __SerdeContext): DBClusterRoleQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22163,89 +22054,83 @@ const de_DBClusterRoles = (output: any, context: __SerdeContext): DBClusterRole[
 const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSnapshot => {
   const contents: any = {};
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["DBClusterSnapshotIdentifier"] !== undefined) {
-    contents.DBClusterSnapshotIdentifier = __expectString(output["DBClusterSnapshotIdentifier"]);
+  if (output[_DBCSI] != null) {
+    contents[_DBCSI] = __expectString(output[_DBCSI]);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
+  if (output[_SCT] != null) {
+    contents[_SCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SCT]));
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineMode"] !== undefined) {
-    contents.EngineMode = __expectString(output["EngineMode"]);
+  if (output[_EMn] != null) {
+    contents[_EMn] = __expectString(output[_EMn]);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
+  if (output[_CCT] != null) {
+    contents[_CCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCT]));
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["SnapshotType"] !== undefined) {
-    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  if (output[_STn] != null) {
+    contents[_STn] = __expectString(output[_STn]);
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
+  if (output[_PP] != null) {
+    contents[_PP] = __strictParseInt32(output[_PP]) as number;
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DBClusterSnapshotArn"] !== undefined) {
-    contents.DBClusterSnapshotArn = __expectString(output["DBClusterSnapshotArn"]);
+  if (output[_DBCSA] != null) {
+    contents[_DBCSA] = __expectString(output[_DBCSA]);
   }
-  if (output["SourceDBClusterSnapshotArn"] !== undefined) {
-    contents.SourceDBClusterSnapshotArn = __expectString(output["SourceDBClusterSnapshotArn"]);
+  if (output[_SDBCSA] != null) {
+    contents[_SDBCSA] = __expectString(output[_SDBCSA]);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
-  if (output["DBSystemId"] !== undefined) {
-    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  if (output[_DBSI] != null) {
+    contents[_DBSI] = __expectString(output[_DBSI]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["DbClusterResourceId"] !== undefined) {
-    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
+  if (output[_DCRI] != null) {
+    contents[_DCRI] = __expectString(output[_DCRI]);
   }
   return contents;
 };
@@ -22258,8 +22143,8 @@ const de_DBClusterSnapshotAlreadyExistsFault = (
   context: __SerdeContext
 ): DBClusterSnapshotAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22269,16 +22154,13 @@ const de_DBClusterSnapshotAlreadyExistsFault = (
  */
 const de_DBClusterSnapshotAttribute = (output: any, context: __SerdeContext): DBClusterSnapshotAttribute => {
   const contents: any = {};
-  if (output["AttributeName"] !== undefined) {
-    contents.AttributeName = __expectString(output["AttributeName"]);
+  if (output[_AN] != null) {
+    contents[_AN] = __expectString(output[_AN]);
   }
   if (output.AttributeValues === "") {
-    contents.AttributeValues = [];
-  } else if (output["AttributeValues"] !== undefined && output["AttributeValues"]["AttributeValue"] !== undefined) {
-    contents.AttributeValues = de_AttributeValueList(
-      __getArrayIfSingleItem(output["AttributeValues"]["AttributeValue"]),
-      context
-    );
+    contents[_AVt] = [];
+  } else if (output[_AVt] != null && output[_AVt][_AVtt] != null) {
+    contents[_AVt] = de_AttributeValueList(__getArrayIfSingleItem(output[_AVt][_AVtt]), context);
   }
   return contents;
 };
@@ -22302,19 +22184,13 @@ const de_DBClusterSnapshotAttributesResult = (
   context: __SerdeContext
 ): DBClusterSnapshotAttributesResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshotIdentifier"] !== undefined) {
-    contents.DBClusterSnapshotIdentifier = __expectString(output["DBClusterSnapshotIdentifier"]);
+  if (output[_DBCSI] != null) {
+    contents[_DBCSI] = __expectString(output[_DBCSI]);
   }
   if (output.DBClusterSnapshotAttributes === "") {
-    contents.DBClusterSnapshotAttributes = [];
-  } else if (
-    output["DBClusterSnapshotAttributes"] !== undefined &&
-    output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"] !== undefined
-  ) {
-    contents.DBClusterSnapshotAttributes = de_DBClusterSnapshotAttributeList(
-      __getArrayIfSingleItem(output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]),
-      context
-    );
+    contents[_DBCSAl] = [];
+  } else if (output[_DBCSAl] != null && output[_DBCSAl][_DBCSAlu] != null) {
+    contents[_DBCSAl] = de_DBClusterSnapshotAttributeList(__getArrayIfSingleItem(output[_DBCSAl][_DBCSAlu]), context);
   }
   return contents;
 };
@@ -22335,19 +22211,13 @@ const de_DBClusterSnapshotList = (output: any, context: __SerdeContext): DBClust
  */
 const de_DBClusterSnapshotMessage = (output: any, context: __SerdeContext): DBClusterSnapshotMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBClusterSnapshots === "") {
-    contents.DBClusterSnapshots = [];
-  } else if (
-    output["DBClusterSnapshots"] !== undefined &&
-    output["DBClusterSnapshots"]["DBClusterSnapshot"] !== undefined
-  ) {
-    contents.DBClusterSnapshots = de_DBClusterSnapshotList(
-      __getArrayIfSingleItem(output["DBClusterSnapshots"]["DBClusterSnapshot"]),
-      context
-    );
+    contents[_DBCSl] = [];
+  } else if (output[_DBCSl] != null && output[_DBCSl][_DBCS] != null) {
+    contents[_DBCSl] = de_DBClusterSnapshotList(__getArrayIfSingleItem(output[_DBCSl][_DBCS]), context);
   }
   return contents;
 };
@@ -22357,8 +22227,8 @@ const de_DBClusterSnapshotMessage = (output: any, context: __SerdeContext): DBCl
  */
 const de_DBClusterSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBClusterSnapshotNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22368,17 +22238,17 @@ const de_DBClusterSnapshotNotFoundFault = (output: any, context: __SerdeContext)
  */
 const de_DBClusterStatusInfo = (output: any, context: __SerdeContext): DBClusterStatusInfo => {
   const contents: any = {};
-  if (output["StatusType"] !== undefined) {
-    contents.StatusType = __expectString(output["StatusType"]);
+  if (output[_STtat] != null) {
+    contents[_STtat] = __expectString(output[_STtat]);
   }
-  if (output["Normal"] !== undefined) {
-    contents.Normal = __parseBoolean(output["Normal"]);
+  if (output[_No] != null) {
+    contents[_No] = __parseBoolean(output[_No]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -22399,160 +22269,122 @@ const de_DBClusterStatusInfoList = (output: any, context: __SerdeContext): DBClu
  */
 const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersion => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["DBEngineDescription"] !== undefined) {
-    contents.DBEngineDescription = __expectString(output["DBEngineDescription"]);
+  if (output[_DBED] != null) {
+    contents[_DBED] = __expectString(output[_DBED]);
   }
-  if (output["DBEngineVersionDescription"] !== undefined) {
-    contents.DBEngineVersionDescription = __expectString(output["DBEngineVersionDescription"]);
+  if (output[_DBEVD] != null) {
+    contents[_DBEVD] = __expectString(output[_DBEVD]);
   }
-  if (output["DefaultCharacterSet"] !== undefined) {
-    contents.DefaultCharacterSet = de_CharacterSet(output["DefaultCharacterSet"], context);
+  if (output[_DCS] != null) {
+    contents[_DCS] = de_CharacterSet(output[_DCS], context);
   }
-  if (output["Image"] !== undefined) {
-    contents.Image = de_CustomDBEngineVersionAMI(output["Image"], context);
+  if (output[_Im] != null) {
+    contents[_Im] = de_CustomDBEngineVersionAMI(output[_Im], context);
   }
-  if (output["DBEngineMediaType"] !== undefined) {
-    contents.DBEngineMediaType = __expectString(output["DBEngineMediaType"]);
+  if (output[_DBEMT] != null) {
+    contents[_DBEMT] = __expectString(output[_DBEMT]);
   }
   if (output.SupportedCharacterSets === "") {
-    contents.SupportedCharacterSets = [];
-  } else if (
-    output["SupportedCharacterSets"] !== undefined &&
-    output["SupportedCharacterSets"]["CharacterSet"] !== undefined
-  ) {
-    contents.SupportedCharacterSets = de_SupportedCharacterSetsList(
-      __getArrayIfSingleItem(output["SupportedCharacterSets"]["CharacterSet"]),
-      context
-    );
+    contents[_SCS] = [];
+  } else if (output[_SCS] != null && output[_SCS][_CS] != null) {
+    contents[_SCS] = de_SupportedCharacterSetsList(__getArrayIfSingleItem(output[_SCS][_CS]), context);
   }
   if (output.SupportedNcharCharacterSets === "") {
-    contents.SupportedNcharCharacterSets = [];
-  } else if (
-    output["SupportedNcharCharacterSets"] !== undefined &&
-    output["SupportedNcharCharacterSets"]["CharacterSet"] !== undefined
-  ) {
-    contents.SupportedNcharCharacterSets = de_SupportedCharacterSetsList(
-      __getArrayIfSingleItem(output["SupportedNcharCharacterSets"]["CharacterSet"]),
-      context
-    );
+    contents[_SNCS] = [];
+  } else if (output[_SNCS] != null && output[_SNCS][_CS] != null) {
+    contents[_SNCS] = de_SupportedCharacterSetsList(__getArrayIfSingleItem(output[_SNCS][_CS]), context);
   }
   if (output.ValidUpgradeTarget === "") {
-    contents.ValidUpgradeTarget = [];
-  } else if (
-    output["ValidUpgradeTarget"] !== undefined &&
-    output["ValidUpgradeTarget"]["UpgradeTarget"] !== undefined
-  ) {
-    contents.ValidUpgradeTarget = de_ValidUpgradeTargetList(
-      __getArrayIfSingleItem(output["ValidUpgradeTarget"]["UpgradeTarget"]),
-      context
-    );
+    contents[_VUT] = [];
+  } else if (output[_VUT] != null && output[_VUT][_UT] != null) {
+    contents[_VUT] = de_ValidUpgradeTargetList(__getArrayIfSingleItem(output[_VUT][_UT]), context);
   }
   if (output.SupportedTimezones === "") {
-    contents.SupportedTimezones = [];
-  } else if (output["SupportedTimezones"] !== undefined && output["SupportedTimezones"]["Timezone"] !== undefined) {
-    contents.SupportedTimezones = de_SupportedTimezonesList(
-      __getArrayIfSingleItem(output["SupportedTimezones"]["Timezone"]),
-      context
-    );
+    contents[_STu] = [];
+  } else if (output[_STu] != null && output[_STu][_Ti] != null) {
+    contents[_STu] = de_SupportedTimezonesList(__getArrayIfSingleItem(output[_STu][_Ti]), context);
   }
   if (output.ExportableLogTypes === "") {
-    contents.ExportableLogTypes = [];
-  } else if (output["ExportableLogTypes"] !== undefined && output["ExportableLogTypes"]["member"] !== undefined) {
-    contents.ExportableLogTypes = de_LogTypeList(
-      __getArrayIfSingleItem(output["ExportableLogTypes"]["member"]),
-      context
-    );
+    contents[_ELTx] = [];
+  } else if (output[_ELTx] != null && output[_ELTx][_me] != null) {
+    contents[_ELTx] = de_LogTypeList(__getArrayIfSingleItem(output[_ELTx][_me]), context);
   }
-  if (output["SupportsLogExportsToCloudwatchLogs"] !== undefined) {
-    contents.SupportsLogExportsToCloudwatchLogs = __parseBoolean(output["SupportsLogExportsToCloudwatchLogs"]);
+  if (output[_SLETCL] != null) {
+    contents[_SLETCL] = __parseBoolean(output[_SLETCL]);
   }
-  if (output["SupportsReadReplica"] !== undefined) {
-    contents.SupportsReadReplica = __parseBoolean(output["SupportsReadReplica"]);
+  if (output[_SRRu] != null) {
+    contents[_SRRu] = __parseBoolean(output[_SRRu]);
   }
   if (output.SupportedEngineModes === "") {
-    contents.SupportedEngineModes = [];
-  } else if (output["SupportedEngineModes"] !== undefined && output["SupportedEngineModes"]["member"] !== undefined) {
-    contents.SupportedEngineModes = de_EngineModeList(
-      __getArrayIfSingleItem(output["SupportedEngineModes"]["member"]),
-      context
-    );
+    contents[_SEM] = [];
+  } else if (output[_SEM] != null && output[_SEM][_me] != null) {
+    contents[_SEM] = de_EngineModeList(__getArrayIfSingleItem(output[_SEM][_me]), context);
   }
   if (output.SupportedFeatureNames === "") {
-    contents.SupportedFeatureNames = [];
-  } else if (output["SupportedFeatureNames"] !== undefined && output["SupportedFeatureNames"]["member"] !== undefined) {
-    contents.SupportedFeatureNames = de_FeatureNameList(
-      __getArrayIfSingleItem(output["SupportedFeatureNames"]["member"]),
-      context
-    );
+    contents[_SFN] = [];
+  } else if (output[_SFN] != null && output[_SFN][_me] != null) {
+    contents[_SFN] = de_FeatureNameList(__getArrayIfSingleItem(output[_SFN][_me]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["SupportsParallelQuery"] !== undefined) {
-    contents.SupportsParallelQuery = __parseBoolean(output["SupportsParallelQuery"]);
+  if (output[_SPQ] != null) {
+    contents[_SPQ] = __parseBoolean(output[_SPQ]);
   }
-  if (output["SupportsGlobalDatabases"] !== undefined) {
-    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
+  if (output[_SGD] != null) {
+    contents[_SGD] = __parseBoolean(output[_SGD]);
   }
-  if (output["MajorEngineVersion"] !== undefined) {
-    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
   }
-  if (output["DatabaseInstallationFilesS3BucketName"] !== undefined) {
-    contents.DatabaseInstallationFilesS3BucketName = __expectString(output["DatabaseInstallationFilesS3BucketName"]);
+  if (output[_DIFSBN] != null) {
+    contents[_DIFSBN] = __expectString(output[_DIFSBN]);
   }
-  if (output["DatabaseInstallationFilesS3Prefix"] !== undefined) {
-    contents.DatabaseInstallationFilesS3Prefix = __expectString(output["DatabaseInstallationFilesS3Prefix"]);
+  if (output[_DIFSP] != null) {
+    contents[_DIFSP] = __expectString(output[_DIFSP]);
   }
-  if (output["DBEngineVersionArn"] !== undefined) {
-    contents.DBEngineVersionArn = __expectString(output["DBEngineVersionArn"]);
+  if (output[_DBEVA] != null) {
+    contents[_DBEVA] = __expectString(output[_DBEVA]);
   }
-  if (output["KMSKeyId"] !== undefined) {
-    contents.KMSKeyId = __expectString(output["KMSKeyId"]);
+  if (output[_KMSKI] != null) {
+    contents[_KMSKI] = __expectString(output[_KMSKI]);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
-  if (output["SupportsBabelfish"] !== undefined) {
-    contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
+  if (output[_SB] != null) {
+    contents[_SB] = __parseBoolean(output[_SB]);
   }
-  if (output["CustomDBEngineVersionManifest"] !== undefined) {
-    contents.CustomDBEngineVersionManifest = __expectString(output["CustomDBEngineVersionManifest"]);
+  if (output[_CDBEVM] != null) {
+    contents[_CDBEVM] = __expectString(output[_CDBEVM]);
   }
-  if (output["SupportsCertificateRotationWithoutRestart"] !== undefined) {
-    contents.SupportsCertificateRotationWithoutRestart = __parseBoolean(
-      output["SupportsCertificateRotationWithoutRestart"]
-    );
+  if (output[_SCRWR] != null) {
+    contents[_SCRWR] = __parseBoolean(output[_SCRWR]);
   }
   if (output.SupportedCACertificateIdentifiers === "") {
-    contents.SupportedCACertificateIdentifiers = [];
-  } else if (
-    output["SupportedCACertificateIdentifiers"] !== undefined &&
-    output["SupportedCACertificateIdentifiers"]["member"] !== undefined
-  ) {
-    contents.SupportedCACertificateIdentifiers = de_CACertificateIdentifiersList(
-      __getArrayIfSingleItem(output["SupportedCACertificateIdentifiers"]["member"]),
-      context
-    );
+    contents[_SCACI] = [];
+  } else if (output[_SCACI] != null && output[_SCACI][_me] != null) {
+    contents[_SCACI] = de_CACertificateIdentifiersList(__getArrayIfSingleItem(output[_SCACI][_me]), context);
   }
-  if (output["SupportsLocalWriteForwarding"] !== undefined) {
-    contents.SupportsLocalWriteForwarding = __parseBoolean(output["SupportsLocalWriteForwarding"]);
+  if (output[_SLWF] != null) {
+    contents[_SLWF] = __parseBoolean(output[_SLWF]);
   }
-  if (output["SupportsIntegrations"] !== undefined) {
-    contents.SupportsIntegrations = __parseBoolean(output["SupportsIntegrations"]);
+  if (output[_SIup] != null) {
+    contents[_SIup] = __parseBoolean(output[_SIup]);
   }
   return contents;
 };
@@ -22573,16 +22405,13 @@ const de_DBEngineVersionList = (output: any, context: __SerdeContext): DBEngineV
  */
 const de_DBEngineVersionMessage = (output: any, context: __SerdeContext): DBEngineVersionMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBEngineVersions === "") {
-    contents.DBEngineVersions = [];
-  } else if (output["DBEngineVersions"] !== undefined && output["DBEngineVersions"]["DBEngineVersion"] !== undefined) {
-    contents.DBEngineVersions = de_DBEngineVersionList(
-      __getArrayIfSingleItem(output["DBEngineVersions"]["DBEngineVersion"]),
-      context
-    );
+    contents[_DBEV] = [];
+  } else if (output[_DBEV] != null && output[_DBEV][_DBEVn] != null) {
+    contents[_DBEV] = de_DBEngineVersionList(__getArrayIfSingleItem(output[_DBEV][_DBEVn]), context);
   }
   return contents;
 };
@@ -22592,355 +22421,295 @@ const de_DBEngineVersionMessage = (output: any, context: __SerdeContext): DBEngi
  */
 const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   const contents: any = {};
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["DBInstanceStatus"] !== undefined) {
-    contents.DBInstanceStatus = __expectString(output["DBInstanceStatus"]);
+  if (output[_DBIS] != null) {
+    contents[_DBIS] = __expectString(output[_DBIS]);
   }
-  if (output["AutomaticRestartTime"] !== undefined) {
-    contents.AutomaticRestartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutomaticRestartTime"]));
+  if (output[_ART] != null) {
+    contents[_ART] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ART]));
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["DBName"] !== undefined) {
-    contents.DBName = __expectString(output["DBName"]);
+  if (output[_DBN] != null) {
+    contents[_DBN] = __expectString(output[_DBN]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = de_Endpoint(output["Endpoint"], context);
+  if (output[_End] != null) {
+    contents[_End] = de_Endpoint(output[_End], context);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
+  if (output[_ICTn] != null) {
+    contents[_ICTn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ICTn]));
   }
-  if (output["PreferredBackupWindow"] !== undefined) {
-    contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
+  if (output[_PBW] != null) {
+    contents[_PBW] = __expectString(output[_PBW]);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
   if (output.DBSecurityGroups === "") {
-    contents.DBSecurityGroups = [];
-  } else if (output["DBSecurityGroups"] !== undefined && output["DBSecurityGroups"]["DBSecurityGroup"] !== undefined) {
-    contents.DBSecurityGroups = de_DBSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["DBSecurityGroups"]["DBSecurityGroup"]),
-      context
-    );
+    contents[_DBSG] = [];
+  } else if (output[_DBSG] != null && output[_DBSG][_DBSGe] != null) {
+    contents[_DBSG] = de_DBSecurityGroupMembershipList(__getArrayIfSingleItem(output[_DBSG][_DBSGe]), context);
   }
   if (output.VpcSecurityGroups === "") {
-    contents.VpcSecurityGroups = [];
-  } else if (
-    output["VpcSecurityGroups"] !== undefined &&
-    output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
-  ) {
-    contents.VpcSecurityGroups = de_VpcSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]),
-      context
-    );
+    contents[_VSG] = [];
+  } else if (output[_VSG] != null && output[_VSG][_VSGMp] != null) {
+    contents[_VSG] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSG][_VSGMp]), context);
   }
   if (output.DBParameterGroups === "") {
-    contents.DBParameterGroups = [];
-  } else if (
-    output["DBParameterGroups"] !== undefined &&
-    output["DBParameterGroups"]["DBParameterGroup"] !== undefined
-  ) {
-    contents.DBParameterGroups = de_DBParameterGroupStatusList(
-      __getArrayIfSingleItem(output["DBParameterGroups"]["DBParameterGroup"]),
-      context
-    );
+    contents[_DBPGa] = [];
+  } else if (output[_DBPGa] != null && output[_DBPGa][_DBPG] != null) {
+    contents[_DBPGa] = de_DBParameterGroupStatusList(__getArrayIfSingleItem(output[_DBPGa][_DBPG]), context);
   }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  if (output[_AZv] != null) {
+    contents[_AZv] = __expectString(output[_AZv]);
   }
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = de_DBSubnetGroup(output["DBSubnetGroup"], context);
+  if (output[_DBSGu] != null) {
+    contents[_DBSGu] = de_DBSubnetGroup(output[_DBSGu], context);
   }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  if (output[_PMW] != null) {
+    contents[_PMW] = __expectString(output[_PMW]);
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = de_PendingModifiedValues(output["PendingModifiedValues"], context);
+  if (output[_PMV] != null) {
+    contents[_PMV] = de_PendingModifiedValues(output[_PMV], context);
   }
-  if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestRestorableTime"]));
+  if (output[_LRT] != null) {
+    contents[_LRT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LRT]));
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  if (output[_AMVU] != null) {
+    contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
-  if (output["ReadReplicaSourceDBInstanceIdentifier"] !== undefined) {
-    contents.ReadReplicaSourceDBInstanceIdentifier = __expectString(output["ReadReplicaSourceDBInstanceIdentifier"]);
+  if (output[_RRSDBII] != null) {
+    contents[_RRSDBII] = __expectString(output[_RRSDBII]);
   }
   if (output.ReadReplicaDBInstanceIdentifiers === "") {
-    contents.ReadReplicaDBInstanceIdentifiers = [];
-  } else if (
-    output["ReadReplicaDBInstanceIdentifiers"] !== undefined &&
-    output["ReadReplicaDBInstanceIdentifiers"]["ReadReplicaDBInstanceIdentifier"] !== undefined
-  ) {
-    contents.ReadReplicaDBInstanceIdentifiers = de_ReadReplicaDBInstanceIdentifierList(
-      __getArrayIfSingleItem(output["ReadReplicaDBInstanceIdentifiers"]["ReadReplicaDBInstanceIdentifier"]),
+    contents[_RRDBII] = [];
+  } else if (output[_RRDBII] != null && output[_RRDBII][_RRDBIIe] != null) {
+    contents[_RRDBII] = de_ReadReplicaDBInstanceIdentifierList(
+      __getArrayIfSingleItem(output[_RRDBII][_RRDBIIe]),
       context
     );
   }
   if (output.ReadReplicaDBClusterIdentifiers === "") {
-    contents.ReadReplicaDBClusterIdentifiers = [];
-  } else if (
-    output["ReadReplicaDBClusterIdentifiers"] !== undefined &&
-    output["ReadReplicaDBClusterIdentifiers"]["ReadReplicaDBClusterIdentifier"] !== undefined
-  ) {
-    contents.ReadReplicaDBClusterIdentifiers = de_ReadReplicaDBClusterIdentifierList(
-      __getArrayIfSingleItem(output["ReadReplicaDBClusterIdentifiers"]["ReadReplicaDBClusterIdentifier"]),
+    contents[_RRDBCI] = [];
+  } else if (output[_RRDBCI] != null && output[_RRDBCI][_RRDBCIe] != null) {
+    contents[_RRDBCI] = de_ReadReplicaDBClusterIdentifierList(
+      __getArrayIfSingleItem(output[_RRDBCI][_RRDBCIe]),
       context
     );
   }
-  if (output["ReplicaMode"] !== undefined) {
-    contents.ReplicaMode = __expectString(output["ReplicaMode"]);
+  if (output[_RM] != null) {
+    contents[_RM] = __expectString(output[_RM]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
   if (output.OptionGroupMemberships === "") {
-    contents.OptionGroupMemberships = [];
-  } else if (
-    output["OptionGroupMemberships"] !== undefined &&
-    output["OptionGroupMemberships"]["OptionGroupMembership"] !== undefined
-  ) {
-    contents.OptionGroupMemberships = de_OptionGroupMembershipList(
-      __getArrayIfSingleItem(output["OptionGroupMemberships"]["OptionGroupMembership"]),
-      context
-    );
+    contents[_OGM] = [];
+  } else if (output[_OGM] != null && output[_OGM][_OGMp] != null) {
+    contents[_OGM] = de_OptionGroupMembershipList(__getArrayIfSingleItem(output[_OGM][_OGMp]), context);
   }
-  if (output["CharacterSetName"] !== undefined) {
-    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["NcharCharacterSetName"] !== undefined) {
-    contents.NcharCharacterSetName = __expectString(output["NcharCharacterSetName"]);
+  if (output[_NCSN] != null) {
+    contents[_NCSN] = __expectString(output[_NCSN]);
   }
-  if (output["SecondaryAvailabilityZone"] !== undefined) {
-    contents.SecondaryAvailabilityZone = __expectString(output["SecondaryAvailabilityZone"]);
+  if (output[_SAZ] != null) {
+    contents[_SAZ] = __expectString(output[_SAZ]);
   }
-  if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __parseBoolean(output[_PA]);
   }
   if (output.StatusInfos === "") {
-    contents.StatusInfos = [];
-  } else if (output["StatusInfos"] !== undefined && output["StatusInfos"]["DBInstanceStatusInfo"] !== undefined) {
-    contents.StatusInfos = de_DBInstanceStatusInfoList(
-      __getArrayIfSingleItem(output["StatusInfos"]["DBInstanceStatusInfo"]),
-      context
-    );
+    contents[_SIt] = [];
+  } else if (output[_SIt] != null && output[_SIt][_DBISI] != null) {
+    contents[_SIt] = de_DBInstanceStatusInfoList(__getArrayIfSingleItem(output[_SIt][_DBISI]), context);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["TdeCredentialArn"] !== undefined) {
-    contents.TdeCredentialArn = __expectString(output["TdeCredentialArn"]);
+  if (output[_TCA] != null) {
+    contents[_TCA] = __expectString(output[_TCA]);
   }
-  if (output["DbInstancePort"] !== undefined) {
-    contents.DbInstancePort = __strictParseInt32(output["DbInstancePort"]) as number;
+  if (output[_DIP] != null) {
+    contents[_DIP] = __strictParseInt32(output[_DIP]) as number;
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
-  if (output["CACertificateIdentifier"] !== undefined) {
-    contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
+  if (output[_CACI] != null) {
+    contents[_CACI] = __expectString(output[_CACI]);
   }
   if (output.DomainMemberships === "") {
-    contents.DomainMemberships = [];
-  } else if (
-    output["DomainMemberships"] !== undefined &&
-    output["DomainMemberships"]["DomainMembership"] !== undefined
-  ) {
-    contents.DomainMemberships = de_DomainMembershipList(
-      __getArrayIfSingleItem(output["DomainMemberships"]["DomainMembership"]),
-      context
-    );
+    contents[_DM] = [];
+  } else if (output[_DM] != null && output[_DM][_DMo] != null) {
+    contents[_DM] = de_DomainMembershipList(__getArrayIfSingleItem(output[_DM][_DMo]), context);
   }
-  if (output["CopyTagsToSnapshot"] !== undefined) {
-    contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
+  if (output[_CTTS] != null) {
+    contents[_CTTS] = __parseBoolean(output[_CTTS]);
   }
-  if (output["MonitoringInterval"] !== undefined) {
-    contents.MonitoringInterval = __strictParseInt32(output["MonitoringInterval"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["EnhancedMonitoringResourceArn"] !== undefined) {
-    contents.EnhancedMonitoringResourceArn = __expectString(output["EnhancedMonitoringResourceArn"]);
+  if (output[_EMRA] != null) {
+    contents[_EMRA] = __expectString(output[_EMRA]);
   }
-  if (output["MonitoringRoleArn"] !== undefined) {
-    contents.MonitoringRoleArn = __expectString(output["MonitoringRoleArn"]);
+  if (output[_MRA] != null) {
+    contents[_MRA] = __expectString(output[_MRA]);
   }
-  if (output["PromotionTier"] !== undefined) {
-    contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;
+  if (output[_PT] != null) {
+    contents[_PT] = __strictParseInt32(output[_PT]) as number;
   }
-  if (output["DBInstanceArn"] !== undefined) {
-    contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
+  if (output[_DBIA] != null) {
+    contents[_DBIA] = __expectString(output[_DBIA]);
   }
-  if (output["Timezone"] !== undefined) {
-    contents.Timezone = __expectString(output["Timezone"]);
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectString(output[_Ti]);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
-  if (output["PerformanceInsightsEnabled"] !== undefined) {
-    contents.PerformanceInsightsEnabled = __parseBoolean(output["PerformanceInsightsEnabled"]);
+  if (output[_PIE] != null) {
+    contents[_PIE] = __parseBoolean(output[_PIE]);
   }
-  if (output["PerformanceInsightsKMSKeyId"] !== undefined) {
-    contents.PerformanceInsightsKMSKeyId = __expectString(output["PerformanceInsightsKMSKeyId"]);
+  if (output[_PIKMSKI] != null) {
+    contents[_PIKMSKI] = __expectString(output[_PIKMSKI]);
   }
-  if (output["PerformanceInsightsRetentionPeriod"] !== undefined) {
-    contents.PerformanceInsightsRetentionPeriod = __strictParseInt32(
-      output["PerformanceInsightsRetentionPeriod"]
-    ) as number;
+  if (output[_PIRP] != null) {
+    contents[_PIRP] = __strictParseInt32(output[_PIRP]) as number;
   }
   if (output.EnabledCloudwatchLogsExports === "") {
-    contents.EnabledCloudwatchLogsExports = [];
-  } else if (
-    output["EnabledCloudwatchLogsExports"] !== undefined &&
-    output["EnabledCloudwatchLogsExports"]["member"] !== undefined
-  ) {
-    contents.EnabledCloudwatchLogsExports = de_LogTypeList(
-      __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
-      context
-    );
+    contents[_ECLEn] = [];
+  } else if (output[_ECLEn] != null && output[_ECLEn][_me] != null) {
+    contents[_ECLEn] = de_LogTypeList(__getArrayIfSingleItem(output[_ECLEn][_me]), context);
   }
   if (output.ProcessorFeatures === "") {
-    contents.ProcessorFeatures = [];
-  } else if (
-    output["ProcessorFeatures"] !== undefined &&
-    output["ProcessorFeatures"]["ProcessorFeature"] !== undefined
-  ) {
-    contents.ProcessorFeatures = de_ProcessorFeatureList(
-      __getArrayIfSingleItem(output["ProcessorFeatures"]["ProcessorFeature"]),
-      context
-    );
+    contents[_PF] = [];
+  } else if (output[_PF] != null && output[_PF][_PFr] != null) {
+    contents[_PF] = de_ProcessorFeatureList(__getArrayIfSingleItem(output[_PF][_PFr]), context);
   }
-  if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __parseBoolean(output[_DP]);
   }
   if (output.AssociatedRoles === "") {
-    contents.AssociatedRoles = [];
-  } else if (output["AssociatedRoles"] !== undefined && output["AssociatedRoles"]["DBInstanceRole"] !== undefined) {
-    contents.AssociatedRoles = de_DBInstanceRoles(
-      __getArrayIfSingleItem(output["AssociatedRoles"]["DBInstanceRole"]),
-      context
-    );
+    contents[_AR] = [];
+  } else if (output[_AR] != null && output[_AR][_DBIR] != null) {
+    contents[_AR] = de_DBInstanceRoles(__getArrayIfSingleItem(output[_AR][_DBIR]), context);
   }
-  if (output["ListenerEndpoint"] !== undefined) {
-    contents.ListenerEndpoint = de_Endpoint(output["ListenerEndpoint"], context);
+  if (output[_LE] != null) {
+    contents[_LE] = de_Endpoint(output[_LE], context);
   }
-  if (output["MaxAllocatedStorage"] !== undefined) {
-    contents.MaxAllocatedStorage = __strictParseInt32(output["MaxAllocatedStorage"]) as number;
+  if (output[_MASa] != null) {
+    contents[_MASa] = __strictParseInt32(output[_MASa]) as number;
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   if (output.DBInstanceAutomatedBackupsReplications === "") {
-    contents.DBInstanceAutomatedBackupsReplications = [];
-  } else if (
-    output["DBInstanceAutomatedBackupsReplications"] !== undefined &&
-    output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"] !== undefined
-  ) {
-    contents.DBInstanceAutomatedBackupsReplications = de_DBInstanceAutomatedBackupsReplicationList(
-      __getArrayIfSingleItem(output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"]),
+    contents[_DBIABR] = [];
+  } else if (output[_DBIABR] != null && output[_DBIABR][_DBIABRn] != null) {
+    contents[_DBIABR] = de_DBInstanceAutomatedBackupsReplicationList(
+      __getArrayIfSingleItem(output[_DBIABR][_DBIABRn]),
       context
     );
   }
-  if (output["CustomerOwnedIpEnabled"] !== undefined) {
-    contents.CustomerOwnedIpEnabled = __parseBoolean(output["CustomerOwnedIpEnabled"]);
+  if (output[_COIE] != null) {
+    contents[_COIE] = __parseBoolean(output[_COIE]);
   }
-  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
-    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
+  if (output[_ABRPA] != null) {
+    contents[_ABRPA] = __expectString(output[_ABRPA]);
   }
-  if (output["ActivityStreamStatus"] !== undefined) {
-    contents.ActivityStreamStatus = __expectString(output["ActivityStreamStatus"]);
+  if (output[_ASS] != null) {
+    contents[_ASS] = __expectString(output[_ASS]);
   }
-  if (output["ActivityStreamKmsKeyId"] !== undefined) {
-    contents.ActivityStreamKmsKeyId = __expectString(output["ActivityStreamKmsKeyId"]);
+  if (output[_ASKKI] != null) {
+    contents[_ASKKI] = __expectString(output[_ASKKI]);
   }
-  if (output["ActivityStreamKinesisStreamName"] !== undefined) {
-    contents.ActivityStreamKinesisStreamName = __expectString(output["ActivityStreamKinesisStreamName"]);
+  if (output[_ASKSN] != null) {
+    contents[_ASKSN] = __expectString(output[_ASKSN]);
   }
-  if (output["ActivityStreamMode"] !== undefined) {
-    contents.ActivityStreamMode = __expectString(output["ActivityStreamMode"]);
+  if (output[_ASM] != null) {
+    contents[_ASM] = __expectString(output[_ASM]);
   }
-  if (output["ActivityStreamEngineNativeAuditFieldsIncluded"] !== undefined) {
-    contents.ActivityStreamEngineNativeAuditFieldsIncluded = __parseBoolean(
-      output["ActivityStreamEngineNativeAuditFieldsIncluded"]
-    );
+  if (output[_ASENAFI] != null) {
+    contents[_ASENAFI] = __parseBoolean(output[_ASENAFI]);
   }
-  if (output["AutomationMode"] !== undefined) {
-    contents.AutomationMode = __expectString(output["AutomationMode"]);
+  if (output[_AM] != null) {
+    contents[_AM] = __expectString(output[_AM]);
   }
-  if (output["ResumeFullAutomationModeTime"] !== undefined) {
-    contents.ResumeFullAutomationModeTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ResumeFullAutomationModeTime"])
-    );
+  if (output[_RFAMT] != null) {
+    contents[_RFAMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RFAMT]));
   }
-  if (output["CustomIamInstanceProfile"] !== undefined) {
-    contents.CustomIamInstanceProfile = __expectString(output["CustomIamInstanceProfile"]);
+  if (output[_CIIP] != null) {
+    contents[_CIIP] = __expectString(output[_CIIP]);
   }
-  if (output["BackupTarget"] !== undefined) {
-    contents.BackupTarget = __expectString(output["BackupTarget"]);
+  if (output[_BTa] != null) {
+    contents[_BTa] = __expectString(output[_BTa]);
   }
-  if (output["NetworkType"] !== undefined) {
-    contents.NetworkType = __expectString(output["NetworkType"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
-  if (output["ActivityStreamPolicyStatus"] !== undefined) {
-    contents.ActivityStreamPolicyStatus = __expectString(output["ActivityStreamPolicyStatus"]);
+  if (output[_ASPS] != null) {
+    contents[_ASPS] = __expectString(output[_ASPS]);
   }
-  if (output["StorageThroughput"] !== undefined) {
-    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
-  if (output["DBSystemId"] !== undefined) {
-    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  if (output[_DBSI] != null) {
+    contents[_DBSI] = __expectString(output[_DBSI]);
   }
-  if (output["MasterUserSecret"] !== undefined) {
-    contents.MasterUserSecret = de_MasterUserSecret(output["MasterUserSecret"], context);
+  if (output[_MUS] != null) {
+    contents[_MUS] = de_MasterUserSecret(output[_MUS], context);
   }
-  if (output["CertificateDetails"] !== undefined) {
-    contents.CertificateDetails = de_CertificateDetails(output["CertificateDetails"], context);
+  if (output[_CD] != null) {
+    contents[_CD] = de_CertificateDetails(output[_CD], context);
   }
-  if (output["ReadReplicaSourceDBClusterIdentifier"] !== undefined) {
-    contents.ReadReplicaSourceDBClusterIdentifier = __expectString(output["ReadReplicaSourceDBClusterIdentifier"]);
+  if (output[_RRSDBCI] != null) {
+    contents[_RRSDBCI] = __expectString(output[_RRSDBCI]);
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __expectString(output["PercentProgress"]);
+  if (output[_PP] != null) {
+    contents[_PP] = __expectString(output[_PP]);
   }
-  if (output["DedicatedLogVolume"] !== undefined) {
-    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  if (output[_DLV] != null) {
+    contents[_DLV] = __parseBoolean(output[_DLV]);
   }
-  if (output["IsStorageConfigUpgradeAvailable"] !== undefined) {
-    contents.IsStorageConfigUpgradeAvailable = __parseBoolean(output["IsStorageConfigUpgradeAvailable"]);
+  if (output[_ISCUA] != null) {
+    contents[_ISCUA] = __parseBoolean(output[_ISCUA]);
   }
-  if (output["MultiTenant"] !== undefined) {
-    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
+  if (output[_MT] != null) {
+    contents[_MT] = __parseBoolean(output[_MT]);
   }
   return contents;
 };
@@ -22950,8 +22719,8 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
  */
 const de_DBInstanceAlreadyExistsFault = (output: any, context: __SerdeContext): DBInstanceAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -22961,106 +22730,103 @@ const de_DBInstanceAlreadyExistsFault = (output: any, context: __SerdeContext): 
  */
 const de_DBInstanceAutomatedBackup = (output: any, context: __SerdeContext): DBInstanceAutomatedBackup => {
   const contents: any = {};
-  if (output["DBInstanceArn"] !== undefined) {
-    contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
+  if (output[_DBIA] != null) {
+    contents[_DBIA] = __expectString(output[_DBIA]);
   }
-  if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
   }
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["RestoreWindow"] !== undefined) {
-    contents.RestoreWindow = de_RestoreWindow(output["RestoreWindow"], context);
+  if (output[_RW] != null) {
+    contents[_RW] = de_RestoreWindow(output[_RW], context);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  if (output[_AZv] != null) {
+    contents[_AZv] = __expectString(output[_AZv]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
+  if (output[_ICTn] != null) {
+    contents[_ICTn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ICTn]));
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["OptionGroupName"] !== undefined) {
-    contents.OptionGroupName = __expectString(output["OptionGroupName"]);
+  if (output[_OGN] != null) {
+    contents[_OGN] = __expectString(output[_OGN]);
   }
-  if (output["TdeCredentialArn"] !== undefined) {
-    contents.TdeCredentialArn = __expectString(output["TdeCredentialArn"]);
+  if (output[_TCA] != null) {
+    contents[_TCA] = __expectString(output[_TCA]);
   }
-  if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = __parseBoolean(output["Encrypted"]);
+  if (output[_Enc] != null) {
+    contents[_Enc] = __parseBoolean(output[_Enc]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["Timezone"] !== undefined) {
-    contents.Timezone = __expectString(output["Timezone"]);
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectString(output[_Ti]);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["DBInstanceAutomatedBackupsArn"] !== undefined) {
-    contents.DBInstanceAutomatedBackupsArn = __expectString(output["DBInstanceAutomatedBackupsArn"]);
+  if (output[_DBIABA] != null) {
+    contents[_DBIABA] = __expectString(output[_DBIABA]);
   }
   if (output.DBInstanceAutomatedBackupsReplications === "") {
-    contents.DBInstanceAutomatedBackupsReplications = [];
-  } else if (
-    output["DBInstanceAutomatedBackupsReplications"] !== undefined &&
-    output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"] !== undefined
-  ) {
-    contents.DBInstanceAutomatedBackupsReplications = de_DBInstanceAutomatedBackupsReplicationList(
-      __getArrayIfSingleItem(output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"]),
+    contents[_DBIABR] = [];
+  } else if (output[_DBIABR] != null && output[_DBIABR][_DBIABRn] != null) {
+    contents[_DBIABR] = de_DBInstanceAutomatedBackupsReplicationList(
+      __getArrayIfSingleItem(output[_DBIABR][_DBIABRn]),
       context
     );
   }
-  if (output["BackupTarget"] !== undefined) {
-    contents.BackupTarget = __expectString(output["BackupTarget"]);
+  if (output[_BTa] != null) {
+    contents[_BTa] = __expectString(output[_BTa]);
   }
-  if (output["StorageThroughput"] !== undefined) {
-    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
-  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
-    contents.AwsBackupRecoveryPointArn = __expectString(output["AwsBackupRecoveryPointArn"]);
+  if (output[_ABRPA] != null) {
+    contents[_ABRPA] = __expectString(output[_ABRPA]);
   }
-  if (output["DedicatedLogVolume"] !== undefined) {
-    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  if (output[_DLV] != null) {
+    contents[_DLV] = __parseBoolean(output[_DLV]);
   }
-  if (output["MultiTenant"] !== undefined) {
-    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
+  if (output[_MT] != null) {
+    contents[_MT] = __parseBoolean(output[_MT]);
   }
   return contents;
 };
@@ -23084,19 +22850,13 @@ const de_DBInstanceAutomatedBackupMessage = (
   context: __SerdeContext
 ): DBInstanceAutomatedBackupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBInstanceAutomatedBackups === "") {
-    contents.DBInstanceAutomatedBackups = [];
-  } else if (
-    output["DBInstanceAutomatedBackups"] !== undefined &&
-    output["DBInstanceAutomatedBackups"]["DBInstanceAutomatedBackup"] !== undefined
-  ) {
-    contents.DBInstanceAutomatedBackups = de_DBInstanceAutomatedBackupList(
-      __getArrayIfSingleItem(output["DBInstanceAutomatedBackups"]["DBInstanceAutomatedBackup"]),
-      context
-    );
+    contents[_DBIAB] = [];
+  } else if (output[_DBIAB] != null && output[_DBIAB][_DBIABn] != null) {
+    contents[_DBIAB] = de_DBInstanceAutomatedBackupList(__getArrayIfSingleItem(output[_DBIAB][_DBIABn]), context);
   }
   return contents;
 };
@@ -23109,8 +22869,8 @@ const de_DBInstanceAutomatedBackupNotFoundFault = (
   context: __SerdeContext
 ): DBInstanceAutomatedBackupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23123,8 +22883,8 @@ const de_DBInstanceAutomatedBackupQuotaExceededFault = (
   context: __SerdeContext
 ): DBInstanceAutomatedBackupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23137,8 +22897,8 @@ const de_DBInstanceAutomatedBackupsReplication = (
   context: __SerdeContext
 ): DBInstanceAutomatedBackupsReplication => {
   const contents: any = {};
-  if (output["DBInstanceAutomatedBackupsArn"] !== undefined) {
-    contents.DBInstanceAutomatedBackupsArn = __expectString(output["DBInstanceAutomatedBackupsArn"]);
+  if (output[_DBIABA] != null) {
+    contents[_DBIABA] = __expectString(output[_DBIABA]);
   }
   return contents;
 };
@@ -23173,13 +22933,13 @@ const de_DBInstanceList = (output: any, context: __SerdeContext): DBInstance[] =
  */
 const de_DBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBInstances === "") {
-    contents.DBInstances = [];
-  } else if (output["DBInstances"] !== undefined && output["DBInstances"]["DBInstance"] !== undefined) {
-    contents.DBInstances = de_DBInstanceList(__getArrayIfSingleItem(output["DBInstances"]["DBInstance"]), context);
+    contents[_DBIn] = [];
+  } else if (output[_DBIn] != null && output[_DBIn][_DBI] != null) {
+    contents[_DBIn] = de_DBInstanceList(__getArrayIfSingleItem(output[_DBIn][_DBI]), context);
   }
   return contents;
 };
@@ -23189,8 +22949,8 @@ const de_DBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceM
  */
 const de_DBInstanceNotFoundFault = (output: any, context: __SerdeContext): DBInstanceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23200,14 +22960,14 @@ const de_DBInstanceNotFoundFault = (output: any, context: __SerdeContext): DBIns
  */
 const de_DBInstanceRole = (output: any, context: __SerdeContext): DBInstanceRole => {
   const contents: any = {};
-  if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = __expectString(output["RoleArn"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
-  if (output["FeatureName"] !== undefined) {
-    contents.FeatureName = __expectString(output["FeatureName"]);
+  if (output[_FN] != null) {
+    contents[_FN] = __expectString(output[_FN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -23220,8 +22980,8 @@ const de_DBInstanceRoleAlreadyExistsFault = (
   context: __SerdeContext
 ): DBInstanceRoleAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23231,8 +22991,8 @@ const de_DBInstanceRoleAlreadyExistsFault = (
  */
 const de_DBInstanceRoleNotFoundFault = (output: any, context: __SerdeContext): DBInstanceRoleNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23245,8 +23005,8 @@ const de_DBInstanceRoleQuotaExceededFault = (
   context: __SerdeContext
 ): DBInstanceRoleQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23267,17 +23027,17 @@ const de_DBInstanceRoles = (output: any, context: __SerdeContext): DBInstanceRol
  */
 const de_DBInstanceStatusInfo = (output: any, context: __SerdeContext): DBInstanceStatusInfo => {
   const contents: any = {};
-  if (output["StatusType"] !== undefined) {
-    contents.StatusType = __expectString(output["StatusType"]);
+  if (output[_STtat] != null) {
+    contents[_STtat] = __expectString(output[_STtat]);
   }
-  if (output["Normal"] !== undefined) {
-    contents.Normal = __parseBoolean(output["Normal"]);
+  if (output[_No] != null) {
+    contents[_No] = __parseBoolean(output[_No]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -23298,8 +23058,8 @@ const de_DBInstanceStatusInfoList = (output: any, context: __SerdeContext): DBIn
  */
 const de_DBLogFileNotFoundFault = (output: any, context: __SerdeContext): DBLogFileNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23309,17 +23069,17 @@ const de_DBLogFileNotFoundFault = (output: any, context: __SerdeContext): DBLogF
  */
 const de_DBParameterGroup = (output: any, context: __SerdeContext): DBParameterGroup => {
   const contents: any = {};
-  if (output["DBParameterGroupName"] !== undefined) {
-    contents.DBParameterGroupName = __expectString(output["DBParameterGroupName"]);
+  if (output[_DBPGN] != null) {
+    contents[_DBPGN] = __expectString(output[_DBPGN]);
   }
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["DBParameterGroupArn"] !== undefined) {
-    contents.DBParameterGroupArn = __expectString(output["DBParameterGroupArn"]);
+  if (output[_DBPGA] != null) {
+    contents[_DBPGA] = __expectString(output[_DBPGA]);
   }
   return contents;
 };
@@ -23332,8 +23092,8 @@ const de_DBParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): DBParameterGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23344,12 +23104,12 @@ const de_DBParameterGroupAlreadyExistsFault = (
 const de_DBParameterGroupDetails = (output: any, context: __SerdeContext): DBParameterGroupDetails => {
   const contents: any = {};
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -23370,8 +23130,8 @@ const de_DBParameterGroupList = (output: any, context: __SerdeContext): DBParame
  */
 const de_DBParameterGroupNameMessage = (output: any, context: __SerdeContext): DBParameterGroupNameMessage => {
   const contents: any = {};
-  if (output["DBParameterGroupName"] !== undefined) {
-    contents.DBParameterGroupName = __expectString(output["DBParameterGroupName"]);
+  if (output[_DBPGN] != null) {
+    contents[_DBPGN] = __expectString(output[_DBPGN]);
   }
   return contents;
 };
@@ -23381,8 +23141,8 @@ const de_DBParameterGroupNameMessage = (output: any, context: __SerdeContext): D
  */
 const de_DBParameterGroupNotFoundFault = (output: any, context: __SerdeContext): DBParameterGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23395,8 +23155,8 @@ const de_DBParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): DBParameterGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23406,19 +23166,13 @@ const de_DBParameterGroupQuotaExceededFault = (
  */
 const de_DBParameterGroupsMessage = (output: any, context: __SerdeContext): DBParameterGroupsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBParameterGroups === "") {
-    contents.DBParameterGroups = [];
-  } else if (
-    output["DBParameterGroups"] !== undefined &&
-    output["DBParameterGroups"]["DBParameterGroup"] !== undefined
-  ) {
-    contents.DBParameterGroups = de_DBParameterGroupList(
-      __getArrayIfSingleItem(output["DBParameterGroups"]["DBParameterGroup"]),
-      context
-    );
+    contents[_DBPGa] = [];
+  } else if (output[_DBPGa] != null && output[_DBPGa][_DBPG] != null) {
+    contents[_DBPGa] = de_DBParameterGroupList(__getArrayIfSingleItem(output[_DBPGa][_DBPG]), context);
   }
   return contents;
 };
@@ -23428,11 +23182,11 @@ const de_DBParameterGroupsMessage = (output: any, context: __SerdeContext): DBPa
  */
 const de_DBParameterGroupStatus = (output: any, context: __SerdeContext): DBParameterGroupStatus => {
   const contents: any = {};
-  if (output["DBParameterGroupName"] !== undefined) {
-    contents.DBParameterGroupName = __expectString(output["DBParameterGroupName"]);
+  if (output[_DBPGN] != null) {
+    contents[_DBPGN] = __expectString(output[_DBPGN]);
   }
-  if (output["ParameterApplyStatus"] !== undefined) {
-    contents.ParameterApplyStatus = __expectString(output["ParameterApplyStatus"]);
+  if (output[_PAS] != null) {
+    contents[_PAS] = __expectString(output[_PAS]);
   }
   return contents;
 };
@@ -23453,59 +23207,56 @@ const de_DBParameterGroupStatusList = (output: any, context: __SerdeContext): DB
  */
 const de_DBProxy = (output: any, context: __SerdeContext): DBProxy => {
   const contents: any = {};
-  if (output["DBProxyName"] !== undefined) {
-    contents.DBProxyName = __expectString(output["DBProxyName"]);
+  if (output[_DBPN] != null) {
+    contents[_DBPN] = __expectString(output[_DBPN]);
   }
-  if (output["DBProxyArn"] !== undefined) {
-    contents.DBProxyArn = __expectString(output["DBProxyArn"]);
+  if (output[_DBPA] != null) {
+    contents[_DBPA] = __expectString(output[_DBPA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["EngineFamily"] !== undefined) {
-    contents.EngineFamily = __expectString(output["EngineFamily"]);
+  if (output[_EF] != null) {
+    contents[_EF] = __expectString(output[_EF]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
   if (output.VpcSecurityGroupIds === "") {
-    contents.VpcSecurityGroupIds = [];
-  } else if (output["VpcSecurityGroupIds"] !== undefined && output["VpcSecurityGroupIds"]["member"] !== undefined) {
-    contents.VpcSecurityGroupIds = de_StringList(
-      __getArrayIfSingleItem(output["VpcSecurityGroupIds"]["member"]),
-      context
-    );
+    contents[_VSGI] = [];
+  } else if (output[_VSGI] != null && output[_VSGI][_me] != null) {
+    contents[_VSGI] = de_StringList(__getArrayIfSingleItem(output[_VSGI][_me]), context);
   }
   if (output.VpcSubnetIds === "") {
-    contents.VpcSubnetIds = [];
-  } else if (output["VpcSubnetIds"] !== undefined && output["VpcSubnetIds"]["member"] !== undefined) {
-    contents.VpcSubnetIds = de_StringList(__getArrayIfSingleItem(output["VpcSubnetIds"]["member"]), context);
+    contents[_VSI] = [];
+  } else if (output[_VSI] != null && output[_VSI][_me] != null) {
+    contents[_VSI] = de_StringList(__getArrayIfSingleItem(output[_VSI][_me]), context);
   }
   if (output.Auth === "") {
-    contents.Auth = [];
-  } else if (output["Auth"] !== undefined && output["Auth"]["member"] !== undefined) {
-    contents.Auth = de_UserAuthConfigInfoList(__getArrayIfSingleItem(output["Auth"]["member"]), context);
+    contents[_Au] = [];
+  } else if (output[_Au] != null && output[_Au][_me] != null) {
+    contents[_Au] = de_UserAuthConfigInfoList(__getArrayIfSingleItem(output[_Au][_me]), context);
   }
-  if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = __expectString(output["RoleArn"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["RequireTLS"] !== undefined) {
-    contents.RequireTLS = __parseBoolean(output["RequireTLS"]);
+  if (output[_RTLS] != null) {
+    contents[_RTLS] = __parseBoolean(output[_RTLS]);
   }
-  if (output["IdleClientTimeout"] !== undefined) {
-    contents.IdleClientTimeout = __strictParseInt32(output["IdleClientTimeout"]) as number;
+  if (output[_ICT] != null) {
+    contents[_ICT] = __strictParseInt32(output[_ICT]) as number;
   }
-  if (output["DebugLogging"] !== undefined) {
-    contents.DebugLogging = __parseBoolean(output["DebugLogging"]);
+  if (output[_DL] != null) {
+    contents[_DL] = __parseBoolean(output[_DL]);
   }
-  if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
+  if (output[_CDr] != null) {
+    contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
-  if (output["UpdatedDate"] !== undefined) {
-    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdatedDate"]));
+  if (output[_UD] != null) {
+    contents[_UD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UD]));
   }
   return contents;
 };
@@ -23515,8 +23266,8 @@ const de_DBProxy = (output: any, context: __SerdeContext): DBProxy => {
  */
 const de_DBProxyAlreadyExistsFault = (output: any, context: __SerdeContext): DBProxyAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23526,45 +23277,42 @@ const de_DBProxyAlreadyExistsFault = (output: any, context: __SerdeContext): DBP
  */
 const de_DBProxyEndpoint = (output: any, context: __SerdeContext): DBProxyEndpoint => {
   const contents: any = {};
-  if (output["DBProxyEndpointName"] !== undefined) {
-    contents.DBProxyEndpointName = __expectString(output["DBProxyEndpointName"]);
+  if (output[_DBPEN] != null) {
+    contents[_DBPEN] = __expectString(output[_DBPEN]);
   }
-  if (output["DBProxyEndpointArn"] !== undefined) {
-    contents.DBProxyEndpointArn = __expectString(output["DBProxyEndpointArn"]);
+  if (output[_DBPEA] != null) {
+    contents[_DBPEA] = __expectString(output[_DBPEA]);
   }
-  if (output["DBProxyName"] !== undefined) {
-    contents.DBProxyName = __expectString(output["DBProxyName"]);
+  if (output[_DBPN] != null) {
+    contents[_DBPN] = __expectString(output[_DBPN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
   if (output.VpcSecurityGroupIds === "") {
-    contents.VpcSecurityGroupIds = [];
-  } else if (output["VpcSecurityGroupIds"] !== undefined && output["VpcSecurityGroupIds"]["member"] !== undefined) {
-    contents.VpcSecurityGroupIds = de_StringList(
-      __getArrayIfSingleItem(output["VpcSecurityGroupIds"]["member"]),
-      context
-    );
+    contents[_VSGI] = [];
+  } else if (output[_VSGI] != null && output[_VSGI][_me] != null) {
+    contents[_VSGI] = de_StringList(__getArrayIfSingleItem(output[_VSGI][_me]), context);
   }
   if (output.VpcSubnetIds === "") {
-    contents.VpcSubnetIds = [];
-  } else if (output["VpcSubnetIds"] !== undefined && output["VpcSubnetIds"]["member"] !== undefined) {
-    contents.VpcSubnetIds = de_StringList(__getArrayIfSingleItem(output["VpcSubnetIds"]["member"]), context);
+    contents[_VSI] = [];
+  } else if (output[_VSI] != null && output[_VSI][_me] != null) {
+    contents[_VSI] = de_StringList(__getArrayIfSingleItem(output[_VSI][_me]), context);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
+  if (output[_CDr] != null) {
+    contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
-  if (output["TargetRole"] !== undefined) {
-    contents.TargetRole = __expectString(output["TargetRole"]);
+  if (output[_TR] != null) {
+    contents[_TR] = __expectString(output[_TR]);
   }
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = __parseBoolean(output["IsDefault"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
   }
   return contents;
 };
@@ -23577,8 +23325,8 @@ const de_DBProxyEndpointAlreadyExistsFault = (
   context: __SerdeContext
 ): DBProxyEndpointAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23599,8 +23347,8 @@ const de_DBProxyEndpointList = (output: any, context: __SerdeContext): DBProxyEn
  */
 const de_DBProxyEndpointNotFoundFault = (output: any, context: __SerdeContext): DBProxyEndpointNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23613,8 +23361,8 @@ const de_DBProxyEndpointQuotaExceededFault = (
   context: __SerdeContext
 ): DBProxyEndpointQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23635,8 +23383,8 @@ const de_DBProxyList = (output: any, context: __SerdeContext): DBProxy[] => {
  */
 const de_DBProxyNotFoundFault = (output: any, context: __SerdeContext): DBProxyNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23646,8 +23394,8 @@ const de_DBProxyNotFoundFault = (output: any, context: __SerdeContext): DBProxyN
  */
 const de_DBProxyQuotaExceededFault = (output: any, context: __SerdeContext): DBProxyQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23657,29 +23405,29 @@ const de_DBProxyQuotaExceededFault = (output: any, context: __SerdeContext): DBP
  */
 const de_DBProxyTarget = (output: any, context: __SerdeContext): DBProxyTarget => {
   const contents: any = {};
-  if (output["TargetArn"] !== undefined) {
-    contents.TargetArn = __expectString(output["TargetArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["TrackedClusterId"] !== undefined) {
-    contents.TrackedClusterId = __expectString(output["TrackedClusterId"]);
+  if (output[_TCI] != null) {
+    contents[_TCI] = __expectString(output[_TCI]);
   }
-  if (output["RdsResourceId"] !== undefined) {
-    contents.RdsResourceId = __expectString(output["RdsResourceId"]);
+  if (output[_RRId] != null) {
+    contents[_RRId] = __expectString(output[_RRId]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
-  if (output["Role"] !== undefined) {
-    contents.Role = __expectString(output["Role"]);
+  if (output[_Ro] != null) {
+    contents[_Ro] = __expectString(output[_Ro]);
   }
-  if (output["TargetHealth"] !== undefined) {
-    contents.TargetHealth = de_TargetHealth(output["TargetHealth"], context);
+  if (output[_TH] != null) {
+    contents[_TH] = de_TargetHealth(output[_TH], context);
   }
   return contents;
 };
@@ -23692,8 +23440,8 @@ const de_DBProxyTargetAlreadyRegisteredFault = (
   context: __SerdeContext
 ): DBProxyTargetAlreadyRegisteredFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23703,29 +23451,29 @@ const de_DBProxyTargetAlreadyRegisteredFault = (
  */
 const de_DBProxyTargetGroup = (output: any, context: __SerdeContext): DBProxyTargetGroup => {
   const contents: any = {};
-  if (output["DBProxyName"] !== undefined) {
-    contents.DBProxyName = __expectString(output["DBProxyName"]);
+  if (output[_DBPN] != null) {
+    contents[_DBPN] = __expectString(output[_DBPN]);
   }
-  if (output["TargetGroupName"] !== undefined) {
-    contents.TargetGroupName = __expectString(output["TargetGroupName"]);
+  if (output[_TGN] != null) {
+    contents[_TGN] = __expectString(output[_TGN]);
   }
-  if (output["TargetGroupArn"] !== undefined) {
-    contents.TargetGroupArn = __expectString(output["TargetGroupArn"]);
+  if (output[_TGA] != null) {
+    contents[_TGA] = __expectString(output[_TGA]);
   }
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = __parseBoolean(output["IsDefault"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["ConnectionPoolConfig"] !== undefined) {
-    contents.ConnectionPoolConfig = de_ConnectionPoolConfigurationInfo(output["ConnectionPoolConfig"], context);
+  if (output[_CPC] != null) {
+    contents[_CPC] = de_ConnectionPoolConfigurationInfo(output[_CPC], context);
   }
-  if (output["CreatedDate"] !== undefined) {
-    contents.CreatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedDate"]));
+  if (output[_CDr] != null) {
+    contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
-  if (output["UpdatedDate"] !== undefined) {
-    contents.UpdatedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["UpdatedDate"]));
+  if (output[_UD] != null) {
+    contents[_UD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UD]));
   }
   return contents;
 };
@@ -23735,8 +23483,8 @@ const de_DBProxyTargetGroup = (output: any, context: __SerdeContext): DBProxyTar
  */
 const de_DBProxyTargetGroupNotFoundFault = (output: any, context: __SerdeContext): DBProxyTargetGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23746,8 +23494,8 @@ const de_DBProxyTargetGroupNotFoundFault = (output: any, context: __SerdeContext
  */
 const de_DBProxyTargetNotFoundFault = (output: any, context: __SerdeContext): DBProxyTargetNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23757,36 +23505,30 @@ const de_DBProxyTargetNotFoundFault = (output: any, context: __SerdeContext): DB
  */
 const de_DBSecurityGroup = (output: any, context: __SerdeContext): DBSecurityGroup => {
   const contents: any = {};
-  if (output["OwnerId"] !== undefined) {
-    contents.OwnerId = __expectString(output["OwnerId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
-  if (output["DBSecurityGroupName"] !== undefined) {
-    contents.DBSecurityGroupName = __expectString(output["DBSecurityGroupName"]);
+  if (output[_DBSGN] != null) {
+    contents[_DBSGN] = __expectString(output[_DBSGN]);
   }
-  if (output["DBSecurityGroupDescription"] !== undefined) {
-    contents.DBSecurityGroupDescription = __expectString(output["DBSecurityGroupDescription"]);
+  if (output[_DBSGD] != null) {
+    contents[_DBSGD] = __expectString(output[_DBSGD]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
   if (output.EC2SecurityGroups === "") {
-    contents.EC2SecurityGroups = [];
-  } else if (
-    output["EC2SecurityGroups"] !== undefined &&
-    output["EC2SecurityGroups"]["EC2SecurityGroup"] !== undefined
-  ) {
-    contents.EC2SecurityGroups = de_EC2SecurityGroupList(
-      __getArrayIfSingleItem(output["EC2SecurityGroups"]["EC2SecurityGroup"]),
-      context
-    );
+    contents[_ECSG] = [];
+  } else if (output[_ECSG] != null && output[_ECSG][_ECSGe] != null) {
+    contents[_ECSG] = de_EC2SecurityGroupList(__getArrayIfSingleItem(output[_ECSG][_ECSGe]), context);
   }
   if (output.IPRanges === "") {
-    contents.IPRanges = [];
-  } else if (output["IPRanges"] !== undefined && output["IPRanges"]["IPRange"] !== undefined) {
-    contents.IPRanges = de_IPRangeList(__getArrayIfSingleItem(output["IPRanges"]["IPRange"]), context);
+    contents[_IPR] = [];
+  } else if (output[_IPR] != null && output[_IPR][_IPRa] != null) {
+    contents[_IPR] = de_IPRangeList(__getArrayIfSingleItem(output[_IPR][_IPRa]), context);
   }
-  if (output["DBSecurityGroupArn"] !== undefined) {
-    contents.DBSecurityGroupArn = __expectString(output["DBSecurityGroupArn"]);
+  if (output[_DBSGA] != null) {
+    contents[_DBSGA] = __expectString(output[_DBSGA]);
   }
   return contents;
 };
@@ -23799,8 +23541,8 @@ const de_DBSecurityGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): DBSecurityGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23810,11 +23552,11 @@ const de_DBSecurityGroupAlreadyExistsFault = (
  */
 const de_DBSecurityGroupMembership = (output: any, context: __SerdeContext): DBSecurityGroupMembership => {
   const contents: any = {};
-  if (output["DBSecurityGroupName"] !== undefined) {
-    contents.DBSecurityGroupName = __expectString(output["DBSecurityGroupName"]);
+  if (output[_DBSGN] != null) {
+    contents[_DBSGN] = __expectString(output[_DBSGN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -23835,16 +23577,13 @@ const de_DBSecurityGroupMembershipList = (output: any, context: __SerdeContext):
  */
 const de_DBSecurityGroupMessage = (output: any, context: __SerdeContext): DBSecurityGroupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBSecurityGroups === "") {
-    contents.DBSecurityGroups = [];
-  } else if (output["DBSecurityGroups"] !== undefined && output["DBSecurityGroups"]["DBSecurityGroup"] !== undefined) {
-    contents.DBSecurityGroups = de_DBSecurityGroups(
-      __getArrayIfSingleItem(output["DBSecurityGroups"]["DBSecurityGroup"]),
-      context
-    );
+    contents[_DBSG] = [];
+  } else if (output[_DBSG] != null && output[_DBSG][_DBSGe] != null) {
+    contents[_DBSG] = de_DBSecurityGroups(__getArrayIfSingleItem(output[_DBSG][_DBSGe]), context);
   }
   return contents;
 };
@@ -23854,8 +23593,8 @@ const de_DBSecurityGroupMessage = (output: any, context: __SerdeContext): DBSecu
  */
 const de_DBSecurityGroupNotFoundFault = (output: any, context: __SerdeContext): DBSecurityGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23868,8 +23607,8 @@ const de_DBSecurityGroupNotSupportedFault = (
   context: __SerdeContext
 ): DBSecurityGroupNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23882,8 +23621,8 @@ const de_DBSecurityGroupQuotaExceededFault = (
   context: __SerdeContext
 ): DBSecurityGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -23904,125 +23643,117 @@ const de_DBSecurityGroups = (output: any, context: __SerdeContext): DBSecurityGr
  */
 const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
   const contents: any = {};
-  if (output["DBSnapshotIdentifier"] !== undefined) {
-    contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
+  if (output[_DBSIn] != null) {
+    contents[_DBSIn] = __expectString(output[_DBSIn]);
   }
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
+  if (output[_SCT] != null) {
+    contents[_SCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SCT]));
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  if (output[_AZv] != null) {
+    contents[_AZv] = __expectString(output[_AZv]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
+  if (output[_ICTn] != null) {
+    contents[_ICTn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ICTn]));
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["SnapshotType"] !== undefined) {
-    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  if (output[_STn] != null) {
+    contents[_STn] = __expectString(output[_STn]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["OptionGroupName"] !== undefined) {
-    contents.OptionGroupName = __expectString(output["OptionGroupName"]);
+  if (output[_OGN] != null) {
+    contents[_OGN] = __expectString(output[_OGN]);
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
+  if (output[_PP] != null) {
+    contents[_PP] = __strictParseInt32(output[_PP]) as number;
   }
-  if (output["SourceRegion"] !== undefined) {
-    contents.SourceRegion = __expectString(output["SourceRegion"]);
+  if (output[_SR] != null) {
+    contents[_SR] = __expectString(output[_SR]);
   }
-  if (output["SourceDBSnapshotIdentifier"] !== undefined) {
-    contents.SourceDBSnapshotIdentifier = __expectString(output["SourceDBSnapshotIdentifier"]);
+  if (output[_SDBSI] != null) {
+    contents[_SDBSI] = __expectString(output[_SDBSI]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["TdeCredentialArn"] !== undefined) {
-    contents.TdeCredentialArn = __expectString(output["TdeCredentialArn"]);
+  if (output[_TCA] != null) {
+    contents[_TCA] = __expectString(output[_TCA]);
   }
-  if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = __parseBoolean(output["Encrypted"]);
+  if (output[_Enc] != null) {
+    contents[_Enc] = __parseBoolean(output[_Enc]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DBSnapshotArn"] !== undefined) {
-    contents.DBSnapshotArn = __expectString(output["DBSnapshotArn"]);
+  if (output[_DBSA] != null) {
+    contents[_DBSA] = __expectString(output[_DBSA]);
   }
-  if (output["Timezone"] !== undefined) {
-    contents.Timezone = __expectString(output["Timezone"]);
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectString(output[_Ti]);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
   if (output.ProcessorFeatures === "") {
-    contents.ProcessorFeatures = [];
-  } else if (
-    output["ProcessorFeatures"] !== undefined &&
-    output["ProcessorFeatures"]["ProcessorFeature"] !== undefined
-  ) {
-    contents.ProcessorFeatures = de_ProcessorFeatureList(
-      __getArrayIfSingleItem(output["ProcessorFeatures"]["ProcessorFeature"]),
-      context
-    );
+    contents[_PF] = [];
+  } else if (output[_PF] != null && output[_PF][_PFr] != null) {
+    contents[_PF] = de_ProcessorFeatureList(__getArrayIfSingleItem(output[_PF][_PFr]), context);
   }
-  if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
-  if (output["OriginalSnapshotCreateTime"] !== undefined) {
-    contents.OriginalSnapshotCreateTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["OriginalSnapshotCreateTime"])
-    );
+  if (output[_OSCT] != null) {
+    contents[_OSCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_OSCT]));
   }
-  if (output["SnapshotDatabaseTime"] !== undefined) {
-    contents.SnapshotDatabaseTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotDatabaseTime"]));
+  if (output[_SDT] != null) {
+    contents[_SDT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SDT]));
   }
-  if (output["SnapshotTarget"] !== undefined) {
-    contents.SnapshotTarget = __expectString(output["SnapshotTarget"]);
+  if (output[_STna] != null) {
+    contents[_STna] = __expectString(output[_STna]);
   }
-  if (output["StorageThroughput"] !== undefined) {
-    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
-  if (output["DBSystemId"] !== undefined) {
-    contents.DBSystemId = __expectString(output["DBSystemId"]);
+  if (output[_DBSI] != null) {
+    contents[_DBSI] = __expectString(output[_DBSI]);
   }
-  if (output["DedicatedLogVolume"] !== undefined) {
-    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  if (output[_DLV] != null) {
+    contents[_DLV] = __parseBoolean(output[_DLV]);
   }
-  if (output["MultiTenant"] !== undefined) {
-    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
+  if (output[_MT] != null) {
+    contents[_MT] = __parseBoolean(output[_MT]);
   }
   return contents;
 };
@@ -24032,8 +23763,8 @@ const de_DBSnapshot = (output: any, context: __SerdeContext): DBSnapshot => {
  */
 const de_DBSnapshotAlreadyExistsFault = (output: any, context: __SerdeContext): DBSnapshotAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24043,16 +23774,13 @@ const de_DBSnapshotAlreadyExistsFault = (output: any, context: __SerdeContext): 
  */
 const de_DBSnapshotAttribute = (output: any, context: __SerdeContext): DBSnapshotAttribute => {
   const contents: any = {};
-  if (output["AttributeName"] !== undefined) {
-    contents.AttributeName = __expectString(output["AttributeName"]);
+  if (output[_AN] != null) {
+    contents[_AN] = __expectString(output[_AN]);
   }
   if (output.AttributeValues === "") {
-    contents.AttributeValues = [];
-  } else if (output["AttributeValues"] !== undefined && output["AttributeValues"]["AttributeValue"] !== undefined) {
-    contents.AttributeValues = de_AttributeValueList(
-      __getArrayIfSingleItem(output["AttributeValues"]["AttributeValue"]),
-      context
-    );
+    contents[_AVt] = [];
+  } else if (output[_AVt] != null && output[_AVt][_AVtt] != null) {
+    contents[_AVt] = de_AttributeValueList(__getArrayIfSingleItem(output[_AVt][_AVtt]), context);
   }
   return contents;
 };
@@ -24073,19 +23801,13 @@ const de_DBSnapshotAttributeList = (output: any, context: __SerdeContext): DBSna
  */
 const de_DBSnapshotAttributesResult = (output: any, context: __SerdeContext): DBSnapshotAttributesResult => {
   const contents: any = {};
-  if (output["DBSnapshotIdentifier"] !== undefined) {
-    contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
+  if (output[_DBSIn] != null) {
+    contents[_DBSIn] = __expectString(output[_DBSIn]);
   }
   if (output.DBSnapshotAttributes === "") {
-    contents.DBSnapshotAttributes = [];
-  } else if (
-    output["DBSnapshotAttributes"] !== undefined &&
-    output["DBSnapshotAttributes"]["DBSnapshotAttribute"] !== undefined
-  ) {
-    contents.DBSnapshotAttributes = de_DBSnapshotAttributeList(
-      __getArrayIfSingleItem(output["DBSnapshotAttributes"]["DBSnapshotAttribute"]),
-      context
-    );
+    contents[_DBSAn] = [];
+  } else if (output[_DBSAn] != null && output[_DBSAn][_DBSAna] != null) {
+    contents[_DBSAn] = de_DBSnapshotAttributeList(__getArrayIfSingleItem(output[_DBSAn][_DBSAna]), context);
   }
   return contents;
 };
@@ -24106,13 +23828,13 @@ const de_DBSnapshotList = (output: any, context: __SerdeContext): DBSnapshot[] =
  */
 const de_DBSnapshotMessage = (output: any, context: __SerdeContext): DBSnapshotMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBSnapshots === "") {
-    contents.DBSnapshots = [];
-  } else if (output["DBSnapshots"] !== undefined && output["DBSnapshots"]["DBSnapshot"] !== undefined) {
-    contents.DBSnapshots = de_DBSnapshotList(__getArrayIfSingleItem(output["DBSnapshots"]["DBSnapshot"]), context);
+    contents[_DBSn] = [];
+  } else if (output[_DBSn] != null && output[_DBSn][_DBS] != null) {
+    contents[_DBSn] = de_DBSnapshotList(__getArrayIfSingleItem(output[_DBSn][_DBS]), context);
   }
   return contents;
 };
@@ -24122,8 +23844,8 @@ const de_DBSnapshotMessage = (output: any, context: __SerdeContext): DBSnapshotM
  */
 const de_DBSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBSnapshotNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24133,48 +23855,46 @@ const de_DBSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBSna
  */
 const de_DBSnapshotTenantDatabase = (output: any, context: __SerdeContext): DBSnapshotTenantDatabase => {
   const contents: any = {};
-  if (output["DBSnapshotIdentifier"] !== undefined) {
-    contents.DBSnapshotIdentifier = __expectString(output["DBSnapshotIdentifier"]);
+  if (output[_DBSIn] != null) {
+    contents[_DBSIn] = __expectString(output[_DBSIn]);
   }
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
-  if (output["EngineName"] !== undefined) {
-    contents.EngineName = __expectString(output["EngineName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["SnapshotType"] !== undefined) {
-    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  if (output[_STn] != null) {
+    contents[_STn] = __expectString(output[_STn]);
   }
-  if (output["TenantDatabaseCreateTime"] !== undefined) {
-    contents.TenantDatabaseCreateTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["TenantDatabaseCreateTime"])
-    );
+  if (output[_TDCT] != null) {
+    contents[_TDCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TDCT]));
   }
-  if (output["TenantDBName"] !== undefined) {
-    contents.TenantDBName = __expectString(output["TenantDBName"]);
+  if (output[_TDBN] != null) {
+    contents[_TDBN] = __expectString(output[_TDBN]);
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["TenantDatabaseResourceId"] !== undefined) {
-    contents.TenantDatabaseResourceId = __expectString(output["TenantDatabaseResourceId"]);
+  if (output[_TDRI] != null) {
+    contents[_TDRI] = __expectString(output[_TDRI]);
   }
-  if (output["CharacterSetName"] !== undefined) {
-    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["DBSnapshotTenantDatabaseARN"] !== undefined) {
-    contents.DBSnapshotTenantDatabaseARN = __expectString(output["DBSnapshotTenantDatabaseARN"]);
+  if (output[_DBSTDARN] != null) {
+    contents[_DBSTDARN] = __expectString(output[_DBSTDARN]);
   }
-  if (output["NcharCharacterSetName"] !== undefined) {
-    contents.NcharCharacterSetName = __expectString(output["NcharCharacterSetName"]);
+  if (output[_NCSN] != null) {
+    contents[_NCSN] = __expectString(output[_NCSN]);
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   return contents;
 };
@@ -24187,8 +23907,8 @@ const de_DBSnapshotTenantDatabaseNotFoundFault = (
   context: __SerdeContext
 ): DBSnapshotTenantDatabaseNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24212,19 +23932,13 @@ const de_DBSnapshotTenantDatabasesMessage = (
   context: __SerdeContext
 ): DBSnapshotTenantDatabasesMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBSnapshotTenantDatabases === "") {
-    contents.DBSnapshotTenantDatabases = [];
-  } else if (
-    output["DBSnapshotTenantDatabases"] !== undefined &&
-    output["DBSnapshotTenantDatabases"]["DBSnapshotTenantDatabase"] !== undefined
-  ) {
-    contents.DBSnapshotTenantDatabases = de_DBSnapshotTenantDatabasesList(
-      __getArrayIfSingleItem(output["DBSnapshotTenantDatabases"]["DBSnapshotTenantDatabase"]),
-      context
-    );
+    contents[_DBSTD] = [];
+  } else if (output[_DBSTD] != null && output[_DBSTD][_DBSTDn] != null) {
+    contents[_DBSTD] = de_DBSnapshotTenantDatabasesList(__getArrayIfSingleItem(output[_DBSTD][_DBSTDn]), context);
   }
   return contents;
 };
@@ -24234,33 +23948,30 @@ const de_DBSnapshotTenantDatabasesMessage = (
  */
 const de_DBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup => {
   const contents: any = {};
-  if (output["DBSubnetGroupName"] !== undefined) {
-    contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
+  if (output[_DBSGNu] != null) {
+    contents[_DBSGNu] = __expectString(output[_DBSGNu]);
   }
-  if (output["DBSubnetGroupDescription"] !== undefined) {
-    contents.DBSubnetGroupDescription = __expectString(output["DBSubnetGroupDescription"]);
+  if (output[_DBSGDu] != null) {
+    contents[_DBSGDu] = __expectString(output[_DBSGDu]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["SubnetGroupStatus"] !== undefined) {
-    contents.SubnetGroupStatus = __expectString(output["SubnetGroupStatus"]);
+  if (output[_SGS] != null) {
+    contents[_SGS] = __expectString(output[_SGS]);
   }
   if (output.Subnets === "") {
-    contents.Subnets = [];
-  } else if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
-    contents.Subnets = de_SubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_Sub] != null) {
+    contents[_Su] = de_SubnetList(__getArrayIfSingleItem(output[_Su][_Sub]), context);
   }
-  if (output["DBSubnetGroupArn"] !== undefined) {
-    contents.DBSubnetGroupArn = __expectString(output["DBSubnetGroupArn"]);
+  if (output[_DBSGAu] != null) {
+    contents[_DBSGAu] = __expectString(output[_DBSGAu]);
   }
   if (output.SupportedNetworkTypes === "") {
-    contents.SupportedNetworkTypes = [];
-  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
-    contents.SupportedNetworkTypes = de_StringList(
-      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
-      context
-    );
+    contents[_SNT] = [];
+  } else if (output[_SNT] != null && output[_SNT][_me] != null) {
+    contents[_SNT] = de_StringList(__getArrayIfSingleItem(output[_SNT][_me]), context);
   }
   return contents;
 };
@@ -24270,8 +23981,8 @@ const de_DBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup =
  */
 const de_DBSubnetGroupAlreadyExistsFault = (output: any, context: __SerdeContext): DBSubnetGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24284,8 +23995,8 @@ const de_DBSubnetGroupDoesNotCoverEnoughAZs = (
   context: __SerdeContext
 ): DBSubnetGroupDoesNotCoverEnoughAZs => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24295,16 +24006,13 @@ const de_DBSubnetGroupDoesNotCoverEnoughAZs = (
  */
 const de_DBSubnetGroupMessage = (output: any, context: __SerdeContext): DBSubnetGroupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.DBSubnetGroups === "") {
-    contents.DBSubnetGroups = [];
-  } else if (output["DBSubnetGroups"] !== undefined && output["DBSubnetGroups"]["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroups = de_DBSubnetGroups(
-      __getArrayIfSingleItem(output["DBSubnetGroups"]["DBSubnetGroup"]),
-      context
-    );
+    contents[_DBSGub] = [];
+  } else if (output[_DBSGub] != null && output[_DBSGub][_DBSGu] != null) {
+    contents[_DBSGub] = de_DBSubnetGroups(__getArrayIfSingleItem(output[_DBSGub][_DBSGu]), context);
   }
   return contents;
 };
@@ -24314,8 +24022,8 @@ const de_DBSubnetGroupMessage = (output: any, context: __SerdeContext): DBSubnet
  */
 const de_DBSubnetGroupNotAllowedFault = (output: any, context: __SerdeContext): DBSubnetGroupNotAllowedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24325,8 +24033,8 @@ const de_DBSubnetGroupNotAllowedFault = (output: any, context: __SerdeContext): 
  */
 const de_DBSubnetGroupNotFoundFault = (output: any, context: __SerdeContext): DBSubnetGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24336,8 +24044,8 @@ const de_DBSubnetGroupNotFoundFault = (output: any, context: __SerdeContext): DB
  */
 const de_DBSubnetGroupQuotaExceededFault = (output: any, context: __SerdeContext): DBSubnetGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24358,8 +24066,8 @@ const de_DBSubnetGroups = (output: any, context: __SerdeContext): DBSubnetGroup[
  */
 const de_DBSubnetQuotaExceededFault = (output: any, context: __SerdeContext): DBSubnetQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24369,8 +24077,8 @@ const de_DBSubnetQuotaExceededFault = (output: any, context: __SerdeContext): DB
  */
 const de_DBUpgradeDependencyFailureFault = (output: any, context: __SerdeContext): DBUpgradeDependencyFailureFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24383,8 +24091,8 @@ const de_DeleteBlueGreenDeploymentResponse = (
   context: __SerdeContext
 ): DeleteBlueGreenDeploymentResponse => {
   const contents: any = {};
-  if (output["BlueGreenDeployment"] !== undefined) {
-    contents.BlueGreenDeployment = de_BlueGreenDeployment(output["BlueGreenDeployment"], context);
+  if (output[_BGD] != null) {
+    contents[_BGD] = de_BlueGreenDeployment(output[_BGD], context);
   }
   return contents;
 };
@@ -24397,8 +24105,8 @@ const de_DeleteDBClusterAutomatedBackupResult = (
   context: __SerdeContext
 ): DeleteDBClusterAutomatedBackupResult => {
   const contents: any = {};
-  if (output["DBClusterAutomatedBackup"] !== undefined) {
-    contents.DBClusterAutomatedBackup = de_DBClusterAutomatedBackup(output["DBClusterAutomatedBackup"], context);
+  if (output[_DBCABl] != null) {
+    contents[_DBCABl] = de_DBClusterAutomatedBackup(output[_DBCABl], context);
   }
   return contents;
 };
@@ -24408,8 +24116,8 @@ const de_DeleteDBClusterAutomatedBackupResult = (
  */
 const de_DeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -24419,8 +24127,8 @@ const de_DeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteD
  */
 const de_DeleteDBClusterSnapshotResult = (output: any, context: __SerdeContext): DeleteDBClusterSnapshotResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshot"] !== undefined) {
-    contents.DBClusterSnapshot = de_DBClusterSnapshot(output["DBClusterSnapshot"], context);
+  if (output[_DBCS] != null) {
+    contents[_DBCS] = de_DBClusterSnapshot(output[_DBCS], context);
   }
   return contents;
 };
@@ -24433,8 +24141,8 @@ const de_DeleteDBInstanceAutomatedBackupResult = (
   context: __SerdeContext
 ): DeleteDBInstanceAutomatedBackupResult => {
   const contents: any = {};
-  if (output["DBInstanceAutomatedBackup"] !== undefined) {
-    contents.DBInstanceAutomatedBackup = de_DBInstanceAutomatedBackup(output["DBInstanceAutomatedBackup"], context);
+  if (output[_DBIABn] != null) {
+    contents[_DBIABn] = de_DBInstanceAutomatedBackup(output[_DBIABn], context);
   }
   return contents;
 };
@@ -24444,8 +24152,8 @@ const de_DeleteDBInstanceAutomatedBackupResult = (
  */
 const de_DeleteDBInstanceResult = (output: any, context: __SerdeContext): DeleteDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -24455,8 +24163,8 @@ const de_DeleteDBInstanceResult = (output: any, context: __SerdeContext): Delete
  */
 const de_DeleteDBProxyEndpointResponse = (output: any, context: __SerdeContext): DeleteDBProxyEndpointResponse => {
   const contents: any = {};
-  if (output["DBProxyEndpoint"] !== undefined) {
-    contents.DBProxyEndpoint = de_DBProxyEndpoint(output["DBProxyEndpoint"], context);
+  if (output[_DBPE] != null) {
+    contents[_DBPE] = de_DBProxyEndpoint(output[_DBPE], context);
   }
   return contents;
 };
@@ -24466,8 +24174,8 @@ const de_DeleteDBProxyEndpointResponse = (output: any, context: __SerdeContext):
  */
 const de_DeleteDBProxyResponse = (output: any, context: __SerdeContext): DeleteDBProxyResponse => {
   const contents: any = {};
-  if (output["DBProxy"] !== undefined) {
-    contents.DBProxy = de_DBProxy(output["DBProxy"], context);
+  if (output[_DBP] != null) {
+    contents[_DBP] = de_DBProxy(output[_DBP], context);
   }
   return contents;
 };
@@ -24477,8 +24185,8 @@ const de_DeleteDBProxyResponse = (output: any, context: __SerdeContext): DeleteD
  */
 const de_DeleteDBSnapshotResult = (output: any, context: __SerdeContext): DeleteDBSnapshotResult => {
   const contents: any = {};
-  if (output["DBSnapshot"] !== undefined) {
-    contents.DBSnapshot = de_DBSnapshot(output["DBSnapshot"], context);
+  if (output[_DBS] != null) {
+    contents[_DBS] = de_DBSnapshot(output[_DBS], context);
   }
   return contents;
 };
@@ -24488,8 +24196,8 @@ const de_DeleteDBSnapshotResult = (output: any, context: __SerdeContext): Delete
  */
 const de_DeleteEventSubscriptionResult = (output: any, context: __SerdeContext): DeleteEventSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -24499,8 +24207,8 @@ const de_DeleteEventSubscriptionResult = (output: any, context: __SerdeContext):
  */
 const de_DeleteGlobalClusterResult = (output: any, context: __SerdeContext): DeleteGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -24510,8 +24218,8 @@ const de_DeleteGlobalClusterResult = (output: any, context: __SerdeContext): Del
  */
 const de_DeleteTenantDatabaseResult = (output: any, context: __SerdeContext): DeleteTenantDatabaseResult => {
   const contents: any = {};
-  if (output["TenantDatabase"] !== undefined) {
-    contents.TenantDatabase = de_TenantDatabase(output["TenantDatabase"], context);
+  if (output[_TD] != null) {
+    contents[_TD] = de_TenantDatabase(output[_TD], context);
   }
   return contents;
 };
@@ -24536,15 +24244,12 @@ const de_DescribeBlueGreenDeploymentsResponse = (
 ): DescribeBlueGreenDeploymentsResponse => {
   const contents: any = {};
   if (output.BlueGreenDeployments === "") {
-    contents.BlueGreenDeployments = [];
-  } else if (output["BlueGreenDeployments"] !== undefined && output["BlueGreenDeployments"]["member"] !== undefined) {
-    contents.BlueGreenDeployments = de_BlueGreenDeploymentList(
-      __getArrayIfSingleItem(output["BlueGreenDeployments"]["member"]),
-      context
-    );
+    contents[_BGDl] = [];
+  } else if (output[_BGDl] != null && output[_BGDl][_me] != null) {
+    contents[_BGDl] = de_BlueGreenDeploymentList(__getArrayIfSingleItem(output[_BGDl][_me]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -24557,11 +24262,8 @@ const de_DescribeDBClusterSnapshotAttributesResult = (
   context: __SerdeContext
 ): DescribeDBClusterSnapshotAttributesResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshotAttributesResult"] !== undefined) {
-    contents.DBClusterSnapshotAttributesResult = de_DBClusterSnapshotAttributesResult(
-      output["DBClusterSnapshotAttributesResult"],
-      context
-    );
+  if (output[_DBCSAR] != null) {
+    contents[_DBCSAR] = de_DBClusterSnapshotAttributesResult(output[_DBCSAR], context);
   }
   return contents;
 };
@@ -24571,14 +24273,14 @@ const de_DescribeDBClusterSnapshotAttributesResult = (
  */
 const de_DescribeDBLogFilesDetails = (output: any, context: __SerdeContext): DescribeDBLogFilesDetails => {
   const contents: any = {};
-  if (output["LogFileName"] !== undefined) {
-    contents.LogFileName = __expectString(output["LogFileName"]);
+  if (output[_LFN] != null) {
+    contents[_LFN] = __expectString(output[_LFN]);
   }
-  if (output["LastWritten"] !== undefined) {
-    contents.LastWritten = __strictParseLong(output["LastWritten"]) as number;
+  if (output[_LW] != null) {
+    contents[_LW] = __strictParseLong(output[_LW]) as number;
   }
-  if (output["Size"] !== undefined) {
-    contents.Size = __strictParseLong(output["Size"]) as number;
+  if (output[_Si] != null) {
+    contents[_Si] = __strictParseLong(output[_Si]) as number;
   }
   return contents;
 };
@@ -24600,18 +24302,12 @@ const de_DescribeDBLogFilesList = (output: any, context: __SerdeContext): Descri
 const de_DescribeDBLogFilesResponse = (output: any, context: __SerdeContext): DescribeDBLogFilesResponse => {
   const contents: any = {};
   if (output.DescribeDBLogFiles === "") {
-    contents.DescribeDBLogFiles = [];
-  } else if (
-    output["DescribeDBLogFiles"] !== undefined &&
-    output["DescribeDBLogFiles"]["DescribeDBLogFilesDetails"] !== undefined
-  ) {
-    contents.DescribeDBLogFiles = de_DescribeDBLogFilesList(
-      __getArrayIfSingleItem(output["DescribeDBLogFiles"]["DescribeDBLogFilesDetails"]),
-      context
-    );
+    contents[_DDBLF] = [];
+  } else if (output[_DDBLF] != null && output[_DDBLF][_DDBLFD] != null) {
+    contents[_DDBLF] = de_DescribeDBLogFilesList(__getArrayIfSingleItem(output[_DDBLF][_DDBLFD]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -24622,12 +24318,12 @@ const de_DescribeDBLogFilesResponse = (output: any, context: __SerdeContext): De
 const de_DescribeDBProxiesResponse = (output: any, context: __SerdeContext): DescribeDBProxiesResponse => {
   const contents: any = {};
   if (output.DBProxies === "") {
-    contents.DBProxies = [];
-  } else if (output["DBProxies"] !== undefined && output["DBProxies"]["member"] !== undefined) {
-    contents.DBProxies = de_DBProxyList(__getArrayIfSingleItem(output["DBProxies"]["member"]), context);
+    contents[_DBPr] = [];
+  } else if (output[_DBPr] != null && output[_DBPr][_me] != null) {
+    contents[_DBPr] = de_DBProxyList(__getArrayIfSingleItem(output[_DBPr][_me]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -24641,15 +24337,12 @@ const de_DescribeDBProxyEndpointsResponse = (
 ): DescribeDBProxyEndpointsResponse => {
   const contents: any = {};
   if (output.DBProxyEndpoints === "") {
-    contents.DBProxyEndpoints = [];
-  } else if (output["DBProxyEndpoints"] !== undefined && output["DBProxyEndpoints"]["member"] !== undefined) {
-    contents.DBProxyEndpoints = de_DBProxyEndpointList(
-      __getArrayIfSingleItem(output["DBProxyEndpoints"]["member"]),
-      context
-    );
+    contents[_DBPEr] = [];
+  } else if (output[_DBPEr] != null && output[_DBPEr][_me] != null) {
+    contents[_DBPEr] = de_DBProxyEndpointList(__getArrayIfSingleItem(output[_DBPEr][_me]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -24663,12 +24356,12 @@ const de_DescribeDBProxyTargetGroupsResponse = (
 ): DescribeDBProxyTargetGroupsResponse => {
   const contents: any = {};
   if (output.TargetGroups === "") {
-    contents.TargetGroups = [];
-  } else if (output["TargetGroups"] !== undefined && output["TargetGroups"]["member"] !== undefined) {
-    contents.TargetGroups = de_TargetGroupList(__getArrayIfSingleItem(output["TargetGroups"]["member"]), context);
+    contents[_TG] = [];
+  } else if (output[_TG] != null && output[_TG][_me] != null) {
+    contents[_TG] = de_TargetGroupList(__getArrayIfSingleItem(output[_TG][_me]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -24679,12 +24372,12 @@ const de_DescribeDBProxyTargetGroupsResponse = (
 const de_DescribeDBProxyTargetsResponse = (output: any, context: __SerdeContext): DescribeDBProxyTargetsResponse => {
   const contents: any = {};
   if (output.Targets === "") {
-    contents.Targets = [];
-  } else if (output["Targets"] !== undefined && output["Targets"]["member"] !== undefined) {
-    contents.Targets = de_TargetList(__getArrayIfSingleItem(output["Targets"]["member"]), context);
+    contents[_Tar] = [];
+  } else if (output[_Tar] != null && output[_Tar][_me] != null) {
+    contents[_Tar] = de_TargetList(__getArrayIfSingleItem(output[_Tar][_me]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -24697,8 +24390,8 @@ const de_DescribeDBSnapshotAttributesResult = (
   context: __SerdeContext
 ): DescribeDBSnapshotAttributesResult => {
   const contents: any = {};
-  if (output["DBSnapshotAttributesResult"] !== undefined) {
-    contents.DBSnapshotAttributesResult = de_DBSnapshotAttributesResult(output["DBSnapshotAttributesResult"], context);
+  if (output[_DBSAR] != null) {
+    contents[_DBSAR] = de_DBSnapshotAttributesResult(output[_DBSAR], context);
   }
   return contents;
 };
@@ -24711,8 +24404,8 @@ const de_DescribeEngineDefaultClusterParametersResult = (
   context: __SerdeContext
 ): DescribeEngineDefaultClusterParametersResult => {
   const contents: any = {};
-  if (output["EngineDefaults"] !== undefined) {
-    contents.EngineDefaults = de_EngineDefaults(output["EngineDefaults"], context);
+  if (output[_ED] != null) {
+    contents[_ED] = de_EngineDefaults(output[_ED], context);
   }
   return contents;
 };
@@ -24725,8 +24418,8 @@ const de_DescribeEngineDefaultParametersResult = (
   context: __SerdeContext
 ): DescribeEngineDefaultParametersResult => {
   const contents: any = {};
-  if (output["EngineDefaults"] !== undefined) {
-    contents.EngineDefaults = de_EngineDefaults(output["EngineDefaults"], context);
+  if (output[_ED] != null) {
+    contents[_ED] = de_EngineDefaults(output[_ED], context);
   }
   return contents;
 };
@@ -24736,13 +24429,13 @@ const de_DescribeEngineDefaultParametersResult = (
  */
 const de_DescribeIntegrationsResponse = (output: any, context: __SerdeContext): DescribeIntegrationsResponse => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Integrations === "") {
-    contents.Integrations = [];
-  } else if (output["Integrations"] !== undefined && output["Integrations"]["Integration"] !== undefined) {
-    contents.Integrations = de_IntegrationList(__getArrayIfSingleItem(output["Integrations"]["Integration"]), context);
+    contents[_In] = [];
+  } else if (output[_In] != null && output[_In][_Int] != null) {
+    contents[_In] = de_IntegrationList(__getArrayIfSingleItem(output[_In][_Int]), context);
   }
   return contents;
 };
@@ -24755,11 +24448,8 @@ const de_DescribeValidDBInstanceModificationsResult = (
   context: __SerdeContext
 ): DescribeValidDBInstanceModificationsResult => {
   const contents: any = {};
-  if (output["ValidDBInstanceModificationsMessage"] !== undefined) {
-    contents.ValidDBInstanceModificationsMessage = de_ValidDBInstanceModificationsMessage(
-      output["ValidDBInstanceModificationsMessage"],
-      context
-    );
+  if (output[_VDBIMM] != null) {
+    contents[_VDBIMM] = de_ValidDBInstanceModificationsMessage(output[_VDBIMM], context);
   }
   return contents;
 };
@@ -24769,28 +24459,28 @@ const de_DescribeValidDBInstanceModificationsResult = (
  */
 const de_DomainMembership = (output: any, context: __SerdeContext): DomainMembership => {
   const contents: any = {};
-  if (output["Domain"] !== undefined) {
-    contents.Domain = __expectString(output["Domain"]);
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["FQDN"] !== undefined) {
-    contents.FQDN = __expectString(output["FQDN"]);
+  if (output[_FQDN] != null) {
+    contents[_FQDN] = __expectString(output[_FQDN]);
   }
-  if (output["IAMRoleName"] !== undefined) {
-    contents.IAMRoleName = __expectString(output["IAMRoleName"]);
+  if (output[_IAMRN] != null) {
+    contents[_IAMRN] = __expectString(output[_IAMRN]);
   }
-  if (output["OU"] !== undefined) {
-    contents.OU = __expectString(output["OU"]);
+  if (output[_OU] != null) {
+    contents[_OU] = __expectString(output[_OU]);
   }
-  if (output["AuthSecretArn"] !== undefined) {
-    contents.AuthSecretArn = __expectString(output["AuthSecretArn"]);
+  if (output[_ASA] != null) {
+    contents[_ASA] = __expectString(output[_ASA]);
   }
   if (output.DnsIps === "") {
-    contents.DnsIps = [];
-  } else if (output["DnsIps"] !== undefined && output["DnsIps"]["member"] !== undefined) {
-    contents.DnsIps = de_StringList(__getArrayIfSingleItem(output["DnsIps"]["member"]), context);
+    contents[_DIn] = [];
+  } else if (output[_DIn] != null && output[_DIn][_me] != null) {
+    contents[_DIn] = de_StringList(__getArrayIfSingleItem(output[_DIn][_me]), context);
   }
   return contents;
 };
@@ -24811,8 +24501,8 @@ const de_DomainMembershipList = (output: any, context: __SerdeContext): DomainMe
  */
 const de_DomainNotFoundFault = (output: any, context: __SerdeContext): DomainNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24822,11 +24512,11 @@ const de_DomainNotFoundFault = (output: any, context: __SerdeContext): DomainNot
  */
 const de_DoubleRange = (output: any, context: __SerdeContext): DoubleRange => {
   const contents: any = {};
-  if (output["From"] !== undefined) {
-    contents.From = __strictParseFloat(output["From"]) as number;
+  if (output[_Fr] != null) {
+    contents[_Fr] = __strictParseFloat(output[_Fr]) as number;
   }
-  if (output["To"] !== undefined) {
-    contents.To = __strictParseFloat(output["To"]) as number;
+  if (output[_To] != null) {
+    contents[_To] = __strictParseFloat(output[_To]) as number;
   }
   return contents;
 };
@@ -24847,14 +24537,14 @@ const de_DoubleRangeList = (output: any, context: __SerdeContext): DoubleRange[]
  */
 const de_DownloadDBLogFilePortionDetails = (output: any, context: __SerdeContext): DownloadDBLogFilePortionDetails => {
   const contents: any = {};
-  if (output["LogFileData"] !== undefined) {
-    contents.LogFileData = __expectString(output["LogFileData"]);
+  if (output[_LFD] != null) {
+    contents[_LFD] = __expectString(output[_LFD]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
-  if (output["AdditionalDataPending"] !== undefined) {
-    contents.AdditionalDataPending = __parseBoolean(output["AdditionalDataPending"]);
+  if (output[_ADP] != null) {
+    contents[_ADP] = __parseBoolean(output[_ADP]);
   }
   return contents;
 };
@@ -24867,8 +24557,8 @@ const de_Ec2ImagePropertiesNotSupportedFault = (
   context: __SerdeContext
 ): Ec2ImagePropertiesNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -24878,17 +24568,17 @@ const de_Ec2ImagePropertiesNotSupportedFault = (
  */
 const de_EC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["EC2SecurityGroupName"] !== undefined) {
-    contents.EC2SecurityGroupName = __expectString(output["EC2SecurityGroupName"]);
+  if (output[_ECSGN] != null) {
+    contents[_ECSGN] = __expectString(output[_ECSGN]);
   }
-  if (output["EC2SecurityGroupId"] !== undefined) {
-    contents.EC2SecurityGroupId = __expectString(output["EC2SecurityGroupId"]);
+  if (output[_ECSGI] != null) {
+    contents[_ECSGI] = __expectString(output[_ECSGI]);
   }
-  if (output["EC2SecurityGroupOwnerId"] !== undefined) {
-    contents.EC2SecurityGroupOwnerId = __expectString(output["EC2SecurityGroupOwnerId"]);
+  if (output[_ECSGOI] != null) {
+    contents[_ECSGOI] = __expectString(output[_ECSGOI]);
   }
   return contents;
 };
@@ -24922,14 +24612,14 @@ const de_EncryptionContextMap = (output: any, context: __SerdeContext): Record<s
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   const contents: any = {};
-  if (output["Address"] !== undefined) {
-    contents.Address = __expectString(output["Address"]);
+  if (output[_Ad] != null) {
+    contents[_Ad] = __expectString(output[_Ad]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
   return contents;
 };
@@ -24939,16 +24629,16 @@ const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
  */
 const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
   const contents: any = {};
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
   return contents;
 };
@@ -24969,28 +24659,25 @@ const de_EngineModeList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_Event = (output: any, context: __SerdeContext): Event => {
   const contents: any = {};
-  if (output["SourceIdentifier"] !== undefined) {
-    contents.SourceIdentifier = __expectString(output["SourceIdentifier"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   if (output.EventCategories === "") {
-    contents.EventCategories = [];
-  } else if (output["EventCategories"] !== undefined && output["EventCategories"]["EventCategory"] !== undefined) {
-    contents.EventCategories = de_EventCategoriesList(
-      __getArrayIfSingleItem(output["EventCategories"]["EventCategory"]),
-      context
-    );
+    contents[_EC] = [];
+  } else if (output[_EC] != null && output[_EC][_ECv] != null) {
+    contents[_EC] = de_EventCategoriesList(__getArrayIfSingleItem(output[_EC][_ECv]), context);
   }
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Da] != null) {
+    contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
-  if (output["SourceArn"] !== undefined) {
-    contents.SourceArn = __expectString(output["SourceArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
   return contents;
 };
@@ -25011,16 +24698,13 @@ const de_EventCategoriesList = (output: any, context: __SerdeContext): string[] 
  */
 const de_EventCategoriesMap = (output: any, context: __SerdeContext): EventCategoriesMap => {
   const contents: any = {};
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
   if (output.EventCategories === "") {
-    contents.EventCategories = [];
-  } else if (output["EventCategories"] !== undefined && output["EventCategories"]["EventCategory"] !== undefined) {
-    contents.EventCategories = de_EventCategoriesList(
-      __getArrayIfSingleItem(output["EventCategories"]["EventCategory"]),
-      context
-    );
+    contents[_EC] = [];
+  } else if (output[_EC] != null && output[_EC][_ECv] != null) {
+    contents[_EC] = de_EventCategoriesList(__getArrayIfSingleItem(output[_EC][_ECv]), context);
   }
   return contents;
 };
@@ -25042,15 +24726,9 @@ const de_EventCategoriesMapList = (output: any, context: __SerdeContext): EventC
 const de_EventCategoriesMessage = (output: any, context: __SerdeContext): EventCategoriesMessage => {
   const contents: any = {};
   if (output.EventCategoriesMapList === "") {
-    contents.EventCategoriesMapList = [];
-  } else if (
-    output["EventCategoriesMapList"] !== undefined &&
-    output["EventCategoriesMapList"]["EventCategoriesMap"] !== undefined
-  ) {
-    contents.EventCategoriesMapList = de_EventCategoriesMapList(
-      __getArrayIfSingleItem(output["EventCategoriesMapList"]["EventCategoriesMap"]),
-      context
-    );
+    contents[_ECML] = [];
+  } else if (output[_ECML] != null && output[_ECML][_ECM] != null) {
+    contents[_ECML] = de_EventCategoriesMapList(__getArrayIfSingleItem(output[_ECML][_ECM]), context);
   }
   return contents;
 };
@@ -25071,13 +24749,13 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
  */
 const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.Events === "") {
-    contents.Events = [];
-  } else if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
-    contents.Events = de_EventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
+    contents[_Ev] = [];
+  } else if (output[_Ev] != null && output[_Ev][_Eve] != null) {
+    contents[_Ev] = de_EventList(__getArrayIfSingleItem(output[_Ev][_Eve]), context);
   }
   return contents;
 };
@@ -25087,45 +24765,39 @@ const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage =
  */
 const de_EventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
   const contents: any = {};
-  if (output["CustomerAwsId"] !== undefined) {
-    contents.CustomerAwsId = __expectString(output["CustomerAwsId"]);
+  if (output[_CAIu] != null) {
+    contents[_CAIu] = __expectString(output[_CAIu]);
   }
-  if (output["CustSubscriptionId"] !== undefined) {
-    contents.CustSubscriptionId = __expectString(output["CustSubscriptionId"]);
+  if (output[_CSI] != null) {
+    contents[_CSI] = __expectString(output[_CSI]);
   }
-  if (output["SnsTopicArn"] !== undefined) {
-    contents.SnsTopicArn = __expectString(output["SnsTopicArn"]);
+  if (output[_STA] != null) {
+    contents[_STA] = __expectString(output[_STA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["SubscriptionCreationTime"] !== undefined) {
-    contents.SubscriptionCreationTime = __expectString(output["SubscriptionCreationTime"]);
+  if (output[_SCTu] != null) {
+    contents[_SCTu] = __expectString(output[_SCTu]);
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
   if (output.SourceIdsList === "") {
-    contents.SourceIdsList = [];
-  } else if (output["SourceIdsList"] !== undefined && output["SourceIdsList"]["SourceId"] !== undefined) {
-    contents.SourceIdsList = de_SourceIdsList(__getArrayIfSingleItem(output["SourceIdsList"]["SourceId"]), context);
+    contents[_SIL] = [];
+  } else if (output[_SIL] != null && output[_SIL][_SIou] != null) {
+    contents[_SIL] = de_SourceIdsList(__getArrayIfSingleItem(output[_SIL][_SIou]), context);
   }
   if (output.EventCategoriesList === "") {
-    contents.EventCategoriesList = [];
-  } else if (
-    output["EventCategoriesList"] !== undefined &&
-    output["EventCategoriesList"]["EventCategory"] !== undefined
-  ) {
-    contents.EventCategoriesList = de_EventCategoriesList(
-      __getArrayIfSingleItem(output["EventCategoriesList"]["EventCategory"]),
-      context
-    );
+    contents[_ECL] = [];
+  } else if (output[_ECL] != null && output[_ECL][_ECv] != null) {
+    contents[_ECL] = de_EventCategoriesList(__getArrayIfSingleItem(output[_ECL][_ECv]), context);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_En] != null) {
+    contents[_En] = __parseBoolean(output[_En]);
   }
-  if (output["EventSubscriptionArn"] !== undefined) {
-    contents.EventSubscriptionArn = __expectString(output["EventSubscriptionArn"]);
+  if (output[_ESA] != null) {
+    contents[_ESA] = __expectString(output[_ESA]);
   }
   return contents;
 };
@@ -25138,8 +24810,8 @@ const de_EventSubscriptionQuotaExceededFault = (
   context: __SerdeContext
 ): EventSubscriptionQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25160,19 +24832,13 @@ const de_EventSubscriptionsList = (output: any, context: __SerdeContext): EventS
  */
 const de_EventSubscriptionsMessage = (output: any, context: __SerdeContext): EventSubscriptionsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.EventSubscriptionsList === "") {
-    contents.EventSubscriptionsList = [];
-  } else if (
-    output["EventSubscriptionsList"] !== undefined &&
-    output["EventSubscriptionsList"]["EventSubscription"] !== undefined
-  ) {
-    contents.EventSubscriptionsList = de_EventSubscriptionsList(
-      __getArrayIfSingleItem(output["EventSubscriptionsList"]["EventSubscription"]),
-      context
-    );
+    contents[_ESL] = [];
+  } else if (output[_ESL] != null && output[_ESL][_ES] != null) {
+    contents[_ESL] = de_EventSubscriptionsList(__getArrayIfSingleItem(output[_ESL][_ES]), context);
   }
   return contents;
 };
@@ -25182,55 +24848,55 @@ const de_EventSubscriptionsMessage = (output: any, context: __SerdeContext): Eve
  */
 const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   const contents: any = {};
-  if (output["ExportTaskIdentifier"] !== undefined) {
-    contents.ExportTaskIdentifier = __expectString(output["ExportTaskIdentifier"]);
+  if (output[_ETI] != null) {
+    contents[_ETI] = __expectString(output[_ETI]);
   }
-  if (output["SourceArn"] !== undefined) {
-    contents.SourceArn = __expectString(output["SourceArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
   if (output.ExportOnly === "") {
-    contents.ExportOnly = [];
-  } else if (output["ExportOnly"] !== undefined && output["ExportOnly"]["member"] !== undefined) {
-    contents.ExportOnly = de_StringList(__getArrayIfSingleItem(output["ExportOnly"]["member"]), context);
+    contents[_EO] = [];
+  } else if (output[_EO] != null && output[_EO][_me] != null) {
+    contents[_EO] = de_StringList(__getArrayIfSingleItem(output[_EO][_me]), context);
   }
-  if (output["SnapshotTime"] !== undefined) {
-    contents.SnapshotTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotTime"]));
+  if (output[_STnap] != null) {
+    contents[_STnap] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STnap]));
   }
-  if (output["TaskStartTime"] !== undefined) {
-    contents.TaskStartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TaskStartTime"]));
+  if (output[_TST] != null) {
+    contents[_TST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TST]));
   }
-  if (output["TaskEndTime"] !== undefined) {
-    contents.TaskEndTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TaskEndTime"]));
+  if (output[_TET] != null) {
+    contents[_TET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TET]));
   }
-  if (output["S3Bucket"] !== undefined) {
-    contents.S3Bucket = __expectString(output["S3Bucket"]);
+  if (output[_SBu] != null) {
+    contents[_SBu] = __expectString(output[_SBu]);
   }
-  if (output["S3Prefix"] !== undefined) {
-    contents.S3Prefix = __expectString(output["S3Prefix"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
-  if (output["IamRoleArn"] !== undefined) {
-    contents.IamRoleArn = __expectString(output["IamRoleArn"]);
+  if (output[_IRA] != null) {
+    contents[_IRA] = __expectString(output[_IRA]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
+  if (output[_PP] != null) {
+    contents[_PP] = __strictParseInt32(output[_PP]) as number;
   }
-  if (output["TotalExtractedDataInGB"] !== undefined) {
-    contents.TotalExtractedDataInGB = __strictParseInt32(output["TotalExtractedDataInGB"]) as number;
+  if (output[_TEDIGB] != null) {
+    contents[_TEDIGB] = __strictParseInt32(output[_TEDIGB]) as number;
   }
-  if (output["FailureCause"] !== undefined) {
-    contents.FailureCause = __expectString(output["FailureCause"]);
+  if (output[_FCa] != null) {
+    contents[_FCa] = __expectString(output[_FCa]);
   }
-  if (output["WarningMessage"] !== undefined) {
-    contents.WarningMessage = __expectString(output["WarningMessage"]);
+  if (output[_WM] != null) {
+    contents[_WM] = __expectString(output[_WM]);
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
   return contents;
 };
@@ -25240,8 +24906,8 @@ const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
  */
 const de_ExportTaskAlreadyExistsFault = (output: any, context: __SerdeContext): ExportTaskAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25251,8 +24917,8 @@ const de_ExportTaskAlreadyExistsFault = (output: any, context: __SerdeContext): 
  */
 const de_ExportTaskNotFoundFault = (output: any, context: __SerdeContext): ExportTaskNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25273,13 +24939,13 @@ const de_ExportTasksList = (output: any, context: __SerdeContext): ExportTask[] 
  */
 const de_ExportTasksMessage = (output: any, context: __SerdeContext): ExportTasksMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ExportTasks === "") {
-    contents.ExportTasks = [];
-  } else if (output["ExportTasks"] !== undefined && output["ExportTasks"]["ExportTask"] !== undefined) {
-    contents.ExportTasks = de_ExportTasksList(__getArrayIfSingleItem(output["ExportTasks"]["ExportTask"]), context);
+    contents[_ETx] = [];
+  } else if (output[_ETx] != null && output[_ETx][_ETxp] != null) {
+    contents[_ETx] = de_ExportTasksList(__getArrayIfSingleItem(output[_ETx][_ETxp]), context);
   }
   return contents;
 };
@@ -25289,8 +24955,8 @@ const de_ExportTasksMessage = (output: any, context: __SerdeContext): ExportTask
  */
 const de_FailoverDBClusterResult = (output: any, context: __SerdeContext): FailoverDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -25300,8 +24966,8 @@ const de_FailoverDBClusterResult = (output: any, context: __SerdeContext): Failo
  */
 const de_FailoverGlobalClusterResult = (output: any, context: __SerdeContext): FailoverGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -25311,17 +24977,17 @@ const de_FailoverGlobalClusterResult = (output: any, context: __SerdeContext): F
  */
 const de_FailoverState = (output: any, context: __SerdeContext): FailoverState => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["FromDbClusterArn"] !== undefined) {
-    contents.FromDbClusterArn = __expectString(output["FromDbClusterArn"]);
+  if (output[_FDCA] != null) {
+    contents[_FDCA] = __expectString(output[_FDCA]);
   }
-  if (output["ToDbClusterArn"] !== undefined) {
-    contents.ToDbClusterArn = __expectString(output["ToDbClusterArn"]);
+  if (output[_TDCA] != null) {
+    contents[_TDCA] = __expectString(output[_TDCA]);
   }
-  if (output["IsDataLossAllowed"] !== undefined) {
-    contents.IsDataLossAllowed = __parseBoolean(output["IsDataLossAllowed"]);
+  if (output[_IDLA] != null) {
+    contents[_IDLA] = __parseBoolean(output[_IDLA]);
   }
   return contents;
 };
@@ -25342,46 +25008,40 @@ const de_FeatureNameList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
   const contents: any = {};
-  if (output["GlobalClusterIdentifier"] !== undefined) {
-    contents.GlobalClusterIdentifier = __expectString(output["GlobalClusterIdentifier"]);
+  if (output[_GCI] != null) {
+    contents[_GCI] = __expectString(output[_GCI]);
   }
-  if (output["GlobalClusterResourceId"] !== undefined) {
-    contents.GlobalClusterResourceId = __expectString(output["GlobalClusterResourceId"]);
+  if (output[_GCRI] != null) {
+    contents[_GCRI] = __expectString(output[_GCRI]);
   }
-  if (output["GlobalClusterArn"] !== undefined) {
-    contents.GlobalClusterArn = __expectString(output["GlobalClusterArn"]);
+  if (output[_GCA] != null) {
+    contents[_GCA] = __expectString(output[_GCA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DatabaseName"] !== undefined) {
-    contents.DatabaseName = __expectString(output["DatabaseName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __parseBoolean(output[_DP]);
   }
   if (output.GlobalClusterMembers === "") {
-    contents.GlobalClusterMembers = [];
-  } else if (
-    output["GlobalClusterMembers"] !== undefined &&
-    output["GlobalClusterMembers"]["GlobalClusterMember"] !== undefined
-  ) {
-    contents.GlobalClusterMembers = de_GlobalClusterMemberList(
-      __getArrayIfSingleItem(output["GlobalClusterMembers"]["GlobalClusterMember"]),
-      context
-    );
+    contents[_GCM] = [];
+  } else if (output[_GCM] != null && output[_GCM][_GCMl] != null) {
+    contents[_GCM] = de_GlobalClusterMemberList(__getArrayIfSingleItem(output[_GCM][_GCMl]), context);
   }
-  if (output["FailoverState"] !== undefined) {
-    contents.FailoverState = de_FailoverState(output["FailoverState"], context);
+  if (output[_FSa] != null) {
+    contents[_FSa] = de_FailoverState(output[_FSa], context);
   }
   return contents;
 };
@@ -25391,8 +25051,8 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
  */
 const de_GlobalClusterAlreadyExistsFault = (output: any, context: __SerdeContext): GlobalClusterAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25413,22 +25073,22 @@ const de_GlobalClusterList = (output: any, context: __SerdeContext): GlobalClust
  */
 const de_GlobalClusterMember = (output: any, context: __SerdeContext): GlobalClusterMember => {
   const contents: any = {};
-  if (output["DBClusterArn"] !== undefined) {
-    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  if (output[_DBCA] != null) {
+    contents[_DBCA] = __expectString(output[_DBCA]);
   }
   if (output.Readers === "") {
-    contents.Readers = [];
-  } else if (output["Readers"] !== undefined && output["Readers"]["member"] !== undefined) {
-    contents.Readers = de_ReadersArnList(__getArrayIfSingleItem(output["Readers"]["member"]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_me] != null) {
+    contents[_Re] = de_ReadersArnList(__getArrayIfSingleItem(output[_Re][_me]), context);
   }
-  if (output["IsWriter"] !== undefined) {
-    contents.IsWriter = __parseBoolean(output["IsWriter"]);
+  if (output[_IW] != null) {
+    contents[_IW] = __parseBoolean(output[_IW]);
   }
-  if (output["GlobalWriteForwardingStatus"] !== undefined) {
-    contents.GlobalWriteForwardingStatus = __expectString(output["GlobalWriteForwardingStatus"]);
+  if (output[_GWFS] != null) {
+    contents[_GWFS] = __expectString(output[_GWFS]);
   }
-  if (output["SynchronizationStatus"] !== undefined) {
-    contents.SynchronizationStatus = __expectString(output["SynchronizationStatus"]);
+  if (output[_SS] != null) {
+    contents[_SS] = __expectString(output[_SS]);
   }
   return contents;
 };
@@ -25449,8 +25109,8 @@ const de_GlobalClusterMemberList = (output: any, context: __SerdeContext): Globa
  */
 const de_GlobalClusterNotFoundFault = (output: any, context: __SerdeContext): GlobalClusterNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25460,8 +25120,8 @@ const de_GlobalClusterNotFoundFault = (output: any, context: __SerdeContext): Gl
  */
 const de_GlobalClusterQuotaExceededFault = (output: any, context: __SerdeContext): GlobalClusterQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25471,16 +25131,13 @@ const de_GlobalClusterQuotaExceededFault = (output: any, context: __SerdeContext
  */
 const de_GlobalClustersMessage = (output: any, context: __SerdeContext): GlobalClustersMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.GlobalClusters === "") {
-    contents.GlobalClusters = [];
-  } else if (output["GlobalClusters"] !== undefined && output["GlobalClusters"]["GlobalClusterMember"] !== undefined) {
-    contents.GlobalClusters = de_GlobalClusterList(
-      __getArrayIfSingleItem(output["GlobalClusters"]["GlobalClusterMember"]),
-      context
-    );
+    contents[_GCl] = [];
+  } else if (output[_GCl] != null && output[_GCl][_GCMl] != null) {
+    contents[_GCl] = de_GlobalClusterList(__getArrayIfSingleItem(output[_GCl][_GCMl]), context);
   }
   return contents;
 };
@@ -25490,8 +25147,8 @@ const de_GlobalClustersMessage = (output: any, context: __SerdeContext): GlobalC
  */
 const de_IamRoleMissingPermissionsFault = (output: any, context: __SerdeContext): IamRoleMissingPermissionsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25501,8 +25158,8 @@ const de_IamRoleMissingPermissionsFault = (output: any, context: __SerdeContext)
  */
 const de_IamRoleNotFoundFault = (output: any, context: __SerdeContext): IamRoleNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25512,8 +25169,8 @@ const de_IamRoleNotFoundFault = (output: any, context: __SerdeContext): IamRoleN
  */
 const de_InstanceQuotaExceededFault = (output: any, context: __SerdeContext): InstanceQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25526,8 +25183,8 @@ const de_InsufficientAvailableIPsInSubnetFault = (
   context: __SerdeContext
 ): InsufficientAvailableIPsInSubnetFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25540,8 +25197,8 @@ const de_InsufficientDBClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientDBClusterCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25554,8 +25211,8 @@ const de_InsufficientDBInstanceCapacityFault = (
   context: __SerdeContext
 ): InsufficientDBInstanceCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25568,8 +25225,8 @@ const de_InsufficientStorageClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientStorageClusterCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25579,47 +25236,41 @@ const de_InsufficientStorageClusterCapacityFault = (
  */
 const de_Integration = (output: any, context: __SerdeContext): Integration => {
   const contents: any = {};
-  if (output["SourceArn"] !== undefined) {
-    contents.SourceArn = __expectString(output["SourceArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
-  if (output["TargetArn"] !== undefined) {
-    contents.TargetArn = __expectString(output["TargetArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["IntegrationName"] !== undefined) {
-    contents.IntegrationName = __expectString(output["IntegrationName"]);
+  if (output[_IN] != null) {
+    contents[_IN] = __expectString(output[_IN]);
   }
-  if (output["IntegrationArn"] !== undefined) {
-    contents.IntegrationArn = __expectString(output["IntegrationArn"]);
+  if (output[_IAn] != null) {
+    contents[_IAn] = __expectString(output[_IAn]);
   }
-  if (output["KMSKeyId"] !== undefined) {
-    contents.KMSKeyId = __expectString(output["KMSKeyId"]);
+  if (output[_KMSKI] != null) {
+    contents[_KMSKI] = __expectString(output[_KMSKI]);
   }
   if (output.AdditionalEncryptionContext === "") {
-    contents.AdditionalEncryptionContext = {};
-  } else if (
-    output["AdditionalEncryptionContext"] !== undefined &&
-    output["AdditionalEncryptionContext"]["entry"] !== undefined
-  ) {
-    contents.AdditionalEncryptionContext = de_EncryptionContextMap(
-      __getArrayIfSingleItem(output["AdditionalEncryptionContext"]["entry"]),
-      context
-    );
+    contents[_AEC] = {};
+  } else if (output[_AEC] != null && output[_AEC][_e] != null) {
+    contents[_AEC] = de_EncryptionContextMap(__getArrayIfSingleItem(output[_AEC][_e]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["Tag"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_Tag] != null) {
+    contents[_T] = de_TagList(__getArrayIfSingleItem(output[_T][_Tag]), context);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
   if (output.Errors === "") {
-    contents.Errors = [];
-  } else if (output["Errors"] !== undefined && output["Errors"]["IntegrationError"] !== undefined) {
-    contents.Errors = de_IntegrationErrorList(__getArrayIfSingleItem(output["Errors"]["IntegrationError"]), context);
+    contents[_Er] = [];
+  } else if (output[_Er] != null && output[_Er][_IE] != null) {
+    contents[_Er] = de_IntegrationErrorList(__getArrayIfSingleItem(output[_Er][_IE]), context);
   }
   return contents;
 };
@@ -25629,8 +25280,8 @@ const de_Integration = (output: any, context: __SerdeContext): Integration => {
  */
 const de_IntegrationAlreadyExistsFault = (output: any, context: __SerdeContext): IntegrationAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25643,8 +25294,8 @@ const de_IntegrationConflictOperationFault = (
   context: __SerdeContext
 ): IntegrationConflictOperationFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25654,11 +25305,11 @@ const de_IntegrationConflictOperationFault = (
  */
 const de_IntegrationError = (output: any, context: __SerdeContext): IntegrationError => {
   const contents: any = {};
-  if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = __expectString(output["ErrorCode"]);
+  if (output[_ECr] != null) {
+    contents[_ECr] = __expectString(output[_ECr]);
   }
-  if (output["ErrorMessage"] !== undefined) {
-    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
+  if (output[_EMr] != null) {
+    contents[_EMr] = __expectString(output[_EMr]);
   }
   return contents;
 };
@@ -25690,8 +25341,8 @@ const de_IntegrationList = (output: any, context: __SerdeContext): Integration[]
  */
 const de_IntegrationNotFoundFault = (output: any, context: __SerdeContext): IntegrationNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25701,8 +25352,8 @@ const de_IntegrationNotFoundFault = (output: any, context: __SerdeContext): Inte
  */
 const de_IntegrationQuotaExceededFault = (output: any, context: __SerdeContext): IntegrationQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25715,8 +25366,8 @@ const de_InvalidBlueGreenDeploymentStateFault = (
   context: __SerdeContext
 ): InvalidBlueGreenDeploymentStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25729,8 +25380,8 @@ const de_InvalidCustomDBEngineVersionStateFault = (
   context: __SerdeContext
 ): InvalidCustomDBEngineVersionStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25743,8 +25394,8 @@ const de_InvalidDBClusterAutomatedBackupStateFault = (
   context: __SerdeContext
 ): InvalidDBClusterAutomatedBackupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25754,8 +25405,8 @@ const de_InvalidDBClusterAutomatedBackupStateFault = (
  */
 const de_InvalidDBClusterCapacityFault = (output: any, context: __SerdeContext): InvalidDBClusterCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25768,8 +25419,8 @@ const de_InvalidDBClusterEndpointStateFault = (
   context: __SerdeContext
 ): InvalidDBClusterEndpointStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25782,8 +25433,8 @@ const de_InvalidDBClusterSnapshotStateFault = (
   context: __SerdeContext
 ): InvalidDBClusterSnapshotStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25793,8 +25444,8 @@ const de_InvalidDBClusterSnapshotStateFault = (
  */
 const de_InvalidDBClusterStateFault = (output: any, context: __SerdeContext): InvalidDBClusterStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25807,8 +25458,8 @@ const de_InvalidDBInstanceAutomatedBackupStateFault = (
   context: __SerdeContext
 ): InvalidDBInstanceAutomatedBackupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25818,8 +25469,8 @@ const de_InvalidDBInstanceAutomatedBackupStateFault = (
  */
 const de_InvalidDBInstanceStateFault = (output: any, context: __SerdeContext): InvalidDBInstanceStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25832,8 +25483,8 @@ const de_InvalidDBParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidDBParameterGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25846,8 +25497,8 @@ const de_InvalidDBProxyEndpointStateFault = (
   context: __SerdeContext
 ): InvalidDBProxyEndpointStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25857,8 +25508,8 @@ const de_InvalidDBProxyEndpointStateFault = (
  */
 const de_InvalidDBProxyStateFault = (output: any, context: __SerdeContext): InvalidDBProxyStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25871,8 +25522,8 @@ const de_InvalidDBSecurityGroupStateFault = (
   context: __SerdeContext
 ): InvalidDBSecurityGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25882,8 +25533,8 @@ const de_InvalidDBSecurityGroupStateFault = (
  */
 const de_InvalidDBSnapshotStateFault = (output: any, context: __SerdeContext): InvalidDBSnapshotStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25893,8 +25544,8 @@ const de_InvalidDBSnapshotStateFault = (output: any, context: __SerdeContext): I
  */
 const de_InvalidDBSubnetGroupFault = (output: any, context: __SerdeContext): InvalidDBSubnetGroupFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25904,8 +25555,8 @@ const de_InvalidDBSubnetGroupFault = (output: any, context: __SerdeContext): Inv
  */
 const de_InvalidDBSubnetGroupStateFault = (output: any, context: __SerdeContext): InvalidDBSubnetGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25915,8 +25566,8 @@ const de_InvalidDBSubnetGroupStateFault = (output: any, context: __SerdeContext)
  */
 const de_InvalidDBSubnetStateFault = (output: any, context: __SerdeContext): InvalidDBSubnetStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25929,8 +25580,8 @@ const de_InvalidEventSubscriptionStateFault = (
   context: __SerdeContext
 ): InvalidEventSubscriptionStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25940,8 +25591,8 @@ const de_InvalidEventSubscriptionStateFault = (
  */
 const de_InvalidExportOnlyFault = (output: any, context: __SerdeContext): InvalidExportOnlyFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25951,8 +25602,8 @@ const de_InvalidExportOnlyFault = (output: any, context: __SerdeContext): Invali
  */
 const de_InvalidExportSourceStateFault = (output: any, context: __SerdeContext): InvalidExportSourceStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25962,8 +25613,8 @@ const de_InvalidExportSourceStateFault = (output: any, context: __SerdeContext):
  */
 const de_InvalidExportTaskStateFault = (output: any, context: __SerdeContext): InvalidExportTaskStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25973,8 +25624,8 @@ const de_InvalidExportTaskStateFault = (output: any, context: __SerdeContext): I
  */
 const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext): InvalidGlobalClusterStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25984,8 +25635,8 @@ const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext)
  */
 const de_InvalidIntegrationStateFault = (output: any, context: __SerdeContext): InvalidIntegrationStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -25995,8 +25646,8 @@ const de_InvalidIntegrationStateFault = (output: any, context: __SerdeContext): 
  */
 const de_InvalidOptionGroupStateFault = (output: any, context: __SerdeContext): InvalidOptionGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26006,8 +25657,8 @@ const de_InvalidOptionGroupStateFault = (output: any, context: __SerdeContext): 
  */
 const de_InvalidRestoreFault = (output: any, context: __SerdeContext): InvalidRestoreFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26017,8 +25668,8 @@ const de_InvalidRestoreFault = (output: any, context: __SerdeContext): InvalidRe
  */
 const de_InvalidS3BucketFault = (output: any, context: __SerdeContext): InvalidS3BucketFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26028,8 +25679,8 @@ const de_InvalidS3BucketFault = (output: any, context: __SerdeContext): InvalidS
  */
 const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26039,8 +25690,8 @@ const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet =
  */
 const de_InvalidVPCNetworkStateFault = (output: any, context: __SerdeContext): InvalidVPCNetworkStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26050,11 +25701,11 @@ const de_InvalidVPCNetworkStateFault = (output: any, context: __SerdeContext): I
  */
 const de_IPRange = (output: any, context: __SerdeContext): IPRange => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["CIDRIP"] !== undefined) {
-    contents.CIDRIP = __expectString(output["CIDRIP"]);
+  if (output[_CIDRIP] != null) {
+    contents[_CIDRIP] = __expectString(output[_CIDRIP]);
   }
   return contents;
 };
@@ -26075,8 +25726,8 @@ const de_IPRangeList = (output: any, context: __SerdeContext): IPRange[] => {
  */
 const de_KMSKeyNotAccessibleFault = (output: any, context: __SerdeContext): KMSKeyNotAccessibleFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26097,14 +25748,14 @@ const de_LogTypeList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_MasterUserSecret = (output: any, context: __SerdeContext): MasterUserSecret => {
   const contents: any = {};
-  if (output["SecretArn"] !== undefined) {
-    contents.SecretArn = __expectString(output["SecretArn"]);
+  if (output[_SAe] != null) {
+    contents[_SAe] = __expectString(output[_SAe]);
   }
-  if (output["SecretStatus"] !== undefined) {
-    contents.SecretStatus = __expectString(output["SecretStatus"]);
+  if (output[_SSe] != null) {
+    contents[_SSe] = __expectString(output[_SSe]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
   return contents;
 };
@@ -26117,11 +25768,11 @@ const de_MinimumEngineVersionPerAllowedValue = (
   context: __SerdeContext
 ): MinimumEngineVersionPerAllowedValue => {
   const contents: any = {};
-  if (output["AllowedValue"] !== undefined) {
-    contents.AllowedValue = __expectString(output["AllowedValue"]);
+  if (output[_AVl] != null) {
+    contents[_AVl] = __expectString(output[_AVl]);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEVi] != null) {
+    contents[_MEVi] = __expectString(output[_MEVi]);
   }
   return contents;
 };
@@ -26145,23 +25796,23 @@ const de_MinimumEngineVersionPerAllowedValueList = (
  */
 const de_ModifyActivityStreamResponse = (output: any, context: __SerdeContext): ModifyActivityStreamResponse => {
   const contents: any = {};
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["KinesisStreamName"] !== undefined) {
-    contents.KinesisStreamName = __expectString(output["KinesisStreamName"]);
+  if (output[_KSN] != null) {
+    contents[_KSN] = __expectString(output[_KSN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Mode"] !== undefined) {
-    contents.Mode = __expectString(output["Mode"]);
+  if (output[_Mo] != null) {
+    contents[_Mo] = __expectString(output[_Mo]);
   }
-  if (output["EngineNativeAuditFieldsIncluded"] !== undefined) {
-    contents.EngineNativeAuditFieldsIncluded = __parseBoolean(output["EngineNativeAuditFieldsIncluded"]);
+  if (output[_ENAFI] != null) {
+    contents[_ENAFI] = __parseBoolean(output[_ENAFI]);
   }
-  if (output["PolicyStatus"] !== undefined) {
-    contents.PolicyStatus = __expectString(output["PolicyStatus"]);
+  if (output[_PS] != null) {
+    contents[_PS] = __expectString(output[_PS]);
   }
   return contents;
 };
@@ -26171,8 +25822,8 @@ const de_ModifyActivityStreamResponse = (output: any, context: __SerdeContext): 
  */
 const de_ModifyCertificatesResult = (output: any, context: __SerdeContext): ModifyCertificatesResult => {
   const contents: any = {};
-  if (output["Certificate"] !== undefined) {
-    contents.Certificate = de_Certificate(output["Certificate"], context);
+  if (output[_Cer] != null) {
+    contents[_Cer] = de_Certificate(output[_Cer], context);
   }
   return contents;
 };
@@ -26182,8 +25833,8 @@ const de_ModifyCertificatesResult = (output: any, context: __SerdeContext): Modi
  */
 const de_ModifyDBClusterResult = (output: any, context: __SerdeContext): ModifyDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -26196,11 +25847,8 @@ const de_ModifyDBClusterSnapshotAttributeResult = (
   context: __SerdeContext
 ): ModifyDBClusterSnapshotAttributeResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshotAttributesResult"] !== undefined) {
-    contents.DBClusterSnapshotAttributesResult = de_DBClusterSnapshotAttributesResult(
-      output["DBClusterSnapshotAttributesResult"],
-      context
-    );
+  if (output[_DBCSAR] != null) {
+    contents[_DBCSAR] = de_DBClusterSnapshotAttributesResult(output[_DBCSAR], context);
   }
   return contents;
 };
@@ -26210,8 +25858,8 @@ const de_ModifyDBClusterSnapshotAttributeResult = (
  */
 const de_ModifyDBInstanceResult = (output: any, context: __SerdeContext): ModifyDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -26221,8 +25869,8 @@ const de_ModifyDBInstanceResult = (output: any, context: __SerdeContext): Modify
  */
 const de_ModifyDBProxyEndpointResponse = (output: any, context: __SerdeContext): ModifyDBProxyEndpointResponse => {
   const contents: any = {};
-  if (output["DBProxyEndpoint"] !== undefined) {
-    contents.DBProxyEndpoint = de_DBProxyEndpoint(output["DBProxyEndpoint"], context);
+  if (output[_DBPE] != null) {
+    contents[_DBPE] = de_DBProxyEndpoint(output[_DBPE], context);
   }
   return contents;
 };
@@ -26232,8 +25880,8 @@ const de_ModifyDBProxyEndpointResponse = (output: any, context: __SerdeContext):
  */
 const de_ModifyDBProxyResponse = (output: any, context: __SerdeContext): ModifyDBProxyResponse => {
   const contents: any = {};
-  if (output["DBProxy"] !== undefined) {
-    contents.DBProxy = de_DBProxy(output["DBProxy"], context);
+  if (output[_DBP] != null) {
+    contents[_DBP] = de_DBProxy(output[_DBP], context);
   }
   return contents;
 };
@@ -26246,8 +25894,8 @@ const de_ModifyDBProxyTargetGroupResponse = (
   context: __SerdeContext
 ): ModifyDBProxyTargetGroupResponse => {
   const contents: any = {};
-  if (output["DBProxyTargetGroup"] !== undefined) {
-    contents.DBProxyTargetGroup = de_DBProxyTargetGroup(output["DBProxyTargetGroup"], context);
+  if (output[_DBPTG] != null) {
+    contents[_DBPTG] = de_DBProxyTargetGroup(output[_DBPTG], context);
   }
   return contents;
 };
@@ -26257,8 +25905,8 @@ const de_ModifyDBProxyTargetGroupResponse = (
  */
 const de_ModifyDBSnapshotAttributeResult = (output: any, context: __SerdeContext): ModifyDBSnapshotAttributeResult => {
   const contents: any = {};
-  if (output["DBSnapshotAttributesResult"] !== undefined) {
-    contents.DBSnapshotAttributesResult = de_DBSnapshotAttributesResult(output["DBSnapshotAttributesResult"], context);
+  if (output[_DBSAR] != null) {
+    contents[_DBSAR] = de_DBSnapshotAttributesResult(output[_DBSAR], context);
   }
   return contents;
 };
@@ -26268,8 +25916,8 @@ const de_ModifyDBSnapshotAttributeResult = (output: any, context: __SerdeContext
  */
 const de_ModifyDBSnapshotResult = (output: any, context: __SerdeContext): ModifyDBSnapshotResult => {
   const contents: any = {};
-  if (output["DBSnapshot"] !== undefined) {
-    contents.DBSnapshot = de_DBSnapshot(output["DBSnapshot"], context);
+  if (output[_DBS] != null) {
+    contents[_DBS] = de_DBSnapshot(output[_DBS], context);
   }
   return contents;
 };
@@ -26279,8 +25927,8 @@ const de_ModifyDBSnapshotResult = (output: any, context: __SerdeContext): Modify
  */
 const de_ModifyDBSubnetGroupResult = (output: any, context: __SerdeContext): ModifyDBSubnetGroupResult => {
   const contents: any = {};
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = de_DBSubnetGroup(output["DBSubnetGroup"], context);
+  if (output[_DBSGu] != null) {
+    contents[_DBSGu] = de_DBSubnetGroup(output[_DBSGu], context);
   }
   return contents;
 };
@@ -26290,8 +25938,8 @@ const de_ModifyDBSubnetGroupResult = (output: any, context: __SerdeContext): Mod
  */
 const de_ModifyEventSubscriptionResult = (output: any, context: __SerdeContext): ModifyEventSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -26301,8 +25949,8 @@ const de_ModifyEventSubscriptionResult = (output: any, context: __SerdeContext):
  */
 const de_ModifyGlobalClusterResult = (output: any, context: __SerdeContext): ModifyGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -26312,8 +25960,8 @@ const de_ModifyGlobalClusterResult = (output: any, context: __SerdeContext): Mod
  */
 const de_ModifyOptionGroupResult = (output: any, context: __SerdeContext): ModifyOptionGroupResult => {
   const contents: any = {};
-  if (output["OptionGroup"] !== undefined) {
-    contents.OptionGroup = de_OptionGroup(output["OptionGroup"], context);
+  if (output[_OG] != null) {
+    contents[_OG] = de_OptionGroup(output[_OG], context);
   }
   return contents;
 };
@@ -26323,8 +25971,8 @@ const de_ModifyOptionGroupResult = (output: any, context: __SerdeContext): Modif
  */
 const de_ModifyTenantDatabaseResult = (output: any, context: __SerdeContext): ModifyTenantDatabaseResult => {
   const contents: any = {};
-  if (output["TenantDatabase"] !== undefined) {
-    contents.TenantDatabase = de_TenantDatabase(output["TenantDatabase"], context);
+  if (output[_TD] != null) {
+    contents[_TD] = de_TenantDatabase(output[_TD], context);
   }
   return contents;
 };
@@ -26334,8 +25982,8 @@ const de_ModifyTenantDatabaseResult = (output: any, context: __SerdeContext): Mo
  */
 const de_NetworkTypeNotSupported = (output: any, context: __SerdeContext): NetworkTypeNotSupported => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26345,53 +25993,38 @@ const de_NetworkTypeNotSupported = (output: any, context: __SerdeContext): Netwo
  */
 const de_Option = (output: any, context: __SerdeContext): Option => {
   const contents: any = {};
-  if (output["OptionName"] !== undefined) {
-    contents.OptionName = __expectString(output["OptionName"]);
+  if (output[_ON] != null) {
+    contents[_ON] = __expectString(output[_ON]);
   }
-  if (output["OptionDescription"] !== undefined) {
-    contents.OptionDescription = __expectString(output["OptionDescription"]);
+  if (output[_OD] != null) {
+    contents[_OD] = __expectString(output[_OD]);
   }
-  if (output["Persistent"] !== undefined) {
-    contents.Persistent = __parseBoolean(output["Persistent"]);
+  if (output[_Pe] != null) {
+    contents[_Pe] = __parseBoolean(output[_Pe]);
   }
-  if (output["Permanent"] !== undefined) {
-    contents.Permanent = __parseBoolean(output["Permanent"]);
+  if (output[_Per] != null) {
+    contents[_Per] = __parseBoolean(output[_Per]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["OptionVersion"] !== undefined) {
-    contents.OptionVersion = __expectString(output["OptionVersion"]);
+  if (output[_OV] != null) {
+    contents[_OV] = __expectString(output[_OV]);
   }
   if (output.OptionSettings === "") {
-    contents.OptionSettings = [];
-  } else if (output["OptionSettings"] !== undefined && output["OptionSettings"]["OptionSetting"] !== undefined) {
-    contents.OptionSettings = de_OptionSettingConfigurationList(
-      __getArrayIfSingleItem(output["OptionSettings"]["OptionSetting"]),
-      context
-    );
+    contents[_OS] = [];
+  } else if (output[_OS] != null && output[_OS][_OSp] != null) {
+    contents[_OS] = de_OptionSettingConfigurationList(__getArrayIfSingleItem(output[_OS][_OSp]), context);
   }
   if (output.DBSecurityGroupMemberships === "") {
-    contents.DBSecurityGroupMemberships = [];
-  } else if (
-    output["DBSecurityGroupMemberships"] !== undefined &&
-    output["DBSecurityGroupMemberships"]["DBSecurityGroup"] !== undefined
-  ) {
-    contents.DBSecurityGroupMemberships = de_DBSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["DBSecurityGroupMemberships"]["DBSecurityGroup"]),
-      context
-    );
+    contents[_DBSGM] = [];
+  } else if (output[_DBSGM] != null && output[_DBSGM][_DBSGe] != null) {
+    contents[_DBSGM] = de_DBSecurityGroupMembershipList(__getArrayIfSingleItem(output[_DBSGM][_DBSGe]), context);
   }
   if (output.VpcSecurityGroupMemberships === "") {
-    contents.VpcSecurityGroupMemberships = [];
-  } else if (
-    output["VpcSecurityGroupMemberships"] !== undefined &&
-    output["VpcSecurityGroupMemberships"]["VpcSecurityGroupMembership"] !== undefined
-  ) {
-    contents.VpcSecurityGroupMemberships = de_VpcSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["VpcSecurityGroupMemberships"]["VpcSecurityGroupMembership"]),
-      context
-    );
+    contents[_VSGM] = [];
+  } else if (output[_VSGM] != null && output[_VSGM][_VSGMp] != null) {
+    contents[_VSGM] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSGM][_VSGMp]), context);
   }
   return contents;
 };
@@ -26401,40 +26034,40 @@ const de_Option = (output: any, context: __SerdeContext): Option => {
  */
 const de_OptionGroup = (output: any, context: __SerdeContext): OptionGroup => {
   const contents: any = {};
-  if (output["OptionGroupName"] !== undefined) {
-    contents.OptionGroupName = __expectString(output["OptionGroupName"]);
+  if (output[_OGN] != null) {
+    contents[_OGN] = __expectString(output[_OGN]);
   }
-  if (output["OptionGroupDescription"] !== undefined) {
-    contents.OptionGroupDescription = __expectString(output["OptionGroupDescription"]);
+  if (output[_OGD] != null) {
+    contents[_OGD] = __expectString(output[_OGD]);
   }
-  if (output["EngineName"] !== undefined) {
-    contents.EngineName = __expectString(output["EngineName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["MajorEngineVersion"] !== undefined) {
-    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
   }
   if (output.Options === "") {
-    contents.Options = [];
-  } else if (output["Options"] !== undefined && output["Options"]["Option"] !== undefined) {
-    contents.Options = de_OptionsList(__getArrayIfSingleItem(output["Options"]["Option"]), context);
+    contents[_O] = [];
+  } else if (output[_O] != null && output[_O][_Op] != null) {
+    contents[_O] = de_OptionsList(__getArrayIfSingleItem(output[_O][_Op]), context);
   }
-  if (output["AllowsVpcAndNonVpcInstanceMemberships"] !== undefined) {
-    contents.AllowsVpcAndNonVpcInstanceMemberships = __parseBoolean(output["AllowsVpcAndNonVpcInstanceMemberships"]);
+  if (output[_AVANVIM] != null) {
+    contents[_AVANVIM] = __parseBoolean(output[_AVANVIM]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["OptionGroupArn"] !== undefined) {
-    contents.OptionGroupArn = __expectString(output["OptionGroupArn"]);
+  if (output[_OGA] != null) {
+    contents[_OGA] = __expectString(output[_OGA]);
   }
-  if (output["SourceOptionGroup"] !== undefined) {
-    contents.SourceOptionGroup = __expectString(output["SourceOptionGroup"]);
+  if (output[_SOG] != null) {
+    contents[_SOG] = __expectString(output[_SOG]);
   }
-  if (output["SourceAccountId"] !== undefined) {
-    contents.SourceAccountId = __expectString(output["SourceAccountId"]);
+  if (output[_SAI] != null) {
+    contents[_SAI] = __expectString(output[_SAI]);
   }
-  if (output["CopyTimestamp"] !== undefined) {
-    contents.CopyTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CopyTimestamp"]));
+  if (output[_CTo] != null) {
+    contents[_CTo] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTo]));
   }
   return contents;
 };
@@ -26444,8 +26077,8 @@ const de_OptionGroup = (output: any, context: __SerdeContext): OptionGroup => {
  */
 const de_OptionGroupAlreadyExistsFault = (output: any, context: __SerdeContext): OptionGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26455,11 +26088,11 @@ const de_OptionGroupAlreadyExistsFault = (output: any, context: __SerdeContext):
  */
 const de_OptionGroupMembership = (output: any, context: __SerdeContext): OptionGroupMembership => {
   const contents: any = {};
-  if (output["OptionGroupName"] !== undefined) {
-    contents.OptionGroupName = __expectString(output["OptionGroupName"]);
+  if (output[_OGN] != null) {
+    contents[_OGN] = __expectString(output[_OGN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -26480,8 +26113,8 @@ const de_OptionGroupMembershipList = (output: any, context: __SerdeContext): Opt
  */
 const de_OptionGroupNotFoundFault = (output: any, context: __SerdeContext): OptionGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26491,85 +26124,64 @@ const de_OptionGroupNotFoundFault = (output: any, context: __SerdeContext): Opti
  */
 const de_OptionGroupOption = (output: any, context: __SerdeContext): OptionGroupOption => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["EngineName"] !== undefined) {
-    contents.EngineName = __expectString(output["EngineName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
-  if (output["MajorEngineVersion"] !== undefined) {
-    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
   }
-  if (output["MinimumRequiredMinorEngineVersion"] !== undefined) {
-    contents.MinimumRequiredMinorEngineVersion = __expectString(output["MinimumRequiredMinorEngineVersion"]);
+  if (output[_MRMEV] != null) {
+    contents[_MRMEV] = __expectString(output[_MRMEV]);
   }
-  if (output["PortRequired"] !== undefined) {
-    contents.PortRequired = __parseBoolean(output["PortRequired"]);
+  if (output[_PR] != null) {
+    contents[_PR] = __parseBoolean(output[_PR]);
   }
-  if (output["DefaultPort"] !== undefined) {
-    contents.DefaultPort = __strictParseInt32(output["DefaultPort"]) as number;
+  if (output[_DPe] != null) {
+    contents[_DPe] = __strictParseInt32(output[_DPe]) as number;
   }
   if (output.OptionsDependedOn === "") {
-    contents.OptionsDependedOn = [];
-  } else if (output["OptionsDependedOn"] !== undefined && output["OptionsDependedOn"]["OptionName"] !== undefined) {
-    contents.OptionsDependedOn = de_OptionsDependedOn(
-      __getArrayIfSingleItem(output["OptionsDependedOn"]["OptionName"]),
-      context
-    );
+    contents[_ODO] = [];
+  } else if (output[_ODO] != null && output[_ODO][_ON] != null) {
+    contents[_ODO] = de_OptionsDependedOn(__getArrayIfSingleItem(output[_ODO][_ON]), context);
   }
   if (output.OptionsConflictsWith === "") {
-    contents.OptionsConflictsWith = [];
-  } else if (
-    output["OptionsConflictsWith"] !== undefined &&
-    output["OptionsConflictsWith"]["OptionConflictName"] !== undefined
-  ) {
-    contents.OptionsConflictsWith = de_OptionsConflictsWith(
-      __getArrayIfSingleItem(output["OptionsConflictsWith"]["OptionConflictName"]),
-      context
-    );
+    contents[_OCW] = [];
+  } else if (output[_OCW] != null && output[_OCW][_OCN] != null) {
+    contents[_OCW] = de_OptionsConflictsWith(__getArrayIfSingleItem(output[_OCW][_OCN]), context);
   }
-  if (output["Persistent"] !== undefined) {
-    contents.Persistent = __parseBoolean(output["Persistent"]);
+  if (output[_Pe] != null) {
+    contents[_Pe] = __parseBoolean(output[_Pe]);
   }
-  if (output["Permanent"] !== undefined) {
-    contents.Permanent = __parseBoolean(output["Permanent"]);
+  if (output[_Per] != null) {
+    contents[_Per] = __parseBoolean(output[_Per]);
   }
-  if (output["RequiresAutoMinorEngineVersionUpgrade"] !== undefined) {
-    contents.RequiresAutoMinorEngineVersionUpgrade = __parseBoolean(output["RequiresAutoMinorEngineVersionUpgrade"]);
+  if (output[_RAMEVU] != null) {
+    contents[_RAMEVU] = __parseBoolean(output[_RAMEVU]);
   }
-  if (output["VpcOnly"] !== undefined) {
-    contents.VpcOnly = __parseBoolean(output["VpcOnly"]);
+  if (output[_VO] != null) {
+    contents[_VO] = __parseBoolean(output[_VO]);
   }
-  if (output["SupportsOptionVersionDowngrade"] !== undefined) {
-    contents.SupportsOptionVersionDowngrade = __parseBoolean(output["SupportsOptionVersionDowngrade"]);
+  if (output[_SOVD] != null) {
+    contents[_SOVD] = __parseBoolean(output[_SOVD]);
   }
   if (output.OptionGroupOptionSettings === "") {
-    contents.OptionGroupOptionSettings = [];
-  } else if (
-    output["OptionGroupOptionSettings"] !== undefined &&
-    output["OptionGroupOptionSettings"]["OptionGroupOptionSetting"] !== undefined
-  ) {
-    contents.OptionGroupOptionSettings = de_OptionGroupOptionSettingsList(
-      __getArrayIfSingleItem(output["OptionGroupOptionSettings"]["OptionGroupOptionSetting"]),
-      context
-    );
+    contents[_OGOS] = [];
+  } else if (output[_OGOS] != null && output[_OGOS][_OGOSp] != null) {
+    contents[_OGOS] = de_OptionGroupOptionSettingsList(__getArrayIfSingleItem(output[_OGOS][_OGOSp]), context);
   }
   if (output.OptionGroupOptionVersions === "") {
-    contents.OptionGroupOptionVersions = [];
-  } else if (
-    output["OptionGroupOptionVersions"] !== undefined &&
-    output["OptionGroupOptionVersions"]["OptionVersion"] !== undefined
-  ) {
-    contents.OptionGroupOptionVersions = de_OptionGroupOptionVersionsList(
-      __getArrayIfSingleItem(output["OptionGroupOptionVersions"]["OptionVersion"]),
-      context
-    );
+    contents[_OGOV] = [];
+  } else if (output[_OGOV] != null && output[_OGOV][_OV] != null) {
+    contents[_OGOV] = de_OptionGroupOptionVersionsList(__getArrayIfSingleItem(output[_OGOV][_OV]), context);
   }
-  if (output["CopyableCrossAccount"] !== undefined) {
-    contents.CopyableCrossAccount = __parseBoolean(output["CopyableCrossAccount"]);
+  if (output[_CCA] != null) {
+    contents[_CCA] = __parseBoolean(output[_CCA]);
   }
   return contents;
 };
@@ -26579,35 +26191,32 @@ const de_OptionGroupOption = (output: any, context: __SerdeContext): OptionGroup
  */
 const de_OptionGroupOptionSetting = (output: any, context: __SerdeContext): OptionGroupOptionSetting => {
   const contents: any = {};
-  if (output["SettingName"] !== undefined) {
-    contents.SettingName = __expectString(output["SettingName"]);
+  if (output[_SNe] != null) {
+    contents[_SNe] = __expectString(output[_SNe]);
   }
-  if (output["SettingDescription"] !== undefined) {
-    contents.SettingDescription = __expectString(output["SettingDescription"]);
+  if (output[_SDe] != null) {
+    contents[_SDe] = __expectString(output[_SDe]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["ApplyType"] !== undefined) {
-    contents.ApplyType = __expectString(output["ApplyType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
+  if (output[_IM] != null) {
+    contents[_IM] = __parseBoolean(output[_IM]);
   }
-  if (output["IsRequired"] !== undefined) {
-    contents.IsRequired = __parseBoolean(output["IsRequired"]);
+  if (output[_IR] != null) {
+    contents[_IR] = __parseBoolean(output[_IR]);
   }
   if (output.MinimumEngineVersionPerAllowedValue === "") {
-    contents.MinimumEngineVersionPerAllowedValue = [];
-  } else if (
-    output["MinimumEngineVersionPerAllowedValue"] !== undefined &&
-    output["MinimumEngineVersionPerAllowedValue"]["MinimumEngineVersionPerAllowedValue"] !== undefined
-  ) {
-    contents.MinimumEngineVersionPerAllowedValue = de_MinimumEngineVersionPerAllowedValueList(
-      __getArrayIfSingleItem(output["MinimumEngineVersionPerAllowedValue"]["MinimumEngineVersionPerAllowedValue"]),
+    contents[_MEVPAV] = [];
+  } else if (output[_MEVPAV] != null && output[_MEVPAV][_MEVPAV] != null) {
+    contents[_MEVPAV] = de_MinimumEngineVersionPerAllowedValueList(
+      __getArrayIfSingleItem(output[_MEVPAV][_MEVPAV]),
       context
     );
   }
@@ -26642,18 +26251,12 @@ const de_OptionGroupOptionsList = (output: any, context: __SerdeContext): Option
 const de_OptionGroupOptionsMessage = (output: any, context: __SerdeContext): OptionGroupOptionsMessage => {
   const contents: any = {};
   if (output.OptionGroupOptions === "") {
-    contents.OptionGroupOptions = [];
-  } else if (
-    output["OptionGroupOptions"] !== undefined &&
-    output["OptionGroupOptions"]["OptionGroupOption"] !== undefined
-  ) {
-    contents.OptionGroupOptions = de_OptionGroupOptionsList(
-      __getArrayIfSingleItem(output["OptionGroupOptions"]["OptionGroupOption"]),
-      context
-    );
+    contents[_OGO] = [];
+  } else if (output[_OGO] != null && output[_OGO][_OGOp] != null) {
+    contents[_OGO] = de_OptionGroupOptionsList(__getArrayIfSingleItem(output[_OGO][_OGOp]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -26674,8 +26277,8 @@ const de_OptionGroupOptionVersionsList = (output: any, context: __SerdeContext):
  */
 const de_OptionGroupQuotaExceededFault = (output: any, context: __SerdeContext): OptionGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -26686,15 +26289,12 @@ const de_OptionGroupQuotaExceededFault = (output: any, context: __SerdeContext):
 const de_OptionGroups = (output: any, context: __SerdeContext): OptionGroups => {
   const contents: any = {};
   if (output.OptionGroupsList === "") {
-    contents.OptionGroupsList = [];
-  } else if (output["OptionGroupsList"] !== undefined && output["OptionGroupsList"]["OptionGroup"] !== undefined) {
-    contents.OptionGroupsList = de_OptionGroupsList(
-      __getArrayIfSingleItem(output["OptionGroupsList"]["OptionGroup"]),
-      context
-    );
+    contents[_OGL] = [];
+  } else if (output[_OGL] != null && output[_OGL][_OG] != null) {
+    contents[_OGL] = de_OptionGroupsList(__getArrayIfSingleItem(output[_OGL][_OG]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -26737,32 +26337,32 @@ const de_OptionsDependedOn = (output: any, context: __SerdeContext): string[] =>
  */
 const de_OptionSetting = (output: any, context: __SerdeContext): OptionSetting => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["ApplyType"] !== undefined) {
-    contents.ApplyType = __expectString(output["ApplyType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["DataType"] !== undefined) {
-    contents.DataType = __expectString(output["DataType"]);
+  if (output[_DTa] != null) {
+    contents[_DTa] = __expectString(output[_DTa]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
+  if (output[_IM] != null) {
+    contents[_IM] = __parseBoolean(output[_IM]);
   }
-  if (output["IsCollection"] !== undefined) {
-    contents.IsCollection = __parseBoolean(output["IsCollection"]);
+  if (output[_IC] != null) {
+    contents[_IC] = __parseBoolean(output[_IC]);
   }
   return contents;
 };
@@ -26794,11 +26394,11 @@ const de_OptionsList = (output: any, context: __SerdeContext): Option[] => {
  */
 const de_OptionVersion = (output: any, context: __SerdeContext): OptionVersion => {
   const contents: any = {};
-  if (output["Version"] !== undefined) {
-    contents.Version = __expectString(output["Version"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = __parseBoolean(output["IsDefault"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
   }
   return contents;
 };
@@ -26808,151 +26408,123 @@ const de_OptionVersion = (output: any, context: __SerdeContext): OptionVersion =
  */
 const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): OrderableDBInstanceOption => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["AvailabilityZoneGroup"] !== undefined) {
-    contents.AvailabilityZoneGroup = __expectString(output["AvailabilityZoneGroup"]);
+  if (output[_AZG] != null) {
+    contents[_AZG] = __expectString(output[_AZG]);
   }
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZoneList(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZoneList(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["MultiAZCapable"] !== undefined) {
-    contents.MultiAZCapable = __parseBoolean(output["MultiAZCapable"]);
+  if (output[_MAZC] != null) {
+    contents[_MAZC] = __parseBoolean(output[_MAZC]);
   }
-  if (output["ReadReplicaCapable"] !== undefined) {
-    contents.ReadReplicaCapable = __parseBoolean(output["ReadReplicaCapable"]);
+  if (output[_RRC] != null) {
+    contents[_RRC] = __parseBoolean(output[_RRC]);
   }
-  if (output["Vpc"] !== undefined) {
-    contents.Vpc = __parseBoolean(output["Vpc"]);
+  if (output[_Vp] != null) {
+    contents[_Vp] = __parseBoolean(output[_Vp]);
   }
-  if (output["SupportsStorageEncryption"] !== undefined) {
-    contents.SupportsStorageEncryption = __parseBoolean(output["SupportsStorageEncryption"]);
+  if (output[_SSE] != null) {
+    contents[_SSE] = __parseBoolean(output[_SSE]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["SupportsIops"] !== undefined) {
-    contents.SupportsIops = __parseBoolean(output["SupportsIops"]);
+  if (output[_SIupp] != null) {
+    contents[_SIupp] = __parseBoolean(output[_SIupp]);
   }
-  if (output["SupportsEnhancedMonitoring"] !== undefined) {
-    contents.SupportsEnhancedMonitoring = __parseBoolean(output["SupportsEnhancedMonitoring"]);
+  if (output[_SEMu] != null) {
+    contents[_SEMu] = __parseBoolean(output[_SEMu]);
   }
-  if (output["SupportsIAMDatabaseAuthentication"] !== undefined) {
-    contents.SupportsIAMDatabaseAuthentication = __parseBoolean(output["SupportsIAMDatabaseAuthentication"]);
+  if (output[_SIAMDA] != null) {
+    contents[_SIAMDA] = __parseBoolean(output[_SIAMDA]);
   }
-  if (output["SupportsPerformanceInsights"] !== undefined) {
-    contents.SupportsPerformanceInsights = __parseBoolean(output["SupportsPerformanceInsights"]);
+  if (output[_SPI] != null) {
+    contents[_SPI] = __parseBoolean(output[_SPI]);
   }
-  if (output["MinStorageSize"] !== undefined) {
-    contents.MinStorageSize = __strictParseInt32(output["MinStorageSize"]) as number;
+  if (output[_MSS] != null) {
+    contents[_MSS] = __strictParseInt32(output[_MSS]) as number;
   }
-  if (output["MaxStorageSize"] !== undefined) {
-    contents.MaxStorageSize = __strictParseInt32(output["MaxStorageSize"]) as number;
+  if (output[_MSSa] != null) {
+    contents[_MSSa] = __strictParseInt32(output[_MSSa]) as number;
   }
-  if (output["MinIopsPerDbInstance"] !== undefined) {
-    contents.MinIopsPerDbInstance = __strictParseInt32(output["MinIopsPerDbInstance"]) as number;
+  if (output[_MIPDI] != null) {
+    contents[_MIPDI] = __strictParseInt32(output[_MIPDI]) as number;
   }
-  if (output["MaxIopsPerDbInstance"] !== undefined) {
-    contents.MaxIopsPerDbInstance = __strictParseInt32(output["MaxIopsPerDbInstance"]) as number;
+  if (output[_MIPDIa] != null) {
+    contents[_MIPDIa] = __strictParseInt32(output[_MIPDIa]) as number;
   }
-  if (output["MinIopsPerGib"] !== undefined) {
-    contents.MinIopsPerGib = __strictParseFloat(output["MinIopsPerGib"]) as number;
+  if (output[_MIPG] != null) {
+    contents[_MIPG] = __strictParseFloat(output[_MIPG]) as number;
   }
-  if (output["MaxIopsPerGib"] !== undefined) {
-    contents.MaxIopsPerGib = __strictParseFloat(output["MaxIopsPerGib"]) as number;
+  if (output[_MIPGa] != null) {
+    contents[_MIPGa] = __strictParseFloat(output[_MIPGa]) as number;
   }
   if (output.AvailableProcessorFeatures === "") {
-    contents.AvailableProcessorFeatures = [];
-  } else if (
-    output["AvailableProcessorFeatures"] !== undefined &&
-    output["AvailableProcessorFeatures"]["AvailableProcessorFeature"] !== undefined
-  ) {
-    contents.AvailableProcessorFeatures = de_AvailableProcessorFeatureList(
-      __getArrayIfSingleItem(output["AvailableProcessorFeatures"]["AvailableProcessorFeature"]),
-      context
-    );
+    contents[_APF] = [];
+  } else if (output[_APF] != null && output[_APF][_APFv] != null) {
+    contents[_APF] = de_AvailableProcessorFeatureList(__getArrayIfSingleItem(output[_APF][_APFv]), context);
   }
   if (output.SupportedEngineModes === "") {
-    contents.SupportedEngineModes = [];
-  } else if (output["SupportedEngineModes"] !== undefined && output["SupportedEngineModes"]["member"] !== undefined) {
-    contents.SupportedEngineModes = de_EngineModeList(
-      __getArrayIfSingleItem(output["SupportedEngineModes"]["member"]),
-      context
-    );
+    contents[_SEM] = [];
+  } else if (output[_SEM] != null && output[_SEM][_me] != null) {
+    contents[_SEM] = de_EngineModeList(__getArrayIfSingleItem(output[_SEM][_me]), context);
   }
-  if (output["SupportsStorageAutoscaling"] !== undefined) {
-    contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
+  if (output[_SSA] != null) {
+    contents[_SSA] = __parseBoolean(output[_SSA]);
   }
-  if (output["SupportsKerberosAuthentication"] !== undefined) {
-    contents.SupportsKerberosAuthentication = __parseBoolean(output["SupportsKerberosAuthentication"]);
+  if (output[_SKA] != null) {
+    contents[_SKA] = __parseBoolean(output[_SKA]);
   }
-  if (output["OutpostCapable"] !== undefined) {
-    contents.OutpostCapable = __parseBoolean(output["OutpostCapable"]);
+  if (output[_OC] != null) {
+    contents[_OC] = __parseBoolean(output[_OC]);
   }
   if (output.SupportedActivityStreamModes === "") {
-    contents.SupportedActivityStreamModes = [];
-  } else if (
-    output["SupportedActivityStreamModes"] !== undefined &&
-    output["SupportedActivityStreamModes"]["member"] !== undefined
-  ) {
-    contents.SupportedActivityStreamModes = de_ActivityStreamModeList(
-      __getArrayIfSingleItem(output["SupportedActivityStreamModes"]["member"]),
-      context
-    );
+    contents[_SASM] = [];
+  } else if (output[_SASM] != null && output[_SASM][_me] != null) {
+    contents[_SASM] = de_ActivityStreamModeList(__getArrayIfSingleItem(output[_SASM][_me]), context);
   }
-  if (output["SupportsGlobalDatabases"] !== undefined) {
-    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
+  if (output[_SGD] != null) {
+    contents[_SGD] = __parseBoolean(output[_SGD]);
   }
-  if (output["SupportsClusters"] !== undefined) {
-    contents.SupportsClusters = __parseBoolean(output["SupportsClusters"]);
+  if (output[_SCu] != null) {
+    contents[_SCu] = __parseBoolean(output[_SCu]);
   }
   if (output.SupportedNetworkTypes === "") {
-    contents.SupportedNetworkTypes = [];
-  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
-    contents.SupportedNetworkTypes = de_StringList(
-      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
-      context
-    );
+    contents[_SNT] = [];
+  } else if (output[_SNT] != null && output[_SNT][_me] != null) {
+    contents[_SNT] = de_StringList(__getArrayIfSingleItem(output[_SNT][_me]), context);
   }
-  if (output["SupportsStorageThroughput"] !== undefined) {
-    contents.SupportsStorageThroughput = __parseBoolean(output["SupportsStorageThroughput"]);
+  if (output[_SST] != null) {
+    contents[_SST] = __parseBoolean(output[_SST]);
   }
-  if (output["MinStorageThroughputPerDbInstance"] !== undefined) {
-    contents.MinStorageThroughputPerDbInstance = __strictParseInt32(
-      output["MinStorageThroughputPerDbInstance"]
-    ) as number;
+  if (output[_MSTPDI] != null) {
+    contents[_MSTPDI] = __strictParseInt32(output[_MSTPDI]) as number;
   }
-  if (output["MaxStorageThroughputPerDbInstance"] !== undefined) {
-    contents.MaxStorageThroughputPerDbInstance = __strictParseInt32(
-      output["MaxStorageThroughputPerDbInstance"]
-    ) as number;
+  if (output[_MSTPDIa] != null) {
+    contents[_MSTPDIa] = __strictParseInt32(output[_MSTPDIa]) as number;
   }
-  if (output["MinStorageThroughputPerIops"] !== undefined) {
-    contents.MinStorageThroughputPerIops = __strictParseFloat(output["MinStorageThroughputPerIops"]) as number;
+  if (output[_MSTPI] != null) {
+    contents[_MSTPI] = __strictParseFloat(output[_MSTPI]) as number;
   }
-  if (output["MaxStorageThroughputPerIops"] !== undefined) {
-    contents.MaxStorageThroughputPerIops = __strictParseFloat(output["MaxStorageThroughputPerIops"]) as number;
+  if (output[_MSTPIa] != null) {
+    contents[_MSTPIa] = __strictParseFloat(output[_MSTPIa]) as number;
   }
-  if (output["SupportsDedicatedLogVolume"] !== undefined) {
-    contents.SupportsDedicatedLogVolume = __parseBoolean(output["SupportsDedicatedLogVolume"]);
+  if (output[_SDLV] != null) {
+    contents[_SDLV] = __parseBoolean(output[_SDLV]);
   }
   return contents;
 };
@@ -26977,18 +26549,12 @@ const de_OrderableDBInstanceOptionsMessage = (
 ): OrderableDBInstanceOptionsMessage => {
   const contents: any = {};
   if (output.OrderableDBInstanceOptions === "") {
-    contents.OrderableDBInstanceOptions = [];
-  } else if (
-    output["OrderableDBInstanceOptions"] !== undefined &&
-    output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"] !== undefined
-  ) {
-    contents.OrderableDBInstanceOptions = de_OrderableDBInstanceOptionsList(
-      __getArrayIfSingleItem(output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]),
-      context
-    );
+    contents[_ODBIO] = [];
+  } else if (output[_ODBIO] != null && output[_ODBIO][_ODBIOr] != null) {
+    contents[_ODBIO] = de_OrderableDBInstanceOptionsList(__getArrayIfSingleItem(output[_ODBIO][_ODBIOr]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -26998,8 +26564,8 @@ const de_OrderableDBInstanceOptionsMessage = (
  */
 const de_Outpost = (output: any, context: __SerdeContext): Outpost => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -27009,43 +26575,40 @@ const de_Outpost = (output: any, context: __SerdeContext): Outpost => {
  */
 const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
   const contents: any = {};
-  if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = __expectString(output["ParameterName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = __expectString(output["ParameterValue"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Source"] !== undefined) {
-    contents.Source = __expectString(output["Source"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["ApplyType"] !== undefined) {
-    contents.ApplyType = __expectString(output["ApplyType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["DataType"] !== undefined) {
-    contents.DataType = __expectString(output["DataType"]);
+  if (output[_DTa] != null) {
+    contents[_DTa] = __expectString(output[_DTa]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
+  if (output[_IM] != null) {
+    contents[_IM] = __parseBoolean(output[_IM]);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEVi] != null) {
+    contents[_MEVi] = __expectString(output[_MEVi]);
   }
-  if (output["ApplyMethod"] !== undefined) {
-    contents.ApplyMethod = __expectString(output["ApplyMethod"]);
+  if (output[_AMp] != null) {
+    contents[_AMp] = __expectString(output[_AMp]);
   }
   if (output.SupportedEngineModes === "") {
-    contents.SupportedEngineModes = [];
-  } else if (output["SupportedEngineModes"] !== undefined && output["SupportedEngineModes"]["member"] !== undefined) {
-    contents.SupportedEngineModes = de_EngineModeList(
-      __getArrayIfSingleItem(output["SupportedEngineModes"]["member"]),
-      context
-    );
+    contents[_SEM] = [];
+  } else if (output[_SEM] != null && output[_SEM][_me] != null) {
+    contents[_SEM] = de_EngineModeList(__getArrayIfSingleItem(output[_SEM][_me]), context);
   }
   return contents;
 };
@@ -27067,14 +26630,14 @@ const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] =>
 const de_PendingCloudwatchLogsExports = (output: any, context: __SerdeContext): PendingCloudwatchLogsExports => {
   const contents: any = {};
   if (output.LogTypesToEnable === "") {
-    contents.LogTypesToEnable = [];
-  } else if (output["LogTypesToEnable"] !== undefined && output["LogTypesToEnable"]["member"] !== undefined) {
-    contents.LogTypesToEnable = de_LogTypeList(__getArrayIfSingleItem(output["LogTypesToEnable"]["member"]), context);
+    contents[_LTTE] = [];
+  } else if (output[_LTTE] != null && output[_LTTE][_me] != null) {
+    contents[_LTTE] = de_LogTypeList(__getArrayIfSingleItem(output[_LTTE][_me]), context);
   }
   if (output.LogTypesToDisable === "") {
-    contents.LogTypesToDisable = [];
-  } else if (output["LogTypesToDisable"] !== undefined && output["LogTypesToDisable"]["member"] !== undefined) {
-    contents.LogTypesToDisable = de_LogTypeList(__getArrayIfSingleItem(output["LogTypesToDisable"]["member"]), context);
+    contents[_LTTD] = [];
+  } else if (output[_LTTD] != null && output[_LTTD][_me] != null) {
+    contents[_LTTD] = de_LogTypeList(__getArrayIfSingleItem(output[_LTTD][_me]), context);
   }
   return contents;
 };
@@ -27084,23 +26647,23 @@ const de_PendingCloudwatchLogsExports = (output: any, context: __SerdeContext): 
  */
 const de_PendingMaintenanceAction = (output: any, context: __SerdeContext): PendingMaintenanceAction => {
   const contents: any = {};
-  if (output["Action"] !== undefined) {
-    contents.Action = __expectString(output["Action"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["AutoAppliedAfterDate"] !== undefined) {
-    contents.AutoAppliedAfterDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutoAppliedAfterDate"]));
+  if (output[_AAAD] != null) {
+    contents[_AAAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_AAAD]));
   }
-  if (output["ForcedApplyDate"] !== undefined) {
-    contents.ForcedApplyDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ForcedApplyDate"]));
+  if (output[_FAD] != null) {
+    contents[_FAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_FAD]));
   }
-  if (output["OptInStatus"] !== undefined) {
-    contents.OptInStatus = __expectString(output["OptInStatus"]);
+  if (output[_OIS] != null) {
+    contents[_OIS] = __expectString(output[_OIS]);
   }
-  if (output["CurrentApplyDate"] !== undefined) {
-    contents.CurrentApplyDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CurrentApplyDate"]));
+  if (output[_CAD] != null) {
+    contents[_CAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CAD]));
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -27136,18 +26699,12 @@ const de_PendingMaintenanceActionsMessage = (
 ): PendingMaintenanceActionsMessage => {
   const contents: any = {};
   if (output.PendingMaintenanceActions === "") {
-    contents.PendingMaintenanceActions = [];
-  } else if (
-    output["PendingMaintenanceActions"] !== undefined &&
-    output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"] !== undefined
-  ) {
-    contents.PendingMaintenanceActions = de_PendingMaintenanceActions(
-      __getArrayIfSingleItem(output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"]),
-      context
-    );
+    contents[_PMA] = [];
+  } else if (output[_PMA] != null && output[_PMA][_RPMA] != null) {
+    contents[_PMA] = de_PendingMaintenanceActions(__getArrayIfSingleItem(output[_PMA][_RPMA]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -27157,84 +26714,73 @@ const de_PendingMaintenanceActionsMessage = (
  */
 const de_PendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
   const contents: any = {};
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["MasterUserPassword"] !== undefined) {
-    contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
+  if (output[_MUP] != null) {
+    contents[_MUP] = __expectString(output[_MUP]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["CACertificateIdentifier"] !== undefined) {
-    contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
+  if (output[_CACI] != null) {
+    contents[_CACI] = __expectString(output[_CACI]);
   }
-  if (output["DBSubnetGroupName"] !== undefined) {
-    contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
+  if (output[_DBSGNu] != null) {
+    contents[_DBSGNu] = __expectString(output[_DBSGNu]);
   }
-  if (output["PendingCloudwatchLogsExports"] !== undefined) {
-    contents.PendingCloudwatchLogsExports = de_PendingCloudwatchLogsExports(
-      output["PendingCloudwatchLogsExports"],
-      context
-    );
+  if (output[_PCLE] != null) {
+    contents[_PCLE] = de_PendingCloudwatchLogsExports(output[_PCLE], context);
   }
   if (output.ProcessorFeatures === "") {
-    contents.ProcessorFeatures = [];
-  } else if (
-    output["ProcessorFeatures"] !== undefined &&
-    output["ProcessorFeatures"]["ProcessorFeature"] !== undefined
-  ) {
-    contents.ProcessorFeatures = de_ProcessorFeatureList(
-      __getArrayIfSingleItem(output["ProcessorFeatures"]["ProcessorFeature"]),
-      context
-    );
+    contents[_PF] = [];
+  } else if (output[_PF] != null && output[_PF][_PFr] != null) {
+    contents[_PF] = de_ProcessorFeatureList(__getArrayIfSingleItem(output[_PF][_PFr]), context);
   }
-  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  if (output[_IAMDAE] != null) {
+    contents[_IAMDAE] = __parseBoolean(output[_IAMDAE]);
   }
-  if (output["AutomationMode"] !== undefined) {
-    contents.AutomationMode = __expectString(output["AutomationMode"]);
+  if (output[_AM] != null) {
+    contents[_AM] = __expectString(output[_AM]);
   }
-  if (output["ResumeFullAutomationModeTime"] !== undefined) {
-    contents.ResumeFullAutomationModeTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ResumeFullAutomationModeTime"])
-    );
+  if (output[_RFAMT] != null) {
+    contents[_RFAMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RFAMT]));
   }
-  if (output["StorageThroughput"] !== undefined) {
-    contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["DedicatedLogVolume"] !== undefined) {
-    contents.DedicatedLogVolume = __parseBoolean(output["DedicatedLogVolume"]);
+  if (output[_DLV] != null) {
+    contents[_DLV] = __parseBoolean(output[_DLV]);
   }
-  if (output["MultiTenant"] !== undefined) {
-    contents.MultiTenant = __parseBoolean(output["MultiTenant"]);
+  if (output[_MT] != null) {
+    contents[_MT] = __parseBoolean(output[_MT]);
   }
   return contents;
 };
@@ -27247,8 +26793,8 @@ const de_PointInTimeRestoreNotEnabledFault = (
   context: __SerdeContext
 ): PointInTimeRestoreNotEnabledFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27258,11 +26804,11 @@ const de_PointInTimeRestoreNotEnabledFault = (
  */
 const de_ProcessorFeature = (output: any, context: __SerdeContext): ProcessorFeature => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -27286,8 +26832,8 @@ const de_PromoteReadReplicaDBClusterResult = (
   context: __SerdeContext
 ): PromoteReadReplicaDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -27297,8 +26843,8 @@ const de_PromoteReadReplicaDBClusterResult = (
  */
 const de_PromoteReadReplicaResult = (output: any, context: __SerdeContext): PromoteReadReplicaResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -27311,8 +26857,8 @@ const de_ProvisionedIopsNotAvailableInAZFault = (
   context: __SerdeContext
 ): ProvisionedIopsNotAvailableInAZFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27325,8 +26871,8 @@ const de_PurchaseReservedDBInstancesOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedDBInstancesOfferingResult => {
   const contents: any = {};
-  if (output["ReservedDBInstance"] !== undefined) {
-    contents.ReservedDBInstance = de_ReservedDBInstance(output["ReservedDBInstance"], context);
+  if (output[_RDBIe] != null) {
+    contents[_RDBIe] = de_ReservedDBInstance(output[_RDBIe], context);
   }
   return contents;
 };
@@ -27336,14 +26882,14 @@ const de_PurchaseReservedDBInstancesOfferingResult = (
  */
 const de_Range = (output: any, context: __SerdeContext): Range => {
   const contents: any = {};
-  if (output["From"] !== undefined) {
-    contents.From = __strictParseInt32(output["From"]) as number;
+  if (output[_Fr] != null) {
+    contents[_Fr] = __strictParseInt32(output[_Fr]) as number;
   }
-  if (output["To"] !== undefined) {
-    contents.To = __strictParseInt32(output["To"]) as number;
+  if (output[_To] != null) {
+    contents[_To] = __strictParseInt32(output[_To]) as number;
   }
-  if (output["Step"] !== undefined) {
-    contents.Step = __strictParseInt32(output["Step"]) as number;
+  if (output[_Ste] != null) {
+    contents[_Ste] = __strictParseInt32(output[_Ste]) as number;
   }
   return contents;
 };
@@ -27364,14 +26910,14 @@ const de_RangeList = (output: any, context: __SerdeContext): Range[] => {
  */
 const de_RdsCustomClusterConfiguration = (output: any, context: __SerdeContext): RdsCustomClusterConfiguration => {
   const contents: any = {};
-  if (output["InterconnectSubnetId"] !== undefined) {
-    contents.InterconnectSubnetId = __expectString(output["InterconnectSubnetId"]);
+  if (output[_ISI] != null) {
+    contents[_ISI] = __expectString(output[_ISI]);
   }
-  if (output["TransitGatewayMulticastDomainId"] !== undefined) {
-    contents.TransitGatewayMulticastDomainId = __expectString(output["TransitGatewayMulticastDomainId"]);
+  if (output[_TGMDI] != null) {
+    contents[_TGMDI] = __expectString(output[_TGMDI]);
   }
-  if (output["ReplicaMode"] !== undefined) {
-    contents.ReplicaMode = __expectString(output["ReplicaMode"]);
+  if (output[_RM] != null) {
+    contents[_RM] = __expectString(output[_RM]);
   }
   return contents;
 };
@@ -27425,8 +26971,8 @@ const de_ReadReplicaIdentifierList = (output: any, context: __SerdeContext): str
  */
 const de_RebootDBClusterResult = (output: any, context: __SerdeContext): RebootDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -27436,8 +26982,8 @@ const de_RebootDBClusterResult = (output: any, context: __SerdeContext): RebootD
  */
 const de_RebootDBInstanceResult = (output: any, context: __SerdeContext): RebootDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -27447,11 +26993,11 @@ const de_RebootDBInstanceResult = (output: any, context: __SerdeContext): Reboot
  */
 const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   const contents: any = {};
-  if (output["RecurringChargeAmount"] !== undefined) {
-    contents.RecurringChargeAmount = __strictParseFloat(output["RecurringChargeAmount"]) as number;
+  if (output[_RCA] != null) {
+    contents[_RCA] = __strictParseFloat(output[_RCA]) as number;
   }
-  if (output["RecurringChargeFrequency"] !== undefined) {
-    contents.RecurringChargeFrequency = __expectString(output["RecurringChargeFrequency"]);
+  if (output[_RCF] != null) {
+    contents[_RCF] = __expectString(output[_RCF]);
   }
   return contents;
 };
@@ -27473,9 +27019,9 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
 const de_RegisterDBProxyTargetsResponse = (output: any, context: __SerdeContext): RegisterDBProxyTargetsResponse => {
   const contents: any = {};
   if (output.DBProxyTargets === "") {
-    contents.DBProxyTargets = [];
-  } else if (output["DBProxyTargets"] !== undefined && output["DBProxyTargets"]["member"] !== undefined) {
-    contents.DBProxyTargets = de_TargetList(__getArrayIfSingleItem(output["DBProxyTargets"]["member"]), context);
+    contents[_DBPT] = [];
+  } else if (output[_DBPT] != null && output[_DBPT][_me] != null) {
+    contents[_DBPT] = de_TargetList(__getArrayIfSingleItem(output[_DBPT][_me]), context);
   }
   return contents;
 };
@@ -27485,8 +27031,8 @@ const de_RegisterDBProxyTargetsResponse = (output: any, context: __SerdeContext)
  */
 const de_RemoveFromGlobalClusterResult = (output: any, context: __SerdeContext): RemoveFromGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -27499,8 +27045,8 @@ const de_RemoveSourceIdentifierFromSubscriptionResult = (
   context: __SerdeContext
 ): RemoveSourceIdentifierFromSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -27510,58 +27056,55 @@ const de_RemoveSourceIdentifierFromSubscriptionResult = (
  */
 const de_ReservedDBInstance = (output: any, context: __SerdeContext): ReservedDBInstance => {
   const contents: any = {};
-  if (output["ReservedDBInstanceId"] !== undefined) {
-    contents.ReservedDBInstanceId = __expectString(output["ReservedDBInstanceId"]);
+  if (output[_RDBII] != null) {
+    contents[_RDBII] = __expectString(output[_RDBII]);
   }
-  if (output["ReservedDBInstancesOfferingId"] !== undefined) {
-    contents.ReservedDBInstancesOfferingId = __expectString(output["ReservedDBInstancesOfferingId"]);
+  if (output[_RDBIOI] != null) {
+    contents[_RDBIOI] = __expectString(output[_RDBIOI]);
   }
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["StartTime"] !== undefined) {
-    contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
+  if (output[_STta] != null) {
+    contents[_STta] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STta]));
   }
-  if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt32(output["Duration"]) as number;
+  if (output[_Du] != null) {
+    contents[_Du] = __strictParseInt32(output[_Du]) as number;
   }
-  if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
+  if (output[_FP] != null) {
+    contents[_FP] = __strictParseFloat(output[_FP]) as number;
   }
-  if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
+  if (output[_UP] != null) {
+    contents[_UP] = __strictParseFloat(output[_UP]) as number;
   }
-  if (output["CurrencyCode"] !== undefined) {
-    contents.CurrencyCode = __expectString(output["CurrencyCode"]);
+  if (output[_CCu] != null) {
+    contents[_CCu] = __expectString(output[_CCu]);
   }
-  if (output["DBInstanceCount"] !== undefined) {
-    contents.DBInstanceCount = __strictParseInt32(output["DBInstanceCount"]) as number;
+  if (output[_DBICn] != null) {
+    contents[_DBICn] = __strictParseInt32(output[_DBICn]) as number;
   }
-  if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = __expectString(output["ProductDescription"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
-  if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = __expectString(output["OfferingType"]);
+  if (output[_OT] != null) {
+    contents[_OT] = __expectString(output[_OT]);
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
   if (output.RecurringCharges === "") {
-    contents.RecurringCharges = [];
-  } else if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
-    contents.RecurringCharges = de_RecurringChargeList(
-      __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
-      context
-    );
+    contents[_RC] = [];
+  } else if (output[_RC] != null && output[_RC][_RCe] != null) {
+    contents[_RC] = de_RecurringChargeList(__getArrayIfSingleItem(output[_RC][_RCe]), context);
   }
-  if (output["ReservedDBInstanceArn"] !== undefined) {
-    contents.ReservedDBInstanceArn = __expectString(output["ReservedDBInstanceArn"]);
+  if (output[_RDBIA] != null) {
+    contents[_RDBIA] = __expectString(output[_RDBIA]);
   }
-  if (output["LeaseId"] !== undefined) {
-    contents.LeaseId = __expectString(output["LeaseId"]);
+  if (output[_LI] != null) {
+    contents[_LI] = __expectString(output[_LI]);
   }
   return contents;
 };
@@ -27574,8 +27117,8 @@ const de_ReservedDBInstanceAlreadyExistsFault = (
   context: __SerdeContext
 ): ReservedDBInstanceAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27596,19 +27139,13 @@ const de_ReservedDBInstanceList = (output: any, context: __SerdeContext): Reserv
  */
 const de_ReservedDBInstanceMessage = (output: any, context: __SerdeContext): ReservedDBInstanceMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ReservedDBInstances === "") {
-    contents.ReservedDBInstances = [];
-  } else if (
-    output["ReservedDBInstances"] !== undefined &&
-    output["ReservedDBInstances"]["ReservedDBInstance"] !== undefined
-  ) {
-    contents.ReservedDBInstances = de_ReservedDBInstanceList(
-      __getArrayIfSingleItem(output["ReservedDBInstances"]["ReservedDBInstance"]),
-      context
-    );
+    contents[_RDBIes] = [];
+  } else if (output[_RDBIes] != null && output[_RDBIes][_RDBIe] != null) {
+    contents[_RDBIes] = de_ReservedDBInstanceList(__getArrayIfSingleItem(output[_RDBIes][_RDBIe]), context);
   }
   return contents;
 };
@@ -27618,8 +27155,8 @@ const de_ReservedDBInstanceMessage = (output: any, context: __SerdeContext): Res
  */
 const de_ReservedDBInstanceNotFoundFault = (output: any, context: __SerdeContext): ReservedDBInstanceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27632,8 +27169,8 @@ const de_ReservedDBInstanceQuotaExceededFault = (
   context: __SerdeContext
 ): ReservedDBInstanceQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27643,40 +27180,37 @@ const de_ReservedDBInstanceQuotaExceededFault = (
  */
 const de_ReservedDBInstancesOffering = (output: any, context: __SerdeContext): ReservedDBInstancesOffering => {
   const contents: any = {};
-  if (output["ReservedDBInstancesOfferingId"] !== undefined) {
-    contents.ReservedDBInstancesOfferingId = __expectString(output["ReservedDBInstancesOfferingId"]);
+  if (output[_RDBIOI] != null) {
+    contents[_RDBIOI] = __expectString(output[_RDBIOI]);
   }
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["Duration"] !== undefined) {
-    contents.Duration = __strictParseInt32(output["Duration"]) as number;
+  if (output[_Du] != null) {
+    contents[_Du] = __strictParseInt32(output[_Du]) as number;
   }
-  if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = __strictParseFloat(output["FixedPrice"]) as number;
+  if (output[_FP] != null) {
+    contents[_FP] = __strictParseFloat(output[_FP]) as number;
   }
-  if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = __strictParseFloat(output["UsagePrice"]) as number;
+  if (output[_UP] != null) {
+    contents[_UP] = __strictParseFloat(output[_UP]) as number;
   }
-  if (output["CurrencyCode"] !== undefined) {
-    contents.CurrencyCode = __expectString(output["CurrencyCode"]);
+  if (output[_CCu] != null) {
+    contents[_CCu] = __expectString(output[_CCu]);
   }
-  if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = __expectString(output["ProductDescription"]);
+  if (output[_PD] != null) {
+    contents[_PD] = __expectString(output[_PD]);
   }
-  if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = __expectString(output["OfferingType"]);
+  if (output[_OT] != null) {
+    contents[_OT] = __expectString(output[_OT]);
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
   if (output.RecurringCharges === "") {
-    contents.RecurringCharges = [];
-  } else if (output["RecurringCharges"] !== undefined && output["RecurringCharges"]["RecurringCharge"] !== undefined) {
-    contents.RecurringCharges = de_RecurringChargeList(
-      __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
-      context
-    );
+    contents[_RC] = [];
+  } else if (output[_RC] != null && output[_RC][_RCe] != null) {
+    contents[_RC] = de_RecurringChargeList(__getArrayIfSingleItem(output[_RC][_RCe]), context);
   }
   return contents;
 };
@@ -27700,19 +27234,13 @@ const de_ReservedDBInstancesOfferingMessage = (
   context: __SerdeContext
 ): ReservedDBInstancesOfferingMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.ReservedDBInstancesOfferings === "") {
-    contents.ReservedDBInstancesOfferings = [];
-  } else if (
-    output["ReservedDBInstancesOfferings"] !== undefined &&
-    output["ReservedDBInstancesOfferings"]["ReservedDBInstancesOffering"] !== undefined
-  ) {
-    contents.ReservedDBInstancesOfferings = de_ReservedDBInstancesOfferingList(
-      __getArrayIfSingleItem(output["ReservedDBInstancesOfferings"]["ReservedDBInstancesOffering"]),
-      context
-    );
+    contents[_RDBIO] = [];
+  } else if (output[_RDBIO] != null && output[_RDBIO][_RDBIOe] != null) {
+    contents[_RDBIO] = de_ReservedDBInstancesOfferingList(__getArrayIfSingleItem(output[_RDBIO][_RDBIOe]), context);
   }
   return contents;
 };
@@ -27725,8 +27253,8 @@ const de_ReservedDBInstancesOfferingNotFoundFault = (
   context: __SerdeContext
 ): ReservedDBInstancesOfferingNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27736,8 +27264,8 @@ const de_ReservedDBInstancesOfferingNotFoundFault = (
  */
 const de_ResourceNotFoundFault = (output: any, context: __SerdeContext): ResourceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27750,19 +27278,13 @@ const de_ResourcePendingMaintenanceActions = (
   context: __SerdeContext
 ): ResourcePendingMaintenanceActions => {
   const contents: any = {};
-  if (output["ResourceIdentifier"] !== undefined) {
-    contents.ResourceIdentifier = __expectString(output["ResourceIdentifier"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
   if (output.PendingMaintenanceActionDetails === "") {
-    contents.PendingMaintenanceActionDetails = [];
-  } else if (
-    output["PendingMaintenanceActionDetails"] !== undefined &&
-    output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"] !== undefined
-  ) {
-    contents.PendingMaintenanceActionDetails = de_PendingMaintenanceActionDetails(
-      __getArrayIfSingleItem(output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"]),
-      context
-    );
+    contents[_PMAD] = [];
+  } else if (output[_PMAD] != null && output[_PMAD][_PMAe] != null) {
+    contents[_PMAD] = de_PendingMaintenanceActionDetails(__getArrayIfSingleItem(output[_PMAD][_PMAe]), context);
   }
   return contents;
 };
@@ -27772,8 +27294,8 @@ const de_ResourcePendingMaintenanceActions = (
  */
 const de_RestoreDBClusterFromS3Result = (output: any, context: __SerdeContext): RestoreDBClusterFromS3Result => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -27786,8 +27308,8 @@ const de_RestoreDBClusterFromSnapshotResult = (
   context: __SerdeContext
 ): RestoreDBClusterFromSnapshotResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -27800,8 +27322,8 @@ const de_RestoreDBClusterToPointInTimeResult = (
   context: __SerdeContext
 ): RestoreDBClusterToPointInTimeResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -27814,8 +27336,8 @@ const de_RestoreDBInstanceFromDBSnapshotResult = (
   context: __SerdeContext
 ): RestoreDBInstanceFromDBSnapshotResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -27825,8 +27347,8 @@ const de_RestoreDBInstanceFromDBSnapshotResult = (
  */
 const de_RestoreDBInstanceFromS3Result = (output: any, context: __SerdeContext): RestoreDBInstanceFromS3Result => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -27839,8 +27361,8 @@ const de_RestoreDBInstanceToPointInTimeResult = (
   context: __SerdeContext
 ): RestoreDBInstanceToPointInTimeResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -27850,11 +27372,11 @@ const de_RestoreDBInstanceToPointInTimeResult = (
  */
 const de_RestoreWindow = (output: any, context: __SerdeContext): RestoreWindow => {
   const contents: any = {};
-  if (output["EarliestTime"] !== undefined) {
-    contents.EarliestTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EarliestTime"]));
+  if (output[_ETa] != null) {
+    contents[_ETa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ETa]));
   }
-  if (output["LatestTime"] !== undefined) {
-    contents.LatestTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestTime"]));
+  if (output[_LT] != null) {
+    contents[_LT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LT]));
   }
   return contents;
 };
@@ -27867,8 +27389,8 @@ const de_RevokeDBSecurityGroupIngressResult = (
   context: __SerdeContext
 ): RevokeDBSecurityGroupIngressResult => {
   const contents: any = {};
-  if (output["DBSecurityGroup"] !== undefined) {
-    contents.DBSecurityGroup = de_DBSecurityGroup(output["DBSecurityGroup"], context);
+  if (output[_DBSGe] != null) {
+    contents[_DBSGe] = de_DBSecurityGroup(output[_DBSGe], context);
   }
   return contents;
 };
@@ -27878,23 +27400,23 @@ const de_RevokeDBSecurityGroupIngressResult = (
  */
 const de_ScalingConfigurationInfo = (output: any, context: __SerdeContext): ScalingConfigurationInfo => {
   const contents: any = {};
-  if (output["MinCapacity"] !== undefined) {
-    contents.MinCapacity = __strictParseInt32(output["MinCapacity"]) as number;
+  if (output[_MCi] != null) {
+    contents[_MCi] = __strictParseInt32(output[_MCi]) as number;
   }
-  if (output["MaxCapacity"] !== undefined) {
-    contents.MaxCapacity = __strictParseInt32(output["MaxCapacity"]) as number;
+  if (output[_MCa] != null) {
+    contents[_MCa] = __strictParseInt32(output[_MCa]) as number;
   }
-  if (output["AutoPause"] !== undefined) {
-    contents.AutoPause = __parseBoolean(output["AutoPause"]);
+  if (output[_AP] != null) {
+    contents[_AP] = __parseBoolean(output[_AP]);
   }
-  if (output["SecondsUntilAutoPause"] !== undefined) {
-    contents.SecondsUntilAutoPause = __strictParseInt32(output["SecondsUntilAutoPause"]) as number;
+  if (output[_SUAP] != null) {
+    contents[_SUAP] = __strictParseInt32(output[_SUAP]) as number;
   }
-  if (output["TimeoutAction"] !== undefined) {
-    contents.TimeoutAction = __expectString(output["TimeoutAction"]);
+  if (output[_TAi] != null) {
+    contents[_TAi] = __expectString(output[_TAi]);
   }
-  if (output["SecondsBeforeTimeout"] !== undefined) {
-    contents.SecondsBeforeTimeout = __strictParseInt32(output["SecondsBeforeTimeout"]) as number;
+  if (output[_SBT] != null) {
+    contents[_SBT] = __strictParseInt32(output[_SBT]) as number;
   }
   return contents;
 };
@@ -27907,11 +27429,11 @@ const de_ServerlessV2ScalingConfigurationInfo = (
   context: __SerdeContext
 ): ServerlessV2ScalingConfigurationInfo => {
   const contents: any = {};
-  if (output["MinCapacity"] !== undefined) {
-    contents.MinCapacity = __strictParseFloat(output["MinCapacity"]) as number;
+  if (output[_MCi] != null) {
+    contents[_MCi] = __strictParseFloat(output[_MCi]) as number;
   }
-  if (output["MaxCapacity"] !== undefined) {
-    contents.MaxCapacity = __strictParseFloat(output["MaxCapacity"]) as number;
+  if (output[_MCa] != null) {
+    contents[_MCa] = __strictParseFloat(output[_MCa]) as number;
   }
   return contents;
 };
@@ -27924,8 +27446,8 @@ const de_SharedSnapshotQuotaExceededFault = (
   context: __SerdeContext
 ): SharedSnapshotQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27935,8 +27457,8 @@ const de_SharedSnapshotQuotaExceededFault = (
  */
 const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): SnapshotQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27946,8 +27468,8 @@ const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): Sn
  */
 const de_SNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27957,8 +27479,8 @@ const de_SNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInval
  */
 const de_SNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNoAuthorizationFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27968,8 +27490,8 @@ const de_SNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNo
  */
 const de_SNSTopicArnNotFoundFault = (output: any, context: __SerdeContext): SNSTopicArnNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27979,8 +27501,8 @@ const de_SNSTopicArnNotFoundFault = (output: any, context: __SerdeContext): SNST
  */
 const de_SourceClusterNotSupportedFault = (output: any, context: __SerdeContext): SourceClusterNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -27990,8 +27512,8 @@ const de_SourceClusterNotSupportedFault = (output: any, context: __SerdeContext)
  */
 const de_SourceDatabaseNotSupportedFault = (output: any, context: __SerdeContext): SourceDatabaseNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28012,8 +27534,8 @@ const de_SourceIdsList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_SourceNotFoundFault = (output: any, context: __SerdeContext): SourceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28023,19 +27545,17 @@ const de_SourceNotFoundFault = (output: any, context: __SerdeContext): SourceNot
  */
 const de_SourceRegion = (output: any, context: __SerdeContext): SourceRegion => {
   const contents: any = {};
-  if (output["RegionName"] !== undefined) {
-    contents.RegionName = __expectString(output["RegionName"]);
+  if (output[_RNe] != null) {
+    contents[_RNe] = __expectString(output[_RNe]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["SupportsDBInstanceAutomatedBackupsReplication"] !== undefined) {
-    contents.SupportsDBInstanceAutomatedBackupsReplication = __parseBoolean(
-      output["SupportsDBInstanceAutomatedBackupsReplication"]
-    );
+  if (output[_SDBIABRu] != null) {
+    contents[_SDBIABRu] = __parseBoolean(output[_SDBIABRu]);
   }
   return contents;
 };
@@ -28056,16 +27576,13 @@ const de_SourceRegionList = (output: any, context: __SerdeContext): SourceRegion
  */
 const de_SourceRegionMessage = (output: any, context: __SerdeContext): SourceRegionMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.SourceRegions === "") {
-    contents.SourceRegions = [];
-  } else if (output["SourceRegions"] !== undefined && output["SourceRegions"]["SourceRegion"] !== undefined) {
-    contents.SourceRegions = de_SourceRegionList(
-      __getArrayIfSingleItem(output["SourceRegions"]["SourceRegion"]),
-      context
-    );
+    contents[_SRo] = [];
+  } else if (output[_SRo] != null && output[_SRo][_SR] != null) {
+    contents[_SRo] = de_SourceRegionList(__getArrayIfSingleItem(output[_SRo][_SR]), context);
   }
   return contents;
 };
@@ -28075,23 +27592,23 @@ const de_SourceRegionMessage = (output: any, context: __SerdeContext): SourceReg
  */
 const de_StartActivityStreamResponse = (output: any, context: __SerdeContext): StartActivityStreamResponse => {
   const contents: any = {};
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["KinesisStreamName"] !== undefined) {
-    contents.KinesisStreamName = __expectString(output["KinesisStreamName"]);
+  if (output[_KSN] != null) {
+    contents[_KSN] = __expectString(output[_KSN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Mode"] !== undefined) {
-    contents.Mode = __expectString(output["Mode"]);
+  if (output[_Mo] != null) {
+    contents[_Mo] = __expectString(output[_Mo]);
   }
-  if (output["ApplyImmediately"] !== undefined) {
-    contents.ApplyImmediately = __parseBoolean(output["ApplyImmediately"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __parseBoolean(output[_AI]);
   }
-  if (output["EngineNativeAuditFieldsIncluded"] !== undefined) {
-    contents.EngineNativeAuditFieldsIncluded = __parseBoolean(output["EngineNativeAuditFieldsIncluded"]);
+  if (output[_ENAFI] != null) {
+    contents[_ENAFI] = __parseBoolean(output[_ENAFI]);
   }
   return contents;
 };
@@ -28101,8 +27618,8 @@ const de_StartActivityStreamResponse = (output: any, context: __SerdeContext): S
  */
 const de_StartDBClusterResult = (output: any, context: __SerdeContext): StartDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -28115,8 +27632,8 @@ const de_StartDBInstanceAutomatedBackupsReplicationResult = (
   context: __SerdeContext
 ): StartDBInstanceAutomatedBackupsReplicationResult => {
   const contents: any = {};
-  if (output["DBInstanceAutomatedBackup"] !== undefined) {
-    contents.DBInstanceAutomatedBackup = de_DBInstanceAutomatedBackup(output["DBInstanceAutomatedBackup"], context);
+  if (output[_DBIABn] != null) {
+    contents[_DBIABn] = de_DBInstanceAutomatedBackup(output[_DBIABn], context);
   }
   return contents;
 };
@@ -28126,8 +27643,8 @@ const de_StartDBInstanceAutomatedBackupsReplicationResult = (
  */
 const de_StartDBInstanceResult = (output: any, context: __SerdeContext): StartDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -28137,14 +27654,14 @@ const de_StartDBInstanceResult = (output: any, context: __SerdeContext): StartDB
  */
 const de_StopActivityStreamResponse = (output: any, context: __SerdeContext): StopActivityStreamResponse => {
   const contents: any = {};
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["KinesisStreamName"] !== undefined) {
-    contents.KinesisStreamName = __expectString(output["KinesisStreamName"]);
+  if (output[_KSN] != null) {
+    contents[_KSN] = __expectString(output[_KSN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -28154,8 +27671,8 @@ const de_StopActivityStreamResponse = (output: any, context: __SerdeContext): St
  */
 const de_StopDBClusterResult = (output: any, context: __SerdeContext): StopDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -28168,8 +27685,8 @@ const de_StopDBInstanceAutomatedBackupsReplicationResult = (
   context: __SerdeContext
 ): StopDBInstanceAutomatedBackupsReplicationResult => {
   const contents: any = {};
-  if (output["DBInstanceAutomatedBackup"] !== undefined) {
-    contents.DBInstanceAutomatedBackup = de_DBInstanceAutomatedBackup(output["DBInstanceAutomatedBackup"], context);
+  if (output[_DBIABn] != null) {
+    contents[_DBIABn] = de_DBInstanceAutomatedBackup(output[_DBIABn], context);
   }
   return contents;
 };
@@ -28179,8 +27696,8 @@ const de_StopDBInstanceAutomatedBackupsReplicationResult = (
  */
 const de_StopDBInstanceResult = (output: any, context: __SerdeContext): StopDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -28190,8 +27707,8 @@ const de_StopDBInstanceResult = (output: any, context: __SerdeContext): StopDBIn
  */
 const de_StorageQuotaExceededFault = (output: any, context: __SerdeContext): StorageQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28201,8 +27718,8 @@ const de_StorageQuotaExceededFault = (output: any, context: __SerdeContext): Sto
  */
 const de_StorageTypeNotAvailableFault = (output: any, context: __SerdeContext): StorageTypeNotAvailableFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28212,8 +27729,8 @@ const de_StorageTypeNotAvailableFault = (output: any, context: __SerdeContext): 
  */
 const de_StorageTypeNotSupportedFault = (output: any, context: __SerdeContext): StorageTypeNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28234,17 +27751,17 @@ const de_StringList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   const contents: any = {};
-  if (output["SubnetIdentifier"] !== undefined) {
-    contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
+  if (output[_SIub] != null) {
+    contents[_SIub] = __expectString(output[_SIub]);
   }
-  if (output["SubnetAvailabilityZone"] !== undefined) {
-    contents.SubnetAvailabilityZone = de_AvailabilityZone(output["SubnetAvailabilityZone"], context);
+  if (output[_SAZu] != null) {
+    contents[_SAZu] = de_AvailabilityZone(output[_SAZu], context);
   }
-  if (output["SubnetOutpost"] !== undefined) {
-    contents.SubnetOutpost = de_Outpost(output["SubnetOutpost"], context);
+  if (output[_SO] != null) {
+    contents[_SO] = de_Outpost(output[_SO], context);
   }
-  if (output["SubnetStatus"] !== undefined) {
-    contents.SubnetStatus = __expectString(output["SubnetStatus"]);
+  if (output[_SSu] != null) {
+    contents[_SSu] = __expectString(output[_SSu]);
   }
   return contents;
 };
@@ -28254,8 +27771,8 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
  */
 const de_SubnetAlreadyInUse = (output: any, context: __SerdeContext): SubnetAlreadyInUse => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28276,8 +27793,8 @@ const de_SubnetList = (output: any, context: __SerdeContext): Subnet[] => {
  */
 const de_SubscriptionAlreadyExistFault = (output: any, context: __SerdeContext): SubscriptionAlreadyExistFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28290,8 +27807,8 @@ const de_SubscriptionCategoryNotFoundFault = (
   context: __SerdeContext
 ): SubscriptionCategoryNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28301,8 +27818,8 @@ const de_SubscriptionCategoryNotFoundFault = (
  */
 const de_SubscriptionNotFoundFault = (output: any, context: __SerdeContext): SubscriptionNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28337,8 +27854,8 @@ const de_SwitchoverBlueGreenDeploymentResponse = (
   context: __SerdeContext
 ): SwitchoverBlueGreenDeploymentResponse => {
   const contents: any = {};
-  if (output["BlueGreenDeployment"] !== undefined) {
-    contents.BlueGreenDeployment = de_BlueGreenDeployment(output["BlueGreenDeployment"], context);
+  if (output[_BGD] != null) {
+    contents[_BGD] = de_BlueGreenDeployment(output[_BGD], context);
   }
   return contents;
 };
@@ -28348,14 +27865,14 @@ const de_SwitchoverBlueGreenDeploymentResponse = (
  */
 const de_SwitchoverDetail = (output: any, context: __SerdeContext): SwitchoverDetail => {
   const contents: any = {};
-  if (output["SourceMember"] !== undefined) {
-    contents.SourceMember = __expectString(output["SourceMember"]);
+  if (output[_SMo] != null) {
+    contents[_SMo] = __expectString(output[_SMo]);
   }
-  if (output["TargetMember"] !== undefined) {
-    contents.TargetMember = __expectString(output["TargetMember"]);
+  if (output[_TM] != null) {
+    contents[_TM] = __expectString(output[_TM]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -28376,8 +27893,8 @@ const de_SwitchoverDetailList = (output: any, context: __SerdeContext): Switchov
  */
 const de_SwitchoverGlobalClusterResult = (output: any, context: __SerdeContext): SwitchoverGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -28387,8 +27904,8 @@ const de_SwitchoverGlobalClusterResult = (output: any, context: __SerdeContext):
  */
 const de_SwitchoverReadReplicaResult = (output: any, context: __SerdeContext): SwitchoverReadReplicaResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -28398,11 +27915,11 @@ const de_SwitchoverReadReplicaResult = (output: any, context: __SerdeContext): S
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -28424,9 +27941,9 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
 const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
   const contents: any = {};
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   return contents;
 };
@@ -28447,14 +27964,14 @@ const de_TargetGroupList = (output: any, context: __SerdeContext): DBProxyTarget
  */
 const de_TargetHealth = (output: any, context: __SerdeContext): TargetHealth => {
   const contents: any = {};
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["Reason"] !== undefined) {
-    contents.Reason = __expectString(output["Reason"]);
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -28475,48 +27992,46 @@ const de_TargetList = (output: any, context: __SerdeContext): DBProxyTarget[] =>
  */
 const de_TenantDatabase = (output: any, context: __SerdeContext): TenantDatabase => {
   const contents: any = {};
-  if (output["TenantDatabaseCreateTime"] !== undefined) {
-    contents.TenantDatabaseCreateTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["TenantDatabaseCreateTime"])
-    );
+  if (output[_TDCT] != null) {
+    contents[_TDCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TDCT]));
   }
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["TenantDBName"] !== undefined) {
-    contents.TenantDBName = __expectString(output["TenantDBName"]);
+  if (output[_TDBN] != null) {
+    contents[_TDBN] = __expectString(output[_TDBN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
-  if (output["TenantDatabaseResourceId"] !== undefined) {
-    contents.TenantDatabaseResourceId = __expectString(output["TenantDatabaseResourceId"]);
+  if (output[_TDRI] != null) {
+    contents[_TDRI] = __expectString(output[_TDRI]);
   }
-  if (output["TenantDatabaseARN"] !== undefined) {
-    contents.TenantDatabaseARN = __expectString(output["TenantDatabaseARN"]);
+  if (output[_TDARN] != null) {
+    contents[_TDARN] = __expectString(output[_TDARN]);
   }
-  if (output["CharacterSetName"] !== undefined) {
-    contents.CharacterSetName = __expectString(output["CharacterSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["NcharCharacterSetName"] !== undefined) {
-    contents.NcharCharacterSetName = __expectString(output["NcharCharacterSetName"]);
+  if (output[_NCSN] != null) {
+    contents[_NCSN] = __expectString(output[_NCSN]);
   }
-  if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __parseBoolean(output[_DP]);
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = de_TenantDatabasePendingModifiedValues(output["PendingModifiedValues"], context);
+  if (output[_PMV] != null) {
+    contents[_PMV] = de_TenantDatabasePendingModifiedValues(output[_PMV], context);
   }
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Tag] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Tag]), context);
   }
   return contents;
 };
@@ -28529,8 +28044,8 @@ const de_TenantDatabaseAlreadyExistsFault = (
   context: __SerdeContext
 ): TenantDatabaseAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28540,8 +28055,8 @@ const de_TenantDatabaseAlreadyExistsFault = (
  */
 const de_TenantDatabaseNotFoundFault = (output: any, context: __SerdeContext): TenantDatabaseNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28554,11 +28069,11 @@ const de_TenantDatabasePendingModifiedValues = (
   context: __SerdeContext
 ): TenantDatabasePendingModifiedValues => {
   const contents: any = {};
-  if (output["MasterUserPassword"] !== undefined) {
-    contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
+  if (output[_MUP] != null) {
+    contents[_MUP] = __expectString(output[_MUP]);
   }
-  if (output["TenantDBName"] !== undefined) {
-    contents.TenantDBName = __expectString(output["TenantDBName"]);
+  if (output[_TDBN] != null) {
+    contents[_TDBN] = __expectString(output[_TDBN]);
   }
   return contents;
 };
@@ -28571,8 +28086,8 @@ const de_TenantDatabaseQuotaExceededFault = (
   context: __SerdeContext
 ): TenantDatabaseQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -28593,16 +28108,13 @@ const de_TenantDatabasesList = (output: any, context: __SerdeContext): TenantDat
  */
 const de_TenantDatabasesMessage = (output: any, context: __SerdeContext): TenantDatabasesMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   if (output.TenantDatabases === "") {
-    contents.TenantDatabases = [];
-  } else if (output["TenantDatabases"] !== undefined && output["TenantDatabases"]["TenantDatabase"] !== undefined) {
-    contents.TenantDatabases = de_TenantDatabasesList(
-      __getArrayIfSingleItem(output["TenantDatabases"]["TenantDatabase"]),
-      context
-    );
+    contents[_TDe] = [];
+  } else if (output[_TDe] != null && output[_TDe][_TD] != null) {
+    contents[_TDe] = de_TenantDatabasesList(__getArrayIfSingleItem(output[_TDe][_TD]), context);
   }
   return contents;
 };
@@ -28612,8 +28124,8 @@ const de_TenantDatabasesMessage = (output: any, context: __SerdeContext): Tenant
  */
 const de_Timezone = (output: any, context: __SerdeContext): Timezone => {
   const contents: any = {};
-  if (output["TimezoneName"] !== undefined) {
-    contents.TimezoneName = __expectString(output["TimezoneName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
   return contents;
 };
@@ -28623,43 +28135,40 @@ const de_Timezone = (output: any, context: __SerdeContext): Timezone => {
  */
 const de_UpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["AutoUpgrade"] !== undefined) {
-    contents.AutoUpgrade = __parseBoolean(output["AutoUpgrade"]);
+  if (output[_AU] != null) {
+    contents[_AU] = __parseBoolean(output[_AU]);
   }
-  if (output["IsMajorVersionUpgrade"] !== undefined) {
-    contents.IsMajorVersionUpgrade = __parseBoolean(output["IsMajorVersionUpgrade"]);
+  if (output[_IMVU] != null) {
+    contents[_IMVU] = __parseBoolean(output[_IMVU]);
   }
   if (output.SupportedEngineModes === "") {
-    contents.SupportedEngineModes = [];
-  } else if (output["SupportedEngineModes"] !== undefined && output["SupportedEngineModes"]["member"] !== undefined) {
-    contents.SupportedEngineModes = de_EngineModeList(
-      __getArrayIfSingleItem(output["SupportedEngineModes"]["member"]),
-      context
-    );
+    contents[_SEM] = [];
+  } else if (output[_SEM] != null && output[_SEM][_me] != null) {
+    contents[_SEM] = de_EngineModeList(__getArrayIfSingleItem(output[_SEM][_me]), context);
   }
-  if (output["SupportsParallelQuery"] !== undefined) {
-    contents.SupportsParallelQuery = __parseBoolean(output["SupportsParallelQuery"]);
+  if (output[_SPQ] != null) {
+    contents[_SPQ] = __parseBoolean(output[_SPQ]);
   }
-  if (output["SupportsGlobalDatabases"] !== undefined) {
-    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
+  if (output[_SGD] != null) {
+    contents[_SGD] = __parseBoolean(output[_SGD]);
   }
-  if (output["SupportsBabelfish"] !== undefined) {
-    contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
+  if (output[_SB] != null) {
+    contents[_SB] = __parseBoolean(output[_SB]);
   }
-  if (output["SupportsLocalWriteForwarding"] !== undefined) {
-    contents.SupportsLocalWriteForwarding = __parseBoolean(output["SupportsLocalWriteForwarding"]);
+  if (output[_SLWF] != null) {
+    contents[_SLWF] = __parseBoolean(output[_SLWF]);
   }
-  if (output["SupportsIntegrations"] !== undefined) {
-    contents.SupportsIntegrations = __parseBoolean(output["SupportsIntegrations"]);
+  if (output[_SIup] != null) {
+    contents[_SIup] = __parseBoolean(output[_SIup]);
   }
   return contents;
 };
@@ -28669,23 +28178,23 @@ const de_UpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget =
  */
 const de_UserAuthConfigInfo = (output: any, context: __SerdeContext): UserAuthConfigInfo => {
   const contents: any = {};
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = __expectString(output["UserName"]);
+  if (output[_UN] != null) {
+    contents[_UN] = __expectString(output[_UN]);
   }
-  if (output["AuthScheme"] !== undefined) {
-    contents.AuthScheme = __expectString(output["AuthScheme"]);
+  if (output[_ASu] != null) {
+    contents[_ASu] = __expectString(output[_ASu]);
   }
-  if (output["SecretArn"] !== undefined) {
-    contents.SecretArn = __expectString(output["SecretArn"]);
+  if (output[_SAe] != null) {
+    contents[_SAe] = __expectString(output[_SAe]);
   }
-  if (output["IAMAuth"] !== undefined) {
-    contents.IAMAuth = __expectString(output["IAMAuth"]);
+  if (output[_IAMA] != null) {
+    contents[_IAMA] = __expectString(output[_IAMA]);
   }
-  if (output["ClientPasswordAuthType"] !== undefined) {
-    contents.ClientPasswordAuthType = __expectString(output["ClientPasswordAuthType"]);
+  if (output[_CPAT] != null) {
+    contents[_CPAT] = __expectString(output[_CPAT]);
   }
   return contents;
 };
@@ -28710,26 +28219,17 @@ const de_ValidDBInstanceModificationsMessage = (
 ): ValidDBInstanceModificationsMessage => {
   const contents: any = {};
   if (output.Storage === "") {
-    contents.Storage = [];
-  } else if (output["Storage"] !== undefined && output["Storage"]["ValidStorageOptions"] !== undefined) {
-    contents.Storage = de_ValidStorageOptionsList(
-      __getArrayIfSingleItem(output["Storage"]["ValidStorageOptions"]),
-      context
-    );
+    contents[_Sto] = [];
+  } else if (output[_Sto] != null && output[_Sto][_VSO] != null) {
+    contents[_Sto] = de_ValidStorageOptionsList(__getArrayIfSingleItem(output[_Sto][_VSO]), context);
   }
   if (output.ValidProcessorFeatures === "") {
-    contents.ValidProcessorFeatures = [];
-  } else if (
-    output["ValidProcessorFeatures"] !== undefined &&
-    output["ValidProcessorFeatures"]["AvailableProcessorFeature"] !== undefined
-  ) {
-    contents.ValidProcessorFeatures = de_AvailableProcessorFeatureList(
-      __getArrayIfSingleItem(output["ValidProcessorFeatures"]["AvailableProcessorFeature"]),
-      context
-    );
+    contents[_VPF] = [];
+  } else if (output[_VPF] != null && output[_VPF][_APFv] != null) {
+    contents[_VPF] = de_AvailableProcessorFeatureList(__getArrayIfSingleItem(output[_VPF][_APFv]), context);
   }
-  if (output["SupportsDedicatedLogVolume"] !== undefined) {
-    contents.SupportsDedicatedLogVolume = __parseBoolean(output["SupportsDedicatedLogVolume"]);
+  if (output[_SDLV] != null) {
+    contents[_SDLV] = __parseBoolean(output[_SDLV]);
   }
   return contents;
 };
@@ -28739,51 +28239,36 @@ const de_ValidDBInstanceModificationsMessage = (
  */
 const de_ValidStorageOptions = (output: any, context: __SerdeContext): ValidStorageOptions => {
   const contents: any = {};
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
   if (output.StorageSize === "") {
-    contents.StorageSize = [];
-  } else if (output["StorageSize"] !== undefined && output["StorageSize"]["Range"] !== undefined) {
-    contents.StorageSize = de_RangeList(__getArrayIfSingleItem(output["StorageSize"]["Range"]), context);
+    contents[_SSt] = [];
+  } else if (output[_SSt] != null && output[_SSt][_Ra] != null) {
+    contents[_SSt] = de_RangeList(__getArrayIfSingleItem(output[_SSt][_Ra]), context);
   }
   if (output.ProvisionedIops === "") {
-    contents.ProvisionedIops = [];
-  } else if (output["ProvisionedIops"] !== undefined && output["ProvisionedIops"]["Range"] !== undefined) {
-    contents.ProvisionedIops = de_RangeList(__getArrayIfSingleItem(output["ProvisionedIops"]["Range"]), context);
+    contents[_PI] = [];
+  } else if (output[_PI] != null && output[_PI][_Ra] != null) {
+    contents[_PI] = de_RangeList(__getArrayIfSingleItem(output[_PI][_Ra]), context);
   }
   if (output.IopsToStorageRatio === "") {
-    contents.IopsToStorageRatio = [];
-  } else if (output["IopsToStorageRatio"] !== undefined && output["IopsToStorageRatio"]["DoubleRange"] !== undefined) {
-    contents.IopsToStorageRatio = de_DoubleRangeList(
-      __getArrayIfSingleItem(output["IopsToStorageRatio"]["DoubleRange"]),
-      context
-    );
+    contents[_ITSR] = [];
+  } else if (output[_ITSR] != null && output[_ITSR][_DR] != null) {
+    contents[_ITSR] = de_DoubleRangeList(__getArrayIfSingleItem(output[_ITSR][_DR]), context);
   }
-  if (output["SupportsStorageAutoscaling"] !== undefined) {
-    contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
+  if (output[_SSA] != null) {
+    contents[_SSA] = __parseBoolean(output[_SSA]);
   }
   if (output.ProvisionedStorageThroughput === "") {
-    contents.ProvisionedStorageThroughput = [];
-  } else if (
-    output["ProvisionedStorageThroughput"] !== undefined &&
-    output["ProvisionedStorageThroughput"]["Range"] !== undefined
-  ) {
-    contents.ProvisionedStorageThroughput = de_RangeList(
-      __getArrayIfSingleItem(output["ProvisionedStorageThroughput"]["Range"]),
-      context
-    );
+    contents[_PST] = [];
+  } else if (output[_PST] != null && output[_PST][_Ra] != null) {
+    contents[_PST] = de_RangeList(__getArrayIfSingleItem(output[_PST][_Ra]), context);
   }
   if (output.StorageThroughputToIopsRatio === "") {
-    contents.StorageThroughputToIopsRatio = [];
-  } else if (
-    output["StorageThroughputToIopsRatio"] !== undefined &&
-    output["StorageThroughputToIopsRatio"]["DoubleRange"] !== undefined
-  ) {
-    contents.StorageThroughputToIopsRatio = de_DoubleRangeList(
-      __getArrayIfSingleItem(output["StorageThroughputToIopsRatio"]["DoubleRange"]),
-      context
-    );
+    contents[_STTIR] = [];
+  } else if (output[_STTIR] != null && output[_STTIR][_DR] != null) {
+    contents[_STTIR] = de_DoubleRangeList(__getArrayIfSingleItem(output[_STTIR][_DR]), context);
   }
   return contents;
 };
@@ -28815,11 +28300,11 @@ const de_ValidUpgradeTargetList = (output: any, context: __SerdeContext): Upgrad
  */
 const de_VpcSecurityGroupMembership = (output: any, context: __SerdeContext): VpcSecurityGroupMembership => {
   const contents: any = {};
-  if (output["VpcSecurityGroupId"] !== undefined) {
-    contents.VpcSecurityGroupId = __expectString(output["VpcSecurityGroupId"]);
+  if (output[_VSGIp] != null) {
+    contents[_VSGIp] = __expectString(output[_VSGIp]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -28875,6 +28360,861 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2014-10-31";
+const _A = "Action";
+const _AA = "ApplyAction";
+const _AAAD = "AutoAppliedAfterDate";
+const _ABRPA = "AwsBackupRecoveryPointArn";
+const _ADBSGI = "AuthorizeDBSecurityGroupIngress";
+const _ADL = "AllowDataLoss";
+const _ADP = "AdditionalDataPending";
+const _AEC = "AdditionalEncryptionContext";
+const _AEMC = "AllowEngineModeChange";
+const _AI = "ApplyImmediately";
+const _AM = "AutomationMode";
+const _AMVU = "AutoMinorVersionUpgrade";
+const _AMVUl = "AllowMajorVersionUpgrade";
+const _AMp = "ApplyMethod";
+const _AN = "AttributeName";
+const _AP = "AutoPause";
+const _APF = "AvailableProcessorFeatures";
+const _APFv = "AvailableProcessorFeature";
+const _APMA = "ApplyPendingMaintenanceAction";
+const _APS = "AuditPolicyState";
+const _AQ = "AccountQuotas";
+const _AQN = "AccountQuotaName";
+const _AQc = "AccountQuota";
+const _AR = "AssociatedRoles";
+const _ART = "AutomaticRestartTime";
+const _ARTDBC = "AddRoleToDBCluster";
+const _ARTDBI = "AddRoleToDBInstance";
+const _AS = "AllocatedStorage";
+const _ASA = "AuthSecretArn";
+const _ASENAFI = "ActivityStreamEngineNativeAuditFieldsIncluded";
+const _ASITS = "AddSourceIdentifierToSubscription";
+const _ASKKI = "ActivityStreamKmsKeyId";
+const _ASKSN = "ActivityStreamKinesisStreamName";
+const _ASM = "ActivityStreamMode";
+const _ASPS = "ActivityStreamPolicyStatus";
+const _ASS = "ActivityStreamStatus";
+const _ASu = "AuthScheme";
+const _AT = "ApplyType";
+const _ATTR = "AddTagsToResource";
+const _AU = "AutoUpgrade";
+const _AV = "AllowedValues";
+const _AVANVIM = "AllowsVpcAndNonVpcInstanceMemberships";
+const _AVl = "AllowedValue";
+const _AVt = "AttributeValues";
+const _AVtt = "AttributeValue";
+const _AZ = "AvailabilityZones";
+const _AZG = "AvailabilityZoneGroup";
+const _AZv = "AvailabilityZone";
+const _Ad = "Address";
+const _Ar = "Arn";
+const _Au = "Auth";
+const _BCCR = "BacktrackConsumedChangeRecords";
+const _BDBC = "BacktrackDBCluster";
+const _BF = "BacktrackedFrom";
+const _BGD = "BlueGreenDeployment";
+const _BGDI = "BlueGreenDeploymentIdentifier";
+const _BGDN = "BlueGreenDeploymentName";
+const _BGDl = "BlueGreenDeployments";
+const _BI = "BacktrackIdentifier";
+const _BRCT = "BacktrackRequestCreationTime";
+const _BRP = "BackupRetentionPeriod";
+const _BT = "BacktrackTo";
+const _BTa = "BackupTarget";
+const _BW = "BacktrackWindow";
+const _C = "Capacity";
+const _CA = "CertificateArn";
+const _CAC = "CrossAccountClone";
+const _CACI = "CACertificateIdentifier";
+const _CAD = "CurrentApplyDate";
+const _CAI = "CAIdentifier";
+const _CAIu = "CustomerAwsId";
+const _CBGD = "CreateBlueGreenDeployment";
+const _CBT = "ConnectionBorrowTimeout";
+const _CC = "CurrentCapacity";
+const _CCA = "CopyableCrossAccount";
+const _CCDBEV = "CreateCustomDBEngineVersion";
+const _CCT = "ClusterCreateTime";
+const _CCu = "CurrencyCode";
+const _CD = "CertificateDetails";
+const _CDBC = "CreateDBCluster";
+const _CDBCE = "CreateDBClusterEndpoint";
+const _CDBCPG = "CopyDBClusterParameterGroup";
+const _CDBCPGr = "CreateDBClusterParameterGroup";
+const _CDBCS = "CopyDBClusterSnapshot";
+const _CDBCSr = "CreateDBClusterSnapshot";
+const _CDBEVM = "CustomDBEngineVersionManifest";
+const _CDBI = "CreateDBInstance";
+const _CDBIRR = "CreateDBInstanceReadReplica";
+const _CDBP = "CreateDBProxy";
+const _CDBPE = "CreateDBProxyEndpoint";
+const _CDBPG = "CopyDBParameterGroup";
+const _CDBPGr = "CreateDBParameterGroup";
+const _CDBS = "CopyDBSnapshot";
+const _CDBSG = "CreateDBSecurityGroup";
+const _CDBSGr = "CreateDBSubnetGroup";
+const _CDBSr = "CreateDBSnapshot";
+const _CDr = "CreatedDate";
+const _CE = "CustomEndpoints";
+const _CES = "CreateEventSubscription";
+const _CET = "CancelExportTask";
+const _CETu = "CustomEndpointType";
+const _CGC = "CreateGlobalCluster";
+const _CGI = "CloneGroupId";
+const _CI = "CreateIntegration";
+const _CIDRIP = "CIDRIP";
+const _CIIP = "CustomIamInstanceProfile";
+const _CIe = "CertificateIdentifier";
+const _CLEC = "CloudwatchLogsExportConfiguration";
+const _CO = "CustomerOverride";
+const _COG = "CopyOptionGroup";
+const _COGr = "CreateOptionGroup";
+const _COIE = "CustomerOwnedIpEnabled";
+const _COVT = "CustomerOverrideValidTill";
+const _CPAT = "ClientPasswordAuthType";
+const _CPC = "ConnectionPoolConfig";
+const _CRR = "CertificateRotationRestart";
+const _CS = "CharacterSet";
+const _CSD = "CharacterSetDescription";
+const _CSI = "CustSubscriptionId";
+const _CSN = "CharacterSetName";
+const _CT = "CopyTags";
+const _CTD = "CreateTenantDatabase";
+const _CTTS = "CopyTagsToSnapshot";
+const _CTe = "CertificateType";
+const _CTo = "CopyTimestamp";
+const _CTr = "CreateTime";
+const _Ce = "Certificates";
+const _Cer = "Certificate";
+const _D = "Description";
+const _DAA = "DescribeAccountAttributes";
+const _DAB = "DeleteAutomatedBackups";
+const _DASA = "DomainAuthSecretArn";
+const _DBC = "DBCluster";
+const _DBCA = "DBClusterArn";
+const _DBCAB = "DBClusterAutomatedBackups";
+const _DBCABA = "DBClusterAutomatedBackupsArn";
+const _DBCABl = "DBClusterAutomatedBackup";
+const _DBCB = "DBClusterBacktracks";
+const _DBCBl = "DBClusterBacktrack";
+const _DBCE = "DBClusterEndpoints";
+const _DBCEA = "DBClusterEndpointArn";
+const _DBCEI = "DBClusterEndpointIdentifier";
+const _DBCEL = "DBClusterEndpointList";
+const _DBCERI = "DBClusterEndpointResourceIdentifier";
+const _DBCI = "DBClusterIdentifier";
+const _DBCIC = "DBClusterInstanceClass";
+const _DBCIl = "DBClusterIdentifiers";
+const _DBCM = "DBClusterMembers";
+const _DBCMl = "DBClusterMember";
+const _DBCOG = "DBClusterOptionGroup";
+const _DBCOGM = "DBClusterOptionGroupMemberships";
+const _DBCOGN = "DBClusterOptionGroupName";
+const _DBCPG = "DBClusterParameterGroup";
+const _DBCPGA = "DBClusterParameterGroupArn";
+const _DBCPGN = "DBClusterParameterGroupName";
+const _DBCPGS = "DBClusterParameterGroupStatus";
+const _DBCPGl = "DBClusterParameterGroups";
+const _DBCR = "DBClusterRole";
+const _DBCS = "DBClusterSnapshot";
+const _DBCSA = "DBClusterSnapshotArn";
+const _DBCSAR = "DBClusterSnapshotAttributesResult";
+const _DBCSAl = "DBClusterSnapshotAttributes";
+const _DBCSAlu = "DBClusterSnapshotAttribute";
+const _DBCSI = "DBClusterSnapshotIdentifier";
+const _DBCSIl = "DBClusterStatusInfo";
+const _DBCSl = "DBClusterSnapshots";
+const _DBCl = "DBClusters";
+const _DBED = "DBEngineDescription";
+const _DBEMT = "DBEngineMediaType";
+const _DBEV = "DBEngineVersions";
+const _DBEVA = "DBEngineVersionArn";
+const _DBEVD = "DBEngineVersionDescription";
+const _DBEVn = "DBEngineVersion";
+const _DBGD = "DeleteBlueGreenDeployment";
+const _DBGDe = "DescribeBlueGreenDeployments";
+const _DBI = "DBInstance";
+const _DBIA = "DBInstanceArn";
+const _DBIAB = "DBInstanceAutomatedBackups";
+const _DBIABA = "DBInstanceAutomatedBackupsArn";
+const _DBIABR = "DBInstanceAutomatedBackupsReplications";
+const _DBIABRn = "DBInstanceAutomatedBackupsReplication";
+const _DBIABn = "DBInstanceAutomatedBackup";
+const _DBIC = "DBInstanceClass";
+const _DBICn = "DBInstanceCount";
+const _DBII = "DBInstanceIdentifier";
+const _DBIIn = "DBInstanceIdentifiers";
+const _DBIPGN = "DBInstanceParameterGroupName";
+const _DBIR = "DBInstanceRole";
+const _DBIS = "DBInstanceStatus";
+const _DBISI = "DBInstanceStatusInfo";
+const _DBIn = "DBInstances";
+const _DBN = "DBName";
+const _DBP = "DBProxy";
+const _DBPA = "DBProxyArn";
+const _DBPE = "DBProxyEndpoint";
+const _DBPEA = "DBProxyEndpointArn";
+const _DBPEN = "DBProxyEndpointName";
+const _DBPEr = "DBProxyEndpoints";
+const _DBPG = "DBParameterGroup";
+const _DBPGA = "DBParameterGroupArn";
+const _DBPGF = "DBParameterGroupFamily";
+const _DBPGN = "DBParameterGroupName";
+const _DBPGa = "DBParameterGroups";
+const _DBPN = "DBProxyName";
+const _DBPNo = "DBPortNumber";
+const _DBPT = "DBProxyTargets";
+const _DBPTG = "DBProxyTargetGroup";
+const _DBPr = "DBProxies";
+const _DBS = "DBSnapshot";
+const _DBSA = "DBSnapshotArn";
+const _DBSAR = "DBSnapshotAttributesResult";
+const _DBSAn = "DBSnapshotAttributes";
+const _DBSAna = "DBSnapshotAttribute";
+const _DBSG = "DBSecurityGroups";
+const _DBSGA = "DBSecurityGroupArn";
+const _DBSGAu = "DBSubnetGroupArn";
+const _DBSGD = "DBSecurityGroupDescription";
+const _DBSGDu = "DBSubnetGroupDescription";
+const _DBSGM = "DBSecurityGroupMemberships";
+const _DBSGN = "DBSecurityGroupName";
+const _DBSGNu = "DBSubnetGroupName";
+const _DBSGe = "DBSecurityGroup";
+const _DBSGu = "DBSubnetGroup";
+const _DBSGub = "DBSubnetGroups";
+const _DBSI = "DBSystemId";
+const _DBSIn = "DBSnapshotIdentifier";
+const _DBSTD = "DBSnapshotTenantDatabases";
+const _DBSTDARN = "DBSnapshotTenantDatabaseARN";
+const _DBSTDn = "DBSnapshotTenantDatabase";
+const _DBSn = "DBSnapshots";
+const _DC = "DescribeCertificates";
+const _DCDBEV = "DeleteCustomDBEngineVersion";
+const _DCFNL = "DefaultCertificateForNewLaunches";
+const _DCI = "DbClusterIdentifier";
+const _DCRI = "DbClusterResourceId";
+const _DCS = "DefaultCharacterSet";
+const _DD = "DisableDomain";
+const _DDBC = "DeleteDBCluster";
+const _DDBCAB = "DeleteDBClusterAutomatedBackup";
+const _DDBCABe = "DescribeDBClusterAutomatedBackups";
+const _DDBCB = "DescribeDBClusterBacktracks";
+const _DDBCE = "DeleteDBClusterEndpoint";
+const _DDBCEe = "DescribeDBClusterEndpoints";
+const _DDBCP = "DescribeDBClusterParameters";
+const _DDBCPG = "DeleteDBClusterParameterGroup";
+const _DDBCPGe = "DescribeDBClusterParameterGroups";
+const _DDBCS = "DeleteDBClusterSnapshot";
+const _DDBCSA = "DescribeDBClusterSnapshotAttributes";
+const _DDBCSe = "DescribeDBClusterSnapshots";
+const _DDBCe = "DescribeDBClusters";
+const _DDBEV = "DescribeDBEngineVersions";
+const _DDBI = "DeleteDBInstance";
+const _DDBIAB = "DeleteDBInstanceAutomatedBackup";
+const _DDBIABe = "DescribeDBInstanceAutomatedBackups";
+const _DDBIe = "DescribeDBInstances";
+const _DDBLF = "DescribeDBLogFiles";
+const _DDBLFD = "DescribeDBLogFilesDetails";
+const _DDBLFP = "DownloadDBLogFilePortion";
+const _DDBP = "DeleteDBProxy";
+const _DDBPE = "DeleteDBProxyEndpoint";
+const _DDBPEe = "DescribeDBProxyEndpoints";
+const _DDBPG = "DeleteDBParameterGroup";
+const _DDBPGe = "DescribeDBParameterGroups";
+const _DDBPT = "DeregisterDBProxyTargets";
+const _DDBPTG = "DescribeDBProxyTargetGroups";
+const _DDBPTe = "DescribeDBProxyTargets";
+const _DDBPe = "DescribeDBParameters";
+const _DDBPes = "DescribeDBProxies";
+const _DDBS = "DeleteDBSnapshot";
+const _DDBSA = "DescribeDBSnapshotAttributes";
+const _DDBSG = "DeleteDBSecurityGroup";
+const _DDBSGe = "DeleteDBSubnetGroup";
+const _DDBSGes = "DescribeDBSecurityGroups";
+const _DDBSGesc = "DescribeDBSubnetGroups";
+const _DDBSTD = "DescribeDBSnapshotTenantDatabases";
+const _DDBSe = "DescribeDBSnapshots";
+const _DDI = "DomainDnsIps";
+const _DE = "DescribeEvents";
+const _DEC = "DescribeEventCategories";
+const _DEDCP = "DescribeEngineDefaultClusterParameters";
+const _DEDP = "DescribeEngineDefaultParameters";
+const _DES = "DeleteEventSubscription";
+const _DESe = "DescribeEventSubscriptions";
+const _DET = "DescribeExportTasks";
+const _DF = "DomainFqdn";
+const _DGC = "DeleteGlobalCluster";
+const _DGCe = "DescribeGlobalClusters";
+const _DI = "DeleteIntegration";
+const _DIAMRN = "DomainIAMRoleName";
+const _DIFSBN = "DatabaseInstallationFilesS3BucketName";
+const _DIFSP = "DatabaseInstallationFilesS3Prefix";
+const _DIP = "DbInstancePort";
+const _DIe = "DescribeIntegrations";
+const _DIn = "DnsIps";
+const _DL = "DebugLogging";
+const _DLT = "DisableLogTypes";
+const _DLV = "DedicatedLogVolume";
+const _DM = "DomainMemberships";
+const _DMo = "DomainMembership";
+const _DN = "DatabaseName";
+const _DO = "DomainOu";
+const _DODBIO = "DescribeOrderableDBInstanceOptions";
+const _DOG = "DeleteOptionGroup";
+const _DOGO = "DescribeOptionGroupOptions";
+const _DOGe = "DescribeOptionGroups";
+const _DOe = "DefaultOnly";
+const _DP = "DeletionProtection";
+const _DPMA = "DescribePendingMaintenanceActions";
+const _DPe = "DefaultPort";
+const _DR = "DoubleRange";
+const _DRDBI = "DescribeReservedDBInstances";
+const _DRDBIO = "DescribeReservedDBInstancesOfferings";
+const _DRI = "DbiResourceId";
+const _DSR = "DescribeSourceRegions";
+const _DT = "DeleteTarget";
+const _DTD = "DeleteTenantDatabase";
+const _DTDe = "DescribeTenantDatabases";
+const _DTa = "DataType";
+const _DTe = "DeleteTime";
+const _DV = "DefaultValue";
+const _DVDBIM = "DescribeValidDBInstanceModifications";
+const _Da = "Date";
+const _Do = "Domain";
+const _Du = "Duration";
+const _E = "Engine";
+const _EBT = "EarliestBacktrackTime";
+const _EC = "EventCategories";
+const _ECL = "EventCategoriesList";
+const _ECLE = "EnableCloudwatchLogsExports";
+const _ECLEn = "EnabledCloudwatchLogsExports";
+const _ECM = "EventCategoriesMap";
+const _ECML = "EventCategoriesMapList";
+const _ECOI = "EnableCustomerOwnedIp";
+const _ECSG = "EC2SecurityGroups";
+const _ECSGI = "EC2SecurityGroupId";
+const _ECSGN = "EC2SecurityGroupName";
+const _ECSGOI = "EC2SecurityGroupOwnerId";
+const _ECSGe = "EC2SecurityGroup";
+const _ECr = "ErrorCode";
+const _ECv = "EventCategory";
+const _ED = "EngineDefaults";
+const _EF = "EngineFamily";
+const _EGWF = "EnableGlobalWriteForwarding";
+const _EHE = "EnableHttpEndpoint";
+const _EIAMDA = "EnableIAMDatabaseAuthentication";
+const _ELT = "EnableLogTypes";
+const _ELTx = "ExportableLogTypes";
+const _ELWF = "EnableLocalWriteForwarding";
+const _EM = "ExcludedMembers";
+const _EMRA = "EnhancedMonitoringResourceArn";
+const _EMn = "EngineMode";
+const _EMr = "ErrorMessage";
+const _EN = "EngineName";
+const _ENAFI = "EngineNativeAuditFieldsIncluded";
+const _EO = "ExportOnly";
+const _EPI = "EnablePerformanceInsights";
+const _ERT = "EarliestRestorableTime";
+const _ES = "EventSubscription";
+const _ESA = "EventSubscriptionArn";
+const _ESL = "EventSubscriptionsList";
+const _ET = "EndpointType";
+const _ETI = "ExportTaskIdentifier";
+const _ETa = "EarliestTime";
+const _ETn = "EndTime";
+const _ETx = "ExportTasks";
+const _ETxp = "ExportTask";
+const _EV = "EngineVersion";
+const _En = "Enabled";
+const _Enc = "Encrypted";
+const _End = "Endpoint";
+const _Er = "Errors";
+const _Ev = "Events";
+const _Eve = "Event";
+const _F = "Force";
+const _FAD = "ForcedApplyDate";
+const _FC = "FilenameContains";
+const _FCa = "FailureCause";
+const _FDBC = "FailoverDBCluster";
+const _FDBSI = "FinalDBSnapshotIdentifier";
+const _FDCA = "FromDbClusterArn";
+const _FF = "ForceFailover";
+const _FGC = "FailoverGlobalCluster";
+const _FLW = "FileLastWritten";
+const _FN = "FeatureName";
+const _FP = "FixedPrice";
+const _FQDN = "FQDN";
+const _FS = "FileSize";
+const _FSa = "FailoverState";
+const _Fi = "Filters";
+const _Fr = "From";
+const _GC = "GlobalCluster";
+const _GCA = "GlobalClusterArn";
+const _GCI = "GlobalClusterIdentifier";
+const _GCM = "GlobalClusterMembers";
+const _GCMl = "GlobalClusterMember";
+const _GCRI = "GlobalClusterResourceId";
+const _GCl = "GlobalClusters";
+const _GWFR = "GlobalWriteForwardingRequested";
+const _GWFS = "GlobalWriteForwardingStatus";
+const _HEE = "HttpEndpointEnabled";
+const _HZI = "HostedZoneId";
+const _I = "Iops";
+const _IA = "IncludeAll";
+const _IAMA = "IAMAuth";
+const _IAMDAE = "IAMDatabaseAuthenticationEnabled";
+const _IAMRN = "IAMRoleName";
+const _IAn = "IntegrationArn";
+const _IC = "IsCollection";
+const _ICT = "IdleClientTimeout";
+const _ICTn = "InstanceCreateTime";
+const _ICW = "IsClusterWriter";
+const _ID = "IsDefault";
+const _IDLA = "IsDataLossAllowed";
+const _IE = "IntegrationError";
+const _II = "ImageId";
+const _IIn = "IntegrationIdentifier";
+const _IM = "IsModifiable";
+const _IMVU = "IsMajorVersionUpgrade";
+const _IN = "IntegrationName";
+const _IOONAMT = "IOOptimizedNextAllowedModificationTime";
+const _IP = "IncludePublic";
+const _IPR = "IPRanges";
+const _IPRa = "IPRange";
+const _IQ = "InitQuery";
+const _IR = "IsRequired";
+const _IRA = "IamRoleArn";
+const _IS = "IncludeShared";
+const _ISCUA = "IsStorageConfigUpgradeAvailable";
+const _ISI = "InterconnectSubnetId";
+const _ITSR = "IopsToStorageRatio";
+const _IW = "IsWriter";
+const _Im = "Image";
+const _In = "Integrations";
+const _Int = "Integration";
+const _K = "Key";
+const _KKI = "KmsKeyId";
+const _KMSKI = "KMSKeyId";
+const _KSN = "KinesisStreamName";
+const _LE = "ListenerEndpoint";
+const _LFD = "LogFileData";
+const _LFN = "LogFileName";
+const _LI = "LeaseId";
+const _LM = "LicenseModel";
+const _LRT = "LatestRestorableTime";
+const _LSCS = "ListSupportedCharacterSets";
+const _LST = "ListSupportedTimezones";
+const _LT = "LatestTime";
+const _LTFR = "ListTagsForResource";
+const _LTTD = "LogTypesToDisable";
+const _LTTE = "LogTypesToEnable";
+const _LW = "LastWritten";
+const _LWFS = "LocalWriteForwardingStatus";
+const _M = "Manifest";
+const _MAS = "ModifyActivityStream";
+const _MASa = "MaxAllocatedStorage";
+const _MAZ = "MultiAZ";
+const _MAZC = "MultiAZCapable";
+const _MC = "ModifyCertificates";
+const _MCDBCC = "ModifyCurrentDBClusterCapacity";
+const _MCDBEV = "ModifyCustomDBEngineVersion";
+const _MCP = "MaxConnectionsPercent";
+const _MCa = "MaxCapacity";
+const _MCi = "MinCapacity";
+const _MDBC = "ModifyDBCluster";
+const _MDBCE = "ModifyDBClusterEndpoint";
+const _MDBCPG = "ModifyDBClusterParameterGroup";
+const _MDBCSA = "ModifyDBClusterSnapshotAttribute";
+const _MDBI = "ModifyDBInstance";
+const _MDBP = "ModifyDBProxy";
+const _MDBPE = "ModifyDBProxyEndpoint";
+const _MDBPG = "ModifyDBParameterGroup";
+const _MDBPTG = "ModifyDBProxyTargetGroup";
+const _MDBS = "ModifyDBSnapshot";
+const _MDBSA = "ModifyDBSnapshotAttribute";
+const _MDBSG = "ModifyDBSubnetGroup";
+const _MES = "ModifyEventSubscription";
+const _MEV = "MajorEngineVersion";
+const _MEVPAV = "MinimumEngineVersionPerAllowedValue";
+const _MEVi = "MinimumEngineVersion";
+const _MGC = "ModifyGlobalCluster";
+const _MI = "MonitoringInterval";
+const _MICP = "MaxIdleConnectionsPercent";
+const _MIPDI = "MinIopsPerDbInstance";
+const _MIPDIa = "MaxIopsPerDbInstance";
+const _MIPG = "MinIopsPerGib";
+const _MIPGa = "MaxIopsPerGib";
+const _MMUP = "ManageMasterUserPassword";
+const _MOG = "ModifyOptionGroup";
+const _MR = "MaxRecords";
+const _MRA = "MonitoringRoleArn";
+const _MRMEV = "MinimumRequiredMinorEngineVersion";
+const _MSS = "MinStorageSize";
+const _MSSa = "MaxStorageSize";
+const _MSTPDI = "MinStorageThroughputPerDbInstance";
+const _MSTPDIa = "MaxStorageThroughputPerDbInstance";
+const _MSTPI = "MinStorageThroughputPerIops";
+const _MSTPIa = "MaxStorageThroughputPerIops";
+const _MT = "MultiTenant";
+const _MTD = "ModifyTenantDatabase";
+const _MU = "MasterUsername";
+const _MUP = "MasterUserPassword";
+const _MUS = "MasterUserSecret";
+const _MUSKKI = "MasterUserSecretKmsKeyId";
+const _Ma = "Marker";
+const _Max = "Max";
+const _Me = "Message";
+const _Mo = "Mode";
+const _N = "Name";
+const _NCSN = "NcharCharacterSetName";
+const _NDBCI = "NewDBClusterIdentifier";
+const _NDBII = "NewDBInstanceIdentifier";
+const _NDBPEN = "NewDBProxyEndpointName";
+const _NDBPN = "NewDBProxyName";
+const _NGCI = "NewGlobalClusterIdentifier";
+const _NN = "NewName";
+const _NOL = "NumberOfLines";
+const _NT = "NetworkType";
+const _NTDBN = "NewTenantDBName";
+const _No = "Normal";
+const _O = "Options";
+const _OC = "OutpostCapable";
+const _OCN = "OptionConflictName";
+const _OCW = "OptionsConflictsWith";
+const _OD = "OptionDescription";
+const _ODBIO = "OrderableDBInstanceOptions";
+const _ODBIOr = "OrderableDBInstanceOption";
+const _ODO = "OptionsDependedOn";
+const _OG = "OptionGroup";
+const _OGA = "OptionGroupArn";
+const _OGD = "OptionGroupDescription";
+const _OGL = "OptionGroupsList";
+const _OGM = "OptionGroupMemberships";
+const _OGMp = "OptionGroupMembership";
+const _OGN = "OptionGroupName";
+const _OGO = "OptionGroupOptions";
+const _OGOS = "OptionGroupOptionSettings";
+const _OGOSp = "OptionGroupOptionSetting";
+const _OGOV = "OptionGroupOptionVersions";
+const _OGOp = "OptionGroupOption";
+const _OI = "OwnerId";
+const _OIS = "OptInStatus";
+const _OIT = "OptInType";
+const _ON = "OptionName";
+const _OS = "OptionSettings";
+const _OSCT = "OriginalSnapshotCreateTime";
+const _OSp = "OptionSetting";
+const _OT = "OfferingType";
+const _OTI = "OptionsToInclude";
+const _OTR = "OptionsToRemove";
+const _OU = "OU";
+const _OV = "OptionVersion";
+const _Op = "Option";
+const _P = "Port";
+const _PA = "PubliclyAccessible";
+const _PAS = "ParameterApplyStatus";
+const _PBW = "PreferredBackupWindow";
+const _PC = "PendingCapacity";
+const _PCLE = "PendingCloudwatchLogsExports";
+const _PD = "ProductDescription";
+const _PF = "ProcessorFeatures";
+const _PFr = "ProcessorFeature";
+const _PI = "ProvisionedIops";
+const _PIE = "PerformanceInsightsEnabled";
+const _PIKMSKI = "PerformanceInsightsKMSKeyId";
+const _PIRP = "PerformanceInsightsRetentionPeriod";
+const _PMA = "PendingMaintenanceActions";
+const _PMAD = "PendingMaintenanceActionDetails";
+const _PMAe = "PendingMaintenanceAction";
+const _PMV = "PendingModifiedValues";
+const _PMW = "PreferredMaintenanceWindow";
+const _PN = "ParameterName";
+const _PP = "PercentProgress";
+const _PR = "PortRequired";
+const _PRDBIO = "PurchaseReservedDBInstancesOffering";
+const _PRR = "PromoteReadReplica";
+const _PRRDBC = "PromoteReadReplicaDBCluster";
+const _PS = "PolicyStatus";
+const _PST = "ProvisionedStorageThroughput";
+const _PSU = "PreSignedUrl";
+const _PT = "PromotionTier";
+const _PV = "ParameterValue";
+const _Pa = "Parameters";
+const _Par = "Parameter";
+const _Pe = "Persistent";
+const _Per = "Permanent";
+const _R = "Region";
+const _RA = "RoleArn";
+const _RAMEVU = "RequiresAutoMinorEngineVersionUpgrade";
+const _RAP = "ResetAllParameters";
+const _RAe = "ResourceArn";
+const _RC = "RecurringCharges";
+const _RCA = "RecurringChargeAmount";
+const _RCCC = "RdsCustomClusterConfiguration";
+const _RCF = "RecurringChargeFrequency";
+const _RCO = "RemoveCustomerOverride";
+const _RCe = "RecurringCharge";
+const _RDBC = "RebootDBCluster";
+const _RDBCFS = "RestoreDBClusterFromS3";
+const _RDBCFSe = "RestoreDBClusterFromSnapshot";
+const _RDBCPG = "ResetDBClusterParameterGroup";
+const _RDBCTPIT = "RestoreDBClusterToPointInTime";
+const _RDBI = "RebootDBInstance";
+const _RDBIA = "ReservedDBInstanceArn";
+const _RDBIFDBS = "RestoreDBInstanceFromDBSnapshot";
+const _RDBIFS = "RestoreDBInstanceFromS3";
+const _RDBII = "ReservedDBInstanceId";
+const _RDBIO = "ReservedDBInstancesOfferings";
+const _RDBIOI = "ReservedDBInstancesOfferingId";
+const _RDBIOe = "ReservedDBInstancesOffering";
+const _RDBITPIT = "RestoreDBInstanceToPointInTime";
+const _RDBIe = "ReservedDBInstance";
+const _RDBIes = "ReservedDBInstances";
+const _RDBPG = "ResetDBParameterGroup";
+const _RDBPT = "RegisterDBProxyTargets";
+const _RDBSGI = "RevokeDBSecurityGroupIngress";
+const _RE = "ReaderEndpoint";
+const _RFAMM = "ResumeFullAutomationModeMinutes";
+const _RFAMT = "ResumeFullAutomationModeTime";
+const _RFGC = "RemoveFromGlobalCluster";
+const _RI = "ResourceIdentifier";
+const _RM = "ReplicaMode";
+const _RMUP = "RotateMasterUserPassword";
+const _RN = "ResourceName";
+const _RNe = "RegionName";
+const _RPMA = "ResourcePendingMaintenanceActions";
+const _RRC = "ReadReplicaCapable";
+const _RRDBCI = "ReadReplicaDBClusterIdentifiers";
+const _RRDBCIe = "ReadReplicaDBClusterIdentifier";
+const _RRDBII = "ReadReplicaDBInstanceIdentifiers";
+const _RRDBIIe = "ReadReplicaDBInstanceIdentifier";
+const _RRFDBC = "RemoveRoleFromDBCluster";
+const _RRFDBI = "RemoveRoleFromDBInstance";
+const _RRI = "ReadReplicaIdentifiers";
+const _RRId = "RdsResourceId";
+const _RRIe = "ReadReplicaIdentifier";
+const _RRSDBCI = "ReadReplicaSourceDBClusterIdentifier";
+const _RRSDBII = "ReadReplicaSourceDBInstanceIdentifier";
+const _RSI = "ReplicationSourceIdentifier";
+const _RSIFS = "RemoveSourceIdentifierFromSubscription";
+const _RT = "RestoreType";
+const _RTFR = "RemoveTagsFromResource";
+const _RTLS = "RequireTLS";
+const _RTT = "RestoreToTime";
+const _RTe = "RestoreTime";
+const _RW = "RestoreWindow";
+const _Ra = "Range";
+const _Re = "Readers";
+const _Rea = "Reason";
+const _Ro = "Role";
+const _S = "Source";
+const _SA = "SourceArn";
+const _SAI = "SourceAccountId";
+const _SAS = "StartActivityStream";
+const _SASM = "SupportedActivityStreamModes";
+const _SASt = "StopActivityStream";
+const _SAZ = "SecondaryAvailabilityZone";
+const _SAZu = "SubnetAvailabilityZone";
+const _SAe = "SecretArn";
+const _SB = "SupportsBabelfish";
+const _SBGD = "SwitchoverBlueGreenDeployment";
+const _SBN = "S3BucketName";
+const _SBT = "SecondsBeforeTimeout";
+const _SBu = "S3Bucket";
+const _SC = "ScalingConfiguration";
+const _SCACI = "SupportedCACertificateIdentifiers";
+const _SCDEVI = "SourceCustomDbEngineVersionIdentifier";
+const _SCI = "ScalingConfigurationInfo";
+const _SCRWR = "SupportsCertificateRotationWithoutRestart";
+const _SCS = "SupportedCharacterSets";
+const _SCT = "SnapshotCreateTime";
+const _SCTu = "SubscriptionCreationTime";
+const _SCu = "SupportsClusters";
+const _SD = "SwitchoverDetails";
+const _SDBC = "StartDBCluster";
+const _SDBCI = "SourceDBClusterIdentifier";
+const _SDBCPGI = "SourceDBClusterParameterGroupIdentifier";
+const _SDBCSA = "SourceDBClusterSnapshotArn";
+const _SDBCSI = "SourceDBClusterSnapshotIdentifier";
+const _SDBCt = "StopDBCluster";
+const _SDBI = "StartDBInstance";
+const _SDBIA = "SourceDBInstanceArn";
+const _SDBIABA = "SourceDBInstanceAutomatedBackupsArn";
+const _SDBIABR = "StartDBInstanceAutomatedBackupsReplication";
+const _SDBIABRt = "StopDBInstanceAutomatedBackupsReplication";
+const _SDBIABRu = "SupportsDBInstanceAutomatedBackupsReplication";
+const _SDBII = "SourceDBInstanceIdentifier";
+const _SDBIt = "StopDBInstance";
+const _SDBPGI = "SourceDBParameterGroupIdentifier";
+const _SDBSI = "SourceDBSnapshotIdentifier";
+const _SDCRI = "SourceDbClusterResourceId";
+const _SDLV = "SupportsDedicatedLogVolume";
+const _SDRI = "SourceDbiResourceId";
+const _SDT = "SnapshotDatabaseTime";
+const _SDe = "SettingDescription";
+const _SDt = "StatusDetails";
+const _SE = "StorageEncrypted";
+const _SEM = "SupportedEngineModes";
+const _SEMu = "SupportsEnhancedMonitoring";
+const _SET = "StartExportTask";
+const _SEV = "SourceEngineVersion";
+const _SEo = "SourceEngine";
+const _SFN = "SupportedFeatureNames";
+const _SFS = "SkipFinalSnapshot";
+const _SG = "SecurityGroups";
+const _SGC = "SwitchoverGlobalCluster";
+const _SGD = "SupportsGlobalDatabases";
+const _SGS = "SubnetGroupStatus";
+const _SI = "SourceIdentifier";
+const _SIAMDA = "SupportsIAMDatabaseAuthentication";
+const _SIL = "SourceIdsList";
+const _SIRA = "S3IngestionRoleArn";
+const _SIn = "SnapshotIdentifier";
+const _SIo = "SourceIds";
+const _SIou = "SourceId";
+const _SIt = "StatusInfos";
+const _SIu = "SubnetIds";
+const _SIub = "SubnetIdentifier";
+const _SIup = "SupportsIntegrations";
+const _SIupp = "SupportsIops";
+const _SKA = "SupportsKerberosAuthentication";
+const _SLETCL = "SupportsLogExportsToCloudwatchLogs";
+const _SLWF = "SupportsLocalWriteForwarding";
+const _SM = "StaticMembers";
+const _SMo = "SourceMember";
+const _SN = "SubscriptionName";
+const _SNCS = "SupportedNcharCharacterSets";
+const _SNT = "SupportedNetworkTypes";
+const _SNe = "SettingName";
+const _SO = "SubnetOutpost";
+const _SOG = "SourceOptionGroup";
+const _SOGI = "SourceOptionGroupIdentifier";
+const _SOVD = "SupportsOptionVersionDowngrade";
+const _SP = "S3Prefix";
+const _SPF = "SessionPinningFilters";
+const _SPI = "SupportsPerformanceInsights";
+const _SPQ = "SupportsParallelQuery";
+const _SR = "SourceRegion";
+const _SRR = "SwitchoverReadReplica";
+const _SRRu = "SupportsReadReplica";
+const _SRo = "SourceRegions";
+const _SS = "SynchronizationStatus";
+const _SSA = "SupportsStorageAutoscaling";
+const _SSE = "SupportsStorageEncryption";
+const _SST = "SupportsStorageThroughput";
+const _SSe = "SecretStatus";
+const _SSt = "StorageSize";
+const _SSu = "SubnetStatus";
+const _ST = "StorageType";
+const _STA = "SnsTopicArn";
+const _STTIR = "StorageThroughputToIopsRatio";
+const _STn = "SnapshotType";
+const _STna = "SnapshotTarget";
+const _STnap = "SnapshotTime";
+const _STo = "SourceType";
+const _STt = "StorageThroughput";
+const _STta = "StartTime";
+const _STtat = "StatusType";
+const _STu = "SupportedTimezones";
+const _STw = "SwitchoverTimeout";
+const _SUAP = "SecondsUntilAutoPause";
+const _SVSC = "ServerlessV2ScalingConfiguration";
+const _Si = "Size";
+const _St = "Status";
+const _Sta = "State";
+const _Ste = "Step";
+const _Sto = "Storage";
+const _Su = "Subnets";
+const _Sub = "Subnet";
+const _Sw = "Switchover";
+const _T = "Tags";
+const _TA = "TargetArn";
+const _TAi = "TimeoutAction";
+const _TCA = "TdeCredentialArn";
+const _TCAZ = "TargetCustomAvailabilityZone";
+const _TCI = "TrackedClusterId";
+const _TCP = "TdeCredentialPassword";
+const _TD = "TenantDatabase";
+const _TDARN = "TenantDatabaseARN";
+const _TDBCPGD = "TargetDBClusterParameterGroupDescription";
+const _TDBCPGI = "TargetDBClusterParameterGroupIdentifier";
+const _TDBCPGN = "TargetDBClusterParameterGroupName";
+const _TDBCSI = "TargetDBClusterSnapshotIdentifier";
+const _TDBIC = "TargetDBInstanceClass";
+const _TDBII = "TargetDBInstanceIdentifier";
+const _TDBN = "TenantDBName";
+const _TDBPGD = "TargetDBParameterGroupDescription";
+const _TDBPGI = "TargetDBParameterGroupIdentifier";
+const _TDBPGN = "TargetDBParameterGroupName";
+const _TDBSI = "TargetDBSnapshotIdentifier";
+const _TDCA = "ToDbClusterArn";
+const _TDCI = "TargetDbClusterIdentifier";
+const _TDCT = "TenantDatabaseCreateTime";
+const _TDRI = "TenantDatabaseResourceId";
+const _TDe = "TenantDatabases";
+const _TEDIGB = "TotalExtractedDataInGB";
+const _TET = "TaskEndTime";
+const _TEV = "TargetEngineVersion";
+const _TG = "TargetGroups";
+const _TGA = "TargetGroupArn";
+const _TGMDI = "TransitGatewayMulticastDomainId";
+const _TGN = "TargetGroupName";
+const _TH = "TargetHealth";
+const _TK = "TagKeys";
+const _TL = "TagList";
+const _TM = "TargetMember";
+const _TN = "TimezoneName";
+const _TOGD = "TargetOptionGroupDescription";
+const _TOGI = "TargetOptionGroupIdentifier";
+const _TR = "TargetRole";
+const _TST = "TaskStartTime";
+const _Ta = "Target";
+const _Tag = "Tag";
+const _Tar = "Targets";
+const _Tas = "Tasks";
+const _Th = "Thumbprint";
+const _Ti = "Timezone";
+const _To = "To";
+const _Ty = "Type";
+const _U = "Used";
+const _UAPLI = "UseAwsProvidedLatestImage";
+const _UD = "UpdatedDate";
+const _UDPF = "UseDefaultProcessorFeatures";
+const _UETOPITU = "UseEarliestTimeOnPointInTimeUnavailable";
+const _ULRT = "UseLatestRestorableTime";
+const _UN = "UserName";
+const _UP = "UsagePrice";
+const _USC = "UpgradeStorageConfig";
+const _UT = "UpgradeTarget";
+const _UTSC = "UpgradeTargetStorageConfig";
+const _V = "Version";
+const _VDBIMM = "ValidDBInstanceModificationsMessage";
+const _VF = "ValidFrom";
+const _VI = "VpcId";
+const _VO = "VpcOnly";
+const _VPF = "ValidProcessorFeatures";
+const _VSG = "VpcSecurityGroups";
+const _VSGI = "VpcSecurityGroupIds";
+const _VSGIp = "VpcSecurityGroupId";
+const _VSGM = "VpcSecurityGroupMemberships";
+const _VSGMp = "VpcSecurityGroupMembership";
+const _VSI = "VpcSubnetIds";
+const _VSO = "ValidStorageOptions";
+const _VT = "ValidTill";
+const _VTA = "ValuesToAdd";
+const _VTR = "ValuesToRemove";
+const _VUT = "ValidUpgradeTarget";
+const _Va = "Values";
+const _Val = "Value";
+const _Vp = "Vpc";
+const _WM = "WarningMessage";
+const _e = "entry";
+const _m = "message";
+const _me = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

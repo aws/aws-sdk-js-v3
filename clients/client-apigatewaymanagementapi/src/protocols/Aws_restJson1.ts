@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -38,28 +39,13 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/@connections/{ConnectionId}");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -69,28 +55,13 @@ export const se_GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/@connections/{ConnectionId}");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -100,33 +71,18 @@ export const se_PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/@connections/{ConnectionId}");
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
   if (input.Data !== undefined) {
     body = input.Data;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -126,11 +127,11 @@ export const se_BatchGetUserAccessTasksCommand = async (
   input: BatchGetUserAccessTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/useraccess/batchget";
+  b.bp("/useraccess/batchget");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -138,15 +139,8 @@ export const se_BatchGetUserAccessTasksCommand = async (
       taskIdList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -156,44 +150,21 @@ export const se_ConnectAppAuthorizationCommand = async (
   input: ConnectAppAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appAuthorizationIdentifier",
-    () => input.appAuthorizationIdentifier!,
-    "{appAuthorizationIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("appAuthorizationIdentifier", () => input.appAuthorizationIdentifier!, "{appAuthorizationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       authRequest: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -203,21 +174,12 @@ export const se_CreateAppAuthorizationCommand = async (
   input: CreateAppAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/appauthorizations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/appauthorizations");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -229,15 +191,8 @@ export const se_CreateAppAuthorizationCommand = async (
       tenant: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -247,11 +202,11 @@ export const se_CreateAppBundleCommand = async (
   input: CreateAppBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appbundles";
+  b.bp("/appbundles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -260,15 +215,8 @@ export const se_CreateAppBundleCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -278,21 +226,12 @@ export const se_CreateIngestionCommand = async (
   input: CreateIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -303,15 +242,8 @@ export const se_CreateIngestionCommand = async (
       tenantId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -321,29 +253,13 @@ export const se_CreateIngestionDestinationCommand = async (
   input: CreateIngestionDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -353,15 +269,8 @@ export const se_CreateIngestionDestinationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -371,37 +280,14 @@ export const se_DeleteAppAuthorizationCommand = async (
   input: DeleteAppAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appAuthorizationIdentifier",
-    () => input.appAuthorizationIdentifier!,
-    "{appAuthorizationIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("appAuthorizationIdentifier", () => input.appAuthorizationIdentifier!, "{appAuthorizationIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -411,28 +297,13 @@ export const se_DeleteAppBundleCommand = async (
   input: DeleteAppBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appbundles/{appBundleIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -442,37 +313,14 @@ export const se_DeleteIngestionCommand = async (
   input: DeleteIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -482,45 +330,22 @@ export const se_DeleteIngestionDestinationCommand = async (
   input: DeleteIngestionDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
+  b.bp(
+    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
+  b.p(
     "ingestionDestinationIdentifier",
     () => input.ingestionDestinationIdentifier!,
     "{ingestionDestinationIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -530,37 +355,14 @@ export const se_GetAppAuthorizationCommand = async (
   input: GetAppAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appAuthorizationIdentifier",
-    () => input.appAuthorizationIdentifier!,
-    "{appAuthorizationIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("appAuthorizationIdentifier", () => input.appAuthorizationIdentifier!, "{appAuthorizationIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -570,28 +372,13 @@ export const se_GetAppBundleCommand = async (
   input: GetAppBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appbundles/{appBundleIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -601,37 +388,14 @@ export const se_GetIngestionCommand = async (
   input: GetIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -641,45 +405,22 @@ export const se_GetIngestionDestinationCommand = async (
   input: GetIngestionDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
+  b.bp(
+    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
+  b.p(
     "ingestionDestinationIdentifier",
     () => input.ingestionDestinationIdentifier!,
     "{ingestionDestinationIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -689,34 +430,17 @@ export const se_ListAppAuthorizationsCommand = async (
   input: ListAppAuthorizationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/appauthorizations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/appauthorizations");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -726,24 +450,16 @@ export const se_ListAppBundlesCommand = async (
   input: ListAppBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/appbundles";
+  b.bp("/appbundles");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -753,42 +469,18 @@ export const se_ListIngestionDestinationsCommand = async (
   input: ListIngestionDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -798,34 +490,17 @@ export const se_ListIngestionsCommand = async (
   input: ListIngestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -835,20 +510,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -858,37 +526,14 @@ export const se_StartIngestionCommand = async (
   input: StartIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start");
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -898,11 +543,11 @@ export const se_StartUserAccessTasksCommand = async (
   input: StartUserAccessTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/useraccess/start";
+  b.bp("/useraccess/start");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -910,15 +555,8 @@ export const se_StartUserAccessTasksCommand = async (
       email: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -928,37 +566,14 @@ export const se_StopIngestionCommand = async (
   input: StopIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop");
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -968,27 +583,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -998,27 +606,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1028,29 +628,13 @@ export const se_UpdateAppAuthorizationCommand = async (
   input: UpdateAppAuthorizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appAuthorizationIdentifier",
-    () => input.appAuthorizationIdentifier!,
-    "{appAuthorizationIdentifier}",
-    false
-  );
+  b.bp("/appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}");
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("appAuthorizationIdentifier", () => input.appAuthorizationIdentifier!, "{appAuthorizationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1058,15 +642,8 @@ export const se_UpdateAppAuthorizationCommand = async (
       tenant: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1076,32 +653,16 @@ export const se_UpdateIngestionDestinationCommand = async (
   input: UpdateIngestionDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "appBundleIdentifier",
-    () => input.appBundleIdentifier!,
-    "{appBundleIdentifier}",
-    false
+  b.bp(
+    "/appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionIdentifier",
-    () => input.ingestionIdentifier!,
-    "{ingestionIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("appBundleIdentifier", () => input.appBundleIdentifier!, "{appBundleIdentifier}", false);
+  b.p("ingestionIdentifier", () => input.ingestionIdentifier!, "{ingestionIdentifier}", false);
+  b.p(
     "ingestionDestinationIdentifier",
     () => input.ingestionDestinationIdentifier!,
     "{ingestionDestinationIdentifier}",
@@ -1113,15 +674,8 @@ export const se_UpdateIngestionDestinationCommand = async (
       destinationConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2702,10 +2256,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -2770,10 +2321,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -2980,6 +2528,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

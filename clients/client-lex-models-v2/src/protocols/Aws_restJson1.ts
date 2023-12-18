@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -452,31 +453,22 @@ export const se_BatchCreateCustomVocabularyItemCommand = async (
   input: BatchCreateCustomVocabularyItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       customVocabularyItemList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -486,31 +478,22 @@ export const se_BatchDeleteCustomVocabularyItemCommand = async (
   input: BatchDeleteCustomVocabularyItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       customVocabularyItemList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -520,31 +503,22 @@ export const se_BatchUpdateCustomVocabularyItemCommand = async (
   input: BatchUpdateCustomVocabularyItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       customVocabularyItemList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -554,24 +528,15 @@ export const se_BuildBotLocaleCommand = async (
   input: BuildBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -581,11 +546,11 @@ export const se_CreateBotCommand = async (
   input: CreateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
+  b.bp("/bots");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -600,15 +565,8 @@ export const se_CreateBotCommand = async (
       testBotAliasTags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -618,12 +576,12 @@ export const se_CreateBotAliasCommand = async (
   input: CreateBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botaliases");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -636,15 +594,8 @@ export const se_CreateBotAliasCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -654,15 +605,13 @@ export const se_CreateBotLocaleCommand = async (
   input: CreateBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -673,15 +622,8 @@ export const se_CreateBotLocaleCommand = async (
       voiceSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -691,13 +633,12 @@ export const se_CreateBotVersionCommand = async (
   input: CreateBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botversions");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -705,15 +646,8 @@ export const se_CreateBotVersionCommand = async (
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -723,11 +657,11 @@ export const se_CreateExportCommand = async (
   input: CreateExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
+  b.bp("/exports");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -736,15 +670,8 @@ export const se_CreateExportCommand = async (
       resourceSpecification: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -754,16 +681,14 @@ export const se_CreateIntentCommand = async (
   input: CreateIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -781,15 +706,8 @@ export const se_CreateIntentCommand = async (
       sampleUtterances: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -799,27 +717,20 @@ export const se_CreateResourcePolicyCommand = async (
   input: CreateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/policy/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -829,15 +740,14 @@ export const se_CreateResourcePolicyStatementCommand = async (
   input: CreateResourcePolicyStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}/statements";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/policy/{resourceArn}/statements");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    expectedRevisionId: [, input.expectedRevisionId!],
+    [_eRI]: [, input[_eRI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -849,16 +759,8 @@ export const se_CreateResourcePolicyStatementCommand = async (
       statementId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -868,17 +770,15 @@ export const se_CreateSlotCommand = async (
   input: CreateSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -891,15 +791,8 @@ export const se_CreateSlotCommand = async (
       valueElicitationSetting: (_) => se_SlotValueElicitationSetting(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -909,16 +802,14 @@ export const se_CreateSlotTypeCommand = async (
   input: CreateSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -931,15 +822,8 @@ export const se_CreateSlotTypeCommand = async (
       valueSelectionSetting: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -949,28 +833,20 @@ export const se_CreateTestSetDiscrepancyReportCommand = async (
   input: CreateTestSetDiscrepancyReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}/testsetdiscrepancy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  b.bp("/testsets/{testSetId}/testsetdiscrepancy");
+  b.p("testSetId", () => input.testSetId!, "{testSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       target: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -980,22 +856,15 @@ export const se_CreateUploadUrlCommand = async (
   input: CreateUploadUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createuploadurl";
+  b.bp("/createuploadurl");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1005,27 +874,16 @@ export const se_DeleteBotCommand = async (
   input: DeleteBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1035,29 +893,17 @@ export const se_DeleteBotAliasCommand = async (
   input: DeleteBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases/{botAliasId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botaliases/{botAliasId}");
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1067,24 +913,15 @@ export const se_DeleteBotLocaleCommand = async (
   input: DeleteBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1094,29 +931,17 @@ export const se_DeleteBotVersionCommand = async (
   input: DeleteBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions/{botVersion}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1126,24 +951,15 @@ export const se_DeleteCustomVocabularyCommand = async (
   input: DeleteCustomVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1153,20 +969,13 @@ export const se_DeleteExportCommand = async (
   input: DeleteExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "exportId", () => input.exportId!, "{exportId}", false);
+  b.bp("/exports/{exportId}");
+  b.p("exportId", () => input.exportId!, "{exportId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1176,20 +985,13 @@ export const se_DeleteImportCommand = async (
   input: DeleteImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports/{importId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "importId", () => input.importId!, "{importId}", false);
+  b.bp("/imports/{importId}");
+  b.p("importId", () => input.importId!, "{importId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1199,25 +1001,16 @@ export const se_DeleteIntentCommand = async (
   input: DeleteIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}");
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1227,24 +1020,16 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/policy/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    expectedRevisionId: [, input.expectedRevisionId!],
+    [_eRI]: [, input[_eRI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1254,27 +1039,17 @@ export const se_DeleteResourcePolicyStatementCommand = async (
   input: DeleteResourcePolicyStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/policy/{resourceArn}/statements/{statementId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "statementId", () => input.statementId!, "{statementId}", false);
+  b.bp("/policy/{resourceArn}/statements/{statementId}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.p("statementId", () => input.statementId!, "{statementId}", false);
   const query: any = map({
-    expectedRevisionId: [, input.expectedRevisionId!],
+    [_eRI]: [, input[_eRI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1284,26 +1059,17 @@ export const se_DeleteSlotCommand = async (
   input: DeleteSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "slotId", () => input.slotId!, "{slotId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}");
+  b.p("slotId", () => input.slotId!, "{slotId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1313,32 +1079,19 @@ export const se_DeleteSlotTypeCommand = async (
   input: DeleteSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "slotTypeId", () => input.slotTypeId!, "{slotTypeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}");
+  b.p("slotTypeId", () => input.slotTypeId!, "{slotTypeId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1348,20 +1101,13 @@ export const se_DeleteTestSetCommand = async (
   input: DeleteTestSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  b.bp("/testsets/{testSetId}");
+  b.p("testSetId", () => input.testSetId!, "{testSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1371,25 +1117,17 @@ export const se_DeleteUtterancesCommand = async (
   input: DeleteUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/utterances";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/utterances");
+  b.p("botId", () => input.botId!, "{botId}", false);
   const query: any = map({
-    localeId: [, input.localeId!],
-    sessionId: [, input.sessionId!],
+    [_lI]: [, input[_lI]!],
+    [_sI]: [, input[_sI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1399,20 +1137,13 @@ export const se_DescribeBotCommand = async (
   input: DescribeBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1422,22 +1153,14 @@ export const se_DescribeBotAliasCommand = async (
   input: DescribeBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases/{botAliasId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botaliases/{botAliasId}");
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1447,24 +1170,15 @@ export const se_DescribeBotLocaleCommand = async (
   input: DescribeBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1474,32 +1188,16 @@ export const se_DescribeBotRecommendationCommand = async (
   input: DescribeBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "botRecommendationId",
-    () => input.botRecommendationId!,
-    "{botRecommendationId}",
-    false
-  );
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("botRecommendationId", () => input.botRecommendationId!, "{botRecommendationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1509,32 +1207,16 @@ export const se_DescribeBotResourceGenerationCommand = async (
   input: DescribeBotResourceGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "generationId",
-    () => input.generationId!,
-    "{generationId}",
-    false
-  );
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations/{generationId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("generationId", () => input.generationId!, "{generationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1544,22 +1226,14 @@ export const se_DescribeBotVersionCommand = async (
   input: DescribeBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions/{botVersion}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1569,24 +1243,15 @@ export const se_DescribeCustomVocabularyMetadataCommand = async (
   input: DescribeCustomVocabularyMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/metadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/metadata");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1596,20 +1261,13 @@ export const se_DescribeExportCommand = async (
   input: DescribeExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "exportId", () => input.exportId!, "{exportId}", false);
+  b.bp("/exports/{exportId}");
+  b.p("exportId", () => input.exportId!, "{exportId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1619,20 +1277,13 @@ export const se_DescribeImportCommand = async (
   input: DescribeImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports/{importId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "importId", () => input.importId!, "{importId}", false);
+  b.bp("/imports/{importId}");
+  b.p("importId", () => input.importId!, "{importId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1642,25 +1293,16 @@ export const se_DescribeIntentCommand = async (
   input: DescribeIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}");
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1670,20 +1312,13 @@ export const se_DescribeResourcePolicyCommand = async (
   input: DescribeResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/policy/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1693,26 +1328,17 @@ export const se_DescribeSlotCommand = async (
   input: DescribeSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "slotId", () => input.slotId!, "{slotId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}");
+  b.p("slotId", () => input.slotId!, "{slotId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1722,25 +1348,16 @@ export const se_DescribeSlotTypeCommand = async (
   input: DescribeSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "slotTypeId", () => input.slotTypeId!, "{slotTypeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}");
+  b.p("slotTypeId", () => input.slotTypeId!, "{slotTypeId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1750,28 +1367,13 @@ export const se_DescribeTestExecutionCommand = async (
   input: DescribeTestExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testexecutions/{testExecutionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "testExecutionId",
-    () => input.testExecutionId!,
-    "{testExecutionId}",
-    false
-  );
+  b.bp("/testexecutions/{testExecutionId}");
+  b.p("testExecutionId", () => input.testExecutionId!, "{testExecutionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1781,20 +1383,13 @@ export const se_DescribeTestSetCommand = async (
   input: DescribeTestSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  b.bp("/testsets/{testSetId}");
+  b.p("testSetId", () => input.testSetId!, "{testSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1804,29 +1399,13 @@ export const se_DescribeTestSetDiscrepancyReportCommand = async (
   input: DescribeTestSetDiscrepancyReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/testsetdiscrepancy/{testSetDiscrepancyReportId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "testSetDiscrepancyReportId",
-    () => input.testSetDiscrepancyReportId!,
-    "{testSetDiscrepancyReportId}",
-    false
-  );
+  b.bp("/testsetdiscrepancy/{testSetDiscrepancyReportId}");
+  b.p("testSetDiscrepancyReportId", () => input.testSetDiscrepancyReportId!, "{testSetDiscrepancyReportId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1836,28 +1415,13 @@ export const se_DescribeTestSetGenerationCommand = async (
   input: DescribeTestSetGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsetgenerations/{testSetGenerationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "testSetGenerationId",
-    () => input.testSetGenerationId!,
-    "{testSetGenerationId}",
-    false
-  );
+  b.bp("/testsetgenerations/{testSetGenerationId}");
+  b.p("testSetGenerationId", () => input.testSetGenerationId!, "{testSetGenerationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1867,31 +1431,22 @@ export const se_GenerateBotElementCommand = async (
   input: GenerateBotElementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generate");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       intentId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1901,29 +1456,13 @@ export const se_GetTestExecutionArtifactsUrlCommand = async (
   input: GetTestExecutionArtifactsUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/testexecutions/{testExecutionId}/artifacturl";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "testExecutionId",
-    () => input.testExecutionId!,
-    "{testExecutionId}",
-    false
-  );
+  b.bp("/testexecutions/{testExecutionId}/artifacturl");
+  b.p("testExecutionId", () => input.testExecutionId!, "{testExecutionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1933,13 +1472,12 @@ export const se_ListAggregatedUtterancesCommand = async (
   input: ListAggregatedUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/aggregatedutterances";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/aggregatedutterances");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1953,15 +1491,8 @@ export const se_ListAggregatedUtterancesCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1971,12 +1502,12 @@ export const se_ListBotAliasesCommand = async (
   input: ListBotAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botaliases");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1984,15 +1515,8 @@ export const se_ListBotAliasesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2002,15 +1526,13 @@ export const se_ListBotLocalesCommand = async (
   input: ListBotLocalesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2020,15 +1542,8 @@ export const se_ListBotLocalesCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2038,16 +1553,14 @@ export const se_ListBotRecommendationsCommand = async (
   input: ListBotRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2055,15 +1568,8 @@ export const se_ListBotRecommendationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2073,16 +1579,14 @@ export const se_ListBotResourceGenerationsCommand = async (
   input: ListBotResourceGenerationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/generations");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2091,15 +1595,8 @@ export const se_ListBotResourceGenerationsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2109,11 +1606,11 @@ export const se_ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
+  b.bp("/bots");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2123,15 +1620,8 @@ export const se_ListBotsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2141,13 +1631,12 @@ export const se_ListBotVersionsCommand = async (
   input: ListBotVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botversions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botversions");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2156,15 +1645,8 @@ export const se_ListBotVersionsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2174,13 +1656,12 @@ export const se_ListBuiltInIntentsCommand = async (
   input: ListBuiltInIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/locales/{localeId}/intents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/builtins/locales/{localeId}/intents");
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2189,15 +1670,8 @@ export const se_ListBuiltInIntentsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2207,13 +1681,12 @@ export const se_ListBuiltInSlotTypesCommand = async (
   input: ListBuiltInSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/locales/{localeId}/slottypes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/builtins/locales/{localeId}/slottypes");
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2222,15 +1695,8 @@ export const se_ListBuiltInSlotTypesCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2240,16 +1706,14 @@ export const se_ListCustomVocabularyItemsCommand = async (
   input: ListCustomVocabularyItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2257,15 +1721,8 @@ export const se_ListCustomVocabularyItemsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2275,11 +1732,11 @@ export const se_ListExportsCommand = async (
   input: ListExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
+  b.bp("/exports");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2292,15 +1749,8 @@ export const se_ListExportsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2310,11 +1760,11 @@ export const se_ListImportsCommand = async (
   input: ListImportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
+  b.bp("/imports");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2327,15 +1777,8 @@ export const se_ListImportsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2345,13 +1788,12 @@ export const se_ListIntentMetricsCommand = async (
   input: ListIntentMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/analytics/intentmetrics";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/intentmetrics");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2365,15 +1807,8 @@ export const se_ListIntentMetricsCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2383,13 +1818,12 @@ export const se_ListIntentPathsCommand = async (
   input: ListIntentPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/analytics/intentpaths";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/intentpaths");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2399,15 +1833,8 @@ export const se_ListIntentPathsCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2417,16 +1844,14 @@ export const se_ListIntentsCommand = async (
   input: ListIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2436,15 +1861,8 @@ export const se_ListIntentsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2454,14 +1872,12 @@ export const se_ListIntentStageMetricsCommand = async (
   input: ListIntentStageMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/analytics/intentstagemetrics";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/intentstagemetrics");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2475,15 +1891,8 @@ export const se_ListIntentStageMetricsCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2493,24 +1902,15 @@ export const se_ListRecommendedIntentsCommand = async (
   input: ListRecommendedIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/intents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "botRecommendationId",
-    () => input.botRecommendationId!,
-    "{botRecommendationId}",
-    false
-  );
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/intents");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("botRecommendationId", () => input.botRecommendationId!, "{botRecommendationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2518,15 +1918,8 @@ export const se_ListRecommendedIntentsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2536,13 +1929,12 @@ export const se_ListSessionAnalyticsDataCommand = async (
   input: ListSessionAnalyticsDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/analytics/sessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/sessions");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2554,15 +1946,8 @@ export const se_ListSessionAnalyticsDataCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2572,13 +1957,12 @@ export const se_ListSessionMetricsCommand = async (
   input: ListSessionMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/analytics/sessionmetrics";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/sessionmetrics");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2592,15 +1976,8 @@ export const se_ListSessionMetricsCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2610,17 +1987,15 @@ export const se_ListSlotsCommand = async (
   input: ListSlotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2630,15 +2005,8 @@ export const se_ListSlotsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2648,16 +2016,14 @@ export const se_ListSlotTypesCommand = async (
   input: ListSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2667,15 +2033,8 @@ export const se_ListSlotTypesCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2685,20 +2044,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceARN", () => input.resourceARN!, "{resourceARN}", false);
+  b.bp("/tags/{resourceARN}");
+  b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2708,20 +2060,12 @@ export const se_ListTestExecutionResultItemsCommand = async (
   input: ListTestExecutionResultItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testexecutions/{testExecutionId}/results";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "testExecutionId",
-    () => input.testExecutionId!,
-    "{testExecutionId}",
-    false
-  );
+  b.bp("/testexecutions/{testExecutionId}/results");
+  b.p("testExecutionId", () => input.testExecutionId!, "{testExecutionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2730,15 +2074,8 @@ export const se_ListTestExecutionResultItemsCommand = async (
       resultFilterBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2748,11 +2085,11 @@ export const se_ListTestExecutionsCommand = async (
   input: ListTestExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testexecutions";
+  b.bp("/testexecutions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2761,15 +2098,8 @@ export const se_ListTestExecutionsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2779,13 +2109,12 @@ export const se_ListTestSetRecordsCommand = async (
   input: ListTestSetRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}/records";
-  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  b.bp("/testsets/{testSetId}/records");
+  b.p("testSetId", () => input.testSetId!, "{testSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2793,15 +2122,8 @@ export const se_ListTestSetRecordsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2811,11 +2133,11 @@ export const se_ListTestSetsCommand = async (
   input: ListTestSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets";
+  b.bp("/testsets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2824,15 +2146,8 @@ export const se_ListTestSetsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2842,13 +2157,12 @@ export const se_ListUtteranceAnalyticsDataCommand = async (
   input: ListUtteranceAnalyticsDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/analytics/utterances";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/utterances");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2860,15 +2174,8 @@ export const se_ListUtteranceAnalyticsDataCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2878,13 +2185,12 @@ export const se_ListUtteranceMetricsCommand = async (
   input: ListUtteranceMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/analytics/utterancemetrics";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/analytics/utterancemetrics");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2899,15 +2205,8 @@ export const se_ListUtteranceMetricsCommand = async (
       startDateTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2917,24 +2216,17 @@ export const se_SearchAssociatedTranscriptsCommand = async (
   input: SearchAssociatedTranscriptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "botRecommendationId",
-    () => input.botRecommendationId!,
-    "{botRecommendationId}",
-    false
+  b.bp(
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts"
   );
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("botRecommendationId", () => input.botRecommendationId!, "{botRecommendationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2944,15 +2236,8 @@ export const se_SearchAssociatedTranscriptsCommand = async (
       searchOrder: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2962,16 +2247,14 @@ export const se_StartBotRecommendationCommand = async (
   input: StartBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2979,15 +2262,8 @@ export const se_StartBotRecommendationCommand = async (
       transcriptSourceSetting: (_) => se_TranscriptSourceSetting(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2997,31 +2273,22 @@ export const se_StartBotResourceGenerationCommand = async (
   input: StartBotResourceGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/startgeneration");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       generationInputPrompt: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3031,11 +2298,11 @@ export const se_StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
+  b.bp("/imports");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3045,15 +2312,8 @@ export const se_StartImportCommand = async (
       resourceSpecification: (_) => se_ImportResourceSpecification(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3063,13 +2323,12 @@ export const se_StartTestExecutionCommand = async (
   input: StartTestExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}/testexecutions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  b.bp("/testsets/{testSetId}/testexecutions");
+  b.p("testSetId", () => input.testSetId!, "{testSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3078,15 +2337,8 @@ export const se_StartTestExecutionCommand = async (
       testExecutionModality: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3096,11 +2348,11 @@ export const se_StartTestSetGenerationCommand = async (
   input: StartTestSetGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsetgenerations";
+  b.bp("/testsetgenerations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3112,15 +2364,8 @@ export const se_StartTestSetGenerationCommand = async (
       testSetTags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3130,32 +2375,18 @@ export const se_StopBotRecommendationCommand = async (
   input: StopBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "botRecommendationId",
-    () => input.botRecommendationId!,
-    "{botRecommendationId}",
-    false
+  b.bp(
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation"
   );
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("botRecommendationId", () => input.botRecommendationId!, "{botRecommendationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3165,27 +2396,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceARN", () => input.resourceARN!, "{resourceARN}", false);
+  b.bp("/tags/{resourceARN}");
+  b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3195,27 +2419,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceARN}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceARN", () => input.resourceARN!, "{resourceARN}", false);
+  b.bp("/tags/{resourceARN}");
+  b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3225,12 +2441,12 @@ export const se_UpdateBotCommand = async (
   input: UpdateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3243,15 +2459,8 @@ export const se_UpdateBotCommand = async (
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3261,14 +2470,13 @@ export const se_UpdateBotAliasCommand = async (
   input: UpdateBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botId}/botaliases/{botAliasId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAliasId", () => input.botAliasId!, "{botAliasId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
+  b.bp("/bots/{botId}/botaliases/{botAliasId}");
+  b.p("botAliasId", () => input.botAliasId!, "{botAliasId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3280,15 +2488,8 @@ export const se_UpdateBotAliasCommand = async (
       sentimentAnalysisSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3298,16 +2499,14 @@ export const se_UpdateBotLocaleCommand = async (
   input: UpdateBotLocaleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3317,15 +2516,8 @@ export const se_UpdateBotLocaleCommand = async (
       voiceSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3335,39 +2527,23 @@ export const se_UpdateBotRecommendationCommand = async (
   input: UpdateBotRecommendationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "botRecommendationId",
-    () => input.botRecommendationId!,
-    "{botRecommendationId}",
-    false
-  );
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("botRecommendationId", () => input.botRecommendationId!, "{botRecommendationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       encryptionSetting: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3377,27 +2553,20 @@ export const se_UpdateExportCommand = async (
   input: UpdateExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports/{exportId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "exportId", () => input.exportId!, "{exportId}", false);
+  b.bp("/exports/{exportId}");
+  b.p("exportId", () => input.exportId!, "{exportId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       filePassword: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3407,17 +2576,15 @@ export const se_UpdateIntentCommand = async (
   input: UpdateIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}");
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3436,15 +2603,8 @@ export const se_UpdateIntentCommand = async (
       slotPriorities: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3454,14 +2614,14 @@ export const se_UpdateResourcePolicyCommand = async (
   input: UpdateResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/policy/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    expectedRevisionId: [, input.expectedRevisionId!],
+    [_eRI]: [, input[_eRI]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -3469,16 +2629,8 @@ export const se_UpdateResourcePolicyCommand = async (
       policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3488,18 +2640,16 @@ export const se_UpdateSlotCommand = async (
   input: UpdateSlotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "slotId", () => input.slotId!, "{slotId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "intentId", () => input.intentId!, "{intentId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/intents/{intentId}/slots/{slotId}");
+  b.p("slotId", () => input.slotId!, "{slotId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
+  b.p("intentId", () => input.intentId!, "{intentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3512,15 +2662,8 @@ export const se_UpdateSlotCommand = async (
       valueElicitationSetting: (_) => se_SlotValueElicitationSetting(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3530,17 +2673,15 @@ export const se_UpdateSlotTypeCommand = async (
   input: UpdateSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "slotTypeId", () => input.slotTypeId!, "{slotTypeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botId", () => input.botId!, "{botId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botVersion", () => input.botVersion!, "{botVersion}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "localeId", () => input.localeId!, "{localeId}", false);
+  b.bp("/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/slottypes/{slotTypeId}");
+  b.p("slotTypeId", () => input.slotTypeId!, "{slotTypeId}", false);
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
+  b.p("localeId", () => input.localeId!, "{localeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3553,15 +2694,8 @@ export const se_UpdateSlotTypeCommand = async (
       valueSelectionSetting: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3571,12 +2705,12 @@ export const se_UpdateTestSetCommand = async (
   input: UpdateTestSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/testsets/{testSetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "testSetId", () => input.testSetId!, "{testSetId}", false);
+  b.bp("/testsets/{testSetId}");
+  b.p("testSetId", () => input.testSetId!, "{testSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3584,15 +2718,8 @@ export const se_UpdateTestSetCommand = async (
       testSetName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -9875,10 +9002,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -12354,6 +11478,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _eRI = "expectedRevisionId";
+const _lI = "localeId";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _sI = "sessionId";
+const _sRIUC = "skipResourceInUseCheck";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

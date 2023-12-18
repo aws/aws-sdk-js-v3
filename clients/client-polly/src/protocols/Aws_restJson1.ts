@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -78,20 +79,13 @@ export const se_DeleteLexiconCommand = async (
   input: DeleteLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/lexicons/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -101,29 +95,18 @@ export const se_DescribeVoicesCommand = async (
   input: DescribeVoicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/voices";
+  b.bp("/v1/voices");
   const query: any = map({
-    Engine: [, input.Engine!],
-    LanguageCode: [, input.LanguageCode!],
-    IncludeAdditionalLanguageCodes: [
-      () => input.IncludeAdditionalLanguageCodes !== void 0,
-      () => input.IncludeAdditionalLanguageCodes!.toString(),
-    ],
-    NextToken: [, input.NextToken!],
+    [_E]: [, input[_E]!],
+    [_LC]: [, input[_LC]!],
+    [_IALC]: [() => input.IncludeAdditionalLanguageCodes !== void 0, () => input[_IALC]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -133,20 +116,13 @@ export const se_GetLexiconCommand = async (
   input: GetLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/lexicons/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -156,21 +132,13 @@ export const se_GetSpeechSynthesisTaskCommand = async (
   input: GetSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks/{TaskId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TaskId", () => input.TaskId!, "{TaskId}", false);
+  b.bp("/v1/synthesisTasks/{TaskId}");
+  b.p("TaskId", () => input.TaskId!, "{TaskId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -180,23 +148,15 @@ export const se_ListLexiconsCommand = async (
   input: ListLexiconsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons";
+  b.bp("/v1/lexicons");
   const query: any = map({
-    NextToken: [, input.NextToken!],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -206,25 +166,17 @@ export const se_ListSpeechSynthesisTasksCommand = async (
   input: ListSpeechSynthesisTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks";
+  b.bp("/v1/synthesisTasks");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
-    Status: [, input.Status!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_S]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -234,27 +186,20 @@ export const se_PutLexiconCommand = async (
   input: PutLexiconCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/lexicons/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/lexicons/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Content: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -264,11 +209,11 @@ export const se_StartSpeechSynthesisTaskCommand = async (
   input: StartSpeechSynthesisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/synthesisTasks";
+  b.bp("/v1/synthesisTasks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -286,15 +231,8 @@ export const se_StartSpeechSynthesisTaskCommand = async (
       VoiceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -304,11 +242,11 @@ export const se_SynthesizeSpeechCommand = async (
   input: SynthesizeSpeechCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/speech";
+  b.bp("/v1/speech");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -323,15 +261,8 @@ export const se_SynthesizeSpeechCommand = async (
       VoiceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -790,11 +721,8 @@ export const de_SynthesizeSpeechCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    RequestCharacters: [
-      () => void 0 !== output.headers["x-amzn-requestcharacters"],
-      () => __strictParseInt32(output.headers["x-amzn-requestcharacters"]),
-    ],
+    [_CT]: [, output.headers[_ct]],
+    [_RC]: [() => void 0 !== output.headers[_xar], () => __strictParseInt32(output.headers[_xar])],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -1380,6 +1308,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CT = "ContentType";
+const _E = "Engine";
+const _IALC = "IncludeAdditionalLanguageCodes";
+const _LC = "LanguageCode";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RC = "RequestCharacters";
+const _S = "Status";
+const _ct = "content-type";
+const _xar = "x-amzn-requestcharacters";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -33,6 +33,7 @@ const {
   repo,
   commit,
   d: noSmithyCheckout,
+  p: protocolTestsOnly,
 } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
@@ -51,6 +52,9 @@ const {
   .alias("d", "noSmithyCheckout")
   .boolean("d")
   .describe("d", "use existing Smithy version instead of target hash")
+  .alias("p", "protocolTestsOnly")
+  .boolean("p")
+  .describe("p", "Generate protocol tests only")
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
@@ -92,26 +96,36 @@ const {
       return;
     }
 
-    const undoS3 = s3Hack();
-    await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
-    undoS3();
+    if (!protocolTestsOnly) {
+      const undoS3 = s3Hack();
+      try {
+        await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+        undoS3();
+      } catch (e) {
+        undoS3();
+        throw e;
+      }
+    }
 
     if (!noPrivateClients) {
       await generateGenericClient();
       await generateProtocolTests();
     }
 
-    await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
     await eslintFixCode();
-    await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-
+    if (!protocolTestsOnly) {
+      await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
+      await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
+    }
     if (!noPrivateClients) {
       await codeOrdering(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     }
 
-    await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
+    if (!protocolTestsOnly) {
+      await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
+    }
     if (!noPrivateClients) {
       await copyToClients(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
       await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);

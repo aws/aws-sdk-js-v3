@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -30,38 +31,30 @@ import { DocumentServiceException, FieldStats, SearchException } from "../models
  * serializeAws_restJson1SearchCommand
  */
 export const se_SearchCommand = async (input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
+  b.bp("/2013-01-01/search");
   const query: any = map({
-    format: [, "sdk"],
-    pretty: [, "true"],
-    cursor: [, input.cursor!],
-    expr: [, input.expr!],
-    facet: [, input.facet!],
-    fq: [, input.filterQuery!],
-    highlight: [, input.highlight!],
-    partial: [() => input.partial !== void 0, () => input.partial!.toString()],
-    q: [, __expectNonNull(input.query!, `query`)],
-    "q.options": [, input.queryOptions!],
-    "q.parser": [, input.queryParser!],
-    return: [, input.return!],
-    size: [() => input.size !== void 0, () => input.size!.toString()],
-    sort: [, input.sort!],
-    start: [() => input.start !== void 0, () => input.start!.toString()],
-    stats: [, input.stats!],
+    [_f]: [, "sdk"],
+    [_p]: [, "true"],
+    [_c]: [, input[_c]!],
+    [_e]: [, input[_e]!],
+    [_fa]: [, input[_fa]!],
+    [_fq]: [, input[_fQ]!],
+    [_h]: [, input[_h]!],
+    [_pa]: [() => input.partial !== void 0, () => input[_pa]!.toString()],
+    [_q_]: [, __expectNonNull(input[_q]!, `query`)],
+    [_qo]: [, input[_qO]!],
+    [_qp]: [, input[_qP]!],
+    [_r]: [, input[_r]!],
+    [_s]: [() => input.size !== void 0, () => input[_s]!.toString()],
+    [_so]: [, input[_so]!],
+    [_st]: [() => input.start !== void 0, () => input[_st]!.toString()],
+    [_sta]: [, input[_sta]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -71,27 +64,19 @@ export const se_SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/suggest";
+  b.bp("/2013-01-01/suggest");
   const query: any = map({
-    format: [, "sdk"],
-    pretty: [, "true"],
-    q: [, __expectNonNull(input.query!, `query`)],
-    suggester: [, __expectNonNull(input.suggester!, `suggester`)],
-    size: [() => input.size !== void 0, () => input.size!.toString()],
+    [_f]: [, "sdk"],
+    [_p]: [, "true"],
+    [_q_]: [, __expectNonNull(input[_q]!, `query`)],
+    [_su]: [, __expectNonNull(input[_su]!, `suggester`)],
+    [_s]: [() => input.size !== void 0, () => input[_s]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -101,29 +86,20 @@ export const se_UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/documents/batch";
+  b.bp("/2013-01-01/documents/batch");
   const query: any = map({
-    format: [, "sdk"],
+    [_f]: [, "sdk"],
   });
   let body: any;
   if (input.documents !== undefined) {
     body = input.documents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -393,6 +369,30 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _c = "cursor";
+const _cT = "contentType";
+const _ct = "content-type";
+const _e = "expr";
+const _f = "format";
+const _fQ = "filterQuery";
+const _fa = "facet";
+const _fq = "fq";
+const _h = "highlight";
+const _p = "pretty";
+const _pa = "partial";
+const _q = "query";
+const _qO = "queryOptions";
+const _qP = "queryParser";
+const _q_ = "q";
+const _qo = "q.options";
+const _qp = "q.parser";
+const _r = "return";
+const _s = "size";
+const _so = "sort";
+const _st = "start";
+const _sta = "stats";
+const _su = "suggester";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -134,20 +135,13 @@ export const se_CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v1/jobs/{JobId}");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -157,11 +151,11 @@ export const se_CreateDataSetCommand = async (
   input: CreateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets";
+  b.bp("/v1/data-sets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -171,15 +165,8 @@ export const se_CreateDataSetCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -189,11 +176,11 @@ export const se_CreateEventActionCommand = async (
   input: CreateEventActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions";
+  b.bp("/v1/event-actions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -201,15 +188,8 @@ export const se_CreateEventActionCommand = async (
       Event: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -219,11 +199,11 @@ export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs";
+  b.bp("/v1/jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -231,15 +211,8 @@ export const se_CreateJobCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -249,13 +222,12 @@ export const se_CreateRevisionCommand = async (
   input: CreateRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}/revisions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -263,15 +235,8 @@ export const se_CreateRevisionCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -281,24 +246,15 @@ export const se_DeleteAssetCommand = async (
   input: DeleteAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AssetId", () => input.AssetId!, "{AssetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}");
+  b.p("AssetId", () => input.AssetId!, "{AssetId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -308,21 +264,13 @@ export const se_DeleteDataSetCommand = async (
   input: DeleteDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/v1/data-sets/{DataSetId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -332,28 +280,13 @@ export const se_DeleteEventActionCommand = async (
   input: DeleteEventActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions/{EventActionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventActionId",
-    () => input.EventActionId!,
-    "{EventActionId}",
-    false
-  );
+  b.bp("/v1/event-actions/{EventActionId}");
+  b.p("EventActionId", () => input.EventActionId!, "{EventActionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -363,23 +296,14 @@ export const se_DeleteRevisionCommand = async (
   input: DeleteRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -389,24 +313,15 @@ export const se_GetAssetCommand = async (
   input: GetAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AssetId", () => input.AssetId!, "{AssetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}");
+  b.p("AssetId", () => input.AssetId!, "{AssetId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -416,21 +331,13 @@ export const se_GetDataSetCommand = async (
   input: GetDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/v1/data-sets/{DataSetId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -440,48 +347,26 @@ export const se_GetEventActionCommand = async (
   input: GetEventActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions/{EventActionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventActionId",
-    () => input.EventActionId!,
-    "{EventActionId}",
-    false
-  );
+  b.bp("/v1/event-actions/{EventActionId}");
+  b.p("EventActionId", () => input.EventActionId!, "{EventActionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1GetJobCommand
  */
 export const se_GetJobCommand = async (input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v1/jobs/{JobId}");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -491,23 +376,14 @@ export const se_GetRevisionCommand = async (
   input: GetRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -517,26 +393,17 @@ export const se_ListDataSetRevisionsCommand = async (
   input: ListDataSetRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}/revisions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -546,25 +413,17 @@ export const se_ListDataSetsCommand = async (
   input: ListDataSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets";
+  b.bp("/v1/data-sets");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    origin: [, input.Origin!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -574,25 +433,17 @@ export const se_ListEventActionsCommand = async (
   input: ListEventActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions";
+  b.bp("/v1/event-actions");
   const query: any = map({
-    eventSourceId: [, input.EventSourceId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_eSI]: [, input[_ESI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -602,26 +453,18 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs";
+  b.bp("/v1/jobs");
   const query: any = map({
-    dataSetId: [, input.DataSetId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    revisionId: [, input.RevisionId!],
+    [_dSI]: [, input[_DSI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_rI]: [, input[_RI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -631,28 +474,18 @@ export const se_ListRevisionAssetsCommand = async (
   input: ListRevisionAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -662,20 +495,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -685,30 +511,21 @@ export const se_RevokeRevisionCommand = async (
   input: RevokeRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       RevocationComment: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -718,21 +535,21 @@ export const se_SendApiAssetCommand = async (
   input: SendApiAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "x-amzn-dataexchange-asset-id": input.AssetId!,
-    "x-amzn-dataexchange-data-set-id": input.DataSetId!,
-    "x-amzn-dataexchange-http-method": input.Method!,
-    "x-amzn-dataexchange-path": input.Path!,
-    "x-amzn-dataexchange-revision-id": input.RevisionId!,
+    [_xadai]: input[_AI]!,
+    [_xaddsi]: input[_DSI]!,
+    [_xadhm]: input[_M]!,
+    [_xadp]: input[_P]!,
+    [_xadri]: input[_RI]!,
     ...(input.RequestHeaders !== undefined &&
       Object.keys(input.RequestHeaders).reduce((acc: any, suffix: string) => {
         acc[`x-amzn-dataexchange-header-${suffix.toLowerCase()}`] = input.RequestHeaders![suffix];
         return acc;
       }, {})),
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1";
+  b.bp("/v1");
   const query: any = map({
     ...convertMap(input.QueryStringParameters),
   });
@@ -747,16 +564,9 @@ export const se_SendApiAssetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -766,13 +576,12 @@ export const se_SendDataSetNotificationCommand = async (
   input: SendDataSetNotificationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}/notification";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/notification");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -783,15 +592,8 @@ export const se_SendDataSetNotificationCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -801,20 +603,13 @@ export const se_StartJobCommand = async (
   input: StartJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/jobs/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v1/jobs/{JobId}");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -824,27 +619,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -854,27 +642,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -884,31 +664,22 @@ export const se_UpdateAssetCommand = async (
   input: UpdateAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AssetId", () => input.AssetId!, "{AssetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}");
+  b.p("AssetId", () => input.AssetId!, "{AssetId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -918,13 +689,12 @@ export const se_UpdateDataSetCommand = async (
   input: UpdateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/data-sets/{DataSetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/v1/data-sets/{DataSetId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -932,15 +702,8 @@ export const se_UpdateDataSetCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -950,35 +713,20 @@ export const se_UpdateEventActionCommand = async (
   input: UpdateEventActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions/{EventActionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventActionId",
-    () => input.EventActionId!,
-    "{EventActionId}",
-    false
-  );
+  b.bp("/v1/event-actions/{EventActionId}");
+  b.p("EventActionId", () => input.EventActionId!, "{EventActionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Action: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -988,15 +736,13 @@ export const se_UpdateRevisionCommand = async (
   input: UpdateRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RevisionId", () => input.RevisionId!, "{RevisionId}", false);
+  b.bp("/v1/data-sets/{DataSetId}/revisions/{RevisionId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("RevisionId", () => input.RevisionId!, "{RevisionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1004,15 +750,8 @@ export const se_UpdateRevisionCommand = async (
       Finalized: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3472,6 +3211,29 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _AI = "AssetId";
+const _DSI = "DataSetId";
+const _ESI = "EventSourceId";
+const _M = "Method";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _O = "Origin";
+const _P = "Path";
+const _RI = "RevisionId";
+const _TK = "TagKeys";
+const _dSI = "dataSetId";
+const _eSI = "eventSourceId";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _o = "origin";
+const _rI = "revisionId";
+const _tK = "tagKeys";
+const _xadai = "x-amzn-dataexchange-asset-id";
+const _xaddsi = "x-amzn-dataexchange-data-set-id";
+const _xadhm = "x-amzn-dataexchange-http-method";
+const _xadp = "x-amzn-dataexchange-path";
+const _xadri = "x-amzn-dataexchange-revision-id";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

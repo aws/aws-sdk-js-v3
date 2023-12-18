@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -43,11 +44,11 @@ export const se_BatchGetRecordCommand = async (
   input: BatchGetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
+  b.bp("/BatchGetRecord");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -55,15 +56,8 @@ export const se_BatchGetRecordCommand = async (
       Identifiers: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -73,41 +67,19 @@ export const se_DeleteRecordCommand = async (
   input: DeleteRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FeatureGroupName",
-    () => input.FeatureGroupName!,
-    "{FeatureGroupName}",
-    false
-  );
+  b.bp("/FeatureGroup/{FeatureGroupName}");
+  b.p("FeatureGroupName", () => input.FeatureGroupName!, "{FeatureGroupName}", false);
   const query: any = map({
-    RecordIdentifierValueAsString: [
-      ,
-      __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
-    ],
-    EventTime: [, __expectNonNull(input.EventTime!, `EventTime`)],
-    TargetStores: [
-      () => input.TargetStores !== void 0,
-      () => (input.TargetStores! || []).map((_entry) => _entry as any),
-    ],
-    DeletionMode: [, input.DeletionMode!],
+    [_RIVAS]: [, __expectNonNull(input[_RIVAS]!, `RecordIdentifierValueAsString`)],
+    [_ET]: [, __expectNonNull(input[_ET]!, `EventTime`)],
+    [_TS]: [() => input.TargetStores !== void 0, () => (input[_TS]! || []).map((_entry) => _entry as any)],
+    [_DM]: [, input[_DM]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -117,40 +89,18 @@ export const se_GetRecordCommand = async (
   input: GetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FeatureGroupName",
-    () => input.FeatureGroupName!,
-    "{FeatureGroupName}",
-    false
-  );
+  b.bp("/FeatureGroup/{FeatureGroupName}");
+  b.p("FeatureGroupName", () => input.FeatureGroupName!, "{FeatureGroupName}", false);
   const query: any = map({
-    RecordIdentifierValueAsString: [
-      ,
-      __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
-    ],
-    FeatureName: [
-      () => input.FeatureNames !== void 0,
-      () => (input.FeatureNames! || []).map((_entry) => _entry as any),
-    ],
-    ExpirationTimeResponse: [, input.ExpirationTimeResponse!],
+    [_RIVAS]: [, __expectNonNull(input[_RIVAS]!, `RecordIdentifierValueAsString`)],
+    [_FNe]: [() => input.FeatureNames !== void 0, () => (input[_FN]! || []).map((_entry) => _entry as any)],
+    [_ETR]: [, input[_ETR]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -160,20 +110,12 @@ export const se_PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FeatureGroupName",
-    () => input.FeatureGroupName!,
-    "{FeatureGroupName}",
-    false
-  );
+  b.bp("/FeatureGroup/{FeatureGroupName}");
+  b.p("FeatureGroupName", () => input.FeatureGroupName!, "{FeatureGroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -182,15 +124,8 @@ export const se_PutRecordCommand = async (
       TtlDuration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -559,6 +494,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _DM = "DeletionMode";
+const _ET = "EventTime";
+const _ETR = "ExpirationTimeResponse";
+const _FN = "FeatureNames";
+const _FNe = "FeatureName";
+const _RIVAS = "RecordIdentifierValueAsString";
+const _TS = "TargetStores";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

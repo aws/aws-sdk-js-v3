@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -106,14 +107,12 @@ export const se_AddProfilePermissionCommand = async (
   input: AddProfilePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/signing-profiles/{profileName}/permissions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  b.bp("/signing-profiles/{profileName}/permissions");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -124,15 +123,8 @@ export const se_AddProfilePermissionCommand = async (
       statementId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -142,21 +134,13 @@ export const se_CancelSigningProfileCommand = async (
   input: CancelSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  b.bp("/signing-profiles/{profileName}");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -166,20 +150,13 @@ export const se_DescribeSigningJobCommand = async (
   input: DescribeSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/signing-jobs/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -189,20 +166,20 @@ export const se_GetRevocationStatusCommand = async (
   input: GetRevocationStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/revocations";
+  b.bp("/revocations");
   const query: any = map({
-    signatureTimestamp: [
+    [_sT]: [
       __expectNonNull(input.signatureTimestamp, `signatureTimestamp`) != null,
-      () => (input.signatureTimestamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    platformId: [, __expectNonNull(input.platformId!, `platformId`)],
-    profileVersionArn: [, __expectNonNull(input.profileVersionArn!, `profileVersionArn`)],
-    jobArn: [, __expectNonNull(input.jobArn!, `jobArn`)],
-    certificateHashes: [
+    [_pI]: [, __expectNonNull(input[_pI]!, `platformId`)],
+    [_pVA]: [, __expectNonNull(input[_pVA]!, `profileVersionArn`)],
+    [_jA]: [, __expectNonNull(input[_jA]!, `jobArn`)],
+    [_cH]: [
       __expectNonNull(input.certificateHashes, `certificateHashes`) != null,
-      () => (input.certificateHashes! || []).map((_entry) => _entry as any),
+      () => (input[_cH]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
@@ -213,16 +190,9 @@ export const se_GetRevocationStatusCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -232,21 +202,13 @@ export const se_GetSigningPlatformCommand = async (
   input: GetSigningPlatformCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-platforms/{platformId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "platformId", () => input.platformId!, "{platformId}", false);
+  b.bp("/signing-platforms/{platformId}");
+  b.p("platformId", () => input.platformId!, "{platformId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -256,25 +218,16 @@ export const se_GetSigningProfileCommand = async (
   input: GetSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  b.bp("/signing-profiles/{profileName}");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
   const query: any = map({
-    profileOwner: [, input.profileOwner!],
+    [_pO]: [, input[_pO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -284,26 +237,16 @@ export const se_ListProfilePermissionsCommand = async (
   input: ListProfilePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/signing-profiles/{profileName}/permissions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  b.bp("/signing-profiles/{profileName}/permissions");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -313,37 +256,29 @@ export const se_ListSigningJobsCommand = async (
   input: ListSigningJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs";
+  b.bp("/signing-jobs");
   const query: any = map({
-    status: [, input.status!],
-    platformId: [, input.platformId!],
-    requestedBy: [, input.requestedBy!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    isRevoked: [() => input.isRevoked !== void 0, () => input.isRevoked!.toString()],
-    signatureExpiresBefore: [
+    [_s]: [, input[_s]!],
+    [_pI]: [, input[_pI]!],
+    [_rB]: [, input[_rB]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_iR]: [() => input.isRevoked !== void 0, () => input[_iR]!.toString()],
+    [_sEB]: [
       () => input.signatureExpiresBefore !== void 0,
-      () => (input.signatureExpiresBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_sEB]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    signatureExpiresAfter: [
+    [_sEA]: [
       () => input.signatureExpiresAfter !== void 0,
-      () => (input.signatureExpiresAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_sEA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    jobInvoker: [, input.jobInvoker!],
+    [_jI]: [, input[_jI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -353,27 +288,19 @@ export const se_ListSigningPlatformsCommand = async (
   input: ListSigningPlatformsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-platforms";
+  b.bp("/signing-platforms");
   const query: any = map({
-    category: [, input.category!],
-    partner: [, input.partner!],
-    target: [, input.target!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_c]: [, input[_c]!],
+    [_p]: [, input[_p]!],
+    [_t]: [, input[_t]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -383,27 +310,19 @@ export const se_ListSigningProfilesCommand = async (
   input: ListSigningProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles";
+  b.bp("/signing-profiles");
   const query: any = map({
-    includeCanceled: [() => input.includeCanceled !== void 0, () => input.includeCanceled!.toString()],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    platformId: [, input.platformId!],
-    statuses: [() => input.statuses !== void 0, () => (input.statuses! || []).map((_entry) => _entry as any)],
+    [_iC]: [() => input.includeCanceled !== void 0, () => input[_iC]!.toString()],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_pI]: [, input[_pI]!],
+    [_st]: [() => input.statuses !== void 0, () => (input[_st]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -413,20 +332,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -436,13 +348,12 @@ export const se_PutSigningProfileCommand = async (
   input: PutSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  b.bp("/signing-profiles/{profileName}");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -454,15 +365,8 @@ export const se_PutSigningProfileCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -472,27 +376,17 @@ export const se_RemoveProfilePermissionCommand = async (
   input: RemoveProfilePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/signing-profiles/{profileName}/permissions/{statementId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "statementId", () => input.statementId!, "{statementId}", false);
+  b.bp("/signing-profiles/{profileName}/permissions/{statementId}");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
+  b.p("statementId", () => input.statementId!, "{statementId}", false);
   const query: any = map({
-    revisionId: [, __expectNonNull(input.revisionId!, `revisionId`)],
+    [_rI]: [, __expectNonNull(input[_rI]!, `revisionId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -502,13 +396,12 @@ export const se_RevokeSignatureCommand = async (
   input: RevokeSignatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/{jobId}/revoke";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/signing-jobs/{jobId}/revoke");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -516,15 +409,8 @@ export const se_RevokeSignatureCommand = async (
       reason: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -534,13 +420,12 @@ export const se_RevokeSigningProfileCommand = async (
   input: RevokeSigningProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-profiles/{profileName}/revoke";
-  resolvedPath = __resolvedPath(resolvedPath, input, "profileName", () => input.profileName!, "{profileName}", false);
+  b.bp("/signing-profiles/{profileName}/revoke");
+  b.p("profileName", () => input.profileName!, "{profileName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -549,15 +434,8 @@ export const se_RevokeSigningProfileCommand = async (
       reason: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -567,12 +445,11 @@ export const se_SignPayloadCommand = async (
   input: SignPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs/with-payload";
+  b.bp("/signing-jobs/with-payload");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -582,15 +459,8 @@ export const se_SignPayloadCommand = async (
       profileOwner: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -600,11 +470,11 @@ export const se_StartSigningJobCommand = async (
   input: StartSigningJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signing-jobs";
+  b.bp("/signing-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -615,15 +485,8 @@ export const se_StartSigningJobCommand = async (
       source: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -633,27 +496,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -663,27 +519,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2154,6 +2002,28 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _c = "category";
+const _cH = "certificateHashes";
+const _iC = "includeCanceled";
+const _iR = "isRevoked";
+const _jA = "jobArn";
+const _jI = "jobInvoker";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _p = "partner";
+const _pI = "platformId";
+const _pO = "profileOwner";
+const _pVA = "profileVersionArn";
+const _rB = "requestedBy";
+const _rI = "revisionId";
+const _s = "status";
+const _sEA = "signatureExpiresAfter";
+const _sEB = "signatureExpiresBefore";
+const _sT = "signatureTimestamp";
+const _st = "statuses";
+const _t = "target";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

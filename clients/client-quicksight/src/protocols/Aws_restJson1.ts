@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -1241,31 +1242,15 @@ export const se_CancelIngestionCommand = async (
   input: CancelIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "IngestionId", () => input.IngestionId!, "{IngestionId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("IngestionId", () => input.IngestionId!, "{IngestionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1275,22 +1260,14 @@ export const se_CreateAccountCustomizationCommand = async (
   input: CreateAccountCustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/customizations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/customizations");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    namespace: [, input.Namespace!],
+    [_n]: [, input[_N]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1299,16 +1276,8 @@ export const se_CreateAccountCustomizationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1318,19 +1287,12 @@ export const se_CreateAccountSubscriptionCommand = async (
   input: CreateAccountSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/account/{AwsAccountId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1350,15 +1312,8 @@ export const se_CreateAccountSubscriptionCommand = async (
       Realm: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1368,22 +1323,13 @@ export const se_CreateAnalysisCommand = async (
   input: CreateAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1398,15 +1344,8 @@ export const se_CreateAnalysisCommand = async (
       ValidationStrategy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1416,22 +1355,13 @@ export const se_CreateDashboardCommand = async (
   input: CreateDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1450,15 +1380,8 @@ export const se_CreateDashboardCommand = async (
       VersionDescription: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1468,20 +1391,12 @@ export const se_CreateDataSetCommand = async (
   input: CreateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/data-sets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sets");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1502,15 +1417,8 @@ export const se_CreateDataSetCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1520,20 +1428,12 @@ export const se_CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/data-sources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1549,15 +1449,8 @@ export const se_CreateDataSourceCommand = async (
       VpcConnectionProperties: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1567,22 +1460,13 @@ export const se_CreateFolderCommand = async (
   input: CreateFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1594,15 +1478,8 @@ export const se_CreateFolderCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1612,32 +1489,16 @@ export const se_CreateFolderMembershipCommand = async (
   input: CreateFolderMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberType", () => input.MemberType!, "{MemberType}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.p("MemberId", () => input.MemberId!, "{MemberId}", false);
+  b.p("MemberType", () => input.MemberType!, "{MemberType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1647,22 +1508,13 @@ export const se_CreateGroupCommand = async (
   input: CreateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1670,15 +1522,8 @@ export const se_CreateGroupCommand = async (
       GroupName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1688,32 +1533,16 @@ export const se_CreateGroupMembershipCommand = async (
   input: CreateGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}");
+  b.p("MemberName", () => input.MemberName!, "{MemberName}", false);
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1723,22 +1552,13 @@ export const se_CreateIAMPolicyAssignmentCommand = async (
   input: CreateIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1748,15 +1568,8 @@ export const se_CreateIAMPolicyAssignmentCommand = async (
       PolicyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1766,38 +1579,22 @@ export const se_CreateIngestionCommand = async (
   input: CreateIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "IngestionId", () => input.IngestionId!, "{IngestionId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("IngestionId", () => input.IngestionId!, "{IngestionId}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       IngestionType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1807,19 +1604,12 @@ export const se_CreateNamespaceCommand = async (
   input: CreateNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1828,15 +1618,8 @@ export const se_CreateNamespaceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1846,37 +1629,21 @@ export const se_CreateRefreshScheduleCommand = async (
   input: CreateRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Schedule: (_) => se_RefreshSchedule(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1886,32 +1653,16 @@ export const se_CreateRoleMembershipCommand = async (
   input: CreateRoleMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}");
+  b.p("MemberName", () => input.MemberName!, "{MemberName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.p("Role", () => input.Role!, "{Role}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1921,22 +1672,13 @@ export const se_CreateTemplateCommand = async (
   input: CreateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1949,15 +1691,8 @@ export const se_CreateTemplateCommand = async (
       VersionDescription: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1967,38 +1702,22 @@ export const se_CreateTemplateAliasCommand = async (
   input: CreateTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TemplateVersionNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2008,21 +1727,13 @@ export const se_CreateThemeCommand = async (
   input: CreateThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/themes/{ThemeId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2034,15 +1745,8 @@ export const se_CreateThemeCommand = async (
       VersionDescription: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2052,38 +1756,22 @@ export const se_CreateThemeAliasCommand = async (
   input: CreateThemeAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ThemeVersionNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2093,20 +1781,12 @@ export const se_CreateTopicCommand = async (
   input: CreateTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/topics");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2115,15 +1795,8 @@ export const se_CreateTopicCommand = async (
       TopicId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2133,22 +1806,13 @@ export const se_CreateTopicRefreshScheduleCommand = async (
   input: CreateTopicRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/schedules");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2157,15 +1821,8 @@ export const se_CreateTopicRefreshScheduleCommand = async (
       RefreshSchedule: (_) => se_TopicRefreshSchedule(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2175,20 +1832,12 @@ export const se_CreateVPCConnectionCommand = async (
   input: CreateVPCConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/vpc-connections";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/vpc-connections");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2201,15 +1850,8 @@ export const se_CreateVPCConnectionCommand = async (
       VPCConnectionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2219,32 +1861,16 @@ export const se_DeleteAccountCustomizationCommand = async (
   input: DeleteAccountCustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/customizations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/customizations");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    namespace: [, input.Namespace!],
+    [_n]: [, input[_N]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2254,27 +1880,13 @@ export const se_DeleteAccountSubscriptionCommand = async (
   input: DeleteAccountSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/account/{AwsAccountId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2284,41 +1896,18 @@ export const se_DeleteAnalysisCommand = async (
   input: DeleteAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   const query: any = map({
-    "recovery-window-in-days": [
-      () => input.RecoveryWindowInDays !== void 0,
-      () => input.RecoveryWindowInDays!.toString(),
-    ],
-    "force-delete-without-recovery": [
-      () => input.ForceDeleteWithoutRecovery !== void 0,
-      () => input.ForceDeleteWithoutRecovery!.toString(),
-    ],
+    [_rwid]: [() => input.RecoveryWindowInDays !== void 0, () => input[_RWID]!.toString()],
+    [_fdwr]: [() => input.ForceDeleteWithoutRecovery !== void 0, () => input[_FDWR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2328,34 +1917,17 @@ export const se_DeleteDashboardCommand = async (
   input: DeleteDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2365,30 +1937,14 @@ export const se_DeleteDataSetCommand = async (
   input: DeleteDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2398,30 +1954,14 @@ export const se_DeleteDataSetRefreshPropertiesCommand = async (
   input: DeleteDataSetRefreshPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2431,37 +1971,14 @@ export const se_DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DataSourceId",
-    () => input.DataSourceId!,
-    "{DataSourceId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources/{DataSourceId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSourceId", () => input.DataSourceId!, "{DataSourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2471,30 +1988,14 @@ export const se_DeleteFolderCommand = async (
   input: DeleteFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2504,32 +2005,16 @@ export const se_DeleteFolderMembershipCommand = async (
   input: DeleteFolderMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberType", () => input.MemberType!, "{MemberType}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}/members/{MemberType}/{MemberId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.p("MemberId", () => input.MemberId!, "{MemberId}", false);
+  b.p("MemberType", () => input.MemberType!, "{MemberType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2539,31 +2024,15 @@ export const se_DeleteGroupCommand = async (
   input: DeleteGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}");
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2573,32 +2042,16 @@ export const se_DeleteGroupMembershipCommand = async (
   input: DeleteGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}");
+  b.p("MemberName", () => input.MemberName!, "{MemberName}", false);
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2608,38 +2061,15 @@ export const se_DeleteIAMPolicyAssignmentCommand = async (
   input: DeleteIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssignmentName",
-    () => input.AssignmentName!,
-    "{AssignmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AssignmentName", () => input.AssignmentName!, "{AssignmentName}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2649,30 +2079,14 @@ export const se_DeleteIdentityPropagationConfigCommand = async (
   input: DeleteIdentityPropagationConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/identity-propagation-config/{Service}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Service", () => input.Service!, "{Service}", false);
+  b.bp("/accounts/{AwsAccountId}/identity-propagation-config/{Service}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Service", () => input.Service!, "{Service}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2682,30 +2096,14 @@ export const se_DeleteNamespaceCommand = async (
   input: DeleteNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2715,31 +2113,15 @@ export const se_DeleteRefreshScheduleCommand = async (
   input: DeleteRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2749,31 +2131,15 @@ export const se_DeleteRoleCustomPermissionCommand = async (
   input: DeleteRoleCustomPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission");
+  b.p("Role", () => input.Role!, "{Role}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2783,32 +2149,16 @@ export const se_DeleteRoleMembershipCommand = async (
   input: DeleteRoleMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members/{MemberName}");
+  b.p("MemberName", () => input.MemberName!, "{MemberName}", false);
+  b.p("Role", () => input.Role!, "{Role}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2818,34 +2168,17 @@ export const se_DeleteTemplateCommand = async (
   input: DeleteTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2855,31 +2188,15 @@ export const se_DeleteTemplateAliasCommand = async (
   input: DeleteTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2889,33 +2206,17 @@ export const se_DeleteThemeCommand = async (
   input: DeleteThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/themes/{ThemeId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2925,31 +2226,15 @@ export const se_DeleteThemeAliasCommand = async (
   input: DeleteThemeAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2959,29 +2244,14 @@ export const se_DeleteTopicCommand = async (
   input: DeleteTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics/{TopicId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2991,31 +2261,15 @@ export const se_DeleteTopicRefreshScheduleCommand = async (
   input: DeleteTopicRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetId", () => input.DatasetId!, "{DatasetId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.p("DatasetId", () => input.DatasetId!, "{DatasetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3025,31 +2279,15 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserName", () => input.UserName!, "{UserName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}");
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3059,31 +2297,15 @@ export const se_DeleteUserByPrincipalIdCommand = async (
   input: DeleteUserByPrincipalIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PrincipalId", () => input.PrincipalId!, "{PrincipalId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}");
+  b.p("PrincipalId", () => input.PrincipalId!, "{PrincipalId}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3093,37 +2315,14 @@ export const se_DeleteVPCConnectionCommand = async (
   input: DeleteVPCConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VPCConnectionId",
-    () => input.VPCConnectionId!,
-    "{VPCConnectionId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("VPCConnectionId", () => input.VPCConnectionId!, "{VPCConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3133,33 +2332,17 @@ export const se_DescribeAccountCustomizationCommand = async (
   input: DescribeAccountCustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/customizations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/customizations");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    namespace: [, input.Namespace!],
-    resolved: [() => input.Resolved !== void 0, () => input.Resolved!.toString()],
+    [_n]: [, input[_N]!],
+    [_r]: [() => input.Resolved !== void 0, () => input[_R]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3169,28 +2352,13 @@ export const se_DescribeAccountSettingsCommand = async (
   input: DescribeAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/settings";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/settings");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3200,27 +2368,13 @@ export const se_DescribeAccountSubscriptionCommand = async (
   input: DescribeAccountSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/account/{AwsAccountId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3230,30 +2384,14 @@ export const se_DescribeAnalysisCommand = async (
   input: DescribeAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3263,30 +2401,14 @@ export const se_DescribeAnalysisDefinitionCommand = async (
   input: DescribeAnalysisDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3296,30 +2418,14 @@ export const se_DescribeAnalysisPermissionsCommand = async (
   input: DescribeAnalysisPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3329,37 +2435,14 @@ export const se_DescribeAssetBundleExportJobCommand = async (
   input: DescribeAssetBundleExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssetBundleExportJobId",
-    () => input.AssetBundleExportJobId!,
-    "{AssetBundleExportJobId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AssetBundleExportJobId", () => input.AssetBundleExportJobId!, "{AssetBundleExportJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3369,37 +2452,14 @@ export const se_DescribeAssetBundleImportJobCommand = async (
   input: DescribeAssetBundleImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssetBundleImportJobId",
-    () => input.AssetBundleImportJobId!,
-    "{AssetBundleImportJobId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AssetBundleImportJobId", () => input.AssetBundleImportJobId!, "{AssetBundleImportJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3409,35 +2469,18 @@ export const se_DescribeDashboardCommand = async (
   input: DescribeDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
-    "alias-name": [, input.AliasName!],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
+    [_an]: [, input[_AN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3447,35 +2490,18 @@ export const se_DescribeDashboardDefinitionCommand = async (
   input: DescribeDashboardDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/definition";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/definition");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
-    "alias-name": [, input.AliasName!],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
+    [_an]: [, input[_AN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3485,30 +2511,14 @@ export const se_DescribeDashboardPermissionsCommand = async (
   input: DescribeDashboardPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3518,38 +2528,15 @@ export const se_DescribeDashboardSnapshotJobCommand = async (
   input: DescribeDashboardSnapshotJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SnapshotJobId",
-    () => input.SnapshotJobId!,
-    "{SnapshotJobId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.p("SnapshotJobId", () => input.SnapshotJobId!, "{SnapshotJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3559,38 +2546,15 @@ export const se_DescribeDashboardSnapshotJobResultCommand = async (
   input: DescribeDashboardSnapshotJobResultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SnapshotJobId",
-    () => input.SnapshotJobId!,
-    "{SnapshotJobId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs/{SnapshotJobId}/result");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.p("SnapshotJobId", () => input.SnapshotJobId!, "{SnapshotJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3600,30 +2564,14 @@ export const se_DescribeDataSetCommand = async (
   input: DescribeDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3633,30 +2581,14 @@ export const se_DescribeDataSetPermissionsCommand = async (
   input: DescribeDataSetPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3666,30 +2598,14 @@ export const se_DescribeDataSetRefreshPropertiesCommand = async (
   input: DescribeDataSetRefreshPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3699,37 +2615,14 @@ export const se_DescribeDataSourceCommand = async (
   input: DescribeDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DataSourceId",
-    () => input.DataSourceId!,
-    "{DataSourceId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources/{DataSourceId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSourceId", () => input.DataSourceId!, "{DataSourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3739,37 +2632,14 @@ export const se_DescribeDataSourcePermissionsCommand = async (
   input: DescribeDataSourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DataSourceId",
-    () => input.DataSourceId!,
-    "{DataSourceId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSourceId", () => input.DataSourceId!, "{DataSourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3779,30 +2649,14 @@ export const se_DescribeFolderCommand = async (
   input: DescribeFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3812,36 +2666,19 @@ export const se_DescribeFolderPermissionsCommand = async (
   input: DescribeFolderPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   const query: any = map({
-    namespace: [, input.Namespace!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_n]: [, input[_N]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3851,36 +2688,19 @@ export const se_DescribeFolderResolvedPermissionsCommand = async (
   input: DescribeFolderResolvedPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}/resolved-permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   const query: any = map({
-    namespace: [, input.Namespace!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_n]: [, input[_N]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3890,31 +2710,15 @@ export const se_DescribeGroupCommand = async (
   input: DescribeGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}");
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3924,32 +2728,16 @@ export const se_DescribeGroupMembershipCommand = async (
   input: DescribeGroupMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberName", () => input.MemberName!, "{MemberName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}");
+  b.p("MemberName", () => input.MemberName!, "{MemberName}", false);
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3959,38 +2747,15 @@ export const se_DescribeIAMPolicyAssignmentCommand = async (
   input: DescribeIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssignmentName",
-    () => input.AssignmentName!,
-    "{AssignmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AssignmentName", () => input.AssignmentName!, "{AssignmentName}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4000,31 +2765,15 @@ export const se_DescribeIngestionCommand = async (
   input: DescribeIngestionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "IngestionId", () => input.IngestionId!, "{IngestionId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("IngestionId", () => input.IngestionId!, "{IngestionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4034,28 +2783,13 @@ export const se_DescribeIpRestrictionCommand = async (
   input: DescribeIpRestrictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/ip-restriction";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/ip-restriction");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4065,30 +2799,14 @@ export const se_DescribeNamespaceCommand = async (
   input: DescribeNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4098,31 +2816,15 @@ export const se_DescribeRefreshScheduleCommand = async (
   input: DescribeRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules/{ScheduleId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("ScheduleId", () => input.ScheduleId!, "{ScheduleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4132,31 +2834,15 @@ export const se_DescribeRoleCustomPermissionCommand = async (
   input: DescribeRoleCustomPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission");
+  b.p("Role", () => input.Role!, "{Role}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4166,35 +2852,18 @@ export const se_DescribeTemplateCommand = async (
   input: DescribeTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
-    "alias-name": [, input.AliasName!],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
+    [_an]: [, input[_AN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4204,31 +2873,15 @@ export const se_DescribeTemplateAliasCommand = async (
   input: DescribeTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4238,35 +2891,18 @@ export const se_DescribeTemplateDefinitionCommand = async (
   input: DescribeTemplateDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/definition";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/definition");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
-    "alias-name": [, input.AliasName!],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
+    [_an]: [, input[_AN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4276,30 +2912,14 @@ export const se_DescribeTemplatePermissionsCommand = async (
   input: DescribeTemplatePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4309,34 +2929,18 @@ export const se_DescribeThemeCommand = async (
   input: DescribeThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/themes/{ThemeId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   const query: any = map({
-    "version-number": [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
-    "alias-name": [, input.AliasName!],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
+    [_an]: [, input[_AN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4346,31 +2950,15 @@ export const se_DescribeThemeAliasCommand = async (
   input: DescribeThemeAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4380,30 +2968,14 @@ export const se_DescribeThemePermissionsCommand = async (
   input: DescribeThemePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4413,29 +2985,14 @@ export const se_DescribeTopicCommand = async (
   input: DescribeTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics/{TopicId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4445,30 +3002,14 @@ export const se_DescribeTopicPermissionsCommand = async (
   input: DescribeTopicPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4478,31 +3019,15 @@ export const se_DescribeTopicRefreshCommand = async (
   input: DescribeTopicRefreshCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RefreshId", () => input.RefreshId!, "{RefreshId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/refresh/{RefreshId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.p("RefreshId", () => input.RefreshId!, "{RefreshId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4512,31 +3037,15 @@ export const se_DescribeTopicRefreshScheduleCommand = async (
   input: DescribeTopicRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetId", () => input.DatasetId!, "{DatasetId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.p("DatasetId", () => input.DatasetId!, "{DatasetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4546,31 +3055,15 @@ export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserName", () => input.UserName!, "{UserName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}");
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4580,37 +3073,14 @@ export const se_DescribeVPCConnectionCommand = async (
   input: DescribeVPCConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VPCConnectionId",
-    () => input.VPCConnectionId!,
-    "{VPCConnectionId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("VPCConnectionId", () => input.VPCConnectionId!, "{VPCConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4620,21 +3090,12 @@ export const se_GenerateEmbedUrlForAnonymousUserCommand = async (
   input: GenerateEmbedUrlForAnonymousUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/embed-url/anonymous-user";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/embed-url/anonymous-user");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -4646,15 +3107,8 @@ export const se_GenerateEmbedUrlForAnonymousUserCommand = async (
       SessionTags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4664,21 +3118,12 @@ export const se_GenerateEmbedUrlForRegisteredUserCommand = async (
   input: GenerateEmbedUrlForRegisteredUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/embed-url/registered-user";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/embed-url/registered-user");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -4688,15 +3133,8 @@ export const se_GenerateEmbedUrlForRegisteredUserCommand = async (
       UserArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4706,50 +3144,24 @@ export const se_GetDashboardEmbedUrlCommand = async (
   input: GetDashboardEmbedUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "creds-type": [, __expectNonNull(input.IdentityType!, `IdentityType`)],
-    "session-lifetime": [
-      () => input.SessionLifetimeInMinutes !== void 0,
-      () => input.SessionLifetimeInMinutes!.toString(),
-    ],
-    "undo-redo-disabled": [() => input.UndoRedoDisabled !== void 0, () => input.UndoRedoDisabled!.toString()],
-    "reset-disabled": [() => input.ResetDisabled !== void 0, () => input.ResetDisabled!.toString()],
-    "state-persistence-enabled": [
-      () => input.StatePersistenceEnabled !== void 0,
-      () => input.StatePersistenceEnabled!.toString(),
-    ],
-    "user-arn": [, input.UserArn!],
-    namespace: [, input.Namespace!],
-    "additional-dashboard-ids": [
-      () => input.AdditionalDashboardIds !== void 0,
-      () => (input.AdditionalDashboardIds! || []).map((_entry) => _entry as any),
-    ],
+    [_ct]: [, __expectNonNull(input[_IT]!, `IdentityType`)],
+    [_sl]: [() => input.SessionLifetimeInMinutes !== void 0, () => input[_SLIM]!.toString()],
+    [_urd]: [() => input.UndoRedoDisabled !== void 0, () => input[_URD]!.toString()],
+    [_rd]: [() => input.ResetDisabled !== void 0, () => input[_RD]!.toString()],
+    [_spe]: [() => input.StatePersistenceEnabled !== void 0, () => input[_SPE]!.toString()],
+    [_ua]: [, input[_UA]!],
+    [_n]: [, input[_N]!],
+    [_adi]: [() => input.AdditionalDashboardIds !== void 0, () => (input[_ADI]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4759,38 +3171,18 @@ export const se_GetSessionEmbedUrlCommand = async (
   input: GetSessionEmbedUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/session-embed-url";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/session-embed-url");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "entry-point": [, input.EntryPoint!],
-    "session-lifetime": [
-      () => input.SessionLifetimeInMinutes !== void 0,
-      () => input.SessionLifetimeInMinutes!.toString(),
-    ],
-    "user-arn": [, input.UserArn!],
+    [_ep]: [, input[_EP]!],
+    [_sl]: [() => input.SessionLifetimeInMinutes !== void 0, () => input[_SLIM]!.toString()],
+    [_ua]: [, input[_UA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4800,33 +3192,17 @@ export const se_ListAnalysesCommand = async (
   input: ListAnalysesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/analyses";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/analyses");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4836,34 +3212,17 @@ export const se_ListAssetBundleExportJobsCommand = async (
   input: ListAssetBundleExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/asset-bundle-export-jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/asset-bundle-export-jobs");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4873,34 +3232,17 @@ export const se_ListAssetBundleImportJobsCommand = async (
   input: ListAssetBundleImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/asset-bundle-import-jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/asset-bundle-import-jobs");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4910,33 +3252,17 @@ export const se_ListDashboardsCommand = async (
   input: ListDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/dashboards";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/dashboards");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4946,35 +3272,18 @@ export const se_ListDashboardVersionsCommand = async (
   input: ListDashboardVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4984,33 +3293,17 @@ export const se_ListDataSetsCommand = async (
   input: ListDataSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/data-sets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sets");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5020,33 +3313,17 @@ export const se_ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/data-sources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5056,35 +3333,18 @@ export const se_ListFolderMembersCommand = async (
   input: ListFolderMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}/members";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}/members");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5094,33 +3354,17 @@ export const se_ListFoldersCommand = async (
   input: ListFoldersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/folders";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/folders");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5130,36 +3374,19 @@ export const se_ListGroupMembershipsCommand = async (
   input: ListGroupMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members");
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5169,35 +3396,18 @@ export const se_ListGroupsCommand = async (
   input: ListGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5207,36 +3417,19 @@ export const se_ListIAMPolicyAssignmentsCommand = async (
   input: ListIAMPolicyAssignmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/v2/iam-policy-assignments");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "assignment-status": [, input.AssignmentStatus!],
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_as]: [, input[_AS]!],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5246,36 +3439,19 @@ export const se_ListIAMPolicyAssignmentsForUserCommand = async (
   input: ListIAMPolicyAssignmentsForUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserName", () => input.UserName!, "{UserName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5285,34 +3461,17 @@ export const se_ListIdentityPropagationConfigsCommand = async (
   input: ListIdentityPropagationConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/identity-propagation-config";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/identity-propagation-config");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5322,35 +3481,18 @@ export const se_ListIngestionsCommand = async (
   input: ListIngestionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5360,33 +3502,17 @@ export const se_ListNamespacesCommand = async (
   input: ListNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/namespaces";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/namespaces");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5396,30 +3522,14 @@ export const se_ListRefreshSchedulesCommand = async (
   input: ListRefreshSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5429,36 +3539,19 @@ export const se_ListRoleMembershipsCommand = async (
   input: ListRoleMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/members");
+  b.p("Role", () => input.Role!, "{Role}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5468,21 +3561,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/tags";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resources/{ResourceArn}/tags");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5492,35 +3577,18 @@ export const se_ListTemplateAliasesCommand = async (
   input: ListTemplateAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/aliases");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-result": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr_]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5530,33 +3598,17 @@ export const se_ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/templates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/templates");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-result": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr_]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5566,35 +3618,18 @@ export const se_ListTemplateVersionsCommand = async (
   input: ListTemplateVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/versions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5604,35 +3639,18 @@ export const se_ListThemeAliasesCommand = async (
   input: ListThemeAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/aliases");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-result": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr_]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5642,34 +3660,18 @@ export const se_ListThemesCommand = async (
   input: ListThemesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/themes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/themes");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    type: [, input.Type!],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_t]: [, input[_T]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5679,35 +3681,18 @@ export const se_ListThemeVersionsCommand = async (
   input: ListThemeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/versions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5717,30 +3702,14 @@ export const se_ListTopicRefreshSchedulesCommand = async (
   input: ListTopicRefreshSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/schedules");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5750,33 +3719,17 @@ export const se_ListTopicsCommand = async (
   input: ListTopicsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/topics");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5786,36 +3739,19 @@ export const se_ListUserGroupsCommand = async (
   input: ListUserGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserName", () => input.UserName!, "{UserName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups");
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5825,35 +3761,18 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5863,33 +3782,17 @@ export const se_ListVPCConnectionsCommand = async (
   input: ListVPCConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/vpc-connections";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/vpc-connections");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5899,37 +3802,21 @@ export const se_PutDataSetRefreshPropertiesCommand = async (
   input: PutDataSetRefreshPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-properties");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       DataSetRefreshProperties: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5939,22 +3826,13 @@ export const se_RegisterUserCommand = async (
   input: RegisterUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5971,15 +3849,8 @@ export const se_RegisterUserCommand = async (
       UserRole: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5989,30 +3860,14 @@ export const se_RestoreAnalysisCommand = async (
   input: RestoreAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/restore/analyses/{AnalysisId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6022,20 +3877,12 @@ export const se_SearchAnalysesCommand = async (
   input: SearchAnalysesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/search/analyses";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/search/analyses");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6044,15 +3891,8 @@ export const se_SearchAnalysesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6062,21 +3902,12 @@ export const se_SearchDashboardsCommand = async (
   input: SearchDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/search/dashboards";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/search/dashboards");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6085,15 +3916,8 @@ export const se_SearchDashboardsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6103,20 +3927,12 @@ export const se_SearchDataSetsCommand = async (
   input: SearchDataSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/search/data-sets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/search/data-sets");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6125,15 +3941,8 @@ export const se_SearchDataSetsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6143,21 +3952,12 @@ export const se_SearchDataSourcesCommand = async (
   input: SearchDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/search/data-sources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/search/data-sources");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6166,15 +3966,8 @@ export const se_SearchDataSourcesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6184,20 +3977,12 @@ export const se_SearchFoldersCommand = async (
   input: SearchFoldersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/search/folders";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/search/folders");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6206,15 +3991,8 @@ export const se_SearchFoldersCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6224,25 +4002,16 @@ export const se_SearchGroupsCommand = async (
   input: SearchGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -6250,16 +4019,8 @@ export const se_SearchGroupsCommand = async (
       Filters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -6269,21 +4030,12 @@ export const se_StartAssetBundleExportJobCommand = async (
   input: StartAssetBundleExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/asset-bundle-export-jobs/export";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/asset-bundle-export-jobs/export");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6297,15 +4049,8 @@ export const se_StartAssetBundleExportJobCommand = async (
       ValidationStrategy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6315,21 +4060,12 @@ export const se_StartAssetBundleImportJobCommand = async (
   input: StartAssetBundleImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/asset-bundle-import-jobs/import";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/asset-bundle-import-jobs/import");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6342,15 +4078,8 @@ export const se_StartAssetBundleImportJobCommand = async (
       OverrideValidationStrategy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6360,22 +4089,13 @@ export const se_StartDashboardSnapshotJobCommand = async (
   input: StartDashboardSnapshotJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/snapshot-jobs");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6384,15 +4104,8 @@ export const se_StartDashboardSnapshotJobCommand = async (
       UserConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6402,28 +4115,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/tags";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resources/{ResourceArn}/tags");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6433,28 +4138,16 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/tags";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resources/{ResourceArn}/tags");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    keys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
-    ],
+    [_k]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => (input[_TK]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -6464,22 +4157,14 @@ export const se_UpdateAccountCustomizationCommand = async (
   input: UpdateAccountCustomizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/customizations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/customizations");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   const query: any = map({
-    namespace: [, input.Namespace!],
+    [_n]: [, input[_N]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -6487,16 +4172,8 @@ export const se_UpdateAccountCustomizationCommand = async (
       AccountCustomization: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -6506,20 +4183,12 @@ export const se_UpdateAccountSettingsCommand = async (
   input: UpdateAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/settings";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/settings");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6528,15 +4197,8 @@ export const se_UpdateAccountSettingsCommand = async (
       TerminationProtectionEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6546,22 +4208,13 @@ export const se_UpdateAnalysisCommand = async (
   input: UpdateAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6573,15 +4226,8 @@ export const se_UpdateAnalysisCommand = async (
       ValidationStrategy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6591,22 +4237,13 @@ export const se_UpdateAnalysisPermissionsCommand = async (
   input: UpdateAnalysisPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
+  b.bp("/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AnalysisId", () => input.AnalysisId!, "{AnalysisId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6614,15 +4251,8 @@ export const se_UpdateAnalysisPermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6632,22 +4262,13 @@ export const se_UpdateDashboardCommand = async (
   input: UpdateDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6661,15 +4282,8 @@ export const se_UpdateDashboardCommand = async (
       VersionDescription: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6679,37 +4293,21 @@ export const se_UpdateDashboardLinksCommand = async (
   input: UpdateDashboardLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/linked-entities");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LinkEntities: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6719,22 +4317,13 @@ export const se_UpdateDashboardPermissionsCommand = async (
   input: UpdateDashboardPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6744,15 +4333,8 @@ export const se_UpdateDashboardPermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6762,38 +4344,15 @@ export const se_UpdateDashboardPublishedVersionCommand = async (
   input: UpdateDashboardPublishedVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6803,22 +4362,13 @@ export const se_UpdateDataSetCommand = async (
   input: UpdateDataSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6835,15 +4385,8 @@ export const se_UpdateDataSetCommand = async (
       RowLevelPermissionTagConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6853,22 +4396,13 @@ export const se_UpdateDataSetPermissionsCommand = async (
   input: UpdateDataSetPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6876,15 +4410,8 @@ export const se_UpdateDataSetPermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6894,29 +4421,13 @@ export const se_UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DataSourceId",
-    () => input.DataSourceId!,
-    "{DataSourceId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources/{DataSourceId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSourceId", () => input.DataSourceId!, "{DataSourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6927,15 +4438,8 @@ export const se_UpdateDataSourceCommand = async (
       VpcConnectionProperties: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6945,29 +4449,13 @@ export const se_UpdateDataSourcePermissionsCommand = async (
   input: UpdateDataSourcePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DataSourceId",
-    () => input.DataSourceId!,
-    "{DataSourceId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("DataSourceId", () => input.DataSourceId!, "{DataSourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6975,15 +4463,8 @@ export const se_UpdateDataSourcePermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6993,37 +4474,21 @@ export const se_UpdateFolderCommand = async (
   input: UpdateFolderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7033,22 +4498,13 @@ export const se_UpdateFolderPermissionsCommand = async (
   input: UpdateFolderPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/folders/{FolderId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "FolderId", () => input.FolderId!, "{FolderId}", false);
+  b.bp("/accounts/{AwsAccountId}/folders/{FolderId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("FolderId", () => input.FolderId!, "{FolderId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7056,15 +4512,8 @@ export const se_UpdateFolderPermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7074,38 +4523,22 @@ export const se_UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "GroupName", () => input.GroupName!, "{GroupName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}");
+  b.p("GroupName", () => input.GroupName!, "{GroupName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7115,30 +4548,14 @@ export const se_UpdateIAMPolicyAssignmentCommand = async (
   input: UpdateIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssignmentName",
-    () => input.AssignmentName!,
-    "{AssignmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("AssignmentName", () => input.AssignmentName!, "{AssignmentName}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7147,15 +4564,8 @@ export const se_UpdateIAMPolicyAssignmentCommand = async (
       PolicyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7165,37 +4575,21 @@ export const se_UpdateIdentityPropagationConfigCommand = async (
   input: UpdateIdentityPropagationConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/identity-propagation-config/{Service}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Service", () => input.Service!, "{Service}", false);
+  b.bp("/accounts/{AwsAccountId}/identity-propagation-config/{Service}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Service", () => input.Service!, "{Service}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AuthorizedTargets: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7205,20 +4599,12 @@ export const se_UpdateIpRestrictionCommand = async (
   input: UpdateIpRestrictionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/ip-restriction";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/ip-restriction");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7226,15 +4612,8 @@ export const se_UpdateIpRestrictionCommand = async (
       IpRestrictionRuleMap: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7244,36 +4623,20 @@ export const se_UpdatePublicSharingSettingsCommand = async (
   input: UpdatePublicSharingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/public-sharing-settings";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/public-sharing-settings");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       PublicSharingEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7283,37 +4646,21 @@ export const se_UpdateRefreshScheduleCommand = async (
   input: UpdateRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DataSetId", () => input.DataSetId!, "{DataSetId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/data-sets/{DataSetId}/refresh-schedules");
+  b.p("DataSetId", () => input.DataSetId!, "{DataSetId}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Schedule: (_) => se_RefreshSchedule(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7323,38 +4670,22 @@ export const se_UpdateRoleCustomPermissionCommand = async (
   input: UpdateRoleCustomPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Role", () => input.Role!, "{Role}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/roles/{Role}/custom-permission");
+  b.p("Role", () => input.Role!, "{Role}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       CustomPermissionsName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7364,22 +4695,13 @@ export const se_UpdateTemplateCommand = async (
   input: UpdateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7390,15 +4712,8 @@ export const se_UpdateTemplateCommand = async (
       VersionDescription: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7408,38 +4723,22 @@ export const se_UpdateTemplateAliasCommand = async (
   input: UpdateTemplateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TemplateVersionNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7449,22 +4748,13 @@ export const se_UpdateTemplatePermissionsCommand = async (
   input: UpdateTemplatePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/accounts/{AwsAccountId}/templates/{TemplateId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7472,15 +4762,8 @@ export const se_UpdateTemplatePermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7490,21 +4773,13 @@ export const se_UpdateThemeCommand = async (
   input: UpdateThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/themes/{ThemeId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7514,15 +4789,8 @@ export const se_UpdateThemeCommand = async (
       VersionDescription: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7532,38 +4800,22 @@ export const se_UpdateThemeAliasCommand = async (
   input: UpdateThemeAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "AliasName", () => input.AliasName!, "{AliasName}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.p("AliasName", () => input.AliasName!, "{AliasName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ThemeVersionNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7573,22 +4825,13 @@ export const se_UpdateThemePermissionsCommand = async (
   input: UpdateThemePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/themes/{ThemeId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ThemeId", () => input.ThemeId!, "{ThemeId}", false);
+  b.bp("/accounts/{AwsAccountId}/themes/{ThemeId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("ThemeId", () => input.ThemeId!, "{ThemeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7596,15 +4839,8 @@ export const se_UpdateThemePermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7614,36 +4850,21 @@ export const se_UpdateTopicCommand = async (
   input: UpdateTopicCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/topics/{TopicId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Topic: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7653,22 +4874,13 @@ export const se_UpdateTopicPermissionsCommand = async (
   input: UpdateTopicPermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/permissions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7676,15 +4888,8 @@ export const se_UpdateTopicPermissionsCommand = async (
       RevokePermissions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7694,38 +4899,22 @@ export const se_UpdateTopicRefreshScheduleCommand = async (
   input: UpdateTopicRefreshScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "TopicId", () => input.TopicId!, "{TopicId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "DatasetId", () => input.DatasetId!, "{DatasetId}", false);
+  b.bp("/accounts/{AwsAccountId}/topics/{TopicId}/schedules/{DatasetId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("TopicId", () => input.TopicId!, "{TopicId}", false);
+  b.p("DatasetId", () => input.DatasetId!, "{DatasetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       RefreshSchedule: (_) => se_TopicRefreshSchedule(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7735,23 +4924,14 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserName", () => input.UserName!, "{UserName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Namespace", () => input.Namespace!, "{Namespace}", false);
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}");
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7764,15 +4944,8 @@ export const se_UpdateUserCommand = async (
       UnapplyCustomPermissions: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7782,29 +4955,13 @@ export const se_UpdateVPCConnectionCommand = async (
   input: UpdateVPCConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AwsAccountId",
-    () => input.AwsAccountId!,
-    "{AwsAccountId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VPCConnectionId",
-    () => input.VPCConnectionId!,
-    "{VPCConnectionId}",
-    false
-  );
+  b.bp("/accounts/{AwsAccountId}/vpc-connections/{VPCConnectionId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("VPCConnectionId", () => input.VPCConnectionId!, "{VPCConnectionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7815,15 +4972,8 @@ export const se_UpdateVPCConnectionCommand = async (
       SubnetIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -30390,6 +27540,46 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _ADI = "AdditionalDashboardIds";
+const _AN = "AliasName";
+const _AS = "AssignmentStatus";
+const _EP = "EntryPoint";
+const _FDWR = "ForceDeleteWithoutRecovery";
+const _IT = "IdentityType";
+const _MR = "MaxResults";
+const _N = "Namespace";
+const _NT = "NextToken";
+const _R = "Resolved";
+const _RD = "ResetDisabled";
+const _RWID = "RecoveryWindowInDays";
+const _SLIM = "SessionLifetimeInMinutes";
+const _SPE = "StatePersistenceEnabled";
+const _T = "Type";
+const _TK = "TagKeys";
+const _UA = "UserArn";
+const _URD = "UndoRedoDisabled";
+const _VN = "VersionNumber";
+const _adi = "additional-dashboard-ids";
+const _an = "alias-name";
+const _as = "assignment-status";
+const _ct = "creds-type";
+const _ep = "entry-point";
+const _fdwr = "force-delete-without-recovery";
+const _k = "keys";
+const _mr = "max-results";
+const _mr_ = "max-result";
+const _n = "namespace";
+const _nt = "next-token";
+const _r = "resolved";
+const _rd = "reset-disabled";
+const _rwid = "recovery-window-in-days";
+const _sl = "session-lifetime";
+const _spe = "state-persistence-enabled";
+const _t = "type";
+const _ua = "user-arn";
+const _urd = "undo-redo-disabled";
+const _vn = "version-number";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

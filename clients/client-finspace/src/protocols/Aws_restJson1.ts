@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -164,11 +165,11 @@ export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
+  b.bp("/environment");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -182,15 +183,8 @@ export const se_CreateEnvironmentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -200,29 +194,13 @@ export const se_CreateKxChangesetCommand = async (
   input: CreateKxChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/changesets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/changesets");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -230,15 +208,8 @@ export const se_CreateKxChangesetCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -248,20 +219,12 @@ export const se_CreateKxClusterCommand = async (
   input: CreateKxClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/clusters";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/clusters");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -287,15 +250,8 @@ export const se_CreateKxClusterCommand = async (
       vpcConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -305,21 +261,12 @@ export const se_CreateKxDatabaseCommand = async (
   input: CreateKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -329,15 +276,8 @@ export const se_CreateKxDatabaseCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -347,29 +287,13 @@ export const se_CreateKxDataviewCommand = async (
   input: CreateKxDataviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/dataviews";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -384,15 +308,8 @@ export const se_CreateKxDataviewCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -402,11 +319,11 @@ export const se_CreateKxEnvironmentCommand = async (
   input: CreateKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments";
+  b.bp("/kx/environments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -417,15 +334,8 @@ export const se_CreateKxEnvironmentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -435,21 +345,12 @@ export const se_CreateKxScalingGroupCommand = async (
   input: CreateKxScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/scalingGroups";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/scalingGroups");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -460,15 +361,8 @@ export const se_CreateKxScalingGroupCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -478,20 +372,12 @@ export const se_CreateKxUserCommand = async (
   input: CreateKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -501,15 +387,8 @@ export const se_CreateKxUserCommand = async (
       userName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -519,21 +398,12 @@ export const se_CreateKxVolumeCommand = async (
   input: CreateKxVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/kxvolumes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/kxvolumes");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -547,15 +417,8 @@ export const se_CreateKxVolumeCommand = async (
       volumeType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -565,28 +428,13 @@ export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/environment/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -596,34 +444,17 @@ export const se_DeleteKxClusterCommand = async (
   input: DeleteKxClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -633,41 +464,17 @@ export const se_DeleteKxDatabaseCommand = async (
   input: DeleteKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   const query: any = map({
-    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
+    [_cT]: [, __expectNonNull(input[_cT]!, `clientToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -677,49 +484,18 @@ export const se_DeleteKxDataviewCommand = async (
   input: DeleteKxDataviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataviewName",
-    () => input.dataviewName!,
-    "{dataviewName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("dataviewName", () => input.dataviewName!, "{dataviewName}", false);
   const query: any = map({
-    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
+    [_cT]: [, __expectNonNull(input[_cT]!, `clientToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -729,32 +505,16 @@ export const se_DeleteKxEnvironmentCommand = async (
   input: DeleteKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -764,41 +524,17 @@ export const se_DeleteKxScalingGroupCommand = async (
   input: DeleteKxScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "scalingGroupName",
-    () => input.scalingGroupName!,
-    "{scalingGroupName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("scalingGroupName", () => input.scalingGroupName!, "{scalingGroupName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -808,34 +544,17 @@ export const se_DeleteKxUserCommand = async (
   input: DeleteKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/users/{userName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userName", () => input.userName!, "{userName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users/{userName}");
+  b.p("userName", () => input.userName!, "{userName}", false);
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -845,34 +564,17 @@ export const se_DeleteKxVolumeCommand = async (
   input: DeleteKxVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/kxvolumes/{volumeName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "volumeName", () => input.volumeName!, "{volumeName}", false);
+  b.bp("/kx/environments/{environmentId}/kxvolumes/{volumeName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("volumeName", () => input.volumeName!, "{volumeName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -882,28 +584,13 @@ export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/environment/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -913,38 +600,15 @@ export const se_GetKxChangesetCommand = async (
   input: GetKxChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "changesetId", () => input.changesetId!, "{changesetId}", false);
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("changesetId", () => input.changesetId!, "{changesetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -954,30 +618,14 @@ export const se_GetKxClusterCommand = async (
   input: GetKxClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -987,34 +635,17 @@ export const se_GetKxConnectionStringCommand = async (
   input: GetKxConnectionStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/connectionString";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/connectionString");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    userArn: [, __expectNonNull(input.userArn!, `userArn`)],
-    clusterName: [, __expectNonNull(input.clusterName!, `clusterName`)],
+    [_uA]: [, __expectNonNull(input[_uA]!, `userArn`)],
+    [_cN]: [, __expectNonNull(input[_cN]!, `clusterName`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1024,37 +655,14 @@ export const se_GetKxDatabaseCommand = async (
   input: GetKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1064,45 +672,15 @@ export const se_GetKxDataviewCommand = async (
   input: GetKxDataviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataviewName",
-    () => input.dataviewName!,
-    "{dataviewName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("dataviewName", () => input.dataviewName!, "{dataviewName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1112,28 +690,13 @@ export const se_GetKxEnvironmentCommand = async (
   input: GetKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1143,37 +706,14 @@ export const se_GetKxScalingGroupCommand = async (
   input: GetKxScalingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "scalingGroupName",
-    () => input.scalingGroupName!,
-    "{scalingGroupName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("scalingGroupName", () => input.scalingGroupName!, "{scalingGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1183,30 +723,14 @@ export const se_GetKxUserCommand = async (
   input: GetKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/users/{userName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userName", () => input.userName!, "{userName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users/{userName}");
+  b.p("userName", () => input.userName!, "{userName}", false);
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1216,30 +740,14 @@ export const se_GetKxVolumeCommand = async (
   input: GetKxVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/kxvolumes/{volumeName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "volumeName", () => input.volumeName!, "{volumeName}", false);
+  b.bp("/kx/environments/{environmentId}/kxvolumes/{volumeName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("volumeName", () => input.volumeName!, "{volumeName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1249,24 +757,16 @@ export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
+  b.bp("/environment");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1276,42 +776,18 @@ export const se_ListKxChangesetsCommand = async (
   input: ListKxChangesetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/changesets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/changesets");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1321,35 +797,18 @@ export const se_ListKxClusterNodesCommand = async (
   input: ListKxClusterNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}/nodes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/nodes");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1359,34 +818,18 @@ export const se_ListKxClustersCommand = async (
   input: ListKxClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/clusters";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/clusters");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    clusterType: [, input.clusterType!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cTl]: [, input[_cTl]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1396,34 +839,17 @@ export const se_ListKxDatabasesCommand = async (
   input: ListKxDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1433,42 +859,18 @@ export const se_ListKxDataviewsCommand = async (
   input: ListKxDataviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/dataviews";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1478,24 +880,16 @@ export const se_ListKxEnvironmentsCommand = async (
   input: ListKxEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments";
+  b.bp("/kx/environments");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1505,34 +899,17 @@ export const se_ListKxScalingGroupsCommand = async (
   input: ListKxScalingGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/scalingGroups";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/scalingGroups");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1542,33 +919,17 @@ export const se_ListKxUsersCommand = async (
   input: ListKxUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1578,35 +939,18 @@ export const se_ListKxVolumesCommand = async (
   input: ListKxVolumesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/kxvolumes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/kxvolumes");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    volumeType: [, input.volumeType!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_vT]: [, input[_vT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1616,20 +960,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1639,27 +976,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1669,27 +999,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1699,20 +1021,12 @@ export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/environment/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1722,15 +1036,8 @@ export const se_UpdateEnvironmentCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1740,22 +1047,13 @@ export const se_UpdateKxClusterCodeConfigurationCommand = async (
   input: UpdateKxClusterCodeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1766,15 +1064,8 @@ export const se_UpdateKxClusterCodeConfigurationCommand = async (
       initializationScript: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1784,22 +1075,13 @@ export const se_UpdateKxClusterDatabasesCommand = async (
   input: UpdateKxClusterDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1808,15 +1090,8 @@ export const se_UpdateKxClusterDatabasesCommand = async (
       deploymentConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1826,29 +1101,13 @@ export const se_UpdateKxDatabaseCommand = async (
   input: UpdateKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1856,15 +1115,8 @@ export const se_UpdateKxDatabaseCommand = async (
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1874,37 +1126,14 @@ export const se_UpdateKxDataviewCommand = async (
   input: UpdateKxDataviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataviewName",
-    () => input.dataviewName!,
-    "{dataviewName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("dataviewName", () => input.dataviewName!, "{dataviewName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1914,15 +1143,8 @@ export const se_UpdateKxDataviewCommand = async (
       segmentConfigurations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1932,20 +1154,12 @@ export const se_UpdateKxEnvironmentCommand = async (
   input: UpdateKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1954,15 +1168,8 @@ export const se_UpdateKxEnvironmentCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1972,20 +1179,12 @@ export const se_UpdateKxEnvironmentNetworkCommand = async (
   input: UpdateKxEnvironmentNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/network";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/network");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1994,15 +1193,8 @@ export const se_UpdateKxEnvironmentNetworkCommand = async (
       transitGatewayConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2012,22 +1204,13 @@ export const se_UpdateKxUserCommand = async (
   input: UpdateKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/users/{userName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "userName", () => input.userName!, "{userName}", false);
+  b.bp("/kx/environments/{environmentId}/users/{userName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("userName", () => input.userName!, "{userName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2035,15 +1218,8 @@ export const se_UpdateKxUserCommand = async (
       iamRole: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2053,22 +1229,13 @@ export const se_UpdateKxVolumeCommand = async (
   input: UpdateKxVolumeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/kxvolumes/{volumeName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "volumeName", () => input.volumeName!, "{volumeName}", false);
+  b.bp("/kx/environments/{environmentId}/kxvolumes/{volumeName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("volumeName", () => input.volumeName!, "{volumeName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2077,15 +1244,8 @@ export const se_UpdateKxVolumeCommand = async (
       nas1Configuration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6016,6 +5176,15 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cN = "clusterName";
+const _cT = "clientToken";
+const _cTl = "clusterType";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _uA = "userArn";
+const _vT = "volumeType";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

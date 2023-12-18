@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -118,12 +119,11 @@ export const se_CreateModelCustomizationJobCommand = async (
   input: CreateModelCustomizationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/model-customization-jobs";
+  b.bp("/model-customization-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -143,15 +143,8 @@ export const se_CreateModelCustomizationJobCommand = async (
       vpcConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -161,12 +154,11 @@ export const se_CreateProvisionedModelThroughputCommand = async (
   input: CreateProvisionedModelThroughputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/provisioned-model-throughput";
+  b.bp("/provisioned-model-throughput");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -178,15 +170,8 @@ export const se_CreateProvisionedModelThroughputCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -196,28 +181,13 @@ export const se_DeleteCustomModelCommand = async (
   input: DeleteCustomModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/custom-models/{modelIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "modelIdentifier",
-    () => input.modelIdentifier!,
-    "{modelIdentifier}",
-    false
-  );
+  b.bp("/custom-models/{modelIdentifier}");
+  b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -227,23 +197,15 @@ export const se_DeleteModelInvocationLoggingConfigurationCommand = async (
   input: DeleteModelInvocationLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging/modelinvocations";
+  b.bp("/logging/modelinvocations");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -253,29 +215,13 @@ export const se_DeleteProvisionedModelThroughputCommand = async (
   input: DeleteProvisionedModelThroughputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/provisioned-model-throughput/{provisionedModelId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "provisionedModelId",
-    () => input.provisionedModelId!,
-    "{provisionedModelId}",
-    false
-  );
+  b.bp("/provisioned-model-throughput/{provisionedModelId}");
+  b.p("provisionedModelId", () => input.provisionedModelId!, "{provisionedModelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -285,28 +231,13 @@ export const se_GetCustomModelCommand = async (
   input: GetCustomModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/custom-models/{modelIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "modelIdentifier",
-    () => input.modelIdentifier!,
-    "{modelIdentifier}",
-    false
-  );
+  b.bp("/custom-models/{modelIdentifier}");
+  b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -316,28 +247,13 @@ export const se_GetFoundationModelCommand = async (
   input: GetFoundationModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/foundation-models/{modelIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "modelIdentifier",
-    () => input.modelIdentifier!,
-    "{modelIdentifier}",
-    false
-  );
+  b.bp("/foundation-models/{modelIdentifier}");
+  b.p("modelIdentifier", () => input.modelIdentifier!, "{modelIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -347,28 +263,13 @@ export const se_GetModelCustomizationJobCommand = async (
   input: GetModelCustomizationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/model-customization-jobs/{jobIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "jobIdentifier",
-    () => input.jobIdentifier!,
-    "{jobIdentifier}",
-    false
-  );
+  b.bp("/model-customization-jobs/{jobIdentifier}");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -378,23 +279,15 @@ export const se_GetModelInvocationLoggingConfigurationCommand = async (
   input: GetModelInvocationLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging/modelinvocations";
+  b.bp("/logging/modelinvocations");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -404,29 +297,13 @@ export const se_GetProvisionedModelThroughputCommand = async (
   input: GetProvisionedModelThroughputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/provisioned-model-throughput/{provisionedModelId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "provisionedModelId",
-    () => input.provisionedModelId!,
-    "{provisionedModelId}",
-    false
-  );
+  b.bp("/provisioned-model-throughput/{provisionedModelId}");
+  b.p("provisionedModelId", () => input.provisionedModelId!, "{provisionedModelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -436,37 +313,29 @@ export const se_ListCustomModelsCommand = async (
   input: ListCustomModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/custom-models";
+  b.bp("/custom-models");
   const query: any = map({
-    creationTimeBefore: [
+    [_cTB]: [
       () => input.creationTimeBefore !== void 0,
-      () => (input.creationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    creationTimeAfter: [
+    [_cTA]: [
       () => input.creationTimeAfter !== void 0,
-      () => (input.creationTimeAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    nameContains: [, input.nameContains!],
-    baseModelArnEquals: [, input.baseModelArnEquals!],
-    foundationModelArnEquals: [, input.foundationModelArnEquals!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    sortBy: [, input.sortBy!],
-    sortOrder: [, input.sortOrder!],
+    [_nC]: [, input[_nC]!],
+    [_bMAE]: [, input[_bMAE]!],
+    [_fMAE]: [, input[_fMAE]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -476,26 +345,18 @@ export const se_ListFoundationModelsCommand = async (
   input: ListFoundationModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/foundation-models";
+  b.bp("/foundation-models");
   const query: any = map({
-    byProvider: [, input.byProvider!],
-    byCustomizationType: [, input.byCustomizationType!],
-    byOutputModality: [, input.byOutputModality!],
-    byInferenceType: [, input.byInferenceType!],
+    [_bP]: [, input[_bP]!],
+    [_bCT]: [, input[_bCT]!],
+    [_bOM]: [, input[_bOM]!],
+    [_bIT]: [, input[_bIT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -505,37 +366,28 @@ export const se_ListModelCustomizationJobsCommand = async (
   input: ListModelCustomizationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/model-customization-jobs";
+  b.bp("/model-customization-jobs");
   const query: any = map({
-    creationTimeAfter: [
+    [_cTA]: [
       () => input.creationTimeAfter !== void 0,
-      () => (input.creationTimeAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    creationTimeBefore: [
+    [_cTB]: [
       () => input.creationTimeBefore !== void 0,
-      () => (input.creationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    statusEquals: [, input.statusEquals!],
-    nameContains: [, input.nameContains!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    sortBy: [, input.sortBy!],
-    sortOrder: [, input.sortOrder!],
+    [_sE]: [, input[_sE]!],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -545,38 +397,29 @@ export const se_ListProvisionedModelThroughputsCommand = async (
   input: ListProvisionedModelThroughputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/provisioned-model-throughputs";
+  b.bp("/provisioned-model-throughputs");
   const query: any = map({
-    creationTimeAfter: [
+    [_cTA]: [
       () => input.creationTimeAfter !== void 0,
-      () => (input.creationTimeAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_cTA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    creationTimeBefore: [
+    [_cTB]: [
       () => input.creationTimeBefore !== void 0,
-      () => (input.creationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_cTB]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    statusEquals: [, input.statusEquals!],
-    modelArnEquals: [, input.modelArnEquals!],
-    nameContains: [, input.nameContains!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    sortBy: [, input.sortBy!],
-    sortOrder: [, input.sortOrder!],
+    [_sE]: [, input[_sE]!],
+    [_mAE]: [, input[_mAE]!],
+    [_nC]: [, input[_nC]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_sB]: [, input[_sB]!],
+    [_sO]: [, input[_sO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -586,26 +429,19 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listTagsForResource";
+  b.bp("/listTagsForResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
       resourceARN: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -615,27 +451,19 @@ export const se_PutModelInvocationLoggingConfigurationCommand = async (
   input: PutModelInvocationLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging/modelinvocations";
+  b.bp("/logging/modelinvocations");
   let body: any;
   body = JSON.stringify(
     take(input, {
       loggingConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -645,29 +473,13 @@ export const se_StopModelCustomizationJobCommand = async (
   input: StopModelCustomizationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/model-customization-jobs/{jobIdentifier}/stop";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "jobIdentifier",
-    () => input.jobIdentifier!,
-    "{jobIdentifier}",
-    false
-  );
+  b.bp("/model-customization-jobs/{jobIdentifier}/stop");
+  b.p("jobIdentifier", () => input.jobIdentifier!, "{jobIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -677,11 +489,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagResource";
+  b.bp("/tagResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -689,15 +501,8 @@ export const se_TagResourceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -707,11 +512,11 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagResource";
+  b.bp("/untagResource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -719,15 +524,8 @@ export const se_UntagResourceCommand = async (
       tagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -737,21 +535,12 @@ export const se_UpdateProvisionedModelThroughputCommand = async (
   input: UpdateProvisionedModelThroughputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/provisioned-model-throughput/{provisionedModelId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "provisionedModelId",
-    () => input.provisionedModelId!,
-    "{provisionedModelId}",
-    false
-  );
+  b.bp("/provisioned-model-throughput/{provisionedModelId}");
+  b.p("provisionedModelId", () => input.provisionedModelId!, "{provisionedModelId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -759,15 +548,8 @@ export const se_UpdateProvisionedModelThroughputCommand = async (
       desiredProvisionedModelName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2327,6 +2109,22 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _bCT = "byCustomizationType";
+const _bIT = "byInferenceType";
+const _bMAE = "baseModelArnEquals";
+const _bOM = "byOutputModality";
+const _bP = "byProvider";
+const _cTA = "creationTimeAfter";
+const _cTB = "creationTimeBefore";
+const _fMAE = "foundationModelArnEquals";
+const _mAE = "modelArnEquals";
+const _mR = "maxResults";
+const _nC = "nameContains";
+const _nT = "nextToken";
+const _sB = "sortBy";
+const _sE = "statusEquals";
+const _sO = "sortOrder";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

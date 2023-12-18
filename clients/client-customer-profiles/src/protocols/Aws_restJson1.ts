@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -214,13 +215,12 @@ export const se_AddProfileKeyCommand = async (
   input: AddProfileKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles/keys";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/keys");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -229,15 +229,8 @@ export const se_AddProfileKeyCommand = async (
       Values: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -247,22 +240,13 @@ export const se_CreateCalculatedAttributeDefinitionCommand = async (
   input: CreateCalculatedAttributeDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatedAttributeName",
-    () => input.CalculatedAttributeName!,
-    "{CalculatedAttributeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("CalculatedAttributeName", () => input.CalculatedAttributeName!, "{CalculatedAttributeName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -274,15 +258,8 @@ export const se_CreateCalculatedAttributeDefinitionCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -292,12 +269,12 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -309,15 +286,8 @@ export const se_CreateDomainCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,22 +297,13 @@ export const se_CreateEventStreamCommand = async (
   input: CreateEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/event-streams/{EventStreamName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventStreamName",
-    () => input.EventStreamName!,
-    "{EventStreamName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/event-streams/{EventStreamName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventStreamName", () => input.EventStreamName!, "{EventStreamName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -350,15 +311,8 @@ export const se_CreateEventStreamCommand = async (
       Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -368,14 +322,12 @@ export const se_CreateIntegrationWorkflowCommand = async (
   input: CreateIntegrationWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/workflows/integrations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/workflows/integrations");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -386,15 +338,8 @@ export const se_CreateIntegrationWorkflowCommand = async (
       WorkflowType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -404,13 +349,12 @@ export const se_CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -439,15 +383,8 @@ export const se_CreateProfileCommand = async (
       ShippingAddress: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -457,30 +394,14 @@ export const se_DeleteCalculatedAttributeDefinitionCommand = async (
   input: DeleteCalculatedAttributeDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatedAttributeName",
-    () => input.CalculatedAttributeName!,
-    "{CalculatedAttributeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("CalculatedAttributeName", () => input.CalculatedAttributeName!, "{CalculatedAttributeName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -490,20 +411,13 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -513,30 +427,14 @@ export const se_DeleteEventStreamCommand = async (
   input: DeleteEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/event-streams/{EventStreamName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventStreamName",
-    () => input.EventStreamName!,
-    "{EventStreamName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/event-streams/{EventStreamName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventStreamName", () => input.EventStreamName!, "{EventStreamName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -546,28 +444,20 @@ export const se_DeleteIntegrationCommand = async (
   input: DeleteIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/integrations/delete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/integrations/delete");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -577,28 +467,20 @@ export const se_DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles/delete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/delete");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ProfileId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -608,14 +490,12 @@ export const se_DeleteProfileKeyCommand = async (
   input: DeleteProfileKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/profiles/keys/delete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/keys/delete");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -624,15 +504,8 @@ export const se_DeleteProfileKeyCommand = async (
       Values: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -642,14 +515,12 @@ export const se_DeleteProfileObjectCommand = async (
   input: DeleteProfileObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/profiles/objects/delete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/objects/delete");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -658,15 +529,8 @@ export const se_DeleteProfileObjectCommand = async (
       ProfileObjectUniqueKey: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -676,30 +540,14 @@ export const se_DeleteProfileObjectTypeCommand = async (
   input: DeleteProfileObjectTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/object-types/{ObjectTypeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ObjectTypeName",
-    () => input.ObjectTypeName!,
-    "{ObjectTypeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/object-types/{ObjectTypeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("ObjectTypeName", () => input.ObjectTypeName!, "{ObjectTypeName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -709,23 +557,14 @@ export const se_DeleteWorkflowCommand = async (
   input: DeleteWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/workflows/{WorkflowId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkflowId", () => input.WorkflowId!, "{WorkflowId}", false);
+  b.bp("/domains/{DomainName}/workflows/{WorkflowId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("WorkflowId", () => input.WorkflowId!, "{WorkflowId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -735,28 +574,20 @@ export const se_DetectProfileObjectTypeCommand = async (
   input: DetectProfileObjectTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/detect/object-types";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/detect/object-types");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Objects: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -766,14 +597,12 @@ export const se_GetAutoMergingPreviewCommand = async (
   input: GetAutoMergingPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -782,15 +611,8 @@ export const se_GetAutoMergingPreviewCommand = async (
       MinAllowedConfidenceScoreForMerging: (_) => __serializeFloat(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -800,30 +622,14 @@ export const se_GetCalculatedAttributeDefinitionCommand = async (
   input: GetCalculatedAttributeDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatedAttributeName",
-    () => input.CalculatedAttributeName!,
-    "{CalculatedAttributeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("CalculatedAttributeName", () => input.CalculatedAttributeName!, "{CalculatedAttributeName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -833,31 +639,15 @@ export const se_GetCalculatedAttributeForProfileCommand = async (
   input: GetCalculatedAttributeForProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/profile/{ProfileId}/calculated-attributes/{CalculatedAttributeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileId", () => input.ProfileId!, "{ProfileId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatedAttributeName",
-    () => input.CalculatedAttributeName!,
-    "{CalculatedAttributeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/profile/{ProfileId}/calculated-attributes/{CalculatedAttributeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("ProfileId", () => input.ProfileId!, "{ProfileId}", false);
+  b.p("CalculatedAttributeName", () => input.CalculatedAttributeName!, "{CalculatedAttributeName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -867,20 +657,13 @@ export const se_GetDomainCommand = async (
   input: GetDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -890,30 +673,14 @@ export const se_GetEventStreamCommand = async (
   input: GetEventStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/event-streams/{EventStreamName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventStreamName",
-    () => input.EventStreamName!,
-    "{EventStreamName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/event-streams/{EventStreamName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("EventStreamName", () => input.EventStreamName!, "{EventStreamName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -923,23 +690,14 @@ export const se_GetIdentityResolutionJobCommand = async (
   input: GetIdentityResolutionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/identity-resolution-jobs/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/domains/{DomainName}/identity-resolution-jobs/{JobId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -949,28 +707,20 @@ export const se_GetIntegrationCommand = async (
   input: GetIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/integrations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/integrations");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -980,26 +730,17 @@ export const se_GetMatchesCommand = async (
   input: GetMatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/matches";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/matches");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1009,30 +750,14 @@ export const se_GetProfileObjectTypeCommand = async (
   input: GetProfileObjectTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/object-types/{ObjectTypeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ObjectTypeName",
-    () => input.ObjectTypeName!,
-    "{ObjectTypeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/object-types/{ObjectTypeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("ObjectTypeName", () => input.ObjectTypeName!, "{ObjectTypeName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1042,20 +767,13 @@ export const se_GetProfileObjectTypeTemplateCommand = async (
   input: GetProfileObjectTypeTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates/{TemplateId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "TemplateId", () => input.TemplateId!, "{TemplateId}", false);
+  b.bp("/templates/{TemplateId}");
+  b.p("TemplateId", () => input.TemplateId!, "{TemplateId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1065,16 +783,15 @@ export const se_GetSimilarProfilesCommand = async (
   input: GetSimilarProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/matches";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/matches");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1084,16 +801,8 @@ export const se_GetSimilarProfilesCommand = async (
       SearchValue: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,23 +812,14 @@ export const se_GetWorkflowCommand = async (
   input: GetWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/workflows/{WorkflowId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkflowId", () => input.WorkflowId!, "{WorkflowId}", false);
+  b.bp("/domains/{DomainName}/workflows/{WorkflowId}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("WorkflowId", () => input.WorkflowId!, "{WorkflowId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1129,28 +829,18 @@ export const se_GetWorkflowStepsCommand = async (
   input: GetWorkflowStepsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/workflows/{WorkflowId}/steps";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkflowId", () => input.WorkflowId!, "{WorkflowId}", false);
+  b.bp("/domains/{DomainName}/workflows/{WorkflowId}/steps");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("WorkflowId", () => input.WorkflowId!, "{WorkflowId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1160,15 +850,15 @@ export const se_ListAccountIntegrationsCommand = async (
   input: ListAccountIntegrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/integrations";
+  b.bp("/integrations");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "include-hidden": [() => input.IncludeHidden !== void 0, () => input.IncludeHidden!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_ih]: [() => input.IncludeHidden !== void 0, () => input[_IH]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1176,16 +866,8 @@ export const se_ListAccountIntegrationsCommand = async (
       Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1195,27 +877,17 @@ export const se_ListCalculatedAttributeDefinitionsCommand = async (
   input: ListCalculatedAttributeDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/calculated-attributes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/calculated-attributes");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1225,28 +897,18 @@ export const se_ListCalculatedAttributesForProfileCommand = async (
   input: ListCalculatedAttributesForProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/profile/{ProfileId}/calculated-attributes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileId", () => input.ProfileId!, "{ProfileId}", false);
+  b.bp("/domains/{DomainName}/profile/{ProfileId}/calculated-attributes");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("ProfileId", () => input.ProfileId!, "{ProfileId}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1256,24 +918,16 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains";
+  b.bp("/domains");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1283,26 +937,17 @@ export const se_ListEventStreamsCommand = async (
   input: ListEventStreamsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/event-streams";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/event-streams");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1312,27 +957,17 @@ export const se_ListIdentityResolutionJobsCommand = async (
   input: ListIdentityResolutionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/identity-resolution-jobs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/identity-resolution-jobs");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1342,27 +977,18 @@ export const se_ListIntegrationsCommand = async (
   input: ListIntegrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/integrations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/integrations");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "include-hidden": [() => input.IncludeHidden !== void 0, () => input.IncludeHidden!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_ih]: [() => input.IncludeHidden !== void 0, () => input[_IH]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1372,16 +998,15 @@ export const se_ListProfileObjectsCommand = async (
   input: ListProfileObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles/objects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/objects");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1391,16 +1016,8 @@ export const se_ListProfileObjectsCommand = async (
       ProfileId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1410,26 +1027,17 @@ export const se_ListProfileObjectTypesCommand = async (
   input: ListProfileObjectTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/object-types";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/object-types");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1439,24 +1047,16 @@ export const se_ListProfileObjectTypeTemplatesCommand = async (
   input: ListProfileObjectTypeTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templates";
+  b.bp("/templates");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1466,27 +1066,17 @@ export const se_ListRuleBasedMatchesCommand = async (
   input: ListRuleBasedMatchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/profiles/ruleBasedMatches";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/ruleBasedMatches");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1496,20 +1086,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1519,16 +1102,15 @@ export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/workflows";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/workflows");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1539,16 +1121,8 @@ export const se_ListWorkflowsCommand = async (
       WorkflowType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1558,14 +1132,12 @@ export const se_MergeProfilesCommand = async (
   input: MergeProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/profiles/objects/merge";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/objects/merge");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1574,15 +1146,8 @@ export const se_MergeProfilesCommand = async (
       ProfileIdsToBeMerged: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1592,13 +1157,12 @@ export const se_PutIntegrationCommand = async (
   input: PutIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/integrations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/integrations");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1609,15 +1173,8 @@ export const se_PutIntegrationCommand = async (
       Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1627,13 +1184,12 @@ export const se_PutProfileObjectCommand = async (
   input: PutProfileObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles/objects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/objects");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1641,15 +1197,8 @@ export const se_PutProfileObjectCommand = async (
       ObjectTypeName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1659,22 +1208,13 @@ export const se_PutProfileObjectTypeCommand = async (
   input: PutProfileObjectTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/object-types/{ObjectTypeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ObjectTypeName",
-    () => input.ObjectTypeName!,
-    "{ObjectTypeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/object-types/{ObjectTypeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("ObjectTypeName", () => input.ObjectTypeName!, "{ObjectTypeName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1689,15 +1229,8 @@ export const se_PutProfileObjectTypeCommand = async (
       TemplateId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1707,16 +1240,15 @@ export const se_SearchProfilesCommand = async (
   input: SearchProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles/search";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles/search");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1727,16 +1259,8 @@ export const se_SearchProfilesCommand = async (
       Values: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1746,27 +1270,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1776,27 +1293,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1806,22 +1315,13 @@ export const se_UpdateCalculatedAttributeDefinitionCommand = async (
   input: UpdateCalculatedAttributeDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CalculatedAttributeName",
-    () => input.CalculatedAttributeName!,
-    "{CalculatedAttributeName}",
-    false
-  );
+  b.bp("/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.p("CalculatedAttributeName", () => input.CalculatedAttributeName!, "{CalculatedAttributeName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1830,15 +1330,8 @@ export const se_UpdateCalculatedAttributeDefinitionCommand = async (
       DisplayName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1848,12 +1341,12 @@ export const se_UpdateDomainCommand = async (
   input: UpdateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1865,15 +1358,8 @@ export const se_UpdateDomainCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1883,13 +1369,12 @@ export const se_UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "DomainName", () => input.DomainName!, "{DomainName}", false);
+  b.bp("/domains/{DomainName}/profiles");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1919,15 +1404,8 @@ export const se_UpdateProfileCommand = async (
       ShippingAddress: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5849,6 +5327,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _IH = "IncludeHidden";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _ih = "include-hidden";
+const _mr = "max-results";
+const _nt = "next-token";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

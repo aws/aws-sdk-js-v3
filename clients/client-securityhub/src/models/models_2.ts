@@ -71,6 +71,7 @@ import {
   WorkflowStatus,
   WorkflowUpdate,
 } from "./models_0";
+
 import {
   AwsEcsTaskDefinitionDetails,
   AwsEcsTaskDetails,
@@ -135,6 +136,7 @@ import {
   RecordState,
   Remediation,
 } from "./models_1";
+
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
 /**

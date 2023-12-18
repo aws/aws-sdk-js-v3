@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
+
 import {
   AccountRecoverySettingType,
   AccountTakeoverRiskConfigurationType,

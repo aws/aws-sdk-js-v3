@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -121,28 +122,20 @@ export const se_BatchGetFieldCommand = async (
   input: BatchGetFieldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/fields-batch";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/fields-batch");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       fields: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -152,30 +145,21 @@ export const se_BatchPutFieldOptionsCommand = async (
   input: BatchPutFieldOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/fields/{fieldId}/options";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "fieldId", () => input.fieldId!, "{fieldId}", false);
+  b.bp("/domains/{domainId}/fields/{fieldId}/options");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("fieldId", () => input.fieldId!, "{fieldId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       options: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -185,13 +169,12 @@ export const se_CreateCaseCommand = async (
   input: CreateCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/cases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/cases");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -200,15 +183,8 @@ export const se_CreateCaseCommand = async (
       templateId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -218,26 +194,19 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains";
+  b.bp("/domains");
   let body: any;
   body = JSON.stringify(
     take(input, {
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -247,13 +216,12 @@ export const se_CreateFieldCommand = async (
   input: CreateFieldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/fields";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/fields");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -262,15 +230,8 @@ export const se_CreateFieldCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -280,13 +241,12 @@ export const se_CreateLayoutCommand = async (
   input: CreateLayoutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/layouts";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/layouts");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -294,15 +254,8 @@ export const se_CreateLayoutCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -312,15 +265,13 @@ export const se_CreateRelatedItemCommand = async (
   input: CreateRelatedItemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/cases/{caseId}/related-items";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
+  b.bp("/domains/{domainId}/cases/{caseId}/related-items");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -329,15 +280,8 @@ export const se_CreateRelatedItemCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -347,13 +291,12 @@ export const se_CreateTemplateCommand = async (
   input: CreateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/templates";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/templates");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -364,15 +307,8 @@ export const se_CreateTemplateCommand = async (
       status: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -382,20 +318,13 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -405,14 +334,13 @@ export const se_GetCaseCommand = async (
   input: GetCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/cases/{caseId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/cases/{caseId}");
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -420,15 +348,8 @@ export const se_GetCaseCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -438,22 +359,13 @@ export const se_GetCaseEventConfigurationCommand = async (
   input: GetCaseEventConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/case-event-configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/case-event-configuration");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -463,20 +375,13 @@ export const se_GetDomainCommand = async (
   input: GetDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -486,22 +391,14 @@ export const se_GetLayoutCommand = async (
   input: GetLayoutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/layouts/{layoutId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "layoutId", () => input.layoutId!, "{layoutId}", false);
+  b.bp("/domains/{domainId}/layouts/{layoutId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("layoutId", () => input.layoutId!, "{layoutId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -511,23 +408,14 @@ export const se_GetTemplateCommand = async (
   input: GetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/templates/{templateId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "templateId", () => input.templateId!, "{templateId}", false);
+  b.bp("/domains/{domainId}/templates/{templateId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("templateId", () => input.templateId!, "{templateId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -537,14 +425,12 @@ export const se_ListCasesForContactCommand = async (
   input: ListCasesForContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/list-cases-for-contact";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/list-cases-for-contact");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -553,15 +439,8 @@ export const se_ListCasesForContactCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -571,24 +450,16 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains-list";
+  b.bp("/domains-list");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -598,29 +469,19 @@ export const se_ListFieldOptionsCommand = async (
   input: ListFieldOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/fields/{fieldId}/options-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "fieldId", () => input.fieldId!, "{fieldId}", false);
+  b.bp("/domains/{domainId}/fields/{fieldId}/options-list");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("fieldId", () => input.fieldId!, "{fieldId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    values: [() => input.values !== void 0, () => (input.values! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_v]: [() => input.values !== void 0, () => (input[_v]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -630,26 +491,17 @@ export const se_ListFieldsCommand = async (
   input: ListFieldsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/fields-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/fields-list");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -659,26 +511,17 @@ export const se_ListLayoutsCommand = async (
   input: ListLayoutsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/layouts-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/layouts-list");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -688,20 +531,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "arn", () => input.arn!, "{arn}", false);
+  b.bp("/tags/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -711,27 +547,18 @@ export const se_ListTemplatesCommand = async (
   input: ListTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/templates-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/templates-list");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    status: [() => input.status !== void 0, () => (input.status! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_s]: [() => input.status !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -741,29 +568,20 @@ export const se_PutCaseEventConfigurationCommand = async (
   input: PutCaseEventConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/case-event-configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/case-event-configuration");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       eventBridge: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -773,13 +591,12 @@ export const se_SearchCasesCommand = async (
   input: SearchCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/cases-search";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
+  b.bp("/domains/{domainId}/cases-search");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -791,15 +608,8 @@ export const se_SearchCasesCommand = async (
       sorts: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -809,15 +619,13 @@ export const se_SearchRelatedItemsCommand = async (
   input: SearchRelatedItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/cases/{caseId}/related-items-search";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
+  b.bp("/domains/{domainId}/cases/{caseId}/related-items-search");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -826,15 +634,8 @@ export const se_SearchRelatedItemsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -844,27 +645,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "arn", () => input.arn!, "{arn}", false);
+  b.bp("/tags/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => se_Tags(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -874,27 +668,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "arn", () => input.arn!, "{arn}", false);
+  b.bp("/tags/{arn}");
+  b.p("arn", () => input.arn!, "{arn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -904,29 +690,21 @@ export const se_UpdateCaseCommand = async (
   input: UpdateCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/cases/{caseId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "caseId", () => input.caseId!, "{caseId}", false);
+  b.bp("/domains/{domainId}/cases/{caseId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("caseId", () => input.caseId!, "{caseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       fields: (_) => se_FieldValueList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -936,14 +714,13 @@ export const se_UpdateFieldCommand = async (
   input: UpdateFieldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/fields/{fieldId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "fieldId", () => input.fieldId!, "{fieldId}", false);
+  b.bp("/domains/{domainId}/fields/{fieldId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("fieldId", () => input.fieldId!, "{fieldId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -951,15 +728,8 @@ export const se_UpdateFieldCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -969,14 +739,13 @@ export const se_UpdateLayoutCommand = async (
   input: UpdateLayoutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{domainId}/layouts/{layoutId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "layoutId", () => input.layoutId!, "{layoutId}", false);
+  b.bp("/domains/{domainId}/layouts/{layoutId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("layoutId", () => input.layoutId!, "{layoutId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -984,15 +753,8 @@ export const se_UpdateLayoutCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1002,15 +764,13 @@ export const se_UpdateTemplateCommand = async (
   input: UpdateTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/domains/{domainId}/templates/{templateId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "domainId", () => input.domainId!, "{domainId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "templateId", () => input.templateId!, "{templateId}", false);
+  b.bp("/domains/{domainId}/templates/{templateId}");
+  b.p("domainId", () => input.domainId!, "{domainId}", false);
+  b.p("templateId", () => input.templateId!, "{templateId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1021,15 +781,8 @@ export const se_UpdateTemplateCommand = async (
       status: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2893,10 +2646,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -3394,6 +3144,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _s = "status";
+const _tK = "tagKeys";
+const _v = "values";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

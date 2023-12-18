@@ -399,7 +399,7 @@ export const deserializeMalformedRequiredRequest = async (
     }
   }
   const contents: any = map({
-    stringInHeader: [, output.headers["string-in-headers"]],
+    [_sIH]: [, output.headers[_sih]],
   });
   const query = output.query;
   if (query != null) {
@@ -1546,6 +1546,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _sIH = "stringInHeader";
+const _sih = "string-in-headers";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

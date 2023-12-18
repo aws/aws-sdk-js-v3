@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -228,12 +229,11 @@ export const se_CreateMediaCapturePipelineCommand = async (
   input: CreateMediaCapturePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
+  b.bp("/sdk-media-capture-pipelines");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -246,15 +246,8 @@ export const se_CreateMediaCapturePipelineCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -264,12 +257,11 @@ export const se_CreateMediaConcatenationPipelineCommand = async (
   input: CreateMediaConcatenationPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-concatenation-pipelines";
+  b.bp("/sdk-media-concatenation-pipelines");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -279,15 +271,8 @@ export const se_CreateMediaConcatenationPipelineCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -297,12 +282,11 @@ export const se_CreateMediaInsightsPipelineCommand = async (
   input: CreateMediaInsightsPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipelines";
+  b.bp("/media-insights-pipelines");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -316,15 +300,8 @@ export const se_CreateMediaInsightsPipelineCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -334,12 +311,11 @@ export const se_CreateMediaInsightsPipelineConfigurationCommand = async (
   input: CreateMediaInsightsPipelineConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
+  b.bp("/media-insights-pipeline-configurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -351,15 +327,8 @@ export const se_CreateMediaInsightsPipelineConfigurationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -369,12 +338,11 @@ export const se_CreateMediaLiveConnectorPipelineCommand = async (
   input: CreateMediaLiveConnectorPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-live-connector-pipelines";
+  b.bp("/sdk-media-live-connector-pipelines");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -384,15 +352,8 @@ export const se_CreateMediaLiveConnectorPipelineCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -402,13 +363,11 @@ export const se_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
   input: CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-pipeline-kinesis-video-stream-pools";
+  b.bp("/media-pipeline-kinesis-video-stream-pools");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -418,15 +377,8 @@ export const se_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -436,12 +388,11 @@ export const se_CreateMediaStreamPipelineCommand = async (
   input: CreateMediaStreamPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-stream-pipelines";
+  b.bp("/sdk-media-stream-pipelines");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -451,15 +402,8 @@ export const se_CreateMediaStreamPipelineCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -469,29 +413,13 @@ export const se_DeleteMediaCapturePipelineCommand = async (
   input: DeleteMediaCapturePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sdk-media-capture-pipelines/{MediaPipelineId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MediaPipelineId",
-    () => input.MediaPipelineId!,
-    "{MediaPipelineId}",
-    false
-  );
+  b.bp("/sdk-media-capture-pipelines/{MediaPipelineId}");
+  b.p("MediaPipelineId", () => input.MediaPipelineId!, "{MediaPipelineId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -501,22 +429,13 @@ export const se_DeleteMediaInsightsPipelineConfigurationCommand = async (
   input: DeleteMediaInsightsPipelineConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipeline-configurations/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-insights-pipeline-configurations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -526,28 +445,13 @@ export const se_DeleteMediaPipelineCommand = async (
   input: DeleteMediaPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-pipelines/{MediaPipelineId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MediaPipelineId",
-    () => input.MediaPipelineId!,
-    "{MediaPipelineId}",
-    false
-  );
+  b.bp("/sdk-media-pipelines/{MediaPipelineId}");
+  b.p("MediaPipelineId", () => input.MediaPipelineId!, "{MediaPipelineId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -557,22 +461,13 @@ export const se_DeleteMediaPipelineKinesisVideoStreamPoolCommand = async (
   input: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-pipeline-kinesis-video-stream-pools/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-pipeline-kinesis-video-stream-pools/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,29 +477,13 @@ export const se_GetMediaCapturePipelineCommand = async (
   input: GetMediaCapturePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sdk-media-capture-pipelines/{MediaPipelineId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MediaPipelineId",
-    () => input.MediaPipelineId!,
-    "{MediaPipelineId}",
-    false
-  );
+  b.bp("/sdk-media-capture-pipelines/{MediaPipelineId}");
+  b.p("MediaPipelineId", () => input.MediaPipelineId!, "{MediaPipelineId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -614,22 +493,13 @@ export const se_GetMediaInsightsPipelineConfigurationCommand = async (
   input: GetMediaInsightsPipelineConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipeline-configurations/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-insights-pipeline-configurations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -639,28 +509,13 @@ export const se_GetMediaPipelineCommand = async (
   input: GetMediaPipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-pipelines/{MediaPipelineId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MediaPipelineId",
-    () => input.MediaPipelineId!,
-    "{MediaPipelineId}",
-    false
-  );
+  b.bp("/sdk-media-pipelines/{MediaPipelineId}");
+  b.p("MediaPipelineId", () => input.MediaPipelineId!, "{MediaPipelineId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -670,22 +525,13 @@ export const se_GetMediaPipelineKinesisVideoStreamPoolCommand = async (
   input: GetMediaPipelineKinesisVideoStreamPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-pipeline-kinesis-video-stream-pools/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-pipeline-kinesis-video-stream-pools/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -695,30 +541,14 @@ export const se_GetSpeakerSearchTaskCommand = async (
   input: GetSpeakerSearchTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SpeakerSearchTaskId",
-    () => input.SpeakerSearchTaskId!,
-    "{SpeakerSearchTaskId}",
-    false
-  );
+  b.bp("/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.p("SpeakerSearchTaskId", () => input.SpeakerSearchTaskId!, "{SpeakerSearchTaskId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -728,30 +558,14 @@ export const se_GetVoiceToneAnalysisTaskCommand = async (
   input: GetVoiceToneAnalysisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceToneAnalysisTaskId",
-    () => input.VoiceToneAnalysisTaskId!,
-    "{VoiceToneAnalysisTaskId}",
-    false
-  );
+  b.bp("/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.p("VoiceToneAnalysisTaskId", () => input.VoiceToneAnalysisTaskId!, "{VoiceToneAnalysisTaskId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -761,25 +575,16 @@ export const se_ListMediaCapturePipelinesCommand = async (
   input: ListMediaCapturePipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-capture-pipelines";
+  b.bp("/sdk-media-capture-pipelines");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -789,25 +594,16 @@ export const se_ListMediaInsightsPipelineConfigurationsCommand = async (
   input: ListMediaInsightsPipelineConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-insights-pipeline-configurations";
+  b.bp("/media-insights-pipeline-configurations");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -817,26 +613,16 @@ export const se_ListMediaPipelineKinesisVideoStreamPoolsCommand = async (
   input: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-pipeline-kinesis-video-stream-pools";
+  b.bp("/media-pipeline-kinesis-video-stream-pools");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -846,24 +632,16 @@ export const se_ListMediaPipelinesCommand = async (
   input: ListMediaPipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sdk-media-pipelines";
+  b.bp("/sdk-media-pipelines");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -873,23 +651,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
+    [_a]: [, __expectNonNull(input[_RARN]!, `ResourceARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -899,16 +669,14 @@ export const se_StartSpeakerSearchTaskCommand = async (
   input: StartSpeakerSearchTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipelines/{Identifier}/speaker-search-tasks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-insights-pipelines/{Identifier}/speaker-search-tasks");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    operation: [, "start"],
+    [_o]: [, "start"],
   });
   let body: any;
   body = JSON.stringify(
@@ -918,16 +686,8 @@ export const se_StartSpeakerSearchTaskCommand = async (
       VoiceProfileDomainArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -937,16 +697,14 @@ export const se_StartVoiceToneAnalysisTaskCommand = async (
   input: StartVoiceToneAnalysisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    operation: [, "start"],
+    [_o]: [, "start"],
   });
   let body: any;
   body = JSON.stringify(
@@ -956,16 +714,8 @@ export const se_StartVoiceToneAnalysisTaskCommand = async (
       LanguageCode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -975,34 +725,17 @@ export const se_StopSpeakerSearchTaskCommand = async (
   input: StopSpeakerSearchTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SpeakerSearchTaskId",
-    () => input.SpeakerSearchTaskId!,
-    "{SpeakerSearchTaskId}",
-    false
-  );
+  b.bp("/media-insights-pipelines/{Identifier}/speaker-search-tasks/{SpeakerSearchTaskId}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.p("SpeakerSearchTaskId", () => input.SpeakerSearchTaskId!, "{SpeakerSearchTaskId}", false);
   const query: any = map({
-    operation: [, "stop"],
+    [_o]: [, "stop"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1012,34 +745,17 @@ export const se_StopVoiceToneAnalysisTaskCommand = async (
   input: StopVoiceToneAnalysisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceToneAnalysisTaskId",
-    () => input.VoiceToneAnalysisTaskId!,
-    "{VoiceToneAnalysisTaskId}",
-    false
-  );
+  b.bp("/media-insights-pipelines/{Identifier}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.p("VoiceToneAnalysisTaskId", () => input.VoiceToneAnalysisTaskId!, "{VoiceToneAnalysisTaskId}", false);
   const query: any = map({
-    operation: [, "stop"],
+    [_o]: [, "stop"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1049,13 +765,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "tag-resource"],
+    [_o]: [, "tag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1064,16 +780,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1083,13 +791,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "untag-resource"],
+    [_o]: [, "untag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1098,16 +806,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1117,14 +817,12 @@ export const se_UpdateMediaInsightsPipelineConfigurationCommand = async (
   input: UpdateMediaInsightsPipelineConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipeline-configurations/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-insights-pipeline-configurations/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1133,15 +831,8 @@ export const se_UpdateMediaInsightsPipelineConfigurationCommand = async (
       ResourceAccessRoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1151,29 +842,20 @@ export const se_UpdateMediaInsightsPipelineStatusCommand = async (
   input: UpdateMediaInsightsPipelineStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-insights-pipeline-status/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-insights-pipeline-status/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       UpdateStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1183,29 +865,20 @@ export const se_UpdateMediaPipelineKinesisVideoStreamPoolCommand = async (
   input: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/media-pipeline-kinesis-video-stream-pools/{Identifier}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
+  b.bp("/media-pipeline-kinesis-video-stream-pools/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       StreamConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3983,6 +3656,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RARN = "ResourceARN";
+const _a = "arn";
+const _mr = "max-results";
+const _nt = "next-token";
+const _o = "operation";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

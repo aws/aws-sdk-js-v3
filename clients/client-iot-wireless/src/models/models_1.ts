@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
+
 import {
   ApplicationConfig,
   CertificateList,

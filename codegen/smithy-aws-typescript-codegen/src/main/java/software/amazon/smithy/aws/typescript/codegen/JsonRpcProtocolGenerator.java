@@ -112,6 +112,9 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
             AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
         }
+        writer.write(
+            context.getStringStore().flushVariableDeclarationCode()
+        );
     }
 
     @Override

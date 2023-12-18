@@ -3,6 +3,7 @@ import { EchoCommandInput, EchoCommandOutput } from "../commands/EchoCommand";
 import { LengthCommandInput, LengthCommandOutput } from "../commands/LengthCommand";
 import { EchoServiceServiceException as __BaseException } from "../models/EchoServiceServiceException";
 import { PalindromeException } from "../models/models_0";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
@@ -28,46 +29,32 @@ import { v4 as generateIdempotencyToken } from "uuid";
  * serializeAws_restJson1EchoCommand
  */
 export const se_EchoCommand = async (input: EchoCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/echo";
+  b.bp("/echo");
   let body: any;
   body = JSON.stringify(
     take(input, {
       string: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1LengthCommand
  */
 export const se_LengthCommand = async (input: LengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/length/{string}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "string", () => input.string!, "{string}", false);
+  b.bp("/length/{string}");
+  b.p("string", () => input.string!, "{string}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**

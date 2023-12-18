@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -46,28 +47,13 @@ export const se_DeleteHumanLoopCommand = async (
   input: DeleteHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/{HumanLoopName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HumanLoopName",
-    () => input.HumanLoopName!,
-    "{HumanLoopName}",
-    false
-  );
+  b.bp("/human-loops/{HumanLoopName}");
+  b.p("HumanLoopName", () => input.HumanLoopName!, "{HumanLoopName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -77,28 +63,13 @@ export const se_DescribeHumanLoopCommand = async (
   input: DescribeHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/{HumanLoopName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HumanLoopName",
-    () => input.HumanLoopName!,
-    "{HumanLoopName}",
-    false
-  );
+  b.bp("/human-loops/{HumanLoopName}");
+  b.p("HumanLoopName", () => input.HumanLoopName!, "{HumanLoopName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -108,34 +79,26 @@ export const se_ListHumanLoopsCommand = async (
   input: ListHumanLoopsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops";
+  b.bp("/human-loops");
   const query: any = map({
-    CreationTimeAfter: [
+    [_CTA]: [
       () => input.CreationTimeAfter !== void 0,
-      () => (input.CreationTimeAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_CTA]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    CreationTimeBefore: [
+    [_CTB]: [
       () => input.CreationTimeBefore !== void 0,
-      () => (input.CreationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_CTB]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    FlowDefinitionArn: [, __expectNonNull(input.FlowDefinitionArn!, `FlowDefinitionArn`)],
-    SortOrder: [, input.SortOrder!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_FDA]: [, __expectNonNull(input[_FDA]!, `FlowDefinitionArn`)],
+    [_SO]: [, input[_SO]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -145,11 +108,11 @@ export const se_StartHumanLoopCommand = async (
   input: StartHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops";
+  b.bp("/human-loops");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -159,15 +122,8 @@ export const se_StartHumanLoopCommand = async (
       HumanLoopName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -177,26 +133,19 @@ export const se_StopHumanLoopCommand = async (
   input: StopHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/stop";
+  b.bp("/human-loops/stop");
   let body: any;
   body = JSON.stringify(
     take(input, {
       HumanLoopName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -645,6 +594,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CTA = "CreationTimeAfter";
+const _CTB = "CreationTimeBefore";
+const _FDA = "FlowDefinitionArn";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _SO = "SortOrder";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

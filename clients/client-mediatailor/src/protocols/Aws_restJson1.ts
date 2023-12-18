@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -171,11 +172,11 @@ export const se_ConfigureLogsForChannelCommand = async (
   input: ConfigureLogsForChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/channel";
+  b.bp("/configureLogs/channel");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -183,15 +184,8 @@ export const se_ConfigureLogsForChannelCommand = async (
       LogTypes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -201,12 +195,11 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   input: ConfigureLogsForPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configureLogs/playbackConfiguration";
+  b.bp("/configureLogs/playbackConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -214,15 +207,8 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
       PlaybackConfigurationName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -232,12 +218,12 @@ export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -248,15 +234,8 @@ export const se_CreateChannelCommand = async (
       Tier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -266,29 +245,13 @@ export const se_CreateLiveSourceCommand = async (
   input: CreateLiveSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LiveSourceName",
-    () => input.LiveSourceName!,
-    "{LiveSourceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}");
+  b.p("LiveSourceName", () => input.LiveSourceName!, "{LiveSourceName}", false);
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -296,15 +259,8 @@ export const se_CreateLiveSourceCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -314,22 +270,13 @@ export const se_CreatePrefetchScheduleCommand = async (
   input: CreatePrefetchScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PlaybackConfigurationName",
-    () => input.PlaybackConfigurationName!,
-    "{PlaybackConfigurationName}",
-    false
-  );
+  b.bp("/prefetchSchedule/{PlaybackConfigurationName}/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  b.p("PlaybackConfigurationName", () => input.PlaybackConfigurationName!, "{PlaybackConfigurationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -338,15 +285,8 @@ export const se_CreatePrefetchScheduleCommand = async (
       StreamId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -356,15 +296,13 @@ export const se_CreateProgramCommand = async (
   input: CreateProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channel/{ChannelName}/program/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/channel/{ChannelName}/program/{ProgramName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -375,15 +313,8 @@ export const se_CreateProgramCommand = async (
       VodSourceName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -393,20 +324,12 @@ export const se_CreateSourceLocationCommand = async (
   input: CreateSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -417,15 +340,8 @@ export const se_CreateSourceLocationCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -435,29 +351,13 @@ export const se_CreateVodSourceCommand = async (
   input: CreateVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VodSourceName",
-    () => input.VodSourceName!,
-    "{VodSourceName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
+  b.p("VodSourceName", () => input.VodSourceName!, "{VodSourceName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -465,15 +365,8 @@ export const se_CreateVodSourceCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -483,20 +376,13 @@ export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -506,21 +392,13 @@ export const se_DeleteChannelPolicyCommand = async (
   input: DeleteChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}/policy");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -530,37 +408,14 @@ export const se_DeleteLiveSourceCommand = async (
   input: DeleteLiveSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LiveSourceName",
-    () => input.LiveSourceName!,
-    "{LiveSourceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}");
+  b.p("LiveSourceName", () => input.LiveSourceName!, "{LiveSourceName}", false);
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -570,21 +425,13 @@ export const se_DeletePlaybackConfigurationCommand = async (
   input: DeletePlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/playbackConfiguration/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -594,30 +441,14 @@ export const se_DeletePrefetchScheduleCommand = async (
   input: DeletePrefetchScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PlaybackConfigurationName",
-    () => input.PlaybackConfigurationName!,
-    "{PlaybackConfigurationName}",
-    false
-  );
+  b.bp("/prefetchSchedule/{PlaybackConfigurationName}/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  b.p("PlaybackConfigurationName", () => input.PlaybackConfigurationName!, "{PlaybackConfigurationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -627,23 +458,14 @@ export const se_DeleteProgramCommand = async (
   input: DeleteProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channel/{ChannelName}/program/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/channel/{ChannelName}/program/{ProgramName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -653,28 +475,13 @@ export const se_DeleteSourceLocationCommand = async (
   input: DeleteSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -684,37 +491,14 @@ export const se_DeleteVodSourceCommand = async (
   input: DeleteVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VodSourceName",
-    () => input.VodSourceName!,
-    "{VodSourceName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
+  b.p("VodSourceName", () => input.VodSourceName!, "{VodSourceName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -724,20 +508,13 @@ export const se_DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -747,37 +524,14 @@ export const se_DescribeLiveSourceCommand = async (
   input: DescribeLiveSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LiveSourceName",
-    () => input.LiveSourceName!,
-    "{LiveSourceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}");
+  b.p("LiveSourceName", () => input.LiveSourceName!, "{LiveSourceName}", false);
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -787,23 +541,14 @@ export const se_DescribeProgramCommand = async (
   input: DescribeProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channel/{ChannelName}/program/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/channel/{ChannelName}/program/{ProgramName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -813,28 +558,13 @@ export const se_DescribeSourceLocationCommand = async (
   input: DescribeSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -844,37 +574,14 @@ export const se_DescribeVodSourceCommand = async (
   input: DescribeVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VodSourceName",
-    () => input.VodSourceName!,
-    "{VodSourceName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
+  b.p("VodSourceName", () => input.VodSourceName!, "{VodSourceName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -884,21 +591,13 @@ export const se_GetChannelPolicyCommand = async (
   input: GetChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}/policy");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -908,27 +607,18 @@ export const se_GetChannelScheduleCommand = async (
   input: GetChannelScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/schedule";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}/schedule");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   const query: any = map({
-    durationMinutes: [, input.DurationMinutes!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_dM]: [, input[_DM]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -938,21 +628,13 @@ export const se_GetPlaybackConfigurationCommand = async (
   input: GetPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/playbackConfiguration/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -962,30 +644,14 @@ export const se_GetPrefetchScheduleCommand = async (
   input: GetPrefetchScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PlaybackConfigurationName",
-    () => input.PlaybackConfigurationName!,
-    "{PlaybackConfigurationName}",
-    false
-  );
+  b.bp("/prefetchSchedule/{PlaybackConfigurationName}/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
+  b.p("PlaybackConfigurationName", () => input.PlaybackConfigurationName!, "{PlaybackConfigurationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -995,25 +661,17 @@ export const se_ListAlertsCommand = async (
   input: ListAlertsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alerts";
+  b.bp("/alerts");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_rA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1023,24 +681,16 @@ export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1050,34 +700,17 @@ export const se_ListLiveSourcesCommand = async (
   input: ListLiveSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/liveSources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/liveSources");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1087,25 +720,16 @@ export const se_ListPlaybackConfigurationsCommand = async (
   input: ListPlaybackConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfigurations";
+  b.bp("/playbackConfigurations");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1115,21 +739,12 @@ export const se_ListPrefetchSchedulesCommand = async (
   input: ListPrefetchSchedulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prefetchSchedule/{PlaybackConfigurationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PlaybackConfigurationName",
-    () => input.PlaybackConfigurationName!,
-    "{PlaybackConfigurationName}",
-    false
-  );
+  b.bp("/prefetchSchedule/{PlaybackConfigurationName}");
+  b.p("PlaybackConfigurationName", () => input.PlaybackConfigurationName!, "{PlaybackConfigurationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1138,15 +753,8 @@ export const se_ListPrefetchSchedulesCommand = async (
       StreamId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1156,24 +764,16 @@ export const se_ListSourceLocationsCommand = async (
   input: ListSourceLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocations";
+  b.bp("/sourceLocations");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1183,20 +783,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1206,34 +799,17 @@ export const se_ListVodSourcesCommand = async (
   input: ListVodSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/vodSources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/vodSources");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1243,28 +819,20 @@ export const se_PutChannelPolicyCommand = async (
   input: PutChannelPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}/policy");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1274,11 +842,11 @@ export const se_PutPlaybackConfigurationCommand = async (
   input: PutPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/playbackConfiguration";
+  b.bp("/playbackConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1298,15 +866,8 @@ export const se_PutPlaybackConfigurationCommand = async (
       VideoContentSourceUrl: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1316,21 +877,13 @@ export const se_StartChannelCommand = async (
   input: StartChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}/start");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1340,21 +893,13 @@ export const se_StopChannelCommand = async (
   input: StopChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}/stop");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1364,27 +909,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1394,27 +932,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1424,12 +954,12 @@ export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel/{ChannelName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.bp("/channel/{ChannelName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1437,15 +967,8 @@ export const se_UpdateChannelCommand = async (
       Outputs: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1455,44 +978,21 @@ export const se_UpdateLiveSourceCommand = async (
   input: UpdateLiveSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LiveSourceName",
-    () => input.LiveSourceName!,
-    "{LiveSourceName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/liveSource/{LiveSourceName}");
+  b.p("LiveSourceName", () => input.LiveSourceName!, "{LiveSourceName}", false);
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       HttpPackageConfigurations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1502,15 +1002,13 @@ export const se_UpdateProgramCommand = async (
   input: UpdateProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channel/{ChannelName}/program/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelName", () => input.ChannelName!, "{ChannelName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/channel/{ChannelName}/program/{ProgramName}");
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1518,15 +1016,8 @@ export const se_UpdateProgramCommand = async (
       ScheduleConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1536,20 +1027,12 @@ export const se_UpdateSourceLocationCommand = async (
   input: UpdateSourceLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sourceLocation/{SourceLocationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1559,15 +1042,8 @@ export const se_UpdateSourceLocationCommand = async (
       SegmentDeliveryConfigurations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1577,44 +1053,21 @@ export const se_UpdateVodSourceCommand = async (
   input: UpdateVodSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceLocationName",
-    () => input.SourceLocationName!,
-    "{SourceLocationName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VodSourceName",
-    () => input.VodSourceName!,
-    "{VodSourceName}",
-    false
-  );
+  b.bp("/sourceLocation/{SourceLocationName}/vodSource/{VodSourceName}");
+  b.p("SourceLocationName", () => input.SourceLocationName!, "{SourceLocationName}", false);
+  b.p("VodSourceName", () => input.VodSourceName!, "{VodSourceName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       HttpPackageConfigurations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4061,6 +3514,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _DM = "DurationMinutes";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RA = "ResourceArn";
+const _TK = "TagKeys";
+const _dM = "durationMinutes";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rA = "resourceArn";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

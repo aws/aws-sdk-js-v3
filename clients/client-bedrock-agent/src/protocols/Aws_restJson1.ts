@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -166,22 +167,13 @@ export const se_AssociateAgentKnowledgeBaseCommand = async (
   input: AssociateAgentKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/knowledgebases");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -190,15 +182,8 @@ export const se_AssociateAgentKnowledgeBaseCommand = async (
       knowledgeBaseState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -208,11 +193,11 @@ export const se_CreateAgentCommand = async (
   input: CreateAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents";
+  b.bp("/agents");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -228,15 +213,8 @@ export const se_CreateAgentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -246,22 +224,13 @@ export const se_CreateAgentActionGroupCommand = async (
   input: CreateAgentActionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/actiongroups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/actiongroups");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -274,15 +243,8 @@ export const se_CreateAgentActionGroupCommand = async (
       parentActionGroupSignature: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -292,13 +254,12 @@ export const se_CreateAgentAliasCommand = async (
   input: CreateAgentAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}/agentaliases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}/agentaliases");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -309,15 +270,8 @@ export const se_CreateAgentAliasCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,21 +281,12 @@ export const se_CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -353,15 +298,8 @@ export const se_CreateDataSourceCommand = async (
       vectorIngestionConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -371,11 +309,11 @@ export const se_CreateKnowledgeBaseCommand = async (
   input: CreateKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgebases";
+  b.bp("/knowledgebases");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -388,15 +326,8 @@ export const se_CreateKnowledgeBaseCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -406,27 +337,16 @@ export const se_DeleteAgentCommand = async (
   input: DeleteAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -436,45 +356,18 @@ export const se_DeleteAgentActionGroupCommand = async (
   input: DeleteAgentActionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "actionGroupId",
-    () => input.actionGroupId!,
-    "{actionGroupId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("actionGroupId", () => input.actionGroupId!, "{actionGroupId}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -484,30 +377,14 @@ export const se_DeleteAgentAliasCommand = async (
   input: DeleteAgentAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentaliases/{agentAliasId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentAliasId",
-    () => input.agentAliasId!,
-    "{agentAliasId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentaliases/{agentAliasId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -517,37 +394,17 @@ export const se_DeleteAgentVersionCommand = async (
   input: DeleteAgentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   const query: any = map({
-    skipResourceInUseCheck: [
-      () => input.skipResourceInUseCheck !== void 0,
-      () => input.skipResourceInUseCheck!.toString(),
-    ],
+    [_sRIUC]: [() => input.skipResourceInUseCheck !== void 0, () => input[_sRIUC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -557,37 +414,14 @@ export const se_DeleteDataSourceCommand = async (
   input: DeleteDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataSourceId",
-    () => input.dataSourceId!,
-    "{dataSourceId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -597,28 +431,13 @@ export const se_DeleteKnowledgeBaseCommand = async (
   input: DeleteKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgebases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -628,38 +447,15 @@ export const se_DisassociateAgentKnowledgeBaseCommand = async (
   input: DisassociateAgentKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -669,20 +465,13 @@ export const se_GetAgentCommand = async (
   input: GetAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -692,38 +481,15 @@ export const se_GetAgentActionGroupCommand = async (
   input: GetAgentActionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "actionGroupId",
-    () => input.actionGroupId!,
-    "{actionGroupId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("actionGroupId", () => input.actionGroupId!, "{actionGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -733,30 +499,14 @@ export const se_GetAgentAliasCommand = async (
   input: GetAgentAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentaliases/{agentAliasId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentAliasId",
-    () => input.agentAliasId!,
-    "{agentAliasId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentaliases/{agentAliasId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -766,38 +516,15 @@ export const se_GetAgentKnowledgeBaseCommand = async (
   input: GetAgentKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -807,30 +534,14 @@ export const se_GetAgentVersionCommand = async (
   input: GetAgentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -840,37 +551,14 @@ export const se_GetDataSourceCommand = async (
   input: GetDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataSourceId",
-    () => input.dataSourceId!,
-    "{dataSourceId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -880,45 +568,15 @@ export const se_GetIngestionJobCommand = async (
   input: GetIngestionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataSourceId",
-    () => input.dataSourceId!,
-    "{dataSourceId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ingestionJobId",
-    () => input.ingestionJobId!,
-    "{ingestionJobId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs/{ingestionJobId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
+  b.p("ingestionJobId", () => input.ingestionJobId!, "{ingestionJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -928,28 +586,13 @@ export const se_GetKnowledgeBaseCommand = async (
   input: GetKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgebases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -959,22 +602,13 @@ export const se_ListAgentActionGroupsCommand = async (
   input: ListAgentActionGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/actiongroups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/actiongroups");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -982,15 +616,8 @@ export const se_ListAgentActionGroupsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1000,13 +627,12 @@ export const se_ListAgentAliasesCommand = async (
   input: ListAgentAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}/agentaliases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}/agentaliases");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1014,15 +640,8 @@ export const se_ListAgentAliasesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1032,22 +651,13 @@ export const se_ListAgentKnowledgeBasesCommand = async (
   input: ListAgentKnowledgeBasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/knowledgebases");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1055,15 +665,8 @@ export const se_ListAgentKnowledgeBasesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1073,11 +676,11 @@ export const se_ListAgentsCommand = async (
   input: ListAgentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents";
+  b.bp("/agents");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1085,15 +688,8 @@ export const se_ListAgentsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,13 +699,12 @@ export const se_ListAgentVersionsCommand = async (
   input: ListAgentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}/agentversions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}/agentversions");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1117,15 +712,8 @@ export const se_ListAgentVersionsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1135,21 +723,12 @@ export const se_ListDataSourcesCommand = async (
   input: ListDataSourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1157,15 +736,8 @@ export const se_ListDataSourcesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1175,29 +747,13 @@ export const se_ListIngestionJobsCommand = async (
   input: ListIngestionJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataSourceId",
-    () => input.dataSourceId!,
-    "{dataSourceId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1207,15 +763,8 @@ export const se_ListIngestionJobsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1225,11 +774,11 @@ export const se_ListKnowledgeBasesCommand = async (
   input: ListKnowledgeBasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgebases";
+  b.bp("/knowledgebases");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1237,15 +786,8 @@ export const se_ListKnowledgeBasesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1255,20 +797,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1278,20 +813,13 @@ export const se_PrepareAgentCommand = async (
   input: PrepareAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1301,29 +829,13 @@ export const se_StartIngestionJobCommand = async (
   input: StartIngestionJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataSourceId",
-    () => input.dataSourceId!,
-    "{dataSourceId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}/ingestionjobs");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1331,15 +843,8 @@ export const se_StartIngestionJobCommand = async (
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1349,27 +854,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1379,27 +877,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1409,12 +899,12 @@ export const se_UpdateAgentCommand = async (
   input: UpdateAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agents/{agentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
+  b.bp("/agents/{agentId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1428,15 +918,8 @@ export const se_UpdateAgentCommand = async (
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1446,30 +929,14 @@ export const se_UpdateAgentActionGroupCommand = async (
   input: UpdateAgentActionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "actionGroupId",
-    () => input.actionGroupId!,
-    "{actionGroupId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/actiongroups/{actionGroupId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("actionGroupId", () => input.actionGroupId!, "{actionGroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1481,15 +948,8 @@ export const se_UpdateAgentActionGroupCommand = async (
       parentActionGroupSignature: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1499,22 +959,13 @@ export const se_UpdateAgentAliasCommand = async (
   input: UpdateAgentAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentaliases/{agentAliasId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentAliasId",
-    () => input.agentAliasId!,
-    "{agentAliasId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentaliases/{agentAliasId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1523,15 +974,8 @@ export const se_UpdateAgentAliasCommand = async (
       routingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1541,30 +985,14 @@ export const se_UpdateAgentKnowledgeBaseCommand = async (
   input: UpdateAgentKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentVersion",
-    () => input.agentVersion!,
-    "{agentVersion}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/agents/{agentId}/agentversions/{agentVersion}/knowledgebases/{knowledgeBaseId}");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentVersion", () => input.agentVersion!, "{agentVersion}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1572,15 +1000,8 @@ export const se_UpdateAgentKnowledgeBaseCommand = async (
       knowledgeBaseState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1590,29 +1011,13 @@ export const se_UpdateDataSourceCommand = async (
   input: UpdateDataSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "dataSourceId",
-    () => input.dataSourceId!,
-    "{dataSourceId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/datasources/{dataSourceId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("dataSourceId", () => input.dataSourceId!, "{dataSourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1623,15 +1028,8 @@ export const se_UpdateDataSourceCommand = async (
       vectorIngestionConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1641,20 +1039,12 @@ export const se_UpdateKnowledgeBaseCommand = async (
   input: UpdateKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgebases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1665,15 +1055,8 @@ export const se_UpdateKnowledgeBaseCommand = async (
       storageConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4869,6 +4252,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _sRIUC = "skipResourceInUseCheck";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

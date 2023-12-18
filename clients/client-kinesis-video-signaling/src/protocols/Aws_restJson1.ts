@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -39,12 +40,11 @@ export const se_GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/get-ice-server-config";
+  b.bp("/v1/get-ice-server-config");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -54,15 +54,8 @@ export const se_GetIceServerConfigCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -72,12 +65,11 @@ export const se_SendAlexaOfferToMasterCommand = async (
   input: SendAlexaOfferToMasterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/send-alexa-offer-to-master";
+  b.bp("/v1/send-alexa-offer-to-master");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -86,15 +78,8 @@ export const se_SendAlexaOfferToMasterCommand = async (
       SenderClientId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**

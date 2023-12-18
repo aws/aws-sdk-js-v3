@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -168,21 +169,13 @@ export const se_DeleteEarthObservationJobCommand = async (
   input: DeleteEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/earth-observation-jobs/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/earth-observation-jobs/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -192,21 +185,13 @@ export const se_DeleteVectorEnrichmentJobCommand = async (
   input: DeleteVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vector-enrichment-jobs/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/vector-enrichment-jobs/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -216,12 +201,11 @@ export const se_ExportEarthObservationJobCommand = async (
   input: ExportEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/export-earth-observation-job";
+  b.bp("/export-earth-observation-job");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -232,15 +216,8 @@ export const se_ExportEarthObservationJobCommand = async (
       OutputConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -250,12 +227,11 @@ export const se_ExportVectorEnrichmentJobCommand = async (
   input: ExportVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/export-vector-enrichment-jobs";
+  b.bp("/export-vector-enrichment-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -265,15 +241,8 @@ export const se_ExportVectorEnrichmentJobCommand = async (
       OutputConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -283,21 +252,13 @@ export const se_GetEarthObservationJobCommand = async (
   input: GetEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/earth-observation-jobs/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/earth-observation-jobs/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -307,21 +268,13 @@ export const se_GetRasterDataCollectionCommand = async (
   input: GetRasterDataCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/raster-data-collection/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/raster-data-collection/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -331,37 +284,29 @@ export const se_GetTileCommand = async (
   input: GetTileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tile/{z}/{x}/{y}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "x", () => input.x!.toString(), "{x}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "y", () => input.y!.toString(), "{y}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "z", () => input.z!.toString(), "{z}", false);
+  b.bp("/tile/{z}/{x}/{y}");
+  b.p("x", () => input.x!.toString(), "{x}", false);
+  b.p("y", () => input.y!.toString(), "{y}", false);
+  b.p("z", () => input.z!.toString(), "{z}", false);
   const query: any = map({
-    ImageAssets: [
+    [_IA]: [
       __expectNonNull(input.ImageAssets, `ImageAssets`) != null,
-      () => (input.ImageAssets! || []).map((_entry) => _entry as any),
+      () => (input[_IA]! || []).map((_entry) => _entry as any),
     ],
-    Target: [, __expectNonNull(input.Target!, `Target`)],
-    Arn: [, __expectNonNull(input.Arn!, `Arn`)],
-    ImageMask: [() => input.ImageMask !== void 0, () => input.ImageMask!.toString()],
-    OutputFormat: [, input.OutputFormat!],
-    TimeRangeFilter: [, input.TimeRangeFilter!],
-    PropertyFilters: [, input.PropertyFilters!],
-    OutputDataType: [, input.OutputDataType!],
-    ExecutionRoleArn: [, input.ExecutionRoleArn!],
+    [_T]: [, __expectNonNull(input[_T]!, `Target`)],
+    [_A]: [, __expectNonNull(input[_A]!, `Arn`)],
+    [_IM]: [() => input.ImageMask !== void 0, () => input[_IM]!.toString()],
+    [_OF]: [, input[_OF]!],
+    [_TRF]: [, input[_TRF]!],
+    [_PF]: [, input[_PF]!],
+    [_ODT]: [, input[_ODT]!],
+    [_ERA]: [, input[_ERA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -371,21 +316,13 @@ export const se_GetVectorEnrichmentJobCommand = async (
   input: GetVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vector-enrichment-jobs/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/vector-enrichment-jobs/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -395,12 +332,11 @@ export const se_ListEarthObservationJobsCommand = async (
   input: ListEarthObservationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-earth-observation-jobs";
+  b.bp("/list-earth-observation-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -411,15 +347,8 @@ export const se_ListEarthObservationJobsCommand = async (
       StatusEquals: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -429,25 +358,16 @@ export const se_ListRasterDataCollectionsCommand = async (
   input: ListRasterDataCollectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/raster-data-collections";
+  b.bp("/raster-data-collections");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -457,20 +377,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -480,12 +393,11 @@ export const se_ListVectorEnrichmentJobsCommand = async (
   input: ListVectorEnrichmentJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-vector-enrichment-jobs";
+  b.bp("/list-vector-enrichment-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -496,15 +408,8 @@ export const se_ListVectorEnrichmentJobsCommand = async (
       StatusEquals: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -514,12 +419,11 @@ export const se_SearchRasterDataCollectionCommand = async (
   input: SearchRasterDataCollectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-raster-data-collection";
+  b.bp("/search-raster-data-collection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -528,15 +432,8 @@ export const se_SearchRasterDataCollectionCommand = async (
       RasterDataCollectionQuery: (_) => se_RasterDataCollectionQueryWithBandFilterInput(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -546,12 +443,11 @@ export const se_StartEarthObservationJobCommand = async (
   input: StartEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/earth-observation-jobs";
+  b.bp("/earth-observation-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -564,15 +460,8 @@ export const se_StartEarthObservationJobCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,12 +471,11 @@ export const se_StartVectorEnrichmentJobCommand = async (
   input: StartVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vector-enrichment-jobs";
+  b.bp("/vector-enrichment-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -600,15 +488,8 @@ export const se_StartVectorEnrichmentJobCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -618,27 +499,19 @@ export const se_StopEarthObservationJobCommand = async (
   input: StopEarthObservationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/earth-observation-jobs/stop";
+  b.bp("/earth-observation-jobs/stop");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Arn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -648,27 +521,19 @@ export const se_StopVectorEnrichmentJobCommand = async (
   input: StopVectorEnrichmentJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vector-enrichment-jobs/stop";
+  b.bp("/vector-enrichment-jobs/stop");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Arn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -678,27 +543,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -708,27 +566,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3001,6 +2851,20 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "Arn";
+const _ERA = "ExecutionRoleArn";
+const _IA = "ImageAssets";
+const _IM = "ImageMask";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _ODT = "OutputDataType";
+const _OF = "OutputFormat";
+const _PF = "PropertyFilters";
+const _T = "Target";
+const _TK = "TagKeys";
+const _TRF = "TimeRangeFilter";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -71,28 +72,13 @@ export const se_CancelZonalShiftCommand = async (
   input: CancelZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts/{zonalShiftId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "zonalShiftId",
-    () => input.zonalShiftId!,
-    "{zonalShiftId}",
-    false
-  );
+  b.bp("/zonalshifts/{zonalShiftId}");
+  b.p("zonalShiftId", () => input.zonalShiftId!, "{zonalShiftId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -102,11 +88,11 @@ export const se_CreatePracticeRunConfigurationCommand = async (
   input: CreatePracticeRunConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
+  b.bp("/configuration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -117,15 +103,8 @@ export const se_CreatePracticeRunConfigurationCommand = async (
       resourceIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -135,28 +114,13 @@ export const se_DeletePracticeRunConfigurationCommand = async (
   input: DeletePracticeRunConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/{resourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "resourceIdentifier",
-    () => input.resourceIdentifier!,
-    "{resourceIdentifier}",
-    false
-  );
+  b.bp("/configuration/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -166,28 +130,13 @@ export const se_GetManagedResourceCommand = async (
   input: GetManagedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managedresources/{resourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "resourceIdentifier",
-    () => input.resourceIdentifier!,
-    "{resourceIdentifier}",
-    false
-  );
+  b.bp("/managedresources/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -197,25 +146,17 @@ export const se_ListAutoshiftsCommand = async (
   input: ListAutoshiftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/autoshifts";
+  b.bp("/autoshifts");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    status: [, input.status!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -225,24 +166,16 @@ export const se_ListManagedResourcesCommand = async (
   input: ListManagedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managedresources";
+  b.bp("/managedresources");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -252,26 +185,18 @@ export const se_ListZonalShiftsCommand = async (
   input: ListZonalShiftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts";
+  b.bp("/zonalshifts");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    status: [, input.status!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    resourceIdentifier: [, input.resourceIdentifier!],
+    [_nT]: [, input[_nT]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_rI]: [, input[_rI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -281,11 +206,11 @@ export const se_StartZonalShiftCommand = async (
   input: StartZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts";
+  b.bp("/zonalshifts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -295,15 +220,8 @@ export const se_StartZonalShiftCommand = async (
       resourceIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -313,20 +231,12 @@ export const se_UpdatePracticeRunConfigurationCommand = async (
   input: UpdatePracticeRunConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/{resourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "resourceIdentifier",
-    () => input.resourceIdentifier!,
-    "{resourceIdentifier}",
-    false
-  );
+  b.bp("/configuration/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -336,15 +246,8 @@ export const se_UpdatePracticeRunConfigurationCommand = async (
       outcomeAlarms: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -354,35 +257,20 @@ export const se_UpdateZonalAutoshiftConfigurationCommand = async (
   input: UpdateZonalAutoshiftConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managedresources/{resourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "resourceIdentifier",
-    () => input.resourceIdentifier!,
-    "{resourceIdentifier}",
-    false
-  );
+  b.bp("/managedresources/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       zonalAutoshiftStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -392,20 +280,12 @@ export const se_UpdateZonalShiftCommand = async (
   input: UpdateZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts/{zonalShiftId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "zonalShiftId",
-    () => input.zonalShiftId!,
-    "{zonalShiftId}",
-    false
-  );
+  b.bp("/zonalshifts/{zonalShiftId}");
+  b.p("zonalShiftId", () => input.zonalShiftId!, "{zonalShiftId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -413,15 +293,8 @@ export const se_UpdateZonalShiftCommand = async (
       expiresIn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1418,6 +1291,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rI = "resourceIdentifier";
+const _s = "status";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

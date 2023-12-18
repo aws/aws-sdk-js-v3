@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -67,23 +68,14 @@ export const se_InvokeAgentCommand = async (
   input: InvokeAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text";
-  resolvedPath = __resolvedPath(resolvedPath, input, "agentId", () => input.agentId!, "{agentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "agentAliasId",
-    () => input.agentAliasId!,
-    "{agentAliasId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/agents/{agentId}/agentAliases/{agentAliasId}/sessions/{sessionId}/text");
+  b.p("agentId", () => input.agentId!, "{agentId}", false);
+  b.p("agentAliasId", () => input.agentAliasId!, "{agentAliasId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -93,15 +85,8 @@ export const se_InvokeAgentCommand = async (
       sessionState: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -111,21 +96,12 @@ export const se_RetrieveCommand = async (
   input: RetrieveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgebases/{knowledgeBaseId}/retrieve";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgebases/{knowledgeBaseId}/retrieve");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -134,15 +110,8 @@ export const se_RetrieveCommand = async (
       retrievalQuery: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -152,11 +121,11 @@ export const se_RetrieveAndGenerateCommand = async (
   input: RetrieveAndGenerateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retrieveAndGenerate";
+  b.bp("/retrieveAndGenerate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -166,15 +135,8 @@ export const se_RetrieveAndGenerateCommand = async (
       sessionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -189,8 +151,8 @@ export const de_InvokeAgentCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["x-amzn-bedrock-agent-content-type"]],
-    sessionId: [, output.headers["x-amz-bedrock-agent-session-id"]],
+    [_cT]: [, output.headers[_xabact]],
+    [_sI]: [, output.headers[_xabasi]],
   });
   const data: any = output.body;
   contents.completion = de_ResponseStream(data, context);
@@ -986,6 +948,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cT = "contentType";
+const _sI = "sessionId";
+const _xabact = "x-amzn-bedrock-agent-content-type";
+const _xabasi = "x-amz-bedrock-agent-session-id";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

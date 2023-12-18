@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IAMServiceException as __BaseException } from "./IAMServiceException";
+
 import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, StatusType, Tag } from "./models_0";
 
 /**

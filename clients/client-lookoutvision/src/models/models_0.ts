@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LookoutVisionServiceException as __BaseException } from "./LookoutVisionServiceException";

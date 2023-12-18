@@ -40,6 +40,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -57,10 +58,13 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
+    private StringStore stringStore;
 
     XmlShapeDeserVisitor(GenerationContext context) {
         super(context);
+        stringStore = context.getStringStore();
     }
+
 
     private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
         return new XmlMemberDeserVisitor(getContext(), memberShape, dataSource, Format.DATE_TIME);
@@ -156,7 +160,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             // Grab the target shape so we can use a member deserializer on it.
             Shape target = context.getModel().expectShape(memberShape.getTarget());
             deserializeNamedMember(context, memberName, memberShape, "output", (dataSource, visitor) -> {
-                writer.write("contents.$L = $L;", memberName, target.accept(visitor));
+                writer.write("contents[$L] = $L;", stringStore.var(memberName), target.accept(visitor));
             });
         });
 
@@ -204,7 +208,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Build a string based on the traits that represents the location.
         // Note we don't need to handle @xmlAttribute here because the parser flattens
         // attributes in to the main structure.
-        StringBuilder sourceBuilder = new StringBuilder(inputLocation).append("['").append(locationName).append("']");
+        StringBuilder sourceBuilder = new StringBuilder(inputLocation)
+            .append("[").append(stringStore.var(locationName)).append("]");
         // Track any locations we need to validate on our way to the final element.
         List<String> locationsToValidate = new ArrayList<>();
 
@@ -214,7 +219,8 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
             locationsToValidate.add(sourceBuilder.toString());
             // Update the target element.
             String targetLocation = getUnnamedAggregateTargetLocation(model, target);
-            sourceBuilder.append("['").append(targetLocation).append("']");
+
+            sourceBuilder.append("[").append(stringStore.var(targetLocation)).append("]");
         }
 
         boolean canMemberParsed = handleEmptyTags(
@@ -227,7 +233,7 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         locationsToValidate.add(source);
         // Build a string of the elements to validate before deserializing.
         String validationStatement = locationsToValidate.stream()
-                .map(location -> location + " !== undefined")
+                .map(location -> location + " != null")
                 .collect(Collectors.joining(" && "));
         String ifOrElseIfStatement = canMemberParsed ? "else if" : "if";
         writer.openBlock("$L ($L) {", "}", ifOrElseIfStatement, validationStatement, () -> {
@@ -283,14 +289,14 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         if (target instanceof MapShape || target instanceof CollectionShape || target instanceof UnionShape) {
             writer.openBlock("if ($L.$L === \"\") {", "}", inputLocation, locationName, () -> {
                 if (target instanceof MapShape) {
-                    writer.write("contents.$L = {};", memberName);
+                    writer.write("contents[$L] = {};", stringStore.var(memberName));
                 } else if (target instanceof CollectionShape) {
                     if (isWithinUnion) {
                         writer.openBlock("return {", "};", () -> {
-                            writer.write("$L: [],", memberName);
+                            writer.write("[$L]: [],", stringStore.var(memberName));
                         });
                     } else {
-                        writer.write("contents.$L = [];", memberName);
+                        writer.write("contents[$L] = [];", stringStore.var(memberName));
                     }
                 } else if (target instanceof UnionShape) {
                     writer.write("// Pass empty tags.");

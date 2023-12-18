@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -296,28 +297,13 @@ export const se_AcceptAttachmentCommand = async (
   input: AcceptAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments/{AttachmentId}/accept";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/attachments/{AttachmentId}/accept");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,21 +313,12 @@ export const se_AssociateConnectPeerCommand = async (
   input: AssociateConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connect-peer-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connect-peer-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -350,15 +327,8 @@ export const se_AssociateConnectPeerCommand = async (
       LinkId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -368,21 +338,12 @@ export const se_AssociateCustomerGatewayCommand = async (
   input: AssociateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/customer-gateway-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -391,15 +352,8 @@ export const se_AssociateCustomerGatewayCommand = async (
       LinkId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -409,21 +363,12 @@ export const se_AssociateLinkCommand = async (
   input: AssociateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/link-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/link-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -431,15 +376,8 @@ export const se_AssociateLinkCommand = async (
       LinkId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -449,21 +387,12 @@ export const se_AssociateTransitGatewayConnectPeerCommand = async (
   input: AssociateTransitGatewayConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -472,15 +401,8 @@ export const se_AssociateTransitGatewayConnectPeerCommand = async (
       TransitGatewayConnectPeerArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -490,11 +412,11 @@ export const se_CreateConnectAttachmentCommand = async (
   input: CreateConnectAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-attachments";
+  b.bp("/connect-attachments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -506,15 +428,8 @@ export const se_CreateConnectAttachmentCommand = async (
       TransportAttachmentId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -524,21 +439,12 @@ export const se_CreateConnectionCommand = async (
   input: CreateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connections";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connections");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -550,15 +456,8 @@ export const se_CreateConnectionCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -568,11 +467,11 @@ export const se_CreateConnectPeerCommand = async (
   input: CreateConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers";
+  b.bp("/connect-peers");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -586,15 +485,8 @@ export const se_CreateConnectPeerCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -604,11 +496,11 @@ export const se_CreateCoreNetworkCommand = async (
   input: CreateCoreNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks";
+  b.bp("/core-networks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -619,15 +511,8 @@ export const se_CreateCoreNetworkCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -637,21 +522,12 @@ export const se_CreateDeviceCommand = async (
   input: CreateDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/devices";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/devices");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -666,15 +542,8 @@ export const se_CreateDeviceCommand = async (
       Vendor: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -684,11 +553,11 @@ export const se_CreateGlobalNetworkCommand = async (
   input: CreateGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks";
+  b.bp("/global-networks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -696,15 +565,8 @@ export const se_CreateGlobalNetworkCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -714,20 +576,12 @@ export const se_CreateLinkCommand = async (
   input: CreateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks/{GlobalNetworkId}/links";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/links");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -739,15 +593,8 @@ export const se_CreateLinkCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -757,20 +604,12 @@ export const se_CreateSiteCommand = async (
   input: CreateSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks/{GlobalNetworkId}/sites";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/sites");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -779,15 +618,8 @@ export const se_CreateSiteCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -797,12 +629,11 @@ export const se_CreateSiteToSiteVpnAttachmentCommand = async (
   input: CreateSiteToSiteVpnAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/site-to-site-vpn-attachments";
+  b.bp("/site-to-site-vpn-attachments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -812,15 +643,8 @@ export const se_CreateSiteToSiteVpnAttachmentCommand = async (
       VpnConnectionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -830,12 +654,11 @@ export const se_CreateTransitGatewayPeeringCommand = async (
   input: CreateTransitGatewayPeeringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/transit-gateway-peerings";
+  b.bp("/transit-gateway-peerings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -845,15 +668,8 @@ export const se_CreateTransitGatewayPeeringCommand = async (
       TransitGatewayArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -863,12 +679,11 @@ export const se_CreateTransitGatewayRouteTableAttachmentCommand = async (
   input: CreateTransitGatewayRouteTableAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/transit-gateway-route-table-attachments";
+  b.bp("/transit-gateway-route-table-attachments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -878,15 +693,8 @@ export const se_CreateTransitGatewayRouteTableAttachmentCommand = async (
       TransitGatewayRouteTableArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -896,11 +704,11 @@ export const se_CreateVpcAttachmentCommand = async (
   input: CreateVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpc-attachments";
+  b.bp("/vpc-attachments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -912,15 +720,8 @@ export const se_CreateVpcAttachmentCommand = async (
       VpcArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -930,28 +731,13 @@ export const se_DeleteAttachmentCommand = async (
   input: DeleteAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments/{AttachmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -961,37 +747,14 @@ export const se_DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connections/{ConnectionId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1001,28 +764,13 @@ export const se_DeleteConnectPeerCommand = async (
   input: DeleteConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers/{ConnectPeerId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectPeerId",
-    () => input.ConnectPeerId!,
-    "{ConnectPeerId}",
-    false
-  );
+  b.bp("/connect-peers/{ConnectPeerId}");
+  b.p("ConnectPeerId", () => input.ConnectPeerId!, "{ConnectPeerId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1032,28 +780,13 @@ export const se_DeleteCoreNetworkCommand = async (
   input: DeleteCoreNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks/{CoreNetworkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1063,37 +796,14 @@ export const se_DeleteCoreNetworkPolicyVersionCommand = async (
   input: DeleteCoreNetworkPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PolicyVersionId",
-    () => input.PolicyVersionId!.toString(),
-    "{PolicyVersionId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
+  b.p("PolicyVersionId", () => input.PolicyVersionId!.toString(), "{PolicyVersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,30 +813,14 @@ export const se_DeleteDeviceCommand = async (
   input: DeleteDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/devices/{DeviceId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1136,28 +830,13 @@ export const se_DeleteGlobalNetworkCommand = async (
   input: DeleteGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks/{GlobalNetworkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1167,30 +846,14 @@ export const se_DeleteLinkCommand = async (
   input: DeleteLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/links/{LinkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "LinkId", () => input.LinkId!, "{LinkId}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/links/{LinkId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("LinkId", () => input.LinkId!, "{LinkId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1200,20 +863,13 @@ export const se_DeletePeeringCommand = async (
   input: DeletePeeringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/peerings/{PeeringId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PeeringId", () => input.PeeringId!, "{PeeringId}", false);
+  b.bp("/peerings/{PeeringId}");
+  b.p("PeeringId", () => input.PeeringId!, "{PeeringId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1223,21 +879,13 @@ export const se_DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-policy/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resource-policy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1247,30 +895,14 @@ export const se_DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/sites/{SiteId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1280,37 +912,14 @@ export const se_DeregisterTransitGatewayCommand = async (
   input: DeregisterTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TransitGatewayArn",
-    () => input.TransitGatewayArn!,
-    "{TransitGatewayArn}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("TransitGatewayArn", () => input.TransitGatewayArn!, "{TransitGatewayArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1320,28 +929,17 @@ export const se_DescribeGlobalNetworksCommand = async (
   input: DescribeGlobalNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks";
+  b.bp("/global-networks");
   const query: any = map({
-    globalNetworkIds: [
-      () => input.GlobalNetworkIds !== void 0,
-      () => (input.GlobalNetworkIds! || []).map((_entry) => _entry as any),
-    ],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_gNI]: [() => input.GlobalNetworkIds !== void 0, () => (input[_GNI]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1351,37 +949,14 @@ export const se_DisassociateConnectPeerCommand = async (
   input: DisassociateConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connect-peer-associations/{ConnectPeerId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectPeerId",
-    () => input.ConnectPeerId!,
-    "{ConnectPeerId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connect-peer-associations/{ConnectPeerId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("ConnectPeerId", () => input.ConnectPeerId!, "{ConnectPeerId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1391,37 +966,14 @@ export const se_DisassociateCustomerGatewayCommand = async (
   input: DisassociateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CustomerGatewayArn",
-    () => input.CustomerGatewayArn!,
-    "{CustomerGatewayArn}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("CustomerGatewayArn", () => input.CustomerGatewayArn!, "{CustomerGatewayArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1431,34 +983,17 @@ export const se_DisassociateLinkCommand = async (
   input: DisassociateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/link-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/link-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    deviceId: [, __expectNonNull(input.DeviceId!, `DeviceId`)],
-    linkId: [, __expectNonNull(input.LinkId!, `LinkId`)],
+    [_dI]: [, __expectNonNull(input[_DI]!, `DeviceId`)],
+    [_lI]: [, __expectNonNull(input[_LI]!, `LinkId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1468,37 +1003,19 @@ export const se_DisassociateTransitGatewayConnectPeerCommand = async (
   input: DisassociateTransitGatewayConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations/{TransitGatewayConnectPeerArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations/{TransitGatewayConnectPeerArn}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p(
     "TransitGatewayConnectPeerArn",
     () => input.TransitGatewayConnectPeerArn!,
     "{TransitGatewayConnectPeerArn}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1508,37 +1025,14 @@ export const se_ExecuteCoreNetworkChangeSetCommand = async (
   input: ExecuteCoreNetworkChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}/execute";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PolicyVersionId",
-    () => input.PolicyVersionId!.toString(),
-    "{PolicyVersionId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}/execute");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
+  b.p("PolicyVersionId", () => input.PolicyVersionId!.toString(), "{PolicyVersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1548,28 +1042,13 @@ export const se_GetConnectAttachmentCommand = async (
   input: GetConnectAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-attachments/{AttachmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/connect-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1579,39 +1058,19 @@ export const se_GetConnectionsCommand = async (
   input: GetConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connections";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connections");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    connectionIds: [
-      () => input.ConnectionIds !== void 0,
-      () => (input.ConnectionIds! || []).map((_entry) => _entry as any),
-    ],
-    deviceId: [, input.DeviceId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cI]: [() => input.ConnectionIds !== void 0, () => (input[_CI]! || []).map((_entry) => _entry as any)],
+    [_dI]: [, input[_DI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1621,28 +1080,13 @@ export const se_GetConnectPeerCommand = async (
   input: GetConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers/{ConnectPeerId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectPeerId",
-    () => input.ConnectPeerId!,
-    "{ConnectPeerId}",
-    false
-  );
+  b.bp("/connect-peers/{ConnectPeerId}");
+  b.p("ConnectPeerId", () => input.ConnectPeerId!, "{ConnectPeerId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1652,38 +1096,18 @@ export const se_GetConnectPeerAssociationsCommand = async (
   input: GetConnectPeerAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connect-peer-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connect-peer-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    connectPeerIds: [
-      () => input.ConnectPeerIds !== void 0,
-      () => (input.ConnectPeerIds! || []).map((_entry) => _entry as any),
-    ],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cPI]: [() => input.ConnectPeerIds !== void 0, () => (input[_CPI]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1693,28 +1117,13 @@ export const se_GetCoreNetworkCommand = async (
   input: GetCoreNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks/{CoreNetworkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1724,42 +1133,18 @@ export const se_GetCoreNetworkChangeEventsCommand = async (
   input: GetCoreNetworkChangeEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-change-events/{PolicyVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PolicyVersionId",
-    () => input.PolicyVersionId!.toString(),
-    "{PolicyVersionId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-change-events/{PolicyVersionId}");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
+  b.p("PolicyVersionId", () => input.PolicyVersionId!.toString(), "{PolicyVersionId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1769,42 +1154,18 @@ export const se_GetCoreNetworkChangeSetCommand = async (
   input: GetCoreNetworkChangeSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PolicyVersionId",
-    () => input.PolicyVersionId!.toString(),
-    "{PolicyVersionId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-change-sets/{PolicyVersionId}");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
+  b.p("PolicyVersionId", () => input.PolicyVersionId!.toString(), "{PolicyVersionId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1814,34 +1175,17 @@ export const se_GetCoreNetworkPolicyCommand = async (
   input: GetCoreNetworkPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-policy");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
   const query: any = map({
-    policyVersionId: [() => input.PolicyVersionId !== void 0, () => input.PolicyVersionId!.toString()],
-    alias: [, input.Alias!],
+    [_pVI]: [() => input.PolicyVersionId !== void 0, () => input[_PVI]!.toString()],
+    [_a]: [, input[_A]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1851,38 +1195,18 @@ export const se_GetCustomerGatewayAssociationsCommand = async (
   input: GetCustomerGatewayAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/customer-gateway-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    customerGatewayArns: [
-      () => input.CustomerGatewayArns !== void 0,
-      () => (input.CustomerGatewayArns! || []).map((_entry) => _entry as any),
-    ],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cGA]: [() => input.CustomerGatewayArns !== void 0, () => (input[_CGA]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1892,36 +1216,19 @@ export const se_GetDevicesCommand = async (
   input: GetDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/devices";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/devices");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    deviceIds: [() => input.DeviceIds !== void 0, () => (input.DeviceIds! || []).map((_entry) => _entry as any)],
-    siteId: [, input.SiteId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_dIe]: [() => input.DeviceIds !== void 0, () => (input[_DIe]! || []).map((_entry) => _entry as any)],
+    [_sI]: [, input[_SI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1931,36 +1238,19 @@ export const se_GetLinkAssociationsCommand = async (
   input: GetLinkAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/link-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/link-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    deviceId: [, input.DeviceId!],
-    linkId: [, input.LinkId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_dI]: [, input[_DI]!],
+    [_lI]: [, input[_LI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1970,37 +1260,21 @@ export const se_GetLinksCommand = async (
   input: GetLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks/{GlobalNetworkId}/links";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/links");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    linkIds: [() => input.LinkIds !== void 0, () => (input.LinkIds! || []).map((_entry) => _entry as any)],
-    siteId: [, input.SiteId!],
-    type: [, input.Type!],
-    provider: [, input.Provider!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_lIi]: [() => input.LinkIds !== void 0, () => (input[_LIi]! || []).map((_entry) => _entry as any)],
+    [_sI]: [, input[_SI]!],
+    [_t]: [, input[_T]!],
+    [_p]: [, input[_P]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2010,35 +1284,18 @@ export const se_GetNetworkResourceCountsCommand = async (
   input: GetNetworkResourceCountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/network-resource-count";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/network-resource-count");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    resourceType: [, input.ResourceType!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_rT]: [, input[_RT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2048,40 +1305,23 @@ export const se_GetNetworkResourceRelationshipsCommand = async (
   input: GetNetworkResourceRelationshipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/network-resource-relationships";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/network-resource-relationships");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    coreNetworkId: [, input.CoreNetworkId!],
-    registeredGatewayArn: [, input.RegisteredGatewayArn!],
-    awsRegion: [, input.AwsRegion!],
-    accountId: [, input.AccountId!],
-    resourceType: [, input.ResourceType!],
-    resourceArn: [, input.ResourceArn!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNI]: [, input[_CNI]!],
+    [_rGA]: [, input[_RGA]!],
+    [_aR]: [, input[_AR]!],
+    [_aI]: [, input[_AI]!],
+    [_rT]: [, input[_RT]!],
+    [_rA]: [, input[_RA]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2091,40 +1331,23 @@ export const se_GetNetworkResourcesCommand = async (
   input: GetNetworkResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/network-resources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/network-resources");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    coreNetworkId: [, input.CoreNetworkId!],
-    registeredGatewayArn: [, input.RegisteredGatewayArn!],
-    awsRegion: [, input.AwsRegion!],
-    accountId: [, input.AccountId!],
-    resourceType: [, input.ResourceType!],
-    resourceArn: [, input.ResourceArn!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNI]: [, input[_CNI]!],
+    [_rGA]: [, input[_RGA]!],
+    [_aR]: [, input[_AR]!],
+    [_aI]: [, input[_AI]!],
+    [_rT]: [, input[_RT]!],
+    [_rA]: [, input[_RA]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2134,21 +1357,12 @@ export const se_GetNetworkRoutesCommand = async (
   input: GetNetworkRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/network-routes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/network-routes");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2163,15 +1377,8 @@ export const se_GetNetworkRoutesCommand = async (
       Types: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2181,40 +1388,23 @@ export const se_GetNetworkTelemetryCommand = async (
   input: GetNetworkTelemetryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/network-telemetry";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/network-telemetry");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    coreNetworkId: [, input.CoreNetworkId!],
-    registeredGatewayArn: [, input.RegisteredGatewayArn!],
-    awsRegion: [, input.AwsRegion!],
-    accountId: [, input.AccountId!],
-    resourceType: [, input.ResourceType!],
-    resourceArn: [, input.ResourceArn!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNI]: [, input[_CNI]!],
+    [_rGA]: [, input[_RGA]!],
+    [_aR]: [, input[_AR]!],
+    [_aI]: [, input[_AI]!],
+    [_rT]: [, input[_RT]!],
+    [_rA]: [, input[_RA]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2224,21 +1414,13 @@ export const se_GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-policy/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resource-policy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2248,37 +1430,14 @@ export const se_GetRouteAnalysisCommand = async (
   input: GetRouteAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/route-analyses/{RouteAnalysisId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RouteAnalysisId",
-    () => input.RouteAnalysisId!,
-    "{RouteAnalysisId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/route-analyses/{RouteAnalysisId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("RouteAnalysisId", () => input.RouteAnalysisId!, "{RouteAnalysisId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2288,34 +1447,18 @@ export const se_GetSitesCommand = async (
   input: GetSitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks/{GlobalNetworkId}/sites";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/sites");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    siteIds: [() => input.SiteIds !== void 0, () => (input.SiteIds! || []).map((_entry) => _entry as any)],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_sIi]: [() => input.SiteIds !== void 0, () => (input[_SIi]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2325,29 +1468,13 @@ export const se_GetSiteToSiteVpnAttachmentCommand = async (
   input: GetSiteToSiteVpnAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/site-to-site-vpn-attachments/{AttachmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/site-to-site-vpn-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2357,38 +1484,21 @@ export const se_GetTransitGatewayConnectPeerAssociationsCommand = async (
   input: GetTransitGatewayConnectPeerAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    transitGatewayConnectPeerArns: [
+    [_tGCPA]: [
       () => input.TransitGatewayConnectPeerArns !== void 0,
-      () => (input.TransitGatewayConnectPeerArns! || []).map((_entry) => _entry as any),
+      () => (input[_TGCPA]! || []).map((_entry) => _entry as any),
     ],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2398,21 +1508,13 @@ export const se_GetTransitGatewayPeeringCommand = async (
   input: GetTransitGatewayPeeringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/transit-gateway-peerings/{PeeringId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PeeringId", () => input.PeeringId!, "{PeeringId}", false);
+  b.bp("/transit-gateway-peerings/{PeeringId}");
+  b.p("PeeringId", () => input.PeeringId!, "{PeeringId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2422,38 +1524,18 @@ export const se_GetTransitGatewayRegistrationsCommand = async (
   input: GetTransitGatewayRegistrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-registrations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    transitGatewayArns: [
-      () => input.TransitGatewayArns !== void 0,
-      () => (input.TransitGatewayArns! || []).map((_entry) => _entry as any),
-    ],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_tGA]: [() => input.TransitGatewayArns !== void 0, () => (input[_TGA]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2463,29 +1545,13 @@ export const se_GetTransitGatewayRouteTableAttachmentCommand = async (
   input: GetTransitGatewayRouteTableAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/transit-gateway-route-table-attachments/{AttachmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/transit-gateway-route-table-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2495,28 +1561,13 @@ export const se_GetVpcAttachmentCommand = async (
   input: GetVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpc-attachments/{AttachmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/vpc-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2526,28 +1577,20 @@ export const se_ListAttachmentsCommand = async (
   input: ListAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments";
+  b.bp("/attachments");
   const query: any = map({
-    coreNetworkId: [, input.CoreNetworkId!],
-    attachmentType: [, input.AttachmentType!],
-    edgeLocation: [, input.EdgeLocation!],
-    state: [, input.State!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNI]: [, input[_CNI]!],
+    [_aT]: [, input[_AT]!],
+    [_eL]: [, input[_EL]!],
+    [_s]: [, input[_S]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2557,26 +1600,18 @@ export const se_ListConnectPeersCommand = async (
   input: ListConnectPeersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/connect-peers";
+  b.bp("/connect-peers");
   const query: any = map({
-    coreNetworkId: [, input.CoreNetworkId!],
-    connectAttachmentId: [, input.ConnectAttachmentId!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNI]: [, input[_CNI]!],
+    [_cAI]: [, input[_CAI]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2586,34 +1621,17 @@ export const se_ListCoreNetworkPolicyVersionsCommand = async (
   input: ListCoreNetworkPolicyVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-policy-versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-policy-versions");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2623,24 +1641,16 @@ export const se_ListCoreNetworksCommand = async (
   input: ListCoreNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks";
+  b.bp("/core-networks");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2650,25 +1660,16 @@ export const se_ListOrganizationServiceAccessStatusCommand = async (
   input: ListOrganizationServiceAccessStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organizations/service-access";
+  b.bp("/organizations/service-access");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2678,28 +1679,20 @@ export const se_ListPeeringsCommand = async (
   input: ListPeeringsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/peerings";
+  b.bp("/peerings");
   const query: any = map({
-    coreNetworkId: [, input.CoreNetworkId!],
-    peeringType: [, input.PeeringType!],
-    edgeLocation: [, input.EdgeLocation!],
-    state: [, input.State!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNI]: [, input[_CNI]!],
+    [_pT]: [, input[_PT]!],
+    [_eL]: [, input[_EL]!],
+    [_s]: [, input[_S]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2709,20 +1702,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2732,21 +1718,12 @@ export const se_PutCoreNetworkPolicyCommand = async (
   input: PutCoreNetworkPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-policy");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2756,15 +1733,8 @@ export const se_PutCoreNetworkPolicyCommand = async (
       PolicyDocument: (_) => __LazyJsonString.fromObject(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2774,28 +1744,20 @@ export const se_PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource-policy/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resource-policy/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       PolicyDocument: (_) => __LazyJsonString.fromObject(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2805,36 +1767,20 @@ export const se_RegisterTransitGatewayCommand = async (
   input: RegisterTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-registrations");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TransitGatewayArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2844,28 +1790,13 @@ export const se_RejectAttachmentCommand = async (
   input: RejectAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/attachments/{AttachmentId}/reject";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/attachments/{AttachmentId}/reject");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2875,37 +1806,14 @@ export const se_RestoreCoreNetworkPolicyVersionCommand = async (
   input: RestoreCoreNetworkPolicyVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}/restore";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PolicyVersionId",
-    () => input.PolicyVersionId!.toString(),
-    "{PolicyVersionId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}/core-network-policy-versions/{PolicyVersionId}/restore");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
+  b.p("PolicyVersionId", () => input.PolicyVersionId!.toString(), "{PolicyVersionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2915,27 +1823,19 @@ export const se_StartOrganizationServiceAccessUpdateCommand = async (
   input: StartOrganizationServiceAccessUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organizations/service-access";
+  b.bp("/organizations/service-access");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Action: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2945,21 +1845,12 @@ export const se_StartRouteAnalysisCommand = async (
   input: StartRouteAnalysisCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/route-analyses";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/route-analyses");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2969,15 +1860,8 @@ export const se_StartRouteAnalysisCommand = async (
       UseMiddleboxes: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2987,27 +1871,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3017,27 +1894,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3047,29 +1916,13 @@ export const se_UpdateConnectionCommand = async (
   input: UpdateConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConnectionId",
-    () => input.ConnectionId!,
-    "{ConnectionId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}/connections/{ConnectionId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("ConnectionId", () => input.ConnectionId!, "{ConnectionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3078,15 +1931,8 @@ export const se_UpdateConnectionCommand = async (
       LinkId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3096,35 +1942,20 @@ export const se_UpdateCoreNetworkCommand = async (
   input: UpdateCoreNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/core-networks/{CoreNetworkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CoreNetworkId",
-    () => input.CoreNetworkId!,
-    "{CoreNetworkId}",
-    false
-  );
+  b.bp("/core-networks/{CoreNetworkId}");
+  b.p("CoreNetworkId", () => input.CoreNetworkId!, "{CoreNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3134,22 +1965,13 @@ export const se_UpdateDeviceCommand = async (
   input: UpdateDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/devices/{DeviceId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3163,15 +1985,8 @@ export const se_UpdateDeviceCommand = async (
       Vendor: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3181,35 +1996,20 @@ export const se_UpdateGlobalNetworkCommand = async (
   input: UpdateGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-networks/{GlobalNetworkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
+  b.bp("/global-networks/{GlobalNetworkId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3219,22 +2019,13 @@ export const se_UpdateLinkCommand = async (
   input: UpdateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/links/{LinkId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "LinkId", () => input.LinkId!, "{LinkId}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/links/{LinkId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("LinkId", () => input.LinkId!, "{LinkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3244,15 +2035,8 @@ export const se_UpdateLinkCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3262,37 +2046,21 @@ export const se_UpdateNetworkResourceMetadataCommand = async (
   input: UpdateNetworkResourceMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/network-resources/{ResourceArn}/metadata";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/network-resources/{ResourceArn}/metadata");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Metadata: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3302,22 +2070,13 @@ export const se_UpdateSiteCommand = async (
   input: UpdateSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "GlobalNetworkId",
-    () => input.GlobalNetworkId!,
-    "{GlobalNetworkId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SiteId", () => input.SiteId!, "{SiteId}", false);
+  b.bp("/global-networks/{GlobalNetworkId}/sites/{SiteId}");
+  b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
+  b.p("SiteId", () => input.SiteId!, "{SiteId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3325,15 +2084,8 @@ export const se_UpdateSiteCommand = async (
       Location: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3343,20 +2095,12 @@ export const se_UpdateVpcAttachmentCommand = async (
   input: UpdateVpcAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vpc-attachments/{AttachmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttachmentId",
-    () => input.AttachmentId!,
-    "{AttachmentId}",
-    false
-  );
+  b.bp("/vpc-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3365,15 +2109,8 @@ export const se_UpdateVpcAttachmentCommand = async (
       RemoveSubnetArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -8623,10 +7360,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    RetryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_RAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -8692,10 +7426,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    RetryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_RAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -9393,6 +8124,69 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "Alias";
+const _AI = "AccountId";
+const _AR = "AwsRegion";
+const _AT = "AttachmentType";
+const _CAI = "ConnectAttachmentId";
+const _CGA = "CustomerGatewayArns";
+const _CI = "ConnectionIds";
+const _CNI = "CoreNetworkId";
+const _CPI = "ConnectPeerIds";
+const _DI = "DeviceId";
+const _DIe = "DeviceIds";
+const _EL = "EdgeLocation";
+const _GNI = "GlobalNetworkIds";
+const _LI = "LinkId";
+const _LIi = "LinkIds";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _P = "Provider";
+const _PT = "PeeringType";
+const _PVI = "PolicyVersionId";
+const _RA = "ResourceArn";
+const _RAS = "RetryAfterSeconds";
+const _RGA = "RegisteredGatewayArn";
+const _RT = "ResourceType";
+const _S = "State";
+const _SI = "SiteId";
+const _SIi = "SiteIds";
+const _T = "Type";
+const _TGA = "TransitGatewayArns";
+const _TGCPA = "TransitGatewayConnectPeerArns";
+const _TK = "TagKeys";
+const _a = "alias";
+const _aI = "accountId";
+const _aR = "awsRegion";
+const _aT = "attachmentType";
+const _cAI = "connectAttachmentId";
+const _cGA = "customerGatewayArns";
+const _cI = "connectionIds";
+const _cNI = "coreNetworkId";
+const _cPI = "connectPeerIds";
+const _dI = "deviceId";
+const _dIe = "deviceIds";
+const _eL = "edgeLocation";
+const _gNI = "globalNetworkIds";
+const _lI = "linkId";
+const _lIi = "linkIds";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _p = "provider";
+const _pT = "peeringType";
+const _pVI = "policyVersionId";
+const _rA = "resourceArn";
+const _rGA = "registeredGatewayArn";
+const _rT = "resourceType";
+const _ra = "retry-after";
+const _s = "state";
+const _sI = "siteId";
+const _sIi = "siteIds";
+const _t = "type";
+const _tGA = "transitGatewayArns";
+const _tGCPA = "transitGatewayConnectPeerArns";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

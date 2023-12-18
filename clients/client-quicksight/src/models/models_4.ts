@@ -2,7 +2,9 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { AccountCustomization, ResourceStatus } from "./models_0";
+
 import { AnalysisDefinition, AnalysisSearchFilter, AnalysisSourceEntity, AnalysisSummary } from "./models_1";
+
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
@@ -50,6 +52,7 @@ import {
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
 import {
   DashboardSearchFilter,
   DashboardSummary,

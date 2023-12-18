@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
+
 import {
   AbortConfig,
   Action,

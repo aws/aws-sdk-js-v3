@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -139,11 +140,11 @@ export const se_CreateAccessTokenCommand = async (
   input: CreateAccessTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/accessTokens";
+  b.bp("/v1/accessTokens");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -151,15 +152,8 @@ export const se_CreateAccessTokenCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -169,15 +163,13 @@ export const se_CreateDevEnvironmentCommand = async (
   input: CreateDevEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -191,15 +183,8 @@ export const se_CreateDevEnvironmentCommand = async (
       vpcConnectionName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -209,13 +194,12 @@ export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/projects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -223,15 +207,8 @@ export const se_CreateProjectCommand = async (
       displayName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -241,31 +218,22 @@ export const se_CreateSourceRepositoryCommand = async (
   input: CreateSourceRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -275,39 +243,23 @@ export const se_CreateSourceRepositoryBranchCommand = async (
   input: CreateSourceRepositoryBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sourceRepositoryName",
-    () => input.sourceRepositoryName!,
-    "{sourceRepositoryName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("sourceRepositoryName", () => input.sourceRepositoryName!, "{sourceRepositoryName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       headCommitId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -317,20 +269,13 @@ export const se_DeleteAccessTokenCommand = async (
   input: DeleteAccessTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/accessTokens/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/accessTokens/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -340,24 +285,15 @@ export const se_DeleteDevEnvironmentCommand = async (
   input: DeleteDevEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -367,22 +303,14 @@ export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/projects/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -392,24 +320,15 @@ export const se_DeleteSourceRepositoryCommand = async (
   input: DeleteSourceRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -419,20 +338,13 @@ export const se_DeleteSpaceCommand = async (
   input: DeleteSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -442,24 +354,15 @@ export const se_GetDevEnvironmentCommand = async (
   input: GetDevEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -469,22 +372,14 @@ export const se_GetProjectCommand = async (
   input: GetProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/projects/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -494,24 +389,15 @@ export const se_GetSourceRepositoryCommand = async (
   input: GetSourceRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -521,31 +407,15 @@ export const se_GetSourceRepositoryCloneUrlsCommand = async (
   input: GetSourceRepositoryCloneUrlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/cloneUrls";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sourceRepositoryName",
-    () => input.sourceRepositoryName!,
-    "{sourceRepositoryName}",
-    false
-  );
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/cloneUrls");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("sourceRepositoryName", () => input.sourceRepositoryName!, "{sourceRepositoryName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -555,20 +425,13 @@ export const se_GetSpaceCommand = async (
   input: GetSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -578,21 +441,13 @@ export const se_GetSubscriptionCommand = async (
   input: GetSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/subscription";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.bp("/v1/spaces/{spaceName}/subscription");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -602,24 +457,16 @@ export const se_GetUserDetailsCommand = async (
   input: GetUserDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userDetails";
+  b.bp("/userDetails");
   const query: any = map({
-    id: [, input.id!],
-    userName: [, input.userName!],
+    [_i]: [, input[_i]!],
+    [_uN]: [, input[_uN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -629,24 +476,15 @@ export const se_GetWorkflowCommand = async (
   input: GetWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/workflows/{id}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -656,24 +494,15 @@ export const se_GetWorkflowRunCommand = async (
   input: GetWorkflowRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns/{id}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -683,11 +512,11 @@ export const se_ListAccessTokensCommand = async (
   input: ListAccessTokensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/accessTokens";
+  b.bp("/v1/accessTokens");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -695,15 +524,8 @@ export const se_ListAccessTokensCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -713,13 +535,12 @@ export const se_ListDevEnvironmentsCommand = async (
   input: ListDevEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/devEnvironments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.bp("/v1/spaces/{spaceName}/devEnvironments");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -729,15 +550,8 @@ export const se_ListDevEnvironmentsCommand = async (
       projectName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -747,23 +561,14 @@ export const se_ListDevEnvironmentSessionsCommand = async (
   input: ListDevEnvironmentSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{devEnvironmentId}/sessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "devEnvironmentId",
-    () => input.devEnvironmentId!,
-    "{devEnvironmentId}",
-    false
-  );
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{devEnvironmentId}/sessions");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("devEnvironmentId", () => input.devEnvironmentId!, "{devEnvironmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -771,15 +576,8 @@ export const se_ListDevEnvironmentSessionsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -789,13 +587,12 @@ export const se_ListEventLogsCommand = async (
   input: ListEventLogsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/eventLogs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.bp("/v1/spaces/{spaceName}/eventLogs");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -806,15 +603,8 @@ export const se_ListEventLogsCommand = async (
       startTime: (_) => _.toISOString().split(".")[0] + "Z",
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -824,13 +614,12 @@ export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/projects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -839,15 +628,8 @@ export const se_ListProjectsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -857,15 +639,13 @@ export const se_ListSourceRepositoriesCommand = async (
   input: ListSourceRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -873,15 +653,8 @@ export const se_ListSourceRepositoriesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -891,23 +664,14 @@ export const se_ListSourceRepositoryBranchesCommand = async (
   input: ListSourceRepositoryBranchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sourceRepositoryName",
-    () => input.sourceRepositoryName!,
-    "{sourceRepositoryName}",
-    false
-  );
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/sourceRepositories/{sourceRepositoryName}/branches");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("sourceRepositoryName", () => input.sourceRepositoryName!, "{sourceRepositoryName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -915,15 +679,8 @@ export const se_ListSourceRepositoryBranchesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -933,26 +690,19 @@ export const se_ListSpacesCommand = async (
   input: ListSpacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces";
+  b.bp("/v1/spaces");
   let body: any;
   body = JSON.stringify(
     take(input, {
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -962,19 +712,17 @@ export const se_ListWorkflowRunsCommand = async (
   input: ListWorkflowRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   const query: any = map({
-    workflowId: [, input.workflowId!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_wI]: [, input[_wI]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -982,16 +730,8 @@ export const se_ListWorkflowRunsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1001,18 +741,16 @@ export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/workflows";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/workflows");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1020,16 +758,8 @@ export const se_ListWorkflowsCommand = async (
       sortBy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1039,16 +769,14 @@ export const se_StartDevEnvironmentCommand = async (
   input: StartDevEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/start");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1057,15 +785,8 @@ export const se_StartDevEnvironmentCommand = async (
       instanceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1075,31 +796,22 @@ export const se_StartDevEnvironmentSessionCommand = async (
   input: StartDevEnvironmentSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       sessionConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1109,17 +821,15 @@ export const se_StartWorkflowRunCommand = async (
   input: StartWorkflowRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/workflowRuns");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
   const query: any = map({
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    [_wI]: [, __expectNonNull(input[_wI]!, `workflowId`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1127,16 +837,8 @@ export const se_StartWorkflowRunCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1146,24 +848,15 @@ export const se_StopDevEnvironmentCommand = async (
   input: StopDevEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/stop");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1173,25 +866,16 @@ export const se_StopDevEnvironmentSessionCommand = async (
   input: StopDevEnvironmentSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}/session/{sessionId}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1201,16 +885,14 @@ export const se_UpdateDevEnvironmentCommand = async (
   input: UpdateDevEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "projectName", () => input.projectName!, "{projectName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{projectName}/devEnvironments/{id}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("projectName", () => input.projectName!, "{projectName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1221,15 +903,8 @@ export const se_UpdateDevEnvironmentCommand = async (
       instanceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1239,29 +914,21 @@ export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{spaceName}/projects/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "spaceName", () => input.spaceName!, "{spaceName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{spaceName}/projects/{name}");
+  b.p("spaceName", () => input.spaceName!, "{spaceName}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1271,27 +938,20 @@ export const se_UpdateSpaceCommand = async (
   input: UpdateSpaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/spaces/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/v1/spaces/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1301,22 +961,15 @@ export const se_VerifySessionCommand = async (
   input: VerifySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/session";
+  b.bp("/session");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4211,6 +3864,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _i = "id";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _uN = "userName";
+const _wI = "workflowId";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

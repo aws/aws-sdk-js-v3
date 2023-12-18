@@ -425,8 +425,8 @@ export const se_ActivateOrganizationsAccessCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ActivateOrganizationsAccessInput(input, context),
-    Action: "ActivateOrganizationsAccess",
-    Version: "2010-05-15",
+    [_A]: _AOA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -442,8 +442,8 @@ export const se_ActivateTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ActivateTypeInput(input, context),
-    Action: "ActivateType",
-    Version: "2010-05-15",
+    [_A]: _AT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -459,8 +459,8 @@ export const se_BatchDescribeTypeConfigurationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_BatchDescribeTypeConfigurationsInput(input, context),
-    Action: "BatchDescribeTypeConfigurations",
-    Version: "2010-05-15",
+    [_A]: _BDTC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -476,8 +476,8 @@ export const se_CancelUpdateStackCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CancelUpdateStackInput(input, context),
-    Action: "CancelUpdateStack",
-    Version: "2010-05-15",
+    [_A]: _CUS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -493,8 +493,8 @@ export const se_ContinueUpdateRollbackCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ContinueUpdateRollbackInput(input, context),
-    Action: "ContinueUpdateRollback",
-    Version: "2010-05-15",
+    [_A]: _CUR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -510,8 +510,8 @@ export const se_CreateChangeSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateChangeSetInput(input, context),
-    Action: "CreateChangeSet",
-    Version: "2010-05-15",
+    [_A]: _CCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -527,8 +527,8 @@ export const se_CreateStackCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateStackInput(input, context),
-    Action: "CreateStack",
-    Version: "2010-05-15",
+    [_A]: _CS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -544,8 +544,8 @@ export const se_CreateStackInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateStackInstancesInput(input, context),
-    Action: "CreateStackInstances",
-    Version: "2010-05-15",
+    [_A]: _CSI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -561,8 +561,8 @@ export const se_CreateStackSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateStackSetInput(input, context),
-    Action: "CreateStackSet",
-    Version: "2010-05-15",
+    [_A]: _CSS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -578,8 +578,8 @@ export const se_DeactivateOrganizationsAccessCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeactivateOrganizationsAccessInput(input, context),
-    Action: "DeactivateOrganizationsAccess",
-    Version: "2010-05-15",
+    [_A]: _DOA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -595,8 +595,8 @@ export const se_DeactivateTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeactivateTypeInput(input, context),
-    Action: "DeactivateType",
-    Version: "2010-05-15",
+    [_A]: _DT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -612,8 +612,8 @@ export const se_DeleteChangeSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteChangeSetInput(input, context),
-    Action: "DeleteChangeSet",
-    Version: "2010-05-15",
+    [_A]: _DCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -629,8 +629,8 @@ export const se_DeleteStackCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteStackInput(input, context),
-    Action: "DeleteStack",
-    Version: "2010-05-15",
+    [_A]: _DS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -646,8 +646,8 @@ export const se_DeleteStackInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteStackInstancesInput(input, context),
-    Action: "DeleteStackInstances",
-    Version: "2010-05-15",
+    [_A]: _DSI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -663,8 +663,8 @@ export const se_DeleteStackSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteStackSetInput(input, context),
-    Action: "DeleteStackSet",
-    Version: "2010-05-15",
+    [_A]: _DSS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -680,8 +680,8 @@ export const se_DeregisterTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeregisterTypeInput(input, context),
-    Action: "DeregisterType",
-    Version: "2010-05-15",
+    [_A]: _DTe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -697,8 +697,8 @@ export const se_DescribeAccountLimitsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
-    Action: "DescribeAccountLimits",
-    Version: "2010-05-15",
+    [_A]: _DAL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -714,8 +714,8 @@ export const se_DescribeChangeSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeChangeSetInput(input, context),
-    Action: "DescribeChangeSet",
-    Version: "2010-05-15",
+    [_A]: _DCSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -731,8 +731,8 @@ export const se_DescribeChangeSetHooksCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeChangeSetHooksInput(input, context),
-    Action: "DescribeChangeSetHooks",
-    Version: "2010-05-15",
+    [_A]: _DCSH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -748,8 +748,8 @@ export const se_DescribeOrganizationsAccessCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeOrganizationsAccessInput(input, context),
-    Action: "DescribeOrganizationsAccess",
-    Version: "2010-05-15",
+    [_A]: _DOAe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -765,8 +765,8 @@ export const se_DescribePublisherCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribePublisherInput(input, context),
-    Action: "DescribePublisher",
-    Version: "2010-05-15",
+    [_A]: _DP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -782,8 +782,8 @@ export const se_DescribeStackDriftDetectionStatusCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackDriftDetectionStatusInput(input, context),
-    Action: "DescribeStackDriftDetectionStatus",
-    Version: "2010-05-15",
+    [_A]: _DSDDS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -799,8 +799,8 @@ export const se_DescribeStackEventsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackEventsInput(input, context),
-    Action: "DescribeStackEvents",
-    Version: "2010-05-15",
+    [_A]: _DSE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -816,8 +816,8 @@ export const se_DescribeStackInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackInstanceInput(input, context),
-    Action: "DescribeStackInstance",
-    Version: "2010-05-15",
+    [_A]: _DSIe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -833,8 +833,8 @@ export const se_DescribeStackResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourceInput(input, context),
-    Action: "DescribeStackResource",
-    Version: "2010-05-15",
+    [_A]: _DSR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -850,8 +850,8 @@ export const se_DescribeStackResourceDriftsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourceDriftsInput(input, context),
-    Action: "DescribeStackResourceDrifts",
-    Version: "2010-05-15",
+    [_A]: _DSRD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -867,8 +867,8 @@ export const se_DescribeStackResourcesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackResourcesInput(input, context),
-    Action: "DescribeStackResources",
-    Version: "2010-05-15",
+    [_A]: _DSRe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -884,8 +884,8 @@ export const se_DescribeStacksCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStacksInput(input, context),
-    Action: "DescribeStacks",
-    Version: "2010-05-15",
+    [_A]: _DSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -901,8 +901,8 @@ export const se_DescribeStackSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackSetInput(input, context),
-    Action: "DescribeStackSet",
-    Version: "2010-05-15",
+    [_A]: _DSSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -918,8 +918,8 @@ export const se_DescribeStackSetOperationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeStackSetOperationInput(input, context),
-    Action: "DescribeStackSetOperation",
-    Version: "2010-05-15",
+    [_A]: _DSSO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -935,8 +935,8 @@ export const se_DescribeTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTypeInput(input, context),
-    Action: "DescribeType",
-    Version: "2010-05-15",
+    [_A]: _DTes,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -952,8 +952,8 @@ export const se_DescribeTypeRegistrationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTypeRegistrationInput(input, context),
-    Action: "DescribeTypeRegistration",
-    Version: "2010-05-15",
+    [_A]: _DTR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -969,8 +969,8 @@ export const se_DetectStackDriftCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetectStackDriftInput(input, context),
-    Action: "DetectStackDrift",
-    Version: "2010-05-15",
+    [_A]: _DSD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -986,8 +986,8 @@ export const se_DetectStackResourceDriftCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetectStackResourceDriftInput(input, context),
-    Action: "DetectStackResourceDrift",
-    Version: "2010-05-15",
+    [_A]: _DSRDe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1003,8 +1003,8 @@ export const se_DetectStackSetDriftCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetectStackSetDriftInput(input, context),
-    Action: "DetectStackSetDrift",
-    Version: "2010-05-15",
+    [_A]: _DSSD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1020,8 +1020,8 @@ export const se_EstimateTemplateCostCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EstimateTemplateCostInput(input, context),
-    Action: "EstimateTemplateCost",
-    Version: "2010-05-15",
+    [_A]: _ETC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1037,8 +1037,8 @@ export const se_ExecuteChangeSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ExecuteChangeSetInput(input, context),
-    Action: "ExecuteChangeSet",
-    Version: "2010-05-15",
+    [_A]: _ECS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1054,8 +1054,8 @@ export const se_GetStackPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetStackPolicyInput(input, context),
-    Action: "GetStackPolicy",
-    Version: "2010-05-15",
+    [_A]: _GSP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1071,8 +1071,8 @@ export const se_GetTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTemplateInput(input, context),
-    Action: "GetTemplate",
-    Version: "2010-05-15",
+    [_A]: _GT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1088,8 +1088,8 @@ export const se_GetTemplateSummaryCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTemplateSummaryInput(input, context),
-    Action: "GetTemplateSummary",
-    Version: "2010-05-15",
+    [_A]: _GTS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1105,8 +1105,8 @@ export const se_ImportStacksToStackSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ImportStacksToStackSetInput(input, context),
-    Action: "ImportStacksToStackSet",
-    Version: "2010-05-15",
+    [_A]: _ISTSS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1122,8 +1122,8 @@ export const se_ListChangeSetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListChangeSetsInput(input, context),
-    Action: "ListChangeSets",
-    Version: "2010-05-15",
+    [_A]: _LCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1139,8 +1139,8 @@ export const se_ListExportsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListExportsInput(input, context),
-    Action: "ListExports",
-    Version: "2010-05-15",
+    [_A]: _LE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1156,8 +1156,8 @@ export const se_ListImportsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListImportsInput(input, context),
-    Action: "ListImports",
-    Version: "2010-05-15",
+    [_A]: _LI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1173,8 +1173,8 @@ export const se_ListStackInstanceResourceDriftsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackInstanceResourceDriftsInput(input, context),
-    Action: "ListStackInstanceResourceDrifts",
-    Version: "2010-05-15",
+    [_A]: _LSIRD,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1190,8 +1190,8 @@ export const se_ListStackInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackInstancesInput(input, context),
-    Action: "ListStackInstances",
-    Version: "2010-05-15",
+    [_A]: _LSI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1207,8 +1207,8 @@ export const se_ListStackResourcesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackResourcesInput(input, context),
-    Action: "ListStackResources",
-    Version: "2010-05-15",
+    [_A]: _LSR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1224,8 +1224,8 @@ export const se_ListStacksCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStacksInput(input, context),
-    Action: "ListStacks",
-    Version: "2010-05-15",
+    [_A]: _LS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1241,8 +1241,8 @@ export const se_ListStackSetOperationResultsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackSetOperationResultsInput(input, context),
-    Action: "ListStackSetOperationResults",
-    Version: "2010-05-15",
+    [_A]: _LSSOR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1258,8 +1258,8 @@ export const se_ListStackSetOperationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackSetOperationsInput(input, context),
-    Action: "ListStackSetOperations",
-    Version: "2010-05-15",
+    [_A]: _LSSO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1275,8 +1275,8 @@ export const se_ListStackSetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListStackSetsInput(input, context),
-    Action: "ListStackSets",
-    Version: "2010-05-15",
+    [_A]: _LSS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1292,8 +1292,8 @@ export const se_ListTypeRegistrationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTypeRegistrationsInput(input, context),
-    Action: "ListTypeRegistrations",
-    Version: "2010-05-15",
+    [_A]: _LTR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1309,8 +1309,8 @@ export const se_ListTypesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTypesInput(input, context),
-    Action: "ListTypes",
-    Version: "2010-05-15",
+    [_A]: _LT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1326,8 +1326,8 @@ export const se_ListTypeVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTypeVersionsInput(input, context),
-    Action: "ListTypeVersions",
-    Version: "2010-05-15",
+    [_A]: _LTV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1343,8 +1343,8 @@ export const se_PublishTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PublishTypeInput(input, context),
-    Action: "PublishType",
-    Version: "2010-05-15",
+    [_A]: _PT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1360,8 +1360,8 @@ export const se_RecordHandlerProgressCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RecordHandlerProgressInput(input, context),
-    Action: "RecordHandlerProgress",
-    Version: "2010-05-15",
+    [_A]: _RHP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1377,8 +1377,8 @@ export const se_RegisterPublisherCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterPublisherInput(input, context),
-    Action: "RegisterPublisher",
-    Version: "2010-05-15",
+    [_A]: _RP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1394,8 +1394,8 @@ export const se_RegisterTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterTypeInput(input, context),
-    Action: "RegisterType",
-    Version: "2010-05-15",
+    [_A]: _RT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1411,8 +1411,8 @@ export const se_RollbackStackCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RollbackStackInput(input, context),
-    Action: "RollbackStack",
-    Version: "2010-05-15",
+    [_A]: _RS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1428,8 +1428,8 @@ export const se_SetStackPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetStackPolicyInput(input, context),
-    Action: "SetStackPolicy",
-    Version: "2010-05-15",
+    [_A]: _SSP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1445,8 +1445,8 @@ export const se_SetTypeConfigurationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetTypeConfigurationInput(input, context),
-    Action: "SetTypeConfiguration",
-    Version: "2010-05-15",
+    [_A]: _STC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1462,8 +1462,8 @@ export const se_SetTypeDefaultVersionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetTypeDefaultVersionInput(input, context),
-    Action: "SetTypeDefaultVersion",
-    Version: "2010-05-15",
+    [_A]: _STDV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1479,8 +1479,8 @@ export const se_SignalResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SignalResourceInput(input, context),
-    Action: "SignalResource",
-    Version: "2010-05-15",
+    [_A]: _SR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1496,8 +1496,8 @@ export const se_StopStackSetOperationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopStackSetOperationInput(input, context),
-    Action: "StopStackSetOperation",
-    Version: "2010-05-15",
+    [_A]: _SSSO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1513,8 +1513,8 @@ export const se_TestTypeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TestTypeInput(input, context),
-    Action: "TestType",
-    Version: "2010-05-15",
+    [_A]: _TT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1530,8 +1530,8 @@ export const se_UpdateStackCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateStackInput(input, context),
-    Action: "UpdateStack",
-    Version: "2010-05-15",
+    [_A]: _US,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1547,8 +1547,8 @@ export const se_UpdateStackInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateStackInstancesInput(input, context),
-    Action: "UpdateStackInstances",
-    Version: "2010-05-15",
+    [_A]: _USI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1564,8 +1564,8 @@ export const se_UpdateStackSetCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateStackSetInput(input, context),
-    Action: "UpdateStackSet",
-    Version: "2010-05-15",
+    [_A]: _USS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1581,8 +1581,8 @@ export const se_UpdateTerminationProtectionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UpdateTerminationProtectionInput(input, context),
-    Action: "UpdateTerminationProtection",
-    Version: "2010-05-15",
+    [_A]: _UTP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1598,8 +1598,8 @@ export const se_ValidateTemplateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ValidateTemplateInput(input, context),
-    Action: "ValidateTemplate",
-    Version: "2010-05-15",
+    [_A]: _VT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -5244,39 +5244,39 @@ const se_ActivateOrganizationsAccessInput = (input: ActivateOrganizationsAccessI
  */
 const se_ActivateTypeInput = (input: ActivateTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.PublicTypeArn != null) {
-    entries["PublicTypeArn"] = input.PublicTypeArn;
+  if (input[_PTA] != null) {
+    entries[_PTA] = input[_PTA];
   }
-  if (input.PublisherId != null) {
-    entries["PublisherId"] = input.PublisherId;
+  if (input[_PI] != null) {
+    entries[_PI] = input[_PI];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.TypeNameAlias != null) {
-    entries["TypeNameAlias"] = input.TypeNameAlias;
+  if (input[_TNA] != null) {
+    entries[_TNA] = input[_TNA];
   }
-  if (input.AutoUpdate != null) {
-    entries["AutoUpdate"] = input.AutoUpdate;
+  if (input[_AU] != null) {
+    entries[_AU] = input[_AU];
   }
-  if (input.LoggingConfig != null) {
-    const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
+  if (input[_LC] != null) {
+    const memberEntries = se_LoggingConfig(input[_LC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoggingConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ExecutionRoleArn != null) {
-    entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+  if (input[_ERA] != null) {
+    entries[_ERA] = input[_ERA];
   }
-  if (input.VersionBump != null) {
-    entries["VersionBump"] = input.VersionBump;
+  if (input[_VB] != null) {
+    entries[_VB] = input[_VB];
   }
-  if (input.MajorVersion != null) {
-    entries["MajorVersion"] = input.MajorVersion;
+  if (input[_MV] != null) {
+    entries[_MV] = input[_MV];
   }
   return entries;
 };
@@ -5286,11 +5286,11 @@ const se_ActivateTypeInput = (input: ActivateTypeInput, context: __SerdeContext)
  */
 const se_AutoDeployment = (input: AutoDeployment, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.RetainStacksOnAccountRemoval != null) {
-    entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
+  if (input[_RSOAR] != null) {
+    entries[_RSOAR] = input[_RSOAR];
   }
   return entries;
 };
@@ -5303,9 +5303,9 @@ const se_BatchDescribeTypeConfigurationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TypeConfigurationIdentifiers != null) {
-    const memberEntries = se_TypeConfigurationIdentifiers(input.TypeConfigurationIdentifiers, context);
-    if (input.TypeConfigurationIdentifiers?.length === 0) {
+  if (input[_TCI] != null) {
+    const memberEntries = se_TypeConfigurationIdentifiers(input[_TCI], context);
+    if (input[_TCI]?.length === 0) {
       entries.TypeConfigurationIdentifiers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5321,11 +5321,11 @@ const se_BatchDescribeTypeConfigurationsInput = (
  */
 const se_CancelUpdateStackInput = (input: CancelUpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
   return entries;
 };
@@ -5351,15 +5351,15 @@ const se_Capabilities = (input: Capability[], context: __SerdeContext): any => {
  */
 const se_ContinueUpdateRollbackInput = (input: ContinueUpdateRollbackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.RoleARN != null) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.ResourcesToSkip != null) {
-    const memberEntries = se_ResourcesToSkip(input.ResourcesToSkip, context);
-    if (input.ResourcesToSkip?.length === 0) {
+  if (input[_RTS] != null) {
+    const memberEntries = se_ResourcesToSkip(input[_RTS], context);
+    if (input[_RTS]?.length === 0) {
       entries.ResourcesToSkip = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5367,8 +5367,8 @@ const se_ContinueUpdateRollbackInput = (input: ContinueUpdateRollbackInput, cont
       entries[loc] = value;
     });
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
   return entries;
 };
@@ -5378,21 +5378,21 @@ const se_ContinueUpdateRollbackInput = (input: ContinueUpdateRollbackInput, cont
  */
 const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.UsePreviousTemplate != null) {
-    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+  if (input[_UPT] != null) {
+    entries[_UPT] = input[_UPT];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_Parameters(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_Parameters(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5400,9 +5400,9 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.Capabilities != null) {
-    const memberEntries = se_Capabilities(input.Capabilities, context);
-    if (input.Capabilities?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_Capabilities(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5410,9 +5410,9 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.ResourceTypes != null) {
-    const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-    if (input.ResourceTypes?.length === 0) {
+  if (input[_RTe] != null) {
+    const memberEntries = se_ResourceTypes(input[_RTe], context);
+    if (input[_RTe]?.length === 0) {
       entries.ResourceTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5420,19 +5420,19 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.RoleARN != null) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.RollbackConfiguration != null) {
-    const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+  if (input[_RC] != null) {
+    const memberEntries = se_RollbackConfiguration(input[_RC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NotificationARNs != null) {
-    const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-    if (input.NotificationARNs?.length === 0) {
+  if (input[_NARN] != null) {
+    const memberEntries = se_NotificationARNs(input[_NARN], context);
+    if (input[_NARN]?.length === 0) {
       entries.NotificationARNs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5440,9 +5440,9 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_Tags(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5450,21 +5450,21 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.ChangeSetName != null) {
-    entries["ChangeSetName"] = input.ChangeSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.ClientToken != null) {
-    entries["ClientToken"] = input.ClientToken;
+  if (input[_CT] != null) {
+    entries[_CT] = input[_CT];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.ChangeSetType != null) {
-    entries["ChangeSetType"] = input.ChangeSetType;
+  if (input[_CST] != null) {
+    entries[_CST] = input[_CST];
   }
-  if (input.ResourcesToImport != null) {
-    const memberEntries = se_ResourcesToImport(input.ResourcesToImport, context);
-    if (input.ResourcesToImport?.length === 0) {
+  if (input[_RTI] != null) {
+    const memberEntries = se_ResourcesToImport(input[_RTI], context);
+    if (input[_RTI]?.length === 0) {
       entries.ResourcesToImport = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5472,14 +5472,14 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
       entries[loc] = value;
     });
   }
-  if (input.IncludeNestedStacks != null) {
-    entries["IncludeNestedStacks"] = input.IncludeNestedStacks;
+  if (input[_INS] != null) {
+    entries[_INS] = input[_INS];
   }
-  if (input.OnStackFailure != null) {
-    entries["OnStackFailure"] = input.OnStackFailure;
+  if (input[_OSF] != null) {
+    entries[_OSF] = input[_OSF];
   }
-  if (input.ImportExistingResources != null) {
-    entries["ImportExistingResources"] = input.ImportExistingResources;
+  if (input[_IER] != null) {
+    entries[_IER] = input[_IER];
   }
   return entries;
 };
@@ -5489,18 +5489,18 @@ const se_CreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeCo
  */
 const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_Parameters(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_Parameters(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5508,22 +5508,22 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.DisableRollback != null) {
-    entries["DisableRollback"] = input.DisableRollback;
+  if (input[_DR] != null) {
+    entries[_DR] = input[_DR];
   }
-  if (input.RollbackConfiguration != null) {
-    const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+  if (input[_RC] != null) {
+    const memberEntries = se_RollbackConfiguration(input[_RC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TimeoutInMinutes != null) {
-    entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
+  if (input[_TIM] != null) {
+    entries[_TIM] = input[_TIM];
   }
-  if (input.NotificationARNs != null) {
-    const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-    if (input.NotificationARNs?.length === 0) {
+  if (input[_NARN] != null) {
+    const memberEntries = se_NotificationARNs(input[_NARN], context);
+    if (input[_NARN]?.length === 0) {
       entries.NotificationARNs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5531,9 +5531,9 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.Capabilities != null) {
-    const memberEntries = se_Capabilities(input.Capabilities, context);
-    if (input.Capabilities?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_Capabilities(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5541,9 +5541,9 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.ResourceTypes != null) {
-    const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-    if (input.ResourceTypes?.length === 0) {
+  if (input[_RTe] != null) {
+    const memberEntries = se_ResourceTypes(input[_RTe], context);
+    if (input[_RTe]?.length === 0) {
       entries.ResourceTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5551,21 +5551,21 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.RoleARN != null) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.OnFailure != null) {
-    entries["OnFailure"] = input.OnFailure;
+  if (input[_OF] != null) {
+    entries[_OF] = input[_OF];
   }
-  if (input.StackPolicyBody != null) {
-    entries["StackPolicyBody"] = input.StackPolicyBody;
+  if (input[_SPB] != null) {
+    entries[_SPB] = input[_SPB];
   }
-  if (input.StackPolicyURL != null) {
-    entries["StackPolicyURL"] = input.StackPolicyURL;
+  if (input[_SPURL] != null) {
+    entries[_SPURL] = input[_SPURL];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_Tags(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5573,14 +5573,14 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
-  if (input.EnableTerminationProtection != null) {
-    entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+  if (input[_ETP] != null) {
+    entries[_ETP] = input[_ETP];
   }
-  if (input.RetainExceptOnCreate != null) {
-    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+  if (input[_REOC] != null) {
+    entries[_REOC] = input[_REOC];
   }
   return entries;
 };
@@ -5590,12 +5590,12 @@ const se_CreateStackInput = (input: CreateStackInput, context: __SerdeContext): 
  */
 const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.Accounts != null) {
-    const memberEntries = se_AccountList(input.Accounts, context);
-    if (input.Accounts?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_AccountList(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5603,16 +5603,16 @@ const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.DeploymentTargets != null) {
-    const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+  if (input[_DTep] != null) {
+    const memberEntries = se_DeploymentTargets(input[_DTep], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions != null) {
-    const memberEntries = se_RegionList(input.Regions, context);
-    if (input.Regions?.length === 0) {
+  if (input[_R] != null) {
+    const memberEntries = se_RegionList(input[_R], context);
+    if (input[_R]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5620,9 +5620,9 @@ const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.ParameterOverrides != null) {
-    const memberEntries = se_Parameters(input.ParameterOverrides, context);
-    if (input.ParameterOverrides?.length === 0) {
+  if (input[_PO] != null) {
+    const memberEntries = se_Parameters(input[_PO], context);
+    if (input[_PO]?.length === 0) {
       entries.ParameterOverrides = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5630,21 +5630,21 @@ const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences != null) {
-    const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+  if (input[_OP] != null) {
+    const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input[_OI] === undefined) {
+    input[_OI] = generateIdempotencyToken();
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -5654,24 +5654,24 @@ const se_CreateStackInstancesInput = (input: CreateStackInstancesInput, context:
  */
 const se_CreateStackSetInput = (input: CreateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.StackId != null) {
-    entries["StackId"] = input.StackId;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_Parameters(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_Parameters(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5679,9 +5679,9 @@ const se_CreateStackSetInput = (input: CreateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Capabilities != null) {
-    const memberEntries = se_Capabilities(input.Capabilities, context);
-    if (input.Capabilities?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_Capabilities(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5689,9 +5689,9 @@ const se_CreateStackSetInput = (input: CreateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_Tags(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5699,33 +5699,33 @@ const se_CreateStackSetInput = (input: CreateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.AdministrationRoleARN != null) {
-    entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+  if (input[_ARARN] != null) {
+    entries[_ARARN] = input[_ARARN];
   }
-  if (input.ExecutionRoleName != null) {
-    entries["ExecutionRoleName"] = input.ExecutionRoleName;
+  if (input[_ERN] != null) {
+    entries[_ERN] = input[_ERN];
   }
-  if (input.PermissionModel != null) {
-    entries["PermissionModel"] = input.PermissionModel;
+  if (input[_PM] != null) {
+    entries[_PM] = input[_PM];
   }
-  if (input.AutoDeployment != null) {
-    const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
+  if (input[_AD] != null) {
+    const memberEntries = se_AutoDeployment(input[_AD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoDeployment.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
+  if (input[_CRT] === undefined) {
+    input[_CRT] = generateIdempotencyToken();
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
-  if (input.ManagedExecution != null) {
-    const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
+  if (input[_ME] != null) {
+    const memberEntries = se_ManagedExecution(input[_ME], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ManagedExecution.${key}`;
       entries[loc] = value;
@@ -5750,14 +5750,14 @@ const se_DeactivateOrganizationsAccessInput = (
  */
 const se_DeactivateTypeInput = (input: DeactivateTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
   return entries;
 };
@@ -5767,11 +5767,11 @@ const se_DeactivateTypeInput = (input: DeactivateTypeInput, context: __SerdeCont
  */
 const se_DeleteChangeSetInput = (input: DeleteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName != null) {
-    entries["ChangeSetName"] = input.ChangeSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -5781,12 +5781,12 @@ const se_DeleteChangeSetInput = (input: DeleteChangeSetInput, context: __SerdeCo
  */
 const se_DeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.RetainResources != null) {
-    const memberEntries = se_RetainResources(input.RetainResources, context);
-    if (input.RetainResources?.length === 0) {
+  if (input[_RR] != null) {
+    const memberEntries = se_RetainResources(input[_RR], context);
+    if (input[_RR]?.length === 0) {
       entries.RetainResources = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5794,11 +5794,11 @@ const se_DeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.RoleARN != null) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
   return entries;
 };
@@ -5808,12 +5808,12 @@ const se_DeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): 
  */
 const se_DeleteStackInstancesInput = (input: DeleteStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.Accounts != null) {
-    const memberEntries = se_AccountList(input.Accounts, context);
-    if (input.Accounts?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_AccountList(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5821,16 +5821,16 @@ const se_DeleteStackInstancesInput = (input: DeleteStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.DeploymentTargets != null) {
-    const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+  if (input[_DTep] != null) {
+    const memberEntries = se_DeploymentTargets(input[_DTep], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions != null) {
-    const memberEntries = se_RegionList(input.Regions, context);
-    if (input.Regions?.length === 0) {
+  if (input[_R] != null) {
+    const memberEntries = se_RegionList(input[_R], context);
+    if (input[_R]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5838,24 +5838,24 @@ const se_DeleteStackInstancesInput = (input: DeleteStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences != null) {
-    const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+  if (input[_OP] != null) {
+    const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RetainStacks != null) {
-    entries["RetainStacks"] = input.RetainStacks;
+  if (input[_RSe] != null) {
+    entries[_RSe] = input[_RSe];
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input[_OI] === undefined) {
+    input[_OI] = generateIdempotencyToken();
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -5865,11 +5865,11 @@ const se_DeleteStackInstancesInput = (input: DeleteStackInstancesInput, context:
  */
 const se_DeleteStackSetInput = (input: DeleteStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -5879,9 +5879,9 @@ const se_DeleteStackSetInput = (input: DeleteStackSetInput, context: __SerdeCont
  */
 const se_DeploymentTargets = (input: DeploymentTargets, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Accounts != null) {
-    const memberEntries = se_AccountList(input.Accounts, context);
-    if (input.Accounts?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_AccountList(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5889,12 +5889,12 @@ const se_DeploymentTargets = (input: DeploymentTargets, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.AccountsUrl != null) {
-    entries["AccountsUrl"] = input.AccountsUrl;
+  if (input[_AUc] != null) {
+    entries[_AUc] = input[_AUc];
   }
-  if (input.OrganizationalUnitIds != null) {
-    const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
-    if (input.OrganizationalUnitIds?.length === 0) {
+  if (input[_OUI] != null) {
+    const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
+    if (input[_OUI]?.length === 0) {
       entries.OrganizationalUnitIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5902,8 +5902,8 @@ const se_DeploymentTargets = (input: DeploymentTargets, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.AccountFilterType != null) {
-    entries["AccountFilterType"] = input.AccountFilterType;
+  if (input[_AFT] != null) {
+    entries[_AFT] = input[_AFT];
   }
   return entries;
 };
@@ -5913,17 +5913,17 @@ const se_DeploymentTargets = (input: DeploymentTargets, context: __SerdeContext)
  */
 const se_DeregisterTypeInput = (input: DeregisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
   return entries;
 };
@@ -5933,8 +5933,8 @@ const se_DeregisterTypeInput = (input: DeregisterTypeInput, context: __SerdeCont
  */
 const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -5944,17 +5944,17 @@ const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, contex
  */
 const se_DescribeChangeSetHooksInput = (input: DescribeChangeSetHooksInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName != null) {
-    entries["ChangeSetName"] = input.ChangeSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.LogicalResourceId != null) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
   }
   return entries;
 };
@@ -5964,14 +5964,14 @@ const se_DescribeChangeSetHooksInput = (input: DescribeChangeSetHooksInput, cont
  */
 const se_DescribeChangeSetInput = (input: DescribeChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName != null) {
-    entries["ChangeSetName"] = input.ChangeSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -5981,8 +5981,8 @@ const se_DescribeChangeSetInput = (input: DescribeChangeSetInput, context: __Ser
  */
 const se_DescribeOrganizationsAccessInput = (input: DescribeOrganizationsAccessInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -5992,8 +5992,8 @@ const se_DescribeOrganizationsAccessInput = (input: DescribeOrganizationsAccessI
  */
 const se_DescribePublisherInput = (input: DescribePublisherInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PublisherId != null) {
-    entries["PublisherId"] = input.PublisherId;
+  if (input[_PI] != null) {
+    entries[_PI] = input[_PI];
   }
   return entries;
 };
@@ -6006,8 +6006,8 @@ const se_DescribeStackDriftDetectionStatusInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackDriftDetectionId != null) {
-    entries["StackDriftDetectionId"] = input.StackDriftDetectionId;
+  if (input[_SDDI] != null) {
+    entries[_SDDI] = input[_SDDI];
   }
   return entries;
 };
@@ -6017,11 +6017,11 @@ const se_DescribeStackDriftDetectionStatusInput = (
  */
 const se_DescribeStackEventsInput = (input: DescribeStackEventsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6031,17 +6031,17 @@ const se_DescribeStackEventsInput = (input: DescribeStackEventsInput, context: _
  */
 const se_DescribeStackInstanceInput = (input: DescribeStackInstanceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.StackInstanceAccount != null) {
-    entries["StackInstanceAccount"] = input.StackInstanceAccount;
+  if (input[_SIA] != null) {
+    entries[_SIA] = input[_SIA];
   }
-  if (input.StackInstanceRegion != null) {
-    entries["StackInstanceRegion"] = input.StackInstanceRegion;
+  if (input[_SIR] != null) {
+    entries[_SIR] = input[_SIR];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6051,12 +6051,12 @@ const se_DescribeStackInstanceInput = (input: DescribeStackInstanceInput, contex
  */
 const se_DescribeStackResourceDriftsInput = (input: DescribeStackResourceDriftsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.StackResourceDriftStatusFilters != null) {
-    const memberEntries = se_StackResourceDriftStatusFilters(input.StackResourceDriftStatusFilters, context);
-    if (input.StackResourceDriftStatusFilters?.length === 0) {
+  if (input[_SRDSF] != null) {
+    const memberEntries = se_StackResourceDriftStatusFilters(input[_SRDSF], context);
+    if (input[_SRDSF]?.length === 0) {
       entries.StackResourceDriftStatusFilters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6064,11 +6064,11 @@ const se_DescribeStackResourceDriftsInput = (input: DescribeStackResourceDriftsI
       entries[loc] = value;
     });
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -6078,11 +6078,11 @@ const se_DescribeStackResourceDriftsInput = (input: DescribeStackResourceDriftsI
  */
 const se_DescribeStackResourceInput = (input: DescribeStackResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.LogicalResourceId != null) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
   }
   return entries;
 };
@@ -6092,14 +6092,14 @@ const se_DescribeStackResourceInput = (input: DescribeStackResourceInput, contex
  */
 const se_DescribeStackResourcesInput = (input: DescribeStackResourcesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.LogicalResourceId != null) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
   }
-  if (input.PhysicalResourceId != null) {
-    entries["PhysicalResourceId"] = input.PhysicalResourceId;
+  if (input[_PRI] != null) {
+    entries[_PRI] = input[_PRI];
   }
   return entries;
 };
@@ -6109,11 +6109,11 @@ const se_DescribeStackResourcesInput = (input: DescribeStackResourcesInput, cont
  */
 const se_DescribeStackSetInput = (input: DescribeStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6123,14 +6123,14 @@ const se_DescribeStackSetInput = (input: DescribeStackSetInput, context: __Serde
  */
 const se_DescribeStackSetOperationInput = (input: DescribeStackSetOperationInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6140,11 +6140,11 @@ const se_DescribeStackSetOperationInput = (input: DescribeStackSetOperationInput
  */
 const se_DescribeStacksInput = (input: DescribeStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6154,23 +6154,23 @@ const se_DescribeStacksInput = (input: DescribeStacksInput, context: __SerdeCont
  */
 const se_DescribeTypeInput = (input: DescribeTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
-  if (input.PublisherId != null) {
-    entries["PublisherId"] = input.PublisherId;
+  if (input[_PI] != null) {
+    entries[_PI] = input[_PI];
   }
-  if (input.PublicVersionNumber != null) {
-    entries["PublicVersionNumber"] = input.PublicVersionNumber;
+  if (input[_PVN] != null) {
+    entries[_PVN] = input[_PVN];
   }
   return entries;
 };
@@ -6180,8 +6180,8 @@ const se_DescribeTypeInput = (input: DescribeTypeInput, context: __SerdeContext)
  */
 const se_DescribeTypeRegistrationInput = (input: DescribeTypeRegistrationInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RegistrationToken != null) {
-    entries["RegistrationToken"] = input.RegistrationToken;
+  if (input[_RTeg] != null) {
+    entries[_RTeg] = input[_RTeg];
   }
   return entries;
 };
@@ -6191,12 +6191,12 @@ const se_DescribeTypeRegistrationInput = (input: DescribeTypeRegistrationInput, 
  */
 const se_DetectStackDriftInput = (input: DetectStackDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.LogicalResourceIds != null) {
-    const memberEntries = se_LogicalResourceIds(input.LogicalResourceIds, context);
-    if (input.LogicalResourceIds?.length === 0) {
+  if (input[_LRIo] != null) {
+    const memberEntries = se_LogicalResourceIds(input[_LRIo], context);
+    if (input[_LRIo]?.length === 0) {
       entries.LogicalResourceIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6212,11 +6212,11 @@ const se_DetectStackDriftInput = (input: DetectStackDriftInput, context: __Serde
  */
 const se_DetectStackResourceDriftInput = (input: DetectStackResourceDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.LogicalResourceId != null) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
   }
   return entries;
 };
@@ -6226,24 +6226,24 @@ const se_DetectStackResourceDriftInput = (input: DetectStackResourceDriftInput, 
  */
 const se_DetectStackSetDriftInput = (input: DetectStackSetDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.OperationPreferences != null) {
-    const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+  if (input[_OP] != null) {
+    const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input[_OI] === undefined) {
+    input[_OI] = generateIdempotencyToken();
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6253,15 +6253,15 @@ const se_DetectStackSetDriftInput = (input: DetectStackSetDriftInput, context: _
  */
 const se_EstimateTemplateCostInput = (input: EstimateTemplateCostInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_Parameters(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_Parameters(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6277,20 +6277,20 @@ const se_EstimateTemplateCostInput = (input: EstimateTemplateCostInput, context:
  */
 const se_ExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName != null) {
-    entries["ChangeSetName"] = input.ChangeSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
-  if (input.DisableRollback != null) {
-    entries["DisableRollback"] = input.DisableRollback;
+  if (input[_DR] != null) {
+    entries[_DR] = input[_DR];
   }
-  if (input.RetainExceptOnCreate != null) {
-    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+  if (input[_REOC] != null) {
+    entries[_REOC] = input[_REOC];
   }
   return entries;
 };
@@ -6300,8 +6300,8 @@ const se_ExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __Serde
  */
 const se_GetStackPolicyInput = (input: GetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -6311,14 +6311,14 @@ const se_GetStackPolicyInput = (input: GetStackPolicyInput, context: __SerdeCont
  */
 const se_GetTemplateInput = (input: GetTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.ChangeSetName != null) {
-    entries["ChangeSetName"] = input.ChangeSetName;
+  if (input[_CSN] != null) {
+    entries[_CSN] = input[_CSN];
   }
-  if (input.TemplateStage != null) {
-    entries["TemplateStage"] = input.TemplateStage;
+  if (input[_TS] != null) {
+    entries[_TS] = input[_TS];
   }
   return entries;
 };
@@ -6328,23 +6328,23 @@ const se_GetTemplateInput = (input: GetTemplateInput, context: __SerdeContext): 
  */
 const se_GetTemplateSummaryInput = (input: GetTemplateSummaryInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.TemplateSummaryConfig != null) {
-    const memberEntries = se_TemplateSummaryConfig(input.TemplateSummaryConfig, context);
+  if (input[_TSC] != null) {
+    const memberEntries = se_TemplateSummaryConfig(input[_TSC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TemplateSummaryConfig.${key}`;
       entries[loc] = value;
@@ -6358,12 +6358,12 @@ const se_GetTemplateSummaryInput = (input: GetTemplateSummaryInput, context: __S
  */
 const se_ImportStacksToStackSetInput = (input: ImportStacksToStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.StackIds != null) {
-    const memberEntries = se_StackIdList(input.StackIds, context);
-    if (input.StackIds?.length === 0) {
+  if (input[_SIt] != null) {
+    const memberEntries = se_StackIdList(input[_SIt], context);
+    if (input[_SIt]?.length === 0) {
       entries.StackIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6371,12 +6371,12 @@ const se_ImportStacksToStackSetInput = (input: ImportStacksToStackSetInput, cont
       entries[loc] = value;
     });
   }
-  if (input.StackIdsUrl != null) {
-    entries["StackIdsUrl"] = input.StackIdsUrl;
+  if (input[_SIU] != null) {
+    entries[_SIU] = input[_SIU];
   }
-  if (input.OrganizationalUnitIds != null) {
-    const memberEntries = se_OrganizationalUnitIdList(input.OrganizationalUnitIds, context);
-    if (input.OrganizationalUnitIds?.length === 0) {
+  if (input[_OUI] != null) {
+    const memberEntries = se_OrganizationalUnitIdList(input[_OUI], context);
+    if (input[_OUI]?.length === 0) {
       entries.OrganizationalUnitIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6384,21 +6384,21 @@ const se_ImportStacksToStackSetInput = (input: ImportStacksToStackSetInput, cont
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences != null) {
-    const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+  if (input[_OP] != null) {
+    const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input[_OI] === undefined) {
+    input[_OI] = generateIdempotencyToken();
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6408,11 +6408,11 @@ const se_ImportStacksToStackSetInput = (input: ImportStacksToStackSetInput, cont
  */
 const se_ListChangeSetsInput = (input: ListChangeSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6422,8 +6422,8 @@ const se_ListChangeSetsInput = (input: ListChangeSetsInput, context: __SerdeCont
  */
 const se_ListExportsInput = (input: ListExportsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6433,11 +6433,11 @@ const se_ListExportsInput = (input: ListExportsInput, context: __SerdeContext): 
  */
 const se_ListImportsInput = (input: ListImportsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExportName != null) {
-    entries["ExportName"] = input.ExportName;
+  if (input[_EN] != null) {
+    entries[_EN] = input[_EN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6450,18 +6450,18 @@ const se_ListStackInstanceResourceDriftsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.StackInstanceResourceDriftStatuses != null) {
-    const memberEntries = se_StackResourceDriftStatusFilters(input.StackInstanceResourceDriftStatuses, context);
-    if (input.StackInstanceResourceDriftStatuses?.length === 0) {
+  if (input[_SIRDS] != null) {
+    const memberEntries = se_StackResourceDriftStatusFilters(input[_SIRDS], context);
+    if (input[_SIRDS]?.length === 0) {
       entries.StackInstanceResourceDriftStatuses = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6469,17 +6469,17 @@ const se_ListStackInstanceResourceDriftsInput = (
       entries[loc] = value;
     });
   }
-  if (input.StackInstanceAccount != null) {
-    entries["StackInstanceAccount"] = input.StackInstanceAccount;
+  if (input[_SIA] != null) {
+    entries[_SIA] = input[_SIA];
   }
-  if (input.StackInstanceRegion != null) {
-    entries["StackInstanceRegion"] = input.StackInstanceRegion;
+  if (input[_SIR] != null) {
+    entries[_SIR] = input[_SIR];
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6489,18 +6489,18 @@ const se_ListStackInstanceResourceDriftsInput = (
  */
 const se_ListStackInstancesInput = (input: ListStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_StackInstanceFilters(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_StackInstanceFilters(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6508,14 +6508,14 @@ const se_ListStackInstancesInput = (input: ListStackInstancesInput, context: __S
       entries[loc] = value;
     });
   }
-  if (input.StackInstanceAccount != null) {
-    entries["StackInstanceAccount"] = input.StackInstanceAccount;
+  if (input[_SIA] != null) {
+    entries[_SIA] = input[_SIA];
   }
-  if (input.StackInstanceRegion != null) {
-    entries["StackInstanceRegion"] = input.StackInstanceRegion;
+  if (input[_SIR] != null) {
+    entries[_SIR] = input[_SIR];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6525,11 +6525,11 @@ const se_ListStackInstancesInput = (input: ListStackInstancesInput, context: __S
  */
 const se_ListStackResourcesInput = (input: ListStackResourcesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6542,24 +6542,24 @@ const se_ListStackSetOperationResultsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_OperationResultFilters(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_OperationResultFilters(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6575,17 +6575,17 @@ const se_ListStackSetOperationResultsInput = (
  */
 const se_ListStackSetOperationsInput = (input: ListStackSetOperationsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6595,17 +6595,17 @@ const se_ListStackSetOperationsInput = (input: ListStackSetOperationsInput, cont
  */
 const se_ListStackSetsInput = (input: ListStackSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -6615,12 +6615,12 @@ const se_ListStackSetsInput = (input: ListStackSetsInput, context: __SerdeContex
  */
 const se_ListStacksInput = (input: ListStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.StackStatusFilter != null) {
-    const memberEntries = se_StackStatusFilter(input.StackStatusFilter, context);
-    if (input.StackStatusFilter?.length === 0) {
+  if (input[_SSF] != null) {
+    const memberEntries = se_StackStatusFilter(input[_SSF], context);
+    if (input[_SSF]?.length === 0) {
       entries.StackStatusFilter = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6636,23 +6636,23 @@ const se_ListStacksInput = (input: ListStacksInput, context: __SerdeContext): an
  */
 const se_ListTypeRegistrationsInput = (input: ListTypeRegistrationsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.TypeArn != null) {
-    entries["TypeArn"] = input.TypeArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.RegistrationStatusFilter != null) {
-    entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
+  if (input[_RSF] != null) {
+    entries[_RSF] = input[_RSF];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6662,30 +6662,30 @@ const se_ListTypeRegistrationsInput = (input: ListTypeRegistrationsInput, contex
  */
 const se_ListTypesInput = (input: ListTypesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Visibility != null) {
-    entries["Visibility"] = input.Visibility;
+  if (input[_Vi] != null) {
+    entries[_Vi] = input[_Vi];
   }
-  if (input.ProvisioningType != null) {
-    entries["ProvisioningType"] = input.ProvisioningType;
+  if (input[_PTr] != null) {
+    entries[_PTr] = input[_PTr];
   }
-  if (input.DeprecatedStatus != null) {
-    entries["DeprecatedStatus"] = input.DeprecatedStatus;
+  if (input[_DSep] != null) {
+    entries[_DSep] = input[_DSep];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_TypeFilters(input.Filters, context);
+  if (input[_F] != null) {
+    const memberEntries = se_TypeFilters(input[_F], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -6695,26 +6695,26 @@ const se_ListTypesInput = (input: ListTypesInput, context: __SerdeContext): any 
  */
 const se_ListTypeVersionsInput = (input: ListTypeVersionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.DeprecatedStatus != null) {
-    entries["DeprecatedStatus"] = input.DeprecatedStatus;
+  if (input[_DSep] != null) {
+    entries[_DSep] = input[_DSep];
   }
-  if (input.PublisherId != null) {
-    entries["PublisherId"] = input.PublisherId;
+  if (input[_PI] != null) {
+    entries[_PI] = input[_PI];
   }
   return entries;
 };
@@ -6724,11 +6724,11 @@ const se_ListTypeVersionsInput = (input: ListTypeVersionsInput, context: __Serde
  */
 const se_LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogRoleArn != null) {
-    entries["LogRoleArn"] = input.LogRoleArn;
+  if (input[_LRA] != null) {
+    entries[_LRA] = input[_LRA];
   }
-  if (input.LogGroupName != null) {
-    entries["LogGroupName"] = input.LogGroupName;
+  if (input[_LGN] != null) {
+    entries[_LGN] = input[_LGN];
   }
   return entries;
 };
@@ -6754,8 +6754,8 @@ const se_LogicalResourceIds = (input: string[], context: __SerdeContext): any =>
  */
 const se_ManagedExecution = (input: ManagedExecution, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Active != null) {
-    entries["Active"] = input.Active;
+  if (input[_Act] != null) {
+    entries[_Act] = input[_Act];
   }
   return entries;
 };
@@ -6781,11 +6781,11 @@ const se_NotificationARNs = (input: string[], context: __SerdeContext): any => {
  */
 const se_OperationResultFilter = (input: OperationResultFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Values != null) {
-    entries["Values"] = input.Values;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -6830,17 +6830,17 @@ const se_OrganizationalUnitIdList = (input: string[], context: __SerdeContext): 
  */
 const se_Parameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterKey != null) {
-    entries["ParameterKey"] = input.ParameterKey;
+  if (input[_PK] != null) {
+    entries[_PK] = input[_PK];
   }
-  if (input.ParameterValue != null) {
-    entries["ParameterValue"] = input.ParameterValue;
+  if (input[_PV] != null) {
+    entries[_PV] = input[_PV];
   }
-  if (input.UsePreviousValue != null) {
-    entries["UsePreviousValue"] = input.UsePreviousValue;
+  if (input[_UPV] != null) {
+    entries[_UPV] = input[_UPV];
   }
-  if (input.ResolvedValue != null) {
-    entries["ResolvedValue"] = input.ResolvedValue;
+  if (input[_RV] != null) {
+    entries[_RV] = input[_RV];
   }
   return entries;
 };
@@ -6869,17 +6869,17 @@ const se_Parameters = (input: Parameter[], context: __SerdeContext): any => {
  */
 const se_PublishTypeInput = (input: PublishTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.PublicVersionNumber != null) {
-    entries["PublicVersionNumber"] = input.PublicVersionNumber;
+  if (input[_PVN] != null) {
+    entries[_PVN] = input[_PVN];
   }
   return entries;
 };
@@ -6889,26 +6889,26 @@ const se_PublishTypeInput = (input: PublishTypeInput, context: __SerdeContext): 
  */
 const se_RecordHandlerProgressInput = (input: RecordHandlerProgressInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.BearerToken != null) {
-    entries["BearerToken"] = input.BearerToken;
+  if (input[_BT] != null) {
+    entries[_BT] = input[_BT];
   }
-  if (input.OperationStatus != null) {
-    entries["OperationStatus"] = input.OperationStatus;
+  if (input[_OS] != null) {
+    entries[_OS] = input[_OS];
   }
-  if (input.CurrentOperationStatus != null) {
-    entries["CurrentOperationStatus"] = input.CurrentOperationStatus;
+  if (input[_COS] != null) {
+    entries[_COS] = input[_COS];
   }
-  if (input.StatusMessage != null) {
-    entries["StatusMessage"] = input.StatusMessage;
+  if (input[_SM] != null) {
+    entries[_SM] = input[_SM];
   }
-  if (input.ErrorCode != null) {
-    entries["ErrorCode"] = input.ErrorCode;
+  if (input[_EC] != null) {
+    entries[_EC] = input[_EC];
   }
-  if (input.ResourceModel != null) {
-    entries["ResourceModel"] = input.ResourceModel;
+  if (input[_RM] != null) {
+    entries[_RM] = input[_RM];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
   return entries;
 };
@@ -6934,11 +6934,11 @@ const se_RegionList = (input: string[], context: __SerdeContext): any => {
  */
 const se_RegisterPublisherInput = (input: RegisterPublisherInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AcceptTermsAndConditions != null) {
-    entries["AcceptTermsAndConditions"] = input.AcceptTermsAndConditions;
+  if (input[_ATAC] != null) {
+    entries[_ATAC] = input[_ATAC];
   }
-  if (input.ConnectionArn != null) {
-    entries["ConnectionArn"] = input.ConnectionArn;
+  if (input[_CAo] != null) {
+    entries[_CAo] = input[_CAo];
   }
   return entries;
 };
@@ -6948,27 +6948,27 @@ const se_RegisterPublisherInput = (input: RegisterPublisherInput, context: __Ser
  */
 const se_RegisterTypeInput = (input: RegisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.SchemaHandlerPackage != null) {
-    entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
+  if (input[_SHP] != null) {
+    entries[_SHP] = input[_SHP];
   }
-  if (input.LoggingConfig != null) {
-    const memberEntries = se_LoggingConfig(input.LoggingConfig, context);
+  if (input[_LC] != null) {
+    const memberEntries = se_LoggingConfig(input[_LC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoggingConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ExecutionRoleArn != null) {
-    entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
+  if (input[_ERA] != null) {
+    entries[_ERA] = input[_ERA];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
   return entries;
 };
@@ -7029,14 +7029,14 @@ const se_ResourcesToSkip = (input: string[], context: __SerdeContext): any => {
  */
 const se_ResourceToImport = (input: ResourceToImport, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceType != null) {
-    entries["ResourceType"] = input.ResourceType;
+  if (input[_RTes] != null) {
+    entries[_RTes] = input[_RTes];
   }
-  if (input.LogicalResourceId != null) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
   }
-  if (input.ResourceIdentifier != null) {
-    const memberEntries = se_ResourceIdentifierProperties(input.ResourceIdentifier, context);
+  if (input[_RI] != null) {
+    const memberEntries = se_ResourceIdentifierProperties(input[_RI], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceIdentifier.${key}`;
       entries[loc] = value;
@@ -7082,9 +7082,9 @@ const se_RetainResources = (input: string[], context: __SerdeContext): any => {
  */
 const se_RollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RollbackTriggers != null) {
-    const memberEntries = se_RollbackTriggers(input.RollbackTriggers, context);
-    if (input.RollbackTriggers?.length === 0) {
+  if (input[_RTo] != null) {
+    const memberEntries = se_RollbackTriggers(input[_RTo], context);
+    if (input[_RTo]?.length === 0) {
       entries.RollbackTriggers = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7092,8 +7092,8 @@ const se_RollbackConfiguration = (input: RollbackConfiguration, context: __Serde
       entries[loc] = value;
     });
   }
-  if (input.MonitoringTimeInMinutes != null) {
-    entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
+  if (input[_MTIM] != null) {
+    entries[_MTIM] = input[_MTIM];
   }
   return entries;
 };
@@ -7103,17 +7103,17 @@ const se_RollbackConfiguration = (input: RollbackConfiguration, context: __Serde
  */
 const se_RollbackStackInput = (input: RollbackStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.RoleARN != null) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
-  if (input.RetainExceptOnCreate != null) {
-    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+  if (input[_REOC] != null) {
+    entries[_REOC] = input[_REOC];
   }
   return entries;
 };
@@ -7123,11 +7123,11 @@ const se_RollbackStackInput = (input: RollbackStackInput, context: __SerdeContex
  */
 const se_RollbackTrigger = (input: RollbackTrigger, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
   return entries;
 };
@@ -7156,14 +7156,14 @@ const se_RollbackTriggers = (input: RollbackTrigger[], context: __SerdeContext):
  */
 const se_SetStackPolicyInput = (input: SetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.StackPolicyBody != null) {
-    entries["StackPolicyBody"] = input.StackPolicyBody;
+  if (input[_SPB] != null) {
+    entries[_SPB] = input[_SPB];
   }
-  if (input.StackPolicyURL != null) {
-    entries["StackPolicyURL"] = input.StackPolicyURL;
+  if (input[_SPURL] != null) {
+    entries[_SPURL] = input[_SPURL];
   }
   return entries;
 };
@@ -7173,20 +7173,20 @@ const se_SetStackPolicyInput = (input: SetStackPolicyInput, context: __SerdeCont
  */
 const se_SetTypeConfigurationInput = (input: SetTypeConfigurationInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TypeArn != null) {
-    entries["TypeArn"] = input.TypeArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.Configuration != null) {
-    entries["Configuration"] = input.Configuration;
+  if (input[_Co] != null) {
+    entries[_Co] = input[_Co];
   }
-  if (input.ConfigurationAlias != null) {
-    entries["ConfigurationAlias"] = input.ConfigurationAlias;
+  if (input[_CAon] != null) {
+    entries[_CAon] = input[_CAon];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
   return entries;
 };
@@ -7196,17 +7196,17 @@ const se_SetTypeConfigurationInput = (input: SetTypeConfigurationInput, context:
  */
 const se_SetTypeDefaultVersionInput = (input: SetTypeDefaultVersionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
   return entries;
 };
@@ -7216,17 +7216,17 @@ const se_SetTypeDefaultVersionInput = (input: SetTypeDefaultVersionInput, contex
  */
 const se_SignalResourceInput = (input: SignalResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.LogicalResourceId != null) {
-    entries["LogicalResourceId"] = input.LogicalResourceId;
+  if (input[_LRI] != null) {
+    entries[_LRI] = input[_LRI];
   }
-  if (input.UniqueId != null) {
-    entries["UniqueId"] = input.UniqueId;
+  if (input[_UI] != null) {
+    entries[_UI] = input[_UI];
   }
-  if (input.Status != null) {
-    entries["Status"] = input.Status;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
   return entries;
 };
@@ -7252,11 +7252,11 @@ const se_StackIdList = (input: string[], context: __SerdeContext): any => {
  */
 const se_StackInstanceFilter = (input: StackInstanceFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Values != null) {
-    entries["Values"] = input.Values;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -7301,12 +7301,12 @@ const se_StackResourceDriftStatusFilters = (input: StackResourceDriftStatus[], c
  */
 const se_StackSetOperationPreferences = (input: StackSetOperationPreferences, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RegionConcurrencyType != null) {
-    entries["RegionConcurrencyType"] = input.RegionConcurrencyType;
+  if (input[_RCT] != null) {
+    entries[_RCT] = input[_RCT];
   }
-  if (input.RegionOrder != null) {
-    const memberEntries = se_RegionList(input.RegionOrder, context);
-    if (input.RegionOrder?.length === 0) {
+  if (input[_RO] != null) {
+    const memberEntries = se_RegionList(input[_RO], context);
+    if (input[_RO]?.length === 0) {
       entries.RegionOrder = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7314,20 +7314,20 @@ const se_StackSetOperationPreferences = (input: StackSetOperationPreferences, co
       entries[loc] = value;
     });
   }
-  if (input.FailureToleranceCount != null) {
-    entries["FailureToleranceCount"] = input.FailureToleranceCount;
+  if (input[_FTC] != null) {
+    entries[_FTC] = input[_FTC];
   }
-  if (input.FailureTolerancePercentage != null) {
-    entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
+  if (input[_FTP] != null) {
+    entries[_FTP] = input[_FTP];
   }
-  if (input.MaxConcurrentCount != null) {
-    entries["MaxConcurrentCount"] = input.MaxConcurrentCount;
+  if (input[_MCC] != null) {
+    entries[_MCC] = input[_MCC];
   }
-  if (input.MaxConcurrentPercentage != null) {
-    entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
+  if (input[_MCP] != null) {
+    entries[_MCP] = input[_MCP];
   }
-  if (input.ConcurrencyMode != null) {
-    entries["ConcurrencyMode"] = input.ConcurrencyMode;
+  if (input[_CM] != null) {
+    entries[_CM] = input[_CM];
   }
   return entries;
 };
@@ -7353,14 +7353,14 @@ const se_StackStatusFilter = (input: StackStatus[], context: __SerdeContext): an
  */
 const se_StopStackSetOperationInput = (input: StopStackSetOperationInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -7370,11 +7370,11 @@ const se_StopStackSetOperationInput = (input: StopStackSetOperationInput, contex
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -7403,8 +7403,8 @@ const se_Tags = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TemplateSummaryConfig = (input: TemplateSummaryConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TreatUnrecognizedResourceTypesAsWarnings != null) {
-    entries["TreatUnrecognizedResourceTypesAsWarnings"] = input.TreatUnrecognizedResourceTypesAsWarnings;
+  if (input[_TURTAW] != null) {
+    entries[_TURTAW] = input[_TURTAW];
   }
   return entries;
 };
@@ -7414,20 +7414,20 @@ const se_TemplateSummaryConfig = (input: TemplateSummaryConfig, context: __Serde
  */
 const se_TestTypeInput = (input: TestTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn != null) {
-    entries["Arn"] = input.Arn;
+  if (input[_Ar] != null) {
+    entries[_Ar] = input[_Ar];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
-  if (input.VersionId != null) {
-    entries["VersionId"] = input.VersionId;
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
-  if (input.LogDeliveryBucket != null) {
-    entries["LogDeliveryBucket"] = input.LogDeliveryBucket;
+  if (input[_LDB] != null) {
+    entries[_LDB] = input[_LDB];
   }
   return entries;
 };
@@ -7437,20 +7437,20 @@ const se_TestTypeInput = (input: TestTypeInput, context: __SerdeContext): any =>
  */
 const se_TypeConfigurationIdentifier = (input: TypeConfigurationIdentifier, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TypeArn != null) {
-    entries["TypeArn"] = input.TypeArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.TypeConfigurationAlias != null) {
-    entries["TypeConfigurationAlias"] = input.TypeConfigurationAlias;
+  if (input[_TCA] != null) {
+    entries[_TCA] = input[_TCA];
   }
-  if (input.TypeConfigurationArn != null) {
-    entries["TypeConfigurationArn"] = input.TypeConfigurationArn;
+  if (input[_TCAy] != null) {
+    entries[_TCAy] = input[_TCAy];
   }
-  if (input.Type != null) {
-    entries["Type"] = input.Type;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.TypeName != null) {
-    entries["TypeName"] = input.TypeName;
+  if (input[_TN] != null) {
+    entries[_TN] = input[_TN];
   }
   return entries;
 };
@@ -7479,14 +7479,14 @@ const se_TypeConfigurationIdentifiers = (input: TypeConfigurationIdentifier[], c
  */
 const se_TypeFilters = (input: TypeFilters, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Category != null) {
-    entries["Category"] = input.Category;
+  if (input[_Ca] != null) {
+    entries[_Ca] = input[_Ca];
   }
-  if (input.PublisherId != null) {
-    entries["PublisherId"] = input.PublisherId;
+  if (input[_PI] != null) {
+    entries[_PI] = input[_PI];
   }
-  if (input.TypeNamePrefix != null) {
-    entries["TypeNamePrefix"] = input.TypeNamePrefix;
+  if (input[_TNP] != null) {
+    entries[_TNP] = input[_TNP];
   }
   return entries;
 };
@@ -7496,27 +7496,27 @@ const se_TypeFilters = (input: TypeFilters, context: __SerdeContext): any => {
  */
 const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.UsePreviousTemplate != null) {
-    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+  if (input[_UPT] != null) {
+    entries[_UPT] = input[_UPT];
   }
-  if (input.StackPolicyDuringUpdateBody != null) {
-    entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
+  if (input[_SPDUB] != null) {
+    entries[_SPDUB] = input[_SPDUB];
   }
-  if (input.StackPolicyDuringUpdateURL != null) {
-    entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
+  if (input[_SPDUURL] != null) {
+    entries[_SPDUURL] = input[_SPDUURL];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_Parameters(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_Parameters(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7524,9 +7524,9 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.Capabilities != null) {
-    const memberEntries = se_Capabilities(input.Capabilities, context);
-    if (input.Capabilities?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_Capabilities(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7534,9 +7534,9 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.ResourceTypes != null) {
-    const memberEntries = se_ResourceTypes(input.ResourceTypes, context);
-    if (input.ResourceTypes?.length === 0) {
+  if (input[_RTe] != null) {
+    const memberEntries = se_ResourceTypes(input[_RTe], context);
+    if (input[_RTe]?.length === 0) {
       entries.ResourceTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7544,25 +7544,25 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.RoleARN != null) {
-    entries["RoleARN"] = input.RoleARN;
+  if (input[_RARN] != null) {
+    entries[_RARN] = input[_RARN];
   }
-  if (input.RollbackConfiguration != null) {
-    const memberEntries = se_RollbackConfiguration(input.RollbackConfiguration, context);
+  if (input[_RC] != null) {
+    const memberEntries = se_RollbackConfiguration(input[_RC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.StackPolicyBody != null) {
-    entries["StackPolicyBody"] = input.StackPolicyBody;
+  if (input[_SPB] != null) {
+    entries[_SPB] = input[_SPB];
   }
-  if (input.StackPolicyURL != null) {
-    entries["StackPolicyURL"] = input.StackPolicyURL;
+  if (input[_SPURL] != null) {
+    entries[_SPURL] = input[_SPURL];
   }
-  if (input.NotificationARNs != null) {
-    const memberEntries = se_NotificationARNs(input.NotificationARNs, context);
-    if (input.NotificationARNs?.length === 0) {
+  if (input[_NARN] != null) {
+    const memberEntries = se_NotificationARNs(input[_NARN], context);
+    if (input[_NARN]?.length === 0) {
       entries.NotificationARNs = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7570,9 +7570,9 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_Tags(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7580,14 +7580,14 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.DisableRollback != null) {
-    entries["DisableRollback"] = input.DisableRollback;
+  if (input[_DR] != null) {
+    entries[_DR] = input[_DR];
   }
-  if (input.ClientRequestToken != null) {
-    entries["ClientRequestToken"] = input.ClientRequestToken;
+  if (input[_CRT] != null) {
+    entries[_CRT] = input[_CRT];
   }
-  if (input.RetainExceptOnCreate != null) {
-    entries["RetainExceptOnCreate"] = input.RetainExceptOnCreate;
+  if (input[_REOC] != null) {
+    entries[_REOC] = input[_REOC];
   }
   return entries;
 };
@@ -7597,12 +7597,12 @@ const se_UpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): 
  */
 const se_UpdateStackInstancesInput = (input: UpdateStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.Accounts != null) {
-    const memberEntries = se_AccountList(input.Accounts, context);
-    if (input.Accounts?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_AccountList(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7610,16 +7610,16 @@ const se_UpdateStackInstancesInput = (input: UpdateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.DeploymentTargets != null) {
-    const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+  if (input[_DTep] != null) {
+    const memberEntries = se_DeploymentTargets(input[_DTep], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions != null) {
-    const memberEntries = se_RegionList(input.Regions, context);
-    if (input.Regions?.length === 0) {
+  if (input[_R] != null) {
+    const memberEntries = se_RegionList(input[_R], context);
+    if (input[_R]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7627,9 +7627,9 @@ const se_UpdateStackInstancesInput = (input: UpdateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.ParameterOverrides != null) {
-    const memberEntries = se_Parameters(input.ParameterOverrides, context);
-    if (input.ParameterOverrides?.length === 0) {
+  if (input[_PO] != null) {
+    const memberEntries = se_Parameters(input[_PO], context);
+    if (input[_PO]?.length === 0) {
       entries.ParameterOverrides = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7637,21 +7637,21 @@ const se_UpdateStackInstancesInput = (input: UpdateStackInstancesInput, context:
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences != null) {
-    const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+  if (input[_OP] != null) {
+    const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input[_OI] === undefined) {
+    input[_OI] = generateIdempotencyToken();
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -7661,24 +7661,24 @@ const se_UpdateStackInstancesInput = (input: UpdateStackInstancesInput, context:
  */
 const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName != null) {
-    entries["StackSetName"] = input.StackSetName;
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
-  if (input.UsePreviousTemplate != null) {
-    entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
+  if (input[_UPT] != null) {
+    entries[_UPT] = input[_UPT];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_Parameters(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_P] != null) {
+    const memberEntries = se_Parameters(input[_P], context);
+    if (input[_P]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7686,9 +7686,9 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Capabilities != null) {
-    const memberEntries = se_Capabilities(input.Capabilities, context);
-    if (input.Capabilities?.length === 0) {
+  if (input[_C] != null) {
+    const memberEntries = se_Capabilities(input[_C], context);
+    if (input[_C]?.length === 0) {
       entries.Capabilities = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7696,9 +7696,9 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_Tags(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_Tags(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7706,45 +7706,45 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences != null) {
-    const memberEntries = se_StackSetOperationPreferences(input.OperationPreferences, context);
+  if (input[_OP] != null) {
+    const memberEntries = se_StackSetOperationPreferences(input[_OP], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AdministrationRoleARN != null) {
-    entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
+  if (input[_ARARN] != null) {
+    entries[_ARARN] = input[_ARARN];
   }
-  if (input.ExecutionRoleName != null) {
-    entries["ExecutionRoleName"] = input.ExecutionRoleName;
+  if (input[_ERN] != null) {
+    entries[_ERN] = input[_ERN];
   }
-  if (input.DeploymentTargets != null) {
-    const memberEntries = se_DeploymentTargets(input.DeploymentTargets, context);
+  if (input[_DTep] != null) {
+    const memberEntries = se_DeploymentTargets(input[_DTep], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PermissionModel != null) {
-    entries["PermissionModel"] = input.PermissionModel;
+  if (input[_PM] != null) {
+    entries[_PM] = input[_PM];
   }
-  if (input.AutoDeployment != null) {
-    const memberEntries = se_AutoDeployment(input.AutoDeployment, context);
+  if (input[_AD] != null) {
+    const memberEntries = se_AutoDeployment(input[_AD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoDeployment.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationId === undefined) {
-    input.OperationId = generateIdempotencyToken();
+  if (input[_OI] === undefined) {
+    input[_OI] = generateIdempotencyToken();
   }
-  if (input.OperationId != null) {
-    entries["OperationId"] = input.OperationId;
+  if (input[_OI] != null) {
+    entries[_OI] = input[_OI];
   }
-  if (input.Accounts != null) {
-    const memberEntries = se_AccountList(input.Accounts, context);
-    if (input.Accounts?.length === 0) {
+  if (input[_Ac] != null) {
+    const memberEntries = se_AccountList(input[_Ac], context);
+    if (input[_Ac]?.length === 0) {
       entries.Accounts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7752,9 +7752,9 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.Regions != null) {
-    const memberEntries = se_RegionList(input.Regions, context);
-    if (input.Regions?.length === 0) {
+  if (input[_R] != null) {
+    const memberEntries = se_RegionList(input[_R], context);
+    if (input[_R]?.length === 0) {
       entries.Regions = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7762,11 +7762,11 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input.CallAs != null) {
-    entries["CallAs"] = input.CallAs;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
-  if (input.ManagedExecution != null) {
-    const memberEntries = se_ManagedExecution(input.ManagedExecution, context);
+  if (input[_ME] != null) {
+    const memberEntries = se_ManagedExecution(input[_ME], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ManagedExecution.${key}`;
       entries[loc] = value;
@@ -7780,11 +7780,11 @@ const se_UpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeCont
  */
 const se_UpdateTerminationProtectionInput = (input: UpdateTerminationProtectionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnableTerminationProtection != null) {
-    entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
+  if (input[_ETP] != null) {
+    entries[_ETP] = input[_ETP];
   }
-  if (input.StackName != null) {
-    entries["StackName"] = input.StackName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -7794,11 +7794,11 @@ const se_UpdateTerminationProtectionInput = (input: UpdateTerminationProtectionI
  */
 const se_ValidateTemplateInput = (input: ValidateTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateBody != null) {
-    entries["TemplateBody"] = input.TemplateBody;
+  if (input[_TB] != null) {
+    entries[_TB] = input[_TB];
   }
-  if (input.TemplateURL != null) {
-    entries["TemplateURL"] = input.TemplateURL;
+  if (input[_TURL] != null) {
+    entries[_TURL] = input[_TURL];
   }
   return entries;
 };
@@ -7808,11 +7808,11 @@ const se_ValidateTemplateInput = (input: ValidateTemplateInput, context: __Serde
  */
 const de_AccountGateResult = (output: any, context: __SerdeContext): AccountGateResult => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
   return contents;
 };
@@ -7822,11 +7822,11 @@ const de_AccountGateResult = (output: any, context: __SerdeContext): AccountGate
  */
 const de_AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __strictParseInt32(output["Value"]) as number;
+  if (output[_Val] != null) {
+    contents[_Val] = __strictParseInt32(output[_Val]) as number;
   }
   return contents;
 };
@@ -7869,8 +7869,8 @@ const de_ActivateOrganizationsAccessOutput = (
  */
 const de_ActivateTypeOutput = (output: any, context: __SerdeContext): ActivateTypeOutput => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -7891,8 +7891,8 @@ const de_AllowedValues = (output: any, context: __SerdeContext): string[] => {
  */
 const de_AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -7902,11 +7902,11 @@ const de_AlreadyExistsException = (output: any, context: __SerdeContext): Alread
  */
 const de_AutoDeployment = (output: any, context: __SerdeContext): AutoDeployment => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["RetainStacksOnAccountRemoval"] !== undefined) {
-    contents.RetainStacksOnAccountRemoval = __parseBoolean(output["RetainStacksOnAccountRemoval"]);
+  if (output[_RSOAR] != null) {
+    contents[_RSOAR] = __parseBoolean(output[_RSOAR]);
   }
   return contents;
 };
@@ -7919,17 +7919,14 @@ const de_BatchDescribeTypeConfigurationsError = (
   context: __SerdeContext
 ): BatchDescribeTypeConfigurationsError => {
   const contents: any = {};
-  if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = __expectString(output["ErrorCode"]);
+  if (output[_EC] != null) {
+    contents[_EC] = __expectString(output[_EC]);
   }
-  if (output["ErrorMessage"] !== undefined) {
-    contents.ErrorMessage = __expectString(output["ErrorMessage"]);
+  if (output[_EM] != null) {
+    contents[_EM] = __expectString(output[_EM]);
   }
-  if (output["TypeConfigurationIdentifier"] !== undefined) {
-    contents.TypeConfigurationIdentifier = de_TypeConfigurationIdentifier(
-      output["TypeConfigurationIdentifier"],
-      context
-    );
+  if (output[_TCIy] != null) {
+    contents[_TCIy] = de_TypeConfigurationIdentifier(output[_TCIy], context);
   }
   return contents;
 };
@@ -7957,31 +7954,19 @@ const de_BatchDescribeTypeConfigurationsOutput = (
 ): BatchDescribeTypeConfigurationsOutput => {
   const contents: any = {};
   if (output.Errors === "") {
-    contents.Errors = [];
-  } else if (output["Errors"] !== undefined && output["Errors"]["member"] !== undefined) {
-    contents.Errors = de_BatchDescribeTypeConfigurationsErrors(
-      __getArrayIfSingleItem(output["Errors"]["member"]),
-      context
-    );
+    contents[_Er] = [];
+  } else if (output[_Er] != null && output[_Er][_m] != null) {
+    contents[_Er] = de_BatchDescribeTypeConfigurationsErrors(__getArrayIfSingleItem(output[_Er][_m]), context);
   }
   if (output.UnprocessedTypeConfigurations === "") {
-    contents.UnprocessedTypeConfigurations = [];
-  } else if (
-    output["UnprocessedTypeConfigurations"] !== undefined &&
-    output["UnprocessedTypeConfigurations"]["member"] !== undefined
-  ) {
-    contents.UnprocessedTypeConfigurations = de_UnprocessedTypeConfigurations(
-      __getArrayIfSingleItem(output["UnprocessedTypeConfigurations"]["member"]),
-      context
-    );
+    contents[_UTC] = [];
+  } else if (output[_UTC] != null && output[_UTC][_m] != null) {
+    contents[_UTC] = de_UnprocessedTypeConfigurations(__getArrayIfSingleItem(output[_UTC][_m]), context);
   }
   if (output.TypeConfigurations === "") {
-    contents.TypeConfigurations = [];
-  } else if (output["TypeConfigurations"] !== undefined && output["TypeConfigurations"]["member"] !== undefined) {
-    contents.TypeConfigurations = de_TypeConfigurationDetailsList(
-      __getArrayIfSingleItem(output["TypeConfigurations"]["member"]),
-      context
-    );
+    contents[_TC] = [];
+  } else if (output[_TC] != null && output[_TC][_m] != null) {
+    contents[_TC] = de_TypeConfigurationDetailsList(__getArrayIfSingleItem(output[_TC][_m]), context);
   }
   return contents;
 };
@@ -8002,8 +7987,8 @@ const de_Capabilities = (output: any, context: __SerdeContext): Capability[] => 
  */
 const de_CFNRegistryException = (output: any, context: __SerdeContext): CFNRegistryException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8013,14 +7998,14 @@ const de_CFNRegistryException = (output: any, context: __SerdeContext): CFNRegis
  */
 const de_Change = (output: any, context: __SerdeContext): Change => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["HookInvocationCount"] !== undefined) {
-    contents.HookInvocationCount = __strictParseInt32(output["HookInvocationCount"]) as number;
+  if (output[_HIC] != null) {
+    contents[_HIC] = __strictParseInt32(output[_HIC]) as number;
   }
-  if (output["ResourceChange"] !== undefined) {
-    contents.ResourceChange = de_ResourceChange(output["ResourceChange"], context);
+  if (output[_RCe] != null) {
+    contents[_RCe] = de_ResourceChange(output[_RCe], context);
   }
   return contents;
 };
@@ -8041,23 +8026,23 @@ const de_Changes = (output: any, context: __SerdeContext): Change[] => {
  */
 const de_ChangeSetHook = (output: any, context: __SerdeContext): ChangeSetHook => {
   const contents: any = {};
-  if (output["InvocationPoint"] !== undefined) {
-    contents.InvocationPoint = __expectString(output["InvocationPoint"]);
+  if (output[_IP] != null) {
+    contents[_IP] = __expectString(output[_IP]);
   }
-  if (output["FailureMode"] !== undefined) {
-    contents.FailureMode = __expectString(output["FailureMode"]);
+  if (output[_FM] != null) {
+    contents[_FM] = __expectString(output[_FM]);
   }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = __expectString(output["TypeName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["TypeVersionId"] !== undefined) {
-    contents.TypeVersionId = __expectString(output["TypeVersionId"]);
+  if (output[_TVI] != null) {
+    contents[_TVI] = __expectString(output[_TVI]);
   }
-  if (output["TypeConfigurationVersionId"] !== undefined) {
-    contents.TypeConfigurationVersionId = __expectString(output["TypeConfigurationVersionId"]);
+  if (output[_TCVI] != null) {
+    contents[_TCVI] = __expectString(output[_TCVI]);
   }
-  if (output["TargetDetails"] !== undefined) {
-    contents.TargetDetails = de_ChangeSetHookTargetDetails(output["TargetDetails"], context);
+  if (output[_TD] != null) {
+    contents[_TD] = de_ChangeSetHookTargetDetails(output[_TD], context);
   }
   return contents;
 };
@@ -8070,14 +8055,14 @@ const de_ChangeSetHookResourceTargetDetails = (
   context: __SerdeContext
 ): ChangeSetHookResourceTargetDetails => {
   const contents: any = {};
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["ResourceAction"] !== undefined) {
-    contents.ResourceAction = __expectString(output["ResourceAction"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
   return contents;
 };
@@ -8098,11 +8083,11 @@ const de_ChangeSetHooks = (output: any, context: __SerdeContext): ChangeSetHook[
  */
 const de_ChangeSetHookTargetDetails = (output: any, context: __SerdeContext): ChangeSetHookTargetDetails => {
   const contents: any = {};
-  if (output["TargetType"] !== undefined) {
-    contents.TargetType = __expectString(output["TargetType"]);
+  if (output[_TTa] != null) {
+    contents[_TTa] = __expectString(output[_TTa]);
   }
-  if (output["ResourceTargetDetails"] !== undefined) {
-    contents.ResourceTargetDetails = de_ChangeSetHookResourceTargetDetails(output["ResourceTargetDetails"], context);
+  if (output[_RTD] != null) {
+    contents[_RTD] = de_ChangeSetHookResourceTargetDetails(output[_RTD], context);
   }
   return contents;
 };
@@ -8112,8 +8097,8 @@ const de_ChangeSetHookTargetDetails = (output: any, context: __SerdeContext): Ch
  */
 const de_ChangeSetNotFoundException = (output: any, context: __SerdeContext): ChangeSetNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8134,44 +8119,44 @@ const de_ChangeSetSummaries = (output: any, context: __SerdeContext): ChangeSetS
  */
 const de_ChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSummary => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = __expectString(output["ChangeSetId"]);
+  if (output[_CSIh] != null) {
+    contents[_CSIh] = __expectString(output[_CSIh]);
   }
-  if (output["ChangeSetName"] !== undefined) {
-    contents.ChangeSetName = __expectString(output["ChangeSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["ExecutionStatus"] !== undefined) {
-    contents.ExecutionStatus = __expectString(output["ExecutionStatus"]);
+  if (output[_ES] != null) {
+    contents[_ES] = __expectString(output[_ES]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["IncludeNestedStacks"] !== undefined) {
-    contents.IncludeNestedStacks = __parseBoolean(output["IncludeNestedStacks"]);
+  if (output[_INS] != null) {
+    contents[_INS] = __parseBoolean(output[_INS]);
   }
-  if (output["ParentChangeSetId"] !== undefined) {
-    contents.ParentChangeSetId = __expectString(output["ParentChangeSetId"]);
+  if (output[_PCSI] != null) {
+    contents[_PCSI] = __expectString(output[_PCSI]);
   }
-  if (output["RootChangeSetId"] !== undefined) {
-    contents.RootChangeSetId = __expectString(output["RootChangeSetId"]);
+  if (output[_RCSI] != null) {
+    contents[_RCSI] = __expectString(output[_RCSI]);
   }
-  if (output["ImportExistingResources"] !== undefined) {
-    contents.ImportExistingResources = __parseBoolean(output["ImportExistingResources"]);
+  if (output[_IER] != null) {
+    contents[_IER] = __parseBoolean(output[_IER]);
   }
   return contents;
 };
@@ -8189,11 +8174,11 @@ const de_ContinueUpdateRollbackOutput = (output: any, context: __SerdeContext): 
  */
 const de_CreateChangeSetOutput = (output: any, context: __SerdeContext): CreateChangeSetOutput => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -8203,8 +8188,8 @@ const de_CreateChangeSetOutput = (output: any, context: __SerdeContext): CreateC
  */
 const de_CreatedButModifiedException = (output: any, context: __SerdeContext): CreatedButModifiedException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8214,8 +8199,8 @@ const de_CreatedButModifiedException = (output: any, context: __SerdeContext): C
  */
 const de_CreateStackInstancesOutput = (output: any, context: __SerdeContext): CreateStackInstancesOutput => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -8225,8 +8210,8 @@ const de_CreateStackInstancesOutput = (output: any, context: __SerdeContext): Cr
  */
 const de_CreateStackOutput = (output: any, context: __SerdeContext): CreateStackOutput => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -8236,8 +8221,8 @@ const de_CreateStackOutput = (output: any, context: __SerdeContext): CreateStack
  */
 const de_CreateStackSetOutput = (output: any, context: __SerdeContext): CreateStackSetOutput => {
   const contents: any = {};
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = __expectString(output["StackSetId"]);
+  if (output[_SSI] != null) {
+    contents[_SSI] = __expectString(output[_SSI]);
   }
   return contents;
 };
@@ -8274,8 +8259,8 @@ const de_DeleteChangeSetOutput = (output: any, context: __SerdeContext): DeleteC
  */
 const de_DeleteStackInstancesOutput = (output: any, context: __SerdeContext): DeleteStackInstancesOutput => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -8294,23 +8279,20 @@ const de_DeleteStackSetOutput = (output: any, context: __SerdeContext): DeleteSt
 const de_DeploymentTargets = (output: any, context: __SerdeContext): DeploymentTargets => {
   const contents: any = {};
   if (output.Accounts === "") {
-    contents.Accounts = [];
-  } else if (output["Accounts"] !== undefined && output["Accounts"]["member"] !== undefined) {
-    contents.Accounts = de_AccountList(__getArrayIfSingleItem(output["Accounts"]["member"]), context);
+    contents[_Ac] = [];
+  } else if (output[_Ac] != null && output[_Ac][_m] != null) {
+    contents[_Ac] = de_AccountList(__getArrayIfSingleItem(output[_Ac][_m]), context);
   }
-  if (output["AccountsUrl"] !== undefined) {
-    contents.AccountsUrl = __expectString(output["AccountsUrl"]);
+  if (output[_AUc] != null) {
+    contents[_AUc] = __expectString(output[_AUc]);
   }
   if (output.OrganizationalUnitIds === "") {
-    contents.OrganizationalUnitIds = [];
-  } else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-    contents.OrganizationalUnitIds = de_OrganizationalUnitIdList(
-      __getArrayIfSingleItem(output["OrganizationalUnitIds"]["member"]),
-      context
-    );
+    contents[_OUI] = [];
+  } else if (output[_OUI] != null && output[_OUI][_m] != null) {
+    contents[_OUI] = de_OrganizationalUnitIdList(__getArrayIfSingleItem(output[_OUI][_m]), context);
   }
-  if (output["AccountFilterType"] !== undefined) {
-    contents.AccountFilterType = __expectString(output["AccountFilterType"]);
+  if (output[_AFT] != null) {
+    contents[_AFT] = __expectString(output[_AFT]);
   }
   return contents;
 };
@@ -8329,12 +8311,12 @@ const de_DeregisterTypeOutput = (output: any, context: __SerdeContext): Deregist
 const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
   const contents: any = {};
   if (output.AccountLimits === "") {
-    contents.AccountLimits = [];
-  } else if (output["AccountLimits"] !== undefined && output["AccountLimits"]["member"] !== undefined) {
-    contents.AccountLimits = de_AccountLimitList(__getArrayIfSingleItem(output["AccountLimits"]["member"]), context);
+    contents[_AL] = [];
+  } else if (output[_AL] != null && output[_AL][_m] != null) {
+    contents[_AL] = de_AccountLimitList(__getArrayIfSingleItem(output[_AL][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8344,28 +8326,28 @@ const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): D
  */
 const de_DescribeChangeSetHooksOutput = (output: any, context: __SerdeContext): DescribeChangeSetHooksOutput => {
   const contents: any = {};
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = __expectString(output["ChangeSetId"]);
+  if (output[_CSIh] != null) {
+    contents[_CSIh] = __expectString(output[_CSIh]);
   }
-  if (output["ChangeSetName"] !== undefined) {
-    contents.ChangeSetName = __expectString(output["ChangeSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
   if (output.Hooks === "") {
-    contents.Hooks = [];
-  } else if (output["Hooks"] !== undefined && output["Hooks"]["member"] !== undefined) {
-    contents.Hooks = de_ChangeSetHooks(__getArrayIfSingleItem(output["Hooks"]["member"]), context);
+    contents[_H] = [];
+  } else if (output[_H] != null && output[_H][_m] != null) {
+    contents[_H] = de_ChangeSetHooks(__getArrayIfSingleItem(output[_H][_m]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
   return contents;
 };
@@ -8375,81 +8357,78 @@ const de_DescribeChangeSetHooksOutput = (output: any, context: __SerdeContext): 
  */
 const de_DescribeChangeSetOutput = (output: any, context: __SerdeContext): DescribeChangeSetOutput => {
   const contents: any = {};
-  if (output["ChangeSetName"] !== undefined) {
-    contents.ChangeSetName = __expectString(output["ChangeSetName"]);
+  if (output[_CSN] != null) {
+    contents[_CSN] = __expectString(output[_CSN]);
   }
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = __expectString(output["ChangeSetId"]);
+  if (output[_CSIh] != null) {
+    contents[_CSIh] = __expectString(output[_CSIh]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = de_Parameters(__getArrayIfSingleItem(output["Parameters"]["member"]), context);
+    contents[_P] = [];
+  } else if (output[_P] != null && output[_P][_m] != null) {
+    contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["ExecutionStatus"] !== undefined) {
-    contents.ExecutionStatus = __expectString(output["ExecutionStatus"]);
+  if (output[_ES] != null) {
+    contents[_ES] = __expectString(output[_ES]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
   if (output.NotificationARNs === "") {
-    contents.NotificationARNs = [];
-  } else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-    contents.NotificationARNs = de_NotificationARNs(
-      __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
-      context
-    );
+    contents[_NARN] = [];
+  } else if (output[_NARN] != null && output[_NARN][_m] != null) {
+    contents[_NARN] = de_NotificationARNs(__getArrayIfSingleItem(output[_NARN][_m]), context);
   }
-  if (output["RollbackConfiguration"] !== undefined) {
-    contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
+  if (output[_RC] != null) {
+    contents[_RC] = de_RollbackConfiguration(output[_RC], context);
   }
   if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  } else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = de_Capabilities(__getArrayIfSingleItem(output["Capabilities"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_Tags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_Ta] = [];
+  } else if (output[_Ta] != null && output[_Ta][_m] != null) {
+    contents[_Ta] = de_Tags(__getArrayIfSingleItem(output[_Ta][_m]), context);
   }
   if (output.Changes === "") {
-    contents.Changes = [];
-  } else if (output["Changes"] !== undefined && output["Changes"]["member"] !== undefined) {
-    contents.Changes = de_Changes(__getArrayIfSingleItem(output["Changes"]["member"]), context);
+    contents[_Ch] = [];
+  } else if (output[_Ch] != null && output[_Ch][_m] != null) {
+    contents[_Ch] = de_Changes(__getArrayIfSingleItem(output[_Ch][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
-  if (output["IncludeNestedStacks"] !== undefined) {
-    contents.IncludeNestedStacks = __parseBoolean(output["IncludeNestedStacks"]);
+  if (output[_INS] != null) {
+    contents[_INS] = __parseBoolean(output[_INS]);
   }
-  if (output["ParentChangeSetId"] !== undefined) {
-    contents.ParentChangeSetId = __expectString(output["ParentChangeSetId"]);
+  if (output[_PCSI] != null) {
+    contents[_PCSI] = __expectString(output[_PCSI]);
   }
-  if (output["RootChangeSetId"] !== undefined) {
-    contents.RootChangeSetId = __expectString(output["RootChangeSetId"]);
+  if (output[_RCSI] != null) {
+    contents[_RCSI] = __expectString(output[_RCSI]);
   }
-  if (output["OnStackFailure"] !== undefined) {
-    contents.OnStackFailure = __expectString(output["OnStackFailure"]);
+  if (output[_OSF] != null) {
+    contents[_OSF] = __expectString(output[_OSF]);
   }
-  if (output["ImportExistingResources"] !== undefined) {
-    contents.ImportExistingResources = __parseBoolean(output["ImportExistingResources"]);
+  if (output[_IER] != null) {
+    contents[_IER] = __parseBoolean(output[_IER]);
   }
   return contents;
 };
@@ -8462,8 +8441,8 @@ const de_DescribeOrganizationsAccessOutput = (
   context: __SerdeContext
 ): DescribeOrganizationsAccessOutput => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -8473,17 +8452,17 @@ const de_DescribeOrganizationsAccessOutput = (
  */
 const de_DescribePublisherOutput = (output: any, context: __SerdeContext): DescribePublisherOutput => {
   const contents: any = {};
-  if (output["PublisherId"] !== undefined) {
-    contents.PublisherId = __expectString(output["PublisherId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
-  if (output["PublisherStatus"] !== undefined) {
-    contents.PublisherStatus = __expectString(output["PublisherStatus"]);
+  if (output[_PS] != null) {
+    contents[_PS] = __expectString(output[_PS]);
   }
-  if (output["IdentityProvider"] !== undefined) {
-    contents.IdentityProvider = __expectString(output["IdentityProvider"]);
+  if (output[_IPd] != null) {
+    contents[_IPd] = __expectString(output[_IPd]);
   }
-  if (output["PublisherProfile"] !== undefined) {
-    contents.PublisherProfile = __expectString(output["PublisherProfile"]);
+  if (output[_PP] != null) {
+    contents[_PP] = __expectString(output[_PP]);
   }
   return contents;
 };
@@ -8496,26 +8475,26 @@ const de_DescribeStackDriftDetectionStatusOutput = (
   context: __SerdeContext
 ): DescribeStackDriftDetectionStatusOutput => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["StackDriftDetectionId"] !== undefined) {
-    contents.StackDriftDetectionId = __expectString(output["StackDriftDetectionId"]);
+  if (output[_SDDI] != null) {
+    contents[_SDDI] = __expectString(output[_SDDI]);
   }
-  if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus = __expectString(output["StackDriftStatus"]);
+  if (output[_SDS] != null) {
+    contents[_SDS] = __expectString(output[_SDS]);
   }
-  if (output["DetectionStatus"] !== undefined) {
-    contents.DetectionStatus = __expectString(output["DetectionStatus"]);
+  if (output[_DSet] != null) {
+    contents[_DSet] = __expectString(output[_DSet]);
   }
-  if (output["DetectionStatusReason"] !== undefined) {
-    contents.DetectionStatusReason = __expectString(output["DetectionStatusReason"]);
+  if (output[_DSRet] != null) {
+    contents[_DSRet] = __expectString(output[_DSRet]);
   }
-  if (output["DriftedStackResourceCount"] !== undefined) {
-    contents.DriftedStackResourceCount = __strictParseInt32(output["DriftedStackResourceCount"]) as number;
+  if (output[_DSRC] != null) {
+    contents[_DSRC] = __strictParseInt32(output[_DSRC]) as number;
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
   return contents;
 };
@@ -8526,12 +8505,12 @@ const de_DescribeStackDriftDetectionStatusOutput = (
 const de_DescribeStackEventsOutput = (output: any, context: __SerdeContext): DescribeStackEventsOutput => {
   const contents: any = {};
   if (output.StackEvents === "") {
-    contents.StackEvents = [];
-  } else if (output["StackEvents"] !== undefined && output["StackEvents"]["member"] !== undefined) {
-    contents.StackEvents = de_StackEvents(__getArrayIfSingleItem(output["StackEvents"]["member"]), context);
+    contents[_SE] = [];
+  } else if (output[_SE] != null && output[_SE][_m] != null) {
+    contents[_SE] = de_StackEvents(__getArrayIfSingleItem(output[_SE][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8541,8 +8520,8 @@ const de_DescribeStackEventsOutput = (output: any, context: __SerdeContext): Des
  */
 const de_DescribeStackInstanceOutput = (output: any, context: __SerdeContext): DescribeStackInstanceOutput => {
   const contents: any = {};
-  if (output["StackInstance"] !== undefined) {
-    contents.StackInstance = de_StackInstance(output["StackInstance"], context);
+  if (output[_SIta] != null) {
+    contents[_SIta] = de_StackInstance(output[_SIta], context);
   }
   return contents;
 };
@@ -8556,15 +8535,12 @@ const de_DescribeStackResourceDriftsOutput = (
 ): DescribeStackResourceDriftsOutput => {
   const contents: any = {};
   if (output.StackResourceDrifts === "") {
-    contents.StackResourceDrifts = [];
-  } else if (output["StackResourceDrifts"] !== undefined && output["StackResourceDrifts"]["member"] !== undefined) {
-    contents.StackResourceDrifts = de_StackResourceDrifts(
-      __getArrayIfSingleItem(output["StackResourceDrifts"]["member"]),
-      context
-    );
+    contents[_SRD] = [];
+  } else if (output[_SRD] != null && output[_SRD][_m] != null) {
+    contents[_SRD] = de_StackResourceDrifts(__getArrayIfSingleItem(output[_SRD][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8574,8 +8550,8 @@ const de_DescribeStackResourceDriftsOutput = (
  */
 const de_DescribeStackResourceOutput = (output: any, context: __SerdeContext): DescribeStackResourceOutput => {
   const contents: any = {};
-  if (output["StackResourceDetail"] !== undefined) {
-    contents.StackResourceDetail = de_StackResourceDetail(output["StackResourceDetail"], context);
+  if (output[_SRDt] != null) {
+    contents[_SRDt] = de_StackResourceDetail(output[_SRDt], context);
   }
   return contents;
 };
@@ -8586,9 +8562,9 @@ const de_DescribeStackResourceOutput = (output: any, context: __SerdeContext): D
 const de_DescribeStackResourcesOutput = (output: any, context: __SerdeContext): DescribeStackResourcesOutput => {
   const contents: any = {};
   if (output.StackResources === "") {
-    contents.StackResources = [];
-  } else if (output["StackResources"] !== undefined && output["StackResources"]["member"] !== undefined) {
-    contents.StackResources = de_StackResources(__getArrayIfSingleItem(output["StackResources"]["member"]), context);
+    contents[_SRta] = [];
+  } else if (output[_SRta] != null && output[_SRta][_m] != null) {
+    contents[_SRta] = de_StackResources(__getArrayIfSingleItem(output[_SRta][_m]), context);
   }
   return contents;
 };
@@ -8598,8 +8574,8 @@ const de_DescribeStackResourcesOutput = (output: any, context: __SerdeContext): 
  */
 const de_DescribeStackSetOperationOutput = (output: any, context: __SerdeContext): DescribeStackSetOperationOutput => {
   const contents: any = {};
-  if (output["StackSetOperation"] !== undefined) {
-    contents.StackSetOperation = de_StackSetOperation(output["StackSetOperation"], context);
+  if (output[_SSO] != null) {
+    contents[_SSO] = de_StackSetOperation(output[_SSO], context);
   }
   return contents;
 };
@@ -8609,8 +8585,8 @@ const de_DescribeStackSetOperationOutput = (output: any, context: __SerdeContext
  */
 const de_DescribeStackSetOutput = (output: any, context: __SerdeContext): DescribeStackSetOutput => {
   const contents: any = {};
-  if (output["StackSet"] !== undefined) {
-    contents.StackSet = de_StackSet(output["StackSet"], context);
+  if (output[_SS] != null) {
+    contents[_SS] = de_StackSet(output[_SS], context);
   }
   return contents;
 };
@@ -8621,12 +8597,12 @@ const de_DescribeStackSetOutput = (output: any, context: __SerdeContext): Descri
 const de_DescribeStacksOutput = (output: any, context: __SerdeContext): DescribeStacksOutput => {
   const contents: any = {};
   if (output.Stacks === "") {
-    contents.Stacks = [];
-  } else if (output["Stacks"] !== undefined && output["Stacks"]["member"] !== undefined) {
-    contents.Stacks = de_Stacks(__getArrayIfSingleItem(output["Stacks"]["member"]), context);
+    contents[_St] = [];
+  } else if (output[_St] != null && output[_St][_m] != null) {
+    contents[_St] = de_Stacks(__getArrayIfSingleItem(output[_St][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -8636,94 +8612,88 @@ const de_DescribeStacksOutput = (output: any, context: __SerdeContext): Describe
  */
 const de_DescribeTypeOutput = (output: any, context: __SerdeContext): DescribeTypeOutput => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = __expectString(output["TypeName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = __expectString(output["DefaultVersionId"]);
+  if (output[_DVI] != null) {
+    contents[_DVI] = __expectString(output[_DVI]);
   }
-  if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
+  if (output[_IDV] != null) {
+    contents[_IDV] = __parseBoolean(output[_IDV]);
   }
-  if (output["TypeTestsStatus"] !== undefined) {
-    contents.TypeTestsStatus = __expectString(output["TypeTestsStatus"]);
+  if (output[_TTS] != null) {
+    contents[_TTS] = __expectString(output[_TTS]);
   }
-  if (output["TypeTestsStatusDescription"] !== undefined) {
-    contents.TypeTestsStatusDescription = __expectString(output["TypeTestsStatusDescription"]);
+  if (output[_TTSD] != null) {
+    contents[_TTSD] = __expectString(output[_TTSD]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Schema"] !== undefined) {
-    contents.Schema = __expectString(output["Schema"]);
+  if (output[_Sc] != null) {
+    contents[_Sc] = __expectString(output[_Sc]);
   }
-  if (output["ProvisioningType"] !== undefined) {
-    contents.ProvisioningType = __expectString(output["ProvisioningType"]);
+  if (output[_PTr] != null) {
+    contents[_PTr] = __expectString(output[_PTr]);
   }
-  if (output["DeprecatedStatus"] !== undefined) {
-    contents.DeprecatedStatus = __expectString(output["DeprecatedStatus"]);
+  if (output[_DSep] != null) {
+    contents[_DSep] = __expectString(output[_DSep]);
   }
-  if (output["LoggingConfig"] !== undefined) {
-    contents.LoggingConfig = de_LoggingConfig(output["LoggingConfig"], context);
+  if (output[_LC] != null) {
+    contents[_LC] = de_LoggingConfig(output[_LC], context);
   }
   if (output.RequiredActivatedTypes === "") {
-    contents.RequiredActivatedTypes = [];
-  } else if (
-    output["RequiredActivatedTypes"] !== undefined &&
-    output["RequiredActivatedTypes"]["member"] !== undefined
-  ) {
-    contents.RequiredActivatedTypes = de_RequiredActivatedTypes(
-      __getArrayIfSingleItem(output["RequiredActivatedTypes"]["member"]),
-      context
-    );
+    contents[_RAT] = [];
+  } else if (output[_RAT] != null && output[_RAT][_m] != null) {
+    contents[_RAT] = de_RequiredActivatedTypes(__getArrayIfSingleItem(output[_RAT][_m]), context);
   }
-  if (output["ExecutionRoleArn"] !== undefined) {
-    contents.ExecutionRoleArn = __expectString(output["ExecutionRoleArn"]);
+  if (output[_ERA] != null) {
+    contents[_ERA] = __expectString(output[_ERA]);
   }
-  if (output["Visibility"] !== undefined) {
-    contents.Visibility = __expectString(output["Visibility"]);
+  if (output[_Vi] != null) {
+    contents[_Vi] = __expectString(output[_Vi]);
   }
-  if (output["SourceUrl"] !== undefined) {
-    contents.SourceUrl = __expectString(output["SourceUrl"]);
+  if (output[_SU] != null) {
+    contents[_SU] = __expectString(output[_SU]);
   }
-  if (output["DocumentationUrl"] !== undefined) {
-    contents.DocumentationUrl = __expectString(output["DocumentationUrl"]);
+  if (output[_DU] != null) {
+    contents[_DU] = __expectString(output[_DU]);
   }
-  if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdated"]));
+  if (output[_LU] != null) {
+    contents[_LU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LU]));
   }
-  if (output["TimeCreated"] !== undefined) {
-    contents.TimeCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TimeCreated"]));
+  if (output[_TCi] != null) {
+    contents[_TCi] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TCi]));
   }
-  if (output["ConfigurationSchema"] !== undefined) {
-    contents.ConfigurationSchema = __expectString(output["ConfigurationSchema"]);
+  if (output[_CSo] != null) {
+    contents[_CSo] = __expectString(output[_CSo]);
   }
-  if (output["PublisherId"] !== undefined) {
-    contents.PublisherId = __expectString(output["PublisherId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
-  if (output["OriginalTypeName"] !== undefined) {
-    contents.OriginalTypeName = __expectString(output["OriginalTypeName"]);
+  if (output[_OTN] != null) {
+    contents[_OTN] = __expectString(output[_OTN]);
   }
-  if (output["OriginalTypeArn"] !== undefined) {
-    contents.OriginalTypeArn = __expectString(output["OriginalTypeArn"]);
+  if (output[_OTA] != null) {
+    contents[_OTA] = __expectString(output[_OTA]);
   }
-  if (output["PublicVersionNumber"] !== undefined) {
-    contents.PublicVersionNumber = __expectString(output["PublicVersionNumber"]);
+  if (output[_PVN] != null) {
+    contents[_PVN] = __expectString(output[_PVN]);
   }
-  if (output["LatestPublicVersion"] !== undefined) {
-    contents.LatestPublicVersion = __expectString(output["LatestPublicVersion"]);
+  if (output[_LPV] != null) {
+    contents[_LPV] = __expectString(output[_LPV]);
   }
-  if (output["IsActivated"] !== undefined) {
-    contents.IsActivated = __parseBoolean(output["IsActivated"]);
+  if (output[_IA] != null) {
+    contents[_IA] = __parseBoolean(output[_IA]);
   }
-  if (output["AutoUpdate"] !== undefined) {
-    contents.AutoUpdate = __parseBoolean(output["AutoUpdate"]);
+  if (output[_AU] != null) {
+    contents[_AU] = __parseBoolean(output[_AU]);
   }
   return contents;
 };
@@ -8733,17 +8703,17 @@ const de_DescribeTypeOutput = (output: any, context: __SerdeContext): DescribeTy
  */
 const de_DescribeTypeRegistrationOutput = (output: any, context: __SerdeContext): DescribeTypeRegistrationOutput => {
   const contents: any = {};
-  if (output["ProgressStatus"] !== undefined) {
-    contents.ProgressStatus = __expectString(output["ProgressStatus"]);
+  if (output[_PSr] != null) {
+    contents[_PSr] = __expectString(output[_PSr]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["TypeArn"] !== undefined) {
-    contents.TypeArn = __expectString(output["TypeArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["TypeVersionArn"] !== undefined) {
-    contents.TypeVersionArn = __expectString(output["TypeVersionArn"]);
+  if (output[_TVA] != null) {
+    contents[_TVA] = __expectString(output[_TVA]);
   }
   return contents;
 };
@@ -8753,8 +8723,8 @@ const de_DescribeTypeRegistrationOutput = (output: any, context: __SerdeContext)
  */
 const de_DetectStackDriftOutput = (output: any, context: __SerdeContext): DetectStackDriftOutput => {
   const contents: any = {};
-  if (output["StackDriftDetectionId"] !== undefined) {
-    contents.StackDriftDetectionId = __expectString(output["StackDriftDetectionId"]);
+  if (output[_SDDI] != null) {
+    contents[_SDDI] = __expectString(output[_SDDI]);
   }
   return contents;
 };
@@ -8764,8 +8734,8 @@ const de_DetectStackDriftOutput = (output: any, context: __SerdeContext): Detect
  */
 const de_DetectStackResourceDriftOutput = (output: any, context: __SerdeContext): DetectStackResourceDriftOutput => {
   const contents: any = {};
-  if (output["StackResourceDrift"] !== undefined) {
-    contents.StackResourceDrift = de_StackResourceDrift(output["StackResourceDrift"], context);
+  if (output[_SRDta] != null) {
+    contents[_SRDta] = de_StackResourceDrift(output[_SRDta], context);
   }
   return contents;
 };
@@ -8775,8 +8745,8 @@ const de_DetectStackResourceDriftOutput = (output: any, context: __SerdeContext)
  */
 const de_DetectStackSetDriftOutput = (output: any, context: __SerdeContext): DetectStackSetDriftOutput => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -8786,8 +8756,8 @@ const de_DetectStackSetDriftOutput = (output: any, context: __SerdeContext): Det
  */
 const de_EstimateTemplateCostOutput = (output: any, context: __SerdeContext): EstimateTemplateCostOutput => {
   const contents: any = {};
-  if (output["Url"] !== undefined) {
-    contents.Url = __expectString(output["Url"]);
+  if (output[_U] != null) {
+    contents[_U] = __expectString(output[_U]);
   }
   return contents;
 };
@@ -8805,14 +8775,14 @@ const de_ExecuteChangeSetOutput = (output: any, context: __SerdeContext): Execut
  */
 const de_Export = (output: any, context: __SerdeContext): Export => {
   const contents: any = {};
-  if (output["ExportingStackId"] !== undefined) {
-    contents.ExportingStackId = __expectString(output["ExportingStackId"]);
+  if (output[_ESI] != null) {
+    contents[_ESI] = __expectString(output[_ESI]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -8833,8 +8803,8 @@ const de_Exports = (output: any, context: __SerdeContext): Export[] => {
  */
 const de_GetStackPolicyOutput = (output: any, context: __SerdeContext): GetStackPolicyOutput => {
   const contents: any = {};
-  if (output["StackPolicyBody"] !== undefined) {
-    contents.StackPolicyBody = __expectString(output["StackPolicyBody"]);
+  if (output[_SPB] != null) {
+    contents[_SPB] = __expectString(output[_SPB]);
   }
   return contents;
 };
@@ -8844,13 +8814,13 @@ const de_GetStackPolicyOutput = (output: any, context: __SerdeContext): GetStack
  */
 const de_GetTemplateOutput = (output: any, context: __SerdeContext): GetTemplateOutput => {
   const contents: any = {};
-  if (output["TemplateBody"] !== undefined) {
-    contents.TemplateBody = __expectString(output["TemplateBody"]);
+  if (output[_TB] != null) {
+    contents[_TB] = __expectString(output[_TB]);
   }
   if (output.StagesAvailable === "") {
-    contents.StagesAvailable = [];
-  } else if (output["StagesAvailable"] !== undefined && output["StagesAvailable"]["member"] !== undefined) {
-    contents.StagesAvailable = de_StageList(__getArrayIfSingleItem(output["StagesAvailable"]["member"]), context);
+    contents[_SA] = [];
+  } else if (output[_SA] != null && output[_SA][_m] != null) {
+    contents[_SA] = de_StageList(__getArrayIfSingleItem(output[_SA][_m]), context);
   }
   return contents;
 };
@@ -8861,53 +8831,44 @@ const de_GetTemplateOutput = (output: any, context: __SerdeContext): GetTemplate
 const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetTemplateSummaryOutput => {
   const contents: any = {};
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = de_ParameterDeclarations(__getArrayIfSingleItem(output["Parameters"]["member"]), context);
+    contents[_P] = [];
+  } else if (output[_P] != null && output[_P][_m] != null) {
+    contents[_P] = de_ParameterDeclarations(__getArrayIfSingleItem(output[_P][_m]), context);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  } else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = de_Capabilities(__getArrayIfSingleItem(output["Capabilities"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output["CapabilitiesReason"] !== undefined) {
-    contents.CapabilitiesReason = __expectString(output["CapabilitiesReason"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
   if (output.ResourceTypes === "") {
-    contents.ResourceTypes = [];
-  } else if (output["ResourceTypes"] !== undefined && output["ResourceTypes"]["member"] !== undefined) {
-    contents.ResourceTypes = de_ResourceTypes(__getArrayIfSingleItem(output["ResourceTypes"]["member"]), context);
+    contents[_RTe] = [];
+  } else if (output[_RTe] != null && output[_RTe][_m] != null) {
+    contents[_RTe] = de_ResourceTypes(__getArrayIfSingleItem(output[_RTe][_m]), context);
   }
-  if (output["Version"] !== undefined) {
-    contents.Version = __expectString(output["Version"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
-  if (output["Metadata"] !== undefined) {
-    contents.Metadata = __expectString(output["Metadata"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   if (output.DeclaredTransforms === "") {
-    contents.DeclaredTransforms = [];
-  } else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-    contents.DeclaredTransforms = de_TransformsList(
-      __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
-      context
-    );
+    contents[_DTec] = [];
+  } else if (output[_DTec] != null && output[_DTec][_m] != null) {
+    contents[_DTec] = de_TransformsList(__getArrayIfSingleItem(output[_DTec][_m]), context);
   }
   if (output.ResourceIdentifierSummaries === "") {
-    contents.ResourceIdentifierSummaries = [];
-  } else if (
-    output["ResourceIdentifierSummaries"] !== undefined &&
-    output["ResourceIdentifierSummaries"]["member"] !== undefined
-  ) {
-    contents.ResourceIdentifierSummaries = de_ResourceIdentifierSummaries(
-      __getArrayIfSingleItem(output["ResourceIdentifierSummaries"]["member"]),
-      context
-    );
+    contents[_RIS] = [];
+  } else if (output[_RIS] != null && output[_RIS][_m] != null) {
+    contents[_RIS] = de_ResourceIdentifierSummaries(__getArrayIfSingleItem(output[_RIS][_m]), context);
   }
-  if (output["Warnings"] !== undefined) {
-    contents.Warnings = de_Warnings(output["Warnings"], context);
+  if (output[_W] != null) {
+    contents[_W] = de_Warnings(output[_W], context);
   }
   return contents;
 };
@@ -8928,8 +8889,8 @@ const de_Imports = (output: any, context: __SerdeContext): string[] => {
  */
 const de_ImportStacksToStackSetOutput = (output: any, context: __SerdeContext): ImportStacksToStackSetOutput => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -8942,8 +8903,8 @@ const de_InsufficientCapabilitiesException = (
   context: __SerdeContext
 ): InsufficientCapabilitiesException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8953,8 +8914,8 @@ const de_InsufficientCapabilitiesException = (
  */
 const de_InvalidChangeSetStatusException = (output: any, context: __SerdeContext): InvalidChangeSetStatusException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8964,8 +8925,8 @@ const de_InvalidChangeSetStatusException = (output: any, context: __SerdeContext
  */
 const de_InvalidOperationException = (output: any, context: __SerdeContext): InvalidOperationException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8975,8 +8936,8 @@ const de_InvalidOperationException = (output: any, context: __SerdeContext): Inv
  */
 const de_InvalidStateTransitionException = (output: any, context: __SerdeContext): InvalidStateTransitionException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8986,8 +8947,8 @@ const de_InvalidStateTransitionException = (output: any, context: __SerdeContext
  */
 const de_LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -8998,12 +8959,12 @@ const de_LimitExceededException = (output: any, context: __SerdeContext): LimitE
 const de_ListChangeSetsOutput = (output: any, context: __SerdeContext): ListChangeSetsOutput => {
   const contents: any = {};
   if (output.Summaries === "") {
-    contents.Summaries = [];
-  } else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-    contents.Summaries = de_ChangeSetSummaries(__getArrayIfSingleItem(output["Summaries"]["member"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_ChangeSetSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9014,12 +8975,12 @@ const de_ListChangeSetsOutput = (output: any, context: __SerdeContext): ListChan
 const de_ListExportsOutput = (output: any, context: __SerdeContext): ListExportsOutput => {
   const contents: any = {};
   if (output.Exports === "") {
-    contents.Exports = [];
-  } else if (output["Exports"] !== undefined && output["Exports"]["member"] !== undefined) {
-    contents.Exports = de_Exports(__getArrayIfSingleItem(output["Exports"]["member"]), context);
+    contents[_Ex] = [];
+  } else if (output[_Ex] != null && output[_Ex][_m] != null) {
+    contents[_Ex] = de_Exports(__getArrayIfSingleItem(output[_Ex][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9030,12 +8991,12 @@ const de_ListExportsOutput = (output: any, context: __SerdeContext): ListExports
 const de_ListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
   const contents: any = {};
   if (output.Imports === "") {
-    contents.Imports = [];
-  } else if (output["Imports"] !== undefined && output["Imports"]["member"] !== undefined) {
-    contents.Imports = de_Imports(__getArrayIfSingleItem(output["Imports"]["member"]), context);
+    contents[_Im] = [];
+  } else if (output[_Im] != null && output[_Im][_m] != null) {
+    contents[_Im] = de_Imports(__getArrayIfSingleItem(output[_Im][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9049,15 +9010,12 @@ const de_ListStackInstanceResourceDriftsOutput = (
 ): ListStackInstanceResourceDriftsOutput => {
   const contents: any = {};
   if (output.Summaries === "") {
-    contents.Summaries = [];
-  } else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-    contents.Summaries = de_StackInstanceResourceDriftsSummaries(
-      __getArrayIfSingleItem(output["Summaries"]["member"]),
-      context
-    );
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackInstanceResourceDriftsSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9068,12 +9026,12 @@ const de_ListStackInstanceResourceDriftsOutput = (
 const de_ListStackInstancesOutput = (output: any, context: __SerdeContext): ListStackInstancesOutput => {
   const contents: any = {};
   if (output.Summaries === "") {
-    contents.Summaries = [];
-  } else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-    contents.Summaries = de_StackInstanceSummaries(__getArrayIfSingleItem(output["Summaries"]["member"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackInstanceSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9084,18 +9042,12 @@ const de_ListStackInstancesOutput = (output: any, context: __SerdeContext): List
 const de_ListStackResourcesOutput = (output: any, context: __SerdeContext): ListStackResourcesOutput => {
   const contents: any = {};
   if (output.StackResourceSummaries === "") {
-    contents.StackResourceSummaries = [];
-  } else if (
-    output["StackResourceSummaries"] !== undefined &&
-    output["StackResourceSummaries"]["member"] !== undefined
-  ) {
-    contents.StackResourceSummaries = de_StackResourceSummaries(
-      __getArrayIfSingleItem(output["StackResourceSummaries"]["member"]),
-      context
-    );
+    contents[_SRS] = [];
+  } else if (output[_SRS] != null && output[_SRS][_m] != null) {
+    contents[_SRS] = de_StackResourceSummaries(__getArrayIfSingleItem(output[_SRS][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9109,15 +9061,12 @@ const de_ListStackSetOperationResultsOutput = (
 ): ListStackSetOperationResultsOutput => {
   const contents: any = {};
   if (output.Summaries === "") {
-    contents.Summaries = [];
-  } else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-    contents.Summaries = de_StackSetOperationResultSummaries(
-      __getArrayIfSingleItem(output["Summaries"]["member"]),
-      context
-    );
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackSetOperationResultSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9128,12 +9077,12 @@ const de_ListStackSetOperationResultsOutput = (
 const de_ListStackSetOperationsOutput = (output: any, context: __SerdeContext): ListStackSetOperationsOutput => {
   const contents: any = {};
   if (output.Summaries === "") {
-    contents.Summaries = [];
-  } else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-    contents.Summaries = de_StackSetOperationSummaries(__getArrayIfSingleItem(output["Summaries"]["member"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackSetOperationSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9144,12 +9093,12 @@ const de_ListStackSetOperationsOutput = (output: any, context: __SerdeContext): 
 const de_ListStackSetsOutput = (output: any, context: __SerdeContext): ListStackSetsOutput => {
   const contents: any = {};
   if (output.Summaries === "") {
-    contents.Summaries = [];
-  } else if (output["Summaries"] !== undefined && output["Summaries"]["member"] !== undefined) {
-    contents.Summaries = de_StackSetSummaries(__getArrayIfSingleItem(output["Summaries"]["member"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackSetSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9160,12 +9109,12 @@ const de_ListStackSetsOutput = (output: any, context: __SerdeContext): ListStack
 const de_ListStacksOutput = (output: any, context: __SerdeContext): ListStacksOutput => {
   const contents: any = {};
   if (output.StackSummaries === "") {
-    contents.StackSummaries = [];
-  } else if (output["StackSummaries"] !== undefined && output["StackSummaries"]["member"] !== undefined) {
-    contents.StackSummaries = de_StackSummaries(__getArrayIfSingleItem(output["StackSummaries"]["member"]), context);
+    contents[_SSt] = [];
+  } else if (output[_SSt] != null && output[_SSt][_m] != null) {
+    contents[_SSt] = de_StackSummaries(__getArrayIfSingleItem(output[_SSt][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9176,15 +9125,12 @@ const de_ListStacksOutput = (output: any, context: __SerdeContext): ListStacksOu
 const de_ListTypeRegistrationsOutput = (output: any, context: __SerdeContext): ListTypeRegistrationsOutput => {
   const contents: any = {};
   if (output.RegistrationTokenList === "") {
-    contents.RegistrationTokenList = [];
-  } else if (output["RegistrationTokenList"] !== undefined && output["RegistrationTokenList"]["member"] !== undefined) {
-    contents.RegistrationTokenList = de_RegistrationTokenList(
-      __getArrayIfSingleItem(output["RegistrationTokenList"]["member"]),
-      context
-    );
+    contents[_RTL] = [];
+  } else if (output[_RTL] != null && output[_RTL][_m] != null) {
+    contents[_RTL] = de_RegistrationTokenList(__getArrayIfSingleItem(output[_RTL][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9195,12 +9141,12 @@ const de_ListTypeRegistrationsOutput = (output: any, context: __SerdeContext): L
 const de_ListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutput => {
   const contents: any = {};
   if (output.TypeSummaries === "") {
-    contents.TypeSummaries = [];
-  } else if (output["TypeSummaries"] !== undefined && output["TypeSummaries"]["member"] !== undefined) {
-    contents.TypeSummaries = de_TypeSummaries(__getArrayIfSingleItem(output["TypeSummaries"]["member"]), context);
+    contents[_TSy] = [];
+  } else if (output[_TSy] != null && output[_TSy][_m] != null) {
+    contents[_TSy] = de_TypeSummaries(__getArrayIfSingleItem(output[_TSy][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9211,15 +9157,12 @@ const de_ListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutp
 const de_ListTypeVersionsOutput = (output: any, context: __SerdeContext): ListTypeVersionsOutput => {
   const contents: any = {};
   if (output.TypeVersionSummaries === "") {
-    contents.TypeVersionSummaries = [];
-  } else if (output["TypeVersionSummaries"] !== undefined && output["TypeVersionSummaries"]["member"] !== undefined) {
-    contents.TypeVersionSummaries = de_TypeVersionSummaries(
-      __getArrayIfSingleItem(output["TypeVersionSummaries"]["member"]),
-      context
-    );
+    contents[_TVS] = [];
+  } else if (output[_TVS] != null && output[_TVS][_m] != null) {
+    contents[_TVS] = de_TypeVersionSummaries(__getArrayIfSingleItem(output[_TVS][_m]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -9229,11 +9172,11 @@ const de_ListTypeVersionsOutput = (output: any, context: __SerdeContext): ListTy
  */
 const de_LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   const contents: any = {};
-  if (output["LogRoleArn"] !== undefined) {
-    contents.LogRoleArn = __expectString(output["LogRoleArn"]);
+  if (output[_LRA] != null) {
+    contents[_LRA] = __expectString(output[_LRA]);
   }
-  if (output["LogGroupName"] !== undefined) {
-    contents.LogGroupName = __expectString(output["LogGroupName"]);
+  if (output[_LGN] != null) {
+    contents[_LGN] = __expectString(output[_LGN]);
   }
   return contents;
 };
@@ -9254,8 +9197,8 @@ const de_LogicalResourceIds = (output: any, context: __SerdeContext): string[] =
  */
 const de_ManagedExecution = (output: any, context: __SerdeContext): ManagedExecution => {
   const contents: any = {};
-  if (output["Active"] !== undefined) {
-    contents.Active = __parseBoolean(output["Active"]);
+  if (output[_Act] != null) {
+    contents[_Act] = __parseBoolean(output[_Act]);
   }
   return contents;
 };
@@ -9265,11 +9208,11 @@ const de_ManagedExecution = (output: any, context: __SerdeContext): ManagedExecu
  */
 const de_ModuleInfo = (output: any, context: __SerdeContext): ModuleInfo => {
   const contents: any = {};
-  if (output["TypeHierarchy"] !== undefined) {
-    contents.TypeHierarchy = __expectString(output["TypeHierarchy"]);
+  if (output[_TH] != null) {
+    contents[_TH] = __expectString(output[_TH]);
   }
-  if (output["LogicalIdHierarchy"] !== undefined) {
-    contents.LogicalIdHierarchy = __expectString(output["LogicalIdHierarchy"]);
+  if (output[_LIH] != null) {
+    contents[_LIH] = __expectString(output[_LIH]);
   }
   return contents;
 };
@@ -9279,8 +9222,8 @@ const de_ModuleInfo = (output: any, context: __SerdeContext): ModuleInfo => {
  */
 const de_NameAlreadyExistsException = (output: any, context: __SerdeContext): NameAlreadyExistsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9304,8 +9247,8 @@ const de_OperationIdAlreadyExistsException = (
   context: __SerdeContext
 ): OperationIdAlreadyExistsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9315,8 +9258,8 @@ const de_OperationIdAlreadyExistsException = (
  */
 const de_OperationInProgressException = (output: any, context: __SerdeContext): OperationInProgressException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9326,8 +9269,8 @@ const de_OperationInProgressException = (output: any, context: __SerdeContext): 
  */
 const de_OperationNotFoundException = (output: any, context: __SerdeContext): OperationNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9340,8 +9283,8 @@ const de_OperationStatusCheckFailedException = (
   context: __SerdeContext
 ): OperationStatusCheckFailedException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9362,17 +9305,17 @@ const de_OrganizationalUnitIdList = (output: any, context: __SerdeContext): stri
  */
 const de_Output = (output: any, context: __SerdeContext): Output => {
   const contents: any = {};
-  if (output["OutputKey"] !== undefined) {
-    contents.OutputKey = __expectString(output["OutputKey"]);
+  if (output[_OK] != null) {
+    contents[_OK] = __expectString(output[_OK]);
   }
-  if (output["OutputValue"] !== undefined) {
-    contents.OutputValue = __expectString(output["OutputValue"]);
+  if (output[_OV] != null) {
+    contents[_OV] = __expectString(output[_OV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["ExportName"] !== undefined) {
-    contents.ExportName = __expectString(output["ExportName"]);
+  if (output[_EN] != null) {
+    contents[_EN] = __expectString(output[_EN]);
   }
   return contents;
 };
@@ -9393,17 +9336,17 @@ const de_Outputs = (output: any, context: __SerdeContext): Output[] => {
  */
 const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
   const contents: any = {};
-  if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey = __expectString(output["ParameterKey"]);
+  if (output[_PK] != null) {
+    contents[_PK] = __expectString(output[_PK]);
   }
-  if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = __expectString(output["ParameterValue"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["UsePreviousValue"] !== undefined) {
-    contents.UsePreviousValue = __parseBoolean(output["UsePreviousValue"]);
+  if (output[_UPV] != null) {
+    contents[_UPV] = __parseBoolean(output[_UPV]);
   }
-  if (output["ResolvedValue"] !== undefined) {
-    contents.ResolvedValue = __expectString(output["ResolvedValue"]);
+  if (output[_RV] != null) {
+    contents[_RV] = __expectString(output[_RV]);
   }
   return contents;
 };
@@ -9414,9 +9357,9 @@ const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
 const de_ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   const contents: any = {};
   if (output.AllowedValues === "") {
-    contents.AllowedValues = [];
-  } else if (output["AllowedValues"] !== undefined && output["AllowedValues"]["member"] !== undefined) {
-    contents.AllowedValues = de_AllowedValues(__getArrayIfSingleItem(output["AllowedValues"]["member"]), context);
+    contents[_AV] = [];
+  } else if (output[_AV] != null && output[_AV][_m] != null) {
+    contents[_AV] = de_AllowedValues(__getArrayIfSingleItem(output[_AV][_m]), context);
   }
   return contents;
 };
@@ -9426,23 +9369,23 @@ const de_ParameterConstraints = (output: any, context: __SerdeContext): Paramete
  */
 const de_ParameterDeclaration = (output: any, context: __SerdeContext): ParameterDeclaration => {
   const contents: any = {};
-  if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey = __expectString(output["ParameterKey"]);
+  if (output[_PK] != null) {
+    contents[_PK] = __expectString(output[_PK]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["ParameterType"] !== undefined) {
-    contents.ParameterType = __expectString(output["ParameterType"]);
+  if (output[_PTa] != null) {
+    contents[_PTa] = __expectString(output[_PTa]);
   }
-  if (output["NoEcho"] !== undefined) {
-    contents.NoEcho = __parseBoolean(output["NoEcho"]);
+  if (output[_NE] != null) {
+    contents[_NE] = __parseBoolean(output[_NE]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["ParameterConstraints"] !== undefined) {
-    contents.ParameterConstraints = de_ParameterConstraints(output["ParameterConstraints"], context);
+  if (output[_PC] != null) {
+    contents[_PC] = de_ParameterConstraints(output[_PC], context);
   }
   return contents;
 };
@@ -9491,11 +9434,11 @@ const de_PhysicalResourceIdContextKeyValuePair = (
   context: __SerdeContext
 ): PhysicalResourceIdContextKeyValuePair => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -9505,17 +9448,17 @@ const de_PhysicalResourceIdContextKeyValuePair = (
  */
 const de_PropertyDifference = (output: any, context: __SerdeContext): PropertyDifference => {
   const contents: any = {};
-  if (output["PropertyPath"] !== undefined) {
-    contents.PropertyPath = __expectString(output["PropertyPath"]);
+  if (output[_PPr] != null) {
+    contents[_PPr] = __expectString(output[_PPr]);
   }
-  if (output["ExpectedValue"] !== undefined) {
-    contents.ExpectedValue = __expectString(output["ExpectedValue"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["ActualValue"] !== undefined) {
-    contents.ActualValue = __expectString(output["ActualValue"]);
+  if (output[_AVc] != null) {
+    contents[_AVc] = __expectString(output[_AVc]);
   }
-  if (output["DifferenceType"] !== undefined) {
-    contents.DifferenceType = __expectString(output["DifferenceType"]);
+  if (output[_DTi] != null) {
+    contents[_DTi] = __expectString(output[_DTi]);
   }
   return contents;
 };
@@ -9536,8 +9479,8 @@ const de_PropertyDifferences = (output: any, context: __SerdeContext): PropertyD
  */
 const de_PublishTypeOutput = (output: any, context: __SerdeContext): PublishTypeOutput => {
   const contents: any = {};
-  if (output["PublicTypeArn"] !== undefined) {
-    contents.PublicTypeArn = __expectString(output["PublicTypeArn"]);
+  if (output[_PTA] != null) {
+    contents[_PTA] = __expectString(output[_PTA]);
   }
   return contents;
 };
@@ -9566,8 +9509,8 @@ const de_RegionList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_RegisterPublisherOutput = (output: any, context: __SerdeContext): RegisterPublisherOutput => {
   const contents: any = {};
-  if (output["PublisherId"] !== undefined) {
-    contents.PublisherId = __expectString(output["PublisherId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
   return contents;
 };
@@ -9577,8 +9520,8 @@ const de_RegisterPublisherOutput = (output: any, context: __SerdeContext): Regis
  */
 const de_RegisterTypeOutput = (output: any, context: __SerdeContext): RegisterTypeOutput => {
   const contents: any = {};
-  if (output["RegistrationToken"] !== undefined) {
-    contents.RegistrationToken = __expectString(output["RegistrationToken"]);
+  if (output[_RTeg] != null) {
+    contents[_RTeg] = __expectString(output[_RTeg]);
   }
   return contents;
 };
@@ -9599,25 +9542,19 @@ const de_RegistrationTokenList = (output: any, context: __SerdeContext): string[
  */
 const de_RequiredActivatedType = (output: any, context: __SerdeContext): RequiredActivatedType => {
   const contents: any = {};
-  if (output["TypeNameAlias"] !== undefined) {
-    contents.TypeNameAlias = __expectString(output["TypeNameAlias"]);
+  if (output[_TNA] != null) {
+    contents[_TNA] = __expectString(output[_TNA]);
   }
-  if (output["OriginalTypeName"] !== undefined) {
-    contents.OriginalTypeName = __expectString(output["OriginalTypeName"]);
+  if (output[_OTN] != null) {
+    contents[_OTN] = __expectString(output[_OTN]);
   }
-  if (output["PublisherId"] !== undefined) {
-    contents.PublisherId = __expectString(output["PublisherId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
   if (output.SupportedMajorVersions === "") {
-    contents.SupportedMajorVersions = [];
-  } else if (
-    output["SupportedMajorVersions"] !== undefined &&
-    output["SupportedMajorVersions"]["member"] !== undefined
-  ) {
-    contents.SupportedMajorVersions = de_SupportedMajorVersions(
-      __getArrayIfSingleItem(output["SupportedMajorVersions"]["member"]),
-      context
-    );
+    contents[_SMV] = [];
+  } else if (output[_SMV] != null && output[_SMV][_m] != null) {
+    contents[_SMV] = de_SupportedMajorVersions(__getArrayIfSingleItem(output[_SMV][_m]), context);
   }
   return contents;
 };
@@ -9638,36 +9575,36 @@ const de_RequiredActivatedTypes = (output: any, context: __SerdeContext): Requir
  */
 const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   const contents: any = {};
-  if (output["Action"] !== undefined) {
-    contents.Action = __expectString(output["Action"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["Replacement"] !== undefined) {
-    contents.Replacement = __expectString(output["Replacement"]);
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
   }
   if (output.Scope === "") {
-    contents.Scope = [];
-  } else if (output["Scope"] !== undefined && output["Scope"]["member"] !== undefined) {
-    contents.Scope = de_Scope(__getArrayIfSingleItem(output["Scope"]["member"]), context);
+    contents[_Sco] = [];
+  } else if (output[_Sco] != null && output[_Sco][_m] != null) {
+    contents[_Sco] = de_Scope(__getArrayIfSingleItem(output[_Sco][_m]), context);
   }
   if (output.Details === "") {
-    contents.Details = [];
-  } else if (output["Details"] !== undefined && output["Details"]["member"] !== undefined) {
-    contents.Details = de_ResourceChangeDetails(__getArrayIfSingleItem(output["Details"]["member"]), context);
+    contents[_De] = [];
+  } else if (output[_De] != null && output[_De][_m] != null) {
+    contents[_De] = de_ResourceChangeDetails(__getArrayIfSingleItem(output[_De][_m]), context);
   }
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = __expectString(output["ChangeSetId"]);
+  if (output[_CSIh] != null) {
+    contents[_CSIh] = __expectString(output[_CSIh]);
   }
-  if (output["ModuleInfo"] !== undefined) {
-    contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+  if (output[_MI] != null) {
+    contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
   return contents;
 };
@@ -9677,17 +9614,17 @@ const de_ResourceChange = (output: any, context: __SerdeContext): ResourceChange
  */
 const de_ResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
   const contents: any = {};
-  if (output["Target"] !== undefined) {
-    contents.Target = de_ResourceTargetDefinition(output["Target"], context);
+  if (output[_Tar] != null) {
+    contents[_Tar] = de_ResourceTargetDefinition(output[_Tar], context);
   }
-  if (output["Evaluation"] !== undefined) {
-    contents.Evaluation = __expectString(output["Evaluation"]);
+  if (output[_Ev] != null) {
+    contents[_Ev] = __expectString(output[_Ev]);
   }
-  if (output["ChangeSource"] !== undefined) {
-    contents.ChangeSource = __expectString(output["ChangeSource"]);
+  if (output[_CSh] != null) {
+    contents[_CSh] = __expectString(output[_CSh]);
   }
-  if (output["CausingEntity"] !== undefined) {
-    contents.CausingEntity = __expectString(output["CausingEntity"]);
+  if (output[_CE] != null) {
+    contents[_CE] = __expectString(output[_CE]);
   }
   return contents;
 };
@@ -9730,24 +9667,18 @@ const de_ResourceIdentifierSummaries = (output: any, context: __SerdeContext): R
  */
 const de_ResourceIdentifierSummary = (output: any, context: __SerdeContext): ResourceIdentifierSummary => {
   const contents: any = {};
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
   if (output.LogicalResourceIds === "") {
-    contents.LogicalResourceIds = [];
-  } else if (output["LogicalResourceIds"] !== undefined && output["LogicalResourceIds"]["member"] !== undefined) {
-    contents.LogicalResourceIds = de_LogicalResourceIds(
-      __getArrayIfSingleItem(output["LogicalResourceIds"]["member"]),
-      context
-    );
+    contents[_LRIo] = [];
+  } else if (output[_LRIo] != null && output[_LRIo][_m] != null) {
+    contents[_LRIo] = de_LogicalResourceIds(__getArrayIfSingleItem(output[_LRIo][_m]), context);
   }
   if (output.ResourceIdentifiers === "") {
-    contents.ResourceIdentifiers = [];
-  } else if (output["ResourceIdentifiers"] !== undefined && output["ResourceIdentifiers"]["member"] !== undefined) {
-    contents.ResourceIdentifiers = de_ResourceIdentifiers(
-      __getArrayIfSingleItem(output["ResourceIdentifiers"]["member"]),
-      context
-    );
+    contents[_RIe] = [];
+  } else if (output[_RIe] != null && output[_RIe][_m] != null) {
+    contents[_RIe] = de_ResourceIdentifiers(__getArrayIfSingleItem(output[_RIe][_m]), context);
   }
   return contents;
 };
@@ -9757,14 +9688,14 @@ const de_ResourceIdentifierSummary = (output: any, context: __SerdeContext): Res
  */
 const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): ResourceTargetDefinition => {
   const contents: any = {};
-  if (output["Attribute"] !== undefined) {
-    contents.Attribute = __expectString(output["Attribute"]);
+  if (output[_At] != null) {
+    contents[_At] = __expectString(output[_At]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["RequiresRecreation"] !== undefined) {
-    contents.RequiresRecreation = __expectString(output["RequiresRecreation"]);
+  if (output[_RRe] != null) {
+    contents[_RRe] = __expectString(output[_RRe]);
   }
   return contents;
 };
@@ -9786,15 +9717,12 @@ const de_ResourceTypes = (output: any, context: __SerdeContext): string[] => {
 const de_RollbackConfiguration = (output: any, context: __SerdeContext): RollbackConfiguration => {
   const contents: any = {};
   if (output.RollbackTriggers === "") {
-    contents.RollbackTriggers = [];
-  } else if (output["RollbackTriggers"] !== undefined && output["RollbackTriggers"]["member"] !== undefined) {
-    contents.RollbackTriggers = de_RollbackTriggers(
-      __getArrayIfSingleItem(output["RollbackTriggers"]["member"]),
-      context
-    );
+    contents[_RTo] = [];
+  } else if (output[_RTo] != null && output[_RTo][_m] != null) {
+    contents[_RTo] = de_RollbackTriggers(__getArrayIfSingleItem(output[_RTo][_m]), context);
   }
-  if (output["MonitoringTimeInMinutes"] !== undefined) {
-    contents.MonitoringTimeInMinutes = __strictParseInt32(output["MonitoringTimeInMinutes"]) as number;
+  if (output[_MTIM] != null) {
+    contents[_MTIM] = __strictParseInt32(output[_MTIM]) as number;
   }
   return contents;
 };
@@ -9804,8 +9732,8 @@ const de_RollbackConfiguration = (output: any, context: __SerdeContext): Rollbac
  */
 const de_RollbackStackOutput = (output: any, context: __SerdeContext): RollbackStackOutput => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -9815,11 +9743,11 @@ const de_RollbackStackOutput = (output: any, context: __SerdeContext): RollbackS
  */
 const de_RollbackTrigger = (output: any, context: __SerdeContext): RollbackTrigger => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
   return contents;
 };
@@ -9851,8 +9779,8 @@ const de_Scope = (output: any, context: __SerdeContext): ResourceAttribute[] => 
  */
 const de_SetTypeConfigurationOutput = (output: any, context: __SerdeContext): SetTypeConfigurationOutput => {
   const contents: any = {};
-  if (output["ConfigurationArn"] !== undefined) {
-    contents.ConfigurationArn = __expectString(output["ConfigurationArn"]);
+  if (output[_CAonf] != null) {
+    contents[_CAonf] = __expectString(output[_CAonf]);
   }
   return contents;
 };
@@ -9870,87 +9798,84 @@ const de_SetTypeDefaultVersionOutput = (output: any, context: __SerdeContext): S
  */
 const de_Stack = (output: any, context: __SerdeContext): Stack => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["ChangeSetId"] !== undefined) {
-    contents.ChangeSetId = __expectString(output["ChangeSetId"]);
+  if (output[_CSIh] != null) {
+    contents[_CSIh] = __expectString(output[_CSIh]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = de_Parameters(__getArrayIfSingleItem(output["Parameters"]["member"]), context);
+    contents[_P] = [];
+  } else if (output[_P] != null && output[_P][_m] != null) {
+    contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["DeletionTime"] !== undefined) {
-    contents.DeletionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeletionTime"]));
+  if (output[_DTel] != null) {
+    contents[_DTel] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DTel]));
   }
-  if (output["LastUpdatedTime"] !== undefined) {
-    contents.LastUpdatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTime"]));
+  if (output[_LUT] != null) {
+    contents[_LUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUT]));
   }
-  if (output["RollbackConfiguration"] !== undefined) {
-    contents.RollbackConfiguration = de_RollbackConfiguration(output["RollbackConfiguration"], context);
+  if (output[_RC] != null) {
+    contents[_RC] = de_RollbackConfiguration(output[_RC], context);
   }
-  if (output["StackStatus"] !== undefined) {
-    contents.StackStatus = __expectString(output["StackStatus"]);
+  if (output[_SSta] != null) {
+    contents[_SSta] = __expectString(output[_SSta]);
   }
-  if (output["StackStatusReason"] !== undefined) {
-    contents.StackStatusReason = __expectString(output["StackStatusReason"]);
+  if (output[_SSR] != null) {
+    contents[_SSR] = __expectString(output[_SSR]);
   }
-  if (output["DisableRollback"] !== undefined) {
-    contents.DisableRollback = __parseBoolean(output["DisableRollback"]);
+  if (output[_DR] != null) {
+    contents[_DR] = __parseBoolean(output[_DR]);
   }
   if (output.NotificationARNs === "") {
-    contents.NotificationARNs = [];
-  } else if (output["NotificationARNs"] !== undefined && output["NotificationARNs"]["member"] !== undefined) {
-    contents.NotificationARNs = de_NotificationARNs(
-      __getArrayIfSingleItem(output["NotificationARNs"]["member"]),
-      context
-    );
+    contents[_NARN] = [];
+  } else if (output[_NARN] != null && output[_NARN][_m] != null) {
+    contents[_NARN] = de_NotificationARNs(__getArrayIfSingleItem(output[_NARN][_m]), context);
   }
-  if (output["TimeoutInMinutes"] !== undefined) {
-    contents.TimeoutInMinutes = __strictParseInt32(output["TimeoutInMinutes"]) as number;
+  if (output[_TIM] != null) {
+    contents[_TIM] = __strictParseInt32(output[_TIM]) as number;
   }
   if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  } else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = de_Capabilities(__getArrayIfSingleItem(output["Capabilities"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
   if (output.Outputs === "") {
-    contents.Outputs = [];
-  } else if (output["Outputs"] !== undefined && output["Outputs"]["member"] !== undefined) {
-    contents.Outputs = de_Outputs(__getArrayIfSingleItem(output["Outputs"]["member"]), context);
+    contents[_O] = [];
+  } else if (output[_O] != null && output[_O][_m] != null) {
+    contents[_O] = de_Outputs(__getArrayIfSingleItem(output[_O][_m]), context);
   }
-  if (output["RoleARN"] !== undefined) {
-    contents.RoleARN = __expectString(output["RoleARN"]);
+  if (output[_RARN] != null) {
+    contents[_RARN] = __expectString(output[_RARN]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_Tags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_Ta] = [];
+  } else if (output[_Ta] != null && output[_Ta][_m] != null) {
+    contents[_Ta] = de_Tags(__getArrayIfSingleItem(output[_Ta][_m]), context);
   }
-  if (output["EnableTerminationProtection"] !== undefined) {
-    contents.EnableTerminationProtection = __parseBoolean(output["EnableTerminationProtection"]);
+  if (output[_ETP] != null) {
+    contents[_ETP] = __parseBoolean(output[_ETP]);
   }
-  if (output["ParentId"] !== undefined) {
-    contents.ParentId = __expectString(output["ParentId"]);
+  if (output[_PIa] != null) {
+    contents[_PIa] = __expectString(output[_PIa]);
   }
-  if (output["RootId"] !== undefined) {
-    contents.RootId = __expectString(output["RootId"]);
+  if (output[_RIo] != null) {
+    contents[_RIo] = __expectString(output[_RIo]);
   }
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = de_StackDriftInformation(output["DriftInformation"], context);
+  if (output[_DI] != null) {
+    contents[_DI] = de_StackDriftInformation(output[_DI], context);
   }
-  if (output["RetainExceptOnCreate"] !== undefined) {
-    contents.RetainExceptOnCreate = __parseBoolean(output["RetainExceptOnCreate"]);
+  if (output[_REOC] != null) {
+    contents[_REOC] = __parseBoolean(output[_REOC]);
   }
   return contents;
 };
@@ -9960,11 +9885,11 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
  */
 const de_StackDriftInformation = (output: any, context: __SerdeContext): StackDriftInformation => {
   const contents: any = {};
-  if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus = __expectString(output["StackDriftStatus"]);
+  if (output[_SDS] != null) {
+    contents[_SDS] = __expectString(output[_SDS]);
   }
-  if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
+  if (output[_LCT] != null) {
+    contents[_LCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LCT]));
   }
   return contents;
 };
@@ -9974,11 +9899,11 @@ const de_StackDriftInformation = (output: any, context: __SerdeContext): StackDr
  */
 const de_StackDriftInformationSummary = (output: any, context: __SerdeContext): StackDriftInformationSummary => {
   const contents: any = {};
-  if (output["StackDriftStatus"] !== undefined) {
-    contents.StackDriftStatus = __expectString(output["StackDriftStatus"]);
+  if (output[_SDS] != null) {
+    contents[_SDS] = __expectString(output[_SDS]);
   }
-  if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
+  if (output[_LCT] != null) {
+    contents[_LCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LCT]));
   }
   return contents;
 };
@@ -9988,53 +9913,53 @@ const de_StackDriftInformationSummary = (output: any, context: __SerdeContext): 
  */
 const de_StackEvent = (output: any, context: __SerdeContext): StackEvent => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["EventId"] !== undefined) {
-    contents.EventId = __expectString(output["EventId"]);
+  if (output[_EI] != null) {
+    contents[_EI] = __expectString(output[_EI]);
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = __expectString(output["ResourceStatus"]);
+  if (output[_RSes] != null) {
+    contents[_RSes] = __expectString(output[_RSes]);
   }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = __expectString(output["ResourceStatusReason"]);
+  if (output[_RSR] != null) {
+    contents[_RSR] = __expectString(output[_RSR]);
   }
-  if (output["ResourceProperties"] !== undefined) {
-    contents.ResourceProperties = __expectString(output["ResourceProperties"]);
+  if (output[_RPe] != null) {
+    contents[_RPe] = __expectString(output[_RPe]);
   }
-  if (output["ClientRequestToken"] !== undefined) {
-    contents.ClientRequestToken = __expectString(output["ClientRequestToken"]);
+  if (output[_CRT] != null) {
+    contents[_CRT] = __expectString(output[_CRT]);
   }
-  if (output["HookType"] !== undefined) {
-    contents.HookType = __expectString(output["HookType"]);
+  if (output[_HT] != null) {
+    contents[_HT] = __expectString(output[_HT]);
   }
-  if (output["HookStatus"] !== undefined) {
-    contents.HookStatus = __expectString(output["HookStatus"]);
+  if (output[_HS] != null) {
+    contents[_HS] = __expectString(output[_HS]);
   }
-  if (output["HookStatusReason"] !== undefined) {
-    contents.HookStatusReason = __expectString(output["HookStatusReason"]);
+  if (output[_HSR] != null) {
+    contents[_HSR] = __expectString(output[_HSR]);
   }
-  if (output["HookInvocationPoint"] !== undefined) {
-    contents.HookInvocationPoint = __expectString(output["HookInvocationPoint"]);
+  if (output[_HIP] != null) {
+    contents[_HIP] = __expectString(output[_HIP]);
   }
-  if (output["HookFailureMode"] !== undefined) {
-    contents.HookFailureMode = __expectString(output["HookFailureMode"]);
+  if (output[_HFM] != null) {
+    contents[_HFM] = __expectString(output[_HFM]);
   }
   return contents;
 };
@@ -10055,48 +9980,43 @@ const de_StackEvents = (output: any, context: __SerdeContext): StackEvent[] => {
  */
 const de_StackInstance = (output: any, context: __SerdeContext): StackInstance => {
   const contents: any = {};
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = __expectString(output["StackSetId"]);
+  if (output[_SSI] != null) {
+    contents[_SSI] = __expectString(output[_SSI]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Reg] != null) {
+    contents[_Reg] = __expectString(output[_Reg]);
   }
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Acc] != null) {
+    contents[_Acc] = __expectString(output[_Acc]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   if (output.ParameterOverrides === "") {
-    contents.ParameterOverrides = [];
-  } else if (output["ParameterOverrides"] !== undefined && output["ParameterOverrides"]["member"] !== undefined) {
-    contents.ParameterOverrides = de_Parameters(
-      __getArrayIfSingleItem(output["ParameterOverrides"]["member"]),
-      context
-    );
+    contents[_PO] = [];
+  } else if (output[_PO] != null && output[_PO][_m] != null) {
+    contents[_PO] = de_Parameters(__getArrayIfSingleItem(output[_PO][_m]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StackInstanceStatus"] !== undefined) {
-    contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+  if (output[_SIS] != null) {
+    contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS], context);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["OrganizationalUnitId"] !== undefined) {
-    contents.OrganizationalUnitId = __expectString(output["OrganizationalUnitId"]);
+  if (output[_OUIr] != null) {
+    contents[_OUIr] = __expectString(output[_OUIr]);
   }
-  if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus = __expectString(output["DriftStatus"]);
+  if (output[_DSr] != null) {
+    contents[_DSr] = __expectString(output[_DSr]);
   }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
-    );
+  if (output[_LDCT] != null) {
+    contents[_LDCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LDCT]));
   }
-  if (output["LastOperationId"] !== undefined) {
-    contents.LastOperationId = __expectString(output["LastOperationId"]);
+  if (output[_LOI] != null) {
+    contents[_LOI] = __expectString(output[_LOI]);
   }
   return contents;
 };
@@ -10109,8 +10029,8 @@ const de_StackInstanceComprehensiveStatus = (
   context: __SerdeContext
 ): StackInstanceComprehensiveStatus => {
   const contents: any = {};
-  if (output["DetailedStatus"] !== undefined) {
-    contents.DetailedStatus = __expectString(output["DetailedStatus"]);
+  if (output[_DSeta] != null) {
+    contents[_DSeta] = __expectString(output[_DSeta]);
   }
   return contents;
 };
@@ -10120,8 +10040,8 @@ const de_StackInstanceComprehensiveStatus = (
  */
 const de_StackInstanceNotFoundException = (output: any, context: __SerdeContext): StackInstanceNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -10148,42 +10068,33 @@ const de_StackInstanceResourceDriftsSummary = (
   context: __SerdeContext
 ): StackInstanceResourceDriftsSummary => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
   if (output.PhysicalResourceIdContext === "") {
-    contents.PhysicalResourceIdContext = [];
-  } else if (
-    output["PhysicalResourceIdContext"] !== undefined &&
-    output["PhysicalResourceIdContext"]["member"] !== undefined
-  ) {
-    contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext(
-      __getArrayIfSingleItem(output["PhysicalResourceIdContext"]["member"]),
-      context
-    );
+    contents[_PRIC] = [];
+  } else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
+    contents[_PRIC] = de_PhysicalResourceIdContext(__getArrayIfSingleItem(output[_PRIC][_m]), context);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
   if (output.PropertyDifferences === "") {
-    contents.PropertyDifferences = [];
-  } else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-    contents.PropertyDifferences = de_PropertyDifferences(
-      __getArrayIfSingleItem(output["PropertyDifferences"]["member"]),
-      context
-    );
+    contents[_PD] = [];
+  } else if (output[_PD] != null && output[_PD][_m] != null) {
+    contents[_PD] = de_PropertyDifferences(__getArrayIfSingleItem(output[_PD][_m]), context);
   }
-  if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
+  if (output[_SRDS] != null) {
+    contents[_SRDS] = __expectString(output[_SRDS]);
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
   return contents;
 };
@@ -10204,40 +10115,38 @@ const de_StackInstanceSummaries = (output: any, context: __SerdeContext): StackI
  */
 const de_StackInstanceSummary = (output: any, context: __SerdeContext): StackInstanceSummary => {
   const contents: any = {};
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = __expectString(output["StackSetId"]);
+  if (output[_SSI] != null) {
+    contents[_SSI] = __expectString(output[_SSI]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Reg] != null) {
+    contents[_Reg] = __expectString(output[_Reg]);
   }
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Acc] != null) {
+    contents[_Acc] = __expectString(output[_Acc]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["StackInstanceStatus"] !== undefined) {
-    contents.StackInstanceStatus = de_StackInstanceComprehensiveStatus(output["StackInstanceStatus"], context);
+  if (output[_SIS] != null) {
+    contents[_SIS] = de_StackInstanceComprehensiveStatus(output[_SIS], context);
   }
-  if (output["OrganizationalUnitId"] !== undefined) {
-    contents.OrganizationalUnitId = __expectString(output["OrganizationalUnitId"]);
+  if (output[_OUIr] != null) {
+    contents[_OUIr] = __expectString(output[_OUIr]);
   }
-  if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus = __expectString(output["DriftStatus"]);
+  if (output[_DSr] != null) {
+    contents[_DSr] = __expectString(output[_DSr]);
   }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
-    );
+  if (output[_LDCT] != null) {
+    contents[_LDCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LDCT]));
   }
-  if (output["LastOperationId"] !== undefined) {
-    contents.LastOperationId = __expectString(output["LastOperationId"]);
+  if (output[_LOI] != null) {
+    contents[_LOI] = __expectString(output[_LOI]);
   }
   return contents;
 };
@@ -10247,8 +10156,8 @@ const de_StackInstanceSummary = (output: any, context: __SerdeContext): StackIns
  */
 const de_StackNotFoundException = (output: any, context: __SerdeContext): StackNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -10258,38 +10167,38 @@ const de_StackNotFoundException = (output: any, context: __SerdeContext): StackN
  */
 const de_StackResource = (output: any, context: __SerdeContext): StackResource => {
   const contents: any = {};
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = __expectString(output["ResourceStatus"]);
+  if (output[_RSes] != null) {
+    contents[_RSes] = __expectString(output[_RSes]);
   }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = __expectString(output["ResourceStatusReason"]);
+  if (output[_RSR] != null) {
+    contents[_RSR] = __expectString(output[_RSR]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
+  if (output[_DI] != null) {
+    contents[_DI] = de_StackResourceDriftInformation(output[_DI], context);
   }
-  if (output["ModuleInfo"] !== undefined) {
-    contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+  if (output[_MI] != null) {
+    contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
   return contents;
 };
@@ -10299,41 +10208,41 @@ const de_StackResource = (output: any, context: __SerdeContext): StackResource =
  */
 const de_StackResourceDetail = (output: any, context: __SerdeContext): StackResourceDetail => {
   const contents: any = {};
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["LastUpdatedTimestamp"] !== undefined) {
-    contents.LastUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTimestamp"]));
+  if (output[_LUTa] != null) {
+    contents[_LUTa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUTa]));
   }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = __expectString(output["ResourceStatus"]);
+  if (output[_RSes] != null) {
+    contents[_RSes] = __expectString(output[_RSes]);
   }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = __expectString(output["ResourceStatusReason"]);
+  if (output[_RSR] != null) {
+    contents[_RSR] = __expectString(output[_RSR]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Metadata"] !== undefined) {
-    contents.Metadata = __expectString(output["Metadata"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = de_StackResourceDriftInformation(output["DriftInformation"], context);
+  if (output[_DI] != null) {
+    contents[_DI] = de_StackResourceDriftInformation(output[_DI], context);
   }
-  if (output["ModuleInfo"] !== undefined) {
-    contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+  if (output[_MI] != null) {
+    contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
   return contents;
 };
@@ -10343,51 +10252,42 @@ const de_StackResourceDetail = (output: any, context: __SerdeContext): StackReso
  */
 const de_StackResourceDrift = (output: any, context: __SerdeContext): StackResourceDrift => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
   if (output.PhysicalResourceIdContext === "") {
-    contents.PhysicalResourceIdContext = [];
-  } else if (
-    output["PhysicalResourceIdContext"] !== undefined &&
-    output["PhysicalResourceIdContext"]["member"] !== undefined
-  ) {
-    contents.PhysicalResourceIdContext = de_PhysicalResourceIdContext(
-      __getArrayIfSingleItem(output["PhysicalResourceIdContext"]["member"]),
-      context
-    );
+    contents[_PRIC] = [];
+  } else if (output[_PRIC] != null && output[_PRIC][_m] != null) {
+    contents[_PRIC] = de_PhysicalResourceIdContext(__getArrayIfSingleItem(output[_PRIC][_m]), context);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["ExpectedProperties"] !== undefined) {
-    contents.ExpectedProperties = __expectString(output["ExpectedProperties"]);
+  if (output[_EP] != null) {
+    contents[_EP] = __expectString(output[_EP]);
   }
-  if (output["ActualProperties"] !== undefined) {
-    contents.ActualProperties = __expectString(output["ActualProperties"]);
+  if (output[_AP] != null) {
+    contents[_AP] = __expectString(output[_AP]);
   }
   if (output.PropertyDifferences === "") {
-    contents.PropertyDifferences = [];
-  } else if (output["PropertyDifferences"] !== undefined && output["PropertyDifferences"]["member"] !== undefined) {
-    contents.PropertyDifferences = de_PropertyDifferences(
-      __getArrayIfSingleItem(output["PropertyDifferences"]["member"]),
-      context
-    );
+    contents[_PD] = [];
+  } else if (output[_PD] != null && output[_PD][_m] != null) {
+    contents[_PD] = de_PropertyDifferences(__getArrayIfSingleItem(output[_PD][_m]), context);
   }
-  if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
+  if (output[_SRDS] != null) {
+    contents[_SRDS] = __expectString(output[_SRDS]);
   }
-  if (output["Timestamp"] !== undefined) {
-    contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ti]));
   }
-  if (output["ModuleInfo"] !== undefined) {
-    contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+  if (output[_MI] != null) {
+    contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
   return contents;
 };
@@ -10397,11 +10297,11 @@ const de_StackResourceDrift = (output: any, context: __SerdeContext): StackResou
  */
 const de_StackResourceDriftInformation = (output: any, context: __SerdeContext): StackResourceDriftInformation => {
   const contents: any = {};
-  if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
+  if (output[_SRDS] != null) {
+    contents[_SRDS] = __expectString(output[_SRDS]);
   }
-  if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
+  if (output[_LCT] != null) {
+    contents[_LCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LCT]));
   }
   return contents;
 };
@@ -10414,11 +10314,11 @@ const de_StackResourceDriftInformationSummary = (
   context: __SerdeContext
 ): StackResourceDriftInformationSummary => {
   const contents: any = {};
-  if (output["StackResourceDriftStatus"] !== undefined) {
-    contents.StackResourceDriftStatus = __expectString(output["StackResourceDriftStatus"]);
+  if (output[_SRDS] != null) {
+    contents[_SRDS] = __expectString(output[_SRDS]);
   }
-  if (output["LastCheckTimestamp"] !== undefined) {
-    contents.LastCheckTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastCheckTimestamp"]));
+  if (output[_LCT] != null) {
+    contents[_LCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LCT]));
   }
   return contents;
 };
@@ -10461,29 +10361,29 @@ const de_StackResourceSummaries = (output: any, context: __SerdeContext): StackR
  */
 const de_StackResourceSummary = (output: any, context: __SerdeContext): StackResourceSummary => {
   const contents: any = {};
-  if (output["LogicalResourceId"] !== undefined) {
-    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  if (output[_LRI] != null) {
+    contents[_LRI] = __expectString(output[_LRI]);
   }
-  if (output["PhysicalResourceId"] !== undefined) {
-    contents.PhysicalResourceId = __expectString(output["PhysicalResourceId"]);
+  if (output[_PRI] != null) {
+    contents[_PRI] = __expectString(output[_PRI]);
   }
-  if (output["ResourceType"] !== undefined) {
-    contents.ResourceType = __expectString(output["ResourceType"]);
+  if (output[_RTes] != null) {
+    contents[_RTes] = __expectString(output[_RTes]);
   }
-  if (output["LastUpdatedTimestamp"] !== undefined) {
-    contents.LastUpdatedTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTimestamp"]));
+  if (output[_LUTa] != null) {
+    contents[_LUTa] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUTa]));
   }
-  if (output["ResourceStatus"] !== undefined) {
-    contents.ResourceStatus = __expectString(output["ResourceStatus"]);
+  if (output[_RSes] != null) {
+    contents[_RSes] = __expectString(output[_RSes]);
   }
-  if (output["ResourceStatusReason"] !== undefined) {
-    contents.ResourceStatusReason = __expectString(output["ResourceStatusReason"]);
+  if (output[_RSR] != null) {
+    contents[_RSR] = __expectString(output[_RSR]);
   }
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = de_StackResourceDriftInformationSummary(output["DriftInformation"], context);
+  if (output[_DI] != null) {
+    contents[_DI] = de_StackResourceDriftInformationSummary(output[_DI], context);
   }
-  if (output["ModuleInfo"] !== undefined) {
-    contents.ModuleInfo = de_ModuleInfo(output["ModuleInfo"], context);
+  if (output[_MI] != null) {
+    contents[_MI] = de_ModuleInfo(output[_MI], context);
   }
   return contents;
 };
@@ -10504,72 +10404,66 @@ const de_Stacks = (output: any, context: __SerdeContext): Stack[] => {
  */
 const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
   const contents: any = {};
-  if (output["StackSetName"] !== undefined) {
-    contents.StackSetName = __expectString(output["StackSetName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = __expectString(output["StackSetId"]);
+  if (output[_SSI] != null) {
+    contents[_SSI] = __expectString(output[_SSI]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["TemplateBody"] !== undefined) {
-    contents.TemplateBody = __expectString(output["TemplateBody"]);
+  if (output[_TB] != null) {
+    contents[_TB] = __expectString(output[_TB]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = de_Parameters(__getArrayIfSingleItem(output["Parameters"]["member"]), context);
+    contents[_P] = [];
+  } else if (output[_P] != null && output[_P][_m] != null) {
+    contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
   }
   if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  } else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = de_Capabilities(__getArrayIfSingleItem(output["Capabilities"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_Tags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_Ta] = [];
+  } else if (output[_Ta] != null && output[_Ta][_m] != null) {
+    contents[_Ta] = de_Tags(__getArrayIfSingleItem(output[_Ta][_m]), context);
   }
-  if (output["StackSetARN"] !== undefined) {
-    contents.StackSetARN = __expectString(output["StackSetARN"]);
+  if (output[_SSARN] != null) {
+    contents[_SSARN] = __expectString(output[_SSARN]);
   }
-  if (output["AdministrationRoleARN"] !== undefined) {
-    contents.AdministrationRoleARN = __expectString(output["AdministrationRoleARN"]);
+  if (output[_ARARN] != null) {
+    contents[_ARARN] = __expectString(output[_ARARN]);
   }
-  if (output["ExecutionRoleName"] !== undefined) {
-    contents.ExecutionRoleName = __expectString(output["ExecutionRoleName"]);
+  if (output[_ERN] != null) {
+    contents[_ERN] = __expectString(output[_ERN]);
   }
-  if (output["StackSetDriftDetectionDetails"] !== undefined) {
-    contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(
-      output["StackSetDriftDetectionDetails"],
-      context
-    );
+  if (output[_SSDDD] != null) {
+    contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD], context);
   }
-  if (output["AutoDeployment"] !== undefined) {
-    contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
+  if (output[_AD] != null) {
+    contents[_AD] = de_AutoDeployment(output[_AD], context);
   }
-  if (output["PermissionModel"] !== undefined) {
-    contents.PermissionModel = __expectString(output["PermissionModel"]);
+  if (output[_PM] != null) {
+    contents[_PM] = __expectString(output[_PM]);
   }
   if (output.OrganizationalUnitIds === "") {
-    contents.OrganizationalUnitIds = [];
-  } else if (output["OrganizationalUnitIds"] !== undefined && output["OrganizationalUnitIds"]["member"] !== undefined) {
-    contents.OrganizationalUnitIds = de_OrganizationalUnitIdList(
-      __getArrayIfSingleItem(output["OrganizationalUnitIds"]["member"]),
-      context
-    );
+    contents[_OUI] = [];
+  } else if (output[_OUI] != null && output[_OUI][_m] != null) {
+    contents[_OUI] = de_OrganizationalUnitIdList(__getArrayIfSingleItem(output[_OUI][_m]), context);
   }
-  if (output["ManagedExecution"] !== undefined) {
-    contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
+  if (output[_ME] != null) {
+    contents[_ME] = de_ManagedExecution(output[_ME], context);
   }
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["member"] !== undefined) {
-    contents.Regions = de_RegionList(__getArrayIfSingleItem(output["Regions"]["member"]), context);
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_m] != null) {
+    contents[_R] = de_RegionList(__getArrayIfSingleItem(output[_R][_m]), context);
   }
   return contents;
 };
@@ -10579,31 +10473,29 @@ const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
  */
 const de_StackSetDriftDetectionDetails = (output: any, context: __SerdeContext): StackSetDriftDetectionDetails => {
   const contents: any = {};
-  if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus = __expectString(output["DriftStatus"]);
+  if (output[_DSr] != null) {
+    contents[_DSr] = __expectString(output[_DSr]);
   }
-  if (output["DriftDetectionStatus"] !== undefined) {
-    contents.DriftDetectionStatus = __expectString(output["DriftDetectionStatus"]);
+  if (output[_DDS] != null) {
+    contents[_DDS] = __expectString(output[_DDS]);
   }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
-    );
+  if (output[_LDCT] != null) {
+    contents[_LDCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LDCT]));
   }
-  if (output["TotalStackInstancesCount"] !== undefined) {
-    contents.TotalStackInstancesCount = __strictParseInt32(output["TotalStackInstancesCount"]) as number;
+  if (output[_TSIC] != null) {
+    contents[_TSIC] = __strictParseInt32(output[_TSIC]) as number;
   }
-  if (output["DriftedStackInstancesCount"] !== undefined) {
-    contents.DriftedStackInstancesCount = __strictParseInt32(output["DriftedStackInstancesCount"]) as number;
+  if (output[_DSIC] != null) {
+    contents[_DSIC] = __strictParseInt32(output[_DSIC]) as number;
   }
-  if (output["InSyncStackInstancesCount"] !== undefined) {
-    contents.InSyncStackInstancesCount = __strictParseInt32(output["InSyncStackInstancesCount"]) as number;
+  if (output[_ISSIC] != null) {
+    contents[_ISSIC] = __strictParseInt32(output[_ISSIC]) as number;
   }
-  if (output["InProgressStackInstancesCount"] !== undefined) {
-    contents.InProgressStackInstancesCount = __strictParseInt32(output["InProgressStackInstancesCount"]) as number;
+  if (output[_IPSIC] != null) {
+    contents[_IPSIC] = __strictParseInt32(output[_IPSIC]) as number;
   }
-  if (output["FailedStackInstancesCount"] !== undefined) {
-    contents.FailedStackInstancesCount = __strictParseInt32(output["FailedStackInstancesCount"]) as number;
+  if (output[_FSIC] != null) {
+    contents[_FSIC] = __strictParseInt32(output[_FSIC]) as number;
   }
   return contents;
 };
@@ -10613,8 +10505,8 @@ const de_StackSetDriftDetectionDetails = (output: any, context: __SerdeContext):
  */
 const de_StackSetNotEmptyException = (output: any, context: __SerdeContext): StackSetNotEmptyException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -10624,8 +10516,8 @@ const de_StackSetNotEmptyException = (output: any, context: __SerdeContext): Sta
  */
 const de_StackSetNotFoundException = (output: any, context: __SerdeContext): StackSetNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -10635,50 +10527,47 @@ const de_StackSetNotFoundException = (output: any, context: __SerdeContext): Sta
  */
 const de_StackSetOperation = (output: any, context: __SerdeContext): StackSetOperation => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = __expectString(output["StackSetId"]);
+  if (output[_SSI] != null) {
+    contents[_SSI] = __expectString(output[_SSI]);
   }
-  if (output["Action"] !== undefined) {
-    contents.Action = __expectString(output["Action"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["OperationPreferences"] !== undefined) {
-    contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
+  if (output[_OP] != null) {
+    contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
   }
-  if (output["RetainStacks"] !== undefined) {
-    contents.RetainStacks = __parseBoolean(output["RetainStacks"]);
+  if (output[_RSe] != null) {
+    contents[_RSe] = __parseBoolean(output[_RSe]);
   }
-  if (output["AdministrationRoleARN"] !== undefined) {
-    contents.AdministrationRoleARN = __expectString(output["AdministrationRoleARN"]);
+  if (output[_ARARN] != null) {
+    contents[_ARARN] = __expectString(output[_ARARN]);
   }
-  if (output["ExecutionRoleName"] !== undefined) {
-    contents.ExecutionRoleName = __expectString(output["ExecutionRoleName"]);
+  if (output[_ERN] != null) {
+    contents[_ERN] = __expectString(output[_ERN]);
   }
-  if (output["CreationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTimestamp"]));
+  if (output[_CTre] != null) {
+    contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
   }
-  if (output["EndTimestamp"] !== undefined) {
-    contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTimestamp"]));
+  if (output[_ET] != null) {
+    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
   }
-  if (output["DeploymentTargets"] !== undefined) {
-    contents.DeploymentTargets = de_DeploymentTargets(output["DeploymentTargets"], context);
+  if (output[_DTep] != null) {
+    contents[_DTep] = de_DeploymentTargets(output[_DTep], context);
   }
-  if (output["StackSetDriftDetectionDetails"] !== undefined) {
-    contents.StackSetDriftDetectionDetails = de_StackSetDriftDetectionDetails(
-      output["StackSetDriftDetectionDetails"],
-      context
-    );
+  if (output[_SSDDD] != null) {
+    contents[_SSDDD] = de_StackSetDriftDetectionDetails(output[_SSDDD], context);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["StatusDetails"] !== undefined) {
-    contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
+  if (output[_SD] != null) {
+    contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
   }
   return contents;
 };
@@ -10688,28 +10577,28 @@ const de_StackSetOperation = (output: any, context: __SerdeContext): StackSetOpe
  */
 const de_StackSetOperationPreferences = (output: any, context: __SerdeContext): StackSetOperationPreferences => {
   const contents: any = {};
-  if (output["RegionConcurrencyType"] !== undefined) {
-    contents.RegionConcurrencyType = __expectString(output["RegionConcurrencyType"]);
+  if (output[_RCT] != null) {
+    contents[_RCT] = __expectString(output[_RCT]);
   }
   if (output.RegionOrder === "") {
-    contents.RegionOrder = [];
-  } else if (output["RegionOrder"] !== undefined && output["RegionOrder"]["member"] !== undefined) {
-    contents.RegionOrder = de_RegionList(__getArrayIfSingleItem(output["RegionOrder"]["member"]), context);
+    contents[_RO] = [];
+  } else if (output[_RO] != null && output[_RO][_m] != null) {
+    contents[_RO] = de_RegionList(__getArrayIfSingleItem(output[_RO][_m]), context);
   }
-  if (output["FailureToleranceCount"] !== undefined) {
-    contents.FailureToleranceCount = __strictParseInt32(output["FailureToleranceCount"]) as number;
+  if (output[_FTC] != null) {
+    contents[_FTC] = __strictParseInt32(output[_FTC]) as number;
   }
-  if (output["FailureTolerancePercentage"] !== undefined) {
-    contents.FailureTolerancePercentage = __strictParseInt32(output["FailureTolerancePercentage"]) as number;
+  if (output[_FTP] != null) {
+    contents[_FTP] = __strictParseInt32(output[_FTP]) as number;
   }
-  if (output["MaxConcurrentCount"] !== undefined) {
-    contents.MaxConcurrentCount = __strictParseInt32(output["MaxConcurrentCount"]) as number;
+  if (output[_MCC] != null) {
+    contents[_MCC] = __strictParseInt32(output[_MCC]) as number;
   }
-  if (output["MaxConcurrentPercentage"] !== undefined) {
-    contents.MaxConcurrentPercentage = __strictParseInt32(output["MaxConcurrentPercentage"]) as number;
+  if (output[_MCP] != null) {
+    contents[_MCP] = __strictParseInt32(output[_MCP]) as number;
   }
-  if (output["ConcurrencyMode"] !== undefined) {
-    contents.ConcurrencyMode = __expectString(output["ConcurrencyMode"]);
+  if (output[_CM] != null) {
+    contents[_CM] = __expectString(output[_CM]);
   }
   return contents;
 };
@@ -10733,23 +10622,23 @@ const de_StackSetOperationResultSummaries = (
  */
 const de_StackSetOperationResultSummary = (output: any, context: __SerdeContext): StackSetOperationResultSummary => {
   const contents: any = {};
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Acc] != null) {
+    contents[_Acc] = __expectString(output[_Acc]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Reg] != null) {
+    contents[_Reg] = __expectString(output[_Reg]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["AccountGateResult"] !== undefined) {
-    contents.AccountGateResult = de_AccountGateResult(output["AccountGateResult"], context);
+  if (output[_AGR] != null) {
+    contents[_AGR] = de_AccountGateResult(output[_AGR], context);
   }
-  if (output["OrganizationalUnitId"] !== undefined) {
-    contents.OrganizationalUnitId = __expectString(output["OrganizationalUnitId"]);
+  if (output[_OUIr] != null) {
+    contents[_OUIr] = __expectString(output[_OUIr]);
   }
   return contents;
 };
@@ -10759,8 +10648,8 @@ const de_StackSetOperationResultSummary = (output: any, context: __SerdeContext)
  */
 const de_StackSetOperationStatusDetails = (output: any, context: __SerdeContext): StackSetOperationStatusDetails => {
   const contents: any = {};
-  if (output["FailedStackInstancesCount"] !== undefined) {
-    contents.FailedStackInstancesCount = __strictParseInt32(output["FailedStackInstancesCount"]) as number;
+  if (output[_FSIC] != null) {
+    contents[_FSIC] = __strictParseInt32(output[_FSIC]) as number;
   }
   return contents;
 };
@@ -10781,29 +10670,29 @@ const de_StackSetOperationSummaries = (output: any, context: __SerdeContext): St
  */
 const de_StackSetOperationSummary = (output: any, context: __SerdeContext): StackSetOperationSummary => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
-  if (output["Action"] !== undefined) {
-    contents.Action = __expectString(output["Action"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["CreationTimestamp"] !== undefined) {
-    contents.CreationTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTimestamp"]));
+  if (output[_CTre] != null) {
+    contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
   }
-  if (output["EndTimestamp"] !== undefined) {
-    contents.EndTimestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EndTimestamp"]));
+  if (output[_ET] != null) {
+    contents[_ET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ET]));
   }
-  if (output["StatusReason"] !== undefined) {
-    contents.StatusReason = __expectString(output["StatusReason"]);
+  if (output[_SRt] != null) {
+    contents[_SRt] = __expectString(output[_SRt]);
   }
-  if (output["StatusDetails"] !== undefined) {
-    contents.StatusDetails = de_StackSetOperationStatusDetails(output["StatusDetails"], context);
+  if (output[_SD] != null) {
+    contents[_SD] = de_StackSetOperationStatusDetails(output[_SD], context);
   }
-  if (output["OperationPreferences"] !== undefined) {
-    contents.OperationPreferences = de_StackSetOperationPreferences(output["OperationPreferences"], context);
+  if (output[_OP] != null) {
+    contents[_OP] = de_StackSetOperationPreferences(output[_OP], context);
   }
   return contents;
 };
@@ -10824,34 +10713,32 @@ const de_StackSetSummaries = (output: any, context: __SerdeContext): StackSetSum
  */
 const de_StackSetSummary = (output: any, context: __SerdeContext): StackSetSummary => {
   const contents: any = {};
-  if (output["StackSetName"] !== undefined) {
-    contents.StackSetName = __expectString(output["StackSetName"]);
+  if (output[_SSN] != null) {
+    contents[_SSN] = __expectString(output[_SSN]);
   }
-  if (output["StackSetId"] !== undefined) {
-    contents.StackSetId = __expectString(output["StackSetId"]);
+  if (output[_SSI] != null) {
+    contents[_SSI] = __expectString(output[_SSI]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["AutoDeployment"] !== undefined) {
-    contents.AutoDeployment = de_AutoDeployment(output["AutoDeployment"], context);
+  if (output[_AD] != null) {
+    contents[_AD] = de_AutoDeployment(output[_AD], context);
   }
-  if (output["PermissionModel"] !== undefined) {
-    contents.PermissionModel = __expectString(output["PermissionModel"]);
+  if (output[_PM] != null) {
+    contents[_PM] = __expectString(output[_PM]);
   }
-  if (output["DriftStatus"] !== undefined) {
-    contents.DriftStatus = __expectString(output["DriftStatus"]);
+  if (output[_DSr] != null) {
+    contents[_DSr] = __expectString(output[_DSr]);
   }
-  if (output["LastDriftCheckTimestamp"] !== undefined) {
-    contents.LastDriftCheckTimestamp = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["LastDriftCheckTimestamp"])
-    );
+  if (output[_LDCT] != null) {
+    contents[_LDCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LDCT]));
   }
-  if (output["ManagedExecution"] !== undefined) {
-    contents.ManagedExecution = de_ManagedExecution(output["ManagedExecution"], context);
+  if (output[_ME] != null) {
+    contents[_ME] = de_ManagedExecution(output[_ME], context);
   }
   return contents;
 };
@@ -10872,38 +10759,38 @@ const de_StackSummaries = (output: any, context: __SerdeContext): StackSummary[]
  */
 const de_StackSummary = (output: any, context: __SerdeContext): StackSummary => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["StackName"] !== undefined) {
-    contents.StackName = __expectString(output["StackName"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
-  if (output["TemplateDescription"] !== undefined) {
-    contents.TemplateDescription = __expectString(output["TemplateDescription"]);
+  if (output[_TDe] != null) {
+    contents[_TDe] = __expectString(output[_TDe]);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["LastUpdatedTime"] !== undefined) {
-    contents.LastUpdatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdatedTime"]));
+  if (output[_LUT] != null) {
+    contents[_LUT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LUT]));
   }
-  if (output["DeletionTime"] !== undefined) {
-    contents.DeletionTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["DeletionTime"]));
+  if (output[_DTel] != null) {
+    contents[_DTel] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_DTel]));
   }
-  if (output["StackStatus"] !== undefined) {
-    contents.StackStatus = __expectString(output["StackStatus"]);
+  if (output[_SSta] != null) {
+    contents[_SSta] = __expectString(output[_SSta]);
   }
-  if (output["StackStatusReason"] !== undefined) {
-    contents.StackStatusReason = __expectString(output["StackStatusReason"]);
+  if (output[_SSR] != null) {
+    contents[_SSR] = __expectString(output[_SSR]);
   }
-  if (output["ParentId"] !== undefined) {
-    contents.ParentId = __expectString(output["ParentId"]);
+  if (output[_PIa] != null) {
+    contents[_PIa] = __expectString(output[_PIa]);
   }
-  if (output["RootId"] !== undefined) {
-    contents.RootId = __expectString(output["RootId"]);
+  if (output[_RIo] != null) {
+    contents[_RIo] = __expectString(output[_RIo]);
   }
-  if (output["DriftInformation"] !== undefined) {
-    contents.DriftInformation = de_StackDriftInformationSummary(output["DriftInformation"], context);
+  if (output[_DI] != null) {
+    contents[_DI] = de_StackDriftInformationSummary(output[_DI], context);
   }
   return contents;
 };
@@ -10924,8 +10811,8 @@ const de_StageList = (output: any, context: __SerdeContext): TemplateStage[] => 
  */
 const de_StaleRequestException = (output: any, context: __SerdeContext): StaleRequestException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -10954,11 +10841,11 @@ const de_SupportedMajorVersions = (output: any, context: __SerdeContext): number
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -10979,17 +10866,17 @@ const de_Tags = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TemplateParameter = (output: any, context: __SerdeContext): TemplateParameter => {
   const contents: any = {};
-  if (output["ParameterKey"] !== undefined) {
-    contents.ParameterKey = __expectString(output["ParameterKey"]);
+  if (output[_PK] != null) {
+    contents[_PK] = __expectString(output[_PK]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["NoEcho"] !== undefined) {
-    contents.NoEcho = __parseBoolean(output["NoEcho"]);
+  if (output[_NE] != null) {
+    contents[_NE] = __parseBoolean(output[_NE]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -11010,8 +10897,8 @@ const de_TemplateParameters = (output: any, context: __SerdeContext): TemplatePa
  */
 const de_TestTypeOutput = (output: any, context: __SerdeContext): TestTypeOutput => {
   const contents: any = {};
-  if (output["TypeVersionArn"] !== undefined) {
-    contents.TypeVersionArn = __expectString(output["TypeVersionArn"]);
+  if (output[_TVA] != null) {
+    contents[_TVA] = __expectString(output[_TVA]);
   }
   return contents;
 };
@@ -11021,8 +10908,8 @@ const de_TestTypeOutput = (output: any, context: __SerdeContext): TestTypeOutput
  */
 const de_TokenAlreadyExistsException = (output: any, context: __SerdeContext): TokenAlreadyExistsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -11043,26 +10930,26 @@ const de_TransformsList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_TypeConfigurationDetails = (output: any, context: __SerdeContext): TypeConfigurationDetails => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Alias"] !== undefined) {
-    contents.Alias = __expectString(output["Alias"]);
+  if (output[_Al] != null) {
+    contents[_Al] = __expectString(output[_Al]);
   }
-  if (output["Configuration"] !== undefined) {
-    contents.Configuration = __expectString(output["Configuration"]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
-  if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdated"]));
+  if (output[_LU] != null) {
+    contents[_LU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LU]));
   }
-  if (output["TypeArn"] !== undefined) {
-    contents.TypeArn = __expectString(output["TypeArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = __expectString(output["TypeName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["IsDefaultConfiguration"] !== undefined) {
-    contents.IsDefaultConfiguration = __parseBoolean(output["IsDefaultConfiguration"]);
+  if (output[_IDC] != null) {
+    contents[_IDC] = __parseBoolean(output[_IDC]);
   }
   return contents;
 };
@@ -11083,20 +10970,20 @@ const de_TypeConfigurationDetailsList = (output: any, context: __SerdeContext): 
  */
 const de_TypeConfigurationIdentifier = (output: any, context: __SerdeContext): TypeConfigurationIdentifier => {
   const contents: any = {};
-  if (output["TypeArn"] !== undefined) {
-    contents.TypeArn = __expectString(output["TypeArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["TypeConfigurationAlias"] !== undefined) {
-    contents.TypeConfigurationAlias = __expectString(output["TypeConfigurationAlias"]);
+  if (output[_TCA] != null) {
+    contents[_TCA] = __expectString(output[_TCA]);
   }
-  if (output["TypeConfigurationArn"] !== undefined) {
-    contents.TypeConfigurationArn = __expectString(output["TypeConfigurationArn"]);
+  if (output[_TCAy] != null) {
+    contents[_TCAy] = __expectString(output[_TCAy]);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = __expectString(output["TypeName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
   return contents;
 };
@@ -11109,8 +10996,8 @@ const de_TypeConfigurationNotFoundException = (
   context: __SerdeContext
 ): TypeConfigurationNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -11120,8 +11007,8 @@ const de_TypeConfigurationNotFoundException = (
  */
 const de_TypeNotFoundException = (output: any, context: __SerdeContext): TypeNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -11142,44 +11029,44 @@ const de_TypeSummaries = (output: any, context: __SerdeContext): TypeSummary[] =
  */
 const de_TypeSummary = (output: any, context: __SerdeContext): TypeSummary => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = __expectString(output["TypeName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = __expectString(output["DefaultVersionId"]);
+  if (output[_DVI] != null) {
+    contents[_DVI] = __expectString(output[_DVI]);
   }
-  if (output["TypeArn"] !== undefined) {
-    contents.TypeArn = __expectString(output["TypeArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
-  if (output["LastUpdated"] !== undefined) {
-    contents.LastUpdated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastUpdated"]));
+  if (output[_LU] != null) {
+    contents[_LU] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LU]));
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["PublisherId"] !== undefined) {
-    contents.PublisherId = __expectString(output["PublisherId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
-  if (output["OriginalTypeName"] !== undefined) {
-    contents.OriginalTypeName = __expectString(output["OriginalTypeName"]);
+  if (output[_OTN] != null) {
+    contents[_OTN] = __expectString(output[_OTN]);
   }
-  if (output["PublicVersionNumber"] !== undefined) {
-    contents.PublicVersionNumber = __expectString(output["PublicVersionNumber"]);
+  if (output[_PVN] != null) {
+    contents[_PVN] = __expectString(output[_PVN]);
   }
-  if (output["LatestPublicVersion"] !== undefined) {
-    contents.LatestPublicVersion = __expectString(output["LatestPublicVersion"]);
+  if (output[_LPV] != null) {
+    contents[_LPV] = __expectString(output[_LPV]);
   }
-  if (output["PublisherIdentity"] !== undefined) {
-    contents.PublisherIdentity = __expectString(output["PublisherIdentity"]);
+  if (output[_PIu] != null) {
+    contents[_PIu] = __expectString(output[_PIu]);
   }
-  if (output["PublisherName"] !== undefined) {
-    contents.PublisherName = __expectString(output["PublisherName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["IsActivated"] !== undefined) {
-    contents.IsActivated = __parseBoolean(output["IsActivated"]);
+  if (output[_IA] != null) {
+    contents[_IA] = __parseBoolean(output[_IA]);
   }
   return contents;
 };
@@ -11200,29 +11087,29 @@ const de_TypeVersionSummaries = (output: any, context: __SerdeContext): TypeVers
  */
 const de_TypeVersionSummary = (output: any, context: __SerdeContext): TypeVersionSummary => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["TypeName"] !== undefined) {
-    contents.TypeName = __expectString(output["TypeName"]);
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
   }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = __expectString(output["VersionId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
+  if (output[_IDV] != null) {
+    contents[_IDV] = __parseBoolean(output[_IDV]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["TimeCreated"] !== undefined) {
-    contents.TimeCreated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TimeCreated"]));
+  if (output[_TCi] != null) {
+    contents[_TCi] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TCi]));
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["PublicVersionNumber"] !== undefined) {
-    contents.PublicVersionNumber = __expectString(output["PublicVersionNumber"]);
+  if (output[_PVN] != null) {
+    contents[_PVN] = __expectString(output[_PVN]);
   }
   return contents;
 };
@@ -11243,8 +11130,8 @@ const de_UnprocessedTypeConfigurations = (output: any, context: __SerdeContext):
  */
 const de_UpdateStackInstancesOutput = (output: any, context: __SerdeContext): UpdateStackInstancesOutput => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -11254,8 +11141,8 @@ const de_UpdateStackInstancesOutput = (output: any, context: __SerdeContext): Up
  */
 const de_UpdateStackOutput = (output: any, context: __SerdeContext): UpdateStackOutput => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -11265,8 +11152,8 @@ const de_UpdateStackOutput = (output: any, context: __SerdeContext): UpdateStack
  */
 const de_UpdateStackSetOutput = (output: any, context: __SerdeContext): UpdateStackSetOutput => {
   const contents: any = {};
-  if (output["OperationId"] !== undefined) {
-    contents.OperationId = __expectString(output["OperationId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -11279,8 +11166,8 @@ const de_UpdateTerminationProtectionOutput = (
   context: __SerdeContext
 ): UpdateTerminationProtectionOutput => {
   const contents: any = {};
-  if (output["StackId"] !== undefined) {
-    contents.StackId = __expectString(output["StackId"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -11291,28 +11178,25 @@ const de_UpdateTerminationProtectionOutput = (
 const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): ValidateTemplateOutput => {
   const contents: any = {};
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["member"] !== undefined) {
-    contents.Parameters = de_TemplateParameters(__getArrayIfSingleItem(output["Parameters"]["member"]), context);
+    contents[_P] = [];
+  } else if (output[_P] != null && output[_P][_m] != null) {
+    contents[_P] = de_TemplateParameters(__getArrayIfSingleItem(output[_P][_m]), context);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   if (output.Capabilities === "") {
-    contents.Capabilities = [];
-  } else if (output["Capabilities"] !== undefined && output["Capabilities"]["member"] !== undefined) {
-    contents.Capabilities = de_Capabilities(__getArrayIfSingleItem(output["Capabilities"]["member"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_m] != null) {
+    contents[_C] = de_Capabilities(__getArrayIfSingleItem(output[_C][_m]), context);
   }
-  if (output["CapabilitiesReason"] !== undefined) {
-    contents.CapabilitiesReason = __expectString(output["CapabilitiesReason"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
   if (output.DeclaredTransforms === "") {
-    contents.DeclaredTransforms = [];
-  } else if (output["DeclaredTransforms"] !== undefined && output["DeclaredTransforms"]["member"] !== undefined) {
-    contents.DeclaredTransforms = de_TransformsList(
-      __getArrayIfSingleItem(output["DeclaredTransforms"]["member"]),
-      context
-    );
+    contents[_DTec] = [];
+  } else if (output[_DTec] != null && output[_DTec][_m] != null) {
+    contents[_DTec] = de_TransformsList(__getArrayIfSingleItem(output[_DTec][_m]), context);
   }
   return contents;
 };
@@ -11323,15 +11207,9 @@ const de_ValidateTemplateOutput = (output: any, context: __SerdeContext): Valida
 const de_Warnings = (output: any, context: __SerdeContext): Warnings => {
   const contents: any = {};
   if (output.UnrecognizedResourceTypes === "") {
-    contents.UnrecognizedResourceTypes = [];
-  } else if (
-    output["UnrecognizedResourceTypes"] !== undefined &&
-    output["UnrecognizedResourceTypes"]["member"] !== undefined
-  ) {
-    contents.UnrecognizedResourceTypes = de_ResourceTypes(
-      __getArrayIfSingleItem(output["UnrecognizedResourceTypes"]["member"]),
-      context
-    );
+    contents[_URT] = [];
+  } else if (output[_URT] != null && output[_URT][_m] != null) {
+    contents[_URT] = de_ResourceTypes(__getArrayIfSingleItem(output[_URT][_m]), context);
   }
   return contents;
 };
@@ -11376,6 +11254,363 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2010-05-15";
+const _A = "Action";
+const _AD = "AutoDeployment";
+const _AFT = "AccountFilterType";
+const _AGR = "AccountGateResult";
+const _AL = "AccountLimits";
+const _AOA = "ActivateOrganizationsAccess";
+const _AP = "ActualProperties";
+const _ARARN = "AdministrationRoleARN";
+const _AT = "ActivateType";
+const _ATAC = "AcceptTermsAndConditions";
+const _AU = "AutoUpdate";
+const _AUc = "AccountsUrl";
+const _AV = "AllowedValues";
+const _AVc = "ActualValue";
+const _Ac = "Accounts";
+const _Acc = "Account";
+const _Act = "Active";
+const _Al = "Alias";
+const _Ar = "Arn";
+const _At = "Attribute";
+const _BDTC = "BatchDescribeTypeConfigurations";
+const _BT = "BearerToken";
+const _C = "Capabilities";
+const _CA = "CallAs";
+const _CAo = "ConnectionArn";
+const _CAon = "ConfigurationAlias";
+const _CAonf = "ConfigurationArn";
+const _CCS = "CreateChangeSet";
+const _CE = "CausingEntity";
+const _CM = "ConcurrencyMode";
+const _COS = "CurrentOperationStatus";
+const _CR = "CapabilitiesReason";
+const _CRT = "ClientRequestToken";
+const _CS = "CreateStack";
+const _CSI = "CreateStackInstances";
+const _CSIh = "ChangeSetId";
+const _CSN = "ChangeSetName";
+const _CSS = "CreateStackSet";
+const _CST = "ChangeSetType";
+const _CSh = "ChangeSource";
+const _CSo = "ConfigurationSchema";
+const _CT = "ClientToken";
+const _CTr = "CreationTime";
+const _CTre = "CreationTimestamp";
+const _CUR = "ContinueUpdateRollback";
+const _CUS = "CancelUpdateStack";
+const _Ca = "Category";
+const _Ch = "Changes";
+const _Co = "Configuration";
+const _D = "Description";
+const _DAL = "DescribeAccountLimits";
+const _DCS = "DeleteChangeSet";
+const _DCSH = "DescribeChangeSetHooks";
+const _DCSe = "DescribeChangeSet";
+const _DDS = "DriftDetectionStatus";
+const _DI = "DriftInformation";
+const _DOA = "DeactivateOrganizationsAccess";
+const _DOAe = "DescribeOrganizationsAccess";
+const _DP = "DescribePublisher";
+const _DR = "DisableRollback";
+const _DS = "DeleteStack";
+const _DSD = "DetectStackDrift";
+const _DSDDS = "DescribeStackDriftDetectionStatus";
+const _DSE = "DescribeStackEvents";
+const _DSI = "DeleteStackInstances";
+const _DSIC = "DriftedStackInstancesCount";
+const _DSIe = "DescribeStackInstance";
+const _DSR = "DescribeStackResource";
+const _DSRC = "DriftedStackResourceCount";
+const _DSRD = "DescribeStackResourceDrifts";
+const _DSRDe = "DetectStackResourceDrift";
+const _DSRe = "DescribeStackResources";
+const _DSRet = "DetectionStatusReason";
+const _DSS = "DeleteStackSet";
+const _DSSD = "DetectStackSetDrift";
+const _DSSO = "DescribeStackSetOperation";
+const _DSSe = "DescribeStackSet";
+const _DSe = "DescribeStacks";
+const _DSep = "DeprecatedStatus";
+const _DSet = "DetectionStatus";
+const _DSeta = "DetailedStatus";
+const _DSr = "DriftStatus";
+const _DT = "DeactivateType";
+const _DTR = "DescribeTypeRegistration";
+const _DTe = "DeregisterType";
+const _DTec = "DeclaredTransforms";
+const _DTel = "DeletionTime";
+const _DTep = "DeploymentTargets";
+const _DTes = "DescribeType";
+const _DTi = "DifferenceType";
+const _DU = "DocumentationUrl";
+const _DV = "DefaultValue";
+const _DVI = "DefaultVersionId";
+const _De = "Details";
+const _E = "Enabled";
+const _EC = "ErrorCode";
+const _ECS = "ExecuteChangeSet";
+const _EI = "EventId";
+const _EM = "ErrorMessage";
+const _EN = "ExportName";
+const _EP = "ExpectedProperties";
+const _ERA = "ExecutionRoleArn";
+const _ERN = "ExecutionRoleName";
+const _ES = "ExecutionStatus";
+const _ESI = "ExportingStackId";
+const _ET = "EndTimestamp";
+const _ETC = "EstimateTemplateCost";
+const _ETP = "EnableTerminationProtection";
+const _EV = "ExpectedValue";
+const _Er = "Errors";
+const _Ev = "Evaluation";
+const _Ex = "Exports";
+const _F = "Filters";
+const _FM = "FailureMode";
+const _FSIC = "FailedStackInstancesCount";
+const _FTC = "FailureToleranceCount";
+const _FTP = "FailureTolerancePercentage";
+const _GSP = "GetStackPolicy";
+const _GT = "GetTemplate";
+const _GTS = "GetTemplateSummary";
+const _H = "Hooks";
+const _HFM = "HookFailureMode";
+const _HIC = "HookInvocationCount";
+const _HIP = "HookInvocationPoint";
+const _HS = "HookStatus";
+const _HSR = "HookStatusReason";
+const _HT = "HookType";
+const _I = "Id";
+const _IA = "IsActivated";
+const _IDC = "IsDefaultConfiguration";
+const _IDV = "IsDefaultVersion";
+const _IER = "ImportExistingResources";
+const _INS = "IncludeNestedStacks";
+const _IP = "InvocationPoint";
+const _IPSIC = "InProgressStackInstancesCount";
+const _IPd = "IdentityProvider";
+const _ISSIC = "InSyncStackInstancesCount";
+const _ISTSS = "ImportStacksToStackSet";
+const _Im = "Imports";
+const _K = "Key";
+const _LC = "LoggingConfig";
+const _LCS = "ListChangeSets";
+const _LCT = "LastCheckTimestamp";
+const _LDB = "LogDeliveryBucket";
+const _LDCT = "LastDriftCheckTimestamp";
+const _LE = "ListExports";
+const _LGN = "LogGroupName";
+const _LI = "ListImports";
+const _LIH = "LogicalIdHierarchy";
+const _LOI = "LastOperationId";
+const _LPV = "LatestPublicVersion";
+const _LRA = "LogRoleArn";
+const _LRI = "LogicalResourceId";
+const _LRIo = "LogicalResourceIds";
+const _LS = "ListStacks";
+const _LSI = "ListStackInstances";
+const _LSIRD = "ListStackInstanceResourceDrifts";
+const _LSR = "ListStackResources";
+const _LSS = "ListStackSets";
+const _LSSO = "ListStackSetOperations";
+const _LSSOR = "ListStackSetOperationResults";
+const _LT = "ListTypes";
+const _LTR = "ListTypeRegistrations";
+const _LTV = "ListTypeVersions";
+const _LU = "LastUpdated";
+const _LUT = "LastUpdatedTime";
+const _LUTa = "LastUpdatedTimestamp";
+const _M = "Message";
+const _MCC = "MaxConcurrentCount";
+const _MCP = "MaxConcurrentPercentage";
+const _ME = "ManagedExecution";
+const _MI = "ModuleInfo";
+const _MR = "MaxResults";
+const _MTIM = "MonitoringTimeInMinutes";
+const _MV = "MajorVersion";
+const _Me = "Metadata";
+const _N = "Name";
+const _NARN = "NotificationARNs";
+const _NE = "NoEcho";
+const _NT = "NextToken";
+const _O = "Outputs";
+const _OF = "OnFailure";
+const _OI = "OperationId";
+const _OK = "OutputKey";
+const _OP = "OperationPreferences";
+const _OS = "OperationStatus";
+const _OSF = "OnStackFailure";
+const _OTA = "OriginalTypeArn";
+const _OTN = "OriginalTypeName";
+const _OUI = "OrganizationalUnitIds";
+const _OUIr = "OrganizationalUnitId";
+const _OV = "OutputValue";
+const _P = "Parameters";
+const _PC = "ParameterConstraints";
+const _PCSI = "ParentChangeSetId";
+const _PD = "PropertyDifferences";
+const _PI = "PublisherId";
+const _PIa = "ParentId";
+const _PIu = "PublisherIdentity";
+const _PK = "ParameterKey";
+const _PM = "PermissionModel";
+const _PN = "PublisherName";
+const _PO = "ParameterOverrides";
+const _PP = "PublisherProfile";
+const _PPr = "PropertyPath";
+const _PRI = "PhysicalResourceId";
+const _PRIC = "PhysicalResourceIdContext";
+const _PS = "PublisherStatus";
+const _PSr = "ProgressStatus";
+const _PT = "PublishType";
+const _PTA = "PublicTypeArn";
+const _PTa = "ParameterType";
+const _PTr = "ProvisioningType";
+const _PV = "ParameterValue";
+const _PVN = "PublicVersionNumber";
+const _R = "Regions";
+const _RA = "ResourceAction";
+const _RARN = "RoleARN";
+const _RAT = "RequiredActivatedTypes";
+const _RC = "RollbackConfiguration";
+const _RCSI = "RootChangeSetId";
+const _RCT = "RegionConcurrencyType";
+const _RCe = "ResourceChange";
+const _REOC = "RetainExceptOnCreate";
+const _RHP = "RecordHandlerProgress";
+const _RI = "ResourceIdentifier";
+const _RIS = "ResourceIdentifierSummaries";
+const _RIe = "ResourceIdentifiers";
+const _RIo = "RootId";
+const _RM = "ResourceModel";
+const _RO = "RegionOrder";
+const _RP = "RegisterPublisher";
+const _RPe = "ResourceProperties";
+const _RR = "RetainResources";
+const _RRe = "RequiresRecreation";
+const _RS = "RollbackStack";
+const _RSF = "RegistrationStatusFilter";
+const _RSOAR = "RetainStacksOnAccountRemoval";
+const _RSR = "ResourceStatusReason";
+const _RSe = "RetainStacks";
+const _RSes = "ResourceStatus";
+const _RT = "RegisterType";
+const _RTD = "ResourceTargetDetails";
+const _RTI = "ResourcesToImport";
+const _RTL = "RegistrationTokenList";
+const _RTS = "ResourcesToSkip";
+const _RTe = "ResourceTypes";
+const _RTeg = "RegistrationToken";
+const _RTes = "ResourceType";
+const _RTo = "RollbackTriggers";
+const _RV = "ResolvedValue";
+const _Re = "Replacement";
+const _Reg = "Region";
+const _S = "Status";
+const _SA = "StagesAvailable";
+const _SD = "StatusDetails";
+const _SDDI = "StackDriftDetectionId";
+const _SDS = "StackDriftStatus";
+const _SE = "StackEvents";
+const _SHP = "SchemaHandlerPackage";
+const _SI = "StackId";
+const _SIA = "StackInstanceAccount";
+const _SIR = "StackInstanceRegion";
+const _SIRDS = "StackInstanceResourceDriftStatuses";
+const _SIS = "StackInstanceStatus";
+const _SIU = "StackIdsUrl";
+const _SIt = "StackIds";
+const _SIta = "StackInstance";
+const _SM = "StatusMessage";
+const _SMV = "SupportedMajorVersions";
+const _SN = "StackName";
+const _SPB = "StackPolicyBody";
+const _SPDUB = "StackPolicyDuringUpdateBody";
+const _SPDUURL = "StackPolicyDuringUpdateURL";
+const _SPURL = "StackPolicyURL";
+const _SR = "SignalResource";
+const _SRD = "StackResourceDrifts";
+const _SRDS = "StackResourceDriftStatus";
+const _SRDSF = "StackResourceDriftStatusFilters";
+const _SRDt = "StackResourceDetail";
+const _SRDta = "StackResourceDrift";
+const _SRS = "StackResourceSummaries";
+const _SRt = "StatusReason";
+const _SRta = "StackResources";
+const _SS = "StackSet";
+const _SSARN = "StackSetARN";
+const _SSDDD = "StackSetDriftDetectionDetails";
+const _SSF = "StackStatusFilter";
+const _SSI = "StackSetId";
+const _SSN = "StackSetName";
+const _SSO = "StackSetOperation";
+const _SSP = "SetStackPolicy";
+const _SSR = "StackStatusReason";
+const _SSSO = "StopStackSetOperation";
+const _SSt = "StackSummaries";
+const _SSta = "StackStatus";
+const _STC = "SetTypeConfiguration";
+const _STDV = "SetTypeDefaultVersion";
+const _SU = "SourceUrl";
+const _Sc = "Schema";
+const _Sco = "Scope";
+const _St = "Stacks";
+const _Su = "Summaries";
+const _T = "Type";
+const _TA = "TypeArn";
+const _TB = "TemplateBody";
+const _TC = "TypeConfigurations";
+const _TCA = "TypeConfigurationAlias";
+const _TCAy = "TypeConfigurationArn";
+const _TCI = "TypeConfigurationIdentifiers";
+const _TCIy = "TypeConfigurationIdentifier";
+const _TCVI = "TypeConfigurationVersionId";
+const _TCi = "TimeCreated";
+const _TD = "TargetDetails";
+const _TDe = "TemplateDescription";
+const _TH = "TypeHierarchy";
+const _TIM = "TimeoutInMinutes";
+const _TN = "TypeName";
+const _TNA = "TypeNameAlias";
+const _TNP = "TypeNamePrefix";
+const _TS = "TemplateStage";
+const _TSC = "TemplateSummaryConfig";
+const _TSIC = "TotalStackInstancesCount";
+const _TSy = "TypeSummaries";
+const _TT = "TestType";
+const _TTS = "TypeTestsStatus";
+const _TTSD = "TypeTestsStatusDescription";
+const _TTa = "TargetType";
+const _TURL = "TemplateURL";
+const _TURTAW = "TreatUnrecognizedResourceTypesAsWarnings";
+const _TVA = "TypeVersionArn";
+const _TVI = "TypeVersionId";
+const _TVS = "TypeVersionSummaries";
+const _Ta = "Tags";
+const _Tar = "Target";
+const _Ti = "Timestamp";
+const _U = "Url";
+const _UI = "UniqueId";
+const _UPT = "UsePreviousTemplate";
+const _UPV = "UsePreviousValue";
+const _URT = "UnrecognizedResourceTypes";
+const _US = "UpdateStack";
+const _USI = "UpdateStackInstances";
+const _USS = "UpdateStackSet";
+const _UTC = "UnprocessedTypeConfigurations";
+const _UTP = "UpdateTerminationProtection";
+const _V = "Version";
+const _VB = "VersionBump";
+const _VI = "VersionId";
+const _VT = "ValidateTemplate";
+const _Va = "Values";
+const _Val = "Value";
+const _Vi = "Visibility";
+const _W = "Warnings";
+const _m = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

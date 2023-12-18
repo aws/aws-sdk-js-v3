@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -477,23 +478,18 @@ export const se_AssociateAccessGrantsIdentityCenterCommand = async (
   input: AssociateAccessGrantsIdentityCenterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/identitycenter";
+  b.bp("/v20180820/accessgrantsinstance/identitycenter");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("AssociateAccessGrantsIdentityCenterRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.IdentityCenterArn !== undefined) {
-    const node = __XmlNode.of("IdentityCenterArn", input.IdentityCenterArn).withName("IdentityCenterArn");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_AAGICR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _ICA);
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -505,15 +501,9 @@ export const se_AssociateAccessGrantsIdentityCenterCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -523,54 +513,30 @@ export const se_CreateAccessGrantCommand = async (
   input: CreateAccessGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/grant";
+  b.bp("/v20180820/accessgrantsinstance/grant");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateAccessGrantRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.AccessGrantsLocationConfiguration !== undefined) {
-    const node = se_AccessGrantsLocationConfiguration(input.AccessGrantsLocationConfiguration, context).withName(
-      "AccessGrantsLocationConfiguration"
-    );
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CAGR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_AGLC] != null) {
+    bn.c(se_AccessGrantsLocationConfiguration(input[_AGLC], context).n(_AGLC));
   }
-  if (input.AccessGrantsLocationId !== undefined) {
-    const node = __XmlNode
-      .of("AccessGrantsLocationId", input.AccessGrantsLocationId)
-      .withName("AccessGrantsLocationId");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _AGLI);
+  if (input[_AA] != null) {
+    bn.c(__XmlNode.of(_ICAA, input[_AA]).n(_AA));
   }
-  if (input.ApplicationArn !== undefined) {
-    const node = __XmlNode.of("IdentityCenterApplicationArn", input.ApplicationArn).withName("ApplicationArn");
-    bodyNode.addChildNode(node);
+  if (input[_G] != null) {
+    bn.c(se_Grantee(input[_G], context).n(_G));
   }
-  if (input.Grantee !== undefined) {
-    const node = se_Grantee(input.Grantee, context).withName("Grantee");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Permission !== undefined) {
-    const node = __XmlNode.of("Permission", input.Permission).withName("Permission");
-    bodyNode.addChildNode(node);
-  }
-  if (input.S3PrefixType !== undefined) {
-    const node = __XmlNode.of("S3PrefixType", input.S3PrefixType).withName("S3PrefixType");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags !== undefined) {
-    const nodes = se_TagList(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  bn.cc(input, _P);
+  bn.cc(input, _SPT);
+  bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -582,15 +548,9 @@ export const se_CreateAccessGrantCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -600,30 +560,19 @@ export const se_CreateAccessGrantsInstanceCommand = async (
   input: CreateAccessGrantsInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance";
+  b.bp("/v20180820/accessgrantsinstance");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateAccessGrantsInstanceRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.IdentityCenterArn !== undefined) {
-    const node = __XmlNode.of("IdentityCenterArn", input.IdentityCenterArn).withName("IdentityCenterArn");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags !== undefined) {
-    const nodes = se_TagList(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_CAGIR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _ICA);
+  bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -635,15 +584,9 @@ export const se_CreateAccessGrantsInstanceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -653,34 +596,22 @@ export const se_CreateAccessGrantsLocationCommand = async (
   input: CreateAccessGrantsLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/location";
+  b.bp("/v20180820/accessgrantsinstance/location");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateAccessGrantsLocationRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.IAMRoleArn !== undefined) {
-    const node = __XmlNode.of("IAMRoleArn", input.IAMRoleArn).withName("IAMRoleArn");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CAGLR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _IAMRA);
+  if (input[_LS] != null) {
+    bn.c(__XmlNode.of(_SP, input[_LS]).n(_LS));
   }
-  if (input.LocationScope !== undefined) {
-    const node = __XmlNode.of("S3Prefix", input.LocationScope).withName("LocationScope");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags !== undefined) {
-    const nodes = se_TagList(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -692,15 +623,9 @@ export const se_CreateAccessGrantsLocationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -710,37 +635,30 @@ export const se_CreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateAccessPointRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Bucket !== undefined) {
-    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CAPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BN, input[_B]).n(_B));
   }
-  if (input.BucketAccountId !== undefined) {
-    const node = __XmlNode.of("AccountId", input.BucketAccountId).withName("BucketAccountId");
-    bodyNode.addChildNode(node);
+  if (input[_BAI] != null) {
+    bn.c(__XmlNode.of(_AI, input[_BAI]).n(_BAI));
   }
-  if (input.PublicAccessBlockConfiguration !== undefined) {
-    const node = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context).withName(
-      "PublicAccessBlockConfiguration"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_PABC] != null) {
+    bn.c(se_PublicAccessBlockConfiguration(input[_PABC], context).n(_PABC));
   }
-  if (input.VpcConfiguration !== undefined) {
-    const node = se_VpcConfiguration(input.VpcConfiguration, context).withName("VpcConfiguration");
-    bodyNode.addChildNode(node);
+  if (input[_VC] != null) {
+    bn.c(se_VpcConfiguration(input[_VC], context).n(_VC));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -752,15 +670,9 @@ export const se_CreateAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -770,24 +682,21 @@ export const se_CreateAccessPointForObjectLambdaCommand = async (
   input: CreateAccessPointForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateAccessPointForObjectLambdaRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Configuration !== undefined) {
-    const node = se_ObjectLambdaConfiguration(input.Configuration, context).withName("Configuration");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CAPFOLR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_C] != null) {
+    bn.c(se_ObjectLambdaConfiguration(input[_C], context).n(_C));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -799,15 +708,9 @@ export const se_CreateAccessPointForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -817,41 +720,30 @@ export const se_CreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-acl": input.ACL!,
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write": input.GrantWrite!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-bucket-object-lock-enabled": [
-      () => isSerializableHeaderValue(input.ObjectLockEnabledForBucket),
-      () => input.ObjectLockEnabledForBucket!.toString(),
-    ],
-    "x-amz-outpost-id": input.OutpostId!,
+    [_xaa]: input[_ACL]!,
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagw]: input[_GW]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xabole]: [() => isSerializableHeaderValue(input[_OLEFB]), () => input[_OLEFB]!.toString()],
+    [_xaoi]: input[_OI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = se_CreateBucketConfiguration(input.CreateBucketConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body = _ve;
+    contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -861,66 +753,48 @@ export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
+  b.bp("/v20180820/jobs");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateJobRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
+  body = _ve;
+  const bn = new __XmlNode(_CJR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_CRT] === undefined) {
+    input[_CRT] = generateIdempotencyToken();
   }
-  if (input.ClientRequestToken !== undefined) {
-    const node = __XmlNode.of("NonEmptyMaxLength64String", input.ClientRequestToken).withName("ClientRequestToken");
-    bodyNode.addChildNode(node);
+  if (input[_CRT] != null) {
+    bn.c(__XmlNode.of(_NEMLS, input[_CRT]).n(_CRT));
   }
-  if (input.ConfirmationRequired !== undefined) {
-    const node = __XmlNode
-      .of("ConfirmationRequired", String(input.ConfirmationRequired))
-      .withName("ConfirmationRequired");
-    bodyNode.addChildNode(node);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_CR, String(input[_CR])).n(_CR));
   }
-  if (input.Description !== undefined) {
-    const node = __XmlNode.of("NonEmptyMaxLength256String", input.Description).withName("Description");
-    bodyNode.addChildNode(node);
+  if (input[_D] != null) {
+    bn.c(__XmlNode.of(_NEMLSo, input[_D]).n(_D));
   }
-  if (input.Manifest !== undefined) {
-    const node = se_JobManifest(input.Manifest, context).withName("Manifest");
-    bodyNode.addChildNode(node);
+  if (input[_M] != null) {
+    bn.c(se_JobManifest(input[_M], context).n(_M));
   }
-  if (input.ManifestGenerator !== undefined) {
-    const node = se_JobManifestGenerator(input.ManifestGenerator, context).withName("ManifestGenerator");
-    bodyNode.addChildNode(node);
+  if (input[_MG] != null) {
+    bn.c(se_JobManifestGenerator(input[_MG], context).n(_MG));
   }
-  if (input.Operation !== undefined) {
-    const node = se_JobOperation(input.Operation, context).withName("Operation");
-    bodyNode.addChildNode(node);
+  if (input[_O] != null) {
+    bn.c(se_JobOperation(input[_O], context).n(_O));
   }
-  if (input.Priority !== undefined) {
-    const node = __XmlNode.of("JobPriority", String(input.Priority)).withName("Priority");
-    bodyNode.addChildNode(node);
+  if (input[_Pr] != null) {
+    bn.c(__XmlNode.of(_JP, String(input[_Pr])).n(_Pr));
   }
-  if (input.Report !== undefined) {
-    const node = se_JobReport(input.Report, context).withName("Report");
-    bodyNode.addChildNode(node);
+  if (input[_R] != null) {
+    bn.c(se_JobReport(input[_R], context).n(_R));
   }
-  if (input.RoleArn !== undefined) {
-    const node = __XmlNode.of("IAMRoleArn", input.RoleArn).withName("RoleArn");
-    bodyNode.addChildNode(node);
+  if (input[_RA] != null) {
+    bn.c(__XmlNode.of(_IAMRA, input[_RA]).n(_RA));
   }
-  if (input.Tags !== undefined) {
-    const nodes = se_S3TagSet(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  bn.lc(input, "Tags", "Tags", () => se_S3TagSet(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -932,15 +806,9 @@ export const se_CreateJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -950,29 +818,26 @@ export const se_CreateMultiRegionAccessPointCommand = async (
   input: CreateMultiRegionAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/async-requests/mrap/create";
+  b.bp("/v20180820/async-requests/mrap/create");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateMultiRegionAccessPointRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
+  body = _ve;
+  const bn = new __XmlNode(_CMRAPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_CT] === undefined) {
+    input[_CT] = generateIdempotencyToken();
   }
-  if (input.ClientToken !== undefined) {
-    const node = __XmlNode.of("MultiRegionAccessPointClientToken", input.ClientToken).withName("ClientToken");
-    bodyNode.addChildNode(node);
+  if (input[_CT] != null) {
+    bn.c(__XmlNode.of(_MRAPCT, input[_CT]).n(_CT));
   }
-  if (input.Details !== undefined) {
-    const node = se_CreateMultiRegionAccessPointInput(input.Details, context).withName("Details");
-    bodyNode.addChildNode(node);
+  if (input[_De] != null) {
+    bn.c(se_CreateMultiRegionAccessPointInput(input[_De], context).n(_De));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -984,15 +849,9 @@ export const se_CreateMultiRegionAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1002,30 +861,21 @@ export const se_CreateStorageLensGroupCommand = async (
   input: CreateStorageLensGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup";
+  b.bp("/v20180820/storagelensgroup");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateStorageLensGroupRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.StorageLensGroup !== undefined) {
-    const node = se_StorageLensGroup(input.StorageLensGroup, context).withName("StorageLensGroup");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CSLGR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_SLG] != null) {
+    bn.c(se_StorageLensGroup(input[_SLG], context).n(_SLG));
   }
-  if (input.Tags !== undefined) {
-    const nodes = se_TagList(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -1037,15 +887,9 @@ export const se_CreateStorageLensGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1055,21 +899,12 @@ export const se_DeleteAccessGrantCommand = async (
   input: DeleteAccessGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/grant/{AccessGrantId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AccessGrantId",
-    () => input.AccessGrantId!,
-    "{AccessGrantId}",
-    false
-  );
+  b.bp("/v20180820/accessgrantsinstance/grant/{AccessGrantId}");
+  b.p("AccessGrantId", () => input.AccessGrantId!, "{AccessGrantId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1082,15 +917,9 @@ export const se_DeleteAccessGrantCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1100,12 +929,11 @@ export const se_DeleteAccessGrantsInstanceCommand = async (
   input: DeleteAccessGrantsInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance";
+  b.bp("/v20180820/accessgrantsinstance");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1118,15 +946,9 @@ export const se_DeleteAccessGrantsInstanceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1136,13 +958,11 @@ export const se_DeleteAccessGrantsInstanceResourcePolicyCommand = async (
   input: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/resourcepolicy";
+  b.bp("/v20180820/accessgrantsinstance/resourcepolicy");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1155,15 +975,9 @@ export const se_DeleteAccessGrantsInstanceResourcePolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1173,21 +987,12 @@ export const se_DeleteAccessGrantsLocationCommand = async (
   input: DeleteAccessGrantsLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AccessGrantsLocationId",
-    () => input.AccessGrantsLocationId!,
-    "{AccessGrantsLocationId}",
-    false
-  );
+  b.bp("/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}");
+  b.p("AccessGrantsLocationId", () => input.AccessGrantsLocationId!, "{AccessGrantsLocationId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1200,15 +1005,9 @@ export const se_DeleteAccessGrantsLocationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1218,13 +1017,12 @@ export const se_DeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1237,15 +1035,9 @@ export const se_DeleteAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1255,14 +1047,12 @@ export const se_DeleteAccessPointForObjectLambdaCommand = async (
   input: DeleteAccessPointForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1275,15 +1065,9 @@ export const se_DeleteAccessPointForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1293,13 +1077,12 @@ export const se_DeleteAccessPointPolicyCommand = async (
   input: DeleteAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1312,15 +1095,9 @@ export const se_DeleteAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1330,14 +1107,12 @@ export const se_DeleteAccessPointPolicyForObjectLambdaCommand = async (
   input: DeleteAccessPointPolicyForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1350,15 +1125,9 @@ export const se_DeleteAccessPointPolicyForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1368,13 +1137,12 @@ export const se_DeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1387,15 +1155,9 @@ export const se_DeleteBucketCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1405,14 +1167,12 @@ export const se_DeleteBucketLifecycleConfigurationCommand = async (
   input: DeleteBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/lifecycleconfiguration");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1425,15 +1185,9 @@ export const se_DeleteBucketLifecycleConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1443,13 +1197,12 @@ export const se_DeleteBucketPolicyCommand = async (
   input: DeleteBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/policy");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1462,15 +1215,9 @@ export const se_DeleteBucketPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1480,13 +1227,12 @@ export const se_DeleteBucketReplicationCommand = async (
   input: DeleteBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/replication";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/replication");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1499,15 +1245,9 @@ export const se_DeleteBucketReplicationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1517,13 +1257,12 @@ export const se_DeleteBucketTaggingCommand = async (
   input: DeleteBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/tagging");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1536,15 +1275,9 @@ export const se_DeleteBucketTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1554,13 +1287,12 @@ export const se_DeleteJobTaggingCommand = async (
   input: DeleteJobTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v20180820/jobs/{JobId}/tagging");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1573,15 +1305,9 @@ export const se_DeleteJobTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1591,29 +1317,26 @@ export const se_DeleteMultiRegionAccessPointCommand = async (
   input: DeleteMultiRegionAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/async-requests/mrap/delete";
+  b.bp("/v20180820/async-requests/mrap/delete");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("DeleteMultiRegionAccessPointRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
+  body = _ve;
+  const bn = new __XmlNode(_DMRAPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_CT] === undefined) {
+    input[_CT] = generateIdempotencyToken();
   }
-  if (input.ClientToken !== undefined) {
-    const node = __XmlNode.of("MultiRegionAccessPointClientToken", input.ClientToken).withName("ClientToken");
-    bodyNode.addChildNode(node);
+  if (input[_CT] != null) {
+    bn.c(__XmlNode.of(_MRAPCT, input[_CT]).n(_CT));
   }
-  if (input.Details !== undefined) {
-    const node = se_DeleteMultiRegionAccessPointInput(input.Details, context).withName("Details");
-    bodyNode.addChildNode(node);
+  if (input[_De] != null) {
+    bn.c(se_DeleteMultiRegionAccessPointInput(input[_De], context).n(_De));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -1625,15 +1348,9 @@ export const se_DeleteMultiRegionAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1643,13 +1360,11 @@ export const se_DeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/configuration/publicAccessBlock";
+  b.bp("/v20180820/configuration/publicAccessBlock");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1662,15 +1377,9 @@ export const se_DeletePublicAccessBlockCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1680,13 +1389,12 @@ export const se_DeleteStorageLensConfigurationCommand = async (
   input: DeleteStorageLensConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  b.bp("/v20180820/storagelens/{ConfigId}");
+  b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1699,15 +1407,9 @@ export const se_DeleteStorageLensConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1717,13 +1419,12 @@ export const se_DeleteStorageLensConfigurationTaggingCommand = async (
   input: DeleteStorageLensConfigurationTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  b.bp("/v20180820/storagelens/{ConfigId}/tagging");
+  b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1736,15 +1437,9 @@ export const se_DeleteStorageLensConfigurationTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1754,13 +1449,12 @@ export const se_DeleteStorageLensGroupCommand = async (
   input: DeleteStorageLensGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/storagelensgroup/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1773,15 +1467,9 @@ export const se_DeleteStorageLensGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1791,12 +1479,12 @@ export const se_DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v20180820/jobs/{JobId}");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1809,15 +1497,9 @@ export const se_DescribeJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1827,21 +1509,12 @@ export const se_DescribeMultiRegionAccessPointOperationCommand = async (
   input: DescribeMultiRegionAccessPointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/async-requests/mrap/{RequestTokenARN+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RequestTokenARN",
-    () => input.RequestTokenARN!,
-    "{RequestTokenARN+}",
-    true
-  );
+  b.bp("/v20180820/async-requests/mrap/{RequestTokenARN+}");
+  b.p("RequestTokenARN", () => input.RequestTokenARN!, "{RequestTokenARN+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1854,15 +1527,9 @@ export const se_DescribeMultiRegionAccessPointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1872,13 +1539,11 @@ export const se_DissociateAccessGrantsIdentityCenterCommand = async (
   input: DissociateAccessGrantsIdentityCenterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/identitycenter";
+  b.bp("/v20180820/accessgrantsinstance/identitycenter");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1891,15 +1556,9 @@ export const se_DissociateAccessGrantsIdentityCenterCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1909,21 +1568,12 @@ export const se_GetAccessGrantCommand = async (
   input: GetAccessGrantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/grant/{AccessGrantId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AccessGrantId",
-    () => input.AccessGrantId!,
-    "{AccessGrantId}",
-    false
-  );
+  b.bp("/v20180820/accessgrantsinstance/grant/{AccessGrantId}");
+  b.p("AccessGrantId", () => input.AccessGrantId!, "{AccessGrantId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1936,15 +1586,9 @@ export const se_GetAccessGrantCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1954,12 +1598,11 @@ export const se_GetAccessGrantsInstanceCommand = async (
   input: GetAccessGrantsInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance";
+  b.bp("/v20180820/accessgrantsinstance");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1972,15 +1615,9 @@ export const se_GetAccessGrantsInstanceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1990,14 +1627,13 @@ export const se_GetAccessGrantsInstanceForPrefixCommand = async (
   input: GetAccessGrantsInstanceForPrefixCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/prefix";
+  b.bp("/v20180820/accessgrantsinstance/prefix");
   const query: any = map({
-    s3prefix: [, __expectNonNull(input.S3Prefix!, `S3Prefix`)],
+    [_s]: [, __expectNonNull(input[_SP]!, `S3Prefix`)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2011,16 +1647,9 @@ export const se_GetAccessGrantsInstanceForPrefixCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2030,13 +1659,11 @@ export const se_GetAccessGrantsInstanceResourcePolicyCommand = async (
   input: GetAccessGrantsInstanceResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/resourcepolicy";
+  b.bp("/v20180820/accessgrantsinstance/resourcepolicy");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2049,15 +1676,9 @@ export const se_GetAccessGrantsInstanceResourcePolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2067,21 +1688,12 @@ export const se_GetAccessGrantsLocationCommand = async (
   input: GetAccessGrantsLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AccessGrantsLocationId",
-    () => input.AccessGrantsLocationId!,
-    "{AccessGrantsLocationId}",
-    false
-  );
+  b.bp("/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}");
+  b.p("AccessGrantsLocationId", () => input.AccessGrantsLocationId!, "{AccessGrantsLocationId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2094,15 +1706,9 @@ export const se_GetAccessGrantsLocationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2112,13 +1718,12 @@ export const se_GetAccessPointCommand = async (
   input: GetAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2131,15 +1736,9 @@ export const se_GetAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2149,14 +1748,12 @@ export const se_GetAccessPointConfigurationForObjectLambdaCommand = async (
   input: GetAccessPointConfigurationForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}/configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}/configuration");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2169,15 +1766,9 @@ export const se_GetAccessPointConfigurationForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2187,14 +1778,12 @@ export const se_GetAccessPointForObjectLambdaCommand = async (
   input: GetAccessPointForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2207,15 +1796,9 @@ export const se_GetAccessPointForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2225,13 +1808,12 @@ export const se_GetAccessPointPolicyCommand = async (
   input: GetAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2244,15 +1826,9 @@ export const se_GetAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2262,14 +1838,12 @@ export const se_GetAccessPointPolicyForObjectLambdaCommand = async (
   input: GetAccessPointPolicyForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2282,15 +1856,9 @@ export const se_GetAccessPointPolicyForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2300,14 +1868,12 @@ export const se_GetAccessPointPolicyStatusCommand = async (
   input: GetAccessPointPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspoint/{Name}/policyStatus";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}/policyStatus");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2320,15 +1886,9 @@ export const se_GetAccessPointPolicyStatusCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2338,14 +1898,12 @@ export const se_GetAccessPointPolicyStatusForObjectLambdaCommand = async (
   input: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}/policyStatus";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}/policyStatus");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2358,15 +1916,9 @@ export const se_GetAccessPointPolicyStatusForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2376,13 +1928,12 @@ export const se_GetBucketCommand = async (
   input: GetBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2395,15 +1946,9 @@ export const se_GetBucketCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2413,14 +1958,12 @@ export const se_GetBucketLifecycleConfigurationCommand = async (
   input: GetBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/lifecycleconfiguration");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2433,15 +1976,9 @@ export const se_GetBucketLifecycleConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2451,13 +1988,12 @@ export const se_GetBucketPolicyCommand = async (
   input: GetBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/policy");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2470,15 +2006,9 @@ export const se_GetBucketPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2488,13 +2018,12 @@ export const se_GetBucketReplicationCommand = async (
   input: GetBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/replication";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/replication");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2507,15 +2036,9 @@ export const se_GetBucketReplicationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2525,13 +2048,12 @@ export const se_GetBucketTaggingCommand = async (
   input: GetBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/tagging");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2544,15 +2066,9 @@ export const se_GetBucketTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2562,13 +2078,12 @@ export const se_GetBucketVersioningCommand = async (
   input: GetBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/versioning");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2581,15 +2096,9 @@ export const se_GetBucketVersioningCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2599,19 +2108,17 @@ export const se_GetDataAccessCommand = async (
   input: GetDataAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/dataaccess";
+  b.bp("/v20180820/accessgrantsinstance/dataaccess");
   const query: any = map({
-    target: [, __expectNonNull(input.Target!, `Target`)],
-    permission: [, __expectNonNull(input.Permission!, `Permission`)],
-    durationSeconds: [() => input.DurationSeconds !== void 0, () => input.DurationSeconds!.toString()],
-    privilege: [, input.Privilege!],
-    targetType: [, input.TargetType!],
+    [_t]: [, __expectNonNull(input[_Ta]!, `Target`)],
+    [_p]: [, __expectNonNull(input[_P]!, `Permission`)],
+    [_dS]: [() => input.DurationSeconds !== void 0, () => input[_DS]!.toString()],
+    [_pr]: [, input[_Pri]!],
+    [_tT]: [, input[_TT]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2625,16 +2132,9 @@ export const se_GetDataAccessCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2644,13 +2144,12 @@ export const se_GetJobTaggingCommand = async (
   input: GetJobTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v20180820/jobs/{JobId}/tagging");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2663,15 +2162,9 @@ export const se_GetJobTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2681,13 +2174,12 @@ export const se_GetMultiRegionAccessPointCommand = async (
   input: GetMultiRegionAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
+  b.bp("/v20180820/mrap/instances/{Name+}");
+  b.p("Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2700,15 +2192,9 @@ export const se_GetMultiRegionAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2718,13 +2204,12 @@ export const se_GetMultiRegionAccessPointPolicyCommand = async (
   input: GetMultiRegionAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name+}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
+  b.bp("/v20180820/mrap/instances/{Name+}/policy");
+  b.p("Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2737,15 +2222,9 @@ export const se_GetMultiRegionAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2755,14 +2234,12 @@ export const se_GetMultiRegionAccessPointPolicyStatusCommand = async (
   input: GetMultiRegionAccessPointPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/mrap/instances/{Name+}/policystatus";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
+  b.bp("/v20180820/mrap/instances/{Name+}/policystatus");
+  b.p("Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2775,15 +2252,9 @@ export const se_GetMultiRegionAccessPointPolicyStatusCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2793,13 +2264,12 @@ export const se_GetMultiRegionAccessPointRoutesCommand = async (
   input: GetMultiRegionAccessPointRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Mrap+}/routes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Mrap", () => input.Mrap!, "{Mrap+}", true);
+  b.bp("/v20180820/mrap/instances/{Mrap+}/routes");
+  b.p("Mrap", () => input.Mrap!, "{Mrap+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2812,15 +2282,9 @@ export const se_GetMultiRegionAccessPointRoutesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2830,13 +2294,11 @@ export const se_GetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/configuration/publicAccessBlock";
+  b.bp("/v20180820/configuration/publicAccessBlock");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2849,15 +2311,9 @@ export const se_GetPublicAccessBlockCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2867,13 +2323,12 @@ export const se_GetStorageLensConfigurationCommand = async (
   input: GetStorageLensConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  b.bp("/v20180820/storagelens/{ConfigId}");
+  b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2886,15 +2341,9 @@ export const se_GetStorageLensConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2904,13 +2353,12 @@ export const se_GetStorageLensConfigurationTaggingCommand = async (
   input: GetStorageLensConfigurationTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  b.bp("/v20180820/storagelens/{ConfigId}/tagging");
+  b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2923,15 +2371,9 @@ export const se_GetStorageLensConfigurationTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2941,13 +2383,12 @@ export const se_GetStorageLensGroupCommand = async (
   input: GetStorageLensGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/storagelensgroup/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2960,15 +2401,9 @@ export const se_GetStorageLensGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2978,20 +2413,19 @@ export const se_ListAccessGrantsCommand = async (
   input: ListAccessGrantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/grants";
+  b.bp("/v20180820/accessgrantsinstance/grants");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    granteetype: [, input.GranteeType!],
-    granteeidentifier: [, input.GranteeIdentifier!],
-    permission: [, input.Permission!],
-    grantscope: [, input.GrantScope!],
-    application_arn: [, input.ApplicationArn!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_g]: [, input[_GT]!],
+    [_gr]: [, input[_GI]!],
+    [_p]: [, input[_P]!],
+    [_gra]: [, input[_GS]!],
+    [_aa]: [, input[_AA]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3005,16 +2439,9 @@ export const se_ListAccessGrantsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3024,15 +2451,14 @@ export const se_ListAccessGrantsInstancesCommand = async (
   input: ListAccessGrantsInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstances";
+  b.bp("/v20180820/accessgrantsinstances");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3046,16 +2472,9 @@ export const se_ListAccessGrantsInstancesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3065,16 +2484,15 @@ export const se_ListAccessGrantsLocationsCommand = async (
   input: ListAccessGrantsLocationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accessgrantsinstance/locations";
+  b.bp("/v20180820/accessgrantsinstance/locations");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    locationscope: [, input.LocationScope!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_l]: [, input[_LS]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3088,16 +2506,9 @@ export const se_ListAccessGrantsLocationsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3107,15 +2518,15 @@ export const se_ListAccessPointsCommand = async (
   input: ListAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint";
+  b.bp("/v20180820/accesspoint");
   const query: any = map({
-    bucket: [, input.Bucket!],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_b]: [, input[_B]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3129,16 +2540,9 @@ export const se_ListAccessPointsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3148,15 +2552,14 @@ export const se_ListAccessPointsForObjectLambdaCommand = async (
   input: ListAccessPointsForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspointforobjectlambda";
+  b.bp("/v20180820/accesspointforobjectlambda");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3170,16 +2573,9 @@ export const se_ListAccessPointsForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3189,15 +2585,15 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
+  b.bp("/v20180820/jobs");
   const query: any = map({
-    jobStatuses: [() => input.JobStatuses !== void 0, () => (input.JobStatuses! || []).map((_entry) => _entry as any)],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_jS]: [() => input.JobStatuses !== void 0, () => (input[_JS]! || []).map((_entry) => _entry as any)],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3211,16 +2607,9 @@ export const se_ListJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3230,15 +2619,14 @@ export const se_ListMultiRegionAccessPointsCommand = async (
   input: ListMultiRegionAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances";
+  b.bp("/v20180820/mrap/instances");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3252,16 +2640,9 @@ export const se_ListMultiRegionAccessPointsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3271,15 +2652,15 @@ export const se_ListRegionalBucketsCommand = async (
   input: ListRegionalBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
-    "x-amz-outpost-id": input.OutpostId!,
+    [_xaai]: input[_AI]!,
+    [_xaoi]: input[_OI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
+  b.bp("/v20180820/bucket");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3293,16 +2674,9 @@ export const se_ListRegionalBucketsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3312,13 +2686,13 @@ export const se_ListStorageLensConfigurationsCommand = async (
   input: ListStorageLensConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens";
+  b.bp("/v20180820/storagelens");
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3332,16 +2706,9 @@ export const se_ListStorageLensConfigurationsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3351,14 +2718,13 @@ export const se_ListStorageLensGroupsCommand = async (
   input: ListStorageLensGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup";
+  b.bp("/v20180820/storagelensgroup");
   const query: any = map({
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3372,16 +2738,9 @@ export const se_ListStorageLensGroupsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3391,13 +2750,12 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/tags/{ResourceArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
+  b.bp("/v20180820/tags/{ResourceArn+}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -3410,15 +2768,9 @@ export const se_ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3428,27 +2780,21 @@ export const se_PutAccessGrantsInstanceResourcePolicyCommand = async (
   input: PutAccessGrantsInstanceResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/resourcepolicy";
+  b.bp("/v20180820/accessgrantsinstance/resourcepolicy");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutAccessGrantsInstanceResourcePolicyRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Organization !== undefined) {
-    const node = __XmlNode.of("Organization", input.Organization).withName("Organization");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_PAGIRPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _Or);
+  if (input[_Po] != null) {
+    bn.c(__XmlNode.of(_PD, input[_Po]).n(_Po));
   }
-  if (input.Policy !== undefined) {
-    const node = __XmlNode.of("PolicyDocument", input.Policy).withName("Policy");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3460,15 +2806,9 @@ export const se_PutAccessGrantsInstanceResourcePolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3478,24 +2818,21 @@ export const se_PutAccessPointConfigurationForObjectLambdaCommand = async (
   input: PutAccessPointConfigurationForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}/configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}/configuration");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutAccessPointConfigurationForObjectLambdaRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Configuration !== undefined) {
-    const node = se_ObjectLambdaConfiguration(input.Configuration, context).withName("Configuration");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_PAPCFOLR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_C] != null) {
+    bn.c(se_ObjectLambdaConfiguration(input[_C], context).n(_C));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3507,15 +2844,9 @@ export const se_PutAccessPointConfigurationForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3525,23 +2856,19 @@ export const se_PutAccessPointPolicyCommand = async (
   input: PutAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspoint/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutAccessPointPolicyRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Policy !== undefined) {
-    const node = __XmlNode.of("Policy", input.Policy).withName("Policy");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_PAPPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _Po);
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3553,15 +2880,9 @@ export const se_PutAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3571,24 +2892,21 @@ export const se_PutAccessPointPolicyForObjectLambdaCommand = async (
   input: PutAccessPointPolicyForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accesspointforobjectlambda/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/accesspointforobjectlambda/{Name}/policy");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutAccessPointPolicyForObjectLambdaRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Policy !== undefined) {
-    const node = __XmlNode.of("ObjectLambdaPolicy", input.Policy).withName("Policy");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_PAPPFOLR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_Po] != null) {
+    bn.c(__XmlNode.of(_OLP, input[_Po]).n(_Po));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3600,15 +2918,9 @@ export const se_PutAccessPointPolicyForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3618,21 +2930,19 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
   input: PutBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/lifecycleconfiguration");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = se_LifecycleConfiguration(input.LifecycleConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body = _ve;
+    contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3646,15 +2956,9 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3664,27 +2968,20 @@ export const se_PutBucketPolicyCommand = async (
   input: PutBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
-    "x-amz-confirm-remove-self-bucket-access": [
-      () => isSerializableHeaderValue(input.ConfirmRemoveSelfBucketAccess),
-      () => input.ConfirmRemoveSelfBucketAccess!.toString(),
-    ],
+    [_xaai]: input[_AI]!,
+    [_xacrsba]: [() => isSerializableHeaderValue(input[_CRSBA]), () => input[_CRSBA]!.toString()],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/policy");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutBucketPolicyRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Policy !== undefined) {
-    const node = __XmlNode.of("Policy", input.Policy).withName("Policy");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_PBPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _Po);
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3696,15 +2993,9 @@ export const se_PutBucketPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3714,20 +3005,19 @@ export const se_PutBucketReplicationCommand = async (
   input: PutBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/replication";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/replication");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let contents: any;
   if (input.ReplicationConfiguration !== undefined) {
     contents = se_ReplicationConfiguration(input.ReplicationConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body = _ve;
+    contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3741,15 +3031,9 @@ export const se_PutBucketReplicationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3759,20 +3043,19 @@ export const se_PutBucketTaggingCommand = async (
   input: PutBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/tagging");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = se_Tagging(input.Tagging, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body = _ve;
+    contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3786,15 +3069,9 @@ export const se_PutBucketTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3804,21 +3081,20 @@ export const se_PutBucketVersioningCommand = async (
   input: PutBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
-    "x-amz-mfa": input.MFA!,
+    [_xaai]: input[_AI]!,
+    [_xam]: input[_MFA]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/versioning";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/v20180820/bucket/{Bucket}/versioning");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let contents: any;
   if (input.VersioningConfiguration !== undefined) {
     contents = se_VersioningConfiguration(input.VersioningConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body = _ve;
+    contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3832,15 +3108,9 @@ export const se_PutBucketVersioningCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3850,27 +3120,19 @@ export const se_PutJobTaggingCommand = async (
   input: PutJobTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v20180820/jobs/{JobId}/tagging");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutJobTaggingRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Tags !== undefined) {
-    const nodes = se_S3TagSet(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_PJTR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.lc(input, "Tags", "Tags", () => se_S3TagSet(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3882,15 +3144,9 @@ export const se_PutJobTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3900,29 +3156,26 @@ export const se_PutMultiRegionAccessPointPolicyCommand = async (
   input: PutMultiRegionAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/async-requests/mrap/put-policy";
+  b.bp("/v20180820/async-requests/mrap/put-policy");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutMultiRegionAccessPointPolicyRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
+  body = _ve;
+  const bn = new __XmlNode(_PMRAPPR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_CT] === undefined) {
+    input[_CT] = generateIdempotencyToken();
   }
-  if (input.ClientToken !== undefined) {
-    const node = __XmlNode.of("MultiRegionAccessPointClientToken", input.ClientToken).withName("ClientToken");
-    bodyNode.addChildNode(node);
+  if (input[_CT] != null) {
+    bn.c(__XmlNode.of(_MRAPCT, input[_CT]).n(_CT));
   }
-  if (input.Details !== undefined) {
-    const node = se_PutMultiRegionAccessPointPolicyInput(input.Details, context).withName("Details");
-    bodyNode.addChildNode(node);
+  if (input[_De] != null) {
+    bn.c(se_PutMultiRegionAccessPointPolicyInput(input[_De], context).n(_De));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -3934,15 +3187,9 @@ export const se_PutMultiRegionAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3952,20 +3199,18 @@ export const se_PutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/configuration/publicAccessBlock";
+  b.bp("/v20180820/configuration/publicAccessBlock");
   let body: any;
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+    body = _ve;
+    contents.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3979,15 +3224,9 @@ export const se_PutPublicAccessBlockCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3997,33 +3236,22 @@ export const se_PutStorageLensConfigurationCommand = async (
   input: PutStorageLensConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  b.bp("/v20180820/storagelens/{ConfigId}");
+  b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutStorageLensConfigurationRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.StorageLensConfiguration !== undefined) {
-    const node = se_StorageLensConfiguration(input.StorageLensConfiguration, context).withName(
-      "StorageLensConfiguration"
-    );
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_PSLCR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_SLC] != null) {
+    bn.c(se_StorageLensConfiguration(input[_SLC], context).n(_SLC));
   }
-  if (input.Tags !== undefined) {
-    const nodes = se_StorageLensTags(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  bn.lc(input, "Tags", "Tags", () => se_StorageLensTags(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -4035,15 +3263,9 @@ export const se_PutStorageLensConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4053,27 +3275,19 @@ export const se_PutStorageLensConfigurationTaggingCommand = async (
   input: PutStorageLensConfigurationTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ConfigId", () => input.ConfigId!, "{ConfigId}", false);
+  b.bp("/v20180820/storagelens/{ConfigId}/tagging");
+  b.p("ConfigId", () => input.ConfigId!, "{ConfigId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutStorageLensConfigurationTaggingRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Tags !== undefined) {
-    const nodes = se_StorageLensTags(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_PSLCTR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.lc(input, "Tags", "Tags", () => se_StorageLensTags(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -4085,15 +3299,9 @@ export const se_PutStorageLensConfigurationTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4103,27 +3311,19 @@ export const se_SubmitMultiRegionAccessPointRoutesCommand = async (
   input: SubmitMultiRegionAccessPointRoutesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Mrap+}/routes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Mrap", () => input.Mrap!, "{Mrap+}", true);
+  b.bp("/v20180820/mrap/instances/{Mrap+}/routes");
+  b.p("Mrap", () => input.Mrap!, "{Mrap+}", true);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("SubmitMultiRegionAccessPointRoutesRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.RouteUpdates !== undefined) {
-    const nodes = se_RouteList(input.RouteUpdates, context);
-    const containerNode = new __XmlNode("RouteUpdates");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_SMRAPRR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.lc(input, "RouteUpdates", "RouteUpdates", () => se_RouteList(input[_RU]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -4135,15 +3335,9 @@ export const se_SubmitMultiRegionAccessPointRoutesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4153,27 +3347,19 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/tags/{ResourceArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
+  b.bp("/v20180820/tags/{ResourceArn+}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("TagResourceRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.Tags !== undefined) {
-    const nodes = se_TagList(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_TRR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.lc(input, "Tags", "Tags", () => se_TagList(input[_T]!, context));
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -4185,15 +3371,9 @@ export const se_TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4203,17 +3383,16 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/tags/{ResourceArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
+  b.bp("/v20180820/tags/{ResourceArn+}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn+}", true);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
@@ -4228,16 +3407,9 @@ export const se_UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4247,31 +3419,19 @@ export const se_UpdateAccessGrantsLocationCommand = async (
   input: UpdateAccessGrantsLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AccessGrantsLocationId",
-    () => input.AccessGrantsLocationId!,
-    "{AccessGrantsLocationId}",
-    false
-  );
+  b.bp("/v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}");
+  b.p("AccessGrantsLocationId", () => input.AccessGrantsLocationId!, "{AccessGrantsLocationId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateAccessGrantsLocationRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.IAMRoleArn !== undefined) {
-    const node = __XmlNode.of("IAMRoleArn", input.IAMRoleArn).withName("IAMRoleArn");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
+  body = _ve;
+  const bn = new __XmlNode(_UAGLR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  bn.cc(input, _IAMRA);
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -4283,15 +3443,9 @@ export const se_UpdateAccessGrantsLocationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4301,15 +3455,14 @@ export const se_UpdateJobPriorityCommand = async (
   input: UpdateJobPriorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/priority";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v20180820/jobs/{JobId}/priority");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    priority: [__expectNonNull(input.Priority, `Priority`) != null, () => input.Priority!.toString()],
+    [_pri]: [__expectNonNull(input.Priority, `Priority`) != null, () => input[_Pr]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -4323,16 +3476,9 @@ export const se_UpdateJobPriorityCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4342,16 +3488,15 @@ export const se_UpdateJobStatusCommand = async (
   input: UpdateJobStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/status";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v20180820/jobs/{JobId}/status");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    requestedJobStatus: [, __expectNonNull(input.RequestedJobStatus!, `RequestedJobStatus`)],
-    statusUpdateReason: [, input.StatusUpdateReason!],
+    [_rJS]: [, __expectNonNull(input[_RJS]!, `RequestedJobStatus`)],
+    [_sUR]: [, input[_SUR]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -4365,16 +3510,9 @@ export const se_UpdateJobStatusCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4384,23 +3522,21 @@ export const se_UpdateStorageLensGroupCommand = async (
   input: UpdateStorageLensGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-account-id": input.AccountId!,
+    [_xaai]: input[_AI]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelensgroup/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v20180820/storagelensgroup/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateStorageLensGroupRequest");
-  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
-  if (input.StorageLensGroup !== undefined) {
-    const node = se_StorageLensGroup(input.StorageLensGroup, context).withName("StorageLensGroup");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_USLGR);
+  bn.a("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input[_SLG] != null) {
+    bn.c(se_StorageLensGroup(input[_SLG], context).n(_SLG));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "{AccountId}." + resolvedHostname;
@@ -4412,15 +3548,9 @@ export const se_UpdateStorageLensGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4474,35 +3604,32 @@ export const de_CreateAccessGrantCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantArn"] !== undefined) {
-    contents.AccessGrantArn = __expectString(data["AccessGrantArn"]);
+  if (data[_AGA] != null) {
+    contents[_AGA] = __expectString(data[_AGA]);
   }
-  if (data["AccessGrantId"] !== undefined) {
-    contents.AccessGrantId = __expectString(data["AccessGrantId"]);
+  if (data[_AGI] != null) {
+    contents[_AGI] = __expectString(data[_AGI]);
   }
-  if (data["AccessGrantsLocationConfiguration"] !== undefined) {
-    contents.AccessGrantsLocationConfiguration = de_AccessGrantsLocationConfiguration(
-      data["AccessGrantsLocationConfiguration"],
-      context
-    );
+  if (data[_AGLC] != null) {
+    contents[_AGLC] = de_AccessGrantsLocationConfiguration(data[_AGLC], context);
   }
-  if (data["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  if (data[_AGLI] != null) {
+    contents[_AGLI] = __expectString(data[_AGLI]);
   }
-  if (data["ApplicationArn"] !== undefined) {
-    contents.ApplicationArn = __expectString(data["ApplicationArn"]);
+  if (data[_AA] != null) {
+    contents[_AA] = __expectString(data[_AA]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["GrantScope"] !== undefined) {
-    contents.GrantScope = __expectString(data["GrantScope"]);
+  if (data[_GS] != null) {
+    contents[_GS] = __expectString(data[_GS]);
   }
-  if (data["Grantee"] !== undefined) {
-    contents.Grantee = de_Grantee(data["Grantee"], context);
+  if (data[_G] != null) {
+    contents[_G] = de_Grantee(data[_G], context);
   }
-  if (data["Permission"] !== undefined) {
-    contents.Permission = __expectString(data["Permission"]);
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
   return contents;
 };
@@ -4541,17 +3668,17 @@ export const de_CreateAccessGrantsInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantsInstanceArn"] !== undefined) {
-    contents.AccessGrantsInstanceArn = __expectString(data["AccessGrantsInstanceArn"]);
+  if (data[_AGIA] != null) {
+    contents[_AGIA] = __expectString(data[_AGIA]);
   }
-  if (data["AccessGrantsInstanceId"] !== undefined) {
-    contents.AccessGrantsInstanceId = __expectString(data["AccessGrantsInstanceId"]);
+  if (data[_AGII] != null) {
+    contents[_AGII] = __expectString(data[_AGII]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["IdentityCenterArn"] !== undefined) {
-    contents.IdentityCenterArn = __expectString(data["IdentityCenterArn"]);
+  if (data[_ICA] != null) {
+    contents[_ICA] = __expectString(data[_ICA]);
   }
   return contents;
 };
@@ -4590,20 +3717,20 @@ export const de_CreateAccessGrantsLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantsLocationArn"] !== undefined) {
-    contents.AccessGrantsLocationArn = __expectString(data["AccessGrantsLocationArn"]);
+  if (data[_AGLA] != null) {
+    contents[_AGLA] = __expectString(data[_AGLA]);
   }
-  if (data["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  if (data[_AGLI] != null) {
+    contents[_AGLI] = __expectString(data[_AGLI]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["IAMRoleArn"] !== undefined) {
-    contents.IAMRoleArn = __expectString(data["IAMRoleArn"]);
+  if (data[_IAMRA] != null) {
+    contents[_IAMRA] = __expectString(data[_IAMRA]);
   }
-  if (data["LocationScope"] !== undefined) {
-    contents.LocationScope = __expectString(data["LocationScope"]);
+  if (data[_LS] != null) {
+    contents[_LS] = __expectString(data[_LS]);
   }
   return contents;
 };
@@ -4642,11 +3769,11 @@ export const de_CreateAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessPointArn"] !== undefined) {
-    contents.AccessPointArn = __expectString(data["AccessPointArn"]);
+  if (data[_APA] != null) {
+    contents[_APA] = __expectString(data[_APA]);
   }
-  if (data["Alias"] !== undefined) {
-    contents.Alias = __expectString(data["Alias"]);
+  if (data[_A] != null) {
+    contents[_A] = __expectString(data[_A]);
   }
   return contents;
 };
@@ -4685,11 +3812,11 @@ export const de_CreateAccessPointForObjectLambdaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Alias"] !== undefined) {
-    contents.Alias = de_ObjectLambdaAccessPointAlias(data["Alias"], context);
+  if (data[_A] != null) {
+    contents[_A] = de_ObjectLambdaAccessPointAlias(data[_A], context);
   }
-  if (data["ObjectLambdaAccessPointArn"] !== undefined) {
-    contents.ObjectLambdaAccessPointArn = __expectString(data["ObjectLambdaAccessPointArn"]);
+  if (data[_OLAPA] != null) {
+    contents[_OLAPA] = __expectString(data[_OLAPA]);
   }
   return contents;
 };
@@ -4726,11 +3853,11 @@ export const de_CreateBucketCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_lo]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["BucketArn"] !== undefined) {
-    contents.BucketArn = __expectString(data["BucketArn"]);
+  if (data[_BA] != null) {
+    contents[_BA] = __expectString(data[_BA]);
   }
   return contents;
 };
@@ -4778,8 +3905,8 @@ export const de_CreateJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["JobId"] !== undefined) {
-    contents.JobId = __expectString(data["JobId"]);
+  if (data[_JI] != null) {
+    contents[_JI] = __expectString(data[_JI]);
   }
   return contents;
 };
@@ -4833,8 +3960,8 @@ export const de_CreateMultiRegionAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["RequestTokenARN"] !== undefined) {
-    contents.RequestTokenARN = __expectString(data["RequestTokenARN"]);
+  if (data[_RTARN] != null) {
+    contents[_RTARN] = __expectString(data[_RTARN]);
   }
   return contents;
 };
@@ -5440,8 +4567,8 @@ export const de_DeleteMultiRegionAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["RequestTokenARN"] !== undefined) {
-    contents.RequestTokenARN = __expectString(data["RequestTokenARN"]);
+  if (data[_RTARN] != null) {
+    contents[_RTARN] = __expectString(data[_RTARN]);
   }
   return contents;
 };
@@ -5628,8 +4755,8 @@ export const de_DescribeJobCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Job"] !== undefined) {
-    contents.Job = de_JobDescriptor(data["Job"], context);
+  if (data[_J] != null) {
+    contents[_J] = de_JobDescriptor(data[_J], context);
   }
   return contents;
 };
@@ -5683,8 +4810,8 @@ export const de_DescribeMultiRegionAccessPointOperationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AsyncOperation"] !== undefined) {
-    contents.AsyncOperation = de_AsyncOperation(data["AsyncOperation"], context);
+  if (data[_AO] != null) {
+    contents[_AO] = de_AsyncOperation(data[_AO], context);
   }
   return contents;
 };
@@ -5760,35 +4887,32 @@ export const de_GetAccessGrantCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantArn"] !== undefined) {
-    contents.AccessGrantArn = __expectString(data["AccessGrantArn"]);
+  if (data[_AGA] != null) {
+    contents[_AGA] = __expectString(data[_AGA]);
   }
-  if (data["AccessGrantId"] !== undefined) {
-    contents.AccessGrantId = __expectString(data["AccessGrantId"]);
+  if (data[_AGI] != null) {
+    contents[_AGI] = __expectString(data[_AGI]);
   }
-  if (data["AccessGrantsLocationConfiguration"] !== undefined) {
-    contents.AccessGrantsLocationConfiguration = de_AccessGrantsLocationConfiguration(
-      data["AccessGrantsLocationConfiguration"],
-      context
-    );
+  if (data[_AGLC] != null) {
+    contents[_AGLC] = de_AccessGrantsLocationConfiguration(data[_AGLC], context);
   }
-  if (data["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  if (data[_AGLI] != null) {
+    contents[_AGLI] = __expectString(data[_AGLI]);
   }
-  if (data["ApplicationArn"] !== undefined) {
-    contents.ApplicationArn = __expectString(data["ApplicationArn"]);
+  if (data[_AA] != null) {
+    contents[_AA] = __expectString(data[_AA]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["GrantScope"] !== undefined) {
-    contents.GrantScope = __expectString(data["GrantScope"]);
+  if (data[_GS] != null) {
+    contents[_GS] = __expectString(data[_GS]);
   }
-  if (data["Grantee"] !== undefined) {
-    contents.Grantee = de_Grantee(data["Grantee"], context);
+  if (data[_G] != null) {
+    contents[_G] = de_Grantee(data[_G], context);
   }
-  if (data["Permission"] !== undefined) {
-    contents.Permission = __expectString(data["Permission"]);
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
   return contents;
 };
@@ -5827,17 +4951,17 @@ export const de_GetAccessGrantsInstanceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantsInstanceArn"] !== undefined) {
-    contents.AccessGrantsInstanceArn = __expectString(data["AccessGrantsInstanceArn"]);
+  if (data[_AGIA] != null) {
+    contents[_AGIA] = __expectString(data[_AGIA]);
   }
-  if (data["AccessGrantsInstanceId"] !== undefined) {
-    contents.AccessGrantsInstanceId = __expectString(data["AccessGrantsInstanceId"]);
+  if (data[_AGII] != null) {
+    contents[_AGII] = __expectString(data[_AGII]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["IdentityCenterArn"] !== undefined) {
-    contents.IdentityCenterArn = __expectString(data["IdentityCenterArn"]);
+  if (data[_ICA] != null) {
+    contents[_ICA] = __expectString(data[_ICA]);
   }
   return contents;
 };
@@ -5876,11 +5000,11 @@ export const de_GetAccessGrantsInstanceForPrefixCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantsInstanceArn"] !== undefined) {
-    contents.AccessGrantsInstanceArn = __expectString(data["AccessGrantsInstanceArn"]);
+  if (data[_AGIA] != null) {
+    contents[_AGIA] = __expectString(data[_AGIA]);
   }
-  if (data["AccessGrantsInstanceId"] !== undefined) {
-    contents.AccessGrantsInstanceId = __expectString(data["AccessGrantsInstanceId"]);
+  if (data[_AGII] != null) {
+    contents[_AGII] = __expectString(data[_AGII]);
   }
   return contents;
 };
@@ -5919,14 +5043,14 @@ export const de_GetAccessGrantsInstanceResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["Organization"] !== undefined) {
-    contents.Organization = __expectString(data["Organization"]);
+  if (data[_Or] != null) {
+    contents[_Or] = __expectString(data[_Or]);
   }
-  if (data["Policy"] !== undefined) {
-    contents.Policy = __expectString(data["Policy"]);
+  if (data[_Po] != null) {
+    contents[_Po] = __expectString(data[_Po]);
   }
   return contents;
 };
@@ -5965,20 +5089,20 @@ export const de_GetAccessGrantsLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantsLocationArn"] !== undefined) {
-    contents.AccessGrantsLocationArn = __expectString(data["AccessGrantsLocationArn"]);
+  if (data[_AGLA] != null) {
+    contents[_AGLA] = __expectString(data[_AGLA]);
   }
-  if (data["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  if (data[_AGLI] != null) {
+    contents[_AGLI] = __expectString(data[_AGLI]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["IAMRoleArn"] !== undefined) {
-    contents.IAMRoleArn = __expectString(data["IAMRoleArn"]);
+  if (data[_IAMRA] != null) {
+    contents[_IAMRA] = __expectString(data[_IAMRA]);
   }
-  if (data["LocationScope"] !== undefined) {
-    contents.LocationScope = __expectString(data["LocationScope"]);
+  if (data[_LS] != null) {
+    contents[_LS] = __expectString(data[_LS]);
   }
   return contents;
 };
@@ -6017,40 +5141,37 @@ export const de_GetAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessPointArn"] !== undefined) {
-    contents.AccessPointArn = __expectString(data["AccessPointArn"]);
+  if (data[_APA] != null) {
+    contents[_APA] = __expectString(data[_APA]);
   }
-  if (data["Alias"] !== undefined) {
-    contents.Alias = __expectString(data["Alias"]);
+  if (data[_A] != null) {
+    contents[_A] = __expectString(data[_A]);
   }
-  if (data["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(data["Bucket"]);
+  if (data[_B] != null) {
+    contents[_B] = __expectString(data[_B]);
   }
-  if (data["BucketAccountId"] !== undefined) {
-    contents.BucketAccountId = __expectString(data["BucketAccountId"]);
+  if (data[_BAI] != null) {
+    contents[_BAI] = __expectString(data[_BAI]);
   }
-  if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
+  if (data[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CD]));
   }
   if (data.Endpoints === "") {
-    contents.Endpoints = {};
-  } else if (data["Endpoints"] !== undefined && data["Endpoints"]["entry"] !== undefined) {
-    contents.Endpoints = de_Endpoints(__getArrayIfSingleItem(data["Endpoints"]["entry"]), context);
+    contents[_E] = {};
+  } else if (data[_E] != null && data[_E][_e] != null) {
+    contents[_E] = de_Endpoints(__getArrayIfSingleItem(data[_E][_e]), context);
   }
-  if (data["Name"] !== undefined) {
-    contents.Name = __expectString(data["Name"]);
+  if (data[_N] != null) {
+    contents[_N] = __expectString(data[_N]);
   }
-  if (data["NetworkOrigin"] !== undefined) {
-    contents.NetworkOrigin = __expectString(data["NetworkOrigin"]);
+  if (data[_NO] != null) {
+    contents[_NO] = __expectString(data[_NO]);
   }
-  if (data["PublicAccessBlockConfiguration"] !== undefined) {
-    contents.PublicAccessBlockConfiguration = de_PublicAccessBlockConfiguration(
-      data["PublicAccessBlockConfiguration"],
-      context
-    );
+  if (data[_PABC] != null) {
+    contents[_PABC] = de_PublicAccessBlockConfiguration(data[_PABC], context);
   }
-  if (data["VpcConfiguration"] !== undefined) {
-    contents.VpcConfiguration = de_VpcConfiguration(data["VpcConfiguration"], context);
+  if (data[_VC] != null) {
+    contents[_VC] = de_VpcConfiguration(data[_VC], context);
   }
   return contents;
 };
@@ -6089,8 +5210,8 @@ export const de_GetAccessPointConfigurationForObjectLambdaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Configuration"] !== undefined) {
-    contents.Configuration = de_ObjectLambdaConfiguration(data["Configuration"], context);
+  if (data[_C] != null) {
+    contents[_C] = de_ObjectLambdaConfiguration(data[_C], context);
   }
   return contents;
 };
@@ -6129,20 +5250,17 @@ export const de_GetAccessPointForObjectLambdaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Alias"] !== undefined) {
-    contents.Alias = de_ObjectLambdaAccessPointAlias(data["Alias"], context);
+  if (data[_A] != null) {
+    contents[_A] = de_ObjectLambdaAccessPointAlias(data[_A], context);
   }
-  if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
+  if (data[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CD]));
   }
-  if (data["Name"] !== undefined) {
-    contents.Name = __expectString(data["Name"]);
+  if (data[_N] != null) {
+    contents[_N] = __expectString(data[_N]);
   }
-  if (data["PublicAccessBlockConfiguration"] !== undefined) {
-    contents.PublicAccessBlockConfiguration = de_PublicAccessBlockConfiguration(
-      data["PublicAccessBlockConfiguration"],
-      context
-    );
+  if (data[_PABC] != null) {
+    contents[_PABC] = de_PublicAccessBlockConfiguration(data[_PABC], context);
   }
   return contents;
 };
@@ -6181,8 +5299,8 @@ export const de_GetAccessPointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Policy"] !== undefined) {
-    contents.Policy = __expectString(data["Policy"]);
+  if (data[_Po] != null) {
+    contents[_Po] = __expectString(data[_Po]);
   }
   return contents;
 };
@@ -6221,8 +5339,8 @@ export const de_GetAccessPointPolicyForObjectLambdaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Policy"] !== undefined) {
-    contents.Policy = __expectString(data["Policy"]);
+  if (data[_Po] != null) {
+    contents[_Po] = __expectString(data[_Po]);
   }
   return contents;
 };
@@ -6261,8 +5379,8 @@ export const de_GetAccessPointPolicyStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["PolicyStatus"] !== undefined) {
-    contents.PolicyStatus = de_PolicyStatus(data["PolicyStatus"], context);
+  if (data[_PS] != null) {
+    contents[_PS] = de_PolicyStatus(data[_PS], context);
   }
   return contents;
 };
@@ -6301,8 +5419,8 @@ export const de_GetAccessPointPolicyStatusForObjectLambdaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["PolicyStatus"] !== undefined) {
-    contents.PolicyStatus = de_PolicyStatus(data["PolicyStatus"], context);
+  if (data[_PS] != null) {
+    contents[_PS] = de_PolicyStatus(data[_PS], context);
   }
   return contents;
 };
@@ -6341,14 +5459,14 @@ export const de_GetBucketCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(data["Bucket"]);
+  if (data[_B] != null) {
+    contents[_B] = __expectString(data[_B]);
   }
-  if (data["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
+  if (data[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CD]));
   }
-  if (data["PublicAccessBlockEnabled"] !== undefined) {
-    contents.PublicAccessBlockEnabled = __parseBoolean(data["PublicAccessBlockEnabled"]);
+  if (data[_PABE] != null) {
+    contents[_PABE] = __parseBoolean(data[_PABE]);
   }
   return contents;
 };
@@ -6388,9 +5506,9 @@ export const de_GetBucketLifecycleConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Rules === "") {
-    contents.Rules = [];
-  } else if (data["Rules"] !== undefined && data["Rules"]["Rule"] !== undefined) {
-    contents.Rules = de_LifecycleRules(__getArrayIfSingleItem(data["Rules"]["Rule"]), context);
+    contents[_Ru] = [];
+  } else if (data[_Ru] != null && data[_Ru][_Rul] != null) {
+    contents[_Ru] = de_LifecycleRules(__getArrayIfSingleItem(data[_Ru][_Rul]), context);
   }
   return contents;
 };
@@ -6429,8 +5547,8 @@ export const de_GetBucketPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Policy"] !== undefined) {
-    contents.Policy = __expectString(data["Policy"]);
+  if (data[_Po] != null) {
+    contents[_Po] = __expectString(data[_Po]);
   }
   return contents;
 };
@@ -6469,8 +5587,8 @@ export const de_GetBucketReplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ReplicationConfiguration"] !== undefined) {
-    contents.ReplicationConfiguration = de_ReplicationConfiguration(data["ReplicationConfiguration"], context);
+  if (data[_RC] != null) {
+    contents[_RC] = de_ReplicationConfiguration(data[_RC], context);
   }
   return contents;
 };
@@ -6510,9 +5628,9 @@ export const de_GetBucketTaggingCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TagSet === "") {
-    contents.TagSet = [];
-  } else if (data["TagSet"] !== undefined && data["TagSet"]["member"] !== undefined) {
-    contents.TagSet = de_S3TagSet(__getArrayIfSingleItem(data["TagSet"]["member"]), context);
+    contents[_TS] = [];
+  } else if (data[_TS] != null && data[_TS][_m] != null) {
+    contents[_TS] = de_S3TagSet(__getArrayIfSingleItem(data[_TS][_m]), context);
   }
   return contents;
 };
@@ -6551,11 +5669,11 @@ export const de_GetBucketVersioningCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["MfaDelete"] !== undefined) {
-    contents.MFADelete = __expectString(data["MfaDelete"]);
+  if (data[_MD] != null) {
+    contents[_MFAD] = __expectString(data[_MD]);
   }
-  if (data["Status"] !== undefined) {
-    contents.Status = __expectString(data["Status"]);
+  if (data[_S] != null) {
+    contents[_S] = __expectString(data[_S]);
   }
   return contents;
 };
@@ -6594,11 +5712,11 @@ export const de_GetDataAccessCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Credentials"] !== undefined) {
-    contents.Credentials = de_Credentials(data["Credentials"], context);
+  if (data[_Cr] != null) {
+    contents[_Cr] = de_Credentials(data[_Cr], context);
   }
-  if (data["MatchedGrantTarget"] !== undefined) {
-    contents.MatchedGrantTarget = __expectString(data["MatchedGrantTarget"]);
+  if (data[_MGT] != null) {
+    contents[_MGT] = __expectString(data[_MGT]);
   }
   return contents;
 };
@@ -6638,9 +5756,9 @@ export const de_GetJobTaggingCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags === "") {
-    contents.Tags = [];
-  } else if (data["Tags"] !== undefined && data["Tags"]["member"] !== undefined) {
-    contents.Tags = de_S3TagSet(__getArrayIfSingleItem(data["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (data[_T] != null && data[_T][_m] != null) {
+    contents[_T] = de_S3TagSet(__getArrayIfSingleItem(data[_T][_m]), context);
   }
   return contents;
 };
@@ -6691,8 +5809,8 @@ export const de_GetMultiRegionAccessPointCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessPoint"] !== undefined) {
-    contents.AccessPoint = de_MultiRegionAccessPointReport(data["AccessPoint"], context);
+  if (data[_AP] != null) {
+    contents[_AP] = de_MultiRegionAccessPointReport(data[_AP], context);
   }
   return contents;
 };
@@ -6731,8 +5849,8 @@ export const de_GetMultiRegionAccessPointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Policy"] !== undefined) {
-    contents.Policy = de_MultiRegionAccessPointPolicyDocument(data["Policy"], context);
+  if (data[_Po] != null) {
+    contents[_Po] = de_MultiRegionAccessPointPolicyDocument(data[_Po], context);
   }
   return contents;
 };
@@ -6771,8 +5889,8 @@ export const de_GetMultiRegionAccessPointPolicyStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Established"] !== undefined) {
-    contents.Established = de_PolicyStatus(data["Established"], context);
+  if (data[_Es] != null) {
+    contents[_Es] = de_PolicyStatus(data[_Es], context);
   }
   return contents;
 };
@@ -6811,13 +5929,13 @@ export const de_GetMultiRegionAccessPointRoutesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Mrap"] !== undefined) {
-    contents.Mrap = __expectString(data["Mrap"]);
+  if (data[_Mr] != null) {
+    contents[_Mr] = __expectString(data[_Mr]);
   }
   if (data.Routes === "") {
-    contents.Routes = [];
-  } else if (data["Routes"] !== undefined && data["Routes"]["Route"] !== undefined) {
-    contents.Routes = de_RouteList(__getArrayIfSingleItem(data["Routes"]["Route"]), context);
+    contents[_Ro] = [];
+  } else if (data[_Ro] != null && data[_Ro][_Rou] != null) {
+    contents[_Ro] = de_RouteList(__getArrayIfSingleItem(data[_Ro][_Rou]), context);
   }
   return contents;
 };
@@ -6939,9 +6057,9 @@ export const de_GetStorageLensConfigurationTaggingCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags === "") {
-    contents.Tags = [];
-  } else if (data["Tags"] !== undefined && data["Tags"]["Tag"] !== undefined) {
-    contents.Tags = de_StorageLensTags(__getArrayIfSingleItem(data["Tags"]["Tag"]), context);
+    contents[_T] = [];
+  } else if (data[_T] != null && data[_T][_Tag] != null) {
+    contents[_T] = de_StorageLensTags(__getArrayIfSingleItem(data[_T][_Tag]), context);
   }
   return contents;
 };
@@ -7019,15 +6137,12 @@ export const de_ListAccessGrantsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessGrantsList === "") {
-    contents.AccessGrantsList = [];
-  } else if (data["AccessGrantsList"] !== undefined && data["AccessGrantsList"]["AccessGrant"] !== undefined) {
-    contents.AccessGrantsList = de_AccessGrantsList(
-      __getArrayIfSingleItem(data["AccessGrantsList"]["AccessGrant"]),
-      context
-    );
+    contents[_AGL] = [];
+  } else if (data[_AGL] != null && data[_AGL][_AG] != null) {
+    contents[_AGL] = de_AccessGrantsList(__getArrayIfSingleItem(data[_AGL][_AG]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -7067,18 +6182,12 @@ export const de_ListAccessGrantsInstancesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessGrantsInstancesList === "") {
-    contents.AccessGrantsInstancesList = [];
-  } else if (
-    data["AccessGrantsInstancesList"] !== undefined &&
-    data["AccessGrantsInstancesList"]["AccessGrantsInstance"] !== undefined
-  ) {
-    contents.AccessGrantsInstancesList = de_AccessGrantsInstancesList(
-      __getArrayIfSingleItem(data["AccessGrantsInstancesList"]["AccessGrantsInstance"]),
-      context
-    );
+    contents[_AGIL] = [];
+  } else if (data[_AGIL] != null && data[_AGIL][_AGIc] != null) {
+    contents[_AGIL] = de_AccessGrantsInstancesList(__getArrayIfSingleItem(data[_AGIL][_AGIc]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -7118,18 +6227,12 @@ export const de_ListAccessGrantsLocationsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessGrantsLocationsList === "") {
-    contents.AccessGrantsLocationsList = [];
-  } else if (
-    data["AccessGrantsLocationsList"] !== undefined &&
-    data["AccessGrantsLocationsList"]["AccessGrantsLocation"] !== undefined
-  ) {
-    contents.AccessGrantsLocationsList = de_AccessGrantsLocationsList(
-      __getArrayIfSingleItem(data["AccessGrantsLocationsList"]["AccessGrantsLocation"]),
-      context
-    );
+    contents[_AGLL] = [];
+  } else if (data[_AGLL] != null && data[_AGLL][_AGLc] != null) {
+    contents[_AGLL] = de_AccessGrantsLocationsList(__getArrayIfSingleItem(data[_AGLL][_AGLc]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -7169,15 +6272,12 @@ export const de_ListAccessPointsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessPointList === "") {
-    contents.AccessPointList = [];
-  } else if (data["AccessPointList"] !== undefined && data["AccessPointList"]["AccessPoint"] !== undefined) {
-    contents.AccessPointList = de_AccessPointList(
-      __getArrayIfSingleItem(data["AccessPointList"]["AccessPoint"]),
-      context
-    );
+    contents[_APL] = [];
+  } else if (data[_APL] != null && data[_APL][_AP] != null) {
+    contents[_APL] = de_AccessPointList(__getArrayIfSingleItem(data[_APL][_AP]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -7216,19 +6316,13 @@ export const de_ListAccessPointsForObjectLambdaCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   if (data.ObjectLambdaAccessPointList === "") {
-    contents.ObjectLambdaAccessPointList = [];
-  } else if (
-    data["ObjectLambdaAccessPointList"] !== undefined &&
-    data["ObjectLambdaAccessPointList"]["ObjectLambdaAccessPoint"] !== undefined
-  ) {
-    contents.ObjectLambdaAccessPointList = de_ObjectLambdaAccessPointList(
-      __getArrayIfSingleItem(data["ObjectLambdaAccessPointList"]["ObjectLambdaAccessPoint"]),
-      context
-    );
+    contents[_OLAPL] = [];
+  } else if (data[_OLAPL] != null && data[_OLAPL][_OLAP] != null) {
+    contents[_OLAPL] = de_ObjectLambdaAccessPointList(__getArrayIfSingleItem(data[_OLAPL][_OLAP]), context);
   }
   return contents;
 };
@@ -7268,12 +6362,12 @@ export const de_ListJobsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Jobs === "") {
-    contents.Jobs = [];
-  } else if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
-    contents.Jobs = de_JobListDescriptorList(__getArrayIfSingleItem(data["Jobs"]["member"]), context);
+    contents[_Jo] = [];
+  } else if (data[_Jo] != null && data[_Jo][_m] != null) {
+    contents[_Jo] = de_JobListDescriptorList(__getArrayIfSingleItem(data[_Jo][_m]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -7325,15 +6419,12 @@ export const de_ListMultiRegionAccessPointsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessPoints === "") {
-    contents.AccessPoints = [];
-  } else if (data["AccessPoints"] !== undefined && data["AccessPoints"]["AccessPoint"] !== undefined) {
-    contents.AccessPoints = de_MultiRegionAccessPointReportList(
-      __getArrayIfSingleItem(data["AccessPoints"]["AccessPoint"]),
-      context
-    );
+    contents[_APc] = [];
+  } else if (data[_APc] != null && data[_APc][_AP] != null) {
+    contents[_APc] = de_MultiRegionAccessPointReportList(__getArrayIfSingleItem(data[_APc][_AP]), context);
   }
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   return contents;
 };
@@ -7372,16 +6463,13 @@ export const de_ListRegionalBucketsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   if (data.RegionalBucketList === "") {
-    contents.RegionalBucketList = [];
-  } else if (data["RegionalBucketList"] !== undefined && data["RegionalBucketList"]["RegionalBucket"] !== undefined) {
-    contents.RegionalBucketList = de_RegionalBucketList(
-      __getArrayIfSingleItem(data["RegionalBucketList"]["RegionalBucket"]),
-      context
-    );
+    contents[_RBL] = [];
+  } else if (data[_RBL] != null && data[_RBL][_RB] != null) {
+    contents[_RBL] = de_RegionalBucketList(__getArrayIfSingleItem(data[_RBL][_RB]), context);
   }
   return contents;
 };
@@ -7420,16 +6508,13 @@ export const de_ListStorageLensConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   if (data.StorageLensConfigurationList === "") {
-    contents.StorageLensConfigurationList = [];
-  } else if (data["StorageLensConfigurationList"] !== undefined) {
-    contents.StorageLensConfigurationList = de_StorageLensConfigurationList(
-      __getArrayIfSingleItem(data["StorageLensConfigurationList"]),
-      context
-    );
+    contents[_SLCL] = [];
+  } else if (data[_SLCL] != null) {
+    contents[_SLCL] = de_StorageLensConfigurationList(__getArrayIfSingleItem(data[_SLCL]), context);
   }
   return contents;
 };
@@ -7468,16 +6553,13 @@ export const de_ListStorageLensGroupsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(data["NextToken"]);
+  if (data[_NT] != null) {
+    contents[_NT] = __expectString(data[_NT]);
   }
   if (data.StorageLensGroupList === "") {
-    contents.StorageLensGroupList = [];
-  } else if (data["StorageLensGroupList"] !== undefined) {
-    contents.StorageLensGroupList = de_StorageLensGroupList(
-      __getArrayIfSingleItem(data["StorageLensGroupList"]),
-      context
-    );
+    contents[_SLGL] = [];
+  } else if (data[_SLGL] != null) {
+    contents[_SLGL] = de_StorageLensGroupList(__getArrayIfSingleItem(data[_SLGL]), context);
   }
   return contents;
 };
@@ -7517,9 +6599,9 @@ export const de_ListTagsForResourceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Tags === "") {
-    contents.Tags = [];
-  } else if (data["Tags"] !== undefined && data["Tags"]["Tag"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(data["Tags"]["Tag"]), context);
+    contents[_T] = [];
+  } else if (data[_T] != null && data[_T][_Tag] != null) {
+    contents[_T] = de_TagList(__getArrayIfSingleItem(data[_T][_Tag]), context);
   }
   return contents;
 };
@@ -7558,14 +6640,14 @@ export const de_PutAccessGrantsInstanceResourcePolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["Organization"] !== undefined) {
-    contents.Organization = __expectString(data["Organization"]);
+  if (data[_Or] != null) {
+    contents[_Or] = __expectString(data[_Or]);
   }
-  if (data["Policy"] !== undefined) {
-    contents.Policy = __expectString(data["Policy"]);
+  if (data[_Po] != null) {
+    contents[_Po] = __expectString(data[_Po]);
   }
   return contents;
 };
@@ -7952,8 +7034,8 @@ export const de_PutMultiRegionAccessPointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["RequestTokenARN"] !== undefined) {
-    contents.RequestTokenARN = __expectString(data["RequestTokenARN"]);
+  if (data[_RTARN] != null) {
+    contents[_RTARN] = __expectString(data[_RTARN]);
   }
   return contents;
 };
@@ -8214,20 +7296,20 @@ export const de_UpdateAccessGrantsLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["AccessGrantsLocationArn"] !== undefined) {
-    contents.AccessGrantsLocationArn = __expectString(data["AccessGrantsLocationArn"]);
+  if (data[_AGLA] != null) {
+    contents[_AGLA] = __expectString(data[_AGLA]);
   }
-  if (data["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(data["AccessGrantsLocationId"]);
+  if (data[_AGLI] != null) {
+    contents[_AGLI] = __expectString(data[_AGLI]);
   }
-  if (data["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreatedAt"]));
+  if (data[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_CA]));
   }
-  if (data["IAMRoleArn"] !== undefined) {
-    contents.IAMRoleArn = __expectString(data["IAMRoleArn"]);
+  if (data[_IAMRA] != null) {
+    contents[_IAMRA] = __expectString(data[_IAMRA]);
   }
-  if (data["LocationScope"] !== undefined) {
-    contents.LocationScope = __expectString(data["LocationScope"]);
+  if (data[_LS] != null) {
+    contents[_LS] = __expectString(data[_LS]);
   }
   return contents;
 };
@@ -8266,11 +7348,11 @@ export const de_UpdateJobPriorityCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["JobId"] !== undefined) {
-    contents.JobId = __expectString(data["JobId"]);
+  if (data[_JI] != null) {
+    contents[_JI] = __expectString(data[_JI]);
   }
-  if (data["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt32(data["Priority"]) as number;
+  if (data[_Pr] != null) {
+    contents[_Pr] = __strictParseInt32(data[_Pr]) as number;
   }
   return contents;
 };
@@ -8324,14 +7406,14 @@ export const de_UpdateJobStatusCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["JobId"] !== undefined) {
-    contents.JobId = __expectString(data["JobId"]);
+  if (data[_JI] != null) {
+    contents[_JI] = __expectString(data[_JI]);
   }
-  if (data["Status"] !== undefined) {
-    contents.Status = __expectString(data["Status"]);
+  if (data[_S] != null) {
+    contents[_S] = __expectString(data[_S]);
   }
-  if (data["StatusUpdateReason"] !== undefined) {
-    contents.StatusUpdateReason = __expectString(data["StatusUpdateReason"]);
+  if (data[_SUR] != null) {
+    contents[_SUR] = __expectString(data[_SUR]);
   }
   return contents;
 };
@@ -8418,8 +7500,8 @@ const throwDefaultError = withBaseException(__BaseException);
 const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<BadRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8466,8 +7548,8 @@ const de_IdempotencyExceptionRes = async (
 ): Promise<IdempotencyException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new IdempotencyException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8485,8 +7567,8 @@ const de_InternalServiceExceptionRes = async (
 ): Promise<InternalServiceException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8504,8 +7586,8 @@ const de_InvalidNextTokenExceptionRes = async (
 ): Promise<InvalidNextTokenException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8523,8 +7605,8 @@ const de_InvalidRequestExceptionRes = async (
 ): Promise<InvalidRequestException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8539,8 +7621,8 @@ const de_InvalidRequestExceptionRes = async (
 const de_JobStatusExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<JobStatusException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new JobStatusException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8558,8 +7640,8 @@ const de_NoSuchPublicAccessBlockConfigurationRes = async (
 ): Promise<NoSuchPublicAccessBlockConfiguration> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchPublicAccessBlockConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8574,8 +7656,8 @@ const de_NoSuchPublicAccessBlockConfigurationRes = async (
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8593,8 +7675,8 @@ const de_TooManyRequestsExceptionRes = async (
 ): Promise<TooManyRequestsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8612,8 +7694,8 @@ const de_TooManyTagsExceptionRes = async (
 ): Promise<TooManyTagsException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8626,24 +7708,22 @@ const de_TooManyTagsExceptionRes = async (
  * serializeAws_restXmlAbortIncompleteMultipartUpload
  */
 const se_AbortIncompleteMultipartUpload = (input: AbortIncompleteMultipartUpload, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AbortIncompleteMultipartUpload");
-  if (input.DaysAfterInitiation != null) {
-    const node = __XmlNode.of("DaysAfterInitiation", String(input.DaysAfterInitiation)).withName("DaysAfterInitiation");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AIMU);
+  if (input[_DAI] != null) {
+    bn.c(__XmlNode.of(_DAI, String(input[_DAI])).n(_DAI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAccessControlTranslation
  */
 const se_AccessControlTranslation = (input: AccessControlTranslation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AccessControlTranslation");
-  if (input.Owner != null) {
-    const node = __XmlNode.of("OwnerOverride", input.Owner).withName("Owner");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ACT);
+  if (input[_Ow] != null) {
+    bn.c(__XmlNode.of(_OO, input[_Ow]).n(_Ow));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8653,136 +7733,107 @@ const se_AccessGrantsLocationConfiguration = (
   input: AccessGrantsLocationConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("AccessGrantsLocationConfiguration");
-  if (input.S3SubPrefix != null) {
-    const node = __XmlNode.of("S3Prefix", input.S3SubPrefix).withName("S3SubPrefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AGLC);
+  if (input[_SSP] != null) {
+    bn.c(__XmlNode.of(_SP, input[_SSP]).n(_SSP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAccountLevel
  */
 const se_AccountLevel = (input: AccountLevel, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AccountLevel");
-  if (input.ActivityMetrics != null) {
-    const node = se_ActivityMetrics(input.ActivityMetrics, context).withName("ActivityMetrics");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AL);
+  if (input[_AM] != null) {
+    bn.c(se_ActivityMetrics(input[_AM], context).n(_AM));
   }
-  if (input.BucketLevel != null) {
-    const node = se_BucketLevel(input.BucketLevel, context).withName("BucketLevel");
-    bodyNode.addChildNode(node);
+  if (input[_BL] != null) {
+    bn.c(se_BucketLevel(input[_BL], context).n(_BL));
   }
-  if (input.AdvancedCostOptimizationMetrics != null) {
-    const node = se_AdvancedCostOptimizationMetrics(input.AdvancedCostOptimizationMetrics, context).withName(
-      "AdvancedCostOptimizationMetrics"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ACOM] != null) {
+    bn.c(se_AdvancedCostOptimizationMetrics(input[_ACOM], context).n(_ACOM));
   }
-  if (input.AdvancedDataProtectionMetrics != null) {
-    const node = se_AdvancedDataProtectionMetrics(input.AdvancedDataProtectionMetrics, context).withName(
-      "AdvancedDataProtectionMetrics"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ADPM] != null) {
+    bn.c(se_AdvancedDataProtectionMetrics(input[_ADPM], context).n(_ADPM));
   }
-  if (input.DetailedStatusCodesMetrics != null) {
-    const node = se_DetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
-      "DetailedStatusCodesMetrics"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_DSCM] != null) {
+    bn.c(se_DetailedStatusCodesMetrics(input[_DSCM], context).n(_DSCM));
   }
-  if (input.StorageLensGroupLevel != null) {
-    const node = se_StorageLensGroupLevel(input.StorageLensGroupLevel, context).withName("StorageLensGroupLevel");
-    bodyNode.addChildNode(node);
+  if (input[_SLGLt] != null) {
+    bn.c(se_StorageLensGroupLevel(input[_SLGLt], context).n(_SLGLt));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlActivityMetrics
  */
 const se_ActivityMetrics = (input: ActivityMetrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ActivityMetrics");
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AM);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAdvancedCostOptimizationMetrics
  */
 const se_AdvancedCostOptimizationMetrics = (input: AdvancedCostOptimizationMetrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AdvancedCostOptimizationMetrics");
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ACOM);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAdvancedDataProtectionMetrics
  */
 const se_AdvancedDataProtectionMetrics = (input: AdvancedDataProtectionMetrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AdvancedDataProtectionMetrics");
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ADPM);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAwsLambdaTransformation
  */
 const se_AwsLambdaTransformation = (input: AwsLambdaTransformation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AwsLambdaTransformation");
-  if (input.FunctionArn != null) {
-    const node = __XmlNode.of("FunctionArnString", input.FunctionArn).withName("FunctionArn");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ALT);
+  if (input[_FA] != null) {
+    bn.c(__XmlNode.of(_FAS, input[_FA]).n(_FA));
   }
-  if (input.FunctionPayload != null) {
-    const node = __XmlNode.of("AwsLambdaTransformationPayload", input.FunctionPayload).withName("FunctionPayload");
-    bodyNode.addChildNode(node);
+  if (input[_FP] != null) {
+    bn.c(__XmlNode.of(_ALTP, input[_FP]).n(_FP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlBucketLevel
  */
 const se_BucketLevel = (input: BucketLevel, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("BucketLevel");
-  if (input.ActivityMetrics != null) {
-    const node = se_ActivityMetrics(input.ActivityMetrics, context).withName("ActivityMetrics");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_BL);
+  if (input[_AM] != null) {
+    bn.c(se_ActivityMetrics(input[_AM], context).n(_AM));
   }
-  if (input.PrefixLevel != null) {
-    const node = se_PrefixLevel(input.PrefixLevel, context).withName("PrefixLevel");
-    bodyNode.addChildNode(node);
+  if (input[_PL] != null) {
+    bn.c(se_PrefixLevel(input[_PL], context).n(_PL));
   }
-  if (input.AdvancedCostOptimizationMetrics != null) {
-    const node = se_AdvancedCostOptimizationMetrics(input.AdvancedCostOptimizationMetrics, context).withName(
-      "AdvancedCostOptimizationMetrics"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ACOM] != null) {
+    bn.c(se_AdvancedCostOptimizationMetrics(input[_ACOM], context).n(_ACOM));
   }
-  if (input.AdvancedDataProtectionMetrics != null) {
-    const node = se_AdvancedDataProtectionMetrics(input.AdvancedDataProtectionMetrics, context).withName(
-      "AdvancedDataProtectionMetrics"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ADPM] != null) {
+    bn.c(se_AdvancedDataProtectionMetrics(input[_ADPM], context).n(_ADPM));
   }
-  if (input.DetailedStatusCodesMetrics != null) {
-    const node = se_DetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
-      "DetailedStatusCodesMetrics"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_DSCM] != null) {
+    bn.c(se_DetailedStatusCodesMetrics(input[_DSCM], context).n(_DSCM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8792,8 +7843,8 @@ const se_Buckets = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("S3BucketArnString", entry);
-      return node.withName("Arn");
+      const n = __XmlNode.of(_SBAS, entry);
+      return n.n(_Ar);
     });
 };
 
@@ -8801,24 +7852,22 @@ const se_Buckets = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlCloudWatchMetrics
  */
 const se_CloudWatchMetrics = (input: CloudWatchMetrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CloudWatchMetrics");
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CWM);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCreateBucketConfiguration
  */
 const se_CreateBucketConfiguration = (input: CreateBucketConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CreateBucketConfiguration");
-  if (input.LocationConstraint != null) {
-    const node = __XmlNode.of("BucketLocationConstraint", input.LocationConstraint).withName("LocationConstraint");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CBC);
+  if (input[_LC] != null) {
+    bn.c(__XmlNode.of(_BLC, input[_LC]).n(_LC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8828,36 +7877,26 @@ const se_CreateMultiRegionAccessPointInput = (
   input: CreateMultiRegionAccessPointInput,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("CreateMultiRegionAccessPointInput");
-  if (input.Name != null) {
-    const node = __XmlNode.of("MultiRegionAccessPointName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CMRAPI);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_MRAPN, input[_N]).n(_N));
   }
-  if (input.PublicAccessBlock != null) {
-    const node = se_PublicAccessBlockConfiguration(input.PublicAccessBlock, context).withName("PublicAccessBlock");
-    bodyNode.addChildNode(node);
+  if (input[_PAB] != null) {
+    bn.c(se_PublicAccessBlockConfiguration(input[_PAB], context).n(_PAB));
   }
-  if (input.Regions != null) {
-    const nodes = se_RegionCreationList(input.Regions, context);
-    const containerNode = new __XmlNode("Regions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Regions", "Regions", () => se_RegionCreationList(input[_Re]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDeleteMarkerReplication
  */
 const se_DeleteMarkerReplication = (input: DeleteMarkerReplication, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DeleteMarkerReplication");
-  if (input.Status != null) {
-    const node = __XmlNode.of("DeleteMarkerReplicationStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DMR);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_DMRS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8867,182 +7906,129 @@ const se_DeleteMultiRegionAccessPointInput = (
   input: DeleteMultiRegionAccessPointInput,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("DeleteMultiRegionAccessPointInput");
-  if (input.Name != null) {
-    const node = __XmlNode.of("MultiRegionAccessPointName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DMRAPI);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_MRAPN, input[_N]).n(_N));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDestination
  */
 const se_Destination = (input: Destination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Destination");
-  if (input.Account != null) {
-    const node = __XmlNode.of("AccountId", input.Account).withName("Account");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Des);
+  if (input[_Ac] != null) {
+    bn.c(__XmlNode.of(_AI, input[_Ac]).n(_Ac));
   }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketIdentifierString", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BIS, input[_B]).n(_B));
   }
-  if (input.ReplicationTime != null) {
-    const node = se_ReplicationTime(input.ReplicationTime, context).withName("ReplicationTime");
-    bodyNode.addChildNode(node);
+  if (input[_RT] != null) {
+    bn.c(se_ReplicationTime(input[_RT], context).n(_RT));
   }
-  if (input.AccessControlTranslation != null) {
-    const node = se_AccessControlTranslation(input.AccessControlTranslation, context).withName(
-      "AccessControlTranslation"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ACT] != null) {
+    bn.c(se_AccessControlTranslation(input[_ACT], context).n(_ACT));
   }
-  if (input.EncryptionConfiguration != null) {
-    const node = se_EncryptionConfiguration(input.EncryptionConfiguration, context).withName("EncryptionConfiguration");
-    bodyNode.addChildNode(node);
+  if (input[_EC] != null) {
+    bn.c(se_EncryptionConfiguration(input[_EC], context).n(_EC));
   }
-  if (input.Metrics != null) {
-    const node = se_Metrics(input.Metrics, context).withName("Metrics");
-    bodyNode.addChildNode(node);
+  if (input[_Met] != null) {
+    bn.c(se_Metrics(input[_Met], context).n(_Met));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("ReplicationStorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_RSC, input[_SC]).n(_SC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDetailedStatusCodesMetrics
  */
 const se_DetailedStatusCodesMetrics = (input: DetailedStatusCodesMetrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DetailedStatusCodesMetrics");
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DSCM);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlEncryptionConfiguration
  */
 const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("EncryptionConfiguration");
-  if (input.ReplicaKmsKeyID != null) {
-    const node = __XmlNode.of("ReplicaKmsKeyID", input.ReplicaKmsKeyID).withName("ReplicaKmsKeyID");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_EC);
+  bn.cc(input, _RKKID);
+  return bn;
 };
 
 /**
  * serializeAws_restXml_Exclude
  */
 const se__Exclude = (input: _Exclude, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Exclude");
-  if (input.Buckets != null) {
-    const nodes = se_Buckets(input.Buckets, context);
-    const containerNode = new __XmlNode("Buckets");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.Regions != null) {
-    const nodes = se_Regions(input.Regions, context);
-    const containerNode = new __XmlNode("Regions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_Ex);
+  bn.lc(input, "Buckets", "Buckets", () => se_Buckets(input[_Bu]!, context));
+  bn.lc(input, "Regions", "Regions", () => se_Regions(input[_Re]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlExistingObjectReplication
  */
 const se_ExistingObjectReplication = (input: ExistingObjectReplication, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ExistingObjectReplication");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ExistingObjectReplicationStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_EOR);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_EORS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlGeneratedManifestEncryption
  */
 const se_GeneratedManifestEncryption = (input: GeneratedManifestEncryption, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("GeneratedManifestEncryption");
-  if (input.SSES3 != null) {
-    const node = se_SSES3Encryption(input.SSES3, context).withName("SSE-S3");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_GME);
+  if (input[_SSES] != null) {
+    bn.c(se_SSES3Encryption(input[_SSES], context).n(_SS));
   }
-  if (input.SSEKMS != null) {
-    const node = se_SSEKMSEncryption(input.SSEKMS, context).withName("SSE-KMS");
-    bodyNode.addChildNode(node);
+  if (input[_SSEKMS] != null) {
+    bn.c(se_SSEKMSEncryption(input[_SSEKMS], context).n(_SK));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlGrantee
  */
 const se_Grantee = (input: Grantee, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Grantee");
-  if (input.GranteeType != null) {
-    const node = __XmlNode.of("GranteeType", input.GranteeType).withName("GranteeType");
-    bodyNode.addChildNode(node);
-  }
-  if (input.GranteeIdentifier != null) {
-    const node = __XmlNode.of("GranteeIdentifier", input.GranteeIdentifier).withName("GranteeIdentifier");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_G);
+  bn.cc(input, _GT);
+  bn.cc(input, _GI);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInclude
  */
 const se_Include = (input: Include, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Include");
-  if (input.Buckets != null) {
-    const nodes = se_Buckets(input.Buckets, context);
-    const containerNode = new __XmlNode("Buckets");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.Regions != null) {
-    const nodes = se_Regions(input.Regions, context);
-    const containerNode = new __XmlNode("Regions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_I);
+  bn.lc(input, "Buckets", "Buckets", () => se_Buckets(input[_Bu]!, context));
+  bn.lc(input, "Regions", "Regions", () => se_Regions(input[_Re]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJobManifest
  */
 const se_JobManifest = (input: JobManifest, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobManifest");
-  if (input.Spec != null) {
-    const node = se_JobManifestSpec(input.Spec, context).withName("Spec");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JM);
+  if (input[_Sp] != null) {
+    bn.c(se_JobManifestSpec(input[_Sp], context).n(_Sp));
   }
-  if (input.Location != null) {
-    const node = se_JobManifestLocation(input.Location, context).withName("Location");
-    bodyNode.addChildNode(node);
+  if (input[_L] != null) {
+    bn.c(se_JobManifestLocation(input[_L], context).n(_L));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9052,8 +8038,8 @@ const se_JobManifestFieldList = (input: JobManifestFieldName[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("JobManifestFieldName", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_JMFN, entry);
+      return n.n(_m);
     });
 };
 
@@ -9061,404 +8047,257 @@ const se_JobManifestFieldList = (input: JobManifestFieldName[], context: __Serde
  * serializeAws_restXmlJobManifestGenerator
  */
 const se_JobManifestGenerator = (input: JobManifestGenerator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobManifestGenerator");
+  const bn = new __XmlNode(_JMG);
   JobManifestGenerator.visit(input, {
     S3JobManifestGenerator: (value) => {
-      const node = se_S3JobManifestGenerator(value, context).withName("S3JobManifestGenerator");
-      bodyNode.addChildNode(node);
+      if (input[_SJMG] != null) {
+        bn.c(se_S3JobManifestGenerator(value, context).n(_SJMG));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJobManifestGeneratorFilter
  */
 const se_JobManifestGeneratorFilter = (input: JobManifestGeneratorFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobManifestGeneratorFilter");
-  if (input.EligibleForReplication != null) {
-    const node = __XmlNode.of("Boolean", String(input.EligibleForReplication)).withName("EligibleForReplication");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JMGF);
+  if (input[_EFR] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_EFR])).n(_EFR));
   }
-  if (input.CreatedAfter != null) {
-    const node = __XmlNode
-      .of("ObjectCreationTime", input.CreatedAfter.toISOString().split(".")[0] + "Z")
-      .withName("CreatedAfter");
-    bodyNode.addChildNode(node);
+  if (input[_CAr] != null) {
+    bn.c(__XmlNode.of(_OCT, input[_CAr].toISOString().split(".")[0] + "Z").n(_CAr));
   }
-  if (input.CreatedBefore != null) {
-    const node = __XmlNode
-      .of("ObjectCreationTime", input.CreatedBefore.toISOString().split(".")[0] + "Z")
-      .withName("CreatedBefore");
-    bodyNode.addChildNode(node);
+  if (input[_CB] != null) {
+    bn.c(__XmlNode.of(_OCT, input[_CB].toISOString().split(".")[0] + "Z").n(_CB));
   }
-  if (input.ObjectReplicationStatuses != null) {
-    const nodes = se_ReplicationStatusFilterList(input.ObjectReplicationStatuses, context);
-    const containerNode = new __XmlNode("ObjectReplicationStatuses");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "ObjectReplicationStatuses", "ObjectReplicationStatuses", () =>
+    se_ReplicationStatusFilterList(input[_ORS]!, context)
+  );
+  if (input[_KNC] != null) {
+    bn.c(se_KeyNameConstraint(input[_KNC], context).n(_KNC));
   }
-  if (input.KeyNameConstraint != null) {
-    const node = se_KeyNameConstraint(input.KeyNameConstraint, context).withName("KeyNameConstraint");
-    bodyNode.addChildNode(node);
+  if (input[_OSGTB] != null) {
+    bn.c(__XmlNode.of(_OSGTB, String(input[_OSGTB])).n(_OSGTB));
   }
-  if (input.ObjectSizeGreaterThanBytes != null) {
-    const node = __XmlNode
-      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThanBytes))
-      .withName("ObjectSizeGreaterThanBytes");
-    bodyNode.addChildNode(node);
+  if (input[_OSLTB] != null) {
+    bn.c(__XmlNode.of(_OSLTB, String(input[_OSLTB])).n(_OSLTB));
   }
-  if (input.ObjectSizeLessThanBytes != null) {
-    const node = __XmlNode
-      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThanBytes))
-      .withName("ObjectSizeLessThanBytes");
-    bodyNode.addChildNode(node);
-  }
-  if (input.MatchAnyStorageClass != null) {
-    const nodes = se_StorageClassList(input.MatchAnyStorageClass, context);
-    const containerNode = new __XmlNode("MatchAnyStorageClass");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "MatchAnyStorageClass", "MatchAnyStorageClass", () => se_StorageClassList(input[_MASC]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJobManifestLocation
  */
 const se_JobManifestLocation = (input: JobManifestLocation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobManifestLocation");
-  if (input.ObjectArn != null) {
-    const node = __XmlNode.of("S3KeyArnString", input.ObjectArn).withName("ObjectArn");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JML);
+  if (input[_OA] != null) {
+    bn.c(__XmlNode.of(_SKAS, input[_OA]).n(_OA));
   }
-  if (input.ObjectVersionId != null) {
-    const node = __XmlNode.of("S3ObjectVersionId", input.ObjectVersionId).withName("ObjectVersionId");
-    bodyNode.addChildNode(node);
+  if (input[_OVI] != null) {
+    bn.c(__XmlNode.of(_SOVI, input[_OVI]).n(_OVI));
   }
-  if (input.ETag != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ETag).withName("ETag");
-    bodyNode.addChildNode(node);
+  if (input[_ET] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_ET]).n(_ET));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJobManifestSpec
  */
 const se_JobManifestSpec = (input: JobManifestSpec, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobManifestSpec");
-  if (input.Format != null) {
-    const node = __XmlNode.of("JobManifestFormat", input.Format).withName("Format");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JMS);
+  if (input[_F] != null) {
+    bn.c(__XmlNode.of(_JMF, input[_F]).n(_F));
   }
-  if (input.Fields != null) {
-    const nodes = se_JobManifestFieldList(input.Fields, context);
-    const containerNode = new __XmlNode("Fields");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Fields", "Fields", () => se_JobManifestFieldList(input[_Fi]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJobOperation
  */
 const se_JobOperation = (input: JobOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobOperation");
-  if (input.LambdaInvoke != null) {
-    const node = se_LambdaInvokeOperation(input.LambdaInvoke, context).withName("LambdaInvoke");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JO);
+  if (input[_LI] != null) {
+    bn.c(se_LambdaInvokeOperation(input[_LI], context).n(_LI));
   }
-  if (input.S3PutObjectCopy != null) {
-    const node = se_S3CopyObjectOperation(input.S3PutObjectCopy, context).withName("S3PutObjectCopy");
-    bodyNode.addChildNode(node);
+  if (input[_SPOC] != null) {
+    bn.c(se_S3CopyObjectOperation(input[_SPOC], context).n(_SPOC));
   }
-  if (input.S3PutObjectAcl != null) {
-    const node = se_S3SetObjectAclOperation(input.S3PutObjectAcl, context).withName("S3PutObjectAcl");
-    bodyNode.addChildNode(node);
+  if (input[_SPOA] != null) {
+    bn.c(se_S3SetObjectAclOperation(input[_SPOA], context).n(_SPOA));
   }
-  if (input.S3PutObjectTagging != null) {
-    const node = se_S3SetObjectTaggingOperation(input.S3PutObjectTagging, context).withName("S3PutObjectTagging");
-    bodyNode.addChildNode(node);
+  if (input[_SPOT] != null) {
+    bn.c(se_S3SetObjectTaggingOperation(input[_SPOT], context).n(_SPOT));
   }
-  if (input.S3DeleteObjectTagging != null) {
-    const node = se_S3DeleteObjectTaggingOperation(input.S3DeleteObjectTagging, context).withName(
-      "S3DeleteObjectTagging"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_SDOT] != null) {
+    bn.c(se_S3DeleteObjectTaggingOperation(input[_SDOT], context).n(_SDOT));
   }
-  if (input.S3InitiateRestoreObject != null) {
-    const node = se_S3InitiateRestoreObjectOperation(input.S3InitiateRestoreObject, context).withName(
-      "S3InitiateRestoreObject"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_SIRO] != null) {
+    bn.c(se_S3InitiateRestoreObjectOperation(input[_SIRO], context).n(_SIRO));
   }
-  if (input.S3PutObjectLegalHold != null) {
-    const node = se_S3SetObjectLegalHoldOperation(input.S3PutObjectLegalHold, context).withName("S3PutObjectLegalHold");
-    bodyNode.addChildNode(node);
+  if (input[_SPOLH] != null) {
+    bn.c(se_S3SetObjectLegalHoldOperation(input[_SPOLH], context).n(_SPOLH));
   }
-  if (input.S3PutObjectRetention != null) {
-    const node = se_S3SetObjectRetentionOperation(input.S3PutObjectRetention, context).withName("S3PutObjectRetention");
-    bodyNode.addChildNode(node);
+  if (input[_SPOR] != null) {
+    bn.c(se_S3SetObjectRetentionOperation(input[_SPOR], context).n(_SPOR));
   }
-  if (input.S3ReplicateObject != null) {
-    const node = se_S3ReplicateObjectOperation(input.S3ReplicateObject, context).withName("S3ReplicateObject");
-    bodyNode.addChildNode(node);
+  if (input[_SRO] != null) {
+    bn.c(se_S3ReplicateObjectOperation(input[_SRO], context).n(_SRO));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJobReport
  */
 const se_JobReport = (input: JobReport, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JobReport");
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("S3BucketArnString", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JR);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_SBAS, input[_B]).n(_B));
   }
-  if (input.Format != null) {
-    const node = __XmlNode.of("JobReportFormat", input.Format).withName("Format");
-    bodyNode.addChildNode(node);
+  if (input[_F] != null) {
+    bn.c(__XmlNode.of(_JRF, input[_F]).n(_F));
   }
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("Boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  if (input[_En] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_En])).n(_En));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("ReportPrefixString", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_Pre] != null) {
+    bn.c(__XmlNode.of(_RPS, input[_Pre]).n(_Pre));
   }
-  if (input.ReportScope != null) {
-    const node = __XmlNode.of("JobReportScope", input.ReportScope).withName("ReportScope");
-    bodyNode.addChildNode(node);
+  if (input[_RS] != null) {
+    bn.c(__XmlNode.of(_JRS, input[_RS]).n(_RS));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlKeyNameConstraint
  */
 const se_KeyNameConstraint = (input: KeyNameConstraint, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("KeyNameConstraint");
-  if (input.MatchAnyPrefix != null) {
-    const nodes = se_NonEmptyMaxLength1024StringList(input.MatchAnyPrefix, context);
-    const containerNode = new __XmlNode("MatchAnyPrefix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.MatchAnySuffix != null) {
-    const nodes = se_NonEmptyMaxLength1024StringList(input.MatchAnySuffix, context);
-    const containerNode = new __XmlNode("MatchAnySuffix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.MatchAnySubstring != null) {
-    const nodes = se_NonEmptyMaxLength1024StringList(input.MatchAnySubstring, context);
-    const containerNode = new __XmlNode("MatchAnySubstring");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_KNC);
+  bn.lc(input, "MatchAnyPrefix", "MatchAnyPrefix", () => se_NonEmptyMaxLength1024StringList(input[_MAP]!, context));
+  bn.lc(input, "MatchAnySuffix", "MatchAnySuffix", () => se_NonEmptyMaxLength1024StringList(input[_MAS]!, context));
+  bn.lc(input, "MatchAnySubstring", "MatchAnySubstring", () =>
+    se_NonEmptyMaxLength1024StringList(input[_MASa]!, context)
+  );
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLambdaInvokeOperation
  */
 const se_LambdaInvokeOperation = (input: LambdaInvokeOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LambdaInvokeOperation");
-  if (input.FunctionArn != null) {
-    const node = __XmlNode.of("FunctionArnString", input.FunctionArn).withName("FunctionArn");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LIO);
+  if (input[_FA] != null) {
+    bn.c(__XmlNode.of(_FAS, input[_FA]).n(_FA));
   }
-  if (input.InvocationSchemaVersion != null) {
-    const node = __XmlNode
-      .of("NonEmptyMaxLength64String", input.InvocationSchemaVersion)
-      .withName("InvocationSchemaVersion");
-    bodyNode.addChildNode(node);
+  if (input[_ISV] != null) {
+    bn.c(__XmlNode.of(_NEMLS, input[_ISV]).n(_ISV));
   }
-  if (input.UserArguments != null) {
-    const nodes = se_UserArguments(input.UserArguments, context);
-    const containerNode = new __XmlNode("UserArguments");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "UserArguments", "UserArguments", () => se_UserArguments(input[_UA]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleConfiguration
  */
 const se_LifecycleConfiguration = (input: LifecycleConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleConfiguration");
-  if (input.Rules != null) {
-    const nodes = se_LifecycleRules(input.Rules, context);
-    const containerNode = new __XmlNode("Rules");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_LCi);
+  bn.lc(input, "Rules", "Rules", () => se_LifecycleRules(input[_Ru]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleExpiration
  */
 const se_LifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleExpiration");
-  if (input.Date != null) {
-    const node = __XmlNode.of("Date", input.Date.toISOString().split(".")[0] + "Z").withName("Date");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LE);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_Da, input[_Da].toISOString().split(".")[0] + "Z").n(_Da));
   }
-  if (input.Days != null) {
-    const node = __XmlNode.of("Days", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  if (input[_Day] != null) {
+    bn.c(__XmlNode.of(_Day, String(input[_Day])).n(_Day));
   }
-  if (input.ExpiredObjectDeleteMarker != null) {
-    const node = __XmlNode
-      .of("ExpiredObjectDeleteMarker", String(input.ExpiredObjectDeleteMarker))
-      .withName("ExpiredObjectDeleteMarker");
-    bodyNode.addChildNode(node);
+  if (input[_EODM] != null) {
+    bn.c(__XmlNode.of(_EODM, String(input[_EODM])).n(_EODM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleRule
  */
 const se_LifecycleRule = (input: LifecycleRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleRule");
-  if (input.Expiration != null) {
-    const node = se_LifecycleExpiration(input.Expiration, context).withName("Expiration");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LR);
+  if (input[_Exp] != null) {
+    bn.c(se_LifecycleExpiration(input[_Exp], context).n(_Exp));
   }
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _ID);
+  if (input[_Fil] != null) {
+    bn.c(se_LifecycleRuleFilter(input[_Fil], context).n(_Fil));
   }
-  if (input.Filter != null) {
-    const node = se_LifecycleRuleFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_ES, input[_S]).n(_S));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("ExpirationStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  bn.lc(input, "Transitions", "Transitions", () => se_TransitionList(input[_Tr]!, context));
+  bn.lc(input, "NoncurrentVersionTransitions", "NoncurrentVersionTransitions", () =>
+    se_NoncurrentVersionTransitionList(input[_NVT]!, context)
+  );
+  if (input[_NVE] != null) {
+    bn.c(se_NoncurrentVersionExpiration(input[_NVE], context).n(_NVE));
   }
-  if (input.Transitions != null) {
-    const nodes = se_TransitionList(input.Transitions, context);
-    const containerNode = new __XmlNode("Transitions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_AIMU] != null) {
+    bn.c(se_AbortIncompleteMultipartUpload(input[_AIMU], context).n(_AIMU));
   }
-  if (input.NoncurrentVersionTransitions != null) {
-    const nodes = se_NoncurrentVersionTransitionList(input.NoncurrentVersionTransitions, context);
-    const containerNode = new __XmlNode("NoncurrentVersionTransitions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.NoncurrentVersionExpiration != null) {
-    const node = se_NoncurrentVersionExpiration(input.NoncurrentVersionExpiration, context).withName(
-      "NoncurrentVersionExpiration"
-    );
-    bodyNode.addChildNode(node);
-  }
-  if (input.AbortIncompleteMultipartUpload != null) {
-    const node = se_AbortIncompleteMultipartUpload(input.AbortIncompleteMultipartUpload, context).withName(
-      "AbortIncompleteMultipartUpload"
-    );
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleRuleAndOperator
  */
 const se_LifecycleRuleAndOperator = (input: LifecycleRuleAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleRuleAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LRAO);
+  bn.cc(input, _Pre);
+  bn.lc(input, "Tags", "Tags", () => se_S3TagSet(input[_T]!, context));
+  if (input[_OSGT] != null) {
+    bn.c(__XmlNode.of(_OSGTB, String(input[_OSGT])).n(_OSGT));
   }
-  if (input.Tags != null) {
-    const nodes = se_S3TagSet(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_OSLT] != null) {
+    bn.c(__XmlNode.of(_OSLTB, String(input[_OSLT])).n(_OSLT));
   }
-  if (input.ObjectSizeGreaterThan != null) {
-    const node = __XmlNode
-      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
-      .withName("ObjectSizeGreaterThan");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ObjectSizeLessThan != null) {
-    const node = __XmlNode
-      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
-      .withName("ObjectSizeLessThan");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleRuleFilter
  */
 const se_LifecycleRuleFilter = (input: LifecycleRuleFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleRuleFilter");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LRF);
+  bn.cc(input, _Pre);
+  if (input[_Tag] != null) {
+    bn.c(se_S3Tag(input[_Tag], context).n(_Tag));
   }
-  if (input.Tag != null) {
-    const node = se_S3Tag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
+  if (input[_An] != null) {
+    bn.c(se_LifecycleRuleAndOperator(input[_An], context).n(_An));
   }
-  if (input.And != null) {
-    const node = se_LifecycleRuleAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
+  if (input[_OSGT] != null) {
+    bn.c(__XmlNode.of(_OSGTB, String(input[_OSGT])).n(_OSGT));
   }
-  if (input.ObjectSizeGreaterThan != null) {
-    const node = __XmlNode
-      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
-      .withName("ObjectSizeGreaterThan");
-    bodyNode.addChildNode(node);
+  if (input[_OSLT] != null) {
+    bn.c(__XmlNode.of(_OSLTB, String(input[_OSLT])).n(_OSLT));
   }
-  if (input.ObjectSizeLessThan != null) {
-    const node = __XmlNode
-      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
-      .withName("ObjectSizeLessThan");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9468,8 +8307,8 @@ const se_LifecycleRules = (input: LifecycleRule[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_LifecycleRule(entry, context);
-      return node.withName("Rule");
+      const n = se_LifecycleRule(entry, context);
+      return n.n(_Rul);
     });
 };
 
@@ -9480,8 +8319,8 @@ const se_MatchAnyPrefix = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Prefix", entry);
-      return node.withName("Prefix");
+      const n = __XmlNode.of(_Pre, entry);
+      return n.n(_Pre);
     });
 };
 
@@ -9492,8 +8331,8 @@ const se_MatchAnySuffix = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Suffix", entry);
-      return node.withName("Suffix");
+      const n = __XmlNode.of(_Su, entry);
+      return n.n(_Su);
     });
 };
 
@@ -9504,8 +8343,8 @@ const se_MatchAnyTag = (input: S3Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_S3Tag(entry, context);
-      return node.withName("Tag");
+      const n = se_S3Tag(entry, context);
+      return n.n(_Tag);
     });
 };
 
@@ -9513,104 +8352,87 @@ const se_MatchAnyTag = (input: S3Tag[], context: __SerdeContext): any => {
  * serializeAws_restXmlMatchObjectAge
  */
 const se_MatchObjectAge = (input: MatchObjectAge, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MatchObjectAge");
-  if (input.DaysGreaterThan != null) {
-    const node = __XmlNode.of("ObjectAgeValue", String(input.DaysGreaterThan)).withName("DaysGreaterThan");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_MOA);
+  if (input[_DGT] != null) {
+    bn.c(__XmlNode.of(_OAV, String(input[_DGT])).n(_DGT));
   }
-  if (input.DaysLessThan != null) {
-    const node = __XmlNode.of("ObjectAgeValue", String(input.DaysLessThan)).withName("DaysLessThan");
-    bodyNode.addChildNode(node);
+  if (input[_DLT] != null) {
+    bn.c(__XmlNode.of(_OAV, String(input[_DLT])).n(_DLT));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMatchObjectSize
  */
 const se_MatchObjectSize = (input: MatchObjectSize, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MatchObjectSize");
-  if (input.BytesGreaterThan != null) {
-    const node = __XmlNode.of("ObjectSizeValue", String(input.BytesGreaterThan)).withName("BytesGreaterThan");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_MOS);
+  if (input[_BGT] != null) {
+    bn.c(__XmlNode.of(_OSV, String(input[_BGT])).n(_BGT));
   }
-  if (input.BytesLessThan != null) {
-    const node = __XmlNode.of("ObjectSizeValue", String(input.BytesLessThan)).withName("BytesLessThan");
-    bodyNode.addChildNode(node);
+  if (input[_BLT] != null) {
+    bn.c(__XmlNode.of(_OSV, String(input[_BLT])).n(_BLT));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMetrics
  */
 const se_Metrics = (input: Metrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Metrics");
-  if (input.Status != null) {
-    const node = __XmlNode.of("MetricsStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Met);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_MS, input[_S]).n(_S));
   }
-  if (input.EventThreshold != null) {
-    const node = se_ReplicationTimeValue(input.EventThreshold, context).withName("EventThreshold");
-    bodyNode.addChildNode(node);
+  if (input[_ETv] != null) {
+    bn.c(se_ReplicationTimeValue(input[_ETv], context).n(_ETv));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMultiRegionAccessPointRoute
  */
 const se_MultiRegionAccessPointRoute = (input: MultiRegionAccessPointRoute, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MultiRegionAccessPointRoute");
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_MRAPR);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BN, input[_B]).n(_B));
   }
-  if (input.Region != null) {
-    const node = __XmlNode.of("RegionName", input.Region).withName("Region");
-    bodyNode.addChildNode(node);
+  if (input[_Reg] != null) {
+    bn.c(__XmlNode.of(_RN, input[_Reg]).n(_Reg));
   }
-  if (input.TrafficDialPercentage != null) {
-    const node = __XmlNode
-      .of("TrafficDialPercentage", String(input.TrafficDialPercentage))
-      .withName("TrafficDialPercentage");
-    bodyNode.addChildNode(node);
+  if (input[_TDP] != null) {
+    bn.c(__XmlNode.of(_TDP, String(input[_TDP])).n(_TDP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlNoncurrentVersionExpiration
  */
 const se_NoncurrentVersionExpiration = (input: NoncurrentVersionExpiration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NoncurrentVersionExpiration");
-  if (input.NoncurrentDays != null) {
-    const node = __XmlNode.of("Days", String(input.NoncurrentDays)).withName("NoncurrentDays");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_NVE);
+  if (input[_ND] != null) {
+    bn.c(__XmlNode.of(_Day, String(input[_ND])).n(_ND));
   }
-  if (input.NewerNoncurrentVersions != null) {
-    const node = __XmlNode
-      .of("NoncurrentVersionCount", String(input.NewerNoncurrentVersions))
-      .withName("NewerNoncurrentVersions");
-    bodyNode.addChildNode(node);
+  if (input[_NNV] != null) {
+    bn.c(__XmlNode.of(_NVC, String(input[_NNV])).n(_NNV));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlNoncurrentVersionTransition
  */
 const se_NoncurrentVersionTransition = (input: NoncurrentVersionTransition, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NoncurrentVersionTransition");
-  if (input.NoncurrentDays != null) {
-    const node = __XmlNode.of("Days", String(input.NoncurrentDays)).withName("NoncurrentDays");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_NVTo);
+  if (input[_ND] != null) {
+    bn.c(__XmlNode.of(_Day, String(input[_ND])).n(_ND));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("TransitionStorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_TSC, input[_SC]).n(_SC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9620,8 +8442,8 @@ const se_NoncurrentVersionTransitionList = (input: NoncurrentVersionTransition[]
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_NoncurrentVersionTransition(entry, context);
-      return node.withName("NoncurrentVersionTransition");
+      const n = se_NoncurrentVersionTransition(entry, context);
+      return n.n(_NVTo);
     });
 };
 
@@ -9632,8 +8454,8 @@ const se_NonEmptyMaxLength1024StringList = (input: string[], context: __SerdeCon
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("NonEmptyMaxLength1024String", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_NEMLSon, entry);
+      return n.n(_m);
     });
 };
 
@@ -9644,8 +8466,8 @@ const se_ObjectLambdaAllowedFeaturesList = (input: ObjectLambdaAllowedFeature[],
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("ObjectLambdaAllowedFeature", entry);
-      return node.withName("AllowedFeature");
+      const n = __XmlNode.of(_OLAF, entry);
+      return n.n(_AF);
     });
 };
 
@@ -9653,34 +8475,18 @@ const se_ObjectLambdaAllowedFeaturesList = (input: ObjectLambdaAllowedFeature[],
  * serializeAws_restXmlObjectLambdaConfiguration
  */
 const se_ObjectLambdaConfiguration = (input: ObjectLambdaConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ObjectLambdaConfiguration");
-  if (input.SupportingAccessPoint != null) {
-    const node = __XmlNode
-      .of("ObjectLambdaSupportingAccessPointArn", input.SupportingAccessPoint)
-      .withName("SupportingAccessPoint");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OLC);
+  if (input[_SAP] != null) {
+    bn.c(__XmlNode.of(_OLSAPA, input[_SAP]).n(_SAP));
   }
-  if (input.CloudWatchMetricsEnabled != null) {
-    const node = __XmlNode.of("Boolean", String(input.CloudWatchMetricsEnabled)).withName("CloudWatchMetricsEnabled");
-    bodyNode.addChildNode(node);
+  if (input[_CWME] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_CWME])).n(_CWME));
   }
-  if (input.AllowedFeatures != null) {
-    const nodes = se_ObjectLambdaAllowedFeaturesList(input.AllowedFeatures, context);
-    const containerNode = new __XmlNode("AllowedFeatures");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.TransformationConfigurations != null) {
-    const nodes = se_ObjectLambdaTransformationConfigurationsList(input.TransformationConfigurations, context);
-    const containerNode = new __XmlNode("TransformationConfigurations");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "AllowedFeatures", "AllowedFeatures", () => se_ObjectLambdaAllowedFeaturesList(input[_AFl]!, context));
+  bn.lc(input, "TransformationConfigurations", "TransformationConfigurations", () =>
+    se_ObjectLambdaTransformationConfigurationsList(input[_TC]!, context)
+  );
+  return bn;
 };
 
 /**
@@ -9690,20 +8496,21 @@ const se_ObjectLambdaContentTransformation = (
   input: ObjectLambdaContentTransformation,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ObjectLambdaContentTransformation");
+  const bn = new __XmlNode(_OLCT);
   ObjectLambdaContentTransformation.visit(input, {
     AwsLambda: (value) => {
-      const node = se_AwsLambdaTransformation(value, context).withName("AwsLambda");
-      bodyNode.addChildNode(node);
+      if (input[_ALw] != null) {
+        bn.c(se_AwsLambdaTransformation(value, context).n(_ALw));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9713,22 +8520,14 @@ const se_ObjectLambdaTransformationConfiguration = (
   input: ObjectLambdaTransformationConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ObjectLambdaTransformationConfiguration");
-  if (input.Actions != null) {
-    const nodes = se_ObjectLambdaTransformationConfigurationActionsList(input.Actions, context);
-    const containerNode = new __XmlNode("Actions");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  const bn = new __XmlNode(_OLTC);
+  bn.lc(input, "Actions", "Actions", () =>
+    se_ObjectLambdaTransformationConfigurationActionsList(input[_Act]!, context)
+  );
+  if (input[_CTo] != null) {
+    bn.c(se_ObjectLambdaContentTransformation(input[_CTo], context).n(_CTo));
   }
-  if (input.ContentTransformation != null) {
-    const node = se_ObjectLambdaContentTransformation(input.ContentTransformation, context).withName(
-      "ContentTransformation"
-    );
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9741,8 +8540,8 @@ const se_ObjectLambdaTransformationConfigurationActionsList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("ObjectLambdaTransformationConfigurationAction", entry);
-      return node.withName("Action");
+      const n = __XmlNode.of(_OLTCA, entry);
+      return n.n(_Acti);
     });
 };
 
@@ -9756,8 +8555,8 @@ const se_ObjectLambdaTransformationConfigurationsList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ObjectLambdaTransformationConfiguration(entry, context);
-      return node.withName("TransformationConfiguration");
+      const n = se_ObjectLambdaTransformationConfiguration(entry, context);
+      return n.n(_TCr);
     });
 };
 
@@ -9765,52 +8564,45 @@ const se_ObjectLambdaTransformationConfigurationsList = (
  * serializeAws_restXmlPrefixLevel
  */
 const se_PrefixLevel = (input: PrefixLevel, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PrefixLevel");
-  if (input.StorageMetrics != null) {
-    const node = se_PrefixLevelStorageMetrics(input.StorageMetrics, context).withName("StorageMetrics");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PL);
+  if (input[_SM] != null) {
+    bn.c(se_PrefixLevelStorageMetrics(input[_SM], context).n(_SM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPrefixLevelStorageMetrics
  */
 const se_PrefixLevelStorageMetrics = (input: PrefixLevelStorageMetrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PrefixLevelStorageMetrics");
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PLSM);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  if (input.SelectionCriteria != null) {
-    const node = se_SelectionCriteria(input.SelectionCriteria, context).withName("SelectionCriteria");
-    bodyNode.addChildNode(node);
+  if (input[_SCe] != null) {
+    bn.c(se_SelectionCriteria(input[_SCe], context).n(_SCe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPublicAccessBlockConfiguration
  */
 const se_PublicAccessBlockConfiguration = (input: PublicAccessBlockConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PublicAccessBlockConfiguration");
-  if (input.BlockPublicAcls != null) {
-    const node = __XmlNode.of("Setting", String(input.BlockPublicAcls)).withName("BlockPublicAcls");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PABC);
+  if (input[_BPA] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_BPA])).n(_BPA));
   }
-  if (input.IgnorePublicAcls != null) {
-    const node = __XmlNode.of("Setting", String(input.IgnorePublicAcls)).withName("IgnorePublicAcls");
-    bodyNode.addChildNode(node);
+  if (input[_IPA] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_IPA])).n(_IPA));
   }
-  if (input.BlockPublicPolicy != null) {
-    const node = __XmlNode.of("Setting", String(input.BlockPublicPolicy)).withName("BlockPublicPolicy");
-    bodyNode.addChildNode(node);
+  if (input[_BPP] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_BPP])).n(_BPP));
   }
-  if (input.RestrictPublicBuckets != null) {
-    const node = __XmlNode.of("Setting", String(input.RestrictPublicBuckets)).withName("RestrictPublicBuckets");
-    bodyNode.addChildNode(node);
+  if (input[_RPB] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_RPB])).n(_RPB));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9820,32 +8612,26 @@ const se_PutMultiRegionAccessPointPolicyInput = (
   input: PutMultiRegionAccessPointPolicyInput,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("PutMultiRegionAccessPointPolicyInput");
-  if (input.Name != null) {
-    const node = __XmlNode.of("MultiRegionAccessPointName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PMRAPPI);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_MRAPN, input[_N]).n(_N));
   }
-  if (input.Policy != null) {
-    const node = __XmlNode.of("Policy", input.Policy).withName("Policy");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _Po);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRegion
  */
 const se_Region = (input: Region, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Region");
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Reg);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BN, input[_B]).n(_B));
   }
-  if (input.BucketAccountId != null) {
-    const node = __XmlNode.of("AccountId", input.BucketAccountId).withName("BucketAccountId");
-    bodyNode.addChildNode(node);
+  if (input[_BAI] != null) {
+    bn.c(__XmlNode.of(_AI, input[_BAI]).n(_BAI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9855,8 +8641,8 @@ const se_RegionCreationList = (input: Region[], context: __SerdeContext): any =>
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Region(entry, context);
-      return node.withName("Region");
+      const n = se_Region(entry, context);
+      return n.n(_Reg);
     });
 };
 
@@ -9867,8 +8653,8 @@ const se_Regions = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("S3AWSRegion", entry);
-      return node.withName("Region");
+      const n = __XmlNode.of(_SAWSR, entry);
+      return n.n(_Reg);
     });
 };
 
@@ -9876,122 +8662,80 @@ const se_Regions = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlReplicaModifications
  */
 const se_ReplicaModifications = (input: ReplicaModifications, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicaModifications");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ReplicaModificationsStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RM);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_RMS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationConfiguration
  */
 const se_ReplicationConfiguration = (input: ReplicationConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationConfiguration");
-  if (input.Role != null) {
-    const node = __XmlNode.of("Role", input.Role).withName("Role");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Rules != null) {
-    const nodes = se_ReplicationRules(input.Rules, context);
-    const containerNode = new __XmlNode("Rules");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RC);
+  bn.cc(input, _Rol);
+  bn.lc(input, "Rules", "Rules", () => se_ReplicationRules(input[_Ru]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationRule
  */
 const se_ReplicationRule = (input: ReplicationRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationRule");
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RR);
+  bn.cc(input, _ID);
+  if (input[_Pr] != null) {
+    bn.c(__XmlNode.of(_Pr, String(input[_Pr])).n(_Pr));
   }
-  if (input.Priority != null) {
-    const node = __XmlNode.of("Priority", String(input.Priority)).withName("Priority");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _Pre);
+  if (input[_Fil] != null) {
+    bn.c(se_ReplicationRuleFilter(input[_Fil], context).n(_Fil));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_RRS, input[_S]).n(_S));
   }
-  if (input.Filter != null) {
-    const node = se_ReplicationRuleFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_SSC] != null) {
+    bn.c(se_SourceSelectionCriteria(input[_SSC], context).n(_SSC));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("ReplicationRuleStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_EOR] != null) {
+    bn.c(se_ExistingObjectReplication(input[_EOR], context).n(_EOR));
   }
-  if (input.SourceSelectionCriteria != null) {
-    const node = se_SourceSelectionCriteria(input.SourceSelectionCriteria, context).withName("SourceSelectionCriteria");
-    bodyNode.addChildNode(node);
+  if (input[_Des] != null) {
+    bn.c(se_Destination(input[_Des], context).n(_Des));
   }
-  if (input.ExistingObjectReplication != null) {
-    const node = se_ExistingObjectReplication(input.ExistingObjectReplication, context).withName(
-      "ExistingObjectReplication"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_DMR] != null) {
+    bn.c(se_DeleteMarkerReplication(input[_DMR], context).n(_DMR));
   }
-  if (input.Destination != null) {
-    const node = se_Destination(input.Destination, context).withName("Destination");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BIS, input[_B]).n(_B));
   }
-  if (input.DeleteMarkerReplication != null) {
-    const node = se_DeleteMarkerReplication(input.DeleteMarkerReplication, context).withName("DeleteMarkerReplication");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketIdentifierString", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationRuleAndOperator
  */
 const se_ReplicationRuleAndOperator = (input: ReplicationRuleAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationRuleAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags != null) {
-    const nodes = se_S3TagSet(input.Tags, context);
-    const containerNode = new __XmlNode("Tags");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RRAO);
+  bn.cc(input, _Pre);
+  bn.lc(input, "Tags", "Tags", () => se_S3TagSet(input[_T]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationRuleFilter
  */
 const se_ReplicationRuleFilter = (input: ReplicationRuleFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationRuleFilter");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RRF);
+  bn.cc(input, _Pre);
+  if (input[_Tag] != null) {
+    bn.c(se_S3Tag(input[_Tag], context).n(_Tag));
   }
-  if (input.Tag != null) {
-    const node = se_S3Tag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
+  if (input[_An] != null) {
+    bn.c(se_ReplicationRuleAndOperator(input[_An], context).n(_An));
   }
-  if (input.And != null) {
-    const node = se_ReplicationRuleAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10001,8 +8745,8 @@ const se_ReplicationRules = (input: ReplicationRule[], context: __SerdeContext):
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ReplicationRule(entry, context);
-      return node.withName("Rule");
+      const n = se_ReplicationRule(entry, context);
+      return n.n(_Rul);
     });
 };
 
@@ -10013,8 +8757,8 @@ const se_ReplicationStatusFilterList = (input: ReplicationStatus[], context: __S
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("ReplicationStatus", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_RSe, entry);
+      return n.n(_m);
     });
 };
 
@@ -10022,28 +8766,25 @@ const se_ReplicationStatusFilterList = (input: ReplicationStatus[], context: __S
  * serializeAws_restXmlReplicationTime
  */
 const se_ReplicationTime = (input: ReplicationTime, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationTime");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ReplicationTimeStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RT);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_RTS, input[_S]).n(_S));
   }
-  if (input.Time != null) {
-    const node = se_ReplicationTimeValue(input.Time, context).withName("Time");
-    bodyNode.addChildNode(node);
+  if (input[_Ti] != null) {
+    bn.c(se_ReplicationTimeValue(input[_Ti], context).n(_Ti));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationTimeValue
  */
 const se_ReplicationTimeValue = (input: ReplicationTimeValue, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationTimeValue");
-  if (input.Minutes != null) {
-    const node = __XmlNode.of("Minutes", String(input.Minutes)).withName("Minutes");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RTV);
+  if (input[_Mi] != null) {
+    bn.c(__XmlNode.of(_Mi, String(input[_Mi])).n(_Mi));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10053,8 +8794,8 @@ const se_RouteList = (input: MultiRegionAccessPointRoute[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_MultiRegionAccessPointRoute(entry, context);
-      return node.withName("Route");
+      const n = se_MultiRegionAccessPointRoute(entry, context);
+      return n.n(_Rou);
     });
 };
 
@@ -10062,212 +8803,141 @@ const se_RouteList = (input: MultiRegionAccessPointRoute[], context: __SerdeCont
  * serializeAws_restXmlS3AccessControlList
  */
 const se_S3AccessControlList = (input: S3AccessControlList, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3AccessControlList");
-  if (input.Owner != null) {
-    const node = se_S3ObjectOwner(input.Owner, context).withName("Owner");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SACL);
+  if (input[_Ow] != null) {
+    bn.c(se_S3ObjectOwner(input[_Ow], context).n(_Ow));
   }
-  if (input.Grants != null) {
-    const nodes = se_S3GrantList(input.Grants, context);
-    const containerNode = new __XmlNode("Grants");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Grants", "Grants", () => se_S3GrantList(input[_Gr]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3AccessControlPolicy
  */
 const se_S3AccessControlPolicy = (input: S3AccessControlPolicy, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3AccessControlPolicy");
-  if (input.AccessControlList != null) {
-    const node = se_S3AccessControlList(input.AccessControlList, context).withName("AccessControlList");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SACP);
+  if (input[_ACLc] != null) {
+    bn.c(se_S3AccessControlList(input[_ACLc], context).n(_ACLc));
   }
-  if (input.CannedAccessControlList != null) {
-    const node = __XmlNode
-      .of("S3CannedAccessControlList", input.CannedAccessControlList)
-      .withName("CannedAccessControlList");
-    bodyNode.addChildNode(node);
+  if (input[_CACL] != null) {
+    bn.c(__XmlNode.of(_SCACL, input[_CACL]).n(_CACL));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3BucketDestination
  */
 const se_S3BucketDestination = (input: S3BucketDestination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3BucketDestination");
-  if (input.Format != null) {
-    const node = __XmlNode.of("Format", input.Format).withName("Format");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SBD);
+  bn.cc(input, _F);
+  bn.cc(input, _OSVu);
+  bn.cc(input, _AI);
+  if (input[_Ar] != null) {
+    bn.c(__XmlNode.of(_SBAS, input[_Ar]).n(_Ar));
   }
-  if (input.OutputSchemaVersion != null) {
-    const node = __XmlNode.of("OutputSchemaVersion", input.OutputSchemaVersion).withName("OutputSchemaVersion");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _Pre);
+  if (input[_Enc] != null) {
+    bn.c(se_StorageLensDataExportEncryption(input[_Enc], context).n(_Enc));
   }
-  if (input.AccountId != null) {
-    const node = __XmlNode.of("AccountId", input.AccountId).withName("AccountId");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Arn != null) {
-    const node = __XmlNode.of("S3BucketArnString", input.Arn).withName("Arn");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Encryption != null) {
-    const node = se_StorageLensDataExportEncryption(input.Encryption, context).withName("Encryption");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3CopyObjectOperation
  */
 const se_S3CopyObjectOperation = (input: S3CopyObjectOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3CopyObjectOperation");
-  if (input.TargetResource != null) {
-    const node = __XmlNode.of("S3RegionalOrS3ExpressBucketArnString", input.TargetResource).withName("TargetResource");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SCOO);
+  if (input[_TR] != null) {
+    bn.c(__XmlNode.of(_SROSEBAS, input[_TR]).n(_TR));
   }
-  if (input.CannedAccessControlList != null) {
-    const node = __XmlNode
-      .of("S3CannedAccessControlList", input.CannedAccessControlList)
-      .withName("CannedAccessControlList");
-    bodyNode.addChildNode(node);
+  if (input[_CACL] != null) {
+    bn.c(__XmlNode.of(_SCACL, input[_CACL]).n(_CACL));
   }
-  if (input.AccessControlGrants != null) {
-    const nodes = se_S3GrantList(input.AccessControlGrants, context);
-    const containerNode = new __XmlNode("AccessControlGrants");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "AccessControlGrants", "AccessControlGrants", () => se_S3GrantList(input[_ACG]!, context));
+  if (input[_MDe] != null) {
+    bn.c(__XmlNode.of(_SMD, input[_MDe]).n(_MDe));
   }
-  if (input.MetadataDirective != null) {
-    const node = __XmlNode.of("S3MetadataDirective", input.MetadataDirective).withName("MetadataDirective");
-    bodyNode.addChildNode(node);
+  if (input[_MSC] != null) {
+    bn.c(__XmlNode.of(_TSi, input[_MSC].toISOString().split(".")[0] + "Z").n(_MSC));
   }
-  if (input.ModifiedSinceConstraint != null) {
-    const node = __XmlNode
-      .of("TimeStamp", input.ModifiedSinceConstraint.toISOString().split(".")[0] + "Z")
-      .withName("ModifiedSinceConstraint");
-    bodyNode.addChildNode(node);
+  if (input[_NOM] != null) {
+    bn.c(se_S3ObjectMetadata(input[_NOM], context).n(_NOM));
   }
-  if (input.NewObjectMetadata != null) {
-    const node = se_S3ObjectMetadata(input.NewObjectMetadata, context).withName("NewObjectMetadata");
-    bodyNode.addChildNode(node);
+  bn.lc(input, "NewObjectTagging", "NewObjectTagging", () => se_S3TagSet(input[_NOT]!, context));
+  if (input[_RL] != null) {
+    bn.c(__XmlNode.of(_NEMLSonm, input[_RL]).n(_RL));
   }
-  if (input.NewObjectTagging != null) {
-    const nodes = se_S3TagSet(input.NewObjectTagging, context);
-    const containerNode = new __XmlNode("NewObjectTagging");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_RP] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_RP])).n(_RP));
   }
-  if (input.RedirectLocation != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength2048String", input.RedirectLocation).withName("RedirectLocation");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_SSCt, input[_SC]).n(_SC));
   }
-  if (input.RequesterPays != null) {
-    const node = __XmlNode.of("Boolean", String(input.RequesterPays)).withName("RequesterPays");
-    bodyNode.addChildNode(node);
+  if (input[_UMSC] != null) {
+    bn.c(__XmlNode.of(_TSi, input[_UMSC].toISOString().split(".")[0] + "Z").n(_UMSC));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("S3StorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  if (input[_SSEAKKI] != null) {
+    bn.c(__XmlNode.of(_KKAS, input[_SSEAKKI]).n(_SSEAKKI));
   }
-  if (input.UnModifiedSinceConstraint != null) {
-    const node = __XmlNode
-      .of("TimeStamp", input.UnModifiedSinceConstraint.toISOString().split(".")[0] + "Z")
-      .withName("UnModifiedSinceConstraint");
-    bodyNode.addChildNode(node);
+  if (input[_TKP] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_TKP]).n(_TKP));
   }
-  if (input.SSEAwsKmsKeyId != null) {
-    const node = __XmlNode.of("KmsKeyArnString", input.SSEAwsKmsKeyId).withName("SSEAwsKmsKeyId");
-    bodyNode.addChildNode(node);
+  if (input[_OLLHS] != null) {
+    bn.c(__XmlNode.of(_SOLLHS, input[_OLLHS]).n(_OLLHS));
   }
-  if (input.TargetKeyPrefix != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.TargetKeyPrefix).withName("TargetKeyPrefix");
-    bodyNode.addChildNode(node);
+  if (input[_OLM] != null) {
+    bn.c(__XmlNode.of(_SOLM, input[_OLM]).n(_OLM));
   }
-  if (input.ObjectLockLegalHoldStatus != null) {
-    const node = __XmlNode
-      .of("S3ObjectLockLegalHoldStatus", input.ObjectLockLegalHoldStatus)
-      .withName("ObjectLockLegalHoldStatus");
-    bodyNode.addChildNode(node);
+  if (input[_OLRUD] != null) {
+    bn.c(__XmlNode.of(_TSi, input[_OLRUD].toISOString().split(".")[0] + "Z").n(_OLRUD));
   }
-  if (input.ObjectLockMode != null) {
-    const node = __XmlNode.of("S3ObjectLockMode", input.ObjectLockMode).withName("ObjectLockMode");
-    bodyNode.addChildNode(node);
+  if (input[_BKE] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_BKE])).n(_BKE));
   }
-  if (input.ObjectLockRetainUntilDate != null) {
-    const node = __XmlNode
-      .of("TimeStamp", input.ObjectLockRetainUntilDate.toISOString().split(".")[0] + "Z")
-      .withName("ObjectLockRetainUntilDate");
-    bodyNode.addChildNode(node);
+  if (input[_CAh] != null) {
+    bn.c(__XmlNode.of(_SCA, input[_CAh]).n(_CAh));
   }
-  if (input.BucketKeyEnabled != null) {
-    const node = __XmlNode.of("Boolean", String(input.BucketKeyEnabled)).withName("BucketKeyEnabled");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ChecksumAlgorithm != null) {
-    const node = __XmlNode.of("S3ChecksumAlgorithm", input.ChecksumAlgorithm).withName("ChecksumAlgorithm");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3DeleteObjectTaggingOperation
  */
 const se_S3DeleteObjectTaggingOperation = (input: S3DeleteObjectTaggingOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3DeleteObjectTaggingOperation");
-  return bodyNode;
+  const bn = new __XmlNode(_SDOTO);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3Grant
  */
 const se_S3Grant = (input: S3Grant, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3Grant");
-  if (input.Grantee != null) {
-    const node = se_S3Grantee(input.Grantee, context).withName("Grantee");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SG);
+  if (input[_G] != null) {
+    bn.c(se_S3Grantee(input[_G], context).n(_G));
   }
-  if (input.Permission != null) {
-    const node = __XmlNode.of("S3Permission", input.Permission).withName("Permission");
-    bodyNode.addChildNode(node);
+  if (input[_P] != null) {
+    bn.c(__XmlNode.of(_SPe, input[_P]).n(_P));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3Grantee
  */
 const se_S3Grantee = (input: S3Grantee, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3Grantee");
-  if (input.TypeIdentifier != null) {
-    const node = __XmlNode.of("S3GranteeTypeIdentifier", input.TypeIdentifier).withName("TypeIdentifier");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SGr);
+  if (input[_TI] != null) {
+    bn.c(__XmlNode.of(_SGTI, input[_TI]).n(_TI));
   }
-  if (input.Identifier != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.Identifier).withName("Identifier");
-    bodyNode.addChildNode(node);
+  if (input[_Id] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_Id]).n(_Id));
   }
-  if (input.DisplayName != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.DisplayName).withName("DisplayName");
-    bodyNode.addChildNode(node);
+  if (input[_DN] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_DN]).n(_DN));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10277,8 +8947,8 @@ const se_S3GrantList = (input: S3Grant[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_S3Grant(entry, context);
-      return node.withName("member");
+      const n = se_S3Grant(entry, context);
+      return n.n(_m);
     });
 };
 
@@ -10286,256 +8956,205 @@ const se_S3GrantList = (input: S3Grant[], context: __SerdeContext): any => {
  * serializeAws_restXmlS3InitiateRestoreObjectOperation
  */
 const se_S3InitiateRestoreObjectOperation = (input: S3InitiateRestoreObjectOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3InitiateRestoreObjectOperation");
-  if (input.ExpirationInDays != null) {
-    const node = __XmlNode.of("S3ExpirationInDays", String(input.ExpirationInDays)).withName("ExpirationInDays");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SIROO);
+  if (input[_EID] != null) {
+    bn.c(__XmlNode.of(_SEID, String(input[_EID])).n(_EID));
   }
-  if (input.GlacierJobTier != null) {
-    const node = __XmlNode.of("S3GlacierJobTier", input.GlacierJobTier).withName("GlacierJobTier");
-    bodyNode.addChildNode(node);
+  if (input[_GJT] != null) {
+    bn.c(__XmlNode.of(_SGJT, input[_GJT]).n(_GJT));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3JobManifestGenerator
  */
 const se_S3JobManifestGenerator = (input: S3JobManifestGenerator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3JobManifestGenerator");
-  if (input.ExpectedBucketOwner != null) {
-    const node = __XmlNode.of("AccountId", input.ExpectedBucketOwner).withName("ExpectedBucketOwner");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SJMG);
+  if (input[_EBO] != null) {
+    bn.c(__XmlNode.of(_AI, input[_EBO]).n(_EBO));
   }
-  if (input.SourceBucket != null) {
-    const node = __XmlNode.of("S3BucketArnString", input.SourceBucket).withName("SourceBucket");
-    bodyNode.addChildNode(node);
+  if (input[_SB] != null) {
+    bn.c(__XmlNode.of(_SBAS, input[_SB]).n(_SB));
   }
-  if (input.ManifestOutputLocation != null) {
-    const node = se_S3ManifestOutputLocation(input.ManifestOutputLocation, context).withName("ManifestOutputLocation");
-    bodyNode.addChildNode(node);
+  if (input[_MOL] != null) {
+    bn.c(se_S3ManifestOutputLocation(input[_MOL], context).n(_MOL));
   }
-  if (input.Filter != null) {
-    const node = se_JobManifestGeneratorFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_Fil] != null) {
+    bn.c(se_JobManifestGeneratorFilter(input[_Fil], context).n(_Fil));
   }
-  if (input.EnableManifestOutput != null) {
-    const node = __XmlNode.of("Boolean", String(input.EnableManifestOutput)).withName("EnableManifestOutput");
-    bodyNode.addChildNode(node);
+  if (input[_EMO] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_EMO])).n(_EMO));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3ManifestOutputLocation
  */
 const se_S3ManifestOutputLocation = (input: S3ManifestOutputLocation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3ManifestOutputLocation");
-  if (input.ExpectedManifestBucketOwner != null) {
-    const node = __XmlNode.of("AccountId", input.ExpectedManifestBucketOwner).withName("ExpectedManifestBucketOwner");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SMOL);
+  if (input[_EMBO] != null) {
+    bn.c(__XmlNode.of(_AI, input[_EMBO]).n(_EMBO));
   }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("S3BucketArnString", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_SBAS, input[_B]).n(_B));
   }
-  if (input.ManifestPrefix != null) {
-    const node = __XmlNode.of("ManifestPrefixString", input.ManifestPrefix).withName("ManifestPrefix");
-    bodyNode.addChildNode(node);
+  if (input[_MP] != null) {
+    bn.c(__XmlNode.of(_MPS, input[_MP]).n(_MP));
   }
-  if (input.ManifestEncryption != null) {
-    const node = se_GeneratedManifestEncryption(input.ManifestEncryption, context).withName("ManifestEncryption");
-    bodyNode.addChildNode(node);
+  if (input[_ME] != null) {
+    bn.c(se_GeneratedManifestEncryption(input[_ME], context).n(_ME));
   }
-  if (input.ManifestFormat != null) {
-    const node = __XmlNode.of("GeneratedManifestFormat", input.ManifestFormat).withName("ManifestFormat");
-    bodyNode.addChildNode(node);
+  if (input[_MF] != null) {
+    bn.c(__XmlNode.of(_GMF, input[_MF]).n(_MF));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3ObjectLockLegalHold
  */
 const se_S3ObjectLockLegalHold = (input: S3ObjectLockLegalHold, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3ObjectLockLegalHold");
-  if (input.Status != null) {
-    const node = __XmlNode.of("S3ObjectLockLegalHoldStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SOLLH);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_SOLLHS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3ObjectMetadata
  */
 const se_S3ObjectMetadata = (input: S3ObjectMetadata, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3ObjectMetadata");
-  if (input.CacheControl != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.CacheControl).withName("CacheControl");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SOM);
+  if (input[_CC] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_CC]).n(_CC));
   }
-  if (input.ContentDisposition != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ContentDisposition).withName("ContentDisposition");
-    bodyNode.addChildNode(node);
+  if (input[_CDo] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_CDo]).n(_CDo));
   }
-  if (input.ContentEncoding != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ContentEncoding).withName("ContentEncoding");
-    bodyNode.addChildNode(node);
+  if (input[_CE] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_CE]).n(_CE));
   }
-  if (input.ContentLanguage != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ContentLanguage).withName("ContentLanguage");
-    bodyNode.addChildNode(node);
+  if (input[_CL] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_CL]).n(_CL));
   }
-  if (input.UserMetadata != null) {
-    const nodes = se_S3UserMetadata(input.UserMetadata, context);
-    const containerNode = new __XmlNode("UserMetadata");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "UserMetadata", "UserMetadata", () => se_S3UserMetadata(input[_UM]!, context));
+  if (input[_CLo] != null) {
+    bn.c(__XmlNode.of(_SCL, String(input[_CLo])).n(_CLo));
   }
-  if (input.ContentLength != null) {
-    const node = __XmlNode.of("S3ContentLength", String(input.ContentLength)).withName("ContentLength");
-    bodyNode.addChildNode(node);
+  if (input[_CMD] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_CMD]).n(_CMD));
   }
-  if (input.ContentMD5 != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ContentMD5).withName("ContentMD5");
-    bodyNode.addChildNode(node);
+  if (input[_CTon] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_CTon]).n(_CTon));
   }
-  if (input.ContentType != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ContentType).withName("ContentType");
-    bodyNode.addChildNode(node);
+  if (input[_HED] != null) {
+    bn.c(__XmlNode.of(_TSi, input[_HED].toISOString().split(".")[0] + "Z").n(_HED));
   }
-  if (input.HttpExpiresDate != null) {
-    const node = __XmlNode
-      .of("TimeStamp", input.HttpExpiresDate.toISOString().split(".")[0] + "Z")
-      .withName("HttpExpiresDate");
-    bodyNode.addChildNode(node);
+  if (input[_RCe] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_RCe])).n(_RCe));
   }
-  if (input.RequesterCharged != null) {
-    const node = __XmlNode.of("Boolean", String(input.RequesterCharged)).withName("RequesterCharged");
-    bodyNode.addChildNode(node);
+  if (input[_SSEA] != null) {
+    bn.c(__XmlNode.of(_SSSEA, input[_SSEA]).n(_SSEA));
   }
-  if (input.SSEAlgorithm != null) {
-    const node = __XmlNode.of("S3SSEAlgorithm", input.SSEAlgorithm).withName("SSEAlgorithm");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3ObjectOwner
  */
 const se_S3ObjectOwner = (input: S3ObjectOwner, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3ObjectOwner");
-  if (input.ID != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SOO);
+  if (input[_ID] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_ID]).n(_ID));
   }
-  if (input.DisplayName != null) {
-    const node = __XmlNode.of("NonEmptyMaxLength1024String", input.DisplayName).withName("DisplayName");
-    bodyNode.addChildNode(node);
+  if (input[_DN] != null) {
+    bn.c(__XmlNode.of(_NEMLSon, input[_DN]).n(_DN));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3ReplicateObjectOperation
  */
 const se_S3ReplicateObjectOperation = (input: S3ReplicateObjectOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3ReplicateObjectOperation");
-  return bodyNode;
+  const bn = new __XmlNode(_SROO);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3Retention
  */
 const se_S3Retention = (input: S3Retention, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3Retention");
-  if (input.RetainUntilDate != null) {
-    const node = __XmlNode
-      .of("TimeStamp", input.RetainUntilDate.toISOString().split(".")[0] + "Z")
-      .withName("RetainUntilDate");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SR);
+  if (input[_RUD] != null) {
+    bn.c(__XmlNode.of(_TSi, input[_RUD].toISOString().split(".")[0] + "Z").n(_RUD));
   }
-  if (input.Mode != null) {
-    const node = __XmlNode.of("S3ObjectLockRetentionMode", input.Mode).withName("Mode");
-    bodyNode.addChildNode(node);
+  if (input[_Mo] != null) {
+    bn.c(__XmlNode.of(_SOLRM, input[_Mo]).n(_Mo));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3SetObjectAclOperation
  */
 const se_S3SetObjectAclOperation = (input: S3SetObjectAclOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3SetObjectAclOperation");
-  if (input.AccessControlPolicy != null) {
-    const node = se_S3AccessControlPolicy(input.AccessControlPolicy, context).withName("AccessControlPolicy");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSOAO);
+  if (input[_ACP] != null) {
+    bn.c(se_S3AccessControlPolicy(input[_ACP], context).n(_ACP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3SetObjectLegalHoldOperation
  */
 const se_S3SetObjectLegalHoldOperation = (input: S3SetObjectLegalHoldOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3SetObjectLegalHoldOperation");
-  if (input.LegalHold != null) {
-    const node = se_S3ObjectLockLegalHold(input.LegalHold, context).withName("LegalHold");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSOLHO);
+  if (input[_LH] != null) {
+    bn.c(se_S3ObjectLockLegalHold(input[_LH], context).n(_LH));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3SetObjectRetentionOperation
  */
 const se_S3SetObjectRetentionOperation = (input: S3SetObjectRetentionOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3SetObjectRetentionOperation");
-  if (input.BypassGovernanceRetention != null) {
-    const node = __XmlNode.of("Boolean", String(input.BypassGovernanceRetention)).withName("BypassGovernanceRetention");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSORO);
+  if (input[_BGR] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_BGR])).n(_BGR));
   }
-  if (input.Retention != null) {
-    const node = se_S3Retention(input.Retention, context).withName("Retention");
-    bodyNode.addChildNode(node);
+  if (input[_Ret] != null) {
+    bn.c(se_S3Retention(input[_Ret], context).n(_Ret));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3SetObjectTaggingOperation
  */
 const se_S3SetObjectTaggingOperation = (input: S3SetObjectTaggingOperation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3SetObjectTaggingOperation");
-  if (input.TagSet != null) {
-    const nodes = se_S3TagSet(input.TagSet, context);
-    const containerNode = new __XmlNode("TagSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_SSOTO);
+  bn.lc(input, "TagSet", "TagSet", () => se_S3TagSet(input[_TS]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3Tag
  */
 const se_S3Tag = (input: S3Tag, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3Tag");
-  if (input.Key != null) {
-    const node = __XmlNode.of("TagKeyString", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ST);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_TKS, input[_K]).n(_K));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("TagValueString", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_TVS, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10545,8 +9164,8 @@ const se_S3TagSet = (input: S3Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_S3Tag(entry, context);
-      return node.withName("member");
+      const n = se_S3Tag(entry, context);
+      return n.n(_m);
     });
 };
 
@@ -10558,11 +9177,11 @@ const se_S3UserMetadata = (input: Record<string, string>, context: __SerdeContex
     .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("NonEmptyMaxLength1024String", key).withName("key");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]!);
-      entryNode.addChildNode(node.withName("value"));
+      const keyNode = __XmlNode.of(_NEMLSon, key).n("key");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_MLS, input[key as keyof typeof input]!);
+      entryNode.c(n.n(_v));
       return entryNode;
     });
 };
@@ -10571,90 +9190,80 @@ const se_S3UserMetadata = (input: Record<string, string>, context: __SerdeContex
  * serializeAws_restXmlSelectionCriteria
  */
 const se_SelectionCriteria = (input: SelectionCriteria, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SelectionCriteria");
-  if (input.Delimiter != null) {
-    const node = __XmlNode.of("StorageLensPrefixLevelDelimiter", input.Delimiter).withName("Delimiter");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SCe);
+  if (input[_Del] != null) {
+    bn.c(__XmlNode.of(_SLPLD, input[_Del]).n(_Del));
   }
-  if (input.MaxDepth != null) {
-    const node = __XmlNode.of("StorageLensPrefixLevelMaxDepth", String(input.MaxDepth)).withName("MaxDepth");
-    bodyNode.addChildNode(node);
+  if (input[_MDa] != null) {
+    bn.c(__XmlNode.of(_SLPLMD, String(input[_MDa])).n(_MDa));
   }
-  if (input.MinStorageBytesPercentage != null) {
-    const node = __XmlNode
-      .of("MinStorageBytesPercentage", String(input.MinStorageBytesPercentage))
-      .withName("MinStorageBytesPercentage");
-    bodyNode.addChildNode(node);
+  if (input[_MSBP] != null) {
+    bn.c(__XmlNode.of(_MSBP, String(input[_MSBP])).n(_MSBP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSourceSelectionCriteria
  */
 const se_SourceSelectionCriteria = (input: SourceSelectionCriteria, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SourceSelectionCriteria");
-  if (input.SseKmsEncryptedObjects != null) {
-    const node = se_SseKmsEncryptedObjects(input.SseKmsEncryptedObjects, context).withName("SseKmsEncryptedObjects");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSC);
+  if (input[_SKEO] != null) {
+    bn.c(se_SseKmsEncryptedObjects(input[_SKEO], context).n(_SKEO));
   }
-  if (input.ReplicaModifications != null) {
-    const node = se_ReplicaModifications(input.ReplicaModifications, context).withName("ReplicaModifications");
-    bodyNode.addChildNode(node);
+  if (input[_RM] != null) {
+    bn.c(se_ReplicaModifications(input[_RM], context).n(_RM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSSEKMS
  */
 const se_SSEKMS = (input: SSEKMS, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SSE-KMS");
-  if (input.KeyId != null) {
-    const node = __XmlNode.of("SSEKMSKeyId", input.KeyId).withName("KeyId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SK);
+  if (input[_KI] != null) {
+    bn.c(__XmlNode.of(_SSEKMSKI, input[_KI]).n(_KI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSseKmsEncryptedObjects
  */
 const se_SseKmsEncryptedObjects = (input: SseKmsEncryptedObjects, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SseKmsEncryptedObjects");
-  if (input.Status != null) {
-    const node = __XmlNode.of("SseKmsEncryptedObjectsStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SKEO);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_SKEOS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSSEKMSEncryption
  */
 const se_SSEKMSEncryption = (input: SSEKMSEncryption, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SSE-KMS");
-  if (input.KeyId != null) {
-    const node = __XmlNode.of("KmsKeyArnString", input.KeyId).withName("KeyId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SK);
+  if (input[_KI] != null) {
+    bn.c(__XmlNode.of(_KKAS, input[_KI]).n(_KI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSSES3
  */
 const se_SSES3 = (input: SSES3, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SSE-S3");
-  return bodyNode;
+  const bn = new __XmlNode(_SS);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSSES3Encryption
  */
 const se_SSES3Encryption = (input: SSES3Encryption, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SSE-S3");
-  return bodyNode;
+  const bn = new __XmlNode(_SS);
+  return bn;
 };
 
 /**
@@ -10664,8 +9273,8 @@ const se_StorageClassList = (input: S3StorageClass[], context: __SerdeContext): 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("S3StorageClass", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_SSCt, entry);
+      return n.n(_m);
     });
 };
 
@@ -10673,206 +9282,135 @@ const se_StorageClassList = (input: S3StorageClass[], context: __SerdeContext): 
  * serializeAws_restXmlStorageLensAwsOrg
  */
 const se_StorageLensAwsOrg = (input: StorageLensAwsOrg, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensAwsOrg");
-  if (input.Arn != null) {
-    const node = __XmlNode.of("AwsOrgArn", input.Arn).withName("Arn");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLAO);
+  if (input[_Ar] != null) {
+    bn.c(__XmlNode.of(_AOA, input[_Ar]).n(_Ar));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensConfiguration
  */
 const se_StorageLensConfiguration = (input: StorageLensConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("ConfigId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLC);
+  if (input[_Id_] != null) {
+    bn.c(__XmlNode.of(_CI, input[_Id_]).n(_Id_));
   }
-  if (input.AccountLevel != null) {
-    const node = se_AccountLevel(input.AccountLevel, context).withName("AccountLevel");
-    bodyNode.addChildNode(node);
+  if (input[_AL] != null) {
+    bn.c(se_AccountLevel(input[_AL], context).n(_AL));
   }
-  if (input.Include != null) {
-    const node = se_Include(input.Include, context).withName("Include");
-    bodyNode.addChildNode(node);
+  if (input[_I] != null) {
+    bn.c(se_Include(input[_I], context).n(_I));
   }
-  if (input.Exclude != null) {
-    const node = se__Exclude(input.Exclude, context).withName("Exclude");
-    bodyNode.addChildNode(node);
+  if (input[_Ex] != null) {
+    bn.c(se__Exclude(input[_Ex], context).n(_Ex));
   }
-  if (input.DataExport != null) {
-    const node = se_StorageLensDataExport(input.DataExport, context).withName("DataExport");
-    bodyNode.addChildNode(node);
+  if (input[_DE] != null) {
+    bn.c(se_StorageLensDataExport(input[_DE], context).n(_DE));
   }
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  if (input.AwsOrg != null) {
-    const node = se_StorageLensAwsOrg(input.AwsOrg, context).withName("AwsOrg");
-    bodyNode.addChildNode(node);
+  if (input[_AOw] != null) {
+    bn.c(se_StorageLensAwsOrg(input[_AOw], context).n(_AOw));
   }
-  if (input.StorageLensArn != null) {
-    const node = __XmlNode.of("StorageLensArn", input.StorageLensArn).withName("StorageLensArn");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _SLA);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensDataExport
  */
 const se_StorageLensDataExport = (input: StorageLensDataExport, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensDataExport");
-  if (input.S3BucketDestination != null) {
-    const node = se_S3BucketDestination(input.S3BucketDestination, context).withName("S3BucketDestination");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLDE);
+  if (input[_SBD] != null) {
+    bn.c(se_S3BucketDestination(input[_SBD], context).n(_SBD));
   }
-  if (input.CloudWatchMetrics != null) {
-    const node = se_CloudWatchMetrics(input.CloudWatchMetrics, context).withName("CloudWatchMetrics");
-    bodyNode.addChildNode(node);
+  if (input[_CWM] != null) {
+    bn.c(se_CloudWatchMetrics(input[_CWM], context).n(_CWM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensDataExportEncryption
  */
 const se_StorageLensDataExportEncryption = (input: StorageLensDataExportEncryption, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensDataExportEncryption");
-  if (input.SSES3 != null) {
-    const node = se_SSES3(input.SSES3, context).withName("SSE-S3");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLDEE);
+  if (input[_SSES] != null) {
+    bn.c(se_SSES3(input[_SSES], context).n(_SS));
   }
-  if (input.SSEKMS != null) {
-    const node = se_SSEKMS(input.SSEKMS, context).withName("SSE-KMS");
-    bodyNode.addChildNode(node);
+  if (input[_SSEKMS] != null) {
+    bn.c(se_SSEKMS(input[_SSEKMS], context).n(_SK));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensGroup
  */
 const se_StorageLensGroup = (input: StorageLensGroup, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensGroup");
-  if (input.Name != null) {
-    const node = __XmlNode.of("StorageLensGroupName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLG);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_SLGN, input[_N]).n(_N));
   }
-  if (input.Filter != null) {
-    const node = se_StorageLensGroupFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_Fil] != null) {
+    bn.c(se_StorageLensGroupFilter(input[_Fil], context).n(_Fil));
   }
-  if (input.StorageLensGroupArn != null) {
-    const node = __XmlNode.of("StorageLensGroupArn", input.StorageLensGroupArn).withName("StorageLensGroupArn");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _SLGA);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensGroupAndOperator
  */
 const se_StorageLensGroupAndOperator = (input: StorageLensGroupAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensGroupAndOperator");
-  if (input.MatchAnyPrefix != null) {
-    const nodes = se_MatchAnyPrefix(input.MatchAnyPrefix, context);
-    const containerNode = new __XmlNode("MatchAnyPrefix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  const bn = new __XmlNode(_SLGAO);
+  bn.lc(input, "MatchAnyPrefix", "MatchAnyPrefix", () => se_MatchAnyPrefix(input[_MAP]!, context));
+  bn.lc(input, "MatchAnySuffix", "MatchAnySuffix", () => se_MatchAnySuffix(input[_MAS]!, context));
+  bn.lc(input, "MatchAnyTag", "MatchAnyTag", () => se_MatchAnyTag(input[_MAT]!, context));
+  if (input[_MOA] != null) {
+    bn.c(se_MatchObjectAge(input[_MOA], context).n(_MOA));
   }
-  if (input.MatchAnySuffix != null) {
-    const nodes = se_MatchAnySuffix(input.MatchAnySuffix, context);
-    const containerNode = new __XmlNode("MatchAnySuffix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_MOS] != null) {
+    bn.c(se_MatchObjectSize(input[_MOS], context).n(_MOS));
   }
-  if (input.MatchAnyTag != null) {
-    const nodes = se_MatchAnyTag(input.MatchAnyTag, context);
-    const containerNode = new __XmlNode("MatchAnyTag");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.MatchObjectAge != null) {
-    const node = se_MatchObjectAge(input.MatchObjectAge, context).withName("MatchObjectAge");
-    bodyNode.addChildNode(node);
-  }
-  if (input.MatchObjectSize != null) {
-    const node = se_MatchObjectSize(input.MatchObjectSize, context).withName("MatchObjectSize");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensGroupFilter
  */
 const se_StorageLensGroupFilter = (input: StorageLensGroupFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensGroupFilter");
-  if (input.MatchAnyPrefix != null) {
-    const nodes = se_MatchAnyPrefix(input.MatchAnyPrefix, context);
-    const containerNode = new __XmlNode("MatchAnyPrefix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  const bn = new __XmlNode(_SLGF);
+  bn.lc(input, "MatchAnyPrefix", "MatchAnyPrefix", () => se_MatchAnyPrefix(input[_MAP]!, context));
+  bn.lc(input, "MatchAnySuffix", "MatchAnySuffix", () => se_MatchAnySuffix(input[_MAS]!, context));
+  bn.lc(input, "MatchAnyTag", "MatchAnyTag", () => se_MatchAnyTag(input[_MAT]!, context));
+  if (input[_MOA] != null) {
+    bn.c(se_MatchObjectAge(input[_MOA], context).n(_MOA));
   }
-  if (input.MatchAnySuffix != null) {
-    const nodes = se_MatchAnySuffix(input.MatchAnySuffix, context);
-    const containerNode = new __XmlNode("MatchAnySuffix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_MOS] != null) {
+    bn.c(se_MatchObjectSize(input[_MOS], context).n(_MOS));
   }
-  if (input.MatchAnyTag != null) {
-    const nodes = se_MatchAnyTag(input.MatchAnyTag, context);
-    const containerNode = new __XmlNode("MatchAnyTag");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_An] != null) {
+    bn.c(se_StorageLensGroupAndOperator(input[_An], context).n(_An));
   }
-  if (input.MatchObjectAge != null) {
-    const node = se_MatchObjectAge(input.MatchObjectAge, context).withName("MatchObjectAge");
-    bodyNode.addChildNode(node);
+  if (input[_Or_] != null) {
+    bn.c(se_StorageLensGroupOrOperator(input[_Or_], context).n(_Or_));
   }
-  if (input.MatchObjectSize != null) {
-    const node = se_MatchObjectSize(input.MatchObjectSize, context).withName("MatchObjectSize");
-    bodyNode.addChildNode(node);
-  }
-  if (input.And != null) {
-    const node = se_StorageLensGroupAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Or != null) {
-    const node = se_StorageLensGroupOrOperator(input.Or, context).withName("Or");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensGroupLevel
  */
 const se_StorageLensGroupLevel = (input: StorageLensGroupLevel, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensGroupLevel");
-  if (input.SelectionCriteria != null) {
-    const node = se_StorageLensGroupLevelSelectionCriteria(input.SelectionCriteria, context).withName(
-      "SelectionCriteria"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLGLt);
+  if (input[_SCe] != null) {
+    bn.c(se_StorageLensGroupLevelSelectionCriteria(input[_SCe], context).n(_SCe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10882,8 +9420,8 @@ const se_StorageLensGroupLevelExclude = (input: string[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("StorageLensGroupArn", entry);
-      return node.withName("Arn");
+      const n = __XmlNode.of(_SLGA, entry);
+      return n.n(_Ar);
     });
 };
 
@@ -10894,8 +9432,8 @@ const se_StorageLensGroupLevelInclude = (input: string[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("StorageLensGroupArn", entry);
-      return node.withName("Arn");
+      const n = __XmlNode.of(_SLGA, entry);
+      return n.n(_Ar);
     });
 };
 
@@ -10906,80 +9444,41 @@ const se_StorageLensGroupLevelSelectionCriteria = (
   input: StorageLensGroupLevelSelectionCriteria,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("StorageLensGroupLevelSelectionCriteria");
-  if (input.Include != null) {
-    const nodes = se_StorageLensGroupLevelInclude(input.Include, context);
-    const containerNode = new __XmlNode("Include");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.Exclude != null) {
-    const nodes = se_StorageLensGroupLevelExclude(input.Exclude, context);
-    const containerNode = new __XmlNode("Exclude");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_SLGLSC);
+  bn.lc(input, "Include", "Include", () => se_StorageLensGroupLevelInclude(input[_I]!, context));
+  bn.lc(input, "Exclude", "Exclude", () => se_StorageLensGroupLevelExclude(input[_Ex]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensGroupOrOperator
  */
 const se_StorageLensGroupOrOperator = (input: StorageLensGroupOrOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensGroupOrOperator");
-  if (input.MatchAnyPrefix != null) {
-    const nodes = se_MatchAnyPrefix(input.MatchAnyPrefix, context);
-    const containerNode = new __XmlNode("MatchAnyPrefix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  const bn = new __XmlNode(_SLGOO);
+  bn.lc(input, "MatchAnyPrefix", "MatchAnyPrefix", () => se_MatchAnyPrefix(input[_MAP]!, context));
+  bn.lc(input, "MatchAnySuffix", "MatchAnySuffix", () => se_MatchAnySuffix(input[_MAS]!, context));
+  bn.lc(input, "MatchAnyTag", "MatchAnyTag", () => se_MatchAnyTag(input[_MAT]!, context));
+  if (input[_MOA] != null) {
+    bn.c(se_MatchObjectAge(input[_MOA], context).n(_MOA));
   }
-  if (input.MatchAnySuffix != null) {
-    const nodes = se_MatchAnySuffix(input.MatchAnySuffix, context);
-    const containerNode = new __XmlNode("MatchAnySuffix");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_MOS] != null) {
+    bn.c(se_MatchObjectSize(input[_MOS], context).n(_MOS));
   }
-  if (input.MatchAnyTag != null) {
-    const nodes = se_MatchAnyTag(input.MatchAnyTag, context);
-    const containerNode = new __XmlNode("MatchAnyTag");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.MatchObjectAge != null) {
-    const node = se_MatchObjectAge(input.MatchObjectAge, context).withName("MatchObjectAge");
-    bodyNode.addChildNode(node);
-  }
-  if (input.MatchObjectSize != null) {
-    const node = se_MatchObjectSize(input.MatchObjectSize, context).withName("MatchObjectSize");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageLensTag
  */
 const se_StorageLensTag = (input: StorageLensTag, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageLensTag");
-  if (input.Key != null) {
-    const node = __XmlNode.of("TagKeyString", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLT);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_TKS, input[_K]).n(_K));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("TagValueString", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_TVS, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10989,8 +9488,8 @@ const se_StorageLensTags = (input: StorageLensTag[], context: __SerdeContext): a
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_StorageLensTag(entry, context);
-      return node.withName("Tag");
+      const n = se_StorageLensTag(entry, context);
+      return n.n(_Tag);
     });
 };
 
@@ -10998,32 +9497,23 @@ const se_StorageLensTags = (input: StorageLensTag[], context: __SerdeContext): a
  * serializeAws_restXmlTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tag");
-  if (input.Key != null) {
-    const node = __XmlNode.of("TagKeyString", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Tag);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_TKS, input[_K]).n(_K));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("TagValueString", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_TVS, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTagging
  */
 const se_Tagging = (input: Tagging, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tagging");
-  if (input.TagSet != null) {
-    const nodes = se_S3TagSet(input.TagSet, context);
-    const containerNode = new __XmlNode("TagSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_Tagg);
+  bn.lc(input, "TagSet", "TagSet", () => se_S3TagSet(input[_TS]!, context));
+  return bn;
 };
 
 /**
@@ -11033,8 +9523,8 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Tag(entry, context);
-      return node.withName("Tag");
+      const n = se_Tag(entry, context);
+      return n.n(_Tag);
     });
 };
 
@@ -11042,20 +9532,17 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  * serializeAws_restXmlTransition
  */
 const se_Transition = (input: Transition, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Transition");
-  if (input.Date != null) {
-    const node = __XmlNode.of("Date", input.Date.toISOString().split(".")[0] + "Z").withName("Date");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Tra);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_Da, input[_Da].toISOString().split(".")[0] + "Z").n(_Da));
   }
-  if (input.Days != null) {
-    const node = __XmlNode.of("Days", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  if (input[_Day] != null) {
+    bn.c(__XmlNode.of(_Day, String(input[_Day])).n(_Day));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("TransitionStorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_TSC, input[_SC]).n(_SC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -11065,8 +9552,8 @@ const se_TransitionList = (input: Transition[], context: __SerdeContext): any =>
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Transition(entry, context);
-      return node.withName("Transition");
+      const n = se_Transition(entry, context);
+      return n.n(_Tra);
     });
 };
 
@@ -11078,11 +9565,11 @@ const se_UserArguments = (input: Record<string, string>, context: __SerdeContext
     .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("NonEmptyMaxLength64String", key).withName("key");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = __XmlNode.of("MaxLength1024String", input[key as keyof typeof input]!);
-      entryNode.addChildNode(node.withName("value"));
+      const keyNode = __XmlNode.of(_NEMLS, key).n("key");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_MLS, input[key as keyof typeof input]!);
+      entryNode.c(n.n(_v));
       return entryNode;
     });
 };
@@ -11091,28 +9578,23 @@ const se_UserArguments = (input: Record<string, string>, context: __SerdeContext
  * serializeAws_restXmlVersioningConfiguration
  */
 const se_VersioningConfiguration = (input: VersioningConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("VersioningConfiguration");
-  if (input.MFADelete != null) {
-    const node = __XmlNode.of("MFADelete", input.MFADelete).withName("MfaDelete");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_VCe);
+  if (input[_MFAD] != null) {
+    bn.c(__XmlNode.of(_MFAD, input[_MFAD]).n(_MD));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("BucketVersioningStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_BVS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlVpcConfiguration
  */
 const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("VpcConfiguration");
-  if (input.VpcId != null) {
-    const node = __XmlNode.of("VpcId", input.VpcId).withName("VpcId");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_VC);
+  bn.cc(input, _VI);
+  return bn;
 };
 
 /**
@@ -11120,8 +9602,8 @@ const se_VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): 
  */
 const de_AbortIncompleteMultipartUpload = (output: any, context: __SerdeContext): AbortIncompleteMultipartUpload => {
   const contents: any = {};
-  if (output["DaysAfterInitiation"] !== undefined) {
-    contents.DaysAfterInitiation = __strictParseInt32(output["DaysAfterInitiation"]) as number;
+  if (output[_DAI] != null) {
+    contents[_DAI] = __strictParseInt32(output[_DAI]) as number;
   }
   return contents;
 };
@@ -11131,8 +9613,8 @@ const de_AbortIncompleteMultipartUpload = (output: any, context: __SerdeContext)
  */
 const de_AccessControlTranslation = (output: any, context: __SerdeContext): AccessControlTranslation => {
   const contents: any = {};
-  if (output["Owner"] !== undefined) {
-    contents.Owner = __expectString(output["Owner"]);
+  if (output[_Ow] != null) {
+    contents[_Ow] = __expectString(output[_Ow]);
   }
   return contents;
 };
@@ -11167,8 +9649,8 @@ const de_AccessGrantsLocationConfiguration = (
   context: __SerdeContext
 ): AccessGrantsLocationConfiguration => {
   const contents: any = {};
-  if (output["S3SubPrefix"] !== undefined) {
-    contents.S3SubPrefix = __expectString(output["S3SubPrefix"]);
+  if (output[_SSP] != null) {
+    contents[_SSP] = __expectString(output[_SSP]);
   }
   return contents;
 };
@@ -11189,26 +9671,26 @@ const de_AccessGrantsLocationsList = (output: any, context: __SerdeContext): Lis
  */
 const de_AccessPoint = (output: any, context: __SerdeContext): AccessPoint => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["NetworkOrigin"] !== undefined) {
-    contents.NetworkOrigin = __expectString(output["NetworkOrigin"]);
+  if (output[_NO] != null) {
+    contents[_NO] = __expectString(output[_NO]);
   }
-  if (output["VpcConfiguration"] !== undefined) {
-    contents.VpcConfiguration = de_VpcConfiguration(output["VpcConfiguration"], context);
+  if (output[_VC] != null) {
+    contents[_VC] = de_VpcConfiguration(output[_VC], context);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["AccessPointArn"] !== undefined) {
-    contents.AccessPointArn = __expectString(output["AccessPointArn"]);
+  if (output[_APA] != null) {
+    contents[_APA] = __expectString(output[_APA]);
   }
-  if (output["Alias"] !== undefined) {
-    contents.Alias = __expectString(output["Alias"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["BucketAccountId"] !== undefined) {
-    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
+  if (output[_BAI] != null) {
+    contents[_BAI] = __expectString(output[_BAI]);
   }
   return contents;
 };
@@ -11229,29 +9711,23 @@ const de_AccessPointList = (output: any, context: __SerdeContext): AccessPoint[]
  */
 const de_AccountLevel = (output: any, context: __SerdeContext): AccountLevel => {
   const contents: any = {};
-  if (output["ActivityMetrics"] !== undefined) {
-    contents.ActivityMetrics = de_ActivityMetrics(output["ActivityMetrics"], context);
+  if (output[_AM] != null) {
+    contents[_AM] = de_ActivityMetrics(output[_AM], context);
   }
-  if (output["BucketLevel"] !== undefined) {
-    contents.BucketLevel = de_BucketLevel(output["BucketLevel"], context);
+  if (output[_BL] != null) {
+    contents[_BL] = de_BucketLevel(output[_BL], context);
   }
-  if (output["AdvancedCostOptimizationMetrics"] !== undefined) {
-    contents.AdvancedCostOptimizationMetrics = de_AdvancedCostOptimizationMetrics(
-      output["AdvancedCostOptimizationMetrics"],
-      context
-    );
+  if (output[_ACOM] != null) {
+    contents[_ACOM] = de_AdvancedCostOptimizationMetrics(output[_ACOM], context);
   }
-  if (output["AdvancedDataProtectionMetrics"] !== undefined) {
-    contents.AdvancedDataProtectionMetrics = de_AdvancedDataProtectionMetrics(
-      output["AdvancedDataProtectionMetrics"],
-      context
-    );
+  if (output[_ADPM] != null) {
+    contents[_ADPM] = de_AdvancedDataProtectionMetrics(output[_ADPM], context);
   }
-  if (output["DetailedStatusCodesMetrics"] !== undefined) {
-    contents.DetailedStatusCodesMetrics = de_DetailedStatusCodesMetrics(output["DetailedStatusCodesMetrics"], context);
+  if (output[_DSCM] != null) {
+    contents[_DSCM] = de_DetailedStatusCodesMetrics(output[_DSCM], context);
   }
-  if (output["StorageLensGroupLevel"] !== undefined) {
-    contents.StorageLensGroupLevel = de_StorageLensGroupLevel(output["StorageLensGroupLevel"], context);
+  if (output[_SLGLt] != null) {
+    contents[_SLGLt] = de_StorageLensGroupLevel(output[_SLGLt], context);
   }
   return contents;
 };
@@ -11261,8 +9737,8 @@ const de_AccountLevel = (output: any, context: __SerdeContext): AccountLevel => 
  */
 const de_ActivityMetrics = (output: any, context: __SerdeContext): ActivityMetrics => {
   const contents: any = {};
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
   return contents;
 };
@@ -11272,8 +9748,8 @@ const de_ActivityMetrics = (output: any, context: __SerdeContext): ActivityMetri
  */
 const de_AdvancedCostOptimizationMetrics = (output: any, context: __SerdeContext): AdvancedCostOptimizationMetrics => {
   const contents: any = {};
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
   return contents;
 };
@@ -11283,8 +9759,8 @@ const de_AdvancedCostOptimizationMetrics = (output: any, context: __SerdeContext
  */
 const de_AdvancedDataProtectionMetrics = (output: any, context: __SerdeContext): AdvancedDataProtectionMetrics => {
   const contents: any = {};
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
   return contents;
 };
@@ -11294,17 +9770,17 @@ const de_AdvancedDataProtectionMetrics = (output: any, context: __SerdeContext):
  */
 const de_AsyncErrorDetails = (output: any, context: __SerdeContext): AsyncErrorDetails => {
   const contents: any = {};
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
-  if (output["Resource"] !== undefined) {
-    contents.Resource = __expectString(output["Resource"]);
+  if (output[_Res] != null) {
+    contents[_Res] = __expectString(output[_Res]);
   }
-  if (output["RequestId"] !== undefined) {
-    contents.RequestId = __expectString(output["RequestId"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
   return contents;
 };
@@ -11314,23 +9790,23 @@ const de_AsyncErrorDetails = (output: any, context: __SerdeContext): AsyncErrorD
  */
 const de_AsyncOperation = (output: any, context: __SerdeContext): AsyncOperation => {
   const contents: any = {};
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["Operation"] !== undefined) {
-    contents.Operation = __expectString(output["Operation"]);
+  if (output[_O] != null) {
+    contents[_O] = __expectString(output[_O]);
   }
-  if (output["RequestTokenARN"] !== undefined) {
-    contents.RequestTokenARN = __expectString(output["RequestTokenARN"]);
+  if (output[_RTARN] != null) {
+    contents[_RTARN] = __expectString(output[_RTARN]);
   }
-  if (output["RequestParameters"] !== undefined) {
-    contents.RequestParameters = de_AsyncRequestParameters(output["RequestParameters"], context);
+  if (output[_RPe] != null) {
+    contents[_RPe] = de_AsyncRequestParameters(output[_RPe], context);
   }
-  if (output["RequestStatus"] !== undefined) {
-    contents.RequestStatus = __expectString(output["RequestStatus"]);
+  if (output[_RSeq] != null) {
+    contents[_RSeq] = __expectString(output[_RSeq]);
   }
-  if (output["ResponseDetails"] !== undefined) {
-    contents.ResponseDetails = de_AsyncResponseDetails(output["ResponseDetails"], context);
+  if (output[_RD] != null) {
+    contents[_RD] = de_AsyncResponseDetails(output[_RD], context);
   }
   return contents;
 };
@@ -11340,23 +9816,14 @@ const de_AsyncOperation = (output: any, context: __SerdeContext): AsyncOperation
  */
 const de_AsyncRequestParameters = (output: any, context: __SerdeContext): AsyncRequestParameters => {
   const contents: any = {};
-  if (output["CreateMultiRegionAccessPointRequest"] !== undefined) {
-    contents.CreateMultiRegionAccessPointRequest = de_CreateMultiRegionAccessPointInput(
-      output["CreateMultiRegionAccessPointRequest"],
-      context
-    );
+  if (output[_CMRAPR] != null) {
+    contents[_CMRAPR] = de_CreateMultiRegionAccessPointInput(output[_CMRAPR], context);
   }
-  if (output["DeleteMultiRegionAccessPointRequest"] !== undefined) {
-    contents.DeleteMultiRegionAccessPointRequest = de_DeleteMultiRegionAccessPointInput(
-      output["DeleteMultiRegionAccessPointRequest"],
-      context
-    );
+  if (output[_DMRAPR] != null) {
+    contents[_DMRAPR] = de_DeleteMultiRegionAccessPointInput(output[_DMRAPR], context);
   }
-  if (output["PutMultiRegionAccessPointPolicyRequest"] !== undefined) {
-    contents.PutMultiRegionAccessPointPolicyRequest = de_PutMultiRegionAccessPointPolicyInput(
-      output["PutMultiRegionAccessPointPolicyRequest"],
-      context
-    );
+  if (output[_PMRAPPR] != null) {
+    contents[_PMRAPPR] = de_PutMultiRegionAccessPointPolicyInput(output[_PMRAPPR], context);
   }
   return contents;
 };
@@ -11366,14 +9833,11 @@ const de_AsyncRequestParameters = (output: any, context: __SerdeContext): AsyncR
  */
 const de_AsyncResponseDetails = (output: any, context: __SerdeContext): AsyncResponseDetails => {
   const contents: any = {};
-  if (output["MultiRegionAccessPointDetails"] !== undefined) {
-    contents.MultiRegionAccessPointDetails = de_MultiRegionAccessPointsAsyncResponse(
-      output["MultiRegionAccessPointDetails"],
-      context
-    );
+  if (output[_MRAPD] != null) {
+    contents[_MRAPD] = de_MultiRegionAccessPointsAsyncResponse(output[_MRAPD], context);
   }
-  if (output["ErrorDetails"] !== undefined) {
-    contents.ErrorDetails = de_AsyncErrorDetails(output["ErrorDetails"], context);
+  if (output[_ED] != null) {
+    contents[_ED] = de_AsyncErrorDetails(output[_ED], context);
   }
   return contents;
 };
@@ -11383,11 +9847,11 @@ const de_AsyncResponseDetails = (output: any, context: __SerdeContext): AsyncRes
  */
 const de_AwsLambdaTransformation = (output: any, context: __SerdeContext): AwsLambdaTransformation => {
   const contents: any = {};
-  if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = __expectString(output["FunctionArn"]);
+  if (output[_FA] != null) {
+    contents[_FA] = __expectString(output[_FA]);
   }
-  if (output["FunctionPayload"] !== undefined) {
-    contents.FunctionPayload = __expectString(output["FunctionPayload"]);
+  if (output[_FP] != null) {
+    contents[_FP] = __expectString(output[_FP]);
   }
   return contents;
 };
@@ -11397,26 +9861,20 @@ const de_AwsLambdaTransformation = (output: any, context: __SerdeContext): AwsLa
  */
 const de_BucketLevel = (output: any, context: __SerdeContext): BucketLevel => {
   const contents: any = {};
-  if (output["ActivityMetrics"] !== undefined) {
-    contents.ActivityMetrics = de_ActivityMetrics(output["ActivityMetrics"], context);
+  if (output[_AM] != null) {
+    contents[_AM] = de_ActivityMetrics(output[_AM], context);
   }
-  if (output["PrefixLevel"] !== undefined) {
-    contents.PrefixLevel = de_PrefixLevel(output["PrefixLevel"], context);
+  if (output[_PL] != null) {
+    contents[_PL] = de_PrefixLevel(output[_PL], context);
   }
-  if (output["AdvancedCostOptimizationMetrics"] !== undefined) {
-    contents.AdvancedCostOptimizationMetrics = de_AdvancedCostOptimizationMetrics(
-      output["AdvancedCostOptimizationMetrics"],
-      context
-    );
+  if (output[_ACOM] != null) {
+    contents[_ACOM] = de_AdvancedCostOptimizationMetrics(output[_ACOM], context);
   }
-  if (output["AdvancedDataProtectionMetrics"] !== undefined) {
-    contents.AdvancedDataProtectionMetrics = de_AdvancedDataProtectionMetrics(
-      output["AdvancedDataProtectionMetrics"],
-      context
-    );
+  if (output[_ADPM] != null) {
+    contents[_ADPM] = de_AdvancedDataProtectionMetrics(output[_ADPM], context);
   }
-  if (output["DetailedStatusCodesMetrics"] !== undefined) {
-    contents.DetailedStatusCodesMetrics = de_DetailedStatusCodesMetrics(output["DetailedStatusCodesMetrics"], context);
+  if (output[_DSCM] != null) {
+    contents[_DSCM] = de_DetailedStatusCodesMetrics(output[_DSCM], context);
   }
   return contents;
 };
@@ -11437,8 +9895,8 @@ const de_Buckets = (output: any, context: __SerdeContext): string[] => {
  */
 const de_CloudWatchMetrics = (output: any, context: __SerdeContext): CloudWatchMetrics => {
   const contents: any = {};
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
   return contents;
 };
@@ -11451,16 +9909,16 @@ const de_CreateMultiRegionAccessPointInput = (
   context: __SerdeContext
 ): CreateMultiRegionAccessPointInput => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["PublicAccessBlock"] !== undefined) {
-    contents.PublicAccessBlock = de_PublicAccessBlockConfiguration(output["PublicAccessBlock"], context);
+  if (output[_PAB] != null) {
+    contents[_PAB] = de_PublicAccessBlockConfiguration(output[_PAB], context);
   }
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
-    contents.Regions = de_RegionCreationList(__getArrayIfSingleItem(output["Regions"]["Region"]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_Reg] != null) {
+    contents[_Re] = de_RegionCreationList(__getArrayIfSingleItem(output[_Re][_Reg]), context);
   }
   return contents;
 };
@@ -11470,17 +9928,17 @@ const de_CreateMultiRegionAccessPointInput = (
  */
 const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
   const contents: any = {};
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  if (output[_AKI] != null) {
+    contents[_AKI] = __expectString(output[_AKI]);
   }
-  if (output["SecretAccessKey"] !== undefined) {
-    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
+  if (output[_SAK] != null) {
+    contents[_SAK] = __expectString(output[_SAK]);
   }
-  if (output["SessionToken"] !== undefined) {
-    contents.SessionToken = __expectString(output["SessionToken"]);
+  if (output[_STe] != null) {
+    contents[_STe] = __expectString(output[_STe]);
   }
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
+  if (output[_Exp] != null) {
+    contents[_Exp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Exp]));
   }
   return contents;
 };
@@ -11490,8 +9948,8 @@ const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
  */
 const de_DeleteMarkerReplication = (output: any, context: __SerdeContext): DeleteMarkerReplication => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -11504,8 +9962,8 @@ const de_DeleteMultiRegionAccessPointInput = (
   context: __SerdeContext
 ): DeleteMultiRegionAccessPointInput => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   return contents;
 };
@@ -11515,26 +9973,26 @@ const de_DeleteMultiRegionAccessPointInput = (
  */
 const de_Destination = (output: any, context: __SerdeContext): Destination => {
   const contents: any = {};
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Ac] != null) {
+    contents[_Ac] = __expectString(output[_Ac]);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["ReplicationTime"] !== undefined) {
-    contents.ReplicationTime = de_ReplicationTime(output["ReplicationTime"], context);
+  if (output[_RT] != null) {
+    contents[_RT] = de_ReplicationTime(output[_RT], context);
   }
-  if (output["AccessControlTranslation"] !== undefined) {
-    contents.AccessControlTranslation = de_AccessControlTranslation(output["AccessControlTranslation"], context);
+  if (output[_ACT] != null) {
+    contents[_ACT] = de_AccessControlTranslation(output[_ACT], context);
   }
-  if (output["EncryptionConfiguration"] !== undefined) {
-    contents.EncryptionConfiguration = de_EncryptionConfiguration(output["EncryptionConfiguration"], context);
+  if (output[_EC] != null) {
+    contents[_EC] = de_EncryptionConfiguration(output[_EC], context);
   }
-  if (output["Metrics"] !== undefined) {
-    contents.Metrics = de_Metrics(output["Metrics"], context);
+  if (output[_Met] != null) {
+    contents[_Met] = de_Metrics(output[_Met], context);
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
   return contents;
 };
@@ -11544,8 +10002,8 @@ const de_Destination = (output: any, context: __SerdeContext): Destination => {
  */
 const de_DetailedStatusCodesMetrics = (output: any, context: __SerdeContext): DetailedStatusCodesMetrics => {
   const contents: any = {};
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
   return contents;
 };
@@ -11555,8 +10013,8 @@ const de_DetailedStatusCodesMetrics = (output: any, context: __SerdeContext): De
  */
 const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
   const contents: any = {};
-  if (output["ReplicaKmsKeyID"] !== undefined) {
-    contents.ReplicaKmsKeyID = __expectString(output["ReplicaKmsKeyID"]);
+  if (output[_RKKID] != null) {
+    contents[_RKKID] = __expectString(output[_RKKID]);
   }
   return contents;
 };
@@ -11582,8 +10040,8 @@ const de_EstablishedMultiRegionAccessPointPolicy = (
   context: __SerdeContext
 ): EstablishedMultiRegionAccessPointPolicy => {
   const contents: any = {};
-  if (output["Policy"] !== undefined) {
-    contents.Policy = __expectString(output["Policy"]);
+  if (output[_Po] != null) {
+    contents[_Po] = __expectString(output[_Po]);
   }
   return contents;
 };
@@ -11594,14 +10052,14 @@ const de_EstablishedMultiRegionAccessPointPolicy = (
 const de__Exclude = (output: any, context: __SerdeContext): _Exclude => {
   const contents: any = {};
   if (output.Buckets === "") {
-    contents.Buckets = [];
-  } else if (output["Buckets"] !== undefined && output["Buckets"]["Arn"] !== undefined) {
-    contents.Buckets = de_Buckets(__getArrayIfSingleItem(output["Buckets"]["Arn"]), context);
+    contents[_Bu] = [];
+  } else if (output[_Bu] != null && output[_Bu][_Ar] != null) {
+    contents[_Bu] = de_Buckets(__getArrayIfSingleItem(output[_Bu][_Ar]), context);
   }
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
-    contents.Regions = de_Regions(__getArrayIfSingleItem(output["Regions"]["Region"]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_Reg] != null) {
+    contents[_Re] = de_Regions(__getArrayIfSingleItem(output[_Re][_Reg]), context);
   }
   return contents;
 };
@@ -11611,8 +10069,8 @@ const de__Exclude = (output: any, context: __SerdeContext): _Exclude => {
  */
 const de_ExistingObjectReplication = (output: any, context: __SerdeContext): ExistingObjectReplication => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -11622,11 +10080,11 @@ const de_ExistingObjectReplication = (output: any, context: __SerdeContext): Exi
  */
 const de_GeneratedManifestEncryption = (output: any, context: __SerdeContext): GeneratedManifestEncryption => {
   const contents: any = {};
-  if (output["SSE-S3"] !== undefined) {
-    contents.SSES3 = de_SSES3Encryption(output["SSE-S3"], context);
+  if (output[_SS] != null) {
+    contents[_SSES] = de_SSES3Encryption(output[_SS], context);
   }
-  if (output["SSE-KMS"] !== undefined) {
-    contents.SSEKMS = de_SSEKMSEncryption(output["SSE-KMS"], context);
+  if (output[_SK] != null) {
+    contents[_SSEKMS] = de_SSEKMSEncryption(output[_SK], context);
   }
   return contents;
 };
@@ -11636,11 +10094,11 @@ const de_GeneratedManifestEncryption = (output: any, context: __SerdeContext): G
  */
 const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
   const contents: any = {};
-  if (output["GranteeType"] !== undefined) {
-    contents.GranteeType = __expectString(output["GranteeType"]);
+  if (output[_GT] != null) {
+    contents[_GT] = __expectString(output[_GT]);
   }
-  if (output["GranteeIdentifier"] !== undefined) {
-    contents.GranteeIdentifier = __expectString(output["GranteeIdentifier"]);
+  if (output[_GI] != null) {
+    contents[_GI] = __expectString(output[_GI]);
   }
   return contents;
 };
@@ -11651,14 +10109,14 @@ const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
 const de_Include = (output: any, context: __SerdeContext): Include => {
   const contents: any = {};
   if (output.Buckets === "") {
-    contents.Buckets = [];
-  } else if (output["Buckets"] !== undefined && output["Buckets"]["Arn"] !== undefined) {
-    contents.Buckets = de_Buckets(__getArrayIfSingleItem(output["Buckets"]["Arn"]), context);
+    contents[_Bu] = [];
+  } else if (output[_Bu] != null && output[_Bu][_Ar] != null) {
+    contents[_Bu] = de_Buckets(__getArrayIfSingleItem(output[_Bu][_Ar]), context);
   }
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
-    contents.Regions = de_Regions(__getArrayIfSingleItem(output["Regions"]["Region"]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_Reg] != null) {
+    contents[_Re] = de_Regions(__getArrayIfSingleItem(output[_Re][_Reg]), context);
   }
   return contents;
 };
@@ -11668,69 +10126,66 @@ const de_Include = (output: any, context: __SerdeContext): Include => {
  */
 const de_JobDescriptor = (output: any, context: __SerdeContext): JobDescriptor => {
   const contents: any = {};
-  if (output["JobId"] !== undefined) {
-    contents.JobId = __expectString(output["JobId"]);
+  if (output[_JI] != null) {
+    contents[_JI] = __expectString(output[_JI]);
   }
-  if (output["ConfirmationRequired"] !== undefined) {
-    contents.ConfirmationRequired = __parseBoolean(output["ConfirmationRequired"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __parseBoolean(output[_CR]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["JobArn"] !== undefined) {
-    contents.JobArn = __expectString(output["JobArn"]);
+  if (output[_JA] != null) {
+    contents[_JA] = __expectString(output[_JA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Manifest"] !== undefined) {
-    contents.Manifest = de_JobManifest(output["Manifest"], context);
+  if (output[_M] != null) {
+    contents[_M] = de_JobManifest(output[_M], context);
   }
-  if (output["Operation"] !== undefined) {
-    contents.Operation = de_JobOperation(output["Operation"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_JobOperation(output[_O], context);
   }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt32(output["Priority"]) as number;
+  if (output[_Pr] != null) {
+    contents[_Pr] = __strictParseInt32(output[_Pr]) as number;
   }
-  if (output["ProgressSummary"] !== undefined) {
-    contents.ProgressSummary = de_JobProgressSummary(output["ProgressSummary"], context);
+  if (output[_PSr] != null) {
+    contents[_PSr] = de_JobProgressSummary(output[_PSr], context);
   }
-  if (output["StatusUpdateReason"] !== undefined) {
-    contents.StatusUpdateReason = __expectString(output["StatusUpdateReason"]);
+  if (output[_SUR] != null) {
+    contents[_SUR] = __expectString(output[_SUR]);
   }
   if (output.FailureReasons === "") {
-    contents.FailureReasons = [];
-  } else if (output["FailureReasons"] !== undefined && output["FailureReasons"]["member"] !== undefined) {
-    contents.FailureReasons = de_JobFailureList(__getArrayIfSingleItem(output["FailureReasons"]["member"]), context);
+    contents[_FR] = [];
+  } else if (output[_FR] != null && output[_FR][_m] != null) {
+    contents[_FR] = de_JobFailureList(__getArrayIfSingleItem(output[_FR][_m]), context);
   }
-  if (output["Report"] !== undefined) {
-    contents.Report = de_JobReport(output["Report"], context);
+  if (output[_R] != null) {
+    contents[_R] = de_JobReport(output[_R], context);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TerminationDate"]));
+  if (output[_TD] != null) {
+    contents[_TD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TD]));
   }
-  if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = __expectString(output["RoleArn"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
-  if (output["SuspendedDate"] !== undefined) {
-    contents.SuspendedDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SuspendedDate"]));
+  if (output[_SD] != null) {
+    contents[_SD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SD]));
   }
-  if (output["SuspendedCause"] !== undefined) {
-    contents.SuspendedCause = __expectString(output["SuspendedCause"]);
+  if (output[_SCu] != null) {
+    contents[_SCu] = __expectString(output[_SCu]);
   }
   if (output.ManifestGenerator === "") {
     // Pass empty tags.
-  } else if (output["ManifestGenerator"] !== undefined) {
-    contents.ManifestGenerator = de_JobManifestGenerator(__expectUnion(output["ManifestGenerator"]), context);
+  } else if (output[_MG] != null) {
+    contents[_MG] = de_JobManifestGenerator(__expectUnion(output[_MG]), context);
   }
-  if (output["GeneratedManifestDescriptor"] !== undefined) {
-    contents.GeneratedManifestDescriptor = de_S3GeneratedManifestDescriptor(
-      output["GeneratedManifestDescriptor"],
-      context
-    );
+  if (output[_GMD] != null) {
+    contents[_GMD] = de_S3GeneratedManifestDescriptor(output[_GMD], context);
   }
   return contents;
 };
@@ -11740,11 +10195,11 @@ const de_JobDescriptor = (output: any, context: __SerdeContext): JobDescriptor =
  */
 const de_JobFailure = (output: any, context: __SerdeContext): JobFailure => {
   const contents: any = {};
-  if (output["FailureCode"] !== undefined) {
-    contents.FailureCode = __expectString(output["FailureCode"]);
+  if (output[_FC] != null) {
+    contents[_FC] = __expectString(output[_FC]);
   }
-  if (output["FailureReason"] !== undefined) {
-    contents.FailureReason = __expectString(output["FailureReason"]);
+  if (output[_FRa] != null) {
+    contents[_FRa] = __expectString(output[_FRa]);
   }
   return contents;
 };
@@ -11765,29 +10220,29 @@ const de_JobFailureList = (output: any, context: __SerdeContext): JobFailure[] =
  */
 const de_JobListDescriptor = (output: any, context: __SerdeContext): JobListDescriptor => {
   const contents: any = {};
-  if (output["JobId"] !== undefined) {
-    contents.JobId = __expectString(output["JobId"]);
+  if (output[_JI] != null) {
+    contents[_JI] = __expectString(output[_JI]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Operation"] !== undefined) {
-    contents.Operation = __expectString(output["Operation"]);
+  if (output[_O] != null) {
+    contents[_O] = __expectString(output[_O]);
   }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt32(output["Priority"]) as number;
+  if (output[_Pr] != null) {
+    contents[_Pr] = __strictParseInt32(output[_Pr]) as number;
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["CreationTime"] !== undefined) {
-    contents.CreationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["TerminationDate"] !== undefined) {
-    contents.TerminationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["TerminationDate"]));
+  if (output[_TD] != null) {
+    contents[_TD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TD]));
   }
-  if (output["ProgressSummary"] !== undefined) {
-    contents.ProgressSummary = de_JobProgressSummary(output["ProgressSummary"], context);
+  if (output[_PSr] != null) {
+    contents[_PSr] = de_JobProgressSummary(output[_PSr], context);
   }
   return contents;
 };
@@ -11808,11 +10263,11 @@ const de_JobListDescriptorList = (output: any, context: __SerdeContext): JobList
  */
 const de_JobManifest = (output: any, context: __SerdeContext): JobManifest => {
   const contents: any = {};
-  if (output["Spec"] !== undefined) {
-    contents.Spec = de_JobManifestSpec(output["Spec"], context);
+  if (output[_Sp] != null) {
+    contents[_Sp] = de_JobManifestSpec(output[_Sp], context);
   }
-  if (output["Location"] !== undefined) {
-    contents.Location = de_JobManifestLocation(output["Location"], context);
+  if (output[_L] != null) {
+    contents[_L] = de_JobManifestLocation(output[_L], context);
   }
   return contents;
 };
@@ -11832,9 +10287,9 @@ const de_JobManifestFieldList = (output: any, context: __SerdeContext): JobManif
  * deserializeAws_restXmlJobManifestGenerator
  */
 const de_JobManifestGenerator = (output: any, context: __SerdeContext): JobManifestGenerator => {
-  if (output["S3JobManifestGenerator"] !== undefined) {
+  if (output[_SJMG] != null) {
     return {
-      S3JobManifestGenerator: de_S3JobManifestGenerator(output["S3JobManifestGenerator"], context),
+      S3JobManifestGenerator: de_S3JobManifestGenerator(output[_SJMG], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -11845,42 +10300,33 @@ const de_JobManifestGenerator = (output: any, context: __SerdeContext): JobManif
  */
 const de_JobManifestGeneratorFilter = (output: any, context: __SerdeContext): JobManifestGeneratorFilter => {
   const contents: any = {};
-  if (output["EligibleForReplication"] !== undefined) {
-    contents.EligibleForReplication = __parseBoolean(output["EligibleForReplication"]);
+  if (output[_EFR] != null) {
+    contents[_EFR] = __parseBoolean(output[_EFR]);
   }
-  if (output["CreatedAfter"] !== undefined) {
-    contents.CreatedAfter = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAfter"]));
+  if (output[_CAr] != null) {
+    contents[_CAr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CAr]));
   }
-  if (output["CreatedBefore"] !== undefined) {
-    contents.CreatedBefore = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedBefore"]));
+  if (output[_CB] != null) {
+    contents[_CB] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CB]));
   }
   if (output.ObjectReplicationStatuses === "") {
-    contents.ObjectReplicationStatuses = [];
-  } else if (
-    output["ObjectReplicationStatuses"] !== undefined &&
-    output["ObjectReplicationStatuses"]["member"] !== undefined
-  ) {
-    contents.ObjectReplicationStatuses = de_ReplicationStatusFilterList(
-      __getArrayIfSingleItem(output["ObjectReplicationStatuses"]["member"]),
-      context
-    );
+    contents[_ORS] = [];
+  } else if (output[_ORS] != null && output[_ORS][_m] != null) {
+    contents[_ORS] = de_ReplicationStatusFilterList(__getArrayIfSingleItem(output[_ORS][_m]), context);
   }
-  if (output["KeyNameConstraint"] !== undefined) {
-    contents.KeyNameConstraint = de_KeyNameConstraint(output["KeyNameConstraint"], context);
+  if (output[_KNC] != null) {
+    contents[_KNC] = de_KeyNameConstraint(output[_KNC], context);
   }
-  if (output["ObjectSizeGreaterThanBytes"] !== undefined) {
-    contents.ObjectSizeGreaterThanBytes = __strictParseLong(output["ObjectSizeGreaterThanBytes"]) as number;
+  if (output[_OSGTB] != null) {
+    contents[_OSGTB] = __strictParseLong(output[_OSGTB]) as number;
   }
-  if (output["ObjectSizeLessThanBytes"] !== undefined) {
-    contents.ObjectSizeLessThanBytes = __strictParseLong(output["ObjectSizeLessThanBytes"]) as number;
+  if (output[_OSLTB] != null) {
+    contents[_OSLTB] = __strictParseLong(output[_OSLTB]) as number;
   }
   if (output.MatchAnyStorageClass === "") {
-    contents.MatchAnyStorageClass = [];
-  } else if (output["MatchAnyStorageClass"] !== undefined && output["MatchAnyStorageClass"]["member"] !== undefined) {
-    contents.MatchAnyStorageClass = de_StorageClassList(
-      __getArrayIfSingleItem(output["MatchAnyStorageClass"]["member"]),
-      context
-    );
+    contents[_MASC] = [];
+  } else if (output[_MASC] != null && output[_MASC][_m] != null) {
+    contents[_MASC] = de_StorageClassList(__getArrayIfSingleItem(output[_MASC][_m]), context);
   }
   return contents;
 };
@@ -11890,14 +10336,14 @@ const de_JobManifestGeneratorFilter = (output: any, context: __SerdeContext): Jo
  */
 const de_JobManifestLocation = (output: any, context: __SerdeContext): JobManifestLocation => {
   const contents: any = {};
-  if (output["ObjectArn"] !== undefined) {
-    contents.ObjectArn = __expectString(output["ObjectArn"]);
+  if (output[_OA] != null) {
+    contents[_OA] = __expectString(output[_OA]);
   }
-  if (output["ObjectVersionId"] !== undefined) {
-    contents.ObjectVersionId = __expectString(output["ObjectVersionId"]);
+  if (output[_OVI] != null) {
+    contents[_OVI] = __expectString(output[_OVI]);
   }
-  if (output["ETag"] !== undefined) {
-    contents.ETag = __expectString(output["ETag"]);
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
   }
   return contents;
 };
@@ -11907,13 +10353,13 @@ const de_JobManifestLocation = (output: any, context: __SerdeContext): JobManife
  */
 const de_JobManifestSpec = (output: any, context: __SerdeContext): JobManifestSpec => {
   const contents: any = {};
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
   if (output.Fields === "") {
-    contents.Fields = [];
-  } else if (output["Fields"] !== undefined && output["Fields"]["member"] !== undefined) {
-    contents.Fields = de_JobManifestFieldList(__getArrayIfSingleItem(output["Fields"]["member"]), context);
+    contents[_Fi] = [];
+  } else if (output[_Fi] != null && output[_Fi][_m] != null) {
+    contents[_Fi] = de_JobManifestFieldList(__getArrayIfSingleItem(output[_Fi][_m]), context);
   }
   return contents;
 };
@@ -11923,32 +10369,32 @@ const de_JobManifestSpec = (output: any, context: __SerdeContext): JobManifestSp
  */
 const de_JobOperation = (output: any, context: __SerdeContext): JobOperation => {
   const contents: any = {};
-  if (output["LambdaInvoke"] !== undefined) {
-    contents.LambdaInvoke = de_LambdaInvokeOperation(output["LambdaInvoke"], context);
+  if (output[_LI] != null) {
+    contents[_LI] = de_LambdaInvokeOperation(output[_LI], context);
   }
-  if (output["S3PutObjectCopy"] !== undefined) {
-    contents.S3PutObjectCopy = de_S3CopyObjectOperation(output["S3PutObjectCopy"], context);
+  if (output[_SPOC] != null) {
+    contents[_SPOC] = de_S3CopyObjectOperation(output[_SPOC], context);
   }
-  if (output["S3PutObjectAcl"] !== undefined) {
-    contents.S3PutObjectAcl = de_S3SetObjectAclOperation(output["S3PutObjectAcl"], context);
+  if (output[_SPOA] != null) {
+    contents[_SPOA] = de_S3SetObjectAclOperation(output[_SPOA], context);
   }
-  if (output["S3PutObjectTagging"] !== undefined) {
-    contents.S3PutObjectTagging = de_S3SetObjectTaggingOperation(output["S3PutObjectTagging"], context);
+  if (output[_SPOT] != null) {
+    contents[_SPOT] = de_S3SetObjectTaggingOperation(output[_SPOT], context);
   }
-  if (output["S3DeleteObjectTagging"] !== undefined) {
-    contents.S3DeleteObjectTagging = de_S3DeleteObjectTaggingOperation(output["S3DeleteObjectTagging"], context);
+  if (output[_SDOT] != null) {
+    contents[_SDOT] = de_S3DeleteObjectTaggingOperation(output[_SDOT], context);
   }
-  if (output["S3InitiateRestoreObject"] !== undefined) {
-    contents.S3InitiateRestoreObject = de_S3InitiateRestoreObjectOperation(output["S3InitiateRestoreObject"], context);
+  if (output[_SIRO] != null) {
+    contents[_SIRO] = de_S3InitiateRestoreObjectOperation(output[_SIRO], context);
   }
-  if (output["S3PutObjectLegalHold"] !== undefined) {
-    contents.S3PutObjectLegalHold = de_S3SetObjectLegalHoldOperation(output["S3PutObjectLegalHold"], context);
+  if (output[_SPOLH] != null) {
+    contents[_SPOLH] = de_S3SetObjectLegalHoldOperation(output[_SPOLH], context);
   }
-  if (output["S3PutObjectRetention"] !== undefined) {
-    contents.S3PutObjectRetention = de_S3SetObjectRetentionOperation(output["S3PutObjectRetention"], context);
+  if (output[_SPOR] != null) {
+    contents[_SPOR] = de_S3SetObjectRetentionOperation(output[_SPOR], context);
   }
-  if (output["S3ReplicateObject"] !== undefined) {
-    contents.S3ReplicateObject = de_S3ReplicateObjectOperation(output["S3ReplicateObject"], context);
+  if (output[_SRO] != null) {
+    contents[_SRO] = de_S3ReplicateObjectOperation(output[_SRO], context);
   }
   return contents;
 };
@@ -11958,17 +10404,17 @@ const de_JobOperation = (output: any, context: __SerdeContext): JobOperation => 
  */
 const de_JobProgressSummary = (output: any, context: __SerdeContext): JobProgressSummary => {
   const contents: any = {};
-  if (output["TotalNumberOfTasks"] !== undefined) {
-    contents.TotalNumberOfTasks = __strictParseLong(output["TotalNumberOfTasks"]) as number;
+  if (output[_TNOT] != null) {
+    contents[_TNOT] = __strictParseLong(output[_TNOT]) as number;
   }
-  if (output["NumberOfTasksSucceeded"] !== undefined) {
-    contents.NumberOfTasksSucceeded = __strictParseLong(output["NumberOfTasksSucceeded"]) as number;
+  if (output[_NOTS] != null) {
+    contents[_NOTS] = __strictParseLong(output[_NOTS]) as number;
   }
-  if (output["NumberOfTasksFailed"] !== undefined) {
-    contents.NumberOfTasksFailed = __strictParseLong(output["NumberOfTasksFailed"]) as number;
+  if (output[_NOTF] != null) {
+    contents[_NOTF] = __strictParseLong(output[_NOTF]) as number;
   }
-  if (output["Timers"] !== undefined) {
-    contents.Timers = de_JobTimers(output["Timers"], context);
+  if (output[_Tim] != null) {
+    contents[_Tim] = de_JobTimers(output[_Tim], context);
   }
   return contents;
 };
@@ -11978,20 +10424,20 @@ const de_JobProgressSummary = (output: any, context: __SerdeContext): JobProgres
  */
 const de_JobReport = (output: any, context: __SerdeContext): JobReport => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_En] != null) {
+    contents[_En] = __parseBoolean(output[_En]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output["ReportScope"] !== undefined) {
-    contents.ReportScope = __expectString(output["ReportScope"]);
+  if (output[_RS] != null) {
+    contents[_RS] = __expectString(output[_RS]);
   }
   return contents;
 };
@@ -12001,8 +10447,8 @@ const de_JobReport = (output: any, context: __SerdeContext): JobReport => {
  */
 const de_JobTimers = (output: any, context: __SerdeContext): JobTimers => {
   const contents: any = {};
-  if (output["ElapsedTimeInActiveSeconds"] !== undefined) {
-    contents.ElapsedTimeInActiveSeconds = __strictParseLong(output["ElapsedTimeInActiveSeconds"]) as number;
+  if (output[_ETIAS] != null) {
+    contents[_ETIAS] = __strictParseLong(output[_ETIAS]) as number;
   }
   return contents;
 };
@@ -12013,28 +10459,19 @@ const de_JobTimers = (output: any, context: __SerdeContext): JobTimers => {
 const de_KeyNameConstraint = (output: any, context: __SerdeContext): KeyNameConstraint => {
   const contents: any = {};
   if (output.MatchAnyPrefix === "") {
-    contents.MatchAnyPrefix = [];
-  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["member"] !== undefined) {
-    contents.MatchAnyPrefix = de_NonEmptyMaxLength1024StringList(
-      __getArrayIfSingleItem(output["MatchAnyPrefix"]["member"]),
-      context
-    );
+    contents[_MAP] = [];
+  } else if (output[_MAP] != null && output[_MAP][_m] != null) {
+    contents[_MAP] = de_NonEmptyMaxLength1024StringList(__getArrayIfSingleItem(output[_MAP][_m]), context);
   }
   if (output.MatchAnySuffix === "") {
-    contents.MatchAnySuffix = [];
-  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["member"] !== undefined) {
-    contents.MatchAnySuffix = de_NonEmptyMaxLength1024StringList(
-      __getArrayIfSingleItem(output["MatchAnySuffix"]["member"]),
-      context
-    );
+    contents[_MAS] = [];
+  } else if (output[_MAS] != null && output[_MAS][_m] != null) {
+    contents[_MAS] = de_NonEmptyMaxLength1024StringList(__getArrayIfSingleItem(output[_MAS][_m]), context);
   }
   if (output.MatchAnySubstring === "") {
-    contents.MatchAnySubstring = [];
-  } else if (output["MatchAnySubstring"] !== undefined && output["MatchAnySubstring"]["member"] !== undefined) {
-    contents.MatchAnySubstring = de_NonEmptyMaxLength1024StringList(
-      __getArrayIfSingleItem(output["MatchAnySubstring"]["member"]),
-      context
-    );
+    contents[_MASa] = [];
+  } else if (output[_MASa] != null && output[_MASa][_m] != null) {
+    contents[_MASa] = de_NonEmptyMaxLength1024StringList(__getArrayIfSingleItem(output[_MASa][_m]), context);
   }
   return contents;
 };
@@ -12044,16 +10481,16 @@ const de_KeyNameConstraint = (output: any, context: __SerdeContext): KeyNameCons
  */
 const de_LambdaInvokeOperation = (output: any, context: __SerdeContext): LambdaInvokeOperation => {
   const contents: any = {};
-  if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = __expectString(output["FunctionArn"]);
+  if (output[_FA] != null) {
+    contents[_FA] = __expectString(output[_FA]);
   }
-  if (output["InvocationSchemaVersion"] !== undefined) {
-    contents.InvocationSchemaVersion = __expectString(output["InvocationSchemaVersion"]);
+  if (output[_ISV] != null) {
+    contents[_ISV] = __expectString(output[_ISV]);
   }
   if (output.UserArguments === "") {
-    contents.UserArguments = {};
-  } else if (output["UserArguments"] !== undefined && output["UserArguments"]["entry"] !== undefined) {
-    contents.UserArguments = de_UserArguments(__getArrayIfSingleItem(output["UserArguments"]["entry"]), context);
+    contents[_UA] = {};
+  } else if (output[_UA] != null && output[_UA][_e] != null) {
+    contents[_UA] = de_UserArguments(__getArrayIfSingleItem(output[_UA][_e]), context);
   }
   return contents;
 };
@@ -12063,14 +10500,14 @@ const de_LambdaInvokeOperation = (output: any, context: __SerdeContext): LambdaI
  */
 const de_LifecycleExpiration = (output: any, context: __SerdeContext): LifecycleExpiration => {
   const contents: any = {};
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Da] != null) {
+    contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
-  if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt32(output["Days"]) as number;
+  if (output[_Day] != null) {
+    contents[_Day] = __strictParseInt32(output[_Day]) as number;
   }
-  if (output["ExpiredObjectDeleteMarker"] !== undefined) {
-    contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
+  if (output[_EODM] != null) {
+    contents[_EODM] = __parseBoolean(output[_EODM]);
   }
   return contents;
 };
@@ -12080,45 +10517,33 @@ const de_LifecycleExpiration = (output: any, context: __SerdeContext): Lifecycle
  */
 const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule => {
   const contents: any = {};
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = de_LifecycleExpiration(output["Expiration"], context);
+  if (output[_Exp] != null) {
+    contents[_Exp] = de_LifecycleExpiration(output[_Exp], context);
   }
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __expectString(output[_ID]);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_LifecycleRuleFilter(output["Filter"], context);
+  if (output[_Fil] != null) {
+    contents[_Fil] = de_LifecycleRuleFilter(output[_Fil], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   if (output.Transitions === "") {
-    contents.Transitions = [];
-  } else if (output["Transitions"] !== undefined && output["Transitions"]["Transition"] !== undefined) {
-    contents.Transitions = de_TransitionList(__getArrayIfSingleItem(output["Transitions"]["Transition"]), context);
+    contents[_Tr] = [];
+  } else if (output[_Tr] != null && output[_Tr][_Tra] != null) {
+    contents[_Tr] = de_TransitionList(__getArrayIfSingleItem(output[_Tr][_Tra]), context);
   }
   if (output.NoncurrentVersionTransitions === "") {
-    contents.NoncurrentVersionTransitions = [];
-  } else if (
-    output["NoncurrentVersionTransitions"] !== undefined &&
-    output["NoncurrentVersionTransitions"]["NoncurrentVersionTransition"] !== undefined
-  ) {
-    contents.NoncurrentVersionTransitions = de_NoncurrentVersionTransitionList(
-      __getArrayIfSingleItem(output["NoncurrentVersionTransitions"]["NoncurrentVersionTransition"]),
-      context
-    );
+    contents[_NVT] = [];
+  } else if (output[_NVT] != null && output[_NVT][_NVTo] != null) {
+    contents[_NVT] = de_NoncurrentVersionTransitionList(__getArrayIfSingleItem(output[_NVT][_NVTo]), context);
   }
-  if (output["NoncurrentVersionExpiration"] !== undefined) {
-    contents.NoncurrentVersionExpiration = de_NoncurrentVersionExpiration(
-      output["NoncurrentVersionExpiration"],
-      context
-    );
+  if (output[_NVE] != null) {
+    contents[_NVE] = de_NoncurrentVersionExpiration(output[_NVE], context);
   }
-  if (output["AbortIncompleteMultipartUpload"] !== undefined) {
-    contents.AbortIncompleteMultipartUpload = de_AbortIncompleteMultipartUpload(
-      output["AbortIncompleteMultipartUpload"],
-      context
-    );
+  if (output[_AIMU] != null) {
+    contents[_AIMU] = de_AbortIncompleteMultipartUpload(output[_AIMU], context);
   }
   return contents;
 };
@@ -12128,19 +10553,19 @@ const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule =
  */
 const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): LifecycleRuleAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_S3TagSet(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_m] != null) {
+    contents[_T] = de_S3TagSet(__getArrayIfSingleItem(output[_T][_m]), context);
   }
-  if (output["ObjectSizeGreaterThan"] !== undefined) {
-    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  if (output[_OSGT] != null) {
+    contents[_OSGT] = __strictParseLong(output[_OSGT]) as number;
   }
-  if (output["ObjectSizeLessThan"] !== undefined) {
-    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
+  if (output[_OSLT] != null) {
+    contents[_OSLT] = __strictParseLong(output[_OSLT]) as number;
   }
   return contents;
 };
@@ -12150,20 +10575,20 @@ const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): Life
  */
 const de_LifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output["Tag"] !== undefined) {
-    contents.Tag = de_S3Tag(output["Tag"], context);
+  if (output[_Tag] != null) {
+    contents[_Tag] = de_S3Tag(output[_Tag], context);
   }
-  if (output["And"] !== undefined) {
-    contents.And = de_LifecycleRuleAndOperator(output["And"], context);
+  if (output[_An] != null) {
+    contents[_An] = de_LifecycleRuleAndOperator(output[_An], context);
   }
-  if (output["ObjectSizeGreaterThan"] !== undefined) {
-    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  if (output[_OSGT] != null) {
+    contents[_OSGT] = __strictParseLong(output[_OSGT]) as number;
   }
-  if (output["ObjectSizeLessThan"] !== undefined) {
-    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
+  if (output[_OSLT] != null) {
+    contents[_OSLT] = __strictParseLong(output[_OSLT]) as number;
   }
   return contents;
 };
@@ -12184,35 +10609,32 @@ const de_LifecycleRules = (output: any, context: __SerdeContext): LifecycleRule[
  */
 const de_ListAccessGrantEntry = (output: any, context: __SerdeContext): ListAccessGrantEntry => {
   const contents: any = {};
-  if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  if (output[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CA]));
   }
-  if (output["AccessGrantId"] !== undefined) {
-    contents.AccessGrantId = __expectString(output["AccessGrantId"]);
+  if (output[_AGI] != null) {
+    contents[_AGI] = __expectString(output[_AGI]);
   }
-  if (output["AccessGrantArn"] !== undefined) {
-    contents.AccessGrantArn = __expectString(output["AccessGrantArn"]);
+  if (output[_AGA] != null) {
+    contents[_AGA] = __expectString(output[_AGA]);
   }
-  if (output["Grantee"] !== undefined) {
-    contents.Grantee = de_Grantee(output["Grantee"], context);
+  if (output[_G] != null) {
+    contents[_G] = de_Grantee(output[_G], context);
   }
-  if (output["Permission"] !== undefined) {
-    contents.Permission = __expectString(output["Permission"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(output["AccessGrantsLocationId"]);
+  if (output[_AGLI] != null) {
+    contents[_AGLI] = __expectString(output[_AGLI]);
   }
-  if (output["AccessGrantsLocationConfiguration"] !== undefined) {
-    contents.AccessGrantsLocationConfiguration = de_AccessGrantsLocationConfiguration(
-      output["AccessGrantsLocationConfiguration"],
-      context
-    );
+  if (output[_AGLC] != null) {
+    contents[_AGLC] = de_AccessGrantsLocationConfiguration(output[_AGLC], context);
   }
-  if (output["GrantScope"] !== undefined) {
-    contents.GrantScope = __expectString(output["GrantScope"]);
+  if (output[_GS] != null) {
+    contents[_GS] = __expectString(output[_GS]);
   }
-  if (output["ApplicationArn"] !== undefined) {
-    contents.ApplicationArn = __expectString(output["ApplicationArn"]);
+  if (output[_AA] != null) {
+    contents[_AA] = __expectString(output[_AA]);
   }
   return contents;
 };
@@ -12222,17 +10644,17 @@ const de_ListAccessGrantEntry = (output: any, context: __SerdeContext): ListAcce
  */
 const de_ListAccessGrantsInstanceEntry = (output: any, context: __SerdeContext): ListAccessGrantsInstanceEntry => {
   const contents: any = {};
-  if (output["AccessGrantsInstanceId"] !== undefined) {
-    contents.AccessGrantsInstanceId = __expectString(output["AccessGrantsInstanceId"]);
+  if (output[_AGII] != null) {
+    contents[_AGII] = __expectString(output[_AGII]);
   }
-  if (output["AccessGrantsInstanceArn"] !== undefined) {
-    contents.AccessGrantsInstanceArn = __expectString(output["AccessGrantsInstanceArn"]);
+  if (output[_AGIA] != null) {
+    contents[_AGIA] = __expectString(output[_AGIA]);
   }
-  if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  if (output[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CA]));
   }
-  if (output["IdentityCenterArn"] !== undefined) {
-    contents.IdentityCenterArn = __expectString(output["IdentityCenterArn"]);
+  if (output[_ICA] != null) {
+    contents[_ICA] = __expectString(output[_ICA]);
   }
   return contents;
 };
@@ -12242,20 +10664,20 @@ const de_ListAccessGrantsInstanceEntry = (output: any, context: __SerdeContext):
  */
 const de_ListAccessGrantsLocationsEntry = (output: any, context: __SerdeContext): ListAccessGrantsLocationsEntry => {
   const contents: any = {};
-  if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  if (output[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CA]));
   }
-  if (output["AccessGrantsLocationId"] !== undefined) {
-    contents.AccessGrantsLocationId = __expectString(output["AccessGrantsLocationId"]);
+  if (output[_AGLI] != null) {
+    contents[_AGLI] = __expectString(output[_AGLI]);
   }
-  if (output["AccessGrantsLocationArn"] !== undefined) {
-    contents.AccessGrantsLocationArn = __expectString(output["AccessGrantsLocationArn"]);
+  if (output[_AGLA] != null) {
+    contents[_AGLA] = __expectString(output[_AGLA]);
   }
-  if (output["LocationScope"] !== undefined) {
-    contents.LocationScope = __expectString(output["LocationScope"]);
+  if (output[_LS] != null) {
+    contents[_LS] = __expectString(output[_LS]);
   }
-  if (output["IAMRoleArn"] !== undefined) {
-    contents.IAMRoleArn = __expectString(output["IAMRoleArn"]);
+  if (output[_IAMRA] != null) {
+    contents[_IAMRA] = __expectString(output[_IAMRA]);
   }
   return contents;
 };
@@ -12268,17 +10690,17 @@ const de_ListStorageLensConfigurationEntry = (
   context: __SerdeContext
 ): ListStorageLensConfigurationEntry => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id_] != null) {
+    contents[_Id_] = __expectString(output[_Id_]);
   }
-  if (output["StorageLensArn"] !== undefined) {
-    contents.StorageLensArn = __expectString(output["StorageLensArn"]);
+  if (output[_SLA] != null) {
+    contents[_SLA] = __expectString(output[_SLA]);
   }
-  if (output["HomeRegion"] !== undefined) {
-    contents.HomeRegion = __expectString(output["HomeRegion"]);
+  if (output[_HR] != null) {
+    contents[_HR] = __expectString(output[_HR]);
   }
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
   return contents;
 };
@@ -12288,14 +10710,14 @@ const de_ListStorageLensConfigurationEntry = (
  */
 const de_ListStorageLensGroupEntry = (output: any, context: __SerdeContext): ListStorageLensGroupEntry => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["StorageLensGroupArn"] !== undefined) {
-    contents.StorageLensGroupArn = __expectString(output["StorageLensGroupArn"]);
+  if (output[_SLGA] != null) {
+    contents[_SLGA] = __expectString(output[_SLGA]);
   }
-  if (output["HomeRegion"] !== undefined) {
-    contents.HomeRegion = __expectString(output["HomeRegion"]);
+  if (output[_HR] != null) {
+    contents[_HR] = __expectString(output[_HR]);
   }
   return contents;
 };
@@ -12338,11 +10760,11 @@ const de_MatchAnyTag = (output: any, context: __SerdeContext): S3Tag[] => {
  */
 const de_MatchObjectAge = (output: any, context: __SerdeContext): MatchObjectAge => {
   const contents: any = {};
-  if (output["DaysGreaterThan"] !== undefined) {
-    contents.DaysGreaterThan = __strictParseInt32(output["DaysGreaterThan"]) as number;
+  if (output[_DGT] != null) {
+    contents[_DGT] = __strictParseInt32(output[_DGT]) as number;
   }
-  if (output["DaysLessThan"] !== undefined) {
-    contents.DaysLessThan = __strictParseInt32(output["DaysLessThan"]) as number;
+  if (output[_DLT] != null) {
+    contents[_DLT] = __strictParseInt32(output[_DLT]) as number;
   }
   return contents;
 };
@@ -12352,11 +10774,11 @@ const de_MatchObjectAge = (output: any, context: __SerdeContext): MatchObjectAge
  */
 const de_MatchObjectSize = (output: any, context: __SerdeContext): MatchObjectSize => {
   const contents: any = {};
-  if (output["BytesGreaterThan"] !== undefined) {
-    contents.BytesGreaterThan = __strictParseLong(output["BytesGreaterThan"]) as number;
+  if (output[_BGT] != null) {
+    contents[_BGT] = __strictParseLong(output[_BGT]) as number;
   }
-  if (output["BytesLessThan"] !== undefined) {
-    contents.BytesLessThan = __strictParseLong(output["BytesLessThan"]) as number;
+  if (output[_BLT] != null) {
+    contents[_BLT] = __strictParseLong(output[_BLT]) as number;
   }
   return contents;
 };
@@ -12366,11 +10788,11 @@ const de_MatchObjectSize = (output: any, context: __SerdeContext): MatchObjectSi
  */
 const de_Metrics = (output: any, context: __SerdeContext): Metrics => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["EventThreshold"] !== undefined) {
-    contents.EventThreshold = de_ReplicationTimeValue(output["EventThreshold"], context);
+  if (output[_ETv] != null) {
+    contents[_ETv] = de_ReplicationTimeValue(output[_ETv], context);
   }
   return contents;
 };
@@ -12383,11 +10805,11 @@ const de_MultiRegionAccessPointPolicyDocument = (
   context: __SerdeContext
 ): MultiRegionAccessPointPolicyDocument => {
   const contents: any = {};
-  if (output["Established"] !== undefined) {
-    contents.Established = de_EstablishedMultiRegionAccessPointPolicy(output["Established"], context);
+  if (output[_Es] != null) {
+    contents[_Es] = de_EstablishedMultiRegionAccessPointPolicy(output[_Es], context);
   }
-  if (output["Proposed"] !== undefined) {
-    contents.Proposed = de_ProposedMultiRegionAccessPointPolicy(output["Proposed"], context);
+  if (output[_Pro] != null) {
+    contents[_Pro] = de_ProposedMultiRegionAccessPointPolicy(output[_Pro], context);
   }
   return contents;
 };
@@ -12400,11 +10822,11 @@ const de_MultiRegionAccessPointRegionalResponse = (
   context: __SerdeContext
 ): MultiRegionAccessPointRegionalResponse => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["RequestStatus"] !== undefined) {
-    contents.RequestStatus = __expectString(output["RequestStatus"]);
+  if (output[_RSeq] != null) {
+    contents[_RSeq] = __expectString(output[_RSeq]);
   }
   return contents;
 };
@@ -12428,25 +10850,25 @@ const de_MultiRegionAccessPointRegionalResponseList = (
  */
 const de_MultiRegionAccessPointReport = (output: any, context: __SerdeContext): MultiRegionAccessPointReport => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Alias"] !== undefined) {
-    contents.Alias = __expectString(output["Alias"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  if (output[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CA]));
   }
-  if (output["PublicAccessBlock"] !== undefined) {
-    contents.PublicAccessBlock = de_PublicAccessBlockConfiguration(output["PublicAccessBlock"], context);
+  if (output[_PAB] != null) {
+    contents[_PAB] = de_PublicAccessBlockConfiguration(output[_PAB], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
-    contents.Regions = de_RegionReportList(__getArrayIfSingleItem(output["Regions"]["Region"]), context);
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_Reg] != null) {
+    contents[_Re] = de_RegionReportList(__getArrayIfSingleItem(output[_Re][_Reg]), context);
   }
   return contents;
 };
@@ -12467,14 +10889,14 @@ const de_MultiRegionAccessPointReportList = (output: any, context: __SerdeContex
  */
 const de_MultiRegionAccessPointRoute = (output: any, context: __SerdeContext): MultiRegionAccessPointRoute => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Reg] != null) {
+    contents[_Reg] = __expectString(output[_Reg]);
   }
-  if (output["TrafficDialPercentage"] !== undefined) {
-    contents.TrafficDialPercentage = __strictParseInt32(output["TrafficDialPercentage"]) as number;
+  if (output[_TDP] != null) {
+    contents[_TDP] = __strictParseInt32(output[_TDP]) as number;
   }
   return contents;
 };
@@ -12488,12 +10910,9 @@ const de_MultiRegionAccessPointsAsyncResponse = (
 ): MultiRegionAccessPointsAsyncResponse => {
   const contents: any = {};
   if (output.Regions === "") {
-    contents.Regions = [];
-  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
-    contents.Regions = de_MultiRegionAccessPointRegionalResponseList(
-      __getArrayIfSingleItem(output["Regions"]["Region"]),
-      context
-    );
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_Reg] != null) {
+    contents[_Re] = de_MultiRegionAccessPointRegionalResponseList(__getArrayIfSingleItem(output[_Re][_Reg]), context);
   }
   return contents;
 };
@@ -12503,11 +10922,11 @@ const de_MultiRegionAccessPointsAsyncResponse = (
  */
 const de_NoncurrentVersionExpiration = (output: any, context: __SerdeContext): NoncurrentVersionExpiration => {
   const contents: any = {};
-  if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  if (output[_ND] != null) {
+    contents[_ND] = __strictParseInt32(output[_ND]) as number;
   }
-  if (output["NewerNoncurrentVersions"] !== undefined) {
-    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
+  if (output[_NNV] != null) {
+    contents[_NNV] = __strictParseInt32(output[_NNV]) as number;
   }
   return contents;
 };
@@ -12517,11 +10936,11 @@ const de_NoncurrentVersionExpiration = (output: any, context: __SerdeContext): N
  */
 const de_NoncurrentVersionTransition = (output: any, context: __SerdeContext): NoncurrentVersionTransition => {
   const contents: any = {};
-  if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  if (output[_ND] != null) {
+    contents[_ND] = __strictParseInt32(output[_ND]) as number;
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
   return contents;
 };
@@ -12553,14 +10972,14 @@ const de_NonEmptyMaxLength1024StringList = (output: any, context: __SerdeContext
  */
 const de_ObjectLambdaAccessPoint = (output: any, context: __SerdeContext): ObjectLambdaAccessPoint => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["ObjectLambdaAccessPointArn"] !== undefined) {
-    contents.ObjectLambdaAccessPointArn = __expectString(output["ObjectLambdaAccessPointArn"]);
+  if (output[_OLAPA] != null) {
+    contents[_OLAPA] = __expectString(output[_OLAPA]);
   }
-  if (output["Alias"] !== undefined) {
-    contents.Alias = de_ObjectLambdaAccessPointAlias(output["Alias"], context);
+  if (output[_A] != null) {
+    contents[_A] = de_ObjectLambdaAccessPointAlias(output[_A], context);
   }
   return contents;
 };
@@ -12570,11 +10989,11 @@ const de_ObjectLambdaAccessPoint = (output: any, context: __SerdeContext): Objec
  */
 const de_ObjectLambdaAccessPointAlias = (output: any, context: __SerdeContext): ObjectLambdaAccessPointAlias => {
   const contents: any = {};
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -12606,30 +11025,21 @@ const de_ObjectLambdaAllowedFeaturesList = (output: any, context: __SerdeContext
  */
 const de_ObjectLambdaConfiguration = (output: any, context: __SerdeContext): ObjectLambdaConfiguration => {
   const contents: any = {};
-  if (output["SupportingAccessPoint"] !== undefined) {
-    contents.SupportingAccessPoint = __expectString(output["SupportingAccessPoint"]);
+  if (output[_SAP] != null) {
+    contents[_SAP] = __expectString(output[_SAP]);
   }
-  if (output["CloudWatchMetricsEnabled"] !== undefined) {
-    contents.CloudWatchMetricsEnabled = __parseBoolean(output["CloudWatchMetricsEnabled"]);
+  if (output[_CWME] != null) {
+    contents[_CWME] = __parseBoolean(output[_CWME]);
   }
   if (output.AllowedFeatures === "") {
-    contents.AllowedFeatures = [];
-  } else if (output["AllowedFeatures"] !== undefined && output["AllowedFeatures"]["AllowedFeature"] !== undefined) {
-    contents.AllowedFeatures = de_ObjectLambdaAllowedFeaturesList(
-      __getArrayIfSingleItem(output["AllowedFeatures"]["AllowedFeature"]),
-      context
-    );
+    contents[_AFl] = [];
+  } else if (output[_AFl] != null && output[_AFl][_AF] != null) {
+    contents[_AFl] = de_ObjectLambdaAllowedFeaturesList(__getArrayIfSingleItem(output[_AFl][_AF]), context);
   }
   if (output.TransformationConfigurations === "") {
-    contents.TransformationConfigurations = [];
-  } else if (
-    output["TransformationConfigurations"] !== undefined &&
-    output["TransformationConfigurations"]["TransformationConfiguration"] !== undefined
-  ) {
-    contents.TransformationConfigurations = de_ObjectLambdaTransformationConfigurationsList(
-      __getArrayIfSingleItem(output["TransformationConfigurations"]["TransformationConfiguration"]),
-      context
-    );
+    contents[_TC] = [];
+  } else if (output[_TC] != null && output[_TC][_TCr] != null) {
+    contents[_TC] = de_ObjectLambdaTransformationConfigurationsList(__getArrayIfSingleItem(output[_TC][_TCr]), context);
   }
   return contents;
 };
@@ -12641,9 +11051,9 @@ const de_ObjectLambdaContentTransformation = (
   output: any,
   context: __SerdeContext
 ): ObjectLambdaContentTransformation => {
-  if (output["AwsLambda"] !== undefined) {
+  if (output[_ALw] != null) {
     return {
-      AwsLambda: de_AwsLambdaTransformation(output["AwsLambda"], context),
+      AwsLambda: de_AwsLambdaTransformation(output[_ALw], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -12658,20 +11068,17 @@ const de_ObjectLambdaTransformationConfiguration = (
 ): ObjectLambdaTransformationConfiguration => {
   const contents: any = {};
   if (output.Actions === "") {
-    contents.Actions = [];
-  } else if (output["Actions"] !== undefined && output["Actions"]["Action"] !== undefined) {
-    contents.Actions = de_ObjectLambdaTransformationConfigurationActionsList(
-      __getArrayIfSingleItem(output["Actions"]["Action"]),
+    contents[_Act] = [];
+  } else if (output[_Act] != null && output[_Act][_Acti] != null) {
+    contents[_Act] = de_ObjectLambdaTransformationConfigurationActionsList(
+      __getArrayIfSingleItem(output[_Act][_Acti]),
       context
     );
   }
   if (output.ContentTransformation === "") {
     // Pass empty tags.
-  } else if (output["ContentTransformation"] !== undefined) {
-    contents.ContentTransformation = de_ObjectLambdaContentTransformation(
-      __expectUnion(output["ContentTransformation"]),
-      context
-    );
+  } else if (output[_CTo] != null) {
+    contents[_CTo] = de_ObjectLambdaContentTransformation(__expectUnion(output[_CTo]), context);
   }
   return contents;
 };
@@ -12709,8 +11116,8 @@ const de_ObjectLambdaTransformationConfigurationsList = (
  */
 const de_PolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
   const contents: any = {};
-  if (output["IsPublic"] !== undefined) {
-    contents.IsPublic = __parseBoolean(output["IsPublic"]);
+  if (output[_IP] != null) {
+    contents[_IP] = __parseBoolean(output[_IP]);
   }
   return contents;
 };
@@ -12720,8 +11127,8 @@ const de_PolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => 
  */
 const de_PrefixLevel = (output: any, context: __SerdeContext): PrefixLevel => {
   const contents: any = {};
-  if (output["StorageMetrics"] !== undefined) {
-    contents.StorageMetrics = de_PrefixLevelStorageMetrics(output["StorageMetrics"], context);
+  if (output[_SM] != null) {
+    contents[_SM] = de_PrefixLevelStorageMetrics(output[_SM], context);
   }
   return contents;
 };
@@ -12731,11 +11138,11 @@ const de_PrefixLevel = (output: any, context: __SerdeContext): PrefixLevel => {
  */
 const de_PrefixLevelStorageMetrics = (output: any, context: __SerdeContext): PrefixLevelStorageMetrics => {
   const contents: any = {};
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
-  if (output["SelectionCriteria"] !== undefined) {
-    contents.SelectionCriteria = de_SelectionCriteria(output["SelectionCriteria"], context);
+  if (output[_SCe] != null) {
+    contents[_SCe] = de_SelectionCriteria(output[_SCe], context);
   }
   return contents;
 };
@@ -12748,8 +11155,8 @@ const de_ProposedMultiRegionAccessPointPolicy = (
   context: __SerdeContext
 ): ProposedMultiRegionAccessPointPolicy => {
   const contents: any = {};
-  if (output["Policy"] !== undefined) {
-    contents.Policy = __expectString(output["Policy"]);
+  if (output[_Po] != null) {
+    contents[_Po] = __expectString(output[_Po]);
   }
   return contents;
 };
@@ -12759,17 +11166,17 @@ const de_ProposedMultiRegionAccessPointPolicy = (
  */
 const de_PublicAccessBlockConfiguration = (output: any, context: __SerdeContext): PublicAccessBlockConfiguration => {
   const contents: any = {};
-  if (output["BlockPublicAcls"] !== undefined) {
-    contents.BlockPublicAcls = __parseBoolean(output["BlockPublicAcls"]);
+  if (output[_BPA] != null) {
+    contents[_BPA] = __parseBoolean(output[_BPA]);
   }
-  if (output["IgnorePublicAcls"] !== undefined) {
-    contents.IgnorePublicAcls = __parseBoolean(output["IgnorePublicAcls"]);
+  if (output[_IPA] != null) {
+    contents[_IPA] = __parseBoolean(output[_IPA]);
   }
-  if (output["BlockPublicPolicy"] !== undefined) {
-    contents.BlockPublicPolicy = __parseBoolean(output["BlockPublicPolicy"]);
+  if (output[_BPP] != null) {
+    contents[_BPP] = __parseBoolean(output[_BPP]);
   }
-  if (output["RestrictPublicBuckets"] !== undefined) {
-    contents.RestrictPublicBuckets = __parseBoolean(output["RestrictPublicBuckets"]);
+  if (output[_RPB] != null) {
+    contents[_RPB] = __parseBoolean(output[_RPB]);
   }
   return contents;
 };
@@ -12782,11 +11189,11 @@ const de_PutMultiRegionAccessPointPolicyInput = (
   context: __SerdeContext
 ): PutMultiRegionAccessPointPolicyInput => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Policy"] !== undefined) {
-    contents.Policy = __expectString(output["Policy"]);
+  if (output[_Po] != null) {
+    contents[_Po] = __expectString(output[_Po]);
   }
   return contents;
 };
@@ -12796,11 +11203,11 @@ const de_PutMultiRegionAccessPointPolicyInput = (
  */
 const de_Region = (output: any, context: __SerdeContext): Region => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["BucketAccountId"] !== undefined) {
-    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
+  if (output[_BAI] != null) {
+    contents[_BAI] = __expectString(output[_BAI]);
   }
   return contents;
 };
@@ -12810,20 +11217,20 @@ const de_Region = (output: any, context: __SerdeContext): Region => {
  */
 const de_RegionalBucket = (output: any, context: __SerdeContext): RegionalBucket => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["BucketArn"] !== undefined) {
-    contents.BucketArn = __expectString(output["BucketArn"]);
+  if (output[_BA] != null) {
+    contents[_BA] = __expectString(output[_BA]);
   }
-  if (output["PublicAccessBlockEnabled"] !== undefined) {
-    contents.PublicAccessBlockEnabled = __parseBoolean(output["PublicAccessBlockEnabled"]);
+  if (output[_PABE] != null) {
+    contents[_PABE] = __parseBoolean(output[_PABE]);
   }
-  if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
+  if (output[_CD] != null) {
+    contents[_CD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CD]));
   }
-  if (output["OutpostId"] !== undefined) {
-    contents.OutpostId = __expectString(output["OutpostId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -12855,14 +11262,14 @@ const de_RegionCreationList = (output: any, context: __SerdeContext): Region[] =
  */
 const de_RegionReport = (output: any, context: __SerdeContext): RegionReport => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = __expectString(output["Region"]);
+  if (output[_Reg] != null) {
+    contents[_Reg] = __expectString(output[_Reg]);
   }
-  if (output["BucketAccountId"] !== undefined) {
-    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
+  if (output[_BAI] != null) {
+    contents[_BAI] = __expectString(output[_BAI]);
   }
   return contents;
 };
@@ -12894,8 +11301,8 @@ const de_Regions = (output: any, context: __SerdeContext): string[] => {
  */
 const de_ReplicaModifications = (output: any, context: __SerdeContext): ReplicaModifications => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -12905,13 +11312,13 @@ const de_ReplicaModifications = (output: any, context: __SerdeContext): ReplicaM
  */
 const de_ReplicationConfiguration = (output: any, context: __SerdeContext): ReplicationConfiguration => {
   const contents: any = {};
-  if (output["Role"] !== undefined) {
-    contents.Role = __expectString(output["Role"]);
+  if (output[_Rol] != null) {
+    contents[_Rol] = __expectString(output[_Rol]);
   }
   if (output.Rules === "") {
-    contents.Rules = [];
-  } else if (output["Rules"] !== undefined && output["Rules"]["Rule"] !== undefined) {
-    contents.Rules = de_ReplicationRules(__getArrayIfSingleItem(output["Rules"]["Rule"]), context);
+    contents[_Ru] = [];
+  } else if (output[_Ru] != null && output[_Ru][_Rul] != null) {
+    contents[_Ru] = de_ReplicationRules(__getArrayIfSingleItem(output[_Ru][_Rul]), context);
   }
   return contents;
 };
@@ -12921,35 +11328,35 @@ const de_ReplicationConfiguration = (output: any, context: __SerdeContext): Repl
  */
 const de_ReplicationRule = (output: any, context: __SerdeContext): ReplicationRule => {
   const contents: any = {};
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __expectString(output[_ID]);
   }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt32(output["Priority"]) as number;
+  if (output[_Pr] != null) {
+    contents[_Pr] = __strictParseInt32(output[_Pr]) as number;
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_ReplicationRuleFilter(output["Filter"], context);
+  if (output[_Fil] != null) {
+    contents[_Fil] = de_ReplicationRuleFilter(output[_Fil], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["SourceSelectionCriteria"] !== undefined) {
-    contents.SourceSelectionCriteria = de_SourceSelectionCriteria(output["SourceSelectionCriteria"], context);
+  if (output[_SSC] != null) {
+    contents[_SSC] = de_SourceSelectionCriteria(output[_SSC], context);
   }
-  if (output["ExistingObjectReplication"] !== undefined) {
-    contents.ExistingObjectReplication = de_ExistingObjectReplication(output["ExistingObjectReplication"], context);
+  if (output[_EOR] != null) {
+    contents[_EOR] = de_ExistingObjectReplication(output[_EOR], context);
   }
-  if (output["Destination"] !== undefined) {
-    contents.Destination = de_Destination(output["Destination"], context);
+  if (output[_Des] != null) {
+    contents[_Des] = de_Destination(output[_Des], context);
   }
-  if (output["DeleteMarkerReplication"] !== undefined) {
-    contents.DeleteMarkerReplication = de_DeleteMarkerReplication(output["DeleteMarkerReplication"], context);
+  if (output[_DMR] != null) {
+    contents[_DMR] = de_DeleteMarkerReplication(output[_DMR], context);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
   return contents;
 };
@@ -12959,13 +11366,13 @@ const de_ReplicationRule = (output: any, context: __SerdeContext): ReplicationRu
  */
 const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): ReplicationRuleAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_S3TagSet(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_m] != null) {
+    contents[_T] = de_S3TagSet(__getArrayIfSingleItem(output[_T][_m]), context);
   }
   return contents;
 };
@@ -12975,14 +11382,14 @@ const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): Re
  */
 const de_ReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output["Tag"] !== undefined) {
-    contents.Tag = de_S3Tag(output["Tag"], context);
+  if (output[_Tag] != null) {
+    contents[_Tag] = de_S3Tag(output[_Tag], context);
   }
-  if (output["And"] !== undefined) {
-    contents.And = de_ReplicationRuleAndOperator(output["And"], context);
+  if (output[_An] != null) {
+    contents[_An] = de_ReplicationRuleAndOperator(output[_An], context);
   }
   return contents;
 };
@@ -13014,11 +11421,11 @@ const de_ReplicationStatusFilterList = (output: any, context: __SerdeContext): R
  */
 const de_ReplicationTime = (output: any, context: __SerdeContext): ReplicationTime => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Time"] !== undefined) {
-    contents.Time = de_ReplicationTimeValue(output["Time"], context);
+  if (output[_Ti] != null) {
+    contents[_Ti] = de_ReplicationTimeValue(output[_Ti], context);
   }
   return contents;
 };
@@ -13028,8 +11435,8 @@ const de_ReplicationTime = (output: any, context: __SerdeContext): ReplicationTi
  */
 const de_ReplicationTimeValue = (output: any, context: __SerdeContext): ReplicationTimeValue => {
   const contents: any = {};
-  if (output["Minutes"] !== undefined) {
-    contents.Minutes = __strictParseInt32(output["Minutes"]) as number;
+  if (output[_Mi] != null) {
+    contents[_Mi] = __strictParseInt32(output[_Mi]) as number;
   }
   return contents;
 };
@@ -13050,13 +11457,13 @@ const de_RouteList = (output: any, context: __SerdeContext): MultiRegionAccessPo
  */
 const de_S3AccessControlList = (output: any, context: __SerdeContext): S3AccessControlList => {
   const contents: any = {};
-  if (output["Owner"] !== undefined) {
-    contents.Owner = de_S3ObjectOwner(output["Owner"], context);
+  if (output[_Ow] != null) {
+    contents[_Ow] = de_S3ObjectOwner(output[_Ow], context);
   }
   if (output.Grants === "") {
-    contents.Grants = [];
-  } else if (output["Grants"] !== undefined && output["Grants"]["member"] !== undefined) {
-    contents.Grants = de_S3GrantList(__getArrayIfSingleItem(output["Grants"]["member"]), context);
+    contents[_Gr] = [];
+  } else if (output[_Gr] != null && output[_Gr][_m] != null) {
+    contents[_Gr] = de_S3GrantList(__getArrayIfSingleItem(output[_Gr][_m]), context);
   }
   return contents;
 };
@@ -13066,11 +11473,11 @@ const de_S3AccessControlList = (output: any, context: __SerdeContext): S3AccessC
  */
 const de_S3AccessControlPolicy = (output: any, context: __SerdeContext): S3AccessControlPolicy => {
   const contents: any = {};
-  if (output["AccessControlList"] !== undefined) {
-    contents.AccessControlList = de_S3AccessControlList(output["AccessControlList"], context);
+  if (output[_ACLc] != null) {
+    contents[_ACLc] = de_S3AccessControlList(output[_ACLc], context);
   }
-  if (output["CannedAccessControlList"] !== undefined) {
-    contents.CannedAccessControlList = __expectString(output["CannedAccessControlList"]);
+  if (output[_CACL] != null) {
+    contents[_CACL] = __expectString(output[_CACL]);
   }
   return contents;
 };
@@ -13080,23 +11487,23 @@ const de_S3AccessControlPolicy = (output: any, context: __SerdeContext): S3Acces
  */
 const de_S3BucketDestination = (output: any, context: __SerdeContext): S3BucketDestination => {
   const contents: any = {};
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
-  if (output["OutputSchemaVersion"] !== undefined) {
-    contents.OutputSchemaVersion = __expectString(output["OutputSchemaVersion"]);
+  if (output[_OSVu] != null) {
+    contents[_OSVu] = __expectString(output[_OSVu]);
   }
-  if (output["AccountId"] !== undefined) {
-    contents.AccountId = __expectString(output["AccountId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __expectString(output[_Pre]);
   }
-  if (output["Encryption"] !== undefined) {
-    contents.Encryption = de_StorageLensDataExportEncryption(output["Encryption"], context);
+  if (output[_Enc] != null) {
+    contents[_Enc] = de_StorageLensDataExportEncryption(output[_Enc], context);
   }
   return contents;
 };
@@ -13106,72 +11513,63 @@ const de_S3BucketDestination = (output: any, context: __SerdeContext): S3BucketD
  */
 const de_S3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyObjectOperation => {
   const contents: any = {};
-  if (output["TargetResource"] !== undefined) {
-    contents.TargetResource = __expectString(output["TargetResource"]);
+  if (output[_TR] != null) {
+    contents[_TR] = __expectString(output[_TR]);
   }
-  if (output["CannedAccessControlList"] !== undefined) {
-    contents.CannedAccessControlList = __expectString(output["CannedAccessControlList"]);
+  if (output[_CACL] != null) {
+    contents[_CACL] = __expectString(output[_CACL]);
   }
   if (output.AccessControlGrants === "") {
-    contents.AccessControlGrants = [];
-  } else if (output["AccessControlGrants"] !== undefined && output["AccessControlGrants"]["member"] !== undefined) {
-    contents.AccessControlGrants = de_S3GrantList(
-      __getArrayIfSingleItem(output["AccessControlGrants"]["member"]),
-      context
-    );
+    contents[_ACG] = [];
+  } else if (output[_ACG] != null && output[_ACG][_m] != null) {
+    contents[_ACG] = de_S3GrantList(__getArrayIfSingleItem(output[_ACG][_m]), context);
   }
-  if (output["MetadataDirective"] !== undefined) {
-    contents.MetadataDirective = __expectString(output["MetadataDirective"]);
+  if (output[_MDe] != null) {
+    contents[_MDe] = __expectString(output[_MDe]);
   }
-  if (output["ModifiedSinceConstraint"] !== undefined) {
-    contents.ModifiedSinceConstraint = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ModifiedSinceConstraint"])
-    );
+  if (output[_MSC] != null) {
+    contents[_MSC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_MSC]));
   }
-  if (output["NewObjectMetadata"] !== undefined) {
-    contents.NewObjectMetadata = de_S3ObjectMetadata(output["NewObjectMetadata"], context);
+  if (output[_NOM] != null) {
+    contents[_NOM] = de_S3ObjectMetadata(output[_NOM], context);
   }
   if (output.NewObjectTagging === "") {
-    contents.NewObjectTagging = [];
-  } else if (output["NewObjectTagging"] !== undefined && output["NewObjectTagging"]["member"] !== undefined) {
-    contents.NewObjectTagging = de_S3TagSet(__getArrayIfSingleItem(output["NewObjectTagging"]["member"]), context);
+    contents[_NOT] = [];
+  } else if (output[_NOT] != null && output[_NOT][_m] != null) {
+    contents[_NOT] = de_S3TagSet(__getArrayIfSingleItem(output[_NOT][_m]), context);
   }
-  if (output["RedirectLocation"] !== undefined) {
-    contents.RedirectLocation = __expectString(output["RedirectLocation"]);
+  if (output[_RL] != null) {
+    contents[_RL] = __expectString(output[_RL]);
   }
-  if (output["RequesterPays"] !== undefined) {
-    contents.RequesterPays = __parseBoolean(output["RequesterPays"]);
+  if (output[_RP] != null) {
+    contents[_RP] = __parseBoolean(output[_RP]);
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["UnModifiedSinceConstraint"] !== undefined) {
-    contents.UnModifiedSinceConstraint = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["UnModifiedSinceConstraint"])
-    );
+  if (output[_UMSC] != null) {
+    contents[_UMSC] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UMSC]));
   }
-  if (output["SSEAwsKmsKeyId"] !== undefined) {
-    contents.SSEAwsKmsKeyId = __expectString(output["SSEAwsKmsKeyId"]);
+  if (output[_SSEAKKI] != null) {
+    contents[_SSEAKKI] = __expectString(output[_SSEAKKI]);
   }
-  if (output["TargetKeyPrefix"] !== undefined) {
-    contents.TargetKeyPrefix = __expectString(output["TargetKeyPrefix"]);
+  if (output[_TKP] != null) {
+    contents[_TKP] = __expectString(output[_TKP]);
   }
-  if (output["ObjectLockLegalHoldStatus"] !== undefined) {
-    contents.ObjectLockLegalHoldStatus = __expectString(output["ObjectLockLegalHoldStatus"]);
+  if (output[_OLLHS] != null) {
+    contents[_OLLHS] = __expectString(output[_OLLHS]);
   }
-  if (output["ObjectLockMode"] !== undefined) {
-    contents.ObjectLockMode = __expectString(output["ObjectLockMode"]);
+  if (output[_OLM] != null) {
+    contents[_OLM] = __expectString(output[_OLM]);
   }
-  if (output["ObjectLockRetainUntilDate"] !== undefined) {
-    contents.ObjectLockRetainUntilDate = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["ObjectLockRetainUntilDate"])
-    );
+  if (output[_OLRUD] != null) {
+    contents[_OLRUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_OLRUD]));
   }
-  if (output["BucketKeyEnabled"] !== undefined) {
-    contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
+  if (output[_BKE] != null) {
+    contents[_BKE] = __parseBoolean(output[_BKE]);
   }
-  if (output["ChecksumAlgorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = __expectString(output["ChecksumAlgorithm"]);
+  if (output[_CAh] != null) {
+    contents[_CAh] = __expectString(output[_CAh]);
   }
   return contents;
 };
@@ -13189,11 +11587,11 @@ const de_S3DeleteObjectTaggingOperation = (output: any, context: __SerdeContext)
  */
 const de_S3GeneratedManifestDescriptor = (output: any, context: __SerdeContext): S3GeneratedManifestDescriptor => {
   const contents: any = {};
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
-  if (output["Location"] !== undefined) {
-    contents.Location = de_JobManifestLocation(output["Location"], context);
+  if (output[_L] != null) {
+    contents[_L] = de_JobManifestLocation(output[_L], context);
   }
   return contents;
 };
@@ -13203,11 +11601,11 @@ const de_S3GeneratedManifestDescriptor = (output: any, context: __SerdeContext):
  */
 const de_S3Grant = (output: any, context: __SerdeContext): S3Grant => {
   const contents: any = {};
-  if (output["Grantee"] !== undefined) {
-    contents.Grantee = de_S3Grantee(output["Grantee"], context);
+  if (output[_G] != null) {
+    contents[_G] = de_S3Grantee(output[_G], context);
   }
-  if (output["Permission"] !== undefined) {
-    contents.Permission = __expectString(output["Permission"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   return contents;
 };
@@ -13217,14 +11615,14 @@ const de_S3Grant = (output: any, context: __SerdeContext): S3Grant => {
  */
 const de_S3Grantee = (output: any, context: __SerdeContext): S3Grantee => {
   const contents: any = {};
-  if (output["TypeIdentifier"] !== undefined) {
-    contents.TypeIdentifier = __expectString(output["TypeIdentifier"]);
+  if (output[_TI] != null) {
+    contents[_TI] = __expectString(output[_TI]);
   }
-  if (output["Identifier"] !== undefined) {
-    contents.Identifier = __expectString(output["Identifier"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = __expectString(output["DisplayName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
   return contents;
 };
@@ -13248,11 +11646,11 @@ const de_S3InitiateRestoreObjectOperation = (
   context: __SerdeContext
 ): S3InitiateRestoreObjectOperation => {
   const contents: any = {};
-  if (output["ExpirationInDays"] !== undefined) {
-    contents.ExpirationInDays = __strictParseInt32(output["ExpirationInDays"]) as number;
+  if (output[_EID] != null) {
+    contents[_EID] = __strictParseInt32(output[_EID]) as number;
   }
-  if (output["GlacierJobTier"] !== undefined) {
-    contents.GlacierJobTier = __expectString(output["GlacierJobTier"]);
+  if (output[_GJT] != null) {
+    contents[_GJT] = __expectString(output[_GJT]);
   }
   return contents;
 };
@@ -13262,20 +11660,20 @@ const de_S3InitiateRestoreObjectOperation = (
  */
 const de_S3JobManifestGenerator = (output: any, context: __SerdeContext): S3JobManifestGenerator => {
   const contents: any = {};
-  if (output["ExpectedBucketOwner"] !== undefined) {
-    contents.ExpectedBucketOwner = __expectString(output["ExpectedBucketOwner"]);
+  if (output[_EBO] != null) {
+    contents[_EBO] = __expectString(output[_EBO]);
   }
-  if (output["SourceBucket"] !== undefined) {
-    contents.SourceBucket = __expectString(output["SourceBucket"]);
+  if (output[_SB] != null) {
+    contents[_SB] = __expectString(output[_SB]);
   }
-  if (output["ManifestOutputLocation"] !== undefined) {
-    contents.ManifestOutputLocation = de_S3ManifestOutputLocation(output["ManifestOutputLocation"], context);
+  if (output[_MOL] != null) {
+    contents[_MOL] = de_S3ManifestOutputLocation(output[_MOL], context);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_JobManifestGeneratorFilter(output["Filter"], context);
+  if (output[_Fil] != null) {
+    contents[_Fil] = de_JobManifestGeneratorFilter(output[_Fil], context);
   }
-  if (output["EnableManifestOutput"] !== undefined) {
-    contents.EnableManifestOutput = __parseBoolean(output["EnableManifestOutput"]);
+  if (output[_EMO] != null) {
+    contents[_EMO] = __parseBoolean(output[_EMO]);
   }
   return contents;
 };
@@ -13285,20 +11683,20 @@ const de_S3JobManifestGenerator = (output: any, context: __SerdeContext): S3JobM
  */
 const de_S3ManifestOutputLocation = (output: any, context: __SerdeContext): S3ManifestOutputLocation => {
   const contents: any = {};
-  if (output["ExpectedManifestBucketOwner"] !== undefined) {
-    contents.ExpectedManifestBucketOwner = __expectString(output["ExpectedManifestBucketOwner"]);
+  if (output[_EMBO] != null) {
+    contents[_EMBO] = __expectString(output[_EMBO]);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["ManifestPrefix"] !== undefined) {
-    contents.ManifestPrefix = __expectString(output["ManifestPrefix"]);
+  if (output[_MP] != null) {
+    contents[_MP] = __expectString(output[_MP]);
   }
-  if (output["ManifestEncryption"] !== undefined) {
-    contents.ManifestEncryption = de_GeneratedManifestEncryption(output["ManifestEncryption"], context);
+  if (output[_ME] != null) {
+    contents[_ME] = de_GeneratedManifestEncryption(output[_ME], context);
   }
-  if (output["ManifestFormat"] !== undefined) {
-    contents.ManifestFormat = __expectString(output["ManifestFormat"]);
+  if (output[_MF] != null) {
+    contents[_MF] = __expectString(output[_MF]);
   }
   return contents;
 };
@@ -13308,8 +11706,8 @@ const de_S3ManifestOutputLocation = (output: any, context: __SerdeContext): S3Ma
  */
 const de_S3ObjectLockLegalHold = (output: any, context: __SerdeContext): S3ObjectLockLegalHold => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -13319,40 +11717,40 @@ const de_S3ObjectLockLegalHold = (output: any, context: __SerdeContext): S3Objec
  */
 const de_S3ObjectMetadata = (output: any, context: __SerdeContext): S3ObjectMetadata => {
   const contents: any = {};
-  if (output["CacheControl"] !== undefined) {
-    contents.CacheControl = __expectString(output["CacheControl"]);
+  if (output[_CC] != null) {
+    contents[_CC] = __expectString(output[_CC]);
   }
-  if (output["ContentDisposition"] !== undefined) {
-    contents.ContentDisposition = __expectString(output["ContentDisposition"]);
+  if (output[_CDo] != null) {
+    contents[_CDo] = __expectString(output[_CDo]);
   }
-  if (output["ContentEncoding"] !== undefined) {
-    contents.ContentEncoding = __expectString(output["ContentEncoding"]);
+  if (output[_CE] != null) {
+    contents[_CE] = __expectString(output[_CE]);
   }
-  if (output["ContentLanguage"] !== undefined) {
-    contents.ContentLanguage = __expectString(output["ContentLanguage"]);
+  if (output[_CL] != null) {
+    contents[_CL] = __expectString(output[_CL]);
   }
   if (output.UserMetadata === "") {
-    contents.UserMetadata = {};
-  } else if (output["UserMetadata"] !== undefined && output["UserMetadata"]["entry"] !== undefined) {
-    contents.UserMetadata = de_S3UserMetadata(__getArrayIfSingleItem(output["UserMetadata"]["entry"]), context);
+    contents[_UM] = {};
+  } else if (output[_UM] != null && output[_UM][_e] != null) {
+    contents[_UM] = de_S3UserMetadata(__getArrayIfSingleItem(output[_UM][_e]), context);
   }
-  if (output["ContentLength"] !== undefined) {
-    contents.ContentLength = __strictParseLong(output["ContentLength"]) as number;
+  if (output[_CLo] != null) {
+    contents[_CLo] = __strictParseLong(output[_CLo]) as number;
   }
-  if (output["ContentMD5"] !== undefined) {
-    contents.ContentMD5 = __expectString(output["ContentMD5"]);
+  if (output[_CMD] != null) {
+    contents[_CMD] = __expectString(output[_CMD]);
   }
-  if (output["ContentType"] !== undefined) {
-    contents.ContentType = __expectString(output["ContentType"]);
+  if (output[_CTon] != null) {
+    contents[_CTon] = __expectString(output[_CTon]);
   }
-  if (output["HttpExpiresDate"] !== undefined) {
-    contents.HttpExpiresDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["HttpExpiresDate"]));
+  if (output[_HED] != null) {
+    contents[_HED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_HED]));
   }
-  if (output["RequesterCharged"] !== undefined) {
-    contents.RequesterCharged = __parseBoolean(output["RequesterCharged"]);
+  if (output[_RCe] != null) {
+    contents[_RCe] = __parseBoolean(output[_RCe]);
   }
-  if (output["SSEAlgorithm"] !== undefined) {
-    contents.SSEAlgorithm = __expectString(output["SSEAlgorithm"]);
+  if (output[_SSEA] != null) {
+    contents[_SSEA] = __expectString(output[_SSEA]);
   }
   return contents;
 };
@@ -13362,11 +11760,11 @@ const de_S3ObjectMetadata = (output: any, context: __SerdeContext): S3ObjectMeta
  */
 const de_S3ObjectOwner = (output: any, context: __SerdeContext): S3ObjectOwner => {
   const contents: any = {};
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID] != null) {
+    contents[_ID] = __expectString(output[_ID]);
   }
-  if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = __expectString(output["DisplayName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
   return contents;
 };
@@ -13384,11 +11782,11 @@ const de_S3ReplicateObjectOperation = (output: any, context: __SerdeContext): S3
  */
 const de_S3Retention = (output: any, context: __SerdeContext): S3Retention => {
   const contents: any = {};
-  if (output["RetainUntilDate"] !== undefined) {
-    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RetainUntilDate"]));
+  if (output[_RUD] != null) {
+    contents[_RUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RUD]));
   }
-  if (output["Mode"] !== undefined) {
-    contents.Mode = __expectString(output["Mode"]);
+  if (output[_Mo] != null) {
+    contents[_Mo] = __expectString(output[_Mo]);
   }
   return contents;
 };
@@ -13398,8 +11796,8 @@ const de_S3Retention = (output: any, context: __SerdeContext): S3Retention => {
  */
 const de_S3SetObjectAclOperation = (output: any, context: __SerdeContext): S3SetObjectAclOperation => {
   const contents: any = {};
-  if (output["AccessControlPolicy"] !== undefined) {
-    contents.AccessControlPolicy = de_S3AccessControlPolicy(output["AccessControlPolicy"], context);
+  if (output[_ACP] != null) {
+    contents[_ACP] = de_S3AccessControlPolicy(output[_ACP], context);
   }
   return contents;
 };
@@ -13409,8 +11807,8 @@ const de_S3SetObjectAclOperation = (output: any, context: __SerdeContext): S3Set
  */
 const de_S3SetObjectLegalHoldOperation = (output: any, context: __SerdeContext): S3SetObjectLegalHoldOperation => {
   const contents: any = {};
-  if (output["LegalHold"] !== undefined) {
-    contents.LegalHold = de_S3ObjectLockLegalHold(output["LegalHold"], context);
+  if (output[_LH] != null) {
+    contents[_LH] = de_S3ObjectLockLegalHold(output[_LH], context);
   }
   return contents;
 };
@@ -13420,11 +11818,11 @@ const de_S3SetObjectLegalHoldOperation = (output: any, context: __SerdeContext):
  */
 const de_S3SetObjectRetentionOperation = (output: any, context: __SerdeContext): S3SetObjectRetentionOperation => {
   const contents: any = {};
-  if (output["BypassGovernanceRetention"] !== undefined) {
-    contents.BypassGovernanceRetention = __parseBoolean(output["BypassGovernanceRetention"]);
+  if (output[_BGR] != null) {
+    contents[_BGR] = __parseBoolean(output[_BGR]);
   }
-  if (output["Retention"] !== undefined) {
-    contents.Retention = de_S3Retention(output["Retention"], context);
+  if (output[_Ret] != null) {
+    contents[_Ret] = de_S3Retention(output[_Ret], context);
   }
   return contents;
 };
@@ -13435,9 +11833,9 @@ const de_S3SetObjectRetentionOperation = (output: any, context: __SerdeContext):
 const de_S3SetObjectTaggingOperation = (output: any, context: __SerdeContext): S3SetObjectTaggingOperation => {
   const contents: any = {};
   if (output.TagSet === "") {
-    contents.TagSet = [];
-  } else if (output["TagSet"] !== undefined && output["TagSet"]["member"] !== undefined) {
-    contents.TagSet = de_S3TagSet(__getArrayIfSingleItem(output["TagSet"]["member"]), context);
+    contents[_TS] = [];
+  } else if (output[_TS] != null && output[_TS][_m] != null) {
+    contents[_TS] = de_S3TagSet(__getArrayIfSingleItem(output[_TS][_m]), context);
   }
   return contents;
 };
@@ -13447,11 +11845,11 @@ const de_S3SetObjectTaggingOperation = (output: any, context: __SerdeContext): S
  */
 const de_S3Tag = (output: any, context: __SerdeContext): S3Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -13485,14 +11883,14 @@ const de_S3UserMetadata = (output: any, context: __SerdeContext): Record<string,
  */
 const de_SelectionCriteria = (output: any, context: __SerdeContext): SelectionCriteria => {
   const contents: any = {};
-  if (output["Delimiter"] !== undefined) {
-    contents.Delimiter = __expectString(output["Delimiter"]);
+  if (output[_Del] != null) {
+    contents[_Del] = __expectString(output[_Del]);
   }
-  if (output["MaxDepth"] !== undefined) {
-    contents.MaxDepth = __strictParseInt32(output["MaxDepth"]) as number;
+  if (output[_MDa] != null) {
+    contents[_MDa] = __strictParseInt32(output[_MDa]) as number;
   }
-  if (output["MinStorageBytesPercentage"] !== undefined) {
-    contents.MinStorageBytesPercentage = __strictParseFloat(output["MinStorageBytesPercentage"]) as number;
+  if (output[_MSBP] != null) {
+    contents[_MSBP] = __strictParseFloat(output[_MSBP]) as number;
   }
   return contents;
 };
@@ -13502,11 +11900,11 @@ const de_SelectionCriteria = (output: any, context: __SerdeContext): SelectionCr
  */
 const de_SourceSelectionCriteria = (output: any, context: __SerdeContext): SourceSelectionCriteria => {
   const contents: any = {};
-  if (output["SseKmsEncryptedObjects"] !== undefined) {
-    contents.SseKmsEncryptedObjects = de_SseKmsEncryptedObjects(output["SseKmsEncryptedObjects"], context);
+  if (output[_SKEO] != null) {
+    contents[_SKEO] = de_SseKmsEncryptedObjects(output[_SKEO], context);
   }
-  if (output["ReplicaModifications"] !== undefined) {
-    contents.ReplicaModifications = de_ReplicaModifications(output["ReplicaModifications"], context);
+  if (output[_RM] != null) {
+    contents[_RM] = de_ReplicaModifications(output[_RM], context);
   }
   return contents;
 };
@@ -13516,8 +11914,8 @@ const de_SourceSelectionCriteria = (output: any, context: __SerdeContext): Sourc
  */
 const de_SSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
   const contents: any = {};
-  if (output["KeyId"] !== undefined) {
-    contents.KeyId = __expectString(output["KeyId"]);
+  if (output[_KI] != null) {
+    contents[_KI] = __expectString(output[_KI]);
   }
   return contents;
 };
@@ -13527,8 +11925,8 @@ const de_SSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
  */
 const de_SseKmsEncryptedObjects = (output: any, context: __SerdeContext): SseKmsEncryptedObjects => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -13538,8 +11936,8 @@ const de_SseKmsEncryptedObjects = (output: any, context: __SerdeContext): SseKms
  */
 const de_SSEKMSEncryption = (output: any, context: __SerdeContext): SSEKMSEncryption => {
   const contents: any = {};
-  if (output["KeyId"] !== undefined) {
-    contents.KeyId = __expectString(output["KeyId"]);
+  if (output[_KI] != null) {
+    contents[_KI] = __expectString(output[_KI]);
   }
   return contents;
 };
@@ -13576,8 +11974,8 @@ const de_StorageClassList = (output: any, context: __SerdeContext): S3StorageCla
  */
 const de_StorageLensAwsOrg = (output: any, context: __SerdeContext): StorageLensAwsOrg => {
   const contents: any = {};
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -13587,29 +11985,29 @@ const de_StorageLensAwsOrg = (output: any, context: __SerdeContext): StorageLens
  */
 const de_StorageLensConfiguration = (output: any, context: __SerdeContext): StorageLensConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id_] != null) {
+    contents[_Id_] = __expectString(output[_Id_]);
   }
-  if (output["AccountLevel"] !== undefined) {
-    contents.AccountLevel = de_AccountLevel(output["AccountLevel"], context);
+  if (output[_AL] != null) {
+    contents[_AL] = de_AccountLevel(output[_AL], context);
   }
-  if (output["Include"] !== undefined) {
-    contents.Include = de_Include(output["Include"], context);
+  if (output[_I] != null) {
+    contents[_I] = de_Include(output[_I], context);
   }
-  if (output["Exclude"] !== undefined) {
-    contents.Exclude = de__Exclude(output["Exclude"], context);
+  if (output[_Ex] != null) {
+    contents[_Ex] = de__Exclude(output[_Ex], context);
   }
-  if (output["DataExport"] !== undefined) {
-    contents.DataExport = de_StorageLensDataExport(output["DataExport"], context);
+  if (output[_DE] != null) {
+    contents[_DE] = de_StorageLensDataExport(output[_DE], context);
   }
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
-  if (output["AwsOrg"] !== undefined) {
-    contents.AwsOrg = de_StorageLensAwsOrg(output["AwsOrg"], context);
+  if (output[_AOw] != null) {
+    contents[_AOw] = de_StorageLensAwsOrg(output[_AOw], context);
   }
-  if (output["StorageLensArn"] !== undefined) {
-    contents.StorageLensArn = __expectString(output["StorageLensArn"]);
+  if (output[_SLA] != null) {
+    contents[_SLA] = __expectString(output[_SLA]);
   }
   return contents;
 };
@@ -13630,11 +12028,11 @@ const de_StorageLensConfigurationList = (output: any, context: __SerdeContext): 
  */
 const de_StorageLensDataExport = (output: any, context: __SerdeContext): StorageLensDataExport => {
   const contents: any = {};
-  if (output["S3BucketDestination"] !== undefined) {
-    contents.S3BucketDestination = de_S3BucketDestination(output["S3BucketDestination"], context);
+  if (output[_SBD] != null) {
+    contents[_SBD] = de_S3BucketDestination(output[_SBD], context);
   }
-  if (output["CloudWatchMetrics"] !== undefined) {
-    contents.CloudWatchMetrics = de_CloudWatchMetrics(output["CloudWatchMetrics"], context);
+  if (output[_CWM] != null) {
+    contents[_CWM] = de_CloudWatchMetrics(output[_CWM], context);
   }
   return contents;
 };
@@ -13644,11 +12042,11 @@ const de_StorageLensDataExport = (output: any, context: __SerdeContext): Storage
  */
 const de_StorageLensDataExportEncryption = (output: any, context: __SerdeContext): StorageLensDataExportEncryption => {
   const contents: any = {};
-  if (output["SSE-S3"] !== undefined) {
-    contents.SSES3 = de_SSES3(output["SSE-S3"], context);
+  if (output[_SS] != null) {
+    contents[_SSES] = de_SSES3(output[_SS], context);
   }
-  if (output["SSE-KMS"] !== undefined) {
-    contents.SSEKMS = de_SSEKMS(output["SSE-KMS"], context);
+  if (output[_SK] != null) {
+    contents[_SSEKMS] = de_SSEKMS(output[_SK], context);
   }
   return contents;
 };
@@ -13658,14 +12056,14 @@ const de_StorageLensDataExportEncryption = (output: any, context: __SerdeContext
  */
 const de_StorageLensGroup = (output: any, context: __SerdeContext): StorageLensGroup => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_StorageLensGroupFilter(output["Filter"], context);
+  if (output[_Fil] != null) {
+    contents[_Fil] = de_StorageLensGroupFilter(output[_Fil], context);
   }
-  if (output["StorageLensGroupArn"] !== undefined) {
-    contents.StorageLensGroupArn = __expectString(output["StorageLensGroupArn"]);
+  if (output[_SLGA] != null) {
+    contents[_SLGA] = __expectString(output[_SLGA]);
   }
   return contents;
 };
@@ -13676,25 +12074,25 @@ const de_StorageLensGroup = (output: any, context: __SerdeContext): StorageLensG
 const de_StorageLensGroupAndOperator = (output: any, context: __SerdeContext): StorageLensGroupAndOperator => {
   const contents: any = {};
   if (output.MatchAnyPrefix === "") {
-    contents.MatchAnyPrefix = [];
-  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["Prefix"] !== undefined) {
-    contents.MatchAnyPrefix = de_MatchAnyPrefix(__getArrayIfSingleItem(output["MatchAnyPrefix"]["Prefix"]), context);
+    contents[_MAP] = [];
+  } else if (output[_MAP] != null && output[_MAP][_Pre] != null) {
+    contents[_MAP] = de_MatchAnyPrefix(__getArrayIfSingleItem(output[_MAP][_Pre]), context);
   }
   if (output.MatchAnySuffix === "") {
-    contents.MatchAnySuffix = [];
-  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["Suffix"] !== undefined) {
-    contents.MatchAnySuffix = de_MatchAnySuffix(__getArrayIfSingleItem(output["MatchAnySuffix"]["Suffix"]), context);
+    contents[_MAS] = [];
+  } else if (output[_MAS] != null && output[_MAS][_Su] != null) {
+    contents[_MAS] = de_MatchAnySuffix(__getArrayIfSingleItem(output[_MAS][_Su]), context);
   }
   if (output.MatchAnyTag === "") {
-    contents.MatchAnyTag = [];
-  } else if (output["MatchAnyTag"] !== undefined && output["MatchAnyTag"]["Tag"] !== undefined) {
-    contents.MatchAnyTag = de_MatchAnyTag(__getArrayIfSingleItem(output["MatchAnyTag"]["Tag"]), context);
+    contents[_MAT] = [];
+  } else if (output[_MAT] != null && output[_MAT][_Tag] != null) {
+    contents[_MAT] = de_MatchAnyTag(__getArrayIfSingleItem(output[_MAT][_Tag]), context);
   }
-  if (output["MatchObjectAge"] !== undefined) {
-    contents.MatchObjectAge = de_MatchObjectAge(output["MatchObjectAge"], context);
+  if (output[_MOA] != null) {
+    contents[_MOA] = de_MatchObjectAge(output[_MOA], context);
   }
-  if (output["MatchObjectSize"] !== undefined) {
-    contents.MatchObjectSize = de_MatchObjectSize(output["MatchObjectSize"], context);
+  if (output[_MOS] != null) {
+    contents[_MOS] = de_MatchObjectSize(output[_MOS], context);
   }
   return contents;
 };
@@ -13705,31 +12103,31 @@ const de_StorageLensGroupAndOperator = (output: any, context: __SerdeContext): S
 const de_StorageLensGroupFilter = (output: any, context: __SerdeContext): StorageLensGroupFilter => {
   const contents: any = {};
   if (output.MatchAnyPrefix === "") {
-    contents.MatchAnyPrefix = [];
-  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["Prefix"] !== undefined) {
-    contents.MatchAnyPrefix = de_MatchAnyPrefix(__getArrayIfSingleItem(output["MatchAnyPrefix"]["Prefix"]), context);
+    contents[_MAP] = [];
+  } else if (output[_MAP] != null && output[_MAP][_Pre] != null) {
+    contents[_MAP] = de_MatchAnyPrefix(__getArrayIfSingleItem(output[_MAP][_Pre]), context);
   }
   if (output.MatchAnySuffix === "") {
-    contents.MatchAnySuffix = [];
-  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["Suffix"] !== undefined) {
-    contents.MatchAnySuffix = de_MatchAnySuffix(__getArrayIfSingleItem(output["MatchAnySuffix"]["Suffix"]), context);
+    contents[_MAS] = [];
+  } else if (output[_MAS] != null && output[_MAS][_Su] != null) {
+    contents[_MAS] = de_MatchAnySuffix(__getArrayIfSingleItem(output[_MAS][_Su]), context);
   }
   if (output.MatchAnyTag === "") {
-    contents.MatchAnyTag = [];
-  } else if (output["MatchAnyTag"] !== undefined && output["MatchAnyTag"]["Tag"] !== undefined) {
-    contents.MatchAnyTag = de_MatchAnyTag(__getArrayIfSingleItem(output["MatchAnyTag"]["Tag"]), context);
+    contents[_MAT] = [];
+  } else if (output[_MAT] != null && output[_MAT][_Tag] != null) {
+    contents[_MAT] = de_MatchAnyTag(__getArrayIfSingleItem(output[_MAT][_Tag]), context);
   }
-  if (output["MatchObjectAge"] !== undefined) {
-    contents.MatchObjectAge = de_MatchObjectAge(output["MatchObjectAge"], context);
+  if (output[_MOA] != null) {
+    contents[_MOA] = de_MatchObjectAge(output[_MOA], context);
   }
-  if (output["MatchObjectSize"] !== undefined) {
-    contents.MatchObjectSize = de_MatchObjectSize(output["MatchObjectSize"], context);
+  if (output[_MOS] != null) {
+    contents[_MOS] = de_MatchObjectSize(output[_MOS], context);
   }
-  if (output["And"] !== undefined) {
-    contents.And = de_StorageLensGroupAndOperator(output["And"], context);
+  if (output[_An] != null) {
+    contents[_An] = de_StorageLensGroupAndOperator(output[_An], context);
   }
-  if (output["Or"] !== undefined) {
-    contents.Or = de_StorageLensGroupOrOperator(output["Or"], context);
+  if (output[_Or_] != null) {
+    contents[_Or_] = de_StorageLensGroupOrOperator(output[_Or_], context);
   }
   return contents;
 };
@@ -13739,8 +12137,8 @@ const de_StorageLensGroupFilter = (output: any, context: __SerdeContext): Storag
  */
 const de_StorageLensGroupLevel = (output: any, context: __SerdeContext): StorageLensGroupLevel => {
   const contents: any = {};
-  if (output["SelectionCriteria"] !== undefined) {
-    contents.SelectionCriteria = de_StorageLensGroupLevelSelectionCriteria(output["SelectionCriteria"], context);
+  if (output[_SCe] != null) {
+    contents[_SCe] = de_StorageLensGroupLevelSelectionCriteria(output[_SCe], context);
   }
   return contents;
 };
@@ -13776,14 +12174,14 @@ const de_StorageLensGroupLevelSelectionCriteria = (
 ): StorageLensGroupLevelSelectionCriteria => {
   const contents: any = {};
   if (output.Include === "") {
-    contents.Include = [];
-  } else if (output["Include"] !== undefined && output["Include"]["Arn"] !== undefined) {
-    contents.Include = de_StorageLensGroupLevelInclude(__getArrayIfSingleItem(output["Include"]["Arn"]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_Ar] != null) {
+    contents[_I] = de_StorageLensGroupLevelInclude(__getArrayIfSingleItem(output[_I][_Ar]), context);
   }
   if (output.Exclude === "") {
-    contents.Exclude = [];
-  } else if (output["Exclude"] !== undefined && output["Exclude"]["Arn"] !== undefined) {
-    contents.Exclude = de_StorageLensGroupLevelExclude(__getArrayIfSingleItem(output["Exclude"]["Arn"]), context);
+    contents[_Ex] = [];
+  } else if (output[_Ex] != null && output[_Ex][_Ar] != null) {
+    contents[_Ex] = de_StorageLensGroupLevelExclude(__getArrayIfSingleItem(output[_Ex][_Ar]), context);
   }
   return contents;
 };
@@ -13805,25 +12203,25 @@ const de_StorageLensGroupList = (output: any, context: __SerdeContext): ListStor
 const de_StorageLensGroupOrOperator = (output: any, context: __SerdeContext): StorageLensGroupOrOperator => {
   const contents: any = {};
   if (output.MatchAnyPrefix === "") {
-    contents.MatchAnyPrefix = [];
-  } else if (output["MatchAnyPrefix"] !== undefined && output["MatchAnyPrefix"]["Prefix"] !== undefined) {
-    contents.MatchAnyPrefix = de_MatchAnyPrefix(__getArrayIfSingleItem(output["MatchAnyPrefix"]["Prefix"]), context);
+    contents[_MAP] = [];
+  } else if (output[_MAP] != null && output[_MAP][_Pre] != null) {
+    contents[_MAP] = de_MatchAnyPrefix(__getArrayIfSingleItem(output[_MAP][_Pre]), context);
   }
   if (output.MatchAnySuffix === "") {
-    contents.MatchAnySuffix = [];
-  } else if (output["MatchAnySuffix"] !== undefined && output["MatchAnySuffix"]["Suffix"] !== undefined) {
-    contents.MatchAnySuffix = de_MatchAnySuffix(__getArrayIfSingleItem(output["MatchAnySuffix"]["Suffix"]), context);
+    contents[_MAS] = [];
+  } else if (output[_MAS] != null && output[_MAS][_Su] != null) {
+    contents[_MAS] = de_MatchAnySuffix(__getArrayIfSingleItem(output[_MAS][_Su]), context);
   }
   if (output.MatchAnyTag === "") {
-    contents.MatchAnyTag = [];
-  } else if (output["MatchAnyTag"] !== undefined && output["MatchAnyTag"]["Tag"] !== undefined) {
-    contents.MatchAnyTag = de_MatchAnyTag(__getArrayIfSingleItem(output["MatchAnyTag"]["Tag"]), context);
+    contents[_MAT] = [];
+  } else if (output[_MAT] != null && output[_MAT][_Tag] != null) {
+    contents[_MAT] = de_MatchAnyTag(__getArrayIfSingleItem(output[_MAT][_Tag]), context);
   }
-  if (output["MatchObjectAge"] !== undefined) {
-    contents.MatchObjectAge = de_MatchObjectAge(output["MatchObjectAge"], context);
+  if (output[_MOA] != null) {
+    contents[_MOA] = de_MatchObjectAge(output[_MOA], context);
   }
-  if (output["MatchObjectSize"] !== undefined) {
-    contents.MatchObjectSize = de_MatchObjectSize(output["MatchObjectSize"], context);
+  if (output[_MOS] != null) {
+    contents[_MOS] = de_MatchObjectSize(output[_MOS], context);
   }
   return contents;
 };
@@ -13833,11 +12231,11 @@ const de_StorageLensGroupOrOperator = (output: any, context: __SerdeContext): St
  */
 const de_StorageLensTag = (output: any, context: __SerdeContext): StorageLensTag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -13858,11 +12256,11 @@ const de_StorageLensTags = (output: any, context: __SerdeContext): StorageLensTa
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -13883,14 +12281,14 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_Transition = (output: any, context: __SerdeContext): Transition => {
   const contents: any = {};
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Da] != null) {
+    contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
-  if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt32(output["Days"]) as number;
+  if (output[_Day] != null) {
+    contents[_Day] = __strictParseInt32(output[_Day]) as number;
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
   return contents;
 };
@@ -13924,8 +12322,8 @@ const de_UserArguments = (output: any, context: __SerdeContext): Record<string, 
  */
 const de_VpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
   const contents: any = {};
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
   return contents;
 };
@@ -13948,6 +12346,515 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "Alias";
+const _AA = "ApplicationArn";
+const _AAGICR = "AssociateAccessGrantsIdentityCenterRequest";
+const _ACG = "AccessControlGrants";
+const _ACL = "ACL";
+const _ACLc = "AccessControlList";
+const _ACOM = "AdvancedCostOptimizationMetrics";
+const _ACP = "AccessControlPolicy";
+const _ACT = "AccessControlTranslation";
+const _ADPM = "AdvancedDataProtectionMetrics";
+const _AF = "AllowedFeature";
+const _AFl = "AllowedFeatures";
+const _AG = "AccessGrant";
+const _AGA = "AccessGrantArn";
+const _AGI = "AccessGrantId";
+const _AGIA = "AccessGrantsInstanceArn";
+const _AGII = "AccessGrantsInstanceId";
+const _AGIL = "AccessGrantsInstancesList";
+const _AGIc = "AccessGrantsInstance";
+const _AGL = "AccessGrantsList";
+const _AGLA = "AccessGrantsLocationArn";
+const _AGLC = "AccessGrantsLocationConfiguration";
+const _AGLI = "AccessGrantsLocationId";
+const _AGLL = "AccessGrantsLocationsList";
+const _AGLc = "AccessGrantsLocation";
+const _AI = "AccountId";
+const _AIMU = "AbortIncompleteMultipartUpload";
+const _AKI = "AccessKeyId";
+const _AL = "AccountLevel";
+const _ALT = "AwsLambdaTransformation";
+const _ALTP = "AwsLambdaTransformationPayload";
+const _ALw = "AwsLambda";
+const _AM = "ActivityMetrics";
+const _AO = "AsyncOperation";
+const _AOA = "AwsOrgArn";
+const _AOw = "AwsOrg";
+const _AP = "AccessPoint";
+const _APA = "AccessPointArn";
+const _APL = "AccessPointList";
+const _APc = "AccessPoints";
+const _Ac = "Account";
+const _Act = "Actions";
+const _Acti = "Action";
+const _An = "And";
+const _Ar = "Arn";
+const _B = "Bucket";
+const _BA = "BucketArn";
+const _BAI = "BucketAccountId";
+const _BGR = "BypassGovernanceRetention";
+const _BGT = "BytesGreaterThan";
+const _BIS = "BucketIdentifierString";
+const _BKE = "BucketKeyEnabled";
+const _BL = "BucketLevel";
+const _BLC = "BucketLocationConstraint";
+const _BLT = "BytesLessThan";
+const _BN = "BucketName";
+const _BPA = "BlockPublicAcls";
+const _BPP = "BlockPublicPolicy";
+const _BVS = "BucketVersioningStatus";
+const _Bo = "Boolean";
+const _Bu = "Buckets";
+const _C = "Configuration";
+const _CA = "CreatedAt";
+const _CACL = "CannedAccessControlList";
+const _CAGIR = "CreateAccessGrantsInstanceRequest";
+const _CAGLR = "CreateAccessGrantsLocationRequest";
+const _CAGR = "CreateAccessGrantRequest";
+const _CAPFOLR = "CreateAccessPointForObjectLambdaRequest";
+const _CAPR = "CreateAccessPointRequest";
+const _CAh = "ChecksumAlgorithm";
+const _CAr = "CreatedAfter";
+const _CB = "CreatedBefore";
+const _CBC = "CreateBucketConfiguration";
+const _CC = "CacheControl";
+const _CD = "CreationDate";
+const _CDo = "ContentDisposition";
+const _CE = "ContentEncoding";
+const _CI = "ConfigId";
+const _CJR = "CreateJobRequest";
+const _CL = "ContentLanguage";
+const _CLo = "ContentLength";
+const _CMD = "ContentMD5";
+const _CMRAPI = "CreateMultiRegionAccessPointInput";
+const _CMRAPR = "CreateMultiRegionAccessPointRequest";
+const _CR = "ConfirmationRequired";
+const _CRSBA = "ConfirmRemoveSelfBucketAccess";
+const _CRT = "ClientRequestToken";
+const _CSLGR = "CreateStorageLensGroupRequest";
+const _CT = "ClientToken";
+const _CTo = "ContentTransformation";
+const _CTon = "ContentType";
+const _CTr = "CreationTime";
+const _CWM = "CloudWatchMetrics";
+const _CWME = "CloudWatchMetricsEnabled";
+const _Co = "Code";
+const _Cr = "Credentials";
+const _D = "Description";
+const _DAI = "DaysAfterInitiation";
+const _DE = "DataExport";
+const _DGT = "DaysGreaterThan";
+const _DLT = "DaysLessThan";
+const _DMR = "DeleteMarkerReplication";
+const _DMRAPI = "DeleteMultiRegionAccessPointInput";
+const _DMRAPR = "DeleteMultiRegionAccessPointRequest";
+const _DMRS = "DeleteMarkerReplicationStatus";
+const _DN = "DisplayName";
+const _DS = "DurationSeconds";
+const _DSCM = "DetailedStatusCodesMetrics";
+const _Da = "Date";
+const _Day = "Days";
+const _De = "Details";
+const _Del = "Delimiter";
+const _Des = "Destination";
+const _E = "Endpoints";
+const _EBO = "ExpectedBucketOwner";
+const _EC = "EncryptionConfiguration";
+const _ED = "ErrorDetails";
+const _EFR = "EligibleForReplication";
+const _EID = "ExpirationInDays";
+const _EMBO = "ExpectedManifestBucketOwner";
+const _EMO = "EnableManifestOutput";
+const _EODM = "ExpiredObjectDeleteMarker";
+const _EOR = "ExistingObjectReplication";
+const _EORS = "ExistingObjectReplicationStatus";
+const _ES = "ExpirationStatus";
+const _ET = "ETag";
+const _ETIAS = "ElapsedTimeInActiveSeconds";
+const _ETv = "EventThreshold";
+const _En = "Enabled";
+const _Enc = "Encryption";
+const _Es = "Established";
+const _Ex = "Exclude";
+const _Exp = "Expiration";
+const _F = "Format";
+const _FA = "FunctionArn";
+const _FAS = "FunctionArnString";
+const _FC = "FailureCode";
+const _FP = "FunctionPayload";
+const _FR = "FailureReasons";
+const _FRa = "FailureReason";
+const _Fi = "Fields";
+const _Fil = "Filter";
+const _G = "Grantee";
+const _GFC = "GrantFullControl";
+const _GI = "GranteeIdentifier";
+const _GJT = "GlacierJobTier";
+const _GMD = "GeneratedManifestDescriptor";
+const _GME = "GeneratedManifestEncryption";
+const _GMF = "GeneratedManifestFormat";
+const _GR = "GrantRead";
+const _GRACP = "GrantReadACP";
+const _GS = "GrantScope";
+const _GT = "GranteeType";
+const _GW = "GrantWrite";
+const _GWACP = "GrantWriteACP";
+const _Gr = "Grants";
+const _HED = "HttpExpiresDate";
+const _HR = "HomeRegion";
+const _I = "Include";
+const _IAMRA = "IAMRoleArn";
+const _ICA = "IdentityCenterArn";
+const _ICAA = "IdentityCenterApplicationArn";
+const _ID = "ID";
+const _IE = "IsEnabled";
+const _IP = "IsPublic";
+const _IPA = "IgnorePublicAcls";
+const _ISV = "InvocationSchemaVersion";
+const _Id = "Identifier";
+const _Id_ = "Id";
+const _J = "Job";
+const _JA = "JobArn";
+const _JI = "JobId";
+const _JM = "JobManifest";
+const _JMF = "JobManifestFormat";
+const _JMFN = "JobManifestFieldName";
+const _JMG = "JobManifestGenerator";
+const _JMGF = "JobManifestGeneratorFilter";
+const _JML = "JobManifestLocation";
+const _JMS = "JobManifestSpec";
+const _JO = "JobOperation";
+const _JP = "JobPriority";
+const _JR = "JobReport";
+const _JRF = "JobReportFormat";
+const _JRS = "JobReportScope";
+const _JS = "JobStatuses";
+const _Jo = "Jobs";
+const _K = "Key";
+const _KI = "KeyId";
+const _KKAS = "KmsKeyArnString";
+const _KNC = "KeyNameConstraint";
+const _L = "Location";
+const _LC = "LocationConstraint";
+const _LCi = "LifecycleConfiguration";
+const _LE = "LifecycleExpiration";
+const _LH = "LegalHold";
+const _LI = "LambdaInvoke";
+const _LIO = "LambdaInvokeOperation";
+const _LR = "LifecycleRule";
+const _LRAO = "LifecycleRuleAndOperator";
+const _LRF = "LifecycleRuleFilter";
+const _LS = "LocationScope";
+const _M = "Manifest";
+const _MAP = "MatchAnyPrefix";
+const _MAS = "MatchAnySuffix";
+const _MASC = "MatchAnyStorageClass";
+const _MASa = "MatchAnySubstring";
+const _MAT = "MatchAnyTag";
+const _MD = "MfaDelete";
+const _MDa = "MaxDepth";
+const _MDe = "MetadataDirective";
+const _ME = "ManifestEncryption";
+const _MF = "ManifestFormat";
+const _MFA = "MFA";
+const _MFAD = "MFADelete";
+const _MG = "ManifestGenerator";
+const _MGT = "MatchedGrantTarget";
+const _MLS = "MaxLength1024String";
+const _MOA = "MatchObjectAge";
+const _MOL = "ManifestOutputLocation";
+const _MOS = "MatchObjectSize";
+const _MP = "ManifestPrefix";
+const _MPS = "ManifestPrefixString";
+const _MR = "MaxResults";
+const _MRAPCT = "MultiRegionAccessPointClientToken";
+const _MRAPD = "MultiRegionAccessPointDetails";
+const _MRAPN = "MultiRegionAccessPointName";
+const _MRAPR = "MultiRegionAccessPointRoute";
+const _MS = "MetricsStatus";
+const _MSBP = "MinStorageBytesPercentage";
+const _MSC = "ModifiedSinceConstraint";
+const _Me = "Message";
+const _Met = "Metrics";
+const _Mi = "Minutes";
+const _Mo = "Mode";
+const _Mr = "Mrap";
+const _N = "Name";
+const _ND = "NoncurrentDays";
+const _NEMLS = "NonEmptyMaxLength64String";
+const _NEMLSo = "NonEmptyMaxLength256String";
+const _NEMLSon = "NonEmptyMaxLength1024String";
+const _NEMLSonm = "NonEmptyMaxLength2048String";
+const _NNV = "NewerNoncurrentVersions";
+const _NO = "NetworkOrigin";
+const _NOM = "NewObjectMetadata";
+const _NOT = "NewObjectTagging";
+const _NOTF = "NumberOfTasksFailed";
+const _NOTS = "NumberOfTasksSucceeded";
+const _NT = "NextToken";
+const _NVC = "NoncurrentVersionCount";
+const _NVE = "NoncurrentVersionExpiration";
+const _NVT = "NoncurrentVersionTransitions";
+const _NVTo = "NoncurrentVersionTransition";
+const _O = "Operation";
+const _OA = "ObjectArn";
+const _OAV = "ObjectAgeValue";
+const _OCT = "ObjectCreationTime";
+const _OI = "OutpostId";
+const _OLAF = "ObjectLambdaAllowedFeature";
+const _OLAP = "ObjectLambdaAccessPoint";
+const _OLAPA = "ObjectLambdaAccessPointArn";
+const _OLAPL = "ObjectLambdaAccessPointList";
+const _OLC = "ObjectLambdaConfiguration";
+const _OLCT = "ObjectLambdaContentTransformation";
+const _OLEFB = "ObjectLockEnabledForBucket";
+const _OLLHS = "ObjectLockLegalHoldStatus";
+const _OLM = "ObjectLockMode";
+const _OLP = "ObjectLambdaPolicy";
+const _OLRUD = "ObjectLockRetainUntilDate";
+const _OLSAPA = "ObjectLambdaSupportingAccessPointArn";
+const _OLTC = "ObjectLambdaTransformationConfiguration";
+const _OLTCA = "ObjectLambdaTransformationConfigurationAction";
+const _OO = "OwnerOverride";
+const _ORS = "ObjectReplicationStatuses";
+const _OSGT = "ObjectSizeGreaterThan";
+const _OSGTB = "ObjectSizeGreaterThanBytes";
+const _OSLT = "ObjectSizeLessThan";
+const _OSLTB = "ObjectSizeLessThanBytes";
+const _OSV = "ObjectSizeValue";
+const _OSVu = "OutputSchemaVersion";
+const _OVI = "ObjectVersionId";
+const _Or = "Organization";
+const _Or_ = "Or";
+const _Ow = "Owner";
+const _P = "Permission";
+const _PAB = "PublicAccessBlock";
+const _PABC = "PublicAccessBlockConfiguration";
+const _PABE = "PublicAccessBlockEnabled";
+const _PAGIRPR = "PutAccessGrantsInstanceResourcePolicyRequest";
+const _PAPCFOLR = "PutAccessPointConfigurationForObjectLambdaRequest";
+const _PAPPFOLR = "PutAccessPointPolicyForObjectLambdaRequest";
+const _PAPPR = "PutAccessPointPolicyRequest";
+const _PBPR = "PutBucketPolicyRequest";
+const _PD = "PolicyDocument";
+const _PJTR = "PutJobTaggingRequest";
+const _PL = "PrefixLevel";
+const _PLSM = "PrefixLevelStorageMetrics";
+const _PMRAPPI = "PutMultiRegionAccessPointPolicyInput";
+const _PMRAPPR = "PutMultiRegionAccessPointPolicyRequest";
+const _PS = "PolicyStatus";
+const _PSLCR = "PutStorageLensConfigurationRequest";
+const _PSLCTR = "PutStorageLensConfigurationTaggingRequest";
+const _PSr = "ProgressSummary";
+const _Po = "Policy";
+const _Pr = "Priority";
+const _Pre = "Prefix";
+const _Pri = "Privilege";
+const _Pro = "Proposed";
+const _R = "Report";
+const _RA = "RoleArn";
+const _RB = "RegionalBucket";
+const _RBL = "RegionalBucketList";
+const _RC = "ReplicationConfiguration";
+const _RCe = "RequesterCharged";
+const _RD = "ResponseDetails";
+const _RI = "RequestId";
+const _RJS = "RequestedJobStatus";
+const _RKKID = "ReplicaKmsKeyID";
+const _RL = "RedirectLocation";
+const _RM = "ReplicaModifications";
+const _RMS = "ReplicaModificationsStatus";
+const _RN = "RegionName";
+const _RP = "RequesterPays";
+const _RPB = "RestrictPublicBuckets";
+const _RPS = "ReportPrefixString";
+const _RPe = "RequestParameters";
+const _RR = "ReplicationRule";
+const _RRAO = "ReplicationRuleAndOperator";
+const _RRF = "ReplicationRuleFilter";
+const _RRS = "ReplicationRuleStatus";
+const _RS = "ReportScope";
+const _RSC = "ReplicationStorageClass";
+const _RSe = "ReplicationStatus";
+const _RSeq = "RequestStatus";
+const _RT = "ReplicationTime";
+const _RTARN = "RequestTokenARN";
+const _RTS = "ReplicationTimeStatus";
+const _RTV = "ReplicationTimeValue";
+const _RU = "RouteUpdates";
+const _RUD = "RetainUntilDate";
+const _Re = "Regions";
+const _Reg = "Region";
+const _Res = "Resource";
+const _Ret = "Retention";
+const _Ro = "Routes";
+const _Rol = "Role";
+const _Rou = "Route";
+const _Ru = "Rules";
+const _Rul = "Rule";
+const _S = "Status";
+const _SACL = "S3AccessControlList";
+const _SACP = "S3AccessControlPolicy";
+const _SAK = "SecretAccessKey";
+const _SAP = "SupportingAccessPoint";
+const _SAWSR = "S3AWSRegion";
+const _SB = "SourceBucket";
+const _SBAS = "S3BucketArnString";
+const _SBD = "S3BucketDestination";
+const _SC = "StorageClass";
+const _SCA = "S3ChecksumAlgorithm";
+const _SCACL = "S3CannedAccessControlList";
+const _SCL = "S3ContentLength";
+const _SCOO = "S3CopyObjectOperation";
+const _SCe = "SelectionCriteria";
+const _SCu = "SuspendedCause";
+const _SD = "SuspendedDate";
+const _SDOT = "S3DeleteObjectTagging";
+const _SDOTO = "S3DeleteObjectTaggingOperation";
+const _SEID = "S3ExpirationInDays";
+const _SG = "S3Grant";
+const _SGJT = "S3GlacierJobTier";
+const _SGTI = "S3GranteeTypeIdentifier";
+const _SGr = "S3Grantee";
+const _SIRO = "S3InitiateRestoreObject";
+const _SIROO = "S3InitiateRestoreObjectOperation";
+const _SJMG = "S3JobManifestGenerator";
+const _SK = "SSE-KMS";
+const _SKAS = "S3KeyArnString";
+const _SKEO = "SseKmsEncryptedObjects";
+const _SKEOS = "SseKmsEncryptedObjectsStatus";
+const _SLA = "StorageLensArn";
+const _SLAO = "StorageLensAwsOrg";
+const _SLC = "StorageLensConfiguration";
+const _SLCL = "StorageLensConfigurationList";
+const _SLDE = "StorageLensDataExport";
+const _SLDEE = "StorageLensDataExportEncryption";
+const _SLG = "StorageLensGroup";
+const _SLGA = "StorageLensGroupArn";
+const _SLGAO = "StorageLensGroupAndOperator";
+const _SLGF = "StorageLensGroupFilter";
+const _SLGL = "StorageLensGroupList";
+const _SLGLSC = "StorageLensGroupLevelSelectionCriteria";
+const _SLGLt = "StorageLensGroupLevel";
+const _SLGN = "StorageLensGroupName";
+const _SLGOO = "StorageLensGroupOrOperator";
+const _SLPLD = "StorageLensPrefixLevelDelimiter";
+const _SLPLMD = "StorageLensPrefixLevelMaxDepth";
+const _SLT = "StorageLensTag";
+const _SM = "StorageMetrics";
+const _SMD = "S3MetadataDirective";
+const _SMOL = "S3ManifestOutputLocation";
+const _SMRAPRR = "SubmitMultiRegionAccessPointRoutesRequest";
+const _SOLLH = "S3ObjectLockLegalHold";
+const _SOLLHS = "S3ObjectLockLegalHoldStatus";
+const _SOLM = "S3ObjectLockMode";
+const _SOLRM = "S3ObjectLockRetentionMode";
+const _SOM = "S3ObjectMetadata";
+const _SOO = "S3ObjectOwner";
+const _SOVI = "S3ObjectVersionId";
+const _SP = "S3Prefix";
+const _SPOA = "S3PutObjectAcl";
+const _SPOC = "S3PutObjectCopy";
+const _SPOLH = "S3PutObjectLegalHold";
+const _SPOR = "S3PutObjectRetention";
+const _SPOT = "S3PutObjectTagging";
+const _SPT = "S3PrefixType";
+const _SPe = "S3Permission";
+const _SR = "S3Retention";
+const _SRO = "S3ReplicateObject";
+const _SROO = "S3ReplicateObjectOperation";
+const _SROSEBAS = "S3RegionalOrS3ExpressBucketArnString";
+const _SS = "SSE-S3";
+const _SSC = "SourceSelectionCriteria";
+const _SSCt = "S3StorageClass";
+const _SSEA = "SSEAlgorithm";
+const _SSEAKKI = "SSEAwsKmsKeyId";
+const _SSEKMS = "SSEKMS";
+const _SSEKMSKI = "SSEKMSKeyId";
+const _SSES = "SSES3";
+const _SSOAO = "S3SetObjectAclOperation";
+const _SSOLHO = "S3SetObjectLegalHoldOperation";
+const _SSORO = "S3SetObjectRetentionOperation";
+const _SSOTO = "S3SetObjectTaggingOperation";
+const _SSP = "S3SubPrefix";
+const _SSSEA = "S3SSEAlgorithm";
+const _ST = "S3Tag";
+const _STe = "SessionToken";
+const _SUR = "StatusUpdateReason";
+const _Se = "Setting";
+const _Sp = "Spec";
+const _Su = "Suffix";
+const _T = "Tags";
+const _TC = "TransformationConfigurations";
+const _TCr = "TransformationConfiguration";
+const _TD = "TerminationDate";
+const _TDP = "TrafficDialPercentage";
+const _TI = "TypeIdentifier";
+const _TK = "TagKeys";
+const _TKP = "TargetKeyPrefix";
+const _TKS = "TagKeyString";
+const _TNOT = "TotalNumberOfTasks";
+const _TR = "TargetResource";
+const _TRR = "TagResourceRequest";
+const _TS = "TagSet";
+const _TSC = "TransitionStorageClass";
+const _TSi = "TimeStamp";
+const _TT = "TargetType";
+const _TVS = "TagValueString";
+const _Ta = "Target";
+const _Tag = "Tag";
+const _Tagg = "Tagging";
+const _Ti = "Time";
+const _Tim = "Timers";
+const _Tr = "Transitions";
+const _Tra = "Transition";
+const _UA = "UserArguments";
+const _UAGLR = "UpdateAccessGrantsLocationRequest";
+const _UM = "UserMetadata";
+const _UMSC = "UnModifiedSinceConstraint";
+const _USLGR = "UpdateStorageLensGroupRequest";
+const _V = "Value";
+const _VC = "VpcConfiguration";
+const _VCe = "VersioningConfiguration";
+const _VI = "VpcId";
+const _aa = "application_arn";
+const _b = "bucket";
+const _dS = "durationSeconds";
+const _e = "entry";
+const _g = "granteetype";
+const _gr = "granteeidentifier";
+const _gra = "grantscope";
+const _jS = "jobStatuses";
+const _l = "locationscope";
+const _lo = "location";
+const _m = "member";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _p = "permission";
+const _pr = "privilege";
+const _pri = "priority";
+const _rJS = "requestedJobStatus";
+const _s = "s3prefix";
+const _sUR = "statusUpdateReason";
+const _t = "target";
+const _tK = "tagKeys";
+const _tT = "targetType";
+const _v = "value";
+const _ve = '<?xml version="1.0" encoding="UTF-8"?>';
+const _xaa = "x-amz-acl";
+const _xaai = "x-amz-account-id";
+const _xabole = "x-amz-bucket-object-lock-enabled";
+const _xacrsba = "x-amz-confirm-remove-self-bucket-access";
+const _xagfc = "x-amz-grant-full-control";
+const _xagr = "x-amz-grant-read";
+const _xagra = "x-amz-grant-read-acp";
+const _xagw = "x-amz-grant-write";
+const _xagwa = "x-amz-grant-write-acp";
+const _xam = "x-amz-mfa";
+const _xaoi = "x-amz-outpost-id";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
+
 import {
   Action,
   Blueprint,

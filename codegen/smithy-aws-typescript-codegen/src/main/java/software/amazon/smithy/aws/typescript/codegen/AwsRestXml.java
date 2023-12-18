@@ -96,7 +96,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     @Override
     protected void generateDocumentBodyShapeDeserializers(GenerationContext context, Set<Shape> shapes) {
-        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes, new XmlShapeDeserVisitor(context));
+        AwsProtocolUtils.generateDocumentBodyShapeSerde(context, shapes,
+            new XmlShapeDeserVisitor(context));
     }
 
     @Override
@@ -127,6 +128,9 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
         });
         writer.write("");
+        writer.write(
+            context.getStringStore().flushVariableDeclarationCode()
+        );
     }
 
     @Override
@@ -196,7 +200,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();
 
         // Start with the XML declaration.
-        writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
+        String xmlDeclVar = context.getStringStore().var("<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>");
+        writer.write("body = $L;", xmlDeclVar);
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
@@ -205,13 +210,13 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         String nodeName = inputShape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
                 .orElse(inputShapeId.getName(serviceShape));
-        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
+        writer.write("const bn = new __XmlNode($L);", context.getStringStore().var(nodeName));
 
         // Add @xmlNamespace value of the service to the root node,
         // fall back to one from the input shape.
-        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, serviceShape, "bodyNode");
+        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, serviceShape, "bn");
         if (!serviceXmlns) {
-            AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
+            AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bn");
         }
 
         XmlShapeSerVisitor shapeSerVisitor = new XmlShapeSerVisitor(context);
@@ -220,18 +225,16 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             MemberShape memberShape = binding.getMember();
             // The name of the member to get from the input shape.
             String memberName = symbolProvider.toMemberName(memberShape);
-            String inputLocation = "input." + memberName;
+            String inputLocation = "input[" + context.getStringStore().var(memberName) + "]";
 
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
 
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
-                shapeSerVisitor.serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
-            });
+            shapeSerVisitor.serializeNamedMember(context, memberName, memberShape, () -> inputLocation);
         }
 
         // Append the generated XML to the body.
-        writer.write("body += bodyNode.toString();");
+        writer.write("body += bn.toString();");
     }
 
     @Override
@@ -286,7 +289,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                 member.hasTrait(XmlNameTrait.class)
                 && !member.getTrait(XmlNameTrait.class).get().getValue().equals(targetName)
             ) {
-                writer.write("contents = contents.withName($S);", member.getTrait(XmlNameTrait.class).get().getValue());
+                writer.write("contents = contents.n($S);", member.getTrait(XmlNameTrait.class).get().getValue());
             }
 
             // XmlNode will serialize Structure and non-streaming Union payloads as XML documents.
@@ -294,7 +297,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
                     || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
             ) {
                 // Start with the XML declaration.
-                writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
+                String xmlDeclVar = context.getStringStore().var("<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>");
+                writer.write("body = $L;", xmlDeclVar);
 
                 // Add @xmlNamespace value of the service to the root node,
                 // fall back to one from the payload target.
@@ -363,7 +367,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
 
             shapeVisitor.deserializeNamedMember(context, memberName, memberShape, "data", (dataSource, visitor) -> {
                 TypeScriptWriter writer = context.getWriter();
-                writer.write("contents.$L = $L;", memberName, target.accept(visitor));
+                writer.write("contents[$L] = $L;", context.getStringStore().var(memberName), target.accept(visitor));
             });
         }
     }

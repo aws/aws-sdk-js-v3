@@ -2803,10 +2803,10 @@
     "@smithy/util-middleware" "^2.0.8"
     tslib "^2.5.0"
 
-"@smithy/core@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@smithy/core/-/core-1.1.0.tgz#80e419842cfcaf93040b2cc546f1d12731555479"
-  integrity sha512-k1zaT5S4K0bG67Q5TmPZ6PdWNQBTMQErChuDvTi+NTx21kKDt+/4YRidsK6nDbHizN6fn1bafUxrougZdKrpxA==
+"@smithy/core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@smithy/core/-/core-1.2.0.tgz#36286de5460905708221313b8b1faebf185761e6"
+  integrity sha512-l8R89X7+hlt2FEFg+OrNq29LP3h9DfGPmO6ObwT9IXWHD6V7ycpj5u2rVQyIis26ovrgOYakl6nfgmPMm8m1IQ==
   dependencies:
     "@smithy/middleware-endpoint" "^2.2.3"
     "@smithy/middleware-retry" "^2.0.24"
@@ -2814,6 +2814,7 @@
     "@smithy/protocol-http" "^3.0.11"
     "@smithy/smithy-client" "^2.1.18"
     "@smithy/types" "^2.7.0"
+    "@smithy/util-middleware" "^2.0.8"
     tslib "^2.5.0"
 
 "@smithy/credential-provider-imds@^2.0.0":

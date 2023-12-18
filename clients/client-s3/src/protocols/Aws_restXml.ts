@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -451,29 +452,21 @@ export const se_AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "AbortMultipartUpload"],
-    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
+    [_xi]: [, "AbortMultipartUpload"],
+    [_uI]: [, __expectNonNull(input[_UI]!, `UploadId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -483,45 +476,37 @@ export const se_CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-checksum-crc32": input.ChecksumCRC32!,
-    "x-amz-checksum-crc32c": input.ChecksumCRC32C!,
-    "x-amz-checksum-sha1": input.ChecksumSHA1!,
-    "x-amz-checksum-sha256": input.ChecksumSHA256!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
+    [_xacc]: input[_CCRC]!,
+    [_xacc_]: input[_CCRCC]!,
+    [_xacs]: input[_CSHA]!,
+    [_xacs_]: input[_CSHAh]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "CompleteMultipartUpload"],
-    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
+    [_xi]: [, "CompleteMultipartUpload"],
+    [_uI]: [, __expectNonNull(input[_UI]!, `UploadId`)],
   });
   let body: any;
   let contents: any;
   if (input.MultipartUpload !== undefined) {
     contents = se_CompletedMultipartUpload(input.MultipartUpload, context);
-    contents = contents.withName("CompleteMultipartUpload");
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    contents = contents.n("CompleteMultipartUpload");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -531,81 +516,64 @@ export const se_CopyObjectCommand = async (
   input: CopyObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-acl": input.ACL!,
-    "cache-control": input.CacheControl!,
-    "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
-    "content-disposition": input.ContentDisposition!,
-    "content-encoding": input.ContentEncoding!,
-    "content-language": input.ContentLanguage!,
-    "content-type": input.ContentType!,
-    "x-amz-copy-source": input.CopySource!,
-    "x-amz-copy-source-if-match": input.CopySourceIfMatch!,
-    "x-amz-copy-source-if-modified-since": [
-      () => isSerializableHeaderValue(input.CopySourceIfModifiedSince),
-      () => __dateToUtcString(input.CopySourceIfModifiedSince!).toString(),
+    [_xaa]: input[_ACL]!,
+    [_cc]: input[_CC]!,
+    [_xaca]: input[_CA]!,
+    [_cd]: input[_CD]!,
+    [_ce]: input[_CE]!,
+    [_cl]: input[_CL]!,
+    [_ct]: input[_CT]!,
+    [_xacs__]: input[_CS]!,
+    [_xacsim]: input[_CSIM]!,
+    [_xacsims]: [() => isSerializableHeaderValue(input[_CSIMS]), () => __dateToUtcString(input[_CSIMS]!).toString()],
+    [_xacsinm]: input[_CSINM]!,
+    [_xacsius]: [() => isSerializableHeaderValue(input[_CSIUS]), () => __dateToUtcString(input[_CSIUS]!).toString()],
+    [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xamd]: input[_MD]!,
+    [_xatd]: input[_TD]!,
+    [_xasse]: input[_SSE]!,
+    [_xasc]: input[_SC]!,
+    [_xawrl]: input[_WRL]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xasseakki]: input[_SSEKMSKI]!,
+    [_xassec]: input[_SSEKMSEC]!,
+    [_xassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
+    [_xacssseca]: input[_CSSSECA]!,
+    [_xacssseck]: input[_CSSSECK]!,
+    [_xacssseckm]: input[_CSSSECKMD]!,
+    [_xarp]: input[_RP]!,
+    [_xat]: input[_T]!,
+    [_xaolm]: input[_OLM]!,
+    [_xaolrud]: [
+      () => isSerializableHeaderValue(input[_OLRUD]),
+      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-amz-copy-source-if-none-match": input.CopySourceIfNoneMatch!,
-    "x-amz-copy-source-if-unmodified-since": [
-      () => isSerializableHeaderValue(input.CopySourceIfUnmodifiedSince),
-      () => __dateToUtcString(input.CopySourceIfUnmodifiedSince!).toString(),
-    ],
-    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!).toString()],
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-metadata-directive": input.MetadataDirective!,
-    "x-amz-tagging-directive": input.TaggingDirective!,
-    "x-amz-server-side-encryption": input.ServerSideEncryption!,
-    "x-amz-storage-class": input.StorageClass!,
-    "x-amz-website-redirect-location": input.WebsiteRedirectLocation!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
-    "x-amz-server-side-encryption-context": input.SSEKMSEncryptionContext!,
-    "x-amz-server-side-encryption-bucket-key-enabled": [
-      () => isSerializableHeaderValue(input.BucketKeyEnabled),
-      () => input.BucketKeyEnabled!.toString(),
-    ],
-    "x-amz-copy-source-server-side-encryption-customer-algorithm": input.CopySourceSSECustomerAlgorithm!,
-    "x-amz-copy-source-server-side-encryption-customer-key": input.CopySourceSSECustomerKey!,
-    "x-amz-copy-source-server-side-encryption-customer-key-md5": input.CopySourceSSECustomerKeyMD5!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-tagging": input.Tagging!,
-    "x-amz-object-lock-mode": input.ObjectLockMode!,
-    "x-amz-object-lock-retain-until-date": [
-      () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
+    [_xaollh]: input[_OLLHS]!,
+    [_xaebo]: input[_EBO]!,
+    [_xasebo]: input[_ESBO]!,
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
         acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
         return acc;
       }, {})),
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "CopyObject"],
+    [_xi]: [, "CopyObject"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -615,40 +583,30 @@ export const se_CreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-acl": input.ACL!,
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write": input.GrantWrite!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-bucket-object-lock-enabled": [
-      () => isSerializableHeaderValue(input.ObjectLockEnabledForBucket),
-      () => input.ObjectLockEnabledForBucket!.toString(),
-    ],
-    "x-amz-object-ownership": input.ObjectOwnership!,
+    [_xaa]: input[_ACL]!,
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagw]: input[_GW]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xabole]: [() => isSerializableHeaderValue(input[_OLEFB]), () => input[_OLEFB]!.toString()],
+    [_xaoo]: input[_OO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = se_CreateBucketConfiguration(input.CreateBucketConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -658,65 +616,54 @@ export const se_CreateMultipartUploadCommand = async (
   input: CreateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-acl": input.ACL!,
-    "cache-control": input.CacheControl!,
-    "content-disposition": input.ContentDisposition!,
-    "content-encoding": input.ContentEncoding!,
-    "content-language": input.ContentLanguage!,
-    "content-type": input.ContentType!,
-    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!).toString()],
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-server-side-encryption": input.ServerSideEncryption!,
-    "x-amz-storage-class": input.StorageClass!,
-    "x-amz-website-redirect-location": input.WebsiteRedirectLocation!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
-    "x-amz-server-side-encryption-context": input.SSEKMSEncryptionContext!,
-    "x-amz-server-side-encryption-bucket-key-enabled": [
-      () => isSerializableHeaderValue(input.BucketKeyEnabled),
-      () => input.BucketKeyEnabled!.toString(),
+    [_xaa]: input[_ACL]!,
+    [_cc]: input[_CC]!,
+    [_cd]: input[_CD]!,
+    [_ce]: input[_CE]!,
+    [_cl]: input[_CL]!,
+    [_ct]: input[_CT]!,
+    [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xasse]: input[_SSE]!,
+    [_xasc]: input[_SC]!,
+    [_xawrl]: input[_WRL]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xasseakki]: input[_SSEKMSKI]!,
+    [_xassec]: input[_SSEKMSEC]!,
+    [_xassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
+    [_xarp]: input[_RP]!,
+    [_xat]: input[_T]!,
+    [_xaolm]: input[_OLM]!,
+    [_xaolrud]: [
+      () => isSerializableHeaderValue(input[_OLRUD]),
+      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-tagging": input.Tagging!,
-    "x-amz-object-lock-mode": input.ObjectLockMode!,
-    "x-amz-object-lock-retain-until-date": [
-      () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
+    [_xaollh]: input[_OLLHS]!,
+    [_xaebo]: input[_EBO]!,
+    [_xaca]: input[_CA]!,
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
         acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
         return acc;
       }, {})),
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    uploads: [, ""],
-    "x-id": [, "CreateMultipartUpload"],
+    [_u]: [, ""],
+    [_xi]: [, "CreateMultipartUpload"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -726,26 +673,18 @@ export const se_CreateSessionCommand = async (
   input: CreateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-create-session-mode": input.SessionMode!,
+    [_xacsm]: input[_SM]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    session: [, ""],
+    [_s]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -755,22 +694,15 @@ export const se_DeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -780,27 +712,19 @@ export const se_DeleteBucketAnalyticsConfigurationCommand = async (
   input: DeleteBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    analytics: [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_a]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -810,26 +734,18 @@ export const se_DeleteBucketCorsCommand = async (
   input: DeleteBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    cors: [, ""],
+    [_c]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -839,26 +755,18 @@ export const se_DeleteBucketEncryptionCommand = async (
   input: DeleteBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    encryption: [, ""],
+    [_en]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -868,25 +776,17 @@ export const se_DeleteBucketIntelligentTieringConfigurationCommand = async (
   input: DeleteBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "intelligent-tiering": [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_it]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -896,27 +796,19 @@ export const se_DeleteBucketInventoryConfigurationCommand = async (
   input: DeleteBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    inventory: [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_in]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -926,26 +818,18 @@ export const se_DeleteBucketLifecycleCommand = async (
   input: DeleteBucketLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    lifecycle: [, ""],
+    [_l]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -955,27 +839,19 @@ export const se_DeleteBucketMetricsConfigurationCommand = async (
   input: DeleteBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    metrics: [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_m]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -985,26 +861,18 @@ export const se_DeleteBucketOwnershipControlsCommand = async (
   input: DeleteBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    ownershipControls: [, ""],
+    [_oC]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1014,26 +882,18 @@ export const se_DeleteBucketPolicyCommand = async (
   input: DeleteBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    policy: [, ""],
+    [_p]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1043,26 +903,18 @@ export const se_DeleteBucketReplicationCommand = async (
   input: DeleteBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    replication: [, ""],
+    [_r]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1072,26 +924,18 @@ export const se_DeleteBucketTaggingCommand = async (
   input: DeleteBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    tagging: [, ""],
+    [_t]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1101,26 +945,18 @@ export const se_DeleteBucketWebsiteCommand = async (
   input: DeleteBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    website: [, ""],
+    [_w]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1130,34 +966,23 @@ export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-mfa": input.MFA!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-bypass-governance-retention": [
-      () => isSerializableHeaderValue(input.BypassGovernanceRetention),
-      () => input.BypassGovernanceRetention!.toString(),
-    ],
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xam]: input[_MFA]!,
+    [_xarp]: input[_RP]!,
+    [_xabgr]: [() => isSerializableHeaderValue(input[_BGR]), () => input[_BGR]!.toString()],
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "DeleteObject"],
-    versionId: [, input.VersionId!],
+    [_xi]: [, "DeleteObject"],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1167,42 +992,31 @@ export const se_DeleteObjectsCommand = async (
   input: DeleteObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-mfa": input.MFA!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-bypass-governance-retention": [
-      () => isSerializableHeaderValue(input.BypassGovernanceRetention),
-      () => input.BypassGovernanceRetention!.toString(),
-    ],
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    [_xam]: input[_MFA]!,
+    [_xarp]: input[_RP]!,
+    [_xabgr]: [() => isSerializableHeaderValue(input[_BGR]), () => input[_BGR]!.toString()],
+    [_xaebo]: input[_EBO]!,
+    [_xasca]: input[_CA]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    delete: [, ""],
-    "x-id": [, "DeleteObjects"],
+    [_d]: [, ""],
+    [_xi]: [, "DeleteObjects"],
   });
   let body: any;
   let contents: any;
   if (input.Delete !== undefined) {
     contents = se_Delete(input.Delete, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1212,28 +1026,20 @@ export const se_DeleteObjectTaggingCommand = async (
   input: DeleteObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    tagging: [, ""],
-    versionId: [, input.VersionId!],
+    [_t]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1243,26 +1049,18 @@ export const se_DeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    publicAccessBlock: [, ""],
+    [_pAB]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1272,27 +1070,19 @@ export const se_GetBucketAccelerateConfigurationCommand = async (
   input: GetBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-request-payer": input.RequestPayer!,
+    [_xaebo]: input[_EBO]!,
+    [_xarp]: input[_RP]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    accelerate: [, ""],
+    [_ac]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1302,26 +1092,18 @@ export const se_GetBucketAclCommand = async (
   input: GetBucketAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    acl: [, ""],
+    [_acl]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1331,28 +1113,20 @@ export const se_GetBucketAnalyticsConfigurationCommand = async (
   input: GetBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    analytics: [, ""],
-    "x-id": [, "GetBucketAnalyticsConfiguration"],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_a]: [, ""],
+    [_xi]: [, "GetBucketAnalyticsConfiguration"],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1362,26 +1136,18 @@ export const se_GetBucketCorsCommand = async (
   input: GetBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    cors: [, ""],
+    [_c]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1391,26 +1157,18 @@ export const se_GetBucketEncryptionCommand = async (
   input: GetBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    encryption: [, ""],
+    [_en]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1420,26 +1178,18 @@ export const se_GetBucketIntelligentTieringConfigurationCommand = async (
   input: GetBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "intelligent-tiering": [, ""],
-    "x-id": [, "GetBucketIntelligentTieringConfiguration"],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_it]: [, ""],
+    [_xi]: [, "GetBucketIntelligentTieringConfiguration"],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1449,28 +1199,20 @@ export const se_GetBucketInventoryConfigurationCommand = async (
   input: GetBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    inventory: [, ""],
-    "x-id": [, "GetBucketInventoryConfiguration"],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_in]: [, ""],
+    [_xi]: [, "GetBucketInventoryConfiguration"],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1480,26 +1222,18 @@ export const se_GetBucketLifecycleConfigurationCommand = async (
   input: GetBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    lifecycle: [, ""],
+    [_l]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1509,26 +1243,18 @@ export const se_GetBucketLocationCommand = async (
   input: GetBucketLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    location: [, ""],
+    [_lo]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1538,26 +1264,18 @@ export const se_GetBucketLoggingCommand = async (
   input: GetBucketLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    logging: [, ""],
+    [_log]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1567,28 +1285,20 @@ export const se_GetBucketMetricsConfigurationCommand = async (
   input: GetBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    metrics: [, ""],
-    "x-id": [, "GetBucketMetricsConfiguration"],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_m]: [, ""],
+    [_xi]: [, "GetBucketMetricsConfiguration"],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1598,26 +1308,18 @@ export const se_GetBucketNotificationConfigurationCommand = async (
   input: GetBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    notification: [, ""],
+    [_n]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1627,26 +1329,18 @@ export const se_GetBucketOwnershipControlsCommand = async (
   input: GetBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    ownershipControls: [, ""],
+    [_oC]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1656,26 +1350,18 @@ export const se_GetBucketPolicyCommand = async (
   input: GetBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    policy: [, ""],
+    [_p]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1685,26 +1371,18 @@ export const se_GetBucketPolicyStatusCommand = async (
   input: GetBucketPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    policyStatus: [, ""],
+    [_pS]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1714,26 +1392,18 @@ export const se_GetBucketReplicationCommand = async (
   input: GetBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    replication: [, ""],
+    [_r]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1743,26 +1413,18 @@ export const se_GetBucketRequestPaymentCommand = async (
   input: GetBucketRequestPaymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    requestPayment: [, ""],
+    [_rP]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1772,26 +1434,18 @@ export const se_GetBucketTaggingCommand = async (
   input: GetBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    tagging: [, ""],
+    [_t]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1801,26 +1455,18 @@ export const se_GetBucketVersioningCommand = async (
   input: GetBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    versioning: [, ""],
+    [_v]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1830,26 +1476,18 @@ export const se_GetBucketWebsiteCommand = async (
   input: GetBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    website: [, ""],
+    [_w]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1859,54 +1497,37 @@ export const se_GetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
-    "if-modified-since": [
-      () => isSerializableHeaderValue(input.IfModifiedSince),
-      () => __dateToUtcString(input.IfModifiedSince!).toString(),
-    ],
-    "if-none-match": input.IfNoneMatch!,
-    "if-unmodified-since": [
-      () => isSerializableHeaderValue(input.IfUnmodifiedSince),
-      () => __dateToUtcString(input.IfUnmodifiedSince!).toString(),
-    ],
-    range: input.Range!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-checksum-mode": input.ChecksumMode!,
+    [_im]: input[_IM]!,
+    [_ims]: [() => isSerializableHeaderValue(input[_IMS]), () => __dateToUtcString(input[_IMS]!).toString()],
+    [_inm]: input[_INM]!,
+    [_ius]: [() => isSerializableHeaderValue(input[_IUS]), () => __dateToUtcString(input[_IUS]!).toString()],
+    [_ra]: input[_R]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xacm]: input[_CM]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "GetObject"],
-    "response-cache-control": [, input.ResponseCacheControl!],
-    "response-content-disposition": [, input.ResponseContentDisposition!],
-    "response-content-encoding": [, input.ResponseContentEncoding!],
-    "response-content-language": [, input.ResponseContentLanguage!],
-    "response-content-type": [, input.ResponseContentType!],
-    "response-expires": [
-      () => input.ResponseExpires !== void 0,
-      () => __dateToUtcString(input.ResponseExpires!).toString(),
-    ],
-    versionId: [, input.VersionId!],
-    partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
+    [_xi]: [, "GetObject"],
+    [_rcc]: [, input[_RCC]!],
+    [_rcd]: [, input[_RCD]!],
+    [_rce]: [, input[_RCE]!],
+    [_rcl]: [, input[_RCL]!],
+    [_rct]: [, input[_RCT]!],
+    [_re]: [() => input.ResponseExpires !== void 0, () => __dateToUtcString(input[_RE]!).toString()],
+    [_vI]: [, input[_VI]!],
+    [_pN]: [() => input.PartNumber !== void 0, () => input[_PN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1916,29 +1537,21 @@ export const se_GetObjectAclCommand = async (
   input: GetObjectAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    acl: [, ""],
-    versionId: [, input.VersionId!],
+    [_acl]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1948,38 +1561,30 @@ export const se_GetObjectAttributesCommand = async (
   input: GetObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-max-parts": [() => isSerializableHeaderValue(input.MaxParts), () => input.MaxParts!.toString()],
-    "x-amz-part-number-marker": input.PartNumberMarker!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-object-attributes": [
-      () => isSerializableHeaderValue(input.ObjectAttributes),
-      () => (input.ObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    [_xamp]: [() => isSerializableHeaderValue(input[_MP]), () => input[_MP]!.toString()],
+    [_xapnm]: input[_PNM]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xaoa]: [
+      () => isSerializableHeaderValue(input[_OA]),
+      () => (input[_OA]! || []).map((_entry) => _entry as any).join(", "),
     ],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    attributes: [, ""],
-    versionId: [, input.VersionId!],
+    [_at]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1989,29 +1594,21 @@ export const se_GetObjectLegalHoldCommand = async (
   input: GetObjectLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "legal-hold": [, ""],
-    versionId: [, input.VersionId!],
+    [_lh]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2021,26 +1618,18 @@ export const se_GetObjectLockConfigurationCommand = async (
   input: GetObjectLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "object-lock": [, ""],
+    [_ol]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2050,29 +1639,21 @@ export const se_GetObjectRetentionCommand = async (
   input: GetObjectRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    retention: [, ""],
-    versionId: [, input.VersionId!],
+    [_ret]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2082,29 +1663,21 @@ export const se_GetObjectTaggingCommand = async (
   input: GetObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-request-payer": input.RequestPayer!,
+    [_xaebo]: input[_EBO]!,
+    [_xarp]: input[_RP]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    tagging: [, ""],
-    versionId: [, input.VersionId!],
+    [_t]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2114,28 +1687,20 @@ export const se_GetObjectTorrentCommand = async (
   input: GetObjectTorrentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    torrent: [, ""],
+    [_to]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2145,26 +1710,18 @@ export const se_GetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    publicAccessBlock: [, ""],
+    [_pAB]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2174,22 +1731,15 @@ export const se_HeadBucketCommand = async (
   input: HeadBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "HEAD",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("HEAD").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2199,44 +1749,30 @@ export const se_HeadObjectCommand = async (
   input: HeadObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
-    "if-modified-since": [
-      () => isSerializableHeaderValue(input.IfModifiedSince),
-      () => __dateToUtcString(input.IfModifiedSince!).toString(),
-    ],
-    "if-none-match": input.IfNoneMatch!,
-    "if-unmodified-since": [
-      () => isSerializableHeaderValue(input.IfUnmodifiedSince),
-      () => __dateToUtcString(input.IfUnmodifiedSince!).toString(),
-    ],
-    range: input.Range!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-checksum-mode": input.ChecksumMode!,
+    [_im]: input[_IM]!,
+    [_ims]: [() => isSerializableHeaderValue(input[_IMS]), () => __dateToUtcString(input[_IMS]!).toString()],
+    [_inm]: input[_INM]!,
+    [_ius]: [() => isSerializableHeaderValue(input[_IUS]), () => __dateToUtcString(input[_IUS]!).toString()],
+    [_ra]: input[_R]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xacm]: input[_CM]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    versionId: [, input.VersionId!],
-    partNumber: [() => input.PartNumber !== void 0, () => input.PartNumber!.toString()],
+    [_vI]: [, input[_VI]!],
+    [_pN]: [() => input.PartNumber !== void 0, () => input[_PN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "HEAD",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("HEAD").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2246,28 +1782,20 @@ export const se_ListBucketAnalyticsConfigurationsCommand = async (
   input: ListBucketAnalyticsConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    analytics: [, ""],
-    "x-id": [, "ListBucketAnalyticsConfigurations"],
-    "continuation-token": [, input.ContinuationToken!],
+    [_a]: [, ""],
+    [_xi]: [, "ListBucketAnalyticsConfigurations"],
+    [_ct_]: [, input[_CTo]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2277,26 +1805,18 @@ export const se_ListBucketIntelligentTieringConfigurationsCommand = async (
   input: ListBucketIntelligentTieringConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "intelligent-tiering": [, ""],
-    "x-id": [, "ListBucketIntelligentTieringConfigurations"],
-    "continuation-token": [, input.ContinuationToken!],
+    [_it]: [, ""],
+    [_xi]: [, "ListBucketIntelligentTieringConfigurations"],
+    [_ct_]: [, input[_CTo]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2306,28 +1826,20 @@ export const se_ListBucketInventoryConfigurationsCommand = async (
   input: ListBucketInventoryConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    inventory: [, ""],
-    "x-id": [, "ListBucketInventoryConfigurations"],
-    "continuation-token": [, input.ContinuationToken!],
+    [_in]: [, ""],
+    [_xi]: [, "ListBucketInventoryConfigurations"],
+    [_ct_]: [, input[_CTo]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2337,28 +1849,20 @@ export const se_ListBucketMetricsConfigurationsCommand = async (
   input: ListBucketMetricsConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    metrics: [, ""],
-    "x-id": [, "ListBucketMetricsConfigurations"],
-    "continuation-token": [, input.ContinuationToken!],
+    [_m]: [, ""],
+    [_xi]: [, "ListBucketMetricsConfigurations"],
+    [_ct_]: [, input[_CTo]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2368,26 +1872,18 @@ export const se_ListBucketsCommand = async (
   input: ListBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
+  b.bp("/");
   const query: any = map({
-    "x-id": [, "ListBuckets"],
+    [_xi]: [, "ListBuckets"],
   });
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2397,25 +1893,17 @@ export const se_ListDirectoryBucketsCommand = async (
   input: ListDirectoryBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
+  b.bp("/");
   const query: any = map({
-    "x-id": [, "ListDirectoryBuckets"],
-    "continuation-token": [, input.ContinuationToken!],
-    "max-directory-buckets": [() => input.MaxDirectoryBuckets !== void 0, () => input.MaxDirectoryBuckets!.toString()],
+    [_xi]: [, "ListDirectoryBuckets"],
+    [_ct_]: [, input[_CTo]!],
+    [_mdb]: [() => input.MaxDirectoryBuckets !== void 0, () => input[_MDB]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2425,33 +1913,25 @@ export const se_ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-request-payer": input.RequestPayer!,
+    [_xaebo]: input[_EBO]!,
+    [_xarp]: input[_RP]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    uploads: [, ""],
-    delimiter: [, input.Delimiter!],
-    "encoding-type": [, input.EncodingType!],
-    "key-marker": [, input.KeyMarker!],
-    "max-uploads": [() => input.MaxUploads !== void 0, () => input.MaxUploads!.toString()],
-    prefix: [, input.Prefix!],
-    "upload-id-marker": [, input.UploadIdMarker!],
+    [_u]: [, ""],
+    [_de]: [, input[_D]!],
+    [_et]: [, input[_ET]!],
+    [_km]: [, input[_KM]!],
+    [_mu]: [() => input.MaxUploads !== void 0, () => input[_MU]!.toString()],
+    [_pr]: [, input[_P]!],
+    [_uim]: [, input[_UIM]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2461,35 +1941,27 @@ export const se_ListObjectsCommand = async (
   input: ListObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-optional-object-attributes": [
-      () => isSerializableHeaderValue(input.OptionalObjectAttributes),
-      () => (input.OptionalObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xaooa]: [
+      () => isSerializableHeaderValue(input[_OOA]),
+      () => (input[_OOA]! || []).map((_entry) => _entry as any).join(", "),
     ],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    delimiter: [, input.Delimiter!],
-    "encoding-type": [, input.EncodingType!],
-    marker: [, input.Marker!],
-    "max-keys": [() => input.MaxKeys !== void 0, () => input.MaxKeys!.toString()],
-    prefix: [, input.Prefix!],
+    [_de]: [, input[_D]!],
+    [_et]: [, input[_ET]!],
+    [_ma]: [, input[_M]!],
+    [_mk]: [() => input.MaxKeys !== void 0, () => input[_MK]!.toString()],
+    [_pr]: [, input[_P]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2499,38 +1971,30 @@ export const se_ListObjectsV2Command = async (
   input: ListObjectsV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-optional-object-attributes": [
-      () => isSerializableHeaderValue(input.OptionalObjectAttributes),
-      () => (input.OptionalObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xaooa]: [
+      () => isSerializableHeaderValue(input[_OOA]),
+      () => (input[_OOA]! || []).map((_entry) => _entry as any).join(", "),
     ],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "list-type": [, "2"],
-    delimiter: [, input.Delimiter!],
-    "encoding-type": [, input.EncodingType!],
-    "max-keys": [() => input.MaxKeys !== void 0, () => input.MaxKeys!.toString()],
-    prefix: [, input.Prefix!],
-    "continuation-token": [, input.ContinuationToken!],
-    "fetch-owner": [() => input.FetchOwner !== void 0, () => input.FetchOwner!.toString()],
-    "start-after": [, input.StartAfter!],
+    [_lt]: [, "2"],
+    [_de]: [, input[_D]!],
+    [_et]: [, input[_ET]!],
+    [_mk]: [() => input.MaxKeys !== void 0, () => input[_MK]!.toString()],
+    [_pr]: [, input[_P]!],
+    [_ct_]: [, input[_CTo]!],
+    [_fo]: [() => input.FetchOwner !== void 0, () => input[_FO]!.toString()],
+    [_sa]: [, input[_SA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2540,37 +2004,29 @@ export const se_ListObjectVersionsCommand = async (
   input: ListObjectVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-optional-object-attributes": [
-      () => isSerializableHeaderValue(input.OptionalObjectAttributes),
-      () => (input.OptionalObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    [_xaebo]: input[_EBO]!,
+    [_xarp]: input[_RP]!,
+    [_xaooa]: [
+      () => isSerializableHeaderValue(input[_OOA]),
+      () => (input[_OOA]! || []).map((_entry) => _entry as any).join(", "),
     ],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    versions: [, ""],
-    delimiter: [, input.Delimiter!],
-    "encoding-type": [, input.EncodingType!],
-    "key-marker": [, input.KeyMarker!],
-    "max-keys": [() => input.MaxKeys !== void 0, () => input.MaxKeys!.toString()],
-    prefix: [, input.Prefix!],
-    "version-id-marker": [, input.VersionIdMarker!],
+    [_ver]: [, ""],
+    [_de]: [, input[_D]!],
+    [_et]: [, input[_ET]!],
+    [_km]: [, input[_KM]!],
+    [_mk]: [() => input.MaxKeys !== void 0, () => input[_MK]!.toString()],
+    [_pr]: [, input[_P]!],
+    [_vim]: [, input[_VIM]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2580,34 +2036,26 @@ export const se_ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "ListParts"],
-    "max-parts": [() => input.MaxParts !== void 0, () => input.MaxParts!.toString()],
-    "part-number-marker": [, input.PartNumberMarker!],
-    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
+    [_xi]: [, "ListParts"],
+    [_mp]: [() => input.MaxParts !== void 0, () => input[_MP]!.toString()],
+    [_pnm]: [, input[_PNM]!],
+    [_uI]: [, __expectNonNull(input[_UI]!, `UploadId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2617,35 +2065,27 @@ export const se_PutBucketAccelerateConfigurationCommand = async (
   input: PutBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    [_xaebo]: input[_EBO]!,
+    [_xasca]: input[_CA]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    accelerate: [, ""],
+    [_ac]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.AccelerateConfiguration !== undefined) {
     contents = se_AccelerateConfiguration(input.AccelerateConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2655,42 +2095,34 @@ export const se_PutBucketAclCommand = async (
   input: PutBucketAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-acl": input.ACL!,
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write": input.GrantWrite!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaa]: input[_ACL]!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagw]: input[_GW]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    acl: [, ""],
+    [_acl]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = se_AccessControlPolicy(input.AccessControlPolicy, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2700,35 +2132,27 @@ export const se_PutBucketAnalyticsConfigurationCommand = async (
   input: PutBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    analytics: [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_a]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
   let contents: any;
   if (input.AnalyticsConfiguration !== undefined) {
     contents = se_AnalyticsConfiguration(input.AnalyticsConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2738,36 +2162,28 @@ export const se_PutBucketCorsCommand = async (
   input: PutBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    cors: [, ""],
+    [_c]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.CORSConfiguration !== undefined) {
     contents = se_CORSConfiguration(input.CORSConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2777,36 +2193,28 @@ export const se_PutBucketEncryptionCommand = async (
   input: PutBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    encryption: [, ""],
+    [_en]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.ServerSideEncryptionConfiguration !== undefined) {
     contents = se_ServerSideEncryptionConfiguration(input.ServerSideEncryptionConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2816,34 +2224,26 @@ export const se_PutBucketIntelligentTieringConfigurationCommand = async (
   input: PutBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "intelligent-tiering": [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_it]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
   let contents: any;
   if (input.IntelligentTieringConfiguration !== undefined) {
     contents = se_IntelligentTieringConfiguration(input.IntelligentTieringConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2853,35 +2253,27 @@ export const se_PutBucketInventoryConfigurationCommand = async (
   input: PutBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    inventory: [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_in]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
   let contents: any;
   if (input.InventoryConfiguration !== undefined) {
     contents = se_InventoryConfiguration(input.InventoryConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2891,36 +2283,28 @@ export const se_PutBucketLifecycleConfigurationCommand = async (
   input: PutBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    lifecycle: [, ""],
+    [_l]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = se_BucketLifecycleConfiguration(input.LifecycleConfiguration, context);
-    contents = contents.withName("LifecycleConfiguration");
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    contents = contents.n("LifecycleConfiguration");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2930,36 +2314,28 @@ export const se_PutBucketLoggingCommand = async (
   input: PutBucketLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    logging: [, ""],
+    [_log]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.BucketLoggingStatus !== undefined) {
     contents = se_BucketLoggingStatus(input.BucketLoggingStatus, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2969,35 +2345,27 @@ export const se_PutBucketMetricsConfigurationCommand = async (
   input: PutBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    metrics: [, ""],
-    id: [, __expectNonNull(input.Id!, `Id`)],
+    [_m]: [, ""],
+    [_i]: [, __expectNonNull(input[_I]!, `Id`)],
   });
   let body: any;
   let contents: any;
   if (input.MetricsConfiguration !== undefined) {
     contents = se_MetricsConfiguration(input.MetricsConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3007,38 +2375,27 @@ export const se_PutBucketNotificationConfigurationCommand = async (
   input: PutBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-skip-destination-validation": [
-      () => isSerializableHeaderValue(input.SkipDestinationValidation),
-      () => input.SkipDestinationValidation!.toString(),
-    ],
+    [_xaebo]: input[_EBO]!,
+    [_xasdv]: [() => isSerializableHeaderValue(input[_SDV]), () => input[_SDV]!.toString()],
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    notification: [, ""],
+    [_n]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.NotificationConfiguration !== undefined) {
     contents = se_NotificationConfiguration(input.NotificationConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3048,35 +2405,27 @@ export const se_PutBucketOwnershipControlsCommand = async (
   input: PutBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    ownershipControls: [, ""],
+    [_oC]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.OwnershipControls !== undefined) {
     contents = se_OwnershipControls(input.OwnershipControls, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3086,21 +2435,18 @@ export const se_PutBucketPolicyCommand = async (
   input: PutBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-confirm-remove-self-bucket-access": [
-      () => isSerializableHeaderValue(input.ConfirmRemoveSelfBucketAccess),
-      () => input.ConfirmRemoveSelfBucketAccess!.toString(),
-    ],
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xacrsba]: [() => isSerializableHeaderValue(input[_CRSBA]), () => input[_CRSBA]!.toString()],
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    policy: [, ""],
+    [_p]: [, ""],
   });
   let body: any;
   let contents: any;
@@ -3108,16 +2454,8 @@ export const se_PutBucketPolicyCommand = async (
     contents = input.Policy;
     body = contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3127,37 +2465,29 @@ export const se_PutBucketReplicationCommand = async (
   input: PutBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-bucket-object-lock-token": input.Token!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xabolt]: input[_To]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    replication: [, ""],
+    [_r]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.ReplicationConfiguration !== undefined) {
     contents = se_ReplicationConfiguration(input.ReplicationConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3167,36 +2497,28 @@ export const se_PutBucketRequestPaymentCommand = async (
   input: PutBucketRequestPaymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    requestPayment: [, ""],
+    [_rP]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.RequestPaymentConfiguration !== undefined) {
     contents = se_RequestPaymentConfiguration(input.RequestPaymentConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3206,36 +2528,28 @@ export const se_PutBucketTaggingCommand = async (
   input: PutBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    tagging: [, ""],
+    [_t]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = se_Tagging(input.Tagging, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3245,37 +2559,29 @@ export const se_PutBucketVersioningCommand = async (
   input: PutBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-mfa": input.MFA!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xam]: input[_MFA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    versioning: [, ""],
+    [_v]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.VersioningConfiguration !== undefined) {
     contents = se_VersioningConfiguration(input.VersioningConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3285,36 +2591,28 @@ export const se_PutBucketWebsiteCommand = async (
   input: PutBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    website: [, ""],
+    [_w]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.WebsiteConfiguration !== undefined) {
     contents = se_WebsiteConfiguration(input.WebsiteConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3324,58 +2622,55 @@ export const se_PutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.ContentType! || "application/octet-stream",
-    "x-amz-acl": input.ACL!,
-    "cache-control": input.CacheControl!,
-    "content-disposition": input.ContentDisposition!,
-    "content-encoding": input.ContentEncoding!,
-    "content-language": input.ContentLanguage!,
-    "content-length": [() => isSerializableHeaderValue(input.ContentLength), () => input.ContentLength!.toString()],
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-checksum-crc32": input.ChecksumCRC32!,
-    "x-amz-checksum-crc32c": input.ChecksumCRC32C!,
-    "x-amz-checksum-sha1": input.ChecksumSHA1!,
-    "x-amz-checksum-sha256": input.ChecksumSHA256!,
-    expires: [() => isSerializableHeaderValue(input.Expires), () => __dateToUtcString(input.Expires!).toString()],
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-server-side-encryption": input.ServerSideEncryption!,
-    "x-amz-storage-class": input.StorageClass!,
-    "x-amz-website-redirect-location": input.WebsiteRedirectLocation!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
-    "x-amz-server-side-encryption-context": input.SSEKMSEncryptionContext!,
-    "x-amz-server-side-encryption-bucket-key-enabled": [
-      () => isSerializableHeaderValue(input.BucketKeyEnabled),
-      () => input.BucketKeyEnabled!.toString(),
+    [_ct]: input[_CT]! || "application/octet-stream",
+    [_xaa]: input[_ACL]!,
+    [_cc]: input[_CC]!,
+    [_cd]: input[_CD]!,
+    [_ce]: input[_CE]!,
+    [_cl]: input[_CL]!,
+    [_cl_]: [() => isSerializableHeaderValue(input[_CLo]), () => input[_CLo]!.toString()],
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xacc]: input[_CCRC]!,
+    [_xacc_]: input[_CCRCC]!,
+    [_xacs]: input[_CSHA]!,
+    [_xacs_]: input[_CSHAh]!,
+    [_e]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xasse]: input[_SSE]!,
+    [_xasc]: input[_SC]!,
+    [_xawrl]: input[_WRL]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xasseakki]: input[_SSEKMSKI]!,
+    [_xassec]: input[_SSEKMSEC]!,
+    [_xassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
+    [_xarp]: input[_RP]!,
+    [_xat]: input[_T]!,
+    [_xaolm]: input[_OLM]!,
+    [_xaolrud]: [
+      () => isSerializableHeaderValue(input[_OLRUD]),
+      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-tagging": input.Tagging!,
-    "x-amz-object-lock-mode": input.ObjectLockMode!,
-    "x-amz-object-lock-retain-until-date": [
-      () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaollh]: input[_OLLHS]!,
+    [_xaebo]: input[_EBO]!,
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
         acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
         return acc;
       }, {})),
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "PutObject"],
+    [_xi]: [, "PutObject"],
   });
   let body: any;
   let contents: any;
@@ -3383,16 +2678,8 @@ export const se_PutObjectCommand = async (
     contents = input.Body;
     body = contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3402,45 +2689,37 @@ export const se_PutObjectAclCommand = async (
   input: PutObjectAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-acl": input.ACL!,
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-grant-full-control": input.GrantFullControl!,
-    "x-amz-grant-read": input.GrantRead!,
-    "x-amz-grant-read-acp": input.GrantReadACP!,
-    "x-amz-grant-write": input.GrantWrite!,
-    "x-amz-grant-write-acp": input.GrantWriteACP!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xaa]: input[_ACL]!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xagfc]: input[_GFC]!,
+    [_xagr]: input[_GR]!,
+    [_xagra]: input[_GRACP]!,
+    [_xagw]: input[_GW]!,
+    [_xagwa]: input[_GWACP]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    acl: [, ""],
-    versionId: [, input.VersionId!],
+    [_acl]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = se_AccessControlPolicy(input.AccessControlPolicy, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3450,40 +2729,32 @@ export const se_PutObjectLegalHoldCommand = async (
   input: PutObjectLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-request-payer": input.RequestPayer!,
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "legal-hold": [, ""],
-    versionId: [, input.VersionId!],
+    [_lh]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
   let contents: any;
   if (input.LegalHold !== undefined) {
     contents = se_ObjectLockLegalHold(input.LegalHold, context);
-    contents = contents.withName("LegalHold");
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    contents = contents.n("LegalHold");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3493,38 +2764,30 @@ export const se_PutObjectLockConfigurationCommand = async (
   input: PutObjectLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-bucket-object-lock-token": input.Token!,
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xabolt]: input[_To]!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    "object-lock": [, ""],
+    [_ol]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.ObjectLockConfiguration !== undefined) {
     contents = se_ObjectLockConfiguration(input.ObjectLockConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3534,44 +2797,33 @@ export const se_PutObjectRetentionCommand = async (
   input: PutObjectRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-bypass-governance-retention": [
-      () => isSerializableHeaderValue(input.BypassGovernanceRetention),
-      () => input.BypassGovernanceRetention!.toString(),
-    ],
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xabgr]: [() => isSerializableHeaderValue(input[_BGR]), () => input[_BGR]!.toString()],
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    retention: [, ""],
-    versionId: [, input.VersionId!],
+    [_ret]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
   let contents: any;
   if (input.Retention !== undefined) {
     contents = se_ObjectLockRetention(input.Retention, context);
-    contents = contents.withName("Retention");
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    contents = contents.n("Retention");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3581,39 +2833,31 @@ export const se_PutObjectTaggingCommand = async (
   input: PutObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-request-payer": input.RequestPayer!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
+    [_xarp]: input[_RP]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    tagging: [, ""],
-    versionId: [, input.VersionId!],
+    [_t]: [, ""],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = se_Tagging(input.Tagging, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3623,36 +2867,28 @@ export const se_PutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.bp("/");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
   const query: any = map({
-    publicAccessBlock: [, ""],
+    [_pAB]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = se_PublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3662,39 +2898,31 @@ export const se_RestoreObjectCommand = async (
   input: RestoreObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xarp]: input[_RP]!,
+    [_xasca]: input[_CA]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    restore: [, ""],
-    "x-id": [, "RestoreObject"],
-    versionId: [, input.VersionId!],
+    [_res]: [, ""],
+    [_xi]: [, "RestoreObject"],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
   let contents: any;
   if (input.RestoreRequest !== undefined) {
     contents = se_RestoreRequest(input.RestoreRequest, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+    body = _ve;
+    contents.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3704,61 +2932,43 @@ export const se_SelectObjectContentCommand = async (
   input: SelectObjectContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    select: [, ""],
-    "select-type": [, "2"],
-    "x-id": [, "SelectObjectContent"],
+    [_se]: [, ""],
+    [_st]: [, "2"],
+    [_xi]: [, "SelectObjectContent"],
   });
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("SelectObjectContentRequest");
-  bodyNode.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
-  if (input.Expression !== undefined) {
-    const node = __XmlNode.of("Expression", input.Expression).withName("Expression");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_SOCR);
+  bn.a("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+  bn.cc(input, _Ex);
+  bn.cc(input, _ETx);
+  if (input[_IS] != null) {
+    bn.c(se_InputSerialization(input[_IS], context).n(_IS));
   }
-  if (input.ExpressionType !== undefined) {
-    const node = __XmlNode.of("ExpressionType", input.ExpressionType).withName("ExpressionType");
-    bodyNode.addChildNode(node);
+  if (input[_OS] != null) {
+    bn.c(se_OutputSerialization(input[_OS], context).n(_OS));
   }
-  if (input.InputSerialization !== undefined) {
-    const node = se_InputSerialization(input.InputSerialization, context).withName("InputSerialization");
-    bodyNode.addChildNode(node);
+  if (input[_RPe] != null) {
+    bn.c(se_RequestProgress(input[_RPe], context).n(_RPe));
   }
-  if (input.OutputSerialization !== undefined) {
-    const node = se_OutputSerialization(input.OutputSerialization, context).withName("OutputSerialization");
-    bodyNode.addChildNode(node);
+  if (input[_SR] != null) {
+    bn.c(se_ScanRange(input[_SR], context).n(_SR));
   }
-  if (input.RequestProgress !== undefined) {
-    const node = se_RequestProgress(input.RequestProgress, context).withName("RequestProgress");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ScanRange !== undefined) {
-    const node = se_ScanRange(input.ScanRange, context).withName("ScanRange");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3768,29 +2978,29 @@ export const se_UploadPartCommand = async (
   input: UploadPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "content-length": [() => isSerializableHeaderValue(input.ContentLength), () => input.ContentLength!.toString()],
-    "content-md5": input.ContentMD5!,
-    "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-checksum-crc32": input.ChecksumCRC32!,
-    "x-amz-checksum-crc32c": input.ChecksumCRC32C!,
-    "x-amz-checksum-sha1": input.ChecksumSHA1!,
-    "x-amz-checksum-sha256": input.ChecksumSHA256!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    [_cl_]: [() => isSerializableHeaderValue(input[_CLo]), () => input[_CLo]!.toString()],
+    [_cm]: input[_CMD]!,
+    [_xasca]: input[_CA]!,
+    [_xacc]: input[_CCRC]!,
+    [_xacc_]: input[_CCRCC]!,
+    [_xacs]: input[_CSHA]!,
+    [_xacs_]: input[_CSHAh]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "UploadPart"],
-    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
-    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
+    [_xi]: [, "UploadPart"],
+    [_pN]: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input[_PN]!.toString()],
+    [_uI]: [, __expectNonNull(input[_UI]!, `UploadId`)],
   });
   let body: any;
   let contents: any;
@@ -3798,16 +3008,8 @@ export const se_UploadPartCommand = async (
     contents = input.Body;
     body = contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3817,49 +3019,35 @@ export const se_UploadPartCopyCommand = async (
   input: UploadPartCopyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-copy-source": input.CopySource!,
-    "x-amz-copy-source-if-match": input.CopySourceIfMatch!,
-    "x-amz-copy-source-if-modified-since": [
-      () => isSerializableHeaderValue(input.CopySourceIfModifiedSince),
-      () => __dateToUtcString(input.CopySourceIfModifiedSince!).toString(),
-    ],
-    "x-amz-copy-source-if-none-match": input.CopySourceIfNoneMatch!,
-    "x-amz-copy-source-if-unmodified-since": [
-      () => isSerializableHeaderValue(input.CopySourceIfUnmodifiedSince),
-      () => __dateToUtcString(input.CopySourceIfUnmodifiedSince!).toString(),
-    ],
-    "x-amz-copy-source-range": input.CopySourceRange!,
-    "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
-    "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-copy-source-server-side-encryption-customer-algorithm": input.CopySourceSSECustomerAlgorithm!,
-    "x-amz-copy-source-server-side-encryption-customer-key": input.CopySourceSSECustomerKey!,
-    "x-amz-copy-source-server-side-encryption-customer-key-md5": input.CopySourceSSECustomerKeyMD5!,
-    "x-amz-request-payer": input.RequestPayer!,
-    "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
-    "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
+    [_xacs__]: input[_CS]!,
+    [_xacsim]: input[_CSIM]!,
+    [_xacsims]: [() => isSerializableHeaderValue(input[_CSIMS]), () => __dateToUtcString(input[_CSIMS]!).toString()],
+    [_xacsinm]: input[_CSINM]!,
+    [_xacsius]: [() => isSerializableHeaderValue(input[_CSIUS]), () => __dateToUtcString(input[_CSIUS]!).toString()],
+    [_xacsr]: input[_CSR]!,
+    [_xasseca]: input[_SSECA]!,
+    [_xasseck]: input[_SSECK]!,
+    [_xasseckm]: input[_SSECKMD]!,
+    [_xacssseca]: input[_CSSSECA]!,
+    [_xacssseck]: input[_CSSSECK]!,
+    [_xacssseckm]: input[_CSSSECKMD]!,
+    [_xarp]: input[_RP]!,
+    [_xaebo]: input[_EBO]!,
+    [_xasebo]: input[_ESBO]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
+  b.bp("/{Key+}");
+  b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
+  b.p("Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
-    "x-id": [, "UploadPartCopy"],
-    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
-    uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
+    [_xi]: [, "UploadPartCopy"],
+    [_pN]: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input[_PN]!.toString()],
+    [_uI]: [, __expectNonNull(input[_UI]!, `UploadId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3869,82 +3057,60 @@ export const se_WriteGetObjectResponseCommand = async (
   input: WriteGetObjectResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
-    "x-amz-request-route": input.RequestRoute!,
-    "x-amz-request-token": input.RequestToken!,
-    "x-amz-fwd-status": [() => isSerializableHeaderValue(input.StatusCode), () => input.StatusCode!.toString()],
-    "x-amz-fwd-error-code": input.ErrorCode!,
-    "x-amz-fwd-error-message": input.ErrorMessage!,
-    "x-amz-fwd-header-accept-ranges": input.AcceptRanges!,
-    "x-amz-fwd-header-cache-control": input.CacheControl!,
-    "x-amz-fwd-header-content-disposition": input.ContentDisposition!,
-    "x-amz-fwd-header-content-encoding": input.ContentEncoding!,
-    "x-amz-fwd-header-content-language": input.ContentLanguage!,
-    "content-length": [() => isSerializableHeaderValue(input.ContentLength), () => input.ContentLength!.toString()],
-    "x-amz-fwd-header-content-range": input.ContentRange!,
-    "x-amz-fwd-header-content-type": input.ContentType!,
-    "x-amz-fwd-header-x-amz-checksum-crc32": input.ChecksumCRC32!,
-    "x-amz-fwd-header-x-amz-checksum-crc32c": input.ChecksumCRC32C!,
-    "x-amz-fwd-header-x-amz-checksum-sha1": input.ChecksumSHA1!,
-    "x-amz-fwd-header-x-amz-checksum-sha256": input.ChecksumSHA256!,
-    "x-amz-fwd-header-x-amz-delete-marker": [
-      () => isSerializableHeaderValue(input.DeleteMarker),
-      () => input.DeleteMarker!.toString(),
+    [_xarr]: input[_RR]!,
+    [_xart]: input[_RT]!,
+    [_xafs]: [() => isSerializableHeaderValue(input[_SCt]), () => input[_SCt]!.toString()],
+    [_xafec]: input[_EC]!,
+    [_xafem]: input[_EM]!,
+    [_xafhar]: input[_AR]!,
+    [_xafhcc]: input[_CC]!,
+    [_xafhcd]: input[_CD]!,
+    [_xafhce]: input[_CE]!,
+    [_xafhcl]: input[_CL]!,
+    [_cl_]: [() => isSerializableHeaderValue(input[_CLo]), () => input[_CLo]!.toString()],
+    [_xafhcr]: input[_CR]!,
+    [_xafhct]: input[_CT]!,
+    [_xafhxacc]: input[_CCRC]!,
+    [_xafhxacc_]: input[_CCRCC]!,
+    [_xafhxacs]: input[_CSHA]!,
+    [_xafhxacs_]: input[_CSHAh]!,
+    [_xafhxadm]: [() => isSerializableHeaderValue(input[_DM]), () => input[_DM]!.toString()],
+    [_xafhe]: input[_ETa]!,
+    [_xafhe_]: [() => isSerializableHeaderValue(input[_E]), () => __dateToUtcString(input[_E]!).toString()],
+    [_xafhxae]: input[_Exp]!,
+    [_xafhlm]: [() => isSerializableHeaderValue(input[_LM]), () => __dateToUtcString(input[_LM]!).toString()],
+    [_xafhxamm]: [() => isSerializableHeaderValue(input[_MM]), () => input[_MM]!.toString()],
+    [_xafhxaolm]: input[_OLM]!,
+    [_xafhxaollh]: input[_OLLHS]!,
+    [_xafhxaolrud]: [
+      () => isSerializableHeaderValue(input[_OLRUD]),
+      () => (input[_OLRUD]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-amz-fwd-header-etag": input.ETag!,
-    "x-amz-fwd-header-expires": [
-      () => isSerializableHeaderValue(input.Expires),
-      () => __dateToUtcString(input.Expires!).toString(),
-    ],
-    "x-amz-fwd-header-x-amz-expiration": input.Expiration!,
-    "x-amz-fwd-header-last-modified": [
-      () => isSerializableHeaderValue(input.LastModified),
-      () => __dateToUtcString(input.LastModified!).toString(),
-    ],
-    "x-amz-fwd-header-x-amz-missing-meta": [
-      () => isSerializableHeaderValue(input.MissingMeta),
-      () => input.MissingMeta!.toString(),
-    ],
-    "x-amz-fwd-header-x-amz-object-lock-mode": input.ObjectLockMode!,
-    "x-amz-fwd-header-x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
-    "x-amz-fwd-header-x-amz-object-lock-retain-until-date": [
-      () => isSerializableHeaderValue(input.ObjectLockRetainUntilDate),
-      () => (input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-amz-fwd-header-x-amz-mp-parts-count": [
-      () => isSerializableHeaderValue(input.PartsCount),
-      () => input.PartsCount!.toString(),
-    ],
-    "x-amz-fwd-header-x-amz-replication-status": input.ReplicationStatus!,
-    "x-amz-fwd-header-x-amz-request-charged": input.RequestCharged!,
-    "x-amz-fwd-header-x-amz-restore": input.Restore!,
-    "x-amz-fwd-header-x-amz-server-side-encryption": input.ServerSideEncryption!,
-    "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
-    "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
-    "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
-    "x-amz-fwd-header-x-amz-storage-class": input.StorageClass!,
-    "x-amz-fwd-header-x-amz-tagging-count": [
-      () => isSerializableHeaderValue(input.TagCount),
-      () => input.TagCount!.toString(),
-    ],
-    "x-amz-fwd-header-x-amz-version-id": input.VersionId!,
-    "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled": [
-      () => isSerializableHeaderValue(input.BucketKeyEnabled),
-      () => input.BucketKeyEnabled!.toString(),
-    ],
+    [_xafhxampc]: [() => isSerializableHeaderValue(input[_PC]), () => input[_PC]!.toString()],
+    [_xafhxars]: input[_RS]!,
+    [_xafhxarc]: input[_RC]!,
+    [_xafhxar]: input[_Re]!,
+    [_xafhxasse]: input[_SSE]!,
+    [_xafhxasseca]: input[_SSECA]!,
+    [_xafhxasseakki]: input[_SSEKMSKI]!,
+    [_xafhxasseckm]: input[_SSECKMD]!,
+    [_xafhxasc]: input[_SC]!,
+    [_xafhxatc]: [() => isSerializableHeaderValue(input[_TC]), () => input[_TC]!.toString()],
+    [_xafhxavi]: input[_VI]!,
+    [_xafhxassebke]: [() => isSerializableHeaderValue(input[_BKE]), () => input[_BKE]!.toString()],
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
         acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
         return acc;
       }, {})),
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/WriteGetObjectResponse";
+  b.bp("/WriteGetObjectResponse");
   const query: any = map({
-    "x-id": [, "WriteGetObjectResponse"],
+    [_xi]: [, "WriteGetObjectResponse"],
   });
   let body: any;
   let contents: any;
@@ -3963,16 +3129,9 @@ export const se_WriteGetObjectResponseCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3987,7 +3146,7 @@ export const de_AbortMultipartUploadCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4031,40 +3190,37 @@ export const de_CompleteMultipartUploadCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Expiration: [, output.headers["x-amz-expiration"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_Exp]: [, output.headers[_xae]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_VI]: [, output.headers[_xavi]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(data["Bucket"]);
+  if (data[_B] != null) {
+    contents[_B] = __expectString(data[_B]);
   }
-  if (data["ChecksumCRC32"] !== undefined) {
-    contents.ChecksumCRC32 = __expectString(data["ChecksumCRC32"]);
+  if (data[_CCRC] != null) {
+    contents[_CCRC] = __expectString(data[_CCRC]);
   }
-  if (data["ChecksumCRC32C"] !== undefined) {
-    contents.ChecksumCRC32C = __expectString(data["ChecksumCRC32C"]);
+  if (data[_CCRCC] != null) {
+    contents[_CCRCC] = __expectString(data[_CCRCC]);
   }
-  if (data["ChecksumSHA1"] !== undefined) {
-    contents.ChecksumSHA1 = __expectString(data["ChecksumSHA1"]);
+  if (data[_CSHA] != null) {
+    contents[_CSHA] = __expectString(data[_CSHA]);
   }
-  if (data["ChecksumSHA256"] !== undefined) {
-    contents.ChecksumSHA256 = __expectString(data["ChecksumSHA256"]);
+  if (data[_CSHAh] != null) {
+    contents[_CSHAh] = __expectString(data[_CSHAh]);
   }
-  if (data["ETag"] !== undefined) {
-    contents.ETag = __expectString(data["ETag"]);
+  if (data[_ETa] != null) {
+    contents[_ETa] = __expectString(data[_ETa]);
   }
-  if (data["Key"] !== undefined) {
-    contents.Key = __expectString(data["Key"]);
+  if (data[_K] != null) {
+    contents[_K] = __expectString(data[_K]);
   }
-  if (data["Location"] !== undefined) {
-    contents.Location = __expectString(data["Location"]);
+  if (data[_L] != null) {
+    contents[_L] = __expectString(data[_L]);
   }
   return contents;
 };
@@ -4101,19 +3257,16 @@ export const de_CopyObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Expiration: [, output.headers["x-amz-expiration"]],
-    CopySourceVersionId: [, output.headers["x-amz-copy-source-version-id"]],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    SSEKMSEncryptionContext: [, output.headers["x-amz-server-side-encryption-context"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_Exp]: [, output.headers[_xae]],
+    [_CSVI]: [, output.headers[_xacsvi]],
+    [_VI]: [, output.headers[_xavi]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_SSEKMSEC]: [, output.headers[_xassec]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CopyObjectResult = de_CopyObjectResult(data, context);
@@ -4158,7 +3311,7 @@ export const de_CreateBucketCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_lo]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4205,32 +3358,29 @@ export const de_CreateMultipartUploadCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AbortDate: [
-      () => void 0 !== output.headers["x-amz-abort-date"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-amz-abort-date"])),
+    [_AD]: [
+      () => void 0 !== output.headers[_xaad],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xaad])),
     ],
-    AbortRuleId: [, output.headers["x-amz-abort-rule-id"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    SSEKMSEncryptionContext: [, output.headers["x-amz-server-side-encryption-context"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
-    ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
+    [_ARI]: [, output.headers[_xaari]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_SSEKMSEC]: [, output.headers[_xassec]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_RC]: [, output.headers[_xarc]],
+    [_CA]: [, output.headers[_xaca]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(data["Bucket"]);
+  if (data[_B] != null) {
+    contents[_B] = __expectString(data[_B]);
   }
-  if (data["Key"] !== undefined) {
-    contents.Key = __expectString(data["Key"]);
+  if (data[_K] != null) {
+    contents[_K] = __expectString(data[_K]);
   }
-  if (data["UploadId"] !== undefined) {
-    contents.UploadId = __expectString(data["UploadId"]);
+  if (data[_UI] != null) {
+    contents[_UI] = __expectString(data[_UI]);
   }
   return contents;
 };
@@ -4269,8 +3419,8 @@ export const de_CreateSessionCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Credentials"] !== undefined) {
-    contents.Credentials = de_SessionCredentials(data["Credentials"], context);
+  if (data[_C] != null) {
+    contents[_C] = de_SessionCredentials(data[_C], context);
   }
   return contents;
 };
@@ -4794,12 +3944,9 @@ export const de_DeleteObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeleteMarker: [
-      () => void 0 !== output.headers["x-amz-delete-marker"],
-      () => __parseBoolean(output.headers["x-amz-delete-marker"]),
-    ],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_DM]: [() => void 0 !== output.headers[_xadm], () => __parseBoolean(output.headers[_xadm])],
+    [_VI]: [, output.headers[_xavi]],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4837,18 +3984,18 @@ export const de_DeleteObjectsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Deleted === "") {
-    contents.Deleted = [];
-  } else if (data["Deleted"] !== undefined) {
-    contents.Deleted = de_DeletedObjects(__getArrayIfSingleItem(data["Deleted"]), context);
+    contents[_De] = [];
+  } else if (data[_De] != null) {
+    contents[_De] = de_DeletedObjects(__getArrayIfSingleItem(data[_De]), context);
   }
   if (data.Error === "") {
-    contents.Errors = [];
-  } else if (data["Error"] !== undefined) {
-    contents.Errors = de_Errors(__getArrayIfSingleItem(data["Error"]), context);
+    contents[_Err] = [];
+  } else if (data[_Er] != null) {
+    contents[_Err] = de_Errors(__getArrayIfSingleItem(data[_Er]), context);
   }
   return contents;
 };
@@ -4885,7 +4032,7 @@ export const de_DeleteObjectTaggingCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    VersionId: [, output.headers["x-amz-version-id"]],
+    [_VI]: [, output.headers[_xavi]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -4960,11 +4107,11 @@ export const de_GetBucketAccelerateConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Status"] !== undefined) {
-    contents.Status = __expectString(data["Status"]);
+  if (data[_S] != null) {
+    contents[_S] = __expectString(data[_S]);
   }
   return contents;
 };
@@ -5004,12 +4151,12 @@ export const de_GetBucketAclCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessControlList === "") {
-    contents.Grants = [];
-  } else if (data["AccessControlList"] !== undefined && data["AccessControlList"]["Grant"] !== undefined) {
-    contents.Grants = de_Grants(__getArrayIfSingleItem(data["AccessControlList"]["Grant"]), context);
+    contents[_Gr] = [];
+  } else if (data[_ACLc] != null && data[_ACLc][_G] != null) {
+    contents[_Gr] = de_Grants(__getArrayIfSingleItem(data[_ACLc][_G]), context);
   }
-  if (data["Owner"] !== undefined) {
-    contents.Owner = de_Owner(data["Owner"], context);
+  if (data[_O] != null) {
+    contents[_O] = de_Owner(data[_O], context);
   }
   return contents;
 };
@@ -5087,9 +4234,9 @@ export const de_GetBucketCorsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CORSRule === "") {
-    contents.CORSRules = [];
-  } else if (data["CORSRule"] !== undefined) {
-    contents.CORSRules = de_CORSRules(__getArrayIfSingleItem(data["CORSRule"]), context);
+    contents[_CORSRu] = [];
+  } else if (data[_CORSR] != null) {
+    contents[_CORSRu] = de_CORSRules(__getArrayIfSingleItem(data[_CORSR]), context);
   }
   return contents;
 };
@@ -5243,9 +4390,9 @@ export const de_GetBucketLifecycleConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Rule === "") {
-    contents.Rules = [];
-  } else if (data["Rule"] !== undefined) {
-    contents.Rules = de_LifecycleRules(__getArrayIfSingleItem(data["Rule"]), context);
+    contents[_Rul] = [];
+  } else if (data[_Ru] != null) {
+    contents[_Rul] = de_LifecycleRules(__getArrayIfSingleItem(data[_Ru]), context);
   }
   return contents;
 };
@@ -5284,8 +4431,8 @@ export const de_GetBucketLocationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["LocationConstraint"] !== undefined) {
-    contents.LocationConstraint = __expectString(data["LocationConstraint"]);
+  if (data[_LC] != null) {
+    contents[_LC] = __expectString(data[_LC]);
   }
   return contents;
 };
@@ -5324,8 +4471,8 @@ export const de_GetBucketLoggingCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["LoggingEnabled"] !== undefined) {
-    contents.LoggingEnabled = de_LoggingEnabled(data["LoggingEnabled"], context);
+  if (data[_LE] != null) {
+    contents[_LE] = de_LoggingEnabled(data[_LE], context);
   }
   return contents;
 };
@@ -5402,32 +4549,23 @@ export const de_GetBucketNotificationConfigurationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["EventBridgeConfiguration"] !== undefined) {
-    contents.EventBridgeConfiguration = de_EventBridgeConfiguration(data["EventBridgeConfiguration"], context);
+  if (data[_EBC] != null) {
+    contents[_EBC] = de_EventBridgeConfiguration(data[_EBC], context);
   }
   if (data.CloudFunctionConfiguration === "") {
-    contents.LambdaFunctionConfigurations = [];
-  } else if (data["CloudFunctionConfiguration"] !== undefined) {
-    contents.LambdaFunctionConfigurations = de_LambdaFunctionConfigurationList(
-      __getArrayIfSingleItem(data["CloudFunctionConfiguration"]),
-      context
-    );
+    contents[_LFC] = [];
+  } else if (data[_CFC] != null) {
+    contents[_LFC] = de_LambdaFunctionConfigurationList(__getArrayIfSingleItem(data[_CFC]), context);
   }
   if (data.QueueConfiguration === "") {
-    contents.QueueConfigurations = [];
-  } else if (data["QueueConfiguration"] !== undefined) {
-    contents.QueueConfigurations = de_QueueConfigurationList(
-      __getArrayIfSingleItem(data["QueueConfiguration"]),
-      context
-    );
+    contents[_QCu] = [];
+  } else if (data[_QC] != null) {
+    contents[_QCu] = de_QueueConfigurationList(__getArrayIfSingleItem(data[_QC]), context);
   }
   if (data.TopicConfiguration === "") {
-    contents.TopicConfigurations = [];
-  } else if (data["TopicConfiguration"] !== undefined) {
-    contents.TopicConfigurations = de_TopicConfigurationList(
-      __getArrayIfSingleItem(data["TopicConfiguration"]),
-      context
-    );
+    contents[_TCop] = [];
+  } else if (data[_TCo] != null) {
+    contents[_TCop] = de_TopicConfigurationList(__getArrayIfSingleItem(data[_TCo]), context);
   }
   return contents;
 };
@@ -5618,8 +4756,8 @@ export const de_GetBucketRequestPaymentCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Payer"] !== undefined) {
-    contents.Payer = __expectString(data["Payer"]);
+  if (data[_Pa] != null) {
+    contents[_Pa] = __expectString(data[_Pa]);
   }
   return contents;
 };
@@ -5659,9 +4797,9 @@ export const de_GetBucketTaggingCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TagSet === "") {
-    contents.TagSet = [];
-  } else if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
-    contents.TagSet = de_TagSet(__getArrayIfSingleItem(data["TagSet"]["Tag"]), context);
+    contents[_TS] = [];
+  } else if (data[_TS] != null && data[_TS][_Ta] != null) {
+    contents[_TS] = de_TagSet(__getArrayIfSingleItem(data[_TS][_Ta]), context);
   }
   return contents;
 };
@@ -5700,11 +4838,11 @@ export const de_GetBucketVersioningCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["MfaDelete"] !== undefined) {
-    contents.MFADelete = __expectString(data["MfaDelete"]);
+  if (data[_MDf] != null) {
+    contents[_MFAD] = __expectString(data[_MDf]);
   }
-  if (data["Status"] !== undefined) {
-    contents.Status = __expectString(data["Status"]);
+  if (data[_S] != null) {
+    contents[_S] = __expectString(data[_S]);
   }
   return contents;
 };
@@ -5743,19 +4881,19 @@ export const de_GetBucketWebsiteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ErrorDocument"] !== undefined) {
-    contents.ErrorDocument = de_ErrorDocument(data["ErrorDocument"], context);
+  if (data[_ED] != null) {
+    contents[_ED] = de_ErrorDocument(data[_ED], context);
   }
-  if (data["IndexDocument"] !== undefined) {
-    contents.IndexDocument = de_IndexDocument(data["IndexDocument"], context);
+  if (data[_ID] != null) {
+    contents[_ID] = de_IndexDocument(data[_ID], context);
   }
-  if (data["RedirectAllRequestsTo"] !== undefined) {
-    contents.RedirectAllRequestsTo = de_RedirectAllRequestsTo(data["RedirectAllRequestsTo"], context);
+  if (data[_RART] != null) {
+    contents[_RART] = de_RedirectAllRequestsTo(data[_RART], context);
   }
   if (data.RoutingRules === "") {
-    contents.RoutingRules = [];
-  } else if (data["RoutingRules"] !== undefined && data["RoutingRules"]["RoutingRule"] !== undefined) {
-    contents.RoutingRules = de_RoutingRules(__getArrayIfSingleItem(data["RoutingRules"]["RoutingRule"]), context);
+    contents[_RRo] = [];
+  } else if (data[_RRo] != null && data[_RRo][_RRou] != null) {
+    contents[_RRo] = de_RoutingRules(__getArrayIfSingleItem(data[_RRo][_RRou]), context);
   }
   return contents;
 };
@@ -5792,67 +4930,43 @@ export const de_GetObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeleteMarker: [
-      () => void 0 !== output.headers["x-amz-delete-marker"],
-      () => __parseBoolean(output.headers["x-amz-delete-marker"]),
+    [_DM]: [() => void 0 !== output.headers[_xadm], () => __parseBoolean(output.headers[_xadm])],
+    [_AR]: [, output.headers[_ar]],
+    [_Exp]: [, output.headers[_xae]],
+    [_Re]: [, output.headers[_xar]],
+    [_LM]: [() => void 0 !== output.headers[_lm], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_lm]))],
+    [_CLo]: [() => void 0 !== output.headers[_cl_], () => __strictParseLong(output.headers[_cl_])],
+    [_ETa]: [, output.headers[_eta]],
+    [_CCRC]: [, output.headers[_xacc]],
+    [_CCRCC]: [, output.headers[_xacc_]],
+    [_CSHA]: [, output.headers[_xacs]],
+    [_CSHAh]: [, output.headers[_xacs_]],
+    [_MM]: [() => void 0 !== output.headers[_xamm], () => __strictParseInt32(output.headers[_xamm])],
+    [_VI]: [, output.headers[_xavi]],
+    [_CC]: [, output.headers[_cc]],
+    [_CD]: [, output.headers[_cd]],
+    [_CE]: [, output.headers[_ce]],
+    [_CL]: [, output.headers[_cl]],
+    [_CR]: [, output.headers[_cr]],
+    [_CT]: [, output.headers[_ct]],
+    [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
+    [_WRL]: [, output.headers[_xawrl]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_SC]: [, output.headers[_xasc]],
+    [_RC]: [, output.headers[_xarc]],
+    [_RS]: [, output.headers[_xars]],
+    [_PC]: [() => void 0 !== output.headers[_xampc], () => __strictParseInt32(output.headers[_xampc])],
+    [_TC]: [() => void 0 !== output.headers[_xatc], () => __strictParseInt32(output.headers[_xatc])],
+    [_OLM]: [, output.headers[_xaolm]],
+    [_OLRUD]: [
+      () => void 0 !== output.headers[_xaolrud],
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers[_xaolrud])),
     ],
-    AcceptRanges: [, output.headers["accept-ranges"]],
-    Expiration: [, output.headers["x-amz-expiration"]],
-    Restore: [, output.headers["x-amz-restore"]],
-    LastModified: [
-      () => void 0 !== output.headers["last-modified"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
-    ],
-    ContentLength: [
-      () => void 0 !== output.headers["content-length"],
-      () => __strictParseLong(output.headers["content-length"]),
-    ],
-    ETag: [, output.headers["etag"]],
-    ChecksumCRC32: [, output.headers["x-amz-checksum-crc32"]],
-    ChecksumCRC32C: [, output.headers["x-amz-checksum-crc32c"]],
-    ChecksumSHA1: [, output.headers["x-amz-checksum-sha1"]],
-    ChecksumSHA256: [, output.headers["x-amz-checksum-sha256"]],
-    MissingMeta: [
-      () => void 0 !== output.headers["x-amz-missing-meta"],
-      () => __strictParseInt32(output.headers["x-amz-missing-meta"]),
-    ],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    CacheControl: [, output.headers["cache-control"]],
-    ContentDisposition: [, output.headers["content-disposition"]],
-    ContentEncoding: [, output.headers["content-encoding"]],
-    ContentLanguage: [, output.headers["content-language"]],
-    ContentRange: [, output.headers["content-range"]],
-    ContentType: [, output.headers["content-type"]],
-    Expires: [
-      () => void 0 !== output.headers["expires"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["expires"])),
-    ],
-    WebsiteRedirectLocation: [, output.headers["x-amz-website-redirect-location"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    StorageClass: [, output.headers["x-amz-storage-class"]],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
-    ReplicationStatus: [, output.headers["x-amz-replication-status"]],
-    PartsCount: [
-      () => void 0 !== output.headers["x-amz-mp-parts-count"],
-      () => __strictParseInt32(output.headers["x-amz-mp-parts-count"]),
-    ],
-    TagCount: [
-      () => void 0 !== output.headers["x-amz-tagging-count"],
-      () => __strictParseInt32(output.headers["x-amz-tagging-count"]),
-    ],
-    ObjectLockMode: [, output.headers["x-amz-object-lock-mode"]],
-    ObjectLockRetainUntilDate: [
-      () => void 0 !== output.headers["x-amz-object-lock-retain-until-date"],
-      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-amz-object-lock-retain-until-date"])),
-    ],
-    ObjectLockLegalHoldStatus: [, output.headers["x-amz-object-lock-legal-hold"]],
+    [_OLLHS]: [, output.headers[_xaollh]],
     Metadata: [
       ,
       Object.keys(output.headers)
@@ -5910,16 +5024,16 @@ export const de_GetObjectAclCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AccessControlList === "") {
-    contents.Grants = [];
-  } else if (data["AccessControlList"] !== undefined && data["AccessControlList"]["Grant"] !== undefined) {
-    contents.Grants = de_Grants(__getArrayIfSingleItem(data["AccessControlList"]["Grant"]), context);
+    contents[_Gr] = [];
+  } else if (data[_ACLc] != null && data[_ACLc][_G] != null) {
+    contents[_Gr] = de_Grants(__getArrayIfSingleItem(data[_ACLc][_G]), context);
   }
-  if (data["Owner"] !== undefined) {
-    contents.Owner = de_Owner(data["Owner"], context);
+  if (data[_O] != null) {
+    contents[_O] = de_Owner(data[_O], context);
   }
   return contents;
 };
@@ -5962,32 +5076,26 @@ export const de_GetObjectAttributesCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeleteMarker: [
-      () => void 0 !== output.headers["x-amz-delete-marker"],
-      () => __parseBoolean(output.headers["x-amz-delete-marker"]),
-    ],
-    LastModified: [
-      () => void 0 !== output.headers["last-modified"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
-    ],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_DM]: [() => void 0 !== output.headers[_xadm], () => __parseBoolean(output.headers[_xadm])],
+    [_LM]: [() => void 0 !== output.headers[_lm], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_lm]))],
+    [_VI]: [, output.headers[_xavi]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Checksum"] !== undefined) {
-    contents.Checksum = de_Checksum(data["Checksum"], context);
+  if (data[_Ch] != null) {
+    contents[_Ch] = de_Checksum(data[_Ch], context);
   }
-  if (data["ETag"] !== undefined) {
-    contents.ETag = __expectString(data["ETag"]);
+  if (data[_ETa] != null) {
+    contents[_ETa] = __expectString(data[_ETa]);
   }
-  if (data["ObjectParts"] !== undefined) {
-    contents.ObjectParts = de_GetObjectAttributesParts(data["ObjectParts"], context);
+  if (data[_OP] != null) {
+    contents[_OP] = de_GetObjectAttributesParts(data[_OP], context);
   }
-  if (data["ObjectSize"] !== undefined) {
-    contents.ObjectSize = __strictParseLong(data["ObjectSize"]) as number;
+  if (data[_OSb] != null) {
+    contents[_OSb] = __strictParseLong(data[_OSb]) as number;
   }
-  if (data["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(data["StorageClass"]);
+  if (data[_SC] != null) {
+    contents[_SC] = __expectString(data[_SC]);
   }
   return contents;
 };
@@ -6144,13 +5252,13 @@ export const de_GetObjectTaggingCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    VersionId: [, output.headers["x-amz-version-id"]],
+    [_VI]: [, output.headers[_xavi]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.TagSet === "") {
-    contents.TagSet = [];
-  } else if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
-    contents.TagSet = de_TagSet(__getArrayIfSingleItem(data["TagSet"]["Tag"]), context);
+    contents[_TS] = [];
+  } else if (data[_TS] != null && data[_TS][_Ta] != null) {
+    contents[_TS] = de_TagSet(__getArrayIfSingleItem(data[_TS][_Ta]), context);
   }
   return contents;
 };
@@ -6187,7 +5295,7 @@ export const de_GetObjectTorrentCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -6265,13 +5373,10 @@ export const de_HeadBucketCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    BucketLocationType: [, output.headers["x-amz-bucket-location-type"]],
-    BucketLocationName: [, output.headers["x-amz-bucket-location-name"]],
-    BucketRegion: [, output.headers["x-amz-bucket-region"]],
-    AccessPointAlias: [
-      () => void 0 !== output.headers["x-amz-access-point-alias"],
-      () => __parseBoolean(output.headers["x-amz-access-point-alias"]),
-    ],
+    [_BLT]: [, output.headers[_xablt]],
+    [_BLN]: [, output.headers[_xabln]],
+    [_BR]: [, output.headers[_xabr]],
+    [_APA]: [() => void 0 !== output.headers[_xaapa], () => __parseBoolean(output.headers[_xaapa])],
   });
   await collectBody(output.body, context);
   return contents;
@@ -6315,63 +5420,42 @@ export const de_HeadObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DeleteMarker: [
-      () => void 0 !== output.headers["x-amz-delete-marker"],
-      () => __parseBoolean(output.headers["x-amz-delete-marker"]),
+    [_DM]: [() => void 0 !== output.headers[_xadm], () => __parseBoolean(output.headers[_xadm])],
+    [_AR]: [, output.headers[_ar]],
+    [_Exp]: [, output.headers[_xae]],
+    [_Re]: [, output.headers[_xar]],
+    [_AS]: [, output.headers[_xaas]],
+    [_LM]: [() => void 0 !== output.headers[_lm], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_lm]))],
+    [_CLo]: [() => void 0 !== output.headers[_cl_], () => __strictParseLong(output.headers[_cl_])],
+    [_CCRC]: [, output.headers[_xacc]],
+    [_CCRCC]: [, output.headers[_xacc_]],
+    [_CSHA]: [, output.headers[_xacs]],
+    [_CSHAh]: [, output.headers[_xacs_]],
+    [_ETa]: [, output.headers[_eta]],
+    [_MM]: [() => void 0 !== output.headers[_xamm], () => __strictParseInt32(output.headers[_xamm])],
+    [_VI]: [, output.headers[_xavi]],
+    [_CC]: [, output.headers[_cc]],
+    [_CD]: [, output.headers[_cd]],
+    [_CE]: [, output.headers[_ce]],
+    [_CL]: [, output.headers[_cl]],
+    [_CT]: [, output.headers[_ct]],
+    [_E]: [() => void 0 !== output.headers[_e], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_e]))],
+    [_WRL]: [, output.headers[_xawrl]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_SC]: [, output.headers[_xasc]],
+    [_RC]: [, output.headers[_xarc]],
+    [_RS]: [, output.headers[_xars]],
+    [_PC]: [() => void 0 !== output.headers[_xampc], () => __strictParseInt32(output.headers[_xampc])],
+    [_OLM]: [, output.headers[_xaolm]],
+    [_OLRUD]: [
+      () => void 0 !== output.headers[_xaolrud],
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers[_xaolrud])),
     ],
-    AcceptRanges: [, output.headers["accept-ranges"]],
-    Expiration: [, output.headers["x-amz-expiration"]],
-    Restore: [, output.headers["x-amz-restore"]],
-    ArchiveStatus: [, output.headers["x-amz-archive-status"]],
-    LastModified: [
-      () => void 0 !== output.headers["last-modified"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
-    ],
-    ContentLength: [
-      () => void 0 !== output.headers["content-length"],
-      () => __strictParseLong(output.headers["content-length"]),
-    ],
-    ChecksumCRC32: [, output.headers["x-amz-checksum-crc32"]],
-    ChecksumCRC32C: [, output.headers["x-amz-checksum-crc32c"]],
-    ChecksumSHA1: [, output.headers["x-amz-checksum-sha1"]],
-    ChecksumSHA256: [, output.headers["x-amz-checksum-sha256"]],
-    ETag: [, output.headers["etag"]],
-    MissingMeta: [
-      () => void 0 !== output.headers["x-amz-missing-meta"],
-      () => __strictParseInt32(output.headers["x-amz-missing-meta"]),
-    ],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    CacheControl: [, output.headers["cache-control"]],
-    ContentDisposition: [, output.headers["content-disposition"]],
-    ContentEncoding: [, output.headers["content-encoding"]],
-    ContentLanguage: [, output.headers["content-language"]],
-    ContentType: [, output.headers["content-type"]],
-    Expires: [
-      () => void 0 !== output.headers["expires"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["expires"])),
-    ],
-    WebsiteRedirectLocation: [, output.headers["x-amz-website-redirect-location"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    StorageClass: [, output.headers["x-amz-storage-class"]],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
-    ReplicationStatus: [, output.headers["x-amz-replication-status"]],
-    PartsCount: [
-      () => void 0 !== output.headers["x-amz-mp-parts-count"],
-      () => __strictParseInt32(output.headers["x-amz-mp-parts-count"]),
-    ],
-    ObjectLockMode: [, output.headers["x-amz-object-lock-mode"]],
-    ObjectLockRetainUntilDate: [
-      () => void 0 !== output.headers["x-amz-object-lock-retain-until-date"],
-      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-amz-object-lock-retain-until-date"])),
-    ],
-    ObjectLockLegalHoldStatus: [, output.headers["x-amz-object-lock-legal-hold"]],
+    [_OLLHS]: [, output.headers[_xaollh]],
     Metadata: [
       ,
       Object.keys(output.headers)
@@ -6427,21 +5511,18 @@ export const de_ListBucketAnalyticsConfigurationsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AnalyticsConfiguration === "") {
-    contents.AnalyticsConfigurationList = [];
-  } else if (data["AnalyticsConfiguration"] !== undefined) {
-    contents.AnalyticsConfigurationList = de_AnalyticsConfigurationList(
-      __getArrayIfSingleItem(data["AnalyticsConfiguration"]),
-      context
-    );
+    contents[_ACLn] = [];
+  } else if (data[_AC] != null) {
+    contents[_ACLn] = de_AnalyticsConfigurationList(__getArrayIfSingleItem(data[_AC]), context);
   }
-  if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
+  if (data[_NCT] != null) {
+    contents[_NCT] = __expectString(data[_NCT]);
   }
   return contents;
 };
@@ -6480,22 +5561,19 @@ export const de_ListBucketIntelligentTieringConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
   if (data.IntelligentTieringConfiguration === "") {
-    contents.IntelligentTieringConfigurationList = [];
-  } else if (data["IntelligentTieringConfiguration"] !== undefined) {
-    contents.IntelligentTieringConfigurationList = de_IntelligentTieringConfigurationList(
-      __getArrayIfSingleItem(data["IntelligentTieringConfiguration"]),
-      context
-    );
+    contents[_ITCL] = [];
+  } else if (data[_ITC] != null) {
+    contents[_ITCL] = de_IntelligentTieringConfigurationList(__getArrayIfSingleItem(data[_ITC]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
+  if (data[_NCT] != null) {
+    contents[_NCT] = __expectString(data[_NCT]);
   }
   return contents;
 };
@@ -6534,22 +5612,19 @@ export const de_ListBucketInventoryConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
   if (data.InventoryConfiguration === "") {
-    contents.InventoryConfigurationList = [];
-  } else if (data["InventoryConfiguration"] !== undefined) {
-    contents.InventoryConfigurationList = de_InventoryConfigurationList(
-      __getArrayIfSingleItem(data["InventoryConfiguration"]),
-      context
-    );
+    contents[_ICL] = [];
+  } else if (data[_IC] != null) {
+    contents[_ICL] = de_InventoryConfigurationList(__getArrayIfSingleItem(data[_IC]), context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
+  if (data[_NCT] != null) {
+    contents[_NCT] = __expectString(data[_NCT]);
   }
   return contents;
 };
@@ -6588,22 +5663,19 @@ export const de_ListBucketMetricsConfigurationsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
   if (data.MetricsConfiguration === "") {
-    contents.MetricsConfigurationList = [];
-  } else if (data["MetricsConfiguration"] !== undefined) {
-    contents.MetricsConfigurationList = de_MetricsConfigurationList(
-      __getArrayIfSingleItem(data["MetricsConfiguration"]),
-      context
-    );
+    contents[_MCL] = [];
+  } else if (data[_MC] != null) {
+    contents[_MCL] = de_MetricsConfigurationList(__getArrayIfSingleItem(data[_MC]), context);
   }
-  if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
+  if (data[_NCT] != null) {
+    contents[_NCT] = __expectString(data[_NCT]);
   }
   return contents;
 };
@@ -6643,12 +5715,12 @@ export const de_ListBucketsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Buckets === "") {
-    contents.Buckets = [];
-  } else if (data["Buckets"] !== undefined && data["Buckets"]["Bucket"] !== undefined) {
-    contents.Buckets = de_Buckets(__getArrayIfSingleItem(data["Buckets"]["Bucket"]), context);
+    contents[_Bu] = [];
+  } else if (data[_Bu] != null && data[_Bu][_B] != null) {
+    contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
   }
-  if (data["Owner"] !== undefined) {
-    contents.Owner = de_Owner(data["Owner"], context);
+  if (data[_O] != null) {
+    contents[_O] = de_Owner(data[_O], context);
   }
   return contents;
 };
@@ -6688,12 +5760,12 @@ export const de_ListDirectoryBucketsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.Buckets === "") {
-    contents.Buckets = [];
-  } else if (data["Buckets"] !== undefined && data["Buckets"]["Bucket"] !== undefined) {
-    contents.Buckets = de_Buckets(__getArrayIfSingleItem(data["Buckets"]["Bucket"]), context);
+    contents[_Bu] = [];
+  } else if (data[_Bu] != null && data[_Bu][_B] != null) {
+    contents[_Bu] = de_Buckets(__getArrayIfSingleItem(data[_Bu][_B]), context);
   }
-  if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
   return contents;
 };
@@ -6730,48 +5802,48 @@ export const de_ListMultipartUploadsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(data["Bucket"]);
+  if (data[_B] != null) {
+    contents[_B] = __expectString(data[_B]);
   }
   if (data.CommonPrefixes === "") {
-    contents.CommonPrefixes = [];
-  } else if (data["CommonPrefixes"] !== undefined) {
-    contents.CommonPrefixes = de_CommonPrefixList(__getArrayIfSingleItem(data["CommonPrefixes"]), context);
+    contents[_CP] = [];
+  } else if (data[_CP] != null) {
+    contents[_CP] = de_CommonPrefixList(__getArrayIfSingleItem(data[_CP]), context);
   }
-  if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = __expectString(data["Delimiter"]);
+  if (data[_D] != null) {
+    contents[_D] = __expectString(data[_D]);
   }
-  if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = __expectString(data["EncodingType"]);
+  if (data[_ET] != null) {
+    contents[_ET] = __expectString(data[_ET]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["KeyMarker"] !== undefined) {
-    contents.KeyMarker = __expectString(data["KeyMarker"]);
+  if (data[_KM] != null) {
+    contents[_KM] = __expectString(data[_KM]);
   }
-  if (data["MaxUploads"] !== undefined) {
-    contents.MaxUploads = __strictParseInt32(data["MaxUploads"]) as number;
+  if (data[_MU] != null) {
+    contents[_MU] = __strictParseInt32(data[_MU]) as number;
   }
-  if (data["NextKeyMarker"] !== undefined) {
-    contents.NextKeyMarker = __expectString(data["NextKeyMarker"]);
+  if (data[_NKM] != null) {
+    contents[_NKM] = __expectString(data[_NKM]);
   }
-  if (data["NextUploadIdMarker"] !== undefined) {
-    contents.NextUploadIdMarker = __expectString(data["NextUploadIdMarker"]);
+  if (data[_NUIM] != null) {
+    contents[_NUIM] = __expectString(data[_NUIM]);
   }
-  if (data["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(data["Prefix"]);
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
-  if (data["UploadIdMarker"] !== undefined) {
-    contents.UploadIdMarker = __expectString(data["UploadIdMarker"]);
+  if (data[_UIM] != null) {
+    contents[_UIM] = __expectString(data[_UIM]);
   }
   if (data.Upload === "") {
-    contents.Uploads = [];
-  } else if (data["Upload"] !== undefined) {
-    contents.Uploads = de_MultipartUploadList(__getArrayIfSingleItem(data["Upload"]), context);
+    contents[_Up] = [];
+  } else if (data[_U] != null) {
+    contents[_Up] = de_MultipartUploadList(__getArrayIfSingleItem(data[_U]), context);
   }
   return contents;
 };
@@ -6808,42 +5880,42 @@ export const de_ListObjectsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CommonPrefixes === "") {
-    contents.CommonPrefixes = [];
-  } else if (data["CommonPrefixes"] !== undefined) {
-    contents.CommonPrefixes = de_CommonPrefixList(__getArrayIfSingleItem(data["CommonPrefixes"]), context);
+    contents[_CP] = [];
+  } else if (data[_CP] != null) {
+    contents[_CP] = de_CommonPrefixList(__getArrayIfSingleItem(data[_CP]), context);
   }
   if (data.Contents === "") {
-    contents.Contents = [];
-  } else if (data["Contents"] !== undefined) {
-    contents.Contents = de_ObjectList(__getArrayIfSingleItem(data["Contents"]), context);
+    contents[_Co] = [];
+  } else if (data[_Co] != null) {
+    contents[_Co] = de_ObjectList(__getArrayIfSingleItem(data[_Co]), context);
   }
-  if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = __expectString(data["Delimiter"]);
+  if (data[_D] != null) {
+    contents[_D] = __expectString(data[_D]);
   }
-  if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = __expectString(data["EncodingType"]);
+  if (data[_ET] != null) {
+    contents[_ET] = __expectString(data[_ET]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["Marker"] !== undefined) {
-    contents.Marker = __expectString(data["Marker"]);
+  if (data[_M] != null) {
+    contents[_M] = __expectString(data[_M]);
   }
-  if (data["MaxKeys"] !== undefined) {
-    contents.MaxKeys = __strictParseInt32(data["MaxKeys"]) as number;
+  if (data[_MK] != null) {
+    contents[_MK] = __strictParseInt32(data[_MK]) as number;
   }
-  if (data["Name"] !== undefined) {
-    contents.Name = __expectString(data["Name"]);
+  if (data[_N] != null) {
+    contents[_N] = __expectString(data[_N]);
   }
-  if (data["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(data["NextMarker"]);
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
   }
-  if (data["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(data["Prefix"]);
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
   return contents;
 };
@@ -6886,48 +5958,48 @@ export const de_ListObjectsV2Command = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CommonPrefixes === "") {
-    contents.CommonPrefixes = [];
-  } else if (data["CommonPrefixes"] !== undefined) {
-    contents.CommonPrefixes = de_CommonPrefixList(__getArrayIfSingleItem(data["CommonPrefixes"]), context);
+    contents[_CP] = [];
+  } else if (data[_CP] != null) {
+    contents[_CP] = de_CommonPrefixList(__getArrayIfSingleItem(data[_CP]), context);
   }
   if (data.Contents === "") {
-    contents.Contents = [];
-  } else if (data["Contents"] !== undefined) {
-    contents.Contents = de_ObjectList(__getArrayIfSingleItem(data["Contents"]), context);
+    contents[_Co] = [];
+  } else if (data[_Co] != null) {
+    contents[_Co] = de_ObjectList(__getArrayIfSingleItem(data[_Co]), context);
   }
-  if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
+  if (data[_CTo] != null) {
+    contents[_CTo] = __expectString(data[_CTo]);
   }
-  if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = __expectString(data["Delimiter"]);
+  if (data[_D] != null) {
+    contents[_D] = __expectString(data[_D]);
   }
-  if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = __expectString(data["EncodingType"]);
+  if (data[_ET] != null) {
+    contents[_ET] = __expectString(data[_ET]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["KeyCount"] !== undefined) {
-    contents.KeyCount = __strictParseInt32(data["KeyCount"]) as number;
+  if (data[_KC] != null) {
+    contents[_KC] = __strictParseInt32(data[_KC]) as number;
   }
-  if (data["MaxKeys"] !== undefined) {
-    contents.MaxKeys = __strictParseInt32(data["MaxKeys"]) as number;
+  if (data[_MK] != null) {
+    contents[_MK] = __strictParseInt32(data[_MK]) as number;
   }
-  if (data["Name"] !== undefined) {
-    contents.Name = __expectString(data["Name"]);
+  if (data[_N] != null) {
+    contents[_N] = __expectString(data[_N]);
   }
-  if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
+  if (data[_NCT] != null) {
+    contents[_NCT] = __expectString(data[_NCT]);
   }
-  if (data["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(data["Prefix"]);
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
-  if (data["StartAfter"] !== undefined) {
-    contents.StartAfter = __expectString(data["StartAfter"]);
+  if (data[_SA] != null) {
+    contents[_SA] = __expectString(data[_SA]);
   }
   return contents;
 };
@@ -6970,53 +6042,53 @@ export const de_ListObjectVersionsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CommonPrefixes === "") {
-    contents.CommonPrefixes = [];
-  } else if (data["CommonPrefixes"] !== undefined) {
-    contents.CommonPrefixes = de_CommonPrefixList(__getArrayIfSingleItem(data["CommonPrefixes"]), context);
+    contents[_CP] = [];
+  } else if (data[_CP] != null) {
+    contents[_CP] = de_CommonPrefixList(__getArrayIfSingleItem(data[_CP]), context);
   }
   if (data.DeleteMarker === "") {
-    contents.DeleteMarkers = [];
-  } else if (data["DeleteMarker"] !== undefined) {
-    contents.DeleteMarkers = de_DeleteMarkers(__getArrayIfSingleItem(data["DeleteMarker"]), context);
+    contents[_DMe] = [];
+  } else if (data[_DM] != null) {
+    contents[_DMe] = de_DeleteMarkers(__getArrayIfSingleItem(data[_DM]), context);
   }
-  if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = __expectString(data["Delimiter"]);
+  if (data[_D] != null) {
+    contents[_D] = __expectString(data[_D]);
   }
-  if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = __expectString(data["EncodingType"]);
+  if (data[_ET] != null) {
+    contents[_ET] = __expectString(data[_ET]);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["KeyMarker"] !== undefined) {
-    contents.KeyMarker = __expectString(data["KeyMarker"]);
+  if (data[_KM] != null) {
+    contents[_KM] = __expectString(data[_KM]);
   }
-  if (data["MaxKeys"] !== undefined) {
-    contents.MaxKeys = __strictParseInt32(data["MaxKeys"]) as number;
+  if (data[_MK] != null) {
+    contents[_MK] = __strictParseInt32(data[_MK]) as number;
   }
-  if (data["Name"] !== undefined) {
-    contents.Name = __expectString(data["Name"]);
+  if (data[_N] != null) {
+    contents[_N] = __expectString(data[_N]);
   }
-  if (data["NextKeyMarker"] !== undefined) {
-    contents.NextKeyMarker = __expectString(data["NextKeyMarker"]);
+  if (data[_NKM] != null) {
+    contents[_NKM] = __expectString(data[_NKM]);
   }
-  if (data["NextVersionIdMarker"] !== undefined) {
-    contents.NextVersionIdMarker = __expectString(data["NextVersionIdMarker"]);
+  if (data[_NVIM] != null) {
+    contents[_NVIM] = __expectString(data[_NVIM]);
   }
-  if (data["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(data["Prefix"]);
+  if (data[_P] != null) {
+    contents[_P] = __expectString(data[_P]);
   }
-  if (data["VersionIdMarker"] !== undefined) {
-    contents.VersionIdMarker = __expectString(data["VersionIdMarker"]);
+  if (data[_VIM] != null) {
+    contents[_VIM] = __expectString(data[_VIM]);
   }
   if (data.Version === "") {
-    contents.Versions = [];
-  } else if (data["Version"] !== undefined) {
-    contents.Versions = de_ObjectVersionList(__getArrayIfSingleItem(data["Version"]), context);
+    contents[_Ve] = [];
+  } else if (data[_V] != null) {
+    contents[_Ve] = de_ObjectVersionList(__getArrayIfSingleItem(data[_V]), context);
   }
   return contents;
 };
@@ -7053,51 +6125,51 @@ export const de_ListPartsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    AbortDate: [
-      () => void 0 !== output.headers["x-amz-abort-date"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-amz-abort-date"])),
+    [_AD]: [
+      () => void 0 !== output.headers[_xaad],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xaad])),
     ],
-    AbortRuleId: [, output.headers["x-amz-abort-rule-id"]],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_ARI]: [, output.headers[_xaari]],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(data["Bucket"]);
+  if (data[_B] != null) {
+    contents[_B] = __expectString(data[_B]);
   }
-  if (data["ChecksumAlgorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = __expectString(data["ChecksumAlgorithm"]);
+  if (data[_CA] != null) {
+    contents[_CA] = __expectString(data[_CA]);
   }
-  if (data["Initiator"] !== undefined) {
-    contents.Initiator = de_Initiator(data["Initiator"], context);
+  if (data[_In] != null) {
+    contents[_In] = de_Initiator(data[_In], context);
   }
-  if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
+  if (data[_IT] != null) {
+    contents[_IT] = __parseBoolean(data[_IT]);
   }
-  if (data["Key"] !== undefined) {
-    contents.Key = __expectString(data["Key"]);
+  if (data[_K] != null) {
+    contents[_K] = __expectString(data[_K]);
   }
-  if (data["MaxParts"] !== undefined) {
-    contents.MaxParts = __strictParseInt32(data["MaxParts"]) as number;
+  if (data[_MP] != null) {
+    contents[_MP] = __strictParseInt32(data[_MP]) as number;
   }
-  if (data["NextPartNumberMarker"] !== undefined) {
-    contents.NextPartNumberMarker = __expectString(data["NextPartNumberMarker"]);
+  if (data[_NPNM] != null) {
+    contents[_NPNM] = __expectString(data[_NPNM]);
   }
-  if (data["Owner"] !== undefined) {
-    contents.Owner = de_Owner(data["Owner"], context);
+  if (data[_O] != null) {
+    contents[_O] = de_Owner(data[_O], context);
   }
-  if (data["PartNumberMarker"] !== undefined) {
-    contents.PartNumberMarker = __expectString(data["PartNumberMarker"]);
+  if (data[_PNM] != null) {
+    contents[_PNM] = __expectString(data[_PNM]);
   }
   if (data.Part === "") {
-    contents.Parts = [];
-  } else if (data["Part"] !== undefined) {
-    contents.Parts = de_Parts(__getArrayIfSingleItem(data["Part"]), context);
+    contents[_Part] = [];
+  } else if (data[_Par] != null) {
+    contents[_Part] = de_Parts(__getArrayIfSingleItem(data[_Par]), context);
   }
-  if (data["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(data["StorageClass"]);
+  if (data[_SC] != null) {
+    contents[_SC] = __expectString(data[_SC]);
   }
-  if (data["UploadId"] !== undefined) {
-    contents.UploadId = __expectString(data["UploadId"]);
+  if (data[_UI] != null) {
+    contents[_UI] = __expectString(data[_UI]);
   }
   return contents;
 };
@@ -7800,23 +6872,20 @@ export const de_PutObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Expiration: [, output.headers["x-amz-expiration"]],
-    ETag: [, output.headers["etag"]],
-    ChecksumCRC32: [, output.headers["x-amz-checksum-crc32"]],
-    ChecksumCRC32C: [, output.headers["x-amz-checksum-crc32c"]],
-    ChecksumSHA1: [, output.headers["x-amz-checksum-sha1"]],
-    ChecksumSHA256: [, output.headers["x-amz-checksum-sha256"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    VersionId: [, output.headers["x-amz-version-id"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    SSEKMSEncryptionContext: [, output.headers["x-amz-server-side-encryption-context"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_Exp]: [, output.headers[_xae]],
+    [_ETa]: [, output.headers[_eta]],
+    [_CCRC]: [, output.headers[_xacc]],
+    [_CCRCC]: [, output.headers[_xacc_]],
+    [_CSHA]: [, output.headers[_xacs]],
+    [_CSHAh]: [, output.headers[_xacs_]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_VI]: [, output.headers[_xavi]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_SSEKMSEC]: [, output.headers[_xassec]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -7854,7 +6923,7 @@ export const de_PutObjectAclCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -7898,7 +6967,7 @@ export const de_PutObjectLegalHoldCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -7936,7 +7005,7 @@ export const de_PutObjectLockConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -7974,7 +7043,7 @@ export const de_PutObjectRetentionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -8012,7 +7081,7 @@ export const de_PutObjectTaggingCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    VersionId: [, output.headers["x-amz-version-id"]],
+    [_VI]: [, output.headers[_xavi]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -8087,8 +7156,8 @@ export const de_RestoreObjectCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
-    RestoreOutputPath: [, output.headers["x-amz-restore-output-path"]],
+    [_RC]: [, output.headers[_xarc]],
+    [_ROP]: [, output.headers[_xarop]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -8170,20 +7239,17 @@ export const de_UploadPartCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    ETag: [, output.headers["etag"]],
-    ChecksumCRC32: [, output.headers["x-amz-checksum-crc32"]],
-    ChecksumCRC32C: [, output.headers["x-amz-checksum-crc32c"]],
-    ChecksumSHA1: [, output.headers["x-amz-checksum-sha1"]],
-    ChecksumSHA256: [, output.headers["x-amz-checksum-sha256"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_ETa]: [, output.headers[_eta]],
+    [_CCRC]: [, output.headers[_xacc]],
+    [_CCRCC]: [, output.headers[_xacc_]],
+    [_CSHA]: [, output.headers[_xacs]],
+    [_CSHAh]: [, output.headers[_xacs_]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -8221,16 +7287,13 @@ export const de_UploadPartCopyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CopySourceVersionId: [, output.headers["x-amz-copy-source-version-id"]],
-    ServerSideEncryption: [, output.headers["x-amz-server-side-encryption"]],
-    SSECustomerAlgorithm: [, output.headers["x-amz-server-side-encryption-customer-algorithm"]],
-    SSECustomerKeyMD5: [, output.headers["x-amz-server-side-encryption-customer-key-md5"]],
-    SSEKMSKeyId: [, output.headers["x-amz-server-side-encryption-aws-kms-key-id"]],
-    BucketKeyEnabled: [
-      () => void 0 !== output.headers["x-amz-server-side-encryption-bucket-key-enabled"],
-      () => __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]),
-    ],
-    RequestCharged: [, output.headers["x-amz-request-charged"]],
+    [_CSVI]: [, output.headers[_xacsvi]],
+    [_SSE]: [, output.headers[_xasse]],
+    [_SSECA]: [, output.headers[_xasseca]],
+    [_SSECKMD]: [, output.headers[_xasseckm]],
+    [_SSEKMSKI]: [, output.headers[_xasseakki]],
+    [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_RC]: [, output.headers[_xarc]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CopyPartResult = de_CopyPartResult(data, context);
@@ -8330,11 +7393,11 @@ const de_BucketAlreadyOwnedByYouRes = async (
 const de_InvalidObjectStateRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidObjectState> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data["AccessTier"] !== undefined) {
-    contents.AccessTier = __expectString(data["AccessTier"]);
+  if (data[_AT] != null) {
+    contents[_AT] = __expectString(data[_AT]);
   }
-  if (data["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(data["StorageClass"]);
+  if (data[_SC] != null) {
+    contents[_SC] = __expectString(data[_SC]);
   }
   const exception = new InvalidObjectState({
     $metadata: deserializeMetadata(parsedOutput),
@@ -8496,56 +7559,45 @@ const de_StatsEvent_event = async (output: any, context: __SerdeContext): Promis
  * serializeAws_restXmlAbortIncompleteMultipartUpload
  */
 const se_AbortIncompleteMultipartUpload = (input: AbortIncompleteMultipartUpload, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AbortIncompleteMultipartUpload");
-  if (input.DaysAfterInitiation != null) {
-    const node = __XmlNode.of("DaysAfterInitiation", String(input.DaysAfterInitiation)).withName("DaysAfterInitiation");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AIMU);
+  if (input[_DAI] != null) {
+    bn.c(__XmlNode.of(_DAI, String(input[_DAI])).n(_DAI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAccelerateConfiguration
  */
 const se_AccelerateConfiguration = (input: AccelerateConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AccelerateConfiguration");
-  if (input.Status != null) {
-    const node = __XmlNode.of("BucketAccelerateStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ACc);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_BAS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAccessControlPolicy
  */
 const se_AccessControlPolicy = (input: AccessControlPolicy, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AccessControlPolicy");
-  if (input.Grants != null) {
-    const nodes = se_Grants(input.Grants, context);
-    const containerNode = new __XmlNode("AccessControlList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  const bn = new __XmlNode(_ACP);
+  bn.lc(input, "Grants", "AccessControlList", () => se_Grants(input[_Gr]!, context));
+  if (input[_O] != null) {
+    bn.c(se_Owner(input[_O], context).n(_O));
   }
-  if (input.Owner != null) {
-    const node = se_Owner(input.Owner, context).withName("Owner");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAccessControlTranslation
  */
 const se_AccessControlTranslation = (input: AccessControlTranslation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AccessControlTranslation");
-  if (input.Owner != null) {
-    const node = __XmlNode.of("OwnerOverride", input.Owner).withName("Owner");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ACT);
+  if (input[_O] != null) {
+    bn.c(__XmlNode.of(_OOw, input[_O]).n(_O));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8555,8 +7607,8 @@ const se_AllowedHeaders = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("AllowedHeader", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_AH, entry);
+      return n.n(_me);
     });
 };
 
@@ -8567,8 +7619,8 @@ const se_AllowedMethods = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("AllowedMethod", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_AM, entry);
+      return n.n(_me);
     });
 };
 
@@ -8579,8 +7631,8 @@ const se_AllowedOrigins = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("AllowedOrigin", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_AO, entry);
+      return n.n(_me);
     });
 };
 
@@ -8588,193 +7640,144 @@ const se_AllowedOrigins = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlAnalyticsAndOperator
  */
 const se_AnalyticsAndOperator = (input: AnalyticsAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AnalyticsAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags != null) {
-    const nodes = se_TagSet(input.Tags, context);
-    nodes.map((node: any) => {
-      node = node.withName("Tag");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_AAO);
+  bn.cc(input, _P);
+  bn.l(input, "Tags", "Tag", () => se_TagSet(input[_Tag]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAnalyticsConfiguration
  */
 const se_AnalyticsConfiguration = (input: AnalyticsConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AnalyticsConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("AnalyticsId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AC);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_AI, input[_I]).n(_I));
   }
-  if (input.Filter != null) {
-    const node = se_AnalyticsFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_F] != null) {
+    bn.c(se_AnalyticsFilter(input[_F], context).n(_F));
   }
-  if (input.StorageClassAnalysis != null) {
-    const node = se_StorageClassAnalysis(input.StorageClassAnalysis, context).withName("StorageClassAnalysis");
-    bodyNode.addChildNode(node);
+  if (input[_SCA] != null) {
+    bn.c(se_StorageClassAnalysis(input[_SCA], context).n(_SCA));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAnalyticsExportDestination
  */
 const se_AnalyticsExportDestination = (input: AnalyticsExportDestination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AnalyticsExportDestination");
-  if (input.S3BucketDestination != null) {
-    const node = se_AnalyticsS3BucketDestination(input.S3BucketDestination, context).withName("S3BucketDestination");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AED);
+  if (input[_SBD] != null) {
+    bn.c(se_AnalyticsS3BucketDestination(input[_SBD], context).n(_SBD));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAnalyticsFilter
  */
 const se_AnalyticsFilter = (input: AnalyticsFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AnalyticsFilter");
+  const bn = new __XmlNode(_AF);
   AnalyticsFilter.visit(input, {
     Prefix: (value) => {
-      const node = __XmlNode.of("Prefix", value).withName("Prefix");
-      bodyNode.addChildNode(node);
+      if (input[_P] != null) {
+        bn.c(__XmlNode.of(_P, value).n(_P));
+      }
     },
     Tag: (value) => {
-      const node = se_Tag(value, context).withName("Tag");
-      bodyNode.addChildNode(node);
+      if (input[_Ta] != null) {
+        bn.c(se_Tag(value, context).n(_Ta));
+      }
     },
     And: (value) => {
-      const node = se_AnalyticsAndOperator(value, context).withName("And");
-      bodyNode.addChildNode(node);
+      if (input[_A] != null) {
+        bn.c(se_AnalyticsAndOperator(value, context).n(_A));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlAnalyticsS3BucketDestination
  */
 const se_AnalyticsS3BucketDestination = (input: AnalyticsS3BucketDestination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AnalyticsS3BucketDestination");
-  if (input.Format != null) {
-    const node = __XmlNode.of("AnalyticsS3ExportFileFormat", input.Format).withName("Format");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ASBD);
+  if (input[_Fo] != null) {
+    bn.c(__XmlNode.of(_ASEFF, input[_Fo]).n(_Fo));
   }
-  if (input.BucketAccountId != null) {
-    const node = __XmlNode.of("AccountId", input.BucketAccountId).withName("BucketAccountId");
-    bodyNode.addChildNode(node);
+  if (input[_BAI] != null) {
+    bn.c(__XmlNode.of(_AIc, input[_BAI]).n(_BAI));
   }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BN, input[_B]).n(_B));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _P);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlBucketInfo
  */
 const se_BucketInfo = (input: BucketInfo, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("BucketInfo");
-  if (input.DataRedundancy != null) {
-    const node = __XmlNode.of("DataRedundancy", input.DataRedundancy).withName("DataRedundancy");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_BI);
+  bn.cc(input, _DR);
+  if (input[_Ty] != null) {
+    bn.c(__XmlNode.of(_BT, input[_Ty]).n(_Ty));
   }
-  if (input.Type != null) {
-    const node = __XmlNode.of("BucketType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlBucketLifecycleConfiguration
  */
 const se_BucketLifecycleConfiguration = (input: BucketLifecycleConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("BucketLifecycleConfiguration");
-  if (input.Rules != null) {
-    const nodes = se_LifecycleRules(input.Rules, context);
-    nodes.map((node: any) => {
-      node = node.withName("Rule");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_BLC);
+  bn.l(input, "Rules", "Rule", () => se_LifecycleRules(input[_Rul]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlBucketLoggingStatus
  */
 const se_BucketLoggingStatus = (input: BucketLoggingStatus, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("BucketLoggingStatus");
-  if (input.LoggingEnabled != null) {
-    const node = se_LoggingEnabled(input.LoggingEnabled, context).withName("LoggingEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_BLS);
+  if (input[_LE] != null) {
+    bn.c(se_LoggingEnabled(input[_LE], context).n(_LE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCompletedMultipartUpload
  */
 const se_CompletedMultipartUpload = (input: CompletedMultipartUpload, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CompletedMultipartUpload");
-  if (input.Parts != null) {
-    const nodes = se_CompletedPartList(input.Parts, context);
-    nodes.map((node: any) => {
-      node = node.withName("Part");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_CMU);
+  bn.l(input, "Parts", "Part", () => se_CompletedPartList(input[_Part]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCompletedPart
  */
 const se_CompletedPart = (input: CompletedPart, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CompletedPart");
-  if (input.ETag != null) {
-    const node = __XmlNode.of("ETag", input.ETag).withName("ETag");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CPo);
+  bn.cc(input, _ETa);
+  bn.cc(input, _CCRC);
+  bn.cc(input, _CCRCC);
+  bn.cc(input, _CSHA);
+  bn.cc(input, _CSHAh);
+  if (input[_PN] != null) {
+    bn.c(__XmlNode.of(_PN, String(input[_PN])).n(_PN));
   }
-  if (input.ChecksumCRC32 != null) {
-    const node = __XmlNode.of("ChecksumCRC32", input.ChecksumCRC32).withName("ChecksumCRC32");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ChecksumCRC32C != null) {
-    const node = __XmlNode.of("ChecksumCRC32C", input.ChecksumCRC32C).withName("ChecksumCRC32C");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ChecksumSHA1 != null) {
-    const node = __XmlNode.of("ChecksumSHA1", input.ChecksumSHA1).withName("ChecksumSHA1");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ChecksumSHA256 != null) {
-    const node = __XmlNode.of("ChecksumSHA256", input.ChecksumSHA256).withName("ChecksumSHA256");
-    bodyNode.addChildNode(node);
-  }
-  if (input.PartNumber != null) {
-    const node = __XmlNode.of("PartNumber", String(input.PartNumber)).withName("PartNumber");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8784,8 +7787,8 @@ const se_CompletedPartList = (input: CompletedPart[], context: __SerdeContext): 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_CompletedPart(entry, context);
-      return node.withName("member");
+      const n = se_CompletedPart(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -8793,77 +7796,35 @@ const se_CompletedPartList = (input: CompletedPart[], context: __SerdeContext): 
  * serializeAws_restXmlCondition
  */
 const se_Condition = (input: Condition, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Condition");
-  if (input.HttpErrorCodeReturnedEquals != null) {
-    const node = __XmlNode
-      .of("HttpErrorCodeReturnedEquals", input.HttpErrorCodeReturnedEquals)
-      .withName("HttpErrorCodeReturnedEquals");
-    bodyNode.addChildNode(node);
-  }
-  if (input.KeyPrefixEquals != null) {
-    const node = __XmlNode.of("KeyPrefixEquals", input.KeyPrefixEquals).withName("KeyPrefixEquals");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_Con);
+  bn.cc(input, _HECRE);
+  bn.cc(input, _KPE);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCORSConfiguration
  */
 const se_CORSConfiguration = (input: CORSConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CORSConfiguration");
-  if (input.CORSRules != null) {
-    const nodes = se_CORSRules(input.CORSRules, context);
-    nodes.map((node: any) => {
-      node = node.withName("CORSRule");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_CORSC);
+  bn.l(input, "CORSRules", "CORSRule", () => se_CORSRules(input[_CORSRu]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCORSRule
  */
 const se_CORSRule = (input: CORSRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CORSRule");
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CORSR);
+  bn.cc(input, _ID_);
+  bn.l(input, "AllowedHeaders", "AllowedHeader", () => se_AllowedHeaders(input[_AHl]!, context));
+  bn.l(input, "AllowedMethods", "AllowedMethod", () => se_AllowedMethods(input[_AMl]!, context));
+  bn.l(input, "AllowedOrigins", "AllowedOrigin", () => se_AllowedOrigins(input[_AOl]!, context));
+  bn.l(input, "ExposeHeaders", "ExposeHeader", () => se_ExposeHeaders(input[_EH]!, context));
+  if (input[_MAS] != null) {
+    bn.c(__XmlNode.of(_MAS, String(input[_MAS])).n(_MAS));
   }
-  if (input.AllowedHeaders != null) {
-    const nodes = se_AllowedHeaders(input.AllowedHeaders, context);
-    nodes.map((node: any) => {
-      node = node.withName("AllowedHeader");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.AllowedMethods != null) {
-    const nodes = se_AllowedMethods(input.AllowedMethods, context);
-    nodes.map((node: any) => {
-      node = node.withName("AllowedMethod");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.AllowedOrigins != null) {
-    const nodes = se_AllowedOrigins(input.AllowedOrigins, context);
-    nodes.map((node: any) => {
-      node = node.withName("AllowedOrigin");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.ExposeHeaders != null) {
-    const nodes = se_ExposeHeaders(input.ExposeHeaders, context);
-    nodes.map((node: any) => {
-      node = node.withName("ExposeHeader");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.MaxAgeSeconds != null) {
-    const node = __XmlNode.of("MaxAgeSeconds", String(input.MaxAgeSeconds)).withName("MaxAgeSeconds");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -8873,8 +7834,8 @@ const se_CORSRules = (input: CORSRule[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_CORSRule(entry, context);
-      return node.withName("member");
+      const n = se_CORSRule(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -8882,227 +7843,157 @@ const se_CORSRules = (input: CORSRule[], context: __SerdeContext): any => {
  * serializeAws_restXmlCreateBucketConfiguration
  */
 const se_CreateBucketConfiguration = (input: CreateBucketConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CreateBucketConfiguration");
-  if (input.LocationConstraint != null) {
-    const node = __XmlNode.of("BucketLocationConstraint", input.LocationConstraint).withName("LocationConstraint");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CBC);
+  if (input[_LC] != null) {
+    bn.c(__XmlNode.of(_BLCu, input[_LC]).n(_LC));
   }
-  if (input.Location != null) {
-    const node = se_LocationInfo(input.Location, context).withName("Location");
-    bodyNode.addChildNode(node);
+  if (input[_L] != null) {
+    bn.c(se_LocationInfo(input[_L], context).n(_L));
   }
-  if (input.Bucket != null) {
-    const node = se_BucketInfo(input.Bucket, context).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(se_BucketInfo(input[_B], context).n(_B));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCSVInput
  */
 const se_CSVInput = (input: CSVInput, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CSVInput");
-  if (input.FileHeaderInfo != null) {
-    const node = __XmlNode.of("FileHeaderInfo", input.FileHeaderInfo).withName("FileHeaderInfo");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CSVIn);
+  bn.cc(input, _FHI);
+  bn.cc(input, _Com);
+  bn.cc(input, _QEC);
+  bn.cc(input, _RD);
+  bn.cc(input, _FD);
+  bn.cc(input, _QCuo);
+  if (input[_AQRD] != null) {
+    bn.c(__XmlNode.of(_AQRD, String(input[_AQRD])).n(_AQRD));
   }
-  if (input.Comments != null) {
-    const node = __XmlNode.of("Comments", input.Comments).withName("Comments");
-    bodyNode.addChildNode(node);
-  }
-  if (input.QuoteEscapeCharacter != null) {
-    const node = __XmlNode.of("QuoteEscapeCharacter", input.QuoteEscapeCharacter).withName("QuoteEscapeCharacter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.RecordDelimiter != null) {
-    const node = __XmlNode.of("RecordDelimiter", input.RecordDelimiter).withName("RecordDelimiter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.FieldDelimiter != null) {
-    const node = __XmlNode.of("FieldDelimiter", input.FieldDelimiter).withName("FieldDelimiter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.QuoteCharacter != null) {
-    const node = __XmlNode.of("QuoteCharacter", input.QuoteCharacter).withName("QuoteCharacter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.AllowQuotedRecordDelimiter != null) {
-    const node = __XmlNode
-      .of("AllowQuotedRecordDelimiter", String(input.AllowQuotedRecordDelimiter))
-      .withName("AllowQuotedRecordDelimiter");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCSVOutput
  */
 const se_CSVOutput = (input: CSVOutput, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CSVOutput");
-  if (input.QuoteFields != null) {
-    const node = __XmlNode.of("QuoteFields", input.QuoteFields).withName("QuoteFields");
-    bodyNode.addChildNode(node);
-  }
-  if (input.QuoteEscapeCharacter != null) {
-    const node = __XmlNode.of("QuoteEscapeCharacter", input.QuoteEscapeCharacter).withName("QuoteEscapeCharacter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.RecordDelimiter != null) {
-    const node = __XmlNode.of("RecordDelimiter", input.RecordDelimiter).withName("RecordDelimiter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.FieldDelimiter != null) {
-    const node = __XmlNode.of("FieldDelimiter", input.FieldDelimiter).withName("FieldDelimiter");
-    bodyNode.addChildNode(node);
-  }
-  if (input.QuoteCharacter != null) {
-    const node = __XmlNode.of("QuoteCharacter", input.QuoteCharacter).withName("QuoteCharacter");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_CSVO);
+  bn.cc(input, _QF);
+  bn.cc(input, _QEC);
+  bn.cc(input, _RD);
+  bn.cc(input, _FD);
+  bn.cc(input, _QCuo);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDefaultRetention
  */
 const se_DefaultRetention = (input: DefaultRetention, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DefaultRetention");
-  if (input.Mode != null) {
-    const node = __XmlNode.of("ObjectLockRetentionMode", input.Mode).withName("Mode");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DRe);
+  if (input[_Mo] != null) {
+    bn.c(__XmlNode.of(_OLRM, input[_Mo]).n(_Mo));
   }
-  if (input.Days != null) {
-    const node = __XmlNode.of("Days", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_Da, String(input[_Da])).n(_Da));
   }
-  if (input.Years != null) {
-    const node = __XmlNode.of("Years", String(input.Years)).withName("Years");
-    bodyNode.addChildNode(node);
+  if (input[_Y] != null) {
+    bn.c(__XmlNode.of(_Y, String(input[_Y])).n(_Y));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDelete
  */
 const se_Delete = (input: Delete, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Delete");
-  if (input.Objects != null) {
-    const nodes = se_ObjectIdentifierList(input.Objects, context);
-    nodes.map((node: any) => {
-      node = node.withName("Object");
-      bodyNode.addChildNode(node);
-    });
+  const bn = new __XmlNode(_Del);
+  bn.l(input, "Objects", "Object", () => se_ObjectIdentifierList(input[_Ob]!, context));
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_Q, String(input[_Q])).n(_Q));
   }
-  if (input.Quiet != null) {
-    const node = __XmlNode.of("Quiet", String(input.Quiet)).withName("Quiet");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDeleteMarkerReplication
  */
 const se_DeleteMarkerReplication = (input: DeleteMarkerReplication, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DeleteMarkerReplication");
-  if (input.Status != null) {
-    const node = __XmlNode.of("DeleteMarkerReplicationStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DMR);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_DMRS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDestination
  */
 const se_Destination = (input: Destination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Destination");
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Des);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BN, input[_B]).n(_B));
   }
-  if (input.Account != null) {
-    const node = __XmlNode.of("AccountId", input.Account).withName("Account");
-    bodyNode.addChildNode(node);
+  if (input[_Ac] != null) {
+    bn.c(__XmlNode.of(_AIc, input[_Ac]).n(_Ac));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("StorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _SC);
+  if (input[_ACT] != null) {
+    bn.c(se_AccessControlTranslation(input[_ACT], context).n(_ACT));
   }
-  if (input.AccessControlTranslation != null) {
-    const node = se_AccessControlTranslation(input.AccessControlTranslation, context).withName(
-      "AccessControlTranslation"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ECn] != null) {
+    bn.c(se_EncryptionConfiguration(input[_ECn], context).n(_ECn));
   }
-  if (input.EncryptionConfiguration != null) {
-    const node = se_EncryptionConfiguration(input.EncryptionConfiguration, context).withName("EncryptionConfiguration");
-    bodyNode.addChildNode(node);
+  if (input[_RTe] != null) {
+    bn.c(se_ReplicationTime(input[_RTe], context).n(_RTe));
   }
-  if (input.ReplicationTime != null) {
-    const node = se_ReplicationTime(input.ReplicationTime, context).withName("ReplicationTime");
-    bodyNode.addChildNode(node);
+  if (input[_Me] != null) {
+    bn.c(se_Metrics(input[_Me], context).n(_Me));
   }
-  if (input.Metrics != null) {
-    const node = se_Metrics(input.Metrics, context).withName("Metrics");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlEncryption
  */
 const se_Encryption = (input: Encryption, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Encryption");
-  if (input.EncryptionType != null) {
-    const node = __XmlNode.of("ServerSideEncryption", input.EncryptionType).withName("EncryptionType");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_En);
+  if (input[_ETn] != null) {
+    bn.c(__XmlNode.of(_SSE, input[_ETn]).n(_ETn));
   }
-  if (input.KMSKeyId != null) {
-    const node = __XmlNode.of("SSEKMSKeyId", input.KMSKeyId).withName("KMSKeyId");
-    bodyNode.addChildNode(node);
+  if (input[_KMSKI] != null) {
+    bn.c(__XmlNode.of(_SSEKMSKI, input[_KMSKI]).n(_KMSKI));
   }
-  if (input.KMSContext != null) {
-    const node = __XmlNode.of("KMSContext", input.KMSContext).withName("KMSContext");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _KMSC);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlEncryptionConfiguration
  */
 const se_EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("EncryptionConfiguration");
-  if (input.ReplicaKmsKeyID != null) {
-    const node = __XmlNode.of("ReplicaKmsKeyID", input.ReplicaKmsKeyID).withName("ReplicaKmsKeyID");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_ECn);
+  bn.cc(input, _RKKID);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlErrorDocument
  */
 const se_ErrorDocument = (input: ErrorDocument, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ErrorDocument");
-  if (input.Key != null) {
-    const node = __XmlNode.of("ObjectKey", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ED);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_OK, input[_K]).n(_K));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlEventBridgeConfiguration
  */
 const se_EventBridgeConfiguration = (input: EventBridgeConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("EventBridgeConfiguration");
-  return bodyNode;
+  const bn = new __XmlNode(_EBC);
+  return bn;
 };
 
 /**
@@ -9112,8 +8003,8 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Event", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_Ev, entry);
+      return n.n(_me);
     });
 };
 
@@ -9121,12 +8012,11 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
  * serializeAws_restXmlExistingObjectReplication
  */
 const se_ExistingObjectReplication = (input: ExistingObjectReplication, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ExistingObjectReplication");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ExistingObjectReplicationStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_EOR);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_EORS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9136,8 +8026,8 @@ const se_ExposeHeaders = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("ExposeHeader", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_EHx, entry);
+      return n.n(_me);
     });
 };
 
@@ -9145,16 +8035,14 @@ const se_ExposeHeaders = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlFilterRule
  */
 const se_FilterRule = (input: FilterRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("FilterRule");
-  if (input.Name != null) {
-    const node = __XmlNode.of("FilterRuleName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FR);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_FRN, input[_N]).n(_N));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("FilterRuleValue", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_Va] != null) {
+    bn.c(__XmlNode.of(_FRV, input[_Va]).n(_Va));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9164,8 +8052,8 @@ const se_FilterRuleList = (input: FilterRule[], context: __SerdeContext): any =>
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_FilterRule(entry, context);
-      return node.withName("member");
+      const n = se_FilterRule(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -9173,56 +8061,36 @@ const se_FilterRuleList = (input: FilterRule[], context: __SerdeContext): any =>
  * serializeAws_restXmlGlacierJobParameters
  */
 const se_GlacierJobParameters = (input: GlacierJobParameters, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("GlacierJobParameters");
-  if (input.Tier != null) {
-    const node = __XmlNode.of("Tier", input.Tier).withName("Tier");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_GJP);
+  bn.cc(input, _Ti);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlGrant
  */
 const se_Grant = (input: Grant, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Grant");
-  if (input.Grantee != null) {
-    const node = se_Grantee(input.Grantee, context).withName("Grantee");
-    node.addAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_G);
+  if (input[_Gra] != null) {
+    const n = se_Grantee(input[_Gra], context).n(_Gra);
+    n.a("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+    bn.c(n);
   }
-  if (input.Permission != null) {
-    const node = __XmlNode.of("Permission", input.Permission).withName("Permission");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _Pe);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlGrantee
  */
 const se_Grantee = (input: Grantee, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Grantee");
-  if (input.DisplayName != null) {
-    const node = __XmlNode.of("DisplayName", input.DisplayName).withName("DisplayName");
-    bodyNode.addChildNode(node);
-  }
-  if (input.EmailAddress != null) {
-    const node = __XmlNode.of("EmailAddress", input.EmailAddress).withName("EmailAddress");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
-  }
-  if (input.URI != null) {
-    const node = __XmlNode.of("URI", input.URI).withName("URI");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Type != null) {
-    bodyNode.addAttribute("xsi:type", input.Type);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_Gra);
+  bn.cc(input, _DN);
+  bn.cc(input, _EA);
+  bn.cc(input, _ID_);
+  bn.cc(input, _URI);
+  bn.a("xsi:type", input[_Ty]);
+  return bn;
 };
 
 /**
@@ -9232,8 +8100,8 @@ const se_Grants = (input: Grant[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Grant(entry, context);
-      return node.withName("Grant");
+      const n = se_Grant(entry, context);
+      return n.n(_G);
     });
 };
 
@@ -9241,184 +8109,131 @@ const se_Grants = (input: Grant[], context: __SerdeContext): any => {
  * serializeAws_restXmlIndexDocument
  */
 const se_IndexDocument = (input: IndexDocument, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("IndexDocument");
-  if (input.Suffix != null) {
-    const node = __XmlNode.of("Suffix", input.Suffix).withName("Suffix");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_ID);
+  bn.cc(input, _Su);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInputSerialization
  */
 const se_InputSerialization = (input: InputSerialization, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InputSerialization");
-  if (input.CSV != null) {
-    const node = se_CSVInput(input.CSV, context).withName("CSV");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_IS);
+  if (input[_CSV] != null) {
+    bn.c(se_CSVInput(input[_CSV], context).n(_CSV));
   }
-  if (input.CompressionType != null) {
-    const node = __XmlNode.of("CompressionType", input.CompressionType).withName("CompressionType");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _CTom);
+  if (input[_JSON] != null) {
+    bn.c(se_JSONInput(input[_JSON], context).n(_JSON));
   }
-  if (input.JSON != null) {
-    const node = se_JSONInput(input.JSON, context).withName("JSON");
-    bodyNode.addChildNode(node);
+  if (input[_Parq] != null) {
+    bn.c(se_ParquetInput(input[_Parq], context).n(_Parq));
   }
-  if (input.Parquet != null) {
-    const node = se_ParquetInput(input.Parquet, context).withName("Parquet");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlIntelligentTieringAndOperator
  */
 const se_IntelligentTieringAndOperator = (input: IntelligentTieringAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("IntelligentTieringAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags != null) {
-    const nodes = se_TagSet(input.Tags, context);
-    nodes.map((node: any) => {
-      node = node.withName("Tag");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_ITAO);
+  bn.cc(input, _P);
+  bn.l(input, "Tags", "Tag", () => se_TagSet(input[_Tag]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlIntelligentTieringConfiguration
  */
 const se_IntelligentTieringConfiguration = (input: IntelligentTieringConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("IntelligentTieringConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("IntelligentTieringId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ITC);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_ITI, input[_I]).n(_I));
   }
-  if (input.Filter != null) {
-    const node = se_IntelligentTieringFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_F] != null) {
+    bn.c(se_IntelligentTieringFilter(input[_F], context).n(_F));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("IntelligentTieringStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_ITS, input[_S]).n(_S));
   }
-  if (input.Tierings != null) {
-    const nodes = se_TieringList(input.Tierings, context);
-    nodes.map((node: any) => {
-      node = node.withName("Tiering");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  bn.l(input, "Tierings", "Tiering", () => se_TieringList(input[_Tie]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlIntelligentTieringFilter
  */
 const se_IntelligentTieringFilter = (input: IntelligentTieringFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("IntelligentTieringFilter");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ITF);
+  bn.cc(input, _P);
+  if (input[_Ta] != null) {
+    bn.c(se_Tag(input[_Ta], context).n(_Ta));
   }
-  if (input.Tag != null) {
-    const node = se_Tag(input.Tag, context).withName("Tag");
-    bodyNode.addChildNode(node);
+  if (input[_A] != null) {
+    bn.c(se_IntelligentTieringAndOperator(input[_A], context).n(_A));
   }
-  if (input.And != null) {
-    const node = se_IntelligentTieringAndOperator(input.And, context).withName("And");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInventoryConfiguration
  */
 const se_InventoryConfiguration = (input: InventoryConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InventoryConfiguration");
-  if (input.Destination != null) {
-    const node = se_InventoryDestination(input.Destination, context).withName("Destination");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_IC);
+  if (input[_Des] != null) {
+    bn.c(se_InventoryDestination(input[_Des], context).n(_Des));
   }
-  if (input.IsEnabled != null) {
-    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
-    bodyNode.addChildNode(node);
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_IE])).n(_IE));
   }
-  if (input.Filter != null) {
-    const node = se_InventoryFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_F] != null) {
+    bn.c(se_InventoryFilter(input[_F], context).n(_F));
   }
-  if (input.Id != null) {
-    const node = __XmlNode.of("InventoryId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_II, input[_I]).n(_I));
   }
-  if (input.IncludedObjectVersions != null) {
-    const node = __XmlNode
-      .of("InventoryIncludedObjectVersions", input.IncludedObjectVersions)
-      .withName("IncludedObjectVersions");
-    bodyNode.addChildNode(node);
+  if (input[_IOV] != null) {
+    bn.c(__XmlNode.of(_IIOV, input[_IOV]).n(_IOV));
   }
-  if (input.OptionalFields != null) {
-    const nodes = se_InventoryOptionalFields(input.OptionalFields, context);
-    const containerNode = new __XmlNode("OptionalFields");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "OptionalFields", "OptionalFields", () => se_InventoryOptionalFields(input[_OF]!, context));
+  if (input[_Sc] != null) {
+    bn.c(se_InventorySchedule(input[_Sc], context).n(_Sc));
   }
-  if (input.Schedule != null) {
-    const node = se_InventorySchedule(input.Schedule, context).withName("Schedule");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInventoryDestination
  */
 const se_InventoryDestination = (input: InventoryDestination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InventoryDestination");
-  if (input.S3BucketDestination != null) {
-    const node = se_InventoryS3BucketDestination(input.S3BucketDestination, context).withName("S3BucketDestination");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_IDn);
+  if (input[_SBD] != null) {
+    bn.c(se_InventoryS3BucketDestination(input[_SBD], context).n(_SBD));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInventoryEncryption
  */
 const se_InventoryEncryption = (input: InventoryEncryption, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InventoryEncryption");
-  if (input.SSES3 != null) {
-    const node = se_SSES3(input.SSES3, context).withName("SSE-S3");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_IEn);
+  if (input[_SSES] != null) {
+    bn.c(se_SSES3(input[_SSES], context).n(_SS));
   }
-  if (input.SSEKMS != null) {
-    const node = se_SSEKMS(input.SSEKMS, context).withName("SSE-KMS");
-    bodyNode.addChildNode(node);
+  if (input[_SSEKMS] != null) {
+    bn.c(se_SSEKMS(input[_SSEKMS], context).n(_SK));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInventoryFilter
  */
 const se_InventoryFilter = (input: InventoryFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InventoryFilter");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_IF);
+  bn.cc(input, _P);
+  return bn;
 };
 
 /**
@@ -9428,8 +8243,8 @@ const se_InventoryOptionalFields = (input: InventoryOptionalField[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("InventoryOptionalField", entry);
-      return node.withName("Field");
+      const n = __XmlNode.of(_IOF, entry);
+      return n.n(_Fi);
     });
 };
 
@@ -9437,91 +8252,68 @@ const se_InventoryOptionalFields = (input: InventoryOptionalField[], context: __
  * serializeAws_restXmlInventoryS3BucketDestination
  */
 const se_InventoryS3BucketDestination = (input: InventoryS3BucketDestination, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InventoryS3BucketDestination");
-  if (input.AccountId != null) {
-    const node = __XmlNode.of("AccountId", input.AccountId).withName("AccountId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ISBD);
+  bn.cc(input, _AIc);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_BN, input[_B]).n(_B));
   }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_Fo] != null) {
+    bn.c(__XmlNode.of(_IFn, input[_Fo]).n(_Fo));
   }
-  if (input.Format != null) {
-    const node = __XmlNode.of("InventoryFormat", input.Format).withName("Format");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _P);
+  if (input[_En] != null) {
+    bn.c(se_InventoryEncryption(input[_En], context).n(_En));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Encryption != null) {
-    const node = se_InventoryEncryption(input.Encryption, context).withName("Encryption");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInventorySchedule
  */
 const se_InventorySchedule = (input: InventorySchedule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InventorySchedule");
-  if (input.Frequency != null) {
-    const node = __XmlNode.of("InventoryFrequency", input.Frequency).withName("Frequency");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ISn);
+  if (input[_Fr] != null) {
+    bn.c(__XmlNode.of(_IFnv, input[_Fr]).n(_Fr));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJSONInput
  */
 const se_JSONInput = (input: JSONInput, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JSONInput");
-  if (input.Type != null) {
-    const node = __XmlNode.of("JSONType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_JSONI);
+  if (input[_Ty] != null) {
+    bn.c(__XmlNode.of(_JSONT, input[_Ty]).n(_Ty));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlJSONOutput
  */
 const se_JSONOutput = (input: JSONOutput, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("JSONOutput");
-  if (input.RecordDelimiter != null) {
-    const node = __XmlNode.of("RecordDelimiter", input.RecordDelimiter).withName("RecordDelimiter");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_JSONO);
+  bn.cc(input, _RD);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLambdaFunctionConfiguration
  */
 const se_LambdaFunctionConfiguration = (input: LambdaFunctionConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LambdaFunctionConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("NotificationId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LFCa);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_NI, input[_I]).n(_I));
   }
-  if (input.LambdaFunctionArn != null) {
-    const node = __XmlNode.of("LambdaFunctionArn", input.LambdaFunctionArn).withName("CloudFunction");
-    bodyNode.addChildNode(node);
+  if (input[_LFA] != null) {
+    bn.c(__XmlNode.of(_LFA, input[_LFA]).n(_CF));
   }
-  if (input.Events != null) {
-    const nodes = se_EventList(input.Events, context);
-    nodes.map((node: any) => {
-      node = node.withName("Event");
-      bodyNode.addChildNode(node);
-    });
+  bn.l(input, "Events", "Event", () => se_EventList(input[_Eve]!, context));
+  if (input[_F] != null) {
+    bn.c(se_NotificationConfigurationFilter(input[_F], context).n(_F));
   }
-  if (input.Filter != null) {
-    const node = se_NotificationConfigurationFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9531,8 +8323,8 @@ const se_LambdaFunctionConfigurationList = (input: LambdaFunctionConfiguration[]
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_LambdaFunctionConfiguration(entry, context);
-      return node.withName("member");
+      const n = se_LambdaFunctionConfiguration(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -9540,143 +8332,103 @@ const se_LambdaFunctionConfigurationList = (input: LambdaFunctionConfiguration[]
  * serializeAws_restXmlLifecycleExpiration
  */
 const se_LifecycleExpiration = (input: LifecycleExpiration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleExpiration");
-  if (input.Date != null) {
-    const node = __XmlNode.of("Date", (input.Date.toISOString().split(".")[0] + "Z").toString()).withName("Date");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LEi);
+  if (input[_Dat] != null) {
+    bn.c(__XmlNode.of(_Dat, (input[_Dat].toISOString().split(".")[0] + "Z").toString()).n(_Dat));
   }
-  if (input.Days != null) {
-    const node = __XmlNode.of("Days", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_Da, String(input[_Da])).n(_Da));
   }
-  if (input.ExpiredObjectDeleteMarker != null) {
-    const node = __XmlNode
-      .of("ExpiredObjectDeleteMarker", String(input.ExpiredObjectDeleteMarker))
-      .withName("ExpiredObjectDeleteMarker");
-    bodyNode.addChildNode(node);
+  if (input[_EODM] != null) {
+    bn.c(__XmlNode.of(_EODM, String(input[_EODM])).n(_EODM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleRule
  */
 const se_LifecycleRule = (input: LifecycleRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleRule");
-  if (input.Expiration != null) {
-    const node = se_LifecycleExpiration(input.Expiration, context).withName("Expiration");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LR);
+  if (input[_Exp] != null) {
+    bn.c(se_LifecycleExpiration(input[_Exp], context).n(_Exp));
   }
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _ID_);
+  bn.cc(input, _P);
+  if (input[_F] != null) {
+    bn.c(se_LifecycleRuleFilter(input[_F], context).n(_F));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_ES, input[_S]).n(_S));
   }
-  if (input.Filter != null) {
-    const node = se_LifecycleRuleFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  bn.l(input, "Transitions", "Transition", () => se_TransitionList(input[_Tr]!, context));
+  bn.l(input, "NoncurrentVersionTransitions", "NoncurrentVersionTransition", () =>
+    se_NoncurrentVersionTransitionList(input[_NVT]!, context)
+  );
+  if (input[_NVE] != null) {
+    bn.c(se_NoncurrentVersionExpiration(input[_NVE], context).n(_NVE));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("ExpirationStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_AIMU] != null) {
+    bn.c(se_AbortIncompleteMultipartUpload(input[_AIMU], context).n(_AIMU));
   }
-  if (input.Transitions != null) {
-    const nodes = se_TransitionList(input.Transitions, context);
-    nodes.map((node: any) => {
-      node = node.withName("Transition");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.NoncurrentVersionTransitions != null) {
-    const nodes = se_NoncurrentVersionTransitionList(input.NoncurrentVersionTransitions, context);
-    nodes.map((node: any) => {
-      node = node.withName("NoncurrentVersionTransition");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.NoncurrentVersionExpiration != null) {
-    const node = se_NoncurrentVersionExpiration(input.NoncurrentVersionExpiration, context).withName(
-      "NoncurrentVersionExpiration"
-    );
-    bodyNode.addChildNode(node);
-  }
-  if (input.AbortIncompleteMultipartUpload != null) {
-    const node = se_AbortIncompleteMultipartUpload(input.AbortIncompleteMultipartUpload, context).withName(
-      "AbortIncompleteMultipartUpload"
-    );
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleRuleAndOperator
  */
 const se_LifecycleRuleAndOperator = (input: LifecycleRuleAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleRuleAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LRAO);
+  bn.cc(input, _P);
+  bn.l(input, "Tags", "Tag", () => se_TagSet(input[_Tag]!, context));
+  if (input[_OSGT] != null) {
+    bn.c(__XmlNode.of(_OSGTB, String(input[_OSGT])).n(_OSGT));
   }
-  if (input.Tags != null) {
-    const nodes = se_TagSet(input.Tags, context);
-    nodes.map((node: any) => {
-      node = node.withName("Tag");
-      bodyNode.addChildNode(node);
-    });
+  if (input[_OSLT] != null) {
+    bn.c(__XmlNode.of(_OSLTB, String(input[_OSLT])).n(_OSLT));
   }
-  if (input.ObjectSizeGreaterThan != null) {
-    const node = __XmlNode
-      .of("ObjectSizeGreaterThanBytes", String(input.ObjectSizeGreaterThan))
-      .withName("ObjectSizeGreaterThan");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ObjectSizeLessThan != null) {
-    const node = __XmlNode
-      .of("ObjectSizeLessThanBytes", String(input.ObjectSizeLessThan))
-      .withName("ObjectSizeLessThan");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLifecycleRuleFilter
  */
 const se_LifecycleRuleFilter = (input: LifecycleRuleFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LifecycleRuleFilter");
+  const bn = new __XmlNode(_LRF);
   LifecycleRuleFilter.visit(input, {
     Prefix: (value) => {
-      const node = __XmlNode.of("Prefix", value).withName("Prefix");
-      bodyNode.addChildNode(node);
+      if (input[_P] != null) {
+        bn.c(__XmlNode.of(_P, value).n(_P));
+      }
     },
     Tag: (value) => {
-      const node = se_Tag(value, context).withName("Tag");
-      bodyNode.addChildNode(node);
+      if (input[_Ta] != null) {
+        bn.c(se_Tag(value, context).n(_Ta));
+      }
     },
     ObjectSizeGreaterThan: (value) => {
-      const node = __XmlNode.of("ObjectSizeGreaterThanBytes", String(value)).withName("ObjectSizeGreaterThan");
-      bodyNode.addChildNode(node);
+      if (input[_OSGT] != null) {
+        bn.c(__XmlNode.of(_OSGTB, String(value)).n(_OSGT));
+      }
     },
     ObjectSizeLessThan: (value) => {
-      const node = __XmlNode.of("ObjectSizeLessThanBytes", String(value)).withName("ObjectSizeLessThan");
-      bodyNode.addChildNode(node);
+      if (input[_OSLT] != null) {
+        bn.c(__XmlNode.of(_OSLTB, String(value)).n(_OSLT));
+      }
     },
     And: (value) => {
-      const node = se_LifecycleRuleAndOperator(value, context).withName("And");
-      bodyNode.addChildNode(node);
+      if (input[_A] != null) {
+        bn.c(se_LifecycleRuleAndOperator(value, context).n(_A));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9686,8 +8438,8 @@ const se_LifecycleRules = (input: LifecycleRule[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_LifecycleRule(entry, context);
-      return node.withName("member");
+      const n = se_LifecycleRule(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -9695,187 +8447,148 @@ const se_LifecycleRules = (input: LifecycleRule[], context: __SerdeContext): any
  * serializeAws_restXmlLocationInfo
  */
 const se_LocationInfo = (input: LocationInfo, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LocationInfo");
-  if (input.Type != null) {
-    const node = __XmlNode.of("LocationType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LI);
+  if (input[_Ty] != null) {
+    bn.c(__XmlNode.of(_LT, input[_Ty]).n(_Ty));
   }
-  if (input.Name != null) {
-    const node = __XmlNode.of("LocationNameAsString", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_LNAS, input[_N]).n(_N));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLoggingEnabled
  */
 const se_LoggingEnabled = (input: LoggingEnabled, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LoggingEnabled");
-  if (input.TargetBucket != null) {
-    const node = __XmlNode.of("TargetBucket", input.TargetBucket).withName("TargetBucket");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LE);
+  bn.cc(input, _TB);
+  bn.lc(input, "TargetGrants", "TargetGrants", () => se_TargetGrants(input[_TG]!, context));
+  bn.cc(input, _TP);
+  if (input[_TOKF] != null) {
+    bn.c(se_TargetObjectKeyFormat(input[_TOKF], context).n(_TOKF));
   }
-  if (input.TargetGrants != null) {
-    const nodes = se_TargetGrants(input.TargetGrants, context);
-    const containerNode = new __XmlNode("TargetGrants");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.TargetPrefix != null) {
-    const node = __XmlNode.of("TargetPrefix", input.TargetPrefix).withName("TargetPrefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.TargetObjectKeyFormat != null) {
-    const node = se_TargetObjectKeyFormat(input.TargetObjectKeyFormat, context).withName("TargetObjectKeyFormat");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMetadataEntry
  */
 const se_MetadataEntry = (input: MetadataEntry, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MetadataEntry");
-  if (input.Name != null) {
-    const node = __XmlNode.of("MetadataKey", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ME);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_MKe, input[_N]).n(_N));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("MetadataValue", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_Va] != null) {
+    bn.c(__XmlNode.of(_MV, input[_Va]).n(_Va));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMetrics
  */
 const se_Metrics = (input: Metrics, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Metrics");
-  if (input.Status != null) {
-    const node = __XmlNode.of("MetricsStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Me);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_MS, input[_S]).n(_S));
   }
-  if (input.EventThreshold != null) {
-    const node = se_ReplicationTimeValue(input.EventThreshold, context).withName("EventThreshold");
-    bodyNode.addChildNode(node);
+  if (input[_ETv] != null) {
+    bn.c(se_ReplicationTimeValue(input[_ETv], context).n(_ETv));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMetricsAndOperator
  */
 const se_MetricsAndOperator = (input: MetricsAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MetricsAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags != null) {
-    const nodes = se_TagSet(input.Tags, context);
-    nodes.map((node: any) => {
-      node = node.withName("Tag");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.AccessPointArn != null) {
-    const node = __XmlNode.of("AccessPointArn", input.AccessPointArn).withName("AccessPointArn");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_MAO);
+  bn.cc(input, _P);
+  bn.l(input, "Tags", "Tag", () => se_TagSet(input[_Tag]!, context));
+  bn.cc(input, _APAc);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMetricsConfiguration
  */
 const se_MetricsConfiguration = (input: MetricsConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MetricsConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("MetricsId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_MC);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_MI, input[_I]).n(_I));
   }
-  if (input.Filter != null) {
-    const node = se_MetricsFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_F] != null) {
+    bn.c(se_MetricsFilter(input[_F], context).n(_F));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlMetricsFilter
  */
 const se_MetricsFilter = (input: MetricsFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MetricsFilter");
+  const bn = new __XmlNode(_MF);
   MetricsFilter.visit(input, {
     Prefix: (value) => {
-      const node = __XmlNode.of("Prefix", value).withName("Prefix");
-      bodyNode.addChildNode(node);
+      if (input[_P] != null) {
+        bn.c(__XmlNode.of(_P, value).n(_P));
+      }
     },
     Tag: (value) => {
-      const node = se_Tag(value, context).withName("Tag");
-      bodyNode.addChildNode(node);
+      if (input[_Ta] != null) {
+        bn.c(se_Tag(value, context).n(_Ta));
+      }
     },
     AccessPointArn: (value) => {
-      const node = __XmlNode.of("AccessPointArn", value).withName("AccessPointArn");
-      bodyNode.addChildNode(node);
+      if (input[_APAc] != null) {
+        bn.c(__XmlNode.of(_APAc, value).n(_APAc));
+      }
     },
     And: (value) => {
-      const node = se_MetricsAndOperator(value, context).withName("And");
-      bodyNode.addChildNode(node);
+      if (input[_A] != null) {
+        bn.c(se_MetricsAndOperator(value, context).n(_A));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlNoncurrentVersionExpiration
  */
 const se_NoncurrentVersionExpiration = (input: NoncurrentVersionExpiration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NoncurrentVersionExpiration");
-  if (input.NoncurrentDays != null) {
-    const node = __XmlNode.of("Days", String(input.NoncurrentDays)).withName("NoncurrentDays");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_NVE);
+  if (input[_ND] != null) {
+    bn.c(__XmlNode.of(_Da, String(input[_ND])).n(_ND));
   }
-  if (input.NewerNoncurrentVersions != null) {
-    const node = __XmlNode
-      .of("VersionCount", String(input.NewerNoncurrentVersions))
-      .withName("NewerNoncurrentVersions");
-    bodyNode.addChildNode(node);
+  if (input[_NNV] != null) {
+    bn.c(__XmlNode.of(_VC, String(input[_NNV])).n(_NNV));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlNoncurrentVersionTransition
  */
 const se_NoncurrentVersionTransition = (input: NoncurrentVersionTransition, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NoncurrentVersionTransition");
-  if (input.NoncurrentDays != null) {
-    const node = __XmlNode.of("Days", String(input.NoncurrentDays)).withName("NoncurrentDays");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_NVTo);
+  if (input[_ND] != null) {
+    bn.c(__XmlNode.of(_Da, String(input[_ND])).n(_ND));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("TransitionStorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_TSC, input[_SC]).n(_SC));
   }
-  if (input.NewerNoncurrentVersions != null) {
-    const node = __XmlNode
-      .of("VersionCount", String(input.NewerNoncurrentVersions))
-      .withName("NewerNoncurrentVersions");
-    bodyNode.addChildNode(node);
+  if (input[_NNV] != null) {
+    bn.c(__XmlNode.of(_VC, String(input[_NNV])).n(_NNV));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9885,8 +8598,8 @@ const se_NoncurrentVersionTransitionList = (input: NoncurrentVersionTransition[]
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_NoncurrentVersionTransition(entry, context);
-      return node.withName("member");
+      const n = se_NoncurrentVersionTransition(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -9894,63 +8607,41 @@ const se_NoncurrentVersionTransitionList = (input: NoncurrentVersionTransition[]
  * serializeAws_restXmlNotificationConfiguration
  */
 const se_NotificationConfiguration = (input: NotificationConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NotificationConfiguration");
-  if (input.TopicConfigurations != null) {
-    const nodes = se_TopicConfigurationList(input.TopicConfigurations, context);
-    nodes.map((node: any) => {
-      node = node.withName("TopicConfiguration");
-      bodyNode.addChildNode(node);
-    });
+  const bn = new __XmlNode(_NC);
+  bn.l(input, "TopicConfigurations", "TopicConfiguration", () => se_TopicConfigurationList(input[_TCop]!, context));
+  bn.l(input, "QueueConfigurations", "QueueConfiguration", () => se_QueueConfigurationList(input[_QCu]!, context));
+  bn.l(input, "LambdaFunctionConfigurations", "CloudFunctionConfiguration", () =>
+    se_LambdaFunctionConfigurationList(input[_LFC]!, context)
+  );
+  if (input[_EBC] != null) {
+    bn.c(se_EventBridgeConfiguration(input[_EBC], context).n(_EBC));
   }
-  if (input.QueueConfigurations != null) {
-    const nodes = se_QueueConfigurationList(input.QueueConfigurations, context);
-    nodes.map((node: any) => {
-      node = node.withName("QueueConfiguration");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.LambdaFunctionConfigurations != null) {
-    const nodes = se_LambdaFunctionConfigurationList(input.LambdaFunctionConfigurations, context);
-    nodes.map((node: any) => {
-      node = node.withName("CloudFunctionConfiguration");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.EventBridgeConfiguration != null) {
-    const node = se_EventBridgeConfiguration(input.EventBridgeConfiguration, context).withName(
-      "EventBridgeConfiguration"
-    );
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlNotificationConfigurationFilter
  */
 const se_NotificationConfigurationFilter = (input: NotificationConfigurationFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NotificationConfigurationFilter");
-  if (input.Key != null) {
-    const node = se_S3KeyFilter(input.Key, context).withName("S3Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_NCF);
+  if (input[_K] != null) {
+    bn.c(se_S3KeyFilter(input[_K], context).n(_SKe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlObjectIdentifier
  */
 const se_ObjectIdentifier = (input: ObjectIdentifier, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ObjectIdentifier");
-  if (input.Key != null) {
-    const node = __XmlNode.of("ObjectKey", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OI);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_OK, input[_K]).n(_K));
   }
-  if (input.VersionId != null) {
-    const node = __XmlNode.of("ObjectVersionId", input.VersionId).withName("VersionId");
-    bodyNode.addChildNode(node);
+  if (input[_VI] != null) {
+    bn.c(__XmlNode.of(_OVI, input[_VI]).n(_VI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -9960,8 +8651,8 @@ const se_ObjectIdentifierList = (input: ObjectIdentifier[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ObjectIdentifier(entry, context);
-      return node.withName("member");
+      const n = se_ObjectIdentifier(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -9969,129 +8660,101 @@ const se_ObjectIdentifierList = (input: ObjectIdentifier[], context: __SerdeCont
  * serializeAws_restXmlObjectLockConfiguration
  */
 const se_ObjectLockConfiguration = (input: ObjectLockConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ObjectLockConfiguration");
-  if (input.ObjectLockEnabled != null) {
-    const node = __XmlNode.of("ObjectLockEnabled", input.ObjectLockEnabled).withName("ObjectLockEnabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OLC);
+  bn.cc(input, _OLE);
+  if (input[_Ru] != null) {
+    bn.c(se_ObjectLockRule(input[_Ru], context).n(_Ru));
   }
-  if (input.Rule != null) {
-    const node = se_ObjectLockRule(input.Rule, context).withName("Rule");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlObjectLockLegalHold
  */
 const se_ObjectLockLegalHold = (input: ObjectLockLegalHold, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ObjectLockLegalHold");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ObjectLockLegalHoldStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OLLH);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_OLLHS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlObjectLockRetention
  */
 const se_ObjectLockRetention = (input: ObjectLockRetention, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ObjectLockRetention");
-  if (input.Mode != null) {
-    const node = __XmlNode.of("ObjectLockRetentionMode", input.Mode).withName("Mode");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OLR);
+  if (input[_Mo] != null) {
+    bn.c(__XmlNode.of(_OLRM, input[_Mo]).n(_Mo));
   }
-  if (input.RetainUntilDate != null) {
-    const node = __XmlNode
-      .of("Date", (input.RetainUntilDate.toISOString().split(".")[0] + "Z").toString())
-      .withName("RetainUntilDate");
-    bodyNode.addChildNode(node);
+  if (input[_RUD] != null) {
+    bn.c(__XmlNode.of(_Dat, (input[_RUD].toISOString().split(".")[0] + "Z").toString()).n(_RUD));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlObjectLockRule
  */
 const se_ObjectLockRule = (input: ObjectLockRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ObjectLockRule");
-  if (input.DefaultRetention != null) {
-    const node = se_DefaultRetention(input.DefaultRetention, context).withName("DefaultRetention");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OLRb);
+  if (input[_DRe] != null) {
+    bn.c(se_DefaultRetention(input[_DRe], context).n(_DRe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOutputLocation
  */
 const se_OutputLocation = (input: OutputLocation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OutputLocation");
-  if (input.S3 != null) {
-    const node = se_S3Location(input.S3, context).withName("S3");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OL);
+  if (input[_S_] != null) {
+    bn.c(se_S3Location(input[_S_], context).n(_S_));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOutputSerialization
  */
 const se_OutputSerialization = (input: OutputSerialization, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OutputSerialization");
-  if (input.CSV != null) {
-    const node = se_CSVOutput(input.CSV, context).withName("CSV");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OS);
+  if (input[_CSV] != null) {
+    bn.c(se_CSVOutput(input[_CSV], context).n(_CSV));
   }
-  if (input.JSON != null) {
-    const node = se_JSONOutput(input.JSON, context).withName("JSON");
-    bodyNode.addChildNode(node);
+  if (input[_JSON] != null) {
+    bn.c(se_JSONOutput(input[_JSON], context).n(_JSON));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOwner
  */
 const se_Owner = (input: Owner, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Owner");
-  if (input.DisplayName != null) {
-    const node = __XmlNode.of("DisplayName", input.DisplayName).withName("DisplayName");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_O);
+  bn.cc(input, _DN);
+  bn.cc(input, _ID_);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOwnershipControls
  */
 const se_OwnershipControls = (input: OwnershipControls, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OwnershipControls");
-  if (input.Rules != null) {
-    const nodes = se_OwnershipControlsRules(input.Rules, context);
-    nodes.map((node: any) => {
-      node = node.withName("Rule");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_OC);
+  bn.l(input, "Rules", "Rule", () => se_OwnershipControlsRules(input[_Rul]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOwnershipControlsRule
  */
 const se_OwnershipControlsRule = (input: OwnershipControlsRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OwnershipControlsRule");
-  if (input.ObjectOwnership != null) {
-    const node = __XmlNode.of("ObjectOwnership", input.ObjectOwnership).withName("ObjectOwnership");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_OCR);
+  bn.cc(input, _OO);
+  return bn;
 };
 
 /**
@@ -10101,8 +8764,8 @@ const se_OwnershipControlsRules = (input: OwnershipControlsRule[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_OwnershipControlsRule(entry, context);
-      return node.withName("member");
+      const n = se_OwnershipControlsRule(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10110,71 +8773,55 @@ const se_OwnershipControlsRules = (input: OwnershipControlsRule[], context: __Se
  * serializeAws_restXmlParquetInput
  */
 const se_ParquetInput = (input: ParquetInput, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ParquetInput");
-  return bodyNode;
+  const bn = new __XmlNode(_PI);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPartitionedPrefix
  */
 const se_PartitionedPrefix = (input: PartitionedPrefix, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PartitionedPrefix");
-  if (input.PartitionDateSource != null) {
-    const node = __XmlNode.of("PartitionDateSource", input.PartitionDateSource).withName("PartitionDateSource");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_PP);
+  bn.cc(input, _PDS);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPublicAccessBlockConfiguration
  */
 const se_PublicAccessBlockConfiguration = (input: PublicAccessBlockConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PublicAccessBlockConfiguration");
-  if (input.BlockPublicAcls != null) {
-    const node = __XmlNode.of("Setting", String(input.BlockPublicAcls)).withName("BlockPublicAcls");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PABC);
+  if (input[_BPA] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_BPA])).n(_BPA));
   }
-  if (input.IgnorePublicAcls != null) {
-    const node = __XmlNode.of("Setting", String(input.IgnorePublicAcls)).withName("IgnorePublicAcls");
-    bodyNode.addChildNode(node);
+  if (input[_IPA] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_IPA])).n(_IPA));
   }
-  if (input.BlockPublicPolicy != null) {
-    const node = __XmlNode.of("Setting", String(input.BlockPublicPolicy)).withName("BlockPublicPolicy");
-    bodyNode.addChildNode(node);
+  if (input[_BPP] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_BPP])).n(_BPP));
   }
-  if (input.RestrictPublicBuckets != null) {
-    const node = __XmlNode.of("Setting", String(input.RestrictPublicBuckets)).withName("RestrictPublicBuckets");
-    bodyNode.addChildNode(node);
+  if (input[_RPB] != null) {
+    bn.c(__XmlNode.of(_Se, String(input[_RPB])).n(_RPB));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlQueueConfiguration
  */
 const se_QueueConfiguration = (input: QueueConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("QueueConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("NotificationId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_QC);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_NI, input[_I]).n(_I));
   }
-  if (input.QueueArn != null) {
-    const node = __XmlNode.of("QueueArn", input.QueueArn).withName("Queue");
-    bodyNode.addChildNode(node);
+  if (input[_QA] != null) {
+    bn.c(__XmlNode.of(_QA, input[_QA]).n(_Qu));
   }
-  if (input.Events != null) {
-    const nodes = se_EventList(input.Events, context);
-    nodes.map((node: any) => {
-      node = node.withName("Event");
-      bodyNode.addChildNode(node);
-    });
+  bn.l(input, "Events", "Event", () => se_EventList(input[_Eve]!, context));
+  if (input[_F] != null) {
+    bn.c(se_NotificationConfigurationFilter(input[_F], context).n(_F));
   }
-  if (input.Filter != null) {
-    const node = se_NotificationConfigurationFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10184,8 +8831,8 @@ const se_QueueConfigurationList = (input: QueueConfiguration[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_QueueConfiguration(entry, context);
-      return node.withName("member");
+      const n = se_QueueConfiguration(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10193,168 +8840,116 @@ const se_QueueConfigurationList = (input: QueueConfiguration[], context: __Serde
  * serializeAws_restXmlRedirect
  */
 const se_Redirect = (input: Redirect, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Redirect");
-  if (input.HostName != null) {
-    const node = __XmlNode.of("HostName", input.HostName).withName("HostName");
-    bodyNode.addChildNode(node);
-  }
-  if (input.HttpRedirectCode != null) {
-    const node = __XmlNode.of("HttpRedirectCode", input.HttpRedirectCode).withName("HttpRedirectCode");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Protocol != null) {
-    const node = __XmlNode.of("Protocol", input.Protocol).withName("Protocol");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ReplaceKeyPrefixWith != null) {
-    const node = __XmlNode.of("ReplaceKeyPrefixWith", input.ReplaceKeyPrefixWith).withName("ReplaceKeyPrefixWith");
-    bodyNode.addChildNode(node);
-  }
-  if (input.ReplaceKeyWith != null) {
-    const node = __XmlNode.of("ReplaceKeyWith", input.ReplaceKeyWith).withName("ReplaceKeyWith");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_Red);
+  bn.cc(input, _HN);
+  bn.cc(input, _HRC);
+  bn.cc(input, _Pr);
+  bn.cc(input, _RKPW);
+  bn.cc(input, _RKW);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRedirectAllRequestsTo
  */
 const se_RedirectAllRequestsTo = (input: RedirectAllRequestsTo, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("RedirectAllRequestsTo");
-  if (input.HostName != null) {
-    const node = __XmlNode.of("HostName", input.HostName).withName("HostName");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Protocol != null) {
-    const node = __XmlNode.of("Protocol", input.Protocol).withName("Protocol");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RART);
+  bn.cc(input, _HN);
+  bn.cc(input, _Pr);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicaModifications
  */
 const se_ReplicaModifications = (input: ReplicaModifications, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicaModifications");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ReplicaModificationsStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RM);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_RMS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationConfiguration
  */
 const se_ReplicationConfiguration = (input: ReplicationConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationConfiguration");
-  if (input.Role != null) {
-    const node = __XmlNode.of("Role", input.Role).withName("Role");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Rules != null) {
-    const nodes = se_ReplicationRules(input.Rules, context);
-    nodes.map((node: any) => {
-      node = node.withName("Rule");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RCe);
+  bn.cc(input, _Ro);
+  bn.l(input, "Rules", "Rule", () => se_ReplicationRules(input[_Rul]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationRule
  */
 const se_ReplicationRule = (input: ReplicationRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationRule");
-  if (input.ID != null) {
-    const node = __XmlNode.of("ID", input.ID).withName("ID");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RRe);
+  bn.cc(input, _ID_);
+  if (input[_Pri] != null) {
+    bn.c(__XmlNode.of(_Pri, String(input[_Pri])).n(_Pri));
   }
-  if (input.Priority != null) {
-    const node = __XmlNode.of("Priority", String(input.Priority)).withName("Priority");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _P);
+  if (input[_F] != null) {
+    bn.c(se_ReplicationRuleFilter(input[_F], context).n(_F));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_RRS, input[_S]).n(_S));
   }
-  if (input.Filter != null) {
-    const node = se_ReplicationRuleFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
+  if (input[_SSC] != null) {
+    bn.c(se_SourceSelectionCriteria(input[_SSC], context).n(_SSC));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("ReplicationRuleStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_EOR] != null) {
+    bn.c(se_ExistingObjectReplication(input[_EOR], context).n(_EOR));
   }
-  if (input.SourceSelectionCriteria != null) {
-    const node = se_SourceSelectionCriteria(input.SourceSelectionCriteria, context).withName("SourceSelectionCriteria");
-    bodyNode.addChildNode(node);
+  if (input[_Des] != null) {
+    bn.c(se_Destination(input[_Des], context).n(_Des));
   }
-  if (input.ExistingObjectReplication != null) {
-    const node = se_ExistingObjectReplication(input.ExistingObjectReplication, context).withName(
-      "ExistingObjectReplication"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_DMR] != null) {
+    bn.c(se_DeleteMarkerReplication(input[_DMR], context).n(_DMR));
   }
-  if (input.Destination != null) {
-    const node = se_Destination(input.Destination, context).withName("Destination");
-    bodyNode.addChildNode(node);
-  }
-  if (input.DeleteMarkerReplication != null) {
-    const node = se_DeleteMarkerReplication(input.DeleteMarkerReplication, context).withName("DeleteMarkerReplication");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationRuleAndOperator
  */
 const se_ReplicationRuleAndOperator = (input: ReplicationRuleAndOperator, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationRuleAndOperator");
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("Prefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Tags != null) {
-    const nodes = se_TagSet(input.Tags, context);
-    nodes.map((node: any) => {
-      node = node.withName("Tag");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RRAO);
+  bn.cc(input, _P);
+  bn.l(input, "Tags", "Tag", () => se_TagSet(input[_Tag]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationRuleFilter
  */
 const se_ReplicationRuleFilter = (input: ReplicationRuleFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationRuleFilter");
+  const bn = new __XmlNode(_RRF);
   ReplicationRuleFilter.visit(input, {
     Prefix: (value) => {
-      const node = __XmlNode.of("Prefix", value).withName("Prefix");
-      bodyNode.addChildNode(node);
+      if (input[_P] != null) {
+        bn.c(__XmlNode.of(_P, value).n(_P));
+      }
     },
     Tag: (value) => {
-      const node = se_Tag(value, context).withName("Tag");
-      bodyNode.addChildNode(node);
+      if (input[_Ta] != null) {
+        bn.c(se_Tag(value, context).n(_Ta));
+      }
     },
     And: (value) => {
-      const node = se_ReplicationRuleAndOperator(value, context).withName("And");
-      bodyNode.addChildNode(node);
+      if (input[_A] != null) {
+        bn.c(se_ReplicationRuleAndOperator(value, context).n(_A));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10364,8 +8959,8 @@ const se_ReplicationRules = (input: ReplicationRule[], context: __SerdeContext):
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ReplicationRule(entry, context);
-      return node.withName("member");
+      const n = se_ReplicationRule(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10373,104 +8968,84 @@ const se_ReplicationRules = (input: ReplicationRule[], context: __SerdeContext):
  * serializeAws_restXmlReplicationTime
  */
 const se_ReplicationTime = (input: ReplicationTime, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationTime");
-  if (input.Status != null) {
-    const node = __XmlNode.of("ReplicationTimeStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RTe);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_RTS, input[_S]).n(_S));
   }
-  if (input.Time != null) {
-    const node = se_ReplicationTimeValue(input.Time, context).withName("Time");
-    bodyNode.addChildNode(node);
+  if (input[_Tim] != null) {
+    bn.c(se_ReplicationTimeValue(input[_Tim], context).n(_Tim));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlReplicationTimeValue
  */
 const se_ReplicationTimeValue = (input: ReplicationTimeValue, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ReplicationTimeValue");
-  if (input.Minutes != null) {
-    const node = __XmlNode.of("Minutes", String(input.Minutes)).withName("Minutes");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RTV);
+  if (input[_Mi] != null) {
+    bn.c(__XmlNode.of(_Mi, String(input[_Mi])).n(_Mi));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRequestPaymentConfiguration
  */
 const se_RequestPaymentConfiguration = (input: RequestPaymentConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("RequestPaymentConfiguration");
-  if (input.Payer != null) {
-    const node = __XmlNode.of("Payer", input.Payer).withName("Payer");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RPC);
+  bn.cc(input, _Pa);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRequestProgress
  */
 const se_RequestProgress = (input: RequestProgress, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("RequestProgress");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("EnableRequestProgress", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RPe);
+  if (input[_Ena] != null) {
+    bn.c(__XmlNode.of(_ERP, String(input[_Ena])).n(_Ena));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRestoreRequest
  */
 const se_RestoreRequest = (input: RestoreRequest, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("RestoreRequest");
-  if (input.Days != null) {
-    const node = __XmlNode.of("Days", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RRes);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_Da, String(input[_Da])).n(_Da));
   }
-  if (input.GlacierJobParameters != null) {
-    const node = se_GlacierJobParameters(input.GlacierJobParameters, context).withName("GlacierJobParameters");
-    bodyNode.addChildNode(node);
+  if (input[_GJP] != null) {
+    bn.c(se_GlacierJobParameters(input[_GJP], context).n(_GJP));
   }
-  if (input.Type != null) {
-    const node = __XmlNode.of("RestoreRequestType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
+  if (input[_Ty] != null) {
+    bn.c(__XmlNode.of(_RRT, input[_Ty]).n(_Ty));
   }
-  if (input.Tier != null) {
-    const node = __XmlNode.of("Tier", input.Tier).withName("Tier");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _Ti);
+  bn.cc(input, _Desc);
+  if (input[_SP] != null) {
+    bn.c(se_SelectParameters(input[_SP], context).n(_SP));
   }
-  if (input.Description != null) {
-    const node = __XmlNode.of("Description", input.Description).withName("Description");
-    bodyNode.addChildNode(node);
+  if (input[_OL] != null) {
+    bn.c(se_OutputLocation(input[_OL], context).n(_OL));
   }
-  if (input.SelectParameters != null) {
-    const node = se_SelectParameters(input.SelectParameters, context).withName("SelectParameters");
-    bodyNode.addChildNode(node);
-  }
-  if (input.OutputLocation != null) {
-    const node = se_OutputLocation(input.OutputLocation, context).withName("OutputLocation");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRoutingRule
  */
 const se_RoutingRule = (input: RoutingRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("RoutingRule");
-  if (input.Condition != null) {
-    const node = se_Condition(input.Condition, context).withName("Condition");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RRou);
+  if (input[_Con] != null) {
+    bn.c(se_Condition(input[_Con], context).n(_Con));
   }
-  if (input.Redirect != null) {
-    const node = se_Redirect(input.Redirect, context).withName("Redirect");
-    bodyNode.addChildNode(node);
+  if (input[_Red] != null) {
+    bn.c(se_Redirect(input[_Red], context).n(_Red));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10480,8 +9055,8 @@ const se_RoutingRules = (input: RoutingRule[], context: __SerdeContext): any => 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_RoutingRule(entry, context);
-      return node.withName("RoutingRule");
+      const n = se_RoutingRule(entry, context);
+      return n.n(_RRou);
     });
 };
 
@@ -10489,119 +9064,77 @@ const se_RoutingRules = (input: RoutingRule[], context: __SerdeContext): any => 
  * serializeAws_restXmlS3KeyFilter
  */
 const se_S3KeyFilter = (input: S3KeyFilter, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3KeyFilter");
-  if (input.FilterRules != null) {
-    const nodes = se_FilterRuleList(input.FilterRules, context);
-    nodes.map((node: any) => {
-      node = node.withName("FilterRule");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_SKF);
+  bn.l(input, "FilterRules", "FilterRule", () => se_FilterRuleList(input[_FRi]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3Location
  */
 const se_S3Location = (input: S3Location, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3Location");
-  if (input.BucketName != null) {
-    const node = __XmlNode.of("BucketName", input.BucketName).withName("BucketName");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SL);
+  bn.cc(input, _BN);
+  if (input[_P] != null) {
+    bn.c(__XmlNode.of(_LP, input[_P]).n(_P));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("LocationPrefix", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_En] != null) {
+    bn.c(se_Encryption(input[_En], context).n(_En));
   }
-  if (input.Encryption != null) {
-    const node = se_Encryption(input.Encryption, context).withName("Encryption");
-    bodyNode.addChildNode(node);
+  if (input[_CACL] != null) {
+    bn.c(__XmlNode.of(_OCACL, input[_CACL]).n(_CACL));
   }
-  if (input.CannedACL != null) {
-    const node = __XmlNode.of("ObjectCannedACL", input.CannedACL).withName("CannedACL");
-    bodyNode.addChildNode(node);
+  bn.lc(input, "AccessControlList", "AccessControlList", () => se_Grants(input[_ACLc]!, context));
+  if (input[_T] != null) {
+    bn.c(se_Tagging(input[_T], context).n(_T));
   }
-  if (input.AccessControlList != null) {
-    const nodes = se_Grants(input.AccessControlList, context);
-    const containerNode = new __XmlNode("AccessControlList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.Tagging != null) {
-    const node = se_Tagging(input.Tagging, context).withName("Tagging");
-    bodyNode.addChildNode(node);
-  }
-  if (input.UserMetadata != null) {
-    const nodes = se_UserMetadata(input.UserMetadata, context);
-    const containerNode = new __XmlNode("UserMetadata");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("StorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.lc(input, "UserMetadata", "UserMetadata", () => se_UserMetadata(input[_UM]!, context));
+  bn.cc(input, _SC);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlScanRange
  */
 const se_ScanRange = (input: ScanRange, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ScanRange");
-  if (input.Start != null) {
-    const node = __XmlNode.of("Start", String(input.Start)).withName("Start");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SR);
+  if (input[_St] != null) {
+    bn.c(__XmlNode.of(_St, String(input[_St])).n(_St));
   }
-  if (input.End != null) {
-    const node = __XmlNode.of("End", String(input.End)).withName("End");
-    bodyNode.addChildNode(node);
+  if (input[_End] != null) {
+    bn.c(__XmlNode.of(_End, String(input[_End])).n(_End));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSelectParameters
  */
 const se_SelectParameters = (input: SelectParameters, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SelectParameters");
-  if (input.InputSerialization != null) {
-    const node = se_InputSerialization(input.InputSerialization, context).withName("InputSerialization");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SP);
+  if (input[_IS] != null) {
+    bn.c(se_InputSerialization(input[_IS], context).n(_IS));
   }
-  if (input.ExpressionType != null) {
-    const node = __XmlNode.of("ExpressionType", input.ExpressionType).withName("ExpressionType");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _ETx);
+  bn.cc(input, _Ex);
+  if (input[_OS] != null) {
+    bn.c(se_OutputSerialization(input[_OS], context).n(_OS));
   }
-  if (input.Expression != null) {
-    const node = __XmlNode.of("Expression", input.Expression).withName("Expression");
-    bodyNode.addChildNode(node);
-  }
-  if (input.OutputSerialization != null) {
-    const node = se_OutputSerialization(input.OutputSerialization, context).withName("OutputSerialization");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlServerSideEncryptionByDefault
  */
 const se_ServerSideEncryptionByDefault = (input: ServerSideEncryptionByDefault, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ServerSideEncryptionByDefault");
-  if (input.SSEAlgorithm != null) {
-    const node = __XmlNode.of("ServerSideEncryption", input.SSEAlgorithm).withName("SSEAlgorithm");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSEBD);
+  if (input[_SSEA] != null) {
+    bn.c(__XmlNode.of(_SSE, input[_SSEA]).n(_SSEA));
   }
-  if (input.KMSMasterKeyID != null) {
-    const node = __XmlNode.of("SSEKMSKeyId", input.KMSMasterKeyID).withName("KMSMasterKeyID");
-    bodyNode.addChildNode(node);
+  if (input[_KMSMKID] != null) {
+    bn.c(__XmlNode.of(_SSEKMSKI, input[_KMSMKID]).n(_KMSMKID));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10611,33 +9144,23 @@ const se_ServerSideEncryptionConfiguration = (
   input: ServerSideEncryptionConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ServerSideEncryptionConfiguration");
-  if (input.Rules != null) {
-    const nodes = se_ServerSideEncryptionRules(input.Rules, context);
-    nodes.map((node: any) => {
-      node = node.withName("Rule");
-      bodyNode.addChildNode(node);
-    });
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_SSEC);
+  bn.l(input, "Rules", "Rule", () => se_ServerSideEncryptionRules(input[_Rul]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlServerSideEncryptionRule
  */
 const se_ServerSideEncryptionRule = (input: ServerSideEncryptionRule, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ServerSideEncryptionRule");
-  if (input.ApplyServerSideEncryptionByDefault != null) {
-    const node = se_ServerSideEncryptionByDefault(input.ApplyServerSideEncryptionByDefault, context).withName(
-      "ApplyServerSideEncryptionByDefault"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSER);
+  if (input[_ASSEBD] != null) {
+    bn.c(se_ServerSideEncryptionByDefault(input[_ASSEBD], context).n(_ASSEBD));
   }
-  if (input.BucketKeyEnabled != null) {
-    const node = __XmlNode.of("BucketKeyEnabled", String(input.BucketKeyEnabled)).withName("BucketKeyEnabled");
-    bodyNode.addChildNode(node);
+  if (input[_BKE] != null) {
+    bn.c(__XmlNode.of(_BKE, String(input[_BKE])).n(_BKE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10647,8 +9170,8 @@ const se_ServerSideEncryptionRules = (input: ServerSideEncryptionRule[], context
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ServerSideEncryptionRule(entry, context);
-      return node.withName("member");
+      const n = se_ServerSideEncryptionRule(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10656,118 +9179,98 @@ const se_ServerSideEncryptionRules = (input: ServerSideEncryptionRule[], context
  * serializeAws_restXmlSimplePrefix
  */
 const se_SimplePrefix = (input: SimplePrefix, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SimplePrefix");
-  return bodyNode;
+  const bn = new __XmlNode(_SPi);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSourceSelectionCriteria
  */
 const se_SourceSelectionCriteria = (input: SourceSelectionCriteria, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SourceSelectionCriteria");
-  if (input.SseKmsEncryptedObjects != null) {
-    const node = se_SseKmsEncryptedObjects(input.SseKmsEncryptedObjects, context).withName("SseKmsEncryptedObjects");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSC);
+  if (input[_SKEO] != null) {
+    bn.c(se_SseKmsEncryptedObjects(input[_SKEO], context).n(_SKEO));
   }
-  if (input.ReplicaModifications != null) {
-    const node = se_ReplicaModifications(input.ReplicaModifications, context).withName("ReplicaModifications");
-    bodyNode.addChildNode(node);
+  if (input[_RM] != null) {
+    bn.c(se_ReplicaModifications(input[_RM], context).n(_RM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSSEKMS
  */
 const se_SSEKMS = (input: SSEKMS, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SSE-KMS");
-  if (input.KeyId != null) {
-    const node = __XmlNode.of("SSEKMSKeyId", input.KeyId).withName("KeyId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SK);
+  if (input[_KI] != null) {
+    bn.c(__XmlNode.of(_SSEKMSKI, input[_KI]).n(_KI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSseKmsEncryptedObjects
  */
 const se_SseKmsEncryptedObjects = (input: SseKmsEncryptedObjects, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SseKmsEncryptedObjects");
-  if (input.Status != null) {
-    const node = __XmlNode.of("SseKmsEncryptedObjectsStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SKEO);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_SKEOS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSSES3
  */
 const se_SSES3 = (input: SSES3, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SSE-S3");
-  return bodyNode;
+  const bn = new __XmlNode(_SS);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageClassAnalysis
  */
 const se_StorageClassAnalysis = (input: StorageClassAnalysis, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageClassAnalysis");
-  if (input.DataExport != null) {
-    const node = se_StorageClassAnalysisDataExport(input.DataExport, context).withName("DataExport");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SCA);
+  if (input[_DE] != null) {
+    bn.c(se_StorageClassAnalysisDataExport(input[_DE], context).n(_DE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStorageClassAnalysisDataExport
  */
 const se_StorageClassAnalysisDataExport = (input: StorageClassAnalysisDataExport, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StorageClassAnalysisDataExport");
-  if (input.OutputSchemaVersion != null) {
-    const node = __XmlNode
-      .of("StorageClassAnalysisSchemaVersion", input.OutputSchemaVersion)
-      .withName("OutputSchemaVersion");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SCADE);
+  if (input[_OSV] != null) {
+    bn.c(__XmlNode.of(_SCASV, input[_OSV]).n(_OSV));
   }
-  if (input.Destination != null) {
-    const node = se_AnalyticsExportDestination(input.Destination, context).withName("Destination");
-    bodyNode.addChildNode(node);
+  if (input[_Des] != null) {
+    bn.c(se_AnalyticsExportDestination(input[_Des], context).n(_Des));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tag");
-  if (input.Key != null) {
-    const node = __XmlNode.of("ObjectKey", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Ta);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_OK, input[_K]).n(_K));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("Value", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _Va);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTagging
  */
 const se_Tagging = (input: Tagging, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tagging");
-  if (input.TagSet != null) {
-    const nodes = se_TagSet(input.TagSet, context);
-    const containerNode = new __XmlNode("TagSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_T);
+  bn.lc(input, "TagSet", "TagSet", () => se_TagSet(input[_TS]!, context));
+  return bn;
 };
 
 /**
@@ -10777,8 +9280,8 @@ const se_TagSet = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Tag(entry, context);
-      return node.withName("Tag");
+      const n = se_Tag(entry, context);
+      return n.n(_Ta);
     });
 };
 
@@ -10786,17 +9289,16 @@ const se_TagSet = (input: Tag[], context: __SerdeContext): any => {
  * serializeAws_restXmlTargetGrant
  */
 const se_TargetGrant = (input: TargetGrant, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TargetGrant");
-  if (input.Grantee != null) {
-    const node = se_Grantee(input.Grantee, context).withName("Grantee");
-    node.addAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_TGa);
+  if (input[_Gra] != null) {
+    const n = se_Grantee(input[_Gra], context).n(_Gra);
+    n.a("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+    bn.c(n);
   }
-  if (input.Permission != null) {
-    const node = __XmlNode.of("BucketLogsPermission", input.Permission).withName("Permission");
-    bodyNode.addChildNode(node);
+  if (input[_Pe] != null) {
+    bn.c(__XmlNode.of(_BLP, input[_Pe]).n(_Pe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10806,8 +9308,8 @@ const se_TargetGrants = (input: TargetGrant[], context: __SerdeContext): any => 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_TargetGrant(entry, context);
-      return node.withName("Grant");
+      const n = se_TargetGrant(entry, context);
+      return n.n(_G);
     });
 };
 
@@ -10815,32 +9317,28 @@ const se_TargetGrants = (input: TargetGrant[], context: __SerdeContext): any => 
  * serializeAws_restXmlTargetObjectKeyFormat
  */
 const se_TargetObjectKeyFormat = (input: TargetObjectKeyFormat, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TargetObjectKeyFormat");
-  if (input.SimplePrefix != null) {
-    const node = se_SimplePrefix(input.SimplePrefix, context).withName("SimplePrefix");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_TOKF);
+  if (input[_SPi] != null) {
+    bn.c(se_SimplePrefix(input[_SPi], context).n(_SPi));
   }
-  if (input.PartitionedPrefix != null) {
-    const node = se_PartitionedPrefix(input.PartitionedPrefix, context).withName("PartitionedPrefix");
-    bodyNode.addChildNode(node);
+  if (input[_PP] != null) {
+    bn.c(se_PartitionedPrefix(input[_PP], context).n(_PP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTiering
  */
 const se_Tiering = (input: Tiering, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tiering");
-  if (input.Days != null) {
-    const node = __XmlNode.of("IntelligentTieringDays", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Tier);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_ITD, String(input[_Da])).n(_Da));
   }
-  if (input.AccessTier != null) {
-    const node = __XmlNode.of("IntelligentTieringAccessTier", input.AccessTier).withName("AccessTier");
-    bodyNode.addChildNode(node);
+  if (input[_AT] != null) {
+    bn.c(__XmlNode.of(_ITAT, input[_AT]).n(_AT));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10850,8 +9348,8 @@ const se_TieringList = (input: Tiering[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Tiering(entry, context);
-      return node.withName("member");
+      const n = se_Tiering(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10859,27 +9357,18 @@ const se_TieringList = (input: Tiering[], context: __SerdeContext): any => {
  * serializeAws_restXmlTopicConfiguration
  */
 const se_TopicConfiguration = (input: TopicConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TopicConfiguration");
-  if (input.Id != null) {
-    const node = __XmlNode.of("NotificationId", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_TCo);
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_NI, input[_I]).n(_I));
   }
-  if (input.TopicArn != null) {
-    const node = __XmlNode.of("TopicArn", input.TopicArn).withName("Topic");
-    bodyNode.addChildNode(node);
+  if (input[_TA] != null) {
+    bn.c(__XmlNode.of(_TA, input[_TA]).n(_Top));
   }
-  if (input.Events != null) {
-    const nodes = se_EventList(input.Events, context);
-    nodes.map((node: any) => {
-      node = node.withName("Event");
-      bodyNode.addChildNode(node);
-    });
+  bn.l(input, "Events", "Event", () => se_EventList(input[_Eve]!, context));
+  if (input[_F] != null) {
+    bn.c(se_NotificationConfigurationFilter(input[_F], context).n(_F));
   }
-  if (input.Filter != null) {
-    const node = se_NotificationConfigurationFilter(input.Filter, context).withName("Filter");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10889,8 +9378,8 @@ const se_TopicConfigurationList = (input: TopicConfiguration[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_TopicConfiguration(entry, context);
-      return node.withName("member");
+      const n = se_TopicConfiguration(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10898,20 +9387,17 @@ const se_TopicConfigurationList = (input: TopicConfiguration[], context: __Serde
  * serializeAws_restXmlTransition
  */
 const se_Transition = (input: Transition, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Transition");
-  if (input.Date != null) {
-    const node = __XmlNode.of("Date", (input.Date.toISOString().split(".")[0] + "Z").toString()).withName("Date");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Tra);
+  if (input[_Dat] != null) {
+    bn.c(__XmlNode.of(_Dat, (input[_Dat].toISOString().split(".")[0] + "Z").toString()).n(_Dat));
   }
-  if (input.Days != null) {
-    const node = __XmlNode.of("Days", String(input.Days)).withName("Days");
-    bodyNode.addChildNode(node);
+  if (input[_Da] != null) {
+    bn.c(__XmlNode.of(_Da, String(input[_Da])).n(_Da));
   }
-  if (input.StorageClass != null) {
-    const node = __XmlNode.of("TransitionStorageClass", input.StorageClass).withName("StorageClass");
-    bodyNode.addChildNode(node);
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_TSC, input[_SC]).n(_SC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -10921,8 +9407,8 @@ const se_TransitionList = (input: Transition[], context: __SerdeContext): any =>
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Transition(entry, context);
-      return node.withName("member");
+      const n = se_Transition(entry, context);
+      return n.n(_me);
     });
 };
 
@@ -10933,8 +9419,8 @@ const se_UserMetadata = (input: MetadataEntry[], context: __SerdeContext): any =
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_MetadataEntry(entry, context);
-      return node.withName("MetadataEntry");
+      const n = se_MetadataEntry(entry, context);
+      return n.n(_ME);
     });
 };
 
@@ -10942,44 +9428,32 @@ const se_UserMetadata = (input: MetadataEntry[], context: __SerdeContext): any =
  * serializeAws_restXmlVersioningConfiguration
  */
 const se_VersioningConfiguration = (input: VersioningConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("VersioningConfiguration");
-  if (input.MFADelete != null) {
-    const node = __XmlNode.of("MFADelete", input.MFADelete).withName("MfaDelete");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_VCe);
+  if (input[_MFAD] != null) {
+    bn.c(__XmlNode.of(_MFAD, input[_MFAD]).n(_MDf));
   }
-  if (input.Status != null) {
-    const node = __XmlNode.of("BucketVersioningStatus", input.Status).withName("Status");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_BVS, input[_S]).n(_S));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlWebsiteConfiguration
  */
 const se_WebsiteConfiguration = (input: WebsiteConfiguration, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("WebsiteConfiguration");
-  if (input.ErrorDocument != null) {
-    const node = se_ErrorDocument(input.ErrorDocument, context).withName("ErrorDocument");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_WC);
+  if (input[_ED] != null) {
+    bn.c(se_ErrorDocument(input[_ED], context).n(_ED));
   }
-  if (input.IndexDocument != null) {
-    const node = se_IndexDocument(input.IndexDocument, context).withName("IndexDocument");
-    bodyNode.addChildNode(node);
+  if (input[_ID] != null) {
+    bn.c(se_IndexDocument(input[_ID], context).n(_ID));
   }
-  if (input.RedirectAllRequestsTo != null) {
-    const node = se_RedirectAllRequestsTo(input.RedirectAllRequestsTo, context).withName("RedirectAllRequestsTo");
-    bodyNode.addChildNode(node);
+  if (input[_RART] != null) {
+    bn.c(se_RedirectAllRequestsTo(input[_RART], context).n(_RART));
   }
-  if (input.RoutingRules != null) {
-    const nodes = se_RoutingRules(input.RoutingRules, context);
-    const containerNode = new __XmlNode("RoutingRules");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "RoutingRules", "RoutingRules", () => se_RoutingRules(input[_RRo]!, context));
+  return bn;
 };
 
 /**
@@ -10987,8 +9461,8 @@ const se_WebsiteConfiguration = (input: WebsiteConfiguration, context: __SerdeCo
  */
 const de_AbortIncompleteMultipartUpload = (output: any, context: __SerdeContext): AbortIncompleteMultipartUpload => {
   const contents: any = {};
-  if (output["DaysAfterInitiation"] !== undefined) {
-    contents.DaysAfterInitiation = __strictParseInt32(output["DaysAfterInitiation"]) as number;
+  if (output[_DAI] != null) {
+    contents[_DAI] = __strictParseInt32(output[_DAI]) as number;
   }
   return contents;
 };
@@ -10998,8 +9472,8 @@ const de_AbortIncompleteMultipartUpload = (output: any, context: __SerdeContext)
  */
 const de_AccessControlTranslation = (output: any, context: __SerdeContext): AccessControlTranslation => {
   const contents: any = {};
-  if (output["Owner"] !== undefined) {
-    contents.Owner = __expectString(output["Owner"]);
+  if (output[_O] != null) {
+    contents[_O] = __expectString(output[_O]);
   }
   return contents;
 };
@@ -11042,13 +9516,13 @@ const de_AllowedOrigins = (output: any, context: __SerdeContext): string[] => {
  */
 const de_AnalyticsAndOperator = (output: any, context: __SerdeContext): AnalyticsAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Tag === "") {
-    contents.Tags = [];
-  } else if (output["Tag"] !== undefined) {
-    contents.Tags = de_TagSet(__getArrayIfSingleItem(output["Tag"]), context);
+    contents[_Tag] = [];
+  } else if (output[_Ta] != null) {
+    contents[_Tag] = de_TagSet(__getArrayIfSingleItem(output[_Ta]), context);
   }
   return contents;
 };
@@ -11058,16 +9532,16 @@ const de_AnalyticsAndOperator = (output: any, context: __SerdeContext): Analytic
  */
 const de_AnalyticsConfiguration = (output: any, context: __SerdeContext): AnalyticsConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
   if (output.Filter === "") {
     // Pass empty tags.
-  } else if (output["Filter"] !== undefined) {
-    contents.Filter = de_AnalyticsFilter(__expectUnion(output["Filter"]), context);
+  } else if (output[_F] != null) {
+    contents[_F] = de_AnalyticsFilter(__expectUnion(output[_F]), context);
   }
-  if (output["StorageClassAnalysis"] !== undefined) {
-    contents.StorageClassAnalysis = de_StorageClassAnalysis(output["StorageClassAnalysis"], context);
+  if (output[_SCA] != null) {
+    contents[_SCA] = de_StorageClassAnalysis(output[_SCA], context);
   }
   return contents;
 };
@@ -11088,8 +9562,8 @@ const de_AnalyticsConfigurationList = (output: any, context: __SerdeContext): An
  */
 const de_AnalyticsExportDestination = (output: any, context: __SerdeContext): AnalyticsExportDestination => {
   const contents: any = {};
-  if (output["S3BucketDestination"] !== undefined) {
-    contents.S3BucketDestination = de_AnalyticsS3BucketDestination(output["S3BucketDestination"], context);
+  if (output[_SBD] != null) {
+    contents[_SBD] = de_AnalyticsS3BucketDestination(output[_SBD], context);
   }
   return contents;
 };
@@ -11098,19 +9572,19 @@ const de_AnalyticsExportDestination = (output: any, context: __SerdeContext): An
  * deserializeAws_restXmlAnalyticsFilter
  */
 const de_AnalyticsFilter = (output: any, context: __SerdeContext): AnalyticsFilter => {
-  if (output["Prefix"] !== undefined) {
+  if (output[_P] != null) {
     return {
-      Prefix: __expectString(output["Prefix"]) as any,
+      Prefix: __expectString(output[_P]) as any,
     };
   }
-  if (output["Tag"] !== undefined) {
+  if (output[_Ta] != null) {
     return {
-      Tag: de_Tag(output["Tag"], context),
+      Tag: de_Tag(output[_Ta], context),
     };
   }
-  if (output["And"] !== undefined) {
+  if (output[_A] != null) {
     return {
-      And: de_AnalyticsAndOperator(output["And"], context),
+      And: de_AnalyticsAndOperator(output[_A], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -11121,17 +9595,17 @@ const de_AnalyticsFilter = (output: any, context: __SerdeContext): AnalyticsFilt
  */
 const de_AnalyticsS3BucketDestination = (output: any, context: __SerdeContext): AnalyticsS3BucketDestination => {
   const contents: any = {};
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_Fo] != null) {
+    contents[_Fo] = __expectString(output[_Fo]);
   }
-  if (output["BucketAccountId"] !== undefined) {
-    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
+  if (output[_BAI] != null) {
+    contents[_BAI] = __expectString(output[_BAI]);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   return contents;
 };
@@ -11141,11 +9615,11 @@ const de_AnalyticsS3BucketDestination = (output: any, context: __SerdeContext): 
  */
 const de_Bucket = (output: any, context: __SerdeContext): Bucket => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CreationDate"] !== undefined) {
-    contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
+  if (output[_CDr] != null) {
+    contents[_CDr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CDr]));
   }
   return contents;
 };
@@ -11166,17 +9640,17 @@ const de_Buckets = (output: any, context: __SerdeContext): Bucket[] => {
  */
 const de_Checksum = (output: any, context: __SerdeContext): Checksum => {
   const contents: any = {};
-  if (output["ChecksumCRC32"] !== undefined) {
-    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  if (output[_CCRC] != null) {
+    contents[_CCRC] = __expectString(output[_CCRC]);
   }
-  if (output["ChecksumCRC32C"] !== undefined) {
-    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  if (output[_CCRCC] != null) {
+    contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
-  if (output["ChecksumSHA1"] !== undefined) {
-    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  if (output[_CSHA] != null) {
+    contents[_CSHA] = __expectString(output[_CSHA]);
   }
-  if (output["ChecksumSHA256"] !== undefined) {
-    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  if (output[_CSHAh] != null) {
+    contents[_CSHAh] = __expectString(output[_CSHAh]);
   }
   return contents;
 };
@@ -11197,8 +9671,8 @@ const de_ChecksumAlgorithmList = (output: any, context: __SerdeContext): Checksu
  */
 const de_CommonPrefix = (output: any, context: __SerdeContext): CommonPrefix => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   return contents;
 };
@@ -11219,11 +9693,11 @@ const de_CommonPrefixList = (output: any, context: __SerdeContext): CommonPrefix
  */
 const de_Condition = (output: any, context: __SerdeContext): Condition => {
   const contents: any = {};
-  if (output["HttpErrorCodeReturnedEquals"] !== undefined) {
-    contents.HttpErrorCodeReturnedEquals = __expectString(output["HttpErrorCodeReturnedEquals"]);
+  if (output[_HECRE] != null) {
+    contents[_HECRE] = __expectString(output[_HECRE]);
   }
-  if (output["KeyPrefixEquals"] !== undefined) {
-    contents.KeyPrefixEquals = __expectString(output["KeyPrefixEquals"]);
+  if (output[_KPE] != null) {
+    contents[_KPE] = __expectString(output[_KPE]);
   }
   return contents;
 };
@@ -11241,23 +9715,23 @@ const de_ContinuationEvent = (output: any, context: __SerdeContext): Continuatio
  */
 const de_CopyObjectResult = (output: any, context: __SerdeContext): CopyObjectResult => {
   const contents: any = {};
-  if (output["ETag"] !== undefined) {
-    contents.ETag = __expectString(output["ETag"]);
+  if (output[_ETa] != null) {
+    contents[_ETa] = __expectString(output[_ETa]);
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LM] != null) {
+    contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
-  if (output["ChecksumCRC32"] !== undefined) {
-    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  if (output[_CCRC] != null) {
+    contents[_CCRC] = __expectString(output[_CCRC]);
   }
-  if (output["ChecksumCRC32C"] !== undefined) {
-    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  if (output[_CCRCC] != null) {
+    contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
-  if (output["ChecksumSHA1"] !== undefined) {
-    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  if (output[_CSHA] != null) {
+    contents[_CSHA] = __expectString(output[_CSHA]);
   }
-  if (output["ChecksumSHA256"] !== undefined) {
-    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  if (output[_CSHAh] != null) {
+    contents[_CSHAh] = __expectString(output[_CSHAh]);
   }
   return contents;
 };
@@ -11267,23 +9741,23 @@ const de_CopyObjectResult = (output: any, context: __SerdeContext): CopyObjectRe
  */
 const de_CopyPartResult = (output: any, context: __SerdeContext): CopyPartResult => {
   const contents: any = {};
-  if (output["ETag"] !== undefined) {
-    contents.ETag = __expectString(output["ETag"]);
+  if (output[_ETa] != null) {
+    contents[_ETa] = __expectString(output[_ETa]);
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LM] != null) {
+    contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
-  if (output["ChecksumCRC32"] !== undefined) {
-    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  if (output[_CCRC] != null) {
+    contents[_CCRC] = __expectString(output[_CCRC]);
   }
-  if (output["ChecksumCRC32C"] !== undefined) {
-    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  if (output[_CCRCC] != null) {
+    contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
-  if (output["ChecksumSHA1"] !== undefined) {
-    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  if (output[_CSHA] != null) {
+    contents[_CSHA] = __expectString(output[_CSHA]);
   }
-  if (output["ChecksumSHA256"] !== undefined) {
-    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  if (output[_CSHAh] != null) {
+    contents[_CSHAh] = __expectString(output[_CSHAh]);
   }
   return contents;
 };
@@ -11293,31 +9767,31 @@ const de_CopyPartResult = (output: any, context: __SerdeContext): CopyPartResult
  */
 const de_CORSRule = (output: any, context: __SerdeContext): CORSRule => {
   const contents: any = {};
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID_] != null) {
+    contents[_ID_] = __expectString(output[_ID_]);
   }
   if (output.AllowedHeader === "") {
-    contents.AllowedHeaders = [];
-  } else if (output["AllowedHeader"] !== undefined) {
-    contents.AllowedHeaders = de_AllowedHeaders(__getArrayIfSingleItem(output["AllowedHeader"]), context);
+    contents[_AHl] = [];
+  } else if (output[_AH] != null) {
+    contents[_AHl] = de_AllowedHeaders(__getArrayIfSingleItem(output[_AH]), context);
   }
   if (output.AllowedMethod === "") {
-    contents.AllowedMethods = [];
-  } else if (output["AllowedMethod"] !== undefined) {
-    contents.AllowedMethods = de_AllowedMethods(__getArrayIfSingleItem(output["AllowedMethod"]), context);
+    contents[_AMl] = [];
+  } else if (output[_AM] != null) {
+    contents[_AMl] = de_AllowedMethods(__getArrayIfSingleItem(output[_AM]), context);
   }
   if (output.AllowedOrigin === "") {
-    contents.AllowedOrigins = [];
-  } else if (output["AllowedOrigin"] !== undefined) {
-    contents.AllowedOrigins = de_AllowedOrigins(__getArrayIfSingleItem(output["AllowedOrigin"]), context);
+    contents[_AOl] = [];
+  } else if (output[_AO] != null) {
+    contents[_AOl] = de_AllowedOrigins(__getArrayIfSingleItem(output[_AO]), context);
   }
   if (output.ExposeHeader === "") {
-    contents.ExposeHeaders = [];
-  } else if (output["ExposeHeader"] !== undefined) {
-    contents.ExposeHeaders = de_ExposeHeaders(__getArrayIfSingleItem(output["ExposeHeader"]), context);
+    contents[_EH] = [];
+  } else if (output[_EHx] != null) {
+    contents[_EH] = de_ExposeHeaders(__getArrayIfSingleItem(output[_EHx]), context);
   }
-  if (output["MaxAgeSeconds"] !== undefined) {
-    contents.MaxAgeSeconds = __strictParseInt32(output["MaxAgeSeconds"]) as number;
+  if (output[_MAS] != null) {
+    contents[_MAS] = __strictParseInt32(output[_MAS]) as number;
   }
   return contents;
 };
@@ -11338,14 +9812,14 @@ const de_CORSRules = (output: any, context: __SerdeContext): CORSRule[] => {
  */
 const de_DefaultRetention = (output: any, context: __SerdeContext): DefaultRetention => {
   const contents: any = {};
-  if (output["Mode"] !== undefined) {
-    contents.Mode = __expectString(output["Mode"]);
+  if (output[_Mo] != null) {
+    contents[_Mo] = __expectString(output[_Mo]);
   }
-  if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt32(output["Days"]) as number;
+  if (output[_Da] != null) {
+    contents[_Da] = __strictParseInt32(output[_Da]) as number;
   }
-  if (output["Years"] !== undefined) {
-    contents.Years = __strictParseInt32(output["Years"]) as number;
+  if (output[_Y] != null) {
+    contents[_Y] = __strictParseInt32(output[_Y]) as number;
   }
   return contents;
 };
@@ -11355,17 +9829,17 @@ const de_DefaultRetention = (output: any, context: __SerdeContext): DefaultReten
  */
 const de_DeletedObject = (output: any, context: __SerdeContext): DeletedObject => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = __expectString(output["VersionId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["DeleteMarker"] !== undefined) {
-    contents.DeleteMarker = __parseBoolean(output["DeleteMarker"]);
+  if (output[_DM] != null) {
+    contents[_DM] = __parseBoolean(output[_DM]);
   }
-  if (output["DeleteMarkerVersionId"] !== undefined) {
-    contents.DeleteMarkerVersionId = __expectString(output["DeleteMarkerVersionId"]);
+  if (output[_DMVI] != null) {
+    contents[_DMVI] = __expectString(output[_DMVI]);
   }
   return contents;
 };
@@ -11386,20 +9860,20 @@ const de_DeletedObjects = (output: any, context: __SerdeContext): DeletedObject[
  */
 const de_DeleteMarkerEntry = (output: any, context: __SerdeContext): DeleteMarkerEntry => {
   const contents: any = {};
-  if (output["Owner"] !== undefined) {
-    contents.Owner = de_Owner(output["Owner"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_Owner(output[_O], context);
   }
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = __expectString(output["VersionId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["IsLatest"] !== undefined) {
-    contents.IsLatest = __parseBoolean(output["IsLatest"]);
+  if (output[_IL] != null) {
+    contents[_IL] = __parseBoolean(output[_IL]);
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LM] != null) {
+    contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
   return contents;
 };
@@ -11409,8 +9883,8 @@ const de_DeleteMarkerEntry = (output: any, context: __SerdeContext): DeleteMarke
  */
 const de_DeleteMarkerReplication = (output: any, context: __SerdeContext): DeleteMarkerReplication => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -11431,26 +9905,26 @@ const de_DeleteMarkers = (output: any, context: __SerdeContext): DeleteMarkerEnt
  */
 const de_Destination = (output: any, context: __SerdeContext): Destination => {
   const contents: any = {};
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Ac] != null) {
+    contents[_Ac] = __expectString(output[_Ac]);
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["AccessControlTranslation"] !== undefined) {
-    contents.AccessControlTranslation = de_AccessControlTranslation(output["AccessControlTranslation"], context);
+  if (output[_ACT] != null) {
+    contents[_ACT] = de_AccessControlTranslation(output[_ACT], context);
   }
-  if (output["EncryptionConfiguration"] !== undefined) {
-    contents.EncryptionConfiguration = de_EncryptionConfiguration(output["EncryptionConfiguration"], context);
+  if (output[_ECn] != null) {
+    contents[_ECn] = de_EncryptionConfiguration(output[_ECn], context);
   }
-  if (output["ReplicationTime"] !== undefined) {
-    contents.ReplicationTime = de_ReplicationTime(output["ReplicationTime"], context);
+  if (output[_RTe] != null) {
+    contents[_RTe] = de_ReplicationTime(output[_RTe], context);
   }
-  if (output["Metrics"] !== undefined) {
-    contents.Metrics = de_Metrics(output["Metrics"], context);
+  if (output[_Me] != null) {
+    contents[_Me] = de_Metrics(output[_Me], context);
   }
   return contents;
 };
@@ -11460,8 +9934,8 @@ const de_Destination = (output: any, context: __SerdeContext): Destination => {
  */
 const de_EncryptionConfiguration = (output: any, context: __SerdeContext): EncryptionConfiguration => {
   const contents: any = {};
-  if (output["ReplicaKmsKeyID"] !== undefined) {
-    contents.ReplicaKmsKeyID = __expectString(output["ReplicaKmsKeyID"]);
+  if (output[_RKKID] != null) {
+    contents[_RKKID] = __expectString(output[_RKKID]);
   }
   return contents;
 };
@@ -11479,17 +9953,17 @@ const de_EndEvent = (output: any, context: __SerdeContext): EndEvent => {
  */
 const de__Error = (output: any, context: __SerdeContext): _Error => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = __expectString(output["VersionId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_Cod] != null) {
+    contents[_Cod] = __expectString(output[_Cod]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Mes] != null) {
+    contents[_Mes] = __expectString(output[_Mes]);
   }
   return contents;
 };
@@ -11499,8 +9973,8 @@ const de__Error = (output: any, context: __SerdeContext): _Error => {
  */
 const de_ErrorDocument = (output: any, context: __SerdeContext): ErrorDocument => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
   return contents;
 };
@@ -11540,8 +10014,8 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
  */
 const de_ExistingObjectReplication = (output: any, context: __SerdeContext): ExistingObjectReplication => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -11562,11 +10036,11 @@ const de_ExposeHeaders = (output: any, context: __SerdeContext): string[] => {
  */
 const de_FilterRule = (output: any, context: __SerdeContext): FilterRule => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -11587,25 +10061,25 @@ const de_FilterRuleList = (output: any, context: __SerdeContext): FilterRule[] =
  */
 const de_GetObjectAttributesParts = (output: any, context: __SerdeContext): GetObjectAttributesParts => {
   const contents: any = {};
-  if (output["PartsCount"] !== undefined) {
-    contents.TotalPartsCount = __strictParseInt32(output["PartsCount"]) as number;
+  if (output[_PC] != null) {
+    contents[_TPC] = __strictParseInt32(output[_PC]) as number;
   }
-  if (output["PartNumberMarker"] !== undefined) {
-    contents.PartNumberMarker = __expectString(output["PartNumberMarker"]);
+  if (output[_PNM] != null) {
+    contents[_PNM] = __expectString(output[_PNM]);
   }
-  if (output["NextPartNumberMarker"] !== undefined) {
-    contents.NextPartNumberMarker = __expectString(output["NextPartNumberMarker"]);
+  if (output[_NPNM] != null) {
+    contents[_NPNM] = __expectString(output[_NPNM]);
   }
-  if (output["MaxParts"] !== undefined) {
-    contents.MaxParts = __strictParseInt32(output["MaxParts"]) as number;
+  if (output[_MP] != null) {
+    contents[_MP] = __strictParseInt32(output[_MP]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
   if (output.Part === "") {
-    contents.Parts = [];
-  } else if (output["Part"] !== undefined) {
-    contents.Parts = de_PartsList(__getArrayIfSingleItem(output["Part"]), context);
+    contents[_Part] = [];
+  } else if (output[_Par] != null) {
+    contents[_Part] = de_PartsList(__getArrayIfSingleItem(output[_Par]), context);
   }
   return contents;
 };
@@ -11615,11 +10089,11 @@ const de_GetObjectAttributesParts = (output: any, context: __SerdeContext): GetO
  */
 const de_Grant = (output: any, context: __SerdeContext): Grant => {
   const contents: any = {};
-  if (output["Grantee"] !== undefined) {
-    contents.Grantee = de_Grantee(output["Grantee"], context);
+  if (output[_Gra] != null) {
+    contents[_Gra] = de_Grantee(output[_Gra], context);
   }
-  if (output["Permission"] !== undefined) {
-    contents.Permission = __expectString(output["Permission"]);
+  if (output[_Pe] != null) {
+    contents[_Pe] = __expectString(output[_Pe]);
   }
   return contents;
 };
@@ -11629,20 +10103,20 @@ const de_Grant = (output: any, context: __SerdeContext): Grant => {
  */
 const de_Grantee = (output: any, context: __SerdeContext): Grantee => {
   const contents: any = {};
-  if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = __expectString(output["DisplayName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["EmailAddress"] !== undefined) {
-    contents.EmailAddress = __expectString(output["EmailAddress"]);
+  if (output[_EA] != null) {
+    contents[_EA] = __expectString(output[_EA]);
   }
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID_] != null) {
+    contents[_ID_] = __expectString(output[_ID_]);
   }
-  if (output["URI"] !== undefined) {
-    contents.URI = __expectString(output["URI"]);
+  if (output[_URI] != null) {
+    contents[_URI] = __expectString(output[_URI]);
   }
-  if (output["xsi:type"] !== undefined) {
-    contents.Type = __expectString(output["xsi:type"]);
+  if (output[_x] != null) {
+    contents[_Ty] = __expectString(output[_x]);
   }
   return contents;
 };
@@ -11663,8 +10137,8 @@ const de_Grants = (output: any, context: __SerdeContext): Grant[] => {
  */
 const de_IndexDocument = (output: any, context: __SerdeContext): IndexDocument => {
   const contents: any = {};
-  if (output["Suffix"] !== undefined) {
-    contents.Suffix = __expectString(output["Suffix"]);
+  if (output[_Su] != null) {
+    contents[_Su] = __expectString(output[_Su]);
   }
   return contents;
 };
@@ -11674,11 +10148,11 @@ const de_IndexDocument = (output: any, context: __SerdeContext): IndexDocument =
  */
 const de_Initiator = (output: any, context: __SerdeContext): Initiator => {
   const contents: any = {};
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID_] != null) {
+    contents[_ID_] = __expectString(output[_ID_]);
   }
-  if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = __expectString(output["DisplayName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
   return contents;
 };
@@ -11688,13 +10162,13 @@ const de_Initiator = (output: any, context: __SerdeContext): Initiator => {
  */
 const de_IntelligentTieringAndOperator = (output: any, context: __SerdeContext): IntelligentTieringAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Tag === "") {
-    contents.Tags = [];
-  } else if (output["Tag"] !== undefined) {
-    contents.Tags = de_TagSet(__getArrayIfSingleItem(output["Tag"]), context);
+    contents[_Tag] = [];
+  } else if (output[_Ta] != null) {
+    contents[_Tag] = de_TagSet(__getArrayIfSingleItem(output[_Ta]), context);
   }
   return contents;
 };
@@ -11704,19 +10178,19 @@ const de_IntelligentTieringAndOperator = (output: any, context: __SerdeContext):
  */
 const de_IntelligentTieringConfiguration = (output: any, context: __SerdeContext): IntelligentTieringConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_IntelligentTieringFilter(output["Filter"], context);
+  if (output[_F] != null) {
+    contents[_F] = de_IntelligentTieringFilter(output[_F], context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   if (output.Tiering === "") {
-    contents.Tierings = [];
-  } else if (output["Tiering"] !== undefined) {
-    contents.Tierings = de_TieringList(__getArrayIfSingleItem(output["Tiering"]), context);
+    contents[_Tie] = [];
+  } else if (output[_Tier] != null) {
+    contents[_Tie] = de_TieringList(__getArrayIfSingleItem(output[_Tier]), context);
   }
   return contents;
 };
@@ -11740,14 +10214,14 @@ const de_IntelligentTieringConfigurationList = (
  */
 const de_IntelligentTieringFilter = (output: any, context: __SerdeContext): IntelligentTieringFilter => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["Tag"] !== undefined) {
-    contents.Tag = de_Tag(output["Tag"], context);
+  if (output[_Ta] != null) {
+    contents[_Ta] = de_Tag(output[_Ta], context);
   }
-  if (output["And"] !== undefined) {
-    contents.And = de_IntelligentTieringAndOperator(output["And"], context);
+  if (output[_A] != null) {
+    contents[_A] = de_IntelligentTieringAndOperator(output[_A], context);
   }
   return contents;
 };
@@ -11757,31 +10231,28 @@ const de_IntelligentTieringFilter = (output: any, context: __SerdeContext): Inte
  */
 const de_InventoryConfiguration = (output: any, context: __SerdeContext): InventoryConfiguration => {
   const contents: any = {};
-  if (output["Destination"] !== undefined) {
-    contents.Destination = de_InventoryDestination(output["Destination"], context);
+  if (output[_Des] != null) {
+    contents[_Des] = de_InventoryDestination(output[_Des], context);
   }
-  if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_InventoryFilter(output["Filter"], context);
+  if (output[_F] != null) {
+    contents[_F] = de_InventoryFilter(output[_F], context);
   }
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["IncludedObjectVersions"] !== undefined) {
-    contents.IncludedObjectVersions = __expectString(output["IncludedObjectVersions"]);
+  if (output[_IOV] != null) {
+    contents[_IOV] = __expectString(output[_IOV]);
   }
   if (output.OptionalFields === "") {
-    contents.OptionalFields = [];
-  } else if (output["OptionalFields"] !== undefined && output["OptionalFields"]["Field"] !== undefined) {
-    contents.OptionalFields = de_InventoryOptionalFields(
-      __getArrayIfSingleItem(output["OptionalFields"]["Field"]),
-      context
-    );
+    contents[_OF] = [];
+  } else if (output[_OF] != null && output[_OF][_Fi] != null) {
+    contents[_OF] = de_InventoryOptionalFields(__getArrayIfSingleItem(output[_OF][_Fi]), context);
   }
-  if (output["Schedule"] !== undefined) {
-    contents.Schedule = de_InventorySchedule(output["Schedule"], context);
+  if (output[_Sc] != null) {
+    contents[_Sc] = de_InventorySchedule(output[_Sc], context);
   }
   return contents;
 };
@@ -11802,8 +10273,8 @@ const de_InventoryConfigurationList = (output: any, context: __SerdeContext): In
  */
 const de_InventoryDestination = (output: any, context: __SerdeContext): InventoryDestination => {
   const contents: any = {};
-  if (output["S3BucketDestination"] !== undefined) {
-    contents.S3BucketDestination = de_InventoryS3BucketDestination(output["S3BucketDestination"], context);
+  if (output[_SBD] != null) {
+    contents[_SBD] = de_InventoryS3BucketDestination(output[_SBD], context);
   }
   return contents;
 };
@@ -11813,11 +10284,11 @@ const de_InventoryDestination = (output: any, context: __SerdeContext): Inventor
  */
 const de_InventoryEncryption = (output: any, context: __SerdeContext): InventoryEncryption => {
   const contents: any = {};
-  if (output["SSE-S3"] !== undefined) {
-    contents.SSES3 = de_SSES3(output["SSE-S3"], context);
+  if (output[_SS] != null) {
+    contents[_SSES] = de_SSES3(output[_SS], context);
   }
-  if (output["SSE-KMS"] !== undefined) {
-    contents.SSEKMS = de_SSEKMS(output["SSE-KMS"], context);
+  if (output[_SK] != null) {
+    contents[_SSEKMS] = de_SSEKMS(output[_SK], context);
   }
   return contents;
 };
@@ -11827,8 +10298,8 @@ const de_InventoryEncryption = (output: any, context: __SerdeContext): Inventory
  */
 const de_InventoryFilter = (output: any, context: __SerdeContext): InventoryFilter => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   return contents;
 };
@@ -11849,20 +10320,20 @@ const de_InventoryOptionalFields = (output: any, context: __SerdeContext): Inven
  */
 const de_InventoryS3BucketDestination = (output: any, context: __SerdeContext): InventoryS3BucketDestination => {
   const contents: any = {};
-  if (output["AccountId"] !== undefined) {
-    contents.AccountId = __expectString(output["AccountId"]);
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_Fo] != null) {
+    contents[_Fo] = __expectString(output[_Fo]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["Encryption"] !== undefined) {
-    contents.Encryption = de_InventoryEncryption(output["Encryption"], context);
+  if (output[_En] != null) {
+    contents[_En] = de_InventoryEncryption(output[_En], context);
   }
   return contents;
 };
@@ -11872,8 +10343,8 @@ const de_InventoryS3BucketDestination = (output: any, context: __SerdeContext): 
  */
 const de_InventorySchedule = (output: any, context: __SerdeContext): InventorySchedule => {
   const contents: any = {};
-  if (output["Frequency"] !== undefined) {
-    contents.Frequency = __expectString(output["Frequency"]);
+  if (output[_Fr] != null) {
+    contents[_Fr] = __expectString(output[_Fr]);
   }
   return contents;
 };
@@ -11883,19 +10354,19 @@ const de_InventorySchedule = (output: any, context: __SerdeContext): InventorySc
  */
 const de_LambdaFunctionConfiguration = (output: any, context: __SerdeContext): LambdaFunctionConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["CloudFunction"] !== undefined) {
-    contents.LambdaFunctionArn = __expectString(output["CloudFunction"]);
+  if (output[_CF] != null) {
+    contents[_LFA] = __expectString(output[_CF]);
   }
   if (output.Event === "") {
-    contents.Events = [];
-  } else if (output["Event"] !== undefined) {
-    contents.Events = de_EventList(__getArrayIfSingleItem(output["Event"]), context);
+    contents[_Eve] = [];
+  } else if (output[_Ev] != null) {
+    contents[_Eve] = de_EventList(__getArrayIfSingleItem(output[_Ev]), context);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_NotificationConfigurationFilter(output["Filter"], context);
+  if (output[_F] != null) {
+    contents[_F] = de_NotificationConfigurationFilter(output[_F], context);
   }
   return contents;
 };
@@ -11916,14 +10387,14 @@ const de_LambdaFunctionConfigurationList = (output: any, context: __SerdeContext
  */
 const de_LifecycleExpiration = (output: any, context: __SerdeContext): LifecycleExpiration => {
   const contents: any = {};
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Dat] != null) {
+    contents[_Dat] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Dat]));
   }
-  if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt32(output["Days"]) as number;
+  if (output[_Da] != null) {
+    contents[_Da] = __strictParseInt32(output[_Da]) as number;
   }
-  if (output["ExpiredObjectDeleteMarker"] !== undefined) {
-    contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
+  if (output[_EODM] != null) {
+    contents[_EODM] = __parseBoolean(output[_EODM]);
   }
   return contents;
 };
@@ -11933,47 +10404,38 @@ const de_LifecycleExpiration = (output: any, context: __SerdeContext): Lifecycle
  */
 const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule => {
   const contents: any = {};
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = de_LifecycleExpiration(output["Expiration"], context);
+  if (output[_Exp] != null) {
+    contents[_Exp] = de_LifecycleExpiration(output[_Exp], context);
   }
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID_] != null) {
+    contents[_ID_] = __expectString(output[_ID_]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Filter === "") {
     // Pass empty tags.
-  } else if (output["Filter"] !== undefined) {
-    contents.Filter = de_LifecycleRuleFilter(__expectUnion(output["Filter"]), context);
+  } else if (output[_F] != null) {
+    contents[_F] = de_LifecycleRuleFilter(__expectUnion(output[_F]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   if (output.Transition === "") {
-    contents.Transitions = [];
-  } else if (output["Transition"] !== undefined) {
-    contents.Transitions = de_TransitionList(__getArrayIfSingleItem(output["Transition"]), context);
+    contents[_Tr] = [];
+  } else if (output[_Tra] != null) {
+    contents[_Tr] = de_TransitionList(__getArrayIfSingleItem(output[_Tra]), context);
   }
   if (output.NoncurrentVersionTransition === "") {
-    contents.NoncurrentVersionTransitions = [];
-  } else if (output["NoncurrentVersionTransition"] !== undefined) {
-    contents.NoncurrentVersionTransitions = de_NoncurrentVersionTransitionList(
-      __getArrayIfSingleItem(output["NoncurrentVersionTransition"]),
-      context
-    );
+    contents[_NVT] = [];
+  } else if (output[_NVTo] != null) {
+    contents[_NVT] = de_NoncurrentVersionTransitionList(__getArrayIfSingleItem(output[_NVTo]), context);
   }
-  if (output["NoncurrentVersionExpiration"] !== undefined) {
-    contents.NoncurrentVersionExpiration = de_NoncurrentVersionExpiration(
-      output["NoncurrentVersionExpiration"],
-      context
-    );
+  if (output[_NVE] != null) {
+    contents[_NVE] = de_NoncurrentVersionExpiration(output[_NVE], context);
   }
-  if (output["AbortIncompleteMultipartUpload"] !== undefined) {
-    contents.AbortIncompleteMultipartUpload = de_AbortIncompleteMultipartUpload(
-      output["AbortIncompleteMultipartUpload"],
-      context
-    );
+  if (output[_AIMU] != null) {
+    contents[_AIMU] = de_AbortIncompleteMultipartUpload(output[_AIMU], context);
   }
   return contents;
 };
@@ -11983,19 +10445,19 @@ const de_LifecycleRule = (output: any, context: __SerdeContext): LifecycleRule =
  */
 const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): LifecycleRuleAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Tag === "") {
-    contents.Tags = [];
-  } else if (output["Tag"] !== undefined) {
-    contents.Tags = de_TagSet(__getArrayIfSingleItem(output["Tag"]), context);
+    contents[_Tag] = [];
+  } else if (output[_Ta] != null) {
+    contents[_Tag] = de_TagSet(__getArrayIfSingleItem(output[_Ta]), context);
   }
-  if (output["ObjectSizeGreaterThan"] !== undefined) {
-    contents.ObjectSizeGreaterThan = __strictParseLong(output["ObjectSizeGreaterThan"]) as number;
+  if (output[_OSGT] != null) {
+    contents[_OSGT] = __strictParseLong(output[_OSGT]) as number;
   }
-  if (output["ObjectSizeLessThan"] !== undefined) {
-    contents.ObjectSizeLessThan = __strictParseLong(output["ObjectSizeLessThan"]) as number;
+  if (output[_OSLT] != null) {
+    contents[_OSLT] = __strictParseLong(output[_OSLT]) as number;
   }
   return contents;
 };
@@ -12004,29 +10466,29 @@ const de_LifecycleRuleAndOperator = (output: any, context: __SerdeContext): Life
  * deserializeAws_restXmlLifecycleRuleFilter
  */
 const de_LifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
-  if (output["Prefix"] !== undefined) {
+  if (output[_P] != null) {
     return {
-      Prefix: __expectString(output["Prefix"]) as any,
+      Prefix: __expectString(output[_P]) as any,
     };
   }
-  if (output["Tag"] !== undefined) {
+  if (output[_Ta] != null) {
     return {
-      Tag: de_Tag(output["Tag"], context),
+      Tag: de_Tag(output[_Ta], context),
     };
   }
-  if (output["ObjectSizeGreaterThan"] !== undefined) {
+  if (output[_OSGT] != null) {
     return {
-      ObjectSizeGreaterThan: __strictParseLong(output["ObjectSizeGreaterThan"]) as number,
+      ObjectSizeGreaterThan: __strictParseLong(output[_OSGT]) as number,
     };
   }
-  if (output["ObjectSizeLessThan"] !== undefined) {
+  if (output[_OSLT] != null) {
     return {
-      ObjectSizeLessThan: __strictParseLong(output["ObjectSizeLessThan"]) as number,
+      ObjectSizeLessThan: __strictParseLong(output[_OSLT]) as number,
     };
   }
-  if (output["And"] !== undefined) {
+  if (output[_A] != null) {
     return {
-      And: de_LifecycleRuleAndOperator(output["And"], context),
+      And: de_LifecycleRuleAndOperator(output[_A], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -12048,19 +10510,19 @@ const de_LifecycleRules = (output: any, context: __SerdeContext): LifecycleRule[
  */
 const de_LoggingEnabled = (output: any, context: __SerdeContext): LoggingEnabled => {
   const contents: any = {};
-  if (output["TargetBucket"] !== undefined) {
-    contents.TargetBucket = __expectString(output["TargetBucket"]);
+  if (output[_TB] != null) {
+    contents[_TB] = __expectString(output[_TB]);
   }
   if (output.TargetGrants === "") {
-    contents.TargetGrants = [];
-  } else if (output["TargetGrants"] !== undefined && output["TargetGrants"]["Grant"] !== undefined) {
-    contents.TargetGrants = de_TargetGrants(__getArrayIfSingleItem(output["TargetGrants"]["Grant"]), context);
+    contents[_TG] = [];
+  } else if (output[_TG] != null && output[_TG][_G] != null) {
+    contents[_TG] = de_TargetGrants(__getArrayIfSingleItem(output[_TG][_G]), context);
   }
-  if (output["TargetPrefix"] !== undefined) {
-    contents.TargetPrefix = __expectString(output["TargetPrefix"]);
+  if (output[_TP] != null) {
+    contents[_TP] = __expectString(output[_TP]);
   }
-  if (output["TargetObjectKeyFormat"] !== undefined) {
-    contents.TargetObjectKeyFormat = de_TargetObjectKeyFormat(output["TargetObjectKeyFormat"], context);
+  if (output[_TOKF] != null) {
+    contents[_TOKF] = de_TargetObjectKeyFormat(output[_TOKF], context);
   }
   return contents;
 };
@@ -12070,11 +10532,11 @@ const de_LoggingEnabled = (output: any, context: __SerdeContext): LoggingEnabled
  */
 const de_Metrics = (output: any, context: __SerdeContext): Metrics => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["EventThreshold"] !== undefined) {
-    contents.EventThreshold = de_ReplicationTimeValue(output["EventThreshold"], context);
+  if (output[_ETv] != null) {
+    contents[_ETv] = de_ReplicationTimeValue(output[_ETv], context);
   }
   return contents;
 };
@@ -12084,16 +10546,16 @@ const de_Metrics = (output: any, context: __SerdeContext): Metrics => {
  */
 const de_MetricsAndOperator = (output: any, context: __SerdeContext): MetricsAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Tag === "") {
-    contents.Tags = [];
-  } else if (output["Tag"] !== undefined) {
-    contents.Tags = de_TagSet(__getArrayIfSingleItem(output["Tag"]), context);
+    contents[_Tag] = [];
+  } else if (output[_Ta] != null) {
+    contents[_Tag] = de_TagSet(__getArrayIfSingleItem(output[_Ta]), context);
   }
-  if (output["AccessPointArn"] !== undefined) {
-    contents.AccessPointArn = __expectString(output["AccessPointArn"]);
+  if (output[_APAc] != null) {
+    contents[_APAc] = __expectString(output[_APAc]);
   }
   return contents;
 };
@@ -12103,13 +10565,13 @@ const de_MetricsAndOperator = (output: any, context: __SerdeContext): MetricsAnd
  */
 const de_MetricsConfiguration = (output: any, context: __SerdeContext): MetricsConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
   if (output.Filter === "") {
     // Pass empty tags.
-  } else if (output["Filter"] !== undefined) {
-    contents.Filter = de_MetricsFilter(__expectUnion(output["Filter"]), context);
+  } else if (output[_F] != null) {
+    contents[_F] = de_MetricsFilter(__expectUnion(output[_F]), context);
   }
   return contents;
 };
@@ -12129,24 +10591,24 @@ const de_MetricsConfigurationList = (output: any, context: __SerdeContext): Metr
  * deserializeAws_restXmlMetricsFilter
  */
 const de_MetricsFilter = (output: any, context: __SerdeContext): MetricsFilter => {
-  if (output["Prefix"] !== undefined) {
+  if (output[_P] != null) {
     return {
-      Prefix: __expectString(output["Prefix"]) as any,
+      Prefix: __expectString(output[_P]) as any,
     };
   }
-  if (output["Tag"] !== undefined) {
+  if (output[_Ta] != null) {
     return {
-      Tag: de_Tag(output["Tag"], context),
+      Tag: de_Tag(output[_Ta], context),
     };
   }
-  if (output["AccessPointArn"] !== undefined) {
+  if (output[_APAc] != null) {
     return {
-      AccessPointArn: __expectString(output["AccessPointArn"]) as any,
+      AccessPointArn: __expectString(output[_APAc]) as any,
     };
   }
-  if (output["And"] !== undefined) {
+  if (output[_A] != null) {
     return {
-      And: de_MetricsAndOperator(output["And"], context),
+      And: de_MetricsAndOperator(output[_A], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -12157,26 +10619,26 @@ const de_MetricsFilter = (output: any, context: __SerdeContext): MetricsFilter =
  */
 const de_MultipartUpload = (output: any, context: __SerdeContext): MultipartUpload => {
   const contents: any = {};
-  if (output["UploadId"] !== undefined) {
-    contents.UploadId = __expectString(output["UploadId"]);
+  if (output[_UI] != null) {
+    contents[_UI] = __expectString(output[_UI]);
   }
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Initiated"] !== undefined) {
-    contents.Initiated = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Initiated"]));
+  if (output[_Ini] != null) {
+    contents[_Ini] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Ini]));
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["Owner"] !== undefined) {
-    contents.Owner = de_Owner(output["Owner"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_Owner(output[_O], context);
   }
-  if (output["Initiator"] !== undefined) {
-    contents.Initiator = de_Initiator(output["Initiator"], context);
+  if (output[_In] != null) {
+    contents[_In] = de_Initiator(output[_In], context);
   }
-  if (output["ChecksumAlgorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = __expectString(output["ChecksumAlgorithm"]);
+  if (output[_CA] != null) {
+    contents[_CA] = __expectString(output[_CA]);
   }
   return contents;
 };
@@ -12197,11 +10659,11 @@ const de_MultipartUploadList = (output: any, context: __SerdeContext): Multipart
  */
 const de_NoncurrentVersionExpiration = (output: any, context: __SerdeContext): NoncurrentVersionExpiration => {
   const contents: any = {};
-  if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  if (output[_ND] != null) {
+    contents[_ND] = __strictParseInt32(output[_ND]) as number;
   }
-  if (output["NewerNoncurrentVersions"] !== undefined) {
-    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
+  if (output[_NNV] != null) {
+    contents[_NNV] = __strictParseInt32(output[_NNV]) as number;
   }
   return contents;
 };
@@ -12211,14 +10673,14 @@ const de_NoncurrentVersionExpiration = (output: any, context: __SerdeContext): N
  */
 const de_NoncurrentVersionTransition = (output: any, context: __SerdeContext): NoncurrentVersionTransition => {
   const contents: any = {};
-  if (output["NoncurrentDays"] !== undefined) {
-    contents.NoncurrentDays = __strictParseInt32(output["NoncurrentDays"]) as number;
+  if (output[_ND] != null) {
+    contents[_ND] = __strictParseInt32(output[_ND]) as number;
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["NewerNoncurrentVersions"] !== undefined) {
-    contents.NewerNoncurrentVersions = __strictParseInt32(output["NewerNoncurrentVersions"]) as number;
+  if (output[_NNV] != null) {
+    contents[_NNV] = __strictParseInt32(output[_NNV]) as number;
   }
   return contents;
 };
@@ -12239,8 +10701,8 @@ const de_NoncurrentVersionTransitionList = (output: any, context: __SerdeContext
  */
 const de_NotificationConfigurationFilter = (output: any, context: __SerdeContext): NotificationConfigurationFilter => {
   const contents: any = {};
-  if (output["S3Key"] !== undefined) {
-    contents.Key = de_S3KeyFilter(output["S3Key"], context);
+  if (output[_SKe] != null) {
+    contents[_K] = de_S3KeyFilter(output[_SKe], context);
   }
   return contents;
 };
@@ -12250,31 +10712,31 @@ const de_NotificationConfigurationFilter = (output: any, context: __SerdeContext
  */
 const de__Object = (output: any, context: __SerdeContext): _Object => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LM] != null) {
+    contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
-  if (output["ETag"] !== undefined) {
-    contents.ETag = __expectString(output["ETag"]);
+  if (output[_ETa] != null) {
+    contents[_ETa] = __expectString(output[_ETa]);
   }
   if (output.ChecksumAlgorithm === "") {
-    contents.ChecksumAlgorithm = [];
-  } else if (output["ChecksumAlgorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output["ChecksumAlgorithm"]), context);
+    contents[_CA] = [];
+  } else if (output[_CA] != null) {
+    contents[_CA] = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output[_CA]), context);
   }
-  if (output["Size"] !== undefined) {
-    contents.Size = __strictParseLong(output["Size"]) as number;
+  if (output[_Si] != null) {
+    contents[_Si] = __strictParseLong(output[_Si]) as number;
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["Owner"] !== undefined) {
-    contents.Owner = de_Owner(output["Owner"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_Owner(output[_O], context);
   }
-  if (output["RestoreStatus"] !== undefined) {
-    contents.RestoreStatus = de_RestoreStatus(output["RestoreStatus"], context);
+  if (output[_RSe] != null) {
+    contents[_RSe] = de_RestoreStatus(output[_RSe], context);
   }
   return contents;
 };
@@ -12295,11 +10757,11 @@ const de_ObjectList = (output: any, context: __SerdeContext): _Object[] => {
  */
 const de_ObjectLockConfiguration = (output: any, context: __SerdeContext): ObjectLockConfiguration => {
   const contents: any = {};
-  if (output["ObjectLockEnabled"] !== undefined) {
-    contents.ObjectLockEnabled = __expectString(output["ObjectLockEnabled"]);
+  if (output[_OLE] != null) {
+    contents[_OLE] = __expectString(output[_OLE]);
   }
-  if (output["Rule"] !== undefined) {
-    contents.Rule = de_ObjectLockRule(output["Rule"], context);
+  if (output[_Ru] != null) {
+    contents[_Ru] = de_ObjectLockRule(output[_Ru], context);
   }
   return contents;
 };
@@ -12309,8 +10771,8 @@ const de_ObjectLockConfiguration = (output: any, context: __SerdeContext): Objec
  */
 const de_ObjectLockLegalHold = (output: any, context: __SerdeContext): ObjectLockLegalHold => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -12320,11 +10782,11 @@ const de_ObjectLockLegalHold = (output: any, context: __SerdeContext): ObjectLoc
  */
 const de_ObjectLockRetention = (output: any, context: __SerdeContext): ObjectLockRetention => {
   const contents: any = {};
-  if (output["Mode"] !== undefined) {
-    contents.Mode = __expectString(output["Mode"]);
+  if (output[_Mo] != null) {
+    contents[_Mo] = __expectString(output[_Mo]);
   }
-  if (output["RetainUntilDate"] !== undefined) {
-    contents.RetainUntilDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RetainUntilDate"]));
+  if (output[_RUD] != null) {
+    contents[_RUD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RUD]));
   }
   return contents;
 };
@@ -12334,8 +10796,8 @@ const de_ObjectLockRetention = (output: any, context: __SerdeContext): ObjectLoc
  */
 const de_ObjectLockRule = (output: any, context: __SerdeContext): ObjectLockRule => {
   const contents: any = {};
-  if (output["DefaultRetention"] !== undefined) {
-    contents.DefaultRetention = de_DefaultRetention(output["DefaultRetention"], context);
+  if (output[_DRe] != null) {
+    contents[_DRe] = de_DefaultRetention(output[_DRe], context);
   }
   return contents;
 };
@@ -12345,23 +10807,23 @@ const de_ObjectLockRule = (output: any, context: __SerdeContext): ObjectLockRule
  */
 const de_ObjectPart = (output: any, context: __SerdeContext): ObjectPart => {
   const contents: any = {};
-  if (output["PartNumber"] !== undefined) {
-    contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
+  if (output[_PN] != null) {
+    contents[_PN] = __strictParseInt32(output[_PN]) as number;
   }
-  if (output["Size"] !== undefined) {
-    contents.Size = __strictParseLong(output["Size"]) as number;
+  if (output[_Si] != null) {
+    contents[_Si] = __strictParseLong(output[_Si]) as number;
   }
-  if (output["ChecksumCRC32"] !== undefined) {
-    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  if (output[_CCRC] != null) {
+    contents[_CCRC] = __expectString(output[_CCRC]);
   }
-  if (output["ChecksumCRC32C"] !== undefined) {
-    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  if (output[_CCRCC] != null) {
+    contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
-  if (output["ChecksumSHA1"] !== undefined) {
-    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  if (output[_CSHA] != null) {
+    contents[_CSHA] = __expectString(output[_CSHA]);
   }
-  if (output["ChecksumSHA256"] !== undefined) {
-    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  if (output[_CSHAh] != null) {
+    contents[_CSHAh] = __expectString(output[_CSHAh]);
   }
   return contents;
 };
@@ -12371,37 +10833,37 @@ const de_ObjectPart = (output: any, context: __SerdeContext): ObjectPart => {
  */
 const de_ObjectVersion = (output: any, context: __SerdeContext): ObjectVersion => {
   const contents: any = {};
-  if (output["ETag"] !== undefined) {
-    contents.ETag = __expectString(output["ETag"]);
+  if (output[_ETa] != null) {
+    contents[_ETa] = __expectString(output[_ETa]);
   }
   if (output.ChecksumAlgorithm === "") {
-    contents.ChecksumAlgorithm = [];
-  } else if (output["ChecksumAlgorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output["ChecksumAlgorithm"]), context);
+    contents[_CA] = [];
+  } else if (output[_CA] != null) {
+    contents[_CA] = de_ChecksumAlgorithmList(__getArrayIfSingleItem(output[_CA]), context);
   }
-  if (output["Size"] !== undefined) {
-    contents.Size = __strictParseLong(output["Size"]) as number;
+  if (output[_Si] != null) {
+    contents[_Si] = __strictParseLong(output[_Si]) as number;
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["VersionId"] !== undefined) {
-    contents.VersionId = __expectString(output["VersionId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["IsLatest"] !== undefined) {
-    contents.IsLatest = __parseBoolean(output["IsLatest"]);
+  if (output[_IL] != null) {
+    contents[_IL] = __parseBoolean(output[_IL]);
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LM] != null) {
+    contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
-  if (output["Owner"] !== undefined) {
-    contents.Owner = de_Owner(output["Owner"], context);
+  if (output[_O] != null) {
+    contents[_O] = de_Owner(output[_O], context);
   }
-  if (output["RestoreStatus"] !== undefined) {
-    contents.RestoreStatus = de_RestoreStatus(output["RestoreStatus"], context);
+  if (output[_RSe] != null) {
+    contents[_RSe] = de_RestoreStatus(output[_RSe], context);
   }
   return contents;
 };
@@ -12422,11 +10884,11 @@ const de_ObjectVersionList = (output: any, context: __SerdeContext): ObjectVersi
  */
 const de_Owner = (output: any, context: __SerdeContext): Owner => {
   const contents: any = {};
-  if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = __expectString(output["DisplayName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID_] != null) {
+    contents[_ID_] = __expectString(output[_ID_]);
   }
   return contents;
 };
@@ -12437,9 +10899,9 @@ const de_Owner = (output: any, context: __SerdeContext): Owner => {
 const de_OwnershipControls = (output: any, context: __SerdeContext): OwnershipControls => {
   const contents: any = {};
   if (output.Rule === "") {
-    contents.Rules = [];
-  } else if (output["Rule"] !== undefined) {
-    contents.Rules = de_OwnershipControlsRules(__getArrayIfSingleItem(output["Rule"]), context);
+    contents[_Rul] = [];
+  } else if (output[_Ru] != null) {
+    contents[_Rul] = de_OwnershipControlsRules(__getArrayIfSingleItem(output[_Ru]), context);
   }
   return contents;
 };
@@ -12449,8 +10911,8 @@ const de_OwnershipControls = (output: any, context: __SerdeContext): OwnershipCo
  */
 const de_OwnershipControlsRule = (output: any, context: __SerdeContext): OwnershipControlsRule => {
   const contents: any = {};
-  if (output["ObjectOwnership"] !== undefined) {
-    contents.ObjectOwnership = __expectString(output["ObjectOwnership"]);
+  if (output[_OO] != null) {
+    contents[_OO] = __expectString(output[_OO]);
   }
   return contents;
 };
@@ -12471,29 +10933,29 @@ const de_OwnershipControlsRules = (output: any, context: __SerdeContext): Owners
  */
 const de_Part = (output: any, context: __SerdeContext): Part => {
   const contents: any = {};
-  if (output["PartNumber"] !== undefined) {
-    contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
+  if (output[_PN] != null) {
+    contents[_PN] = __strictParseInt32(output[_PN]) as number;
   }
-  if (output["LastModified"] !== undefined) {
-    contents.LastModified = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModified"]));
+  if (output[_LM] != null) {
+    contents[_LM] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LM]));
   }
-  if (output["ETag"] !== undefined) {
-    contents.ETag = __expectString(output["ETag"]);
+  if (output[_ETa] != null) {
+    contents[_ETa] = __expectString(output[_ETa]);
   }
-  if (output["Size"] !== undefined) {
-    contents.Size = __strictParseLong(output["Size"]) as number;
+  if (output[_Si] != null) {
+    contents[_Si] = __strictParseLong(output[_Si]) as number;
   }
-  if (output["ChecksumCRC32"] !== undefined) {
-    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  if (output[_CCRC] != null) {
+    contents[_CCRC] = __expectString(output[_CCRC]);
   }
-  if (output["ChecksumCRC32C"] !== undefined) {
-    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  if (output[_CCRCC] != null) {
+    contents[_CCRCC] = __expectString(output[_CCRCC]);
   }
-  if (output["ChecksumSHA1"] !== undefined) {
-    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  if (output[_CSHA] != null) {
+    contents[_CSHA] = __expectString(output[_CSHA]);
   }
-  if (output["ChecksumSHA256"] !== undefined) {
-    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  if (output[_CSHAh] != null) {
+    contents[_CSHAh] = __expectString(output[_CSHAh]);
   }
   return contents;
 };
@@ -12503,8 +10965,8 @@ const de_Part = (output: any, context: __SerdeContext): Part => {
  */
 const de_PartitionedPrefix = (output: any, context: __SerdeContext): PartitionedPrefix => {
   const contents: any = {};
-  if (output["PartitionDateSource"] !== undefined) {
-    contents.PartitionDateSource = __expectString(output["PartitionDateSource"]);
+  if (output[_PDS] != null) {
+    contents[_PDS] = __expectString(output[_PDS]);
   }
   return contents;
 };
@@ -12536,8 +10998,8 @@ const de_PartsList = (output: any, context: __SerdeContext): ObjectPart[] => {
  */
 const de_PolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
   const contents: any = {};
-  if (output["IsPublic"] !== undefined) {
-    contents.IsPublic = __parseBoolean(output["IsPublic"]);
+  if (output[_IP] != null) {
+    contents[_IP] = __parseBoolean(output[_IP]);
   }
   return contents;
 };
@@ -12547,14 +11009,14 @@ const de_PolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => 
  */
 const de_Progress = (output: any, context: __SerdeContext): Progress => {
   const contents: any = {};
-  if (output["BytesScanned"] !== undefined) {
-    contents.BytesScanned = __strictParseLong(output["BytesScanned"]) as number;
+  if (output[_BS] != null) {
+    contents[_BS] = __strictParseLong(output[_BS]) as number;
   }
-  if (output["BytesProcessed"] !== undefined) {
-    contents.BytesProcessed = __strictParseLong(output["BytesProcessed"]) as number;
+  if (output[_BP] != null) {
+    contents[_BP] = __strictParseLong(output[_BP]) as number;
   }
-  if (output["BytesReturned"] !== undefined) {
-    contents.BytesReturned = __strictParseLong(output["BytesReturned"]) as number;
+  if (output[_BRy] != null) {
+    contents[_BRy] = __strictParseLong(output[_BRy]) as number;
   }
   return contents;
 };
@@ -12564,17 +11026,17 @@ const de_Progress = (output: any, context: __SerdeContext): Progress => {
  */
 const de_PublicAccessBlockConfiguration = (output: any, context: __SerdeContext): PublicAccessBlockConfiguration => {
   const contents: any = {};
-  if (output["BlockPublicAcls"] !== undefined) {
-    contents.BlockPublicAcls = __parseBoolean(output["BlockPublicAcls"]);
+  if (output[_BPA] != null) {
+    contents[_BPA] = __parseBoolean(output[_BPA]);
   }
-  if (output["IgnorePublicAcls"] !== undefined) {
-    contents.IgnorePublicAcls = __parseBoolean(output["IgnorePublicAcls"]);
+  if (output[_IPA] != null) {
+    contents[_IPA] = __parseBoolean(output[_IPA]);
   }
-  if (output["BlockPublicPolicy"] !== undefined) {
-    contents.BlockPublicPolicy = __parseBoolean(output["BlockPublicPolicy"]);
+  if (output[_BPP] != null) {
+    contents[_BPP] = __parseBoolean(output[_BPP]);
   }
-  if (output["RestrictPublicBuckets"] !== undefined) {
-    contents.RestrictPublicBuckets = __parseBoolean(output["RestrictPublicBuckets"]);
+  if (output[_RPB] != null) {
+    contents[_RPB] = __parseBoolean(output[_RPB]);
   }
   return contents;
 };
@@ -12584,19 +11046,19 @@ const de_PublicAccessBlockConfiguration = (output: any, context: __SerdeContext)
  */
 const de_QueueConfiguration = (output: any, context: __SerdeContext): QueueConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Queue"] !== undefined) {
-    contents.QueueArn = __expectString(output["Queue"]);
+  if (output[_Qu] != null) {
+    contents[_QA] = __expectString(output[_Qu]);
   }
   if (output.Event === "") {
-    contents.Events = [];
-  } else if (output["Event"] !== undefined) {
-    contents.Events = de_EventList(__getArrayIfSingleItem(output["Event"]), context);
+    contents[_Eve] = [];
+  } else if (output[_Ev] != null) {
+    contents[_Eve] = de_EventList(__getArrayIfSingleItem(output[_Ev]), context);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_NotificationConfigurationFilter(output["Filter"], context);
+  if (output[_F] != null) {
+    contents[_F] = de_NotificationConfigurationFilter(output[_F], context);
   }
   return contents;
 };
@@ -12617,20 +11079,20 @@ const de_QueueConfigurationList = (output: any, context: __SerdeContext): QueueC
  */
 const de_Redirect = (output: any, context: __SerdeContext): Redirect => {
   const contents: any = {};
-  if (output["HostName"] !== undefined) {
-    contents.HostName = __expectString(output["HostName"]);
+  if (output[_HN] != null) {
+    contents[_HN] = __expectString(output[_HN]);
   }
-  if (output["HttpRedirectCode"] !== undefined) {
-    contents.HttpRedirectCode = __expectString(output["HttpRedirectCode"]);
+  if (output[_HRC] != null) {
+    contents[_HRC] = __expectString(output[_HRC]);
   }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
-  if (output["ReplaceKeyPrefixWith"] !== undefined) {
-    contents.ReplaceKeyPrefixWith = __expectString(output["ReplaceKeyPrefixWith"]);
+  if (output[_RKPW] != null) {
+    contents[_RKPW] = __expectString(output[_RKPW]);
   }
-  if (output["ReplaceKeyWith"] !== undefined) {
-    contents.ReplaceKeyWith = __expectString(output["ReplaceKeyWith"]);
+  if (output[_RKW] != null) {
+    contents[_RKW] = __expectString(output[_RKW]);
   }
   return contents;
 };
@@ -12640,11 +11102,11 @@ const de_Redirect = (output: any, context: __SerdeContext): Redirect => {
  */
 const de_RedirectAllRequestsTo = (output: any, context: __SerdeContext): RedirectAllRequestsTo => {
   const contents: any = {};
-  if (output["HostName"] !== undefined) {
-    contents.HostName = __expectString(output["HostName"]);
+  if (output[_HN] != null) {
+    contents[_HN] = __expectString(output[_HN]);
   }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
   return contents;
 };
@@ -12654,8 +11116,8 @@ const de_RedirectAllRequestsTo = (output: any, context: __SerdeContext): Redirec
  */
 const de_ReplicaModifications = (output: any, context: __SerdeContext): ReplicaModifications => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -12665,13 +11127,13 @@ const de_ReplicaModifications = (output: any, context: __SerdeContext): ReplicaM
  */
 const de_ReplicationConfiguration = (output: any, context: __SerdeContext): ReplicationConfiguration => {
   const contents: any = {};
-  if (output["Role"] !== undefined) {
-    contents.Role = __expectString(output["Role"]);
+  if (output[_Ro] != null) {
+    contents[_Ro] = __expectString(output[_Ro]);
   }
   if (output.Rule === "") {
-    contents.Rules = [];
-  } else if (output["Rule"] !== undefined) {
-    contents.Rules = de_ReplicationRules(__getArrayIfSingleItem(output["Rule"]), context);
+    contents[_Rul] = [];
+  } else if (output[_Ru] != null) {
+    contents[_Rul] = de_ReplicationRules(__getArrayIfSingleItem(output[_Ru]), context);
   }
   return contents;
 };
@@ -12681,34 +11143,34 @@ const de_ReplicationConfiguration = (output: any, context: __SerdeContext): Repl
  */
 const de_ReplicationRule = (output: any, context: __SerdeContext): ReplicationRule => {
   const contents: any = {};
-  if (output["ID"] !== undefined) {
-    contents.ID = __expectString(output["ID"]);
+  if (output[_ID_] != null) {
+    contents[_ID_] = __expectString(output[_ID_]);
   }
-  if (output["Priority"] !== undefined) {
-    contents.Priority = __strictParseInt32(output["Priority"]) as number;
+  if (output[_Pri] != null) {
+    contents[_Pri] = __strictParseInt32(output[_Pri]) as number;
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Filter === "") {
     // Pass empty tags.
-  } else if (output["Filter"] !== undefined) {
-    contents.Filter = de_ReplicationRuleFilter(__expectUnion(output["Filter"]), context);
+  } else if (output[_F] != null) {
+    contents[_F] = de_ReplicationRuleFilter(__expectUnion(output[_F]), context);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["SourceSelectionCriteria"] !== undefined) {
-    contents.SourceSelectionCriteria = de_SourceSelectionCriteria(output["SourceSelectionCriteria"], context);
+  if (output[_SSC] != null) {
+    contents[_SSC] = de_SourceSelectionCriteria(output[_SSC], context);
   }
-  if (output["ExistingObjectReplication"] !== undefined) {
-    contents.ExistingObjectReplication = de_ExistingObjectReplication(output["ExistingObjectReplication"], context);
+  if (output[_EOR] != null) {
+    contents[_EOR] = de_ExistingObjectReplication(output[_EOR], context);
   }
-  if (output["Destination"] !== undefined) {
-    contents.Destination = de_Destination(output["Destination"], context);
+  if (output[_Des] != null) {
+    contents[_Des] = de_Destination(output[_Des], context);
   }
-  if (output["DeleteMarkerReplication"] !== undefined) {
-    contents.DeleteMarkerReplication = de_DeleteMarkerReplication(output["DeleteMarkerReplication"], context);
+  if (output[_DMR] != null) {
+    contents[_DMR] = de_DeleteMarkerReplication(output[_DMR], context);
   }
   return contents;
 };
@@ -12718,13 +11180,13 @@ const de_ReplicationRule = (output: any, context: __SerdeContext): ReplicationRu
  */
 const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): ReplicationRuleAndOperator => {
   const contents: any = {};
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
   if (output.Tag === "") {
-    contents.Tags = [];
-  } else if (output["Tag"] !== undefined) {
-    contents.Tags = de_TagSet(__getArrayIfSingleItem(output["Tag"]), context);
+    contents[_Tag] = [];
+  } else if (output[_Ta] != null) {
+    contents[_Tag] = de_TagSet(__getArrayIfSingleItem(output[_Ta]), context);
   }
   return contents;
 };
@@ -12733,19 +11195,19 @@ const de_ReplicationRuleAndOperator = (output: any, context: __SerdeContext): Re
  * deserializeAws_restXmlReplicationRuleFilter
  */
 const de_ReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
-  if (output["Prefix"] !== undefined) {
+  if (output[_P] != null) {
     return {
-      Prefix: __expectString(output["Prefix"]) as any,
+      Prefix: __expectString(output[_P]) as any,
     };
   }
-  if (output["Tag"] !== undefined) {
+  if (output[_Ta] != null) {
     return {
-      Tag: de_Tag(output["Tag"], context),
+      Tag: de_Tag(output[_Ta], context),
     };
   }
-  if (output["And"] !== undefined) {
+  if (output[_A] != null) {
     return {
-      And: de_ReplicationRuleAndOperator(output["And"], context),
+      And: de_ReplicationRuleAndOperator(output[_A], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -12767,11 +11229,11 @@ const de_ReplicationRules = (output: any, context: __SerdeContext): ReplicationR
  */
 const de_ReplicationTime = (output: any, context: __SerdeContext): ReplicationTime => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["Time"] !== undefined) {
-    contents.Time = de_ReplicationTimeValue(output["Time"], context);
+  if (output[_Tim] != null) {
+    contents[_Tim] = de_ReplicationTimeValue(output[_Tim], context);
   }
   return contents;
 };
@@ -12781,8 +11243,8 @@ const de_ReplicationTime = (output: any, context: __SerdeContext): ReplicationTi
  */
 const de_ReplicationTimeValue = (output: any, context: __SerdeContext): ReplicationTimeValue => {
   const contents: any = {};
-  if (output["Minutes"] !== undefined) {
-    contents.Minutes = __strictParseInt32(output["Minutes"]) as number;
+  if (output[_Mi] != null) {
+    contents[_Mi] = __strictParseInt32(output[_Mi]) as number;
   }
   return contents;
 };
@@ -12792,11 +11254,11 @@ const de_ReplicationTimeValue = (output: any, context: __SerdeContext): Replicat
  */
 const de_RestoreStatus = (output: any, context: __SerdeContext): RestoreStatus => {
   const contents: any = {};
-  if (output["IsRestoreInProgress"] !== undefined) {
-    contents.IsRestoreInProgress = __parseBoolean(output["IsRestoreInProgress"]);
+  if (output[_IRIP] != null) {
+    contents[_IRIP] = __parseBoolean(output[_IRIP]);
   }
-  if (output["RestoreExpiryDate"] !== undefined) {
-    contents.RestoreExpiryDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["RestoreExpiryDate"]));
+  if (output[_RED] != null) {
+    contents[_RED] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_RED]));
   }
   return contents;
 };
@@ -12806,11 +11268,11 @@ const de_RestoreStatus = (output: any, context: __SerdeContext): RestoreStatus =
  */
 const de_RoutingRule = (output: any, context: __SerdeContext): RoutingRule => {
   const contents: any = {};
-  if (output["Condition"] !== undefined) {
-    contents.Condition = de_Condition(output["Condition"], context);
+  if (output[_Con] != null) {
+    contents[_Con] = de_Condition(output[_Con], context);
   }
-  if (output["Redirect"] !== undefined) {
-    contents.Redirect = de_Redirect(output["Redirect"], context);
+  if (output[_Red] != null) {
+    contents[_Red] = de_Redirect(output[_Red], context);
   }
   return contents;
 };
@@ -12832,9 +11294,9 @@ const de_RoutingRules = (output: any, context: __SerdeContext): RoutingRule[] =>
 const de_S3KeyFilter = (output: any, context: __SerdeContext): S3KeyFilter => {
   const contents: any = {};
   if (output.FilterRule === "") {
-    contents.FilterRules = [];
-  } else if (output["FilterRule"] !== undefined) {
-    contents.FilterRules = de_FilterRuleList(__getArrayIfSingleItem(output["FilterRule"]), context);
+    contents[_FRi] = [];
+  } else if (output[_FR] != null) {
+    contents[_FRi] = de_FilterRuleList(__getArrayIfSingleItem(output[_FR]), context);
   }
   return contents;
 };
@@ -12844,11 +11306,11 @@ const de_S3KeyFilter = (output: any, context: __SerdeContext): S3KeyFilter => {
  */
 const de_ServerSideEncryptionByDefault = (output: any, context: __SerdeContext): ServerSideEncryptionByDefault => {
   const contents: any = {};
-  if (output["SSEAlgorithm"] !== undefined) {
-    contents.SSEAlgorithm = __expectString(output["SSEAlgorithm"]);
+  if (output[_SSEA] != null) {
+    contents[_SSEA] = __expectString(output[_SSEA]);
   }
-  if (output["KMSMasterKeyID"] !== undefined) {
-    contents.KMSMasterKeyID = __expectString(output["KMSMasterKeyID"]);
+  if (output[_KMSMKID] != null) {
+    contents[_KMSMKID] = __expectString(output[_KMSMKID]);
   }
   return contents;
 };
@@ -12862,9 +11324,9 @@ const de_ServerSideEncryptionConfiguration = (
 ): ServerSideEncryptionConfiguration => {
   const contents: any = {};
   if (output.Rule === "") {
-    contents.Rules = [];
-  } else if (output["Rule"] !== undefined) {
-    contents.Rules = de_ServerSideEncryptionRules(__getArrayIfSingleItem(output["Rule"]), context);
+    contents[_Rul] = [];
+  } else if (output[_Ru] != null) {
+    contents[_Rul] = de_ServerSideEncryptionRules(__getArrayIfSingleItem(output[_Ru]), context);
   }
   return contents;
 };
@@ -12874,14 +11336,11 @@ const de_ServerSideEncryptionConfiguration = (
  */
 const de_ServerSideEncryptionRule = (output: any, context: __SerdeContext): ServerSideEncryptionRule => {
   const contents: any = {};
-  if (output["ApplyServerSideEncryptionByDefault"] !== undefined) {
-    contents.ApplyServerSideEncryptionByDefault = de_ServerSideEncryptionByDefault(
-      output["ApplyServerSideEncryptionByDefault"],
-      context
-    );
+  if (output[_ASSEBD] != null) {
+    contents[_ASSEBD] = de_ServerSideEncryptionByDefault(output[_ASSEBD], context);
   }
-  if (output["BucketKeyEnabled"] !== undefined) {
-    contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
+  if (output[_BKE] != null) {
+    contents[_BKE] = __parseBoolean(output[_BKE]);
   }
   return contents;
 };
@@ -12902,17 +11361,17 @@ const de_ServerSideEncryptionRules = (output: any, context: __SerdeContext): Ser
  */
 const de_SessionCredentials = (output: any, context: __SerdeContext): SessionCredentials => {
   const contents: any = {};
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  if (output[_AKI] != null) {
+    contents[_AKI] = __expectString(output[_AKI]);
   }
-  if (output["SecretAccessKey"] !== undefined) {
-    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
+  if (output[_SAK] != null) {
+    contents[_SAK] = __expectString(output[_SAK]);
   }
-  if (output["SessionToken"] !== undefined) {
-    contents.SessionToken = __expectString(output["SessionToken"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
+  if (output[_Exp] != null) {
+    contents[_Exp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Exp]));
   }
   return contents;
 };
@@ -12930,11 +11389,11 @@ const de_SimplePrefix = (output: any, context: __SerdeContext): SimplePrefix => 
  */
 const de_SourceSelectionCriteria = (output: any, context: __SerdeContext): SourceSelectionCriteria => {
   const contents: any = {};
-  if (output["SseKmsEncryptedObjects"] !== undefined) {
-    contents.SseKmsEncryptedObjects = de_SseKmsEncryptedObjects(output["SseKmsEncryptedObjects"], context);
+  if (output[_SKEO] != null) {
+    contents[_SKEO] = de_SseKmsEncryptedObjects(output[_SKEO], context);
   }
-  if (output["ReplicaModifications"] !== undefined) {
-    contents.ReplicaModifications = de_ReplicaModifications(output["ReplicaModifications"], context);
+  if (output[_RM] != null) {
+    contents[_RM] = de_ReplicaModifications(output[_RM], context);
   }
   return contents;
 };
@@ -12944,8 +11403,8 @@ const de_SourceSelectionCriteria = (output: any, context: __SerdeContext): Sourc
  */
 const de_SSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
   const contents: any = {};
-  if (output["KeyId"] !== undefined) {
-    contents.KeyId = __expectString(output["KeyId"]);
+  if (output[_KI] != null) {
+    contents[_KI] = __expectString(output[_KI]);
   }
   return contents;
 };
@@ -12955,8 +11414,8 @@ const de_SSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
  */
 const de_SseKmsEncryptedObjects = (output: any, context: __SerdeContext): SseKmsEncryptedObjects => {
   const contents: any = {};
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
   return contents;
 };
@@ -12974,14 +11433,14 @@ const de_SSES3 = (output: any, context: __SerdeContext): SSES3 => {
  */
 const de_Stats = (output: any, context: __SerdeContext): Stats => {
   const contents: any = {};
-  if (output["BytesScanned"] !== undefined) {
-    contents.BytesScanned = __strictParseLong(output["BytesScanned"]) as number;
+  if (output[_BS] != null) {
+    contents[_BS] = __strictParseLong(output[_BS]) as number;
   }
-  if (output["BytesProcessed"] !== undefined) {
-    contents.BytesProcessed = __strictParseLong(output["BytesProcessed"]) as number;
+  if (output[_BP] != null) {
+    contents[_BP] = __strictParseLong(output[_BP]) as number;
   }
-  if (output["BytesReturned"] !== undefined) {
-    contents.BytesReturned = __strictParseLong(output["BytesReturned"]) as number;
+  if (output[_BRy] != null) {
+    contents[_BRy] = __strictParseLong(output[_BRy]) as number;
   }
   return contents;
 };
@@ -12991,8 +11450,8 @@ const de_Stats = (output: any, context: __SerdeContext): Stats => {
  */
 const de_StorageClassAnalysis = (output: any, context: __SerdeContext): StorageClassAnalysis => {
   const contents: any = {};
-  if (output["DataExport"] !== undefined) {
-    contents.DataExport = de_StorageClassAnalysisDataExport(output["DataExport"], context);
+  if (output[_DE] != null) {
+    contents[_DE] = de_StorageClassAnalysisDataExport(output[_DE], context);
   }
   return contents;
 };
@@ -13002,11 +11461,11 @@ const de_StorageClassAnalysis = (output: any, context: __SerdeContext): StorageC
  */
 const de_StorageClassAnalysisDataExport = (output: any, context: __SerdeContext): StorageClassAnalysisDataExport => {
   const contents: any = {};
-  if (output["OutputSchemaVersion"] !== undefined) {
-    contents.OutputSchemaVersion = __expectString(output["OutputSchemaVersion"]);
+  if (output[_OSV] != null) {
+    contents[_OSV] = __expectString(output[_OSV]);
   }
-  if (output["Destination"] !== undefined) {
-    contents.Destination = de_AnalyticsExportDestination(output["Destination"], context);
+  if (output[_Des] != null) {
+    contents[_Des] = de_AnalyticsExportDestination(output[_Des], context);
   }
   return contents;
 };
@@ -13016,11 +11475,11 @@ const de_StorageClassAnalysisDataExport = (output: any, context: __SerdeContext)
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -13041,11 +11500,11 @@ const de_TagSet = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TargetGrant = (output: any, context: __SerdeContext): TargetGrant => {
   const contents: any = {};
-  if (output["Grantee"] !== undefined) {
-    contents.Grantee = de_Grantee(output["Grantee"], context);
+  if (output[_Gra] != null) {
+    contents[_Gra] = de_Grantee(output[_Gra], context);
   }
-  if (output["Permission"] !== undefined) {
-    contents.Permission = __expectString(output["Permission"]);
+  if (output[_Pe] != null) {
+    contents[_Pe] = __expectString(output[_Pe]);
   }
   return contents;
 };
@@ -13066,11 +11525,11 @@ const de_TargetGrants = (output: any, context: __SerdeContext): TargetGrant[] =>
  */
 const de_TargetObjectKeyFormat = (output: any, context: __SerdeContext): TargetObjectKeyFormat => {
   const contents: any = {};
-  if (output["SimplePrefix"] !== undefined) {
-    contents.SimplePrefix = de_SimplePrefix(output["SimplePrefix"], context);
+  if (output[_SPi] != null) {
+    contents[_SPi] = de_SimplePrefix(output[_SPi], context);
   }
-  if (output["PartitionedPrefix"] !== undefined) {
-    contents.PartitionedPrefix = de_PartitionedPrefix(output["PartitionedPrefix"], context);
+  if (output[_PP] != null) {
+    contents[_PP] = de_PartitionedPrefix(output[_PP], context);
   }
   return contents;
 };
@@ -13080,11 +11539,11 @@ const de_TargetObjectKeyFormat = (output: any, context: __SerdeContext): TargetO
  */
 const de_Tiering = (output: any, context: __SerdeContext): Tiering => {
   const contents: any = {};
-  if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt32(output["Days"]) as number;
+  if (output[_Da] != null) {
+    contents[_Da] = __strictParseInt32(output[_Da]) as number;
   }
-  if (output["AccessTier"] !== undefined) {
-    contents.AccessTier = __expectString(output["AccessTier"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
   return contents;
 };
@@ -13105,19 +11564,19 @@ const de_TieringList = (output: any, context: __SerdeContext): Tiering[] => {
  */
 const de_TopicConfiguration = (output: any, context: __SerdeContext): TopicConfiguration => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Topic"] !== undefined) {
-    contents.TopicArn = __expectString(output["Topic"]);
+  if (output[_Top] != null) {
+    contents[_TA] = __expectString(output[_Top]);
   }
   if (output.Event === "") {
-    contents.Events = [];
-  } else if (output["Event"] !== undefined) {
-    contents.Events = de_EventList(__getArrayIfSingleItem(output["Event"]), context);
+    contents[_Eve] = [];
+  } else if (output[_Ev] != null) {
+    contents[_Eve] = de_EventList(__getArrayIfSingleItem(output[_Ev]), context);
   }
-  if (output["Filter"] !== undefined) {
-    contents.Filter = de_NotificationConfigurationFilter(output["Filter"], context);
+  if (output[_F] != null) {
+    contents[_F] = de_NotificationConfigurationFilter(output[_F], context);
   }
   return contents;
 };
@@ -13138,14 +11597,14 @@ const de_TopicConfigurationList = (output: any, context: __SerdeContext): TopicC
  */
 const de_Transition = (output: any, context: __SerdeContext): Transition => {
   const contents: any = {};
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Dat] != null) {
+    contents[_Dat] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Dat]));
   }
-  if (output["Days"] !== undefined) {
-    contents.Days = __strictParseInt32(output["Days"]) as number;
+  if (output[_Da] != null) {
+    contents[_Da] = __strictParseInt32(output[_Da]) as number;
   }
-  if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = __expectString(output["StorageClass"]);
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
   }
   return contents;
 };
@@ -13179,6 +11638,650 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "And";
+const _AAO = "AnalyticsAndOperator";
+const _AC = "AnalyticsConfiguration";
+const _ACL = "ACL";
+const _ACLc = "AccessControlList";
+const _ACLn = "AnalyticsConfigurationList";
+const _ACP = "AccessControlPolicy";
+const _ACT = "AccessControlTranslation";
+const _ACc = "AccelerateConfiguration";
+const _AD = "AbortDate";
+const _AED = "AnalyticsExportDestination";
+const _AF = "AnalyticsFilter";
+const _AH = "AllowedHeader";
+const _AHl = "AllowedHeaders";
+const _AI = "AnalyticsId";
+const _AIMU = "AbortIncompleteMultipartUpload";
+const _AIc = "AccountId";
+const _AKI = "AccessKeyId";
+const _AM = "AllowedMethod";
+const _AMl = "AllowedMethods";
+const _AO = "AllowedOrigin";
+const _AOl = "AllowedOrigins";
+const _APA = "AccessPointAlias";
+const _APAc = "AccessPointArn";
+const _AQRD = "AllowQuotedRecordDelimiter";
+const _AR = "AcceptRanges";
+const _ARI = "AbortRuleId";
+const _AS = "ArchiveStatus";
+const _ASBD = "AnalyticsS3BucketDestination";
+const _ASEFF = "AnalyticsS3ExportFileFormat";
+const _ASSEBD = "ApplyServerSideEncryptionByDefault";
+const _AT = "AccessTier";
+const _Ac = "Account";
+const _B = "Bucket";
+const _BAI = "BucketAccountId";
+const _BAS = "BucketAccelerateStatus";
+const _BGR = "BypassGovernanceRetention";
+const _BI = "BucketInfo";
+const _BKE = "BucketKeyEnabled";
+const _BLC = "BucketLifecycleConfiguration";
+const _BLCu = "BucketLocationConstraint";
+const _BLN = "BucketLocationName";
+const _BLP = "BucketLogsPermission";
+const _BLS = "BucketLoggingStatus";
+const _BLT = "BucketLocationType";
+const _BN = "BucketName";
+const _BP = "BytesProcessed";
+const _BPA = "BlockPublicAcls";
+const _BPP = "BlockPublicPolicy";
+const _BR = "BucketRegion";
+const _BRy = "BytesReturned";
+const _BS = "BytesScanned";
+const _BT = "BucketType";
+const _BVS = "BucketVersioningStatus";
+const _Bu = "Buckets";
+const _C = "Credentials";
+const _CA = "ChecksumAlgorithm";
+const _CACL = "CannedACL";
+const _CBC = "CreateBucketConfiguration";
+const _CC = "CacheControl";
+const _CCRC = "ChecksumCRC32";
+const _CCRCC = "ChecksumCRC32C";
+const _CD = "ContentDisposition";
+const _CDr = "CreationDate";
+const _CE = "ContentEncoding";
+const _CF = "CloudFunction";
+const _CFC = "CloudFunctionConfiguration";
+const _CL = "ContentLanguage";
+const _CLo = "ContentLength";
+const _CM = "ChecksumMode";
+const _CMD = "ContentMD5";
+const _CMU = "CompletedMultipartUpload";
+const _CORSC = "CORSConfiguration";
+const _CORSR = "CORSRule";
+const _CORSRu = "CORSRules";
+const _CP = "CommonPrefixes";
+const _CPo = "CompletedPart";
+const _CR = "ContentRange";
+const _CRSBA = "ConfirmRemoveSelfBucketAccess";
+const _CS = "CopySource";
+const _CSHA = "ChecksumSHA1";
+const _CSHAh = "ChecksumSHA256";
+const _CSIM = "CopySourceIfMatch";
+const _CSIMS = "CopySourceIfModifiedSince";
+const _CSINM = "CopySourceIfNoneMatch";
+const _CSIUS = "CopySourceIfUnmodifiedSince";
+const _CSR = "CopySourceRange";
+const _CSSSECA = "CopySourceSSECustomerAlgorithm";
+const _CSSSECK = "CopySourceSSECustomerKey";
+const _CSSSECKMD = "CopySourceSSECustomerKeyMD5";
+const _CSV = "CSV";
+const _CSVI = "CopySourceVersionId";
+const _CSVIn = "CSVInput";
+const _CSVO = "CSVOutput";
+const _CT = "ContentType";
+const _CTo = "ContinuationToken";
+const _CTom = "CompressionType";
+const _Ch = "Checksum";
+const _Co = "Contents";
+const _Cod = "Code";
+const _Com = "Comments";
+const _Con = "Condition";
+const _D = "Delimiter";
+const _DAI = "DaysAfterInitiation";
+const _DE = "DataExport";
+const _DM = "DeleteMarker";
+const _DMR = "DeleteMarkerReplication";
+const _DMRS = "DeleteMarkerReplicationStatus";
+const _DMVI = "DeleteMarkerVersionId";
+const _DMe = "DeleteMarkers";
+const _DN = "DisplayName";
+const _DR = "DataRedundancy";
+const _DRe = "DefaultRetention";
+const _Da = "Days";
+const _Dat = "Date";
+const _De = "Deleted";
+const _Del = "Delete";
+const _Des = "Destination";
+const _Desc = "Description";
+const _E = "Expires";
+const _EA = "EmailAddress";
+const _EBC = "EventBridgeConfiguration";
+const _EBO = "ExpectedBucketOwner";
+const _EC = "ErrorCode";
+const _ECn = "EncryptionConfiguration";
+const _ED = "ErrorDocument";
+const _EH = "ExposeHeaders";
+const _EHx = "ExposeHeader";
+const _EM = "ErrorMessage";
+const _EODM = "ExpiredObjectDeleteMarker";
+const _EOR = "ExistingObjectReplication";
+const _EORS = "ExistingObjectReplicationStatus";
+const _ERP = "EnableRequestProgress";
+const _ES = "ExpirationStatus";
+const _ESBO = "ExpectedSourceBucketOwner";
+const _ET = "EncodingType";
+const _ETa = "ETag";
+const _ETn = "EncryptionType";
+const _ETv = "EventThreshold";
+const _ETx = "ExpressionType";
+const _En = "Encryption";
+const _Ena = "Enabled";
+const _End = "End";
+const _Er = "Error";
+const _Err = "Errors";
+const _Ev = "Event";
+const _Eve = "Events";
+const _Ex = "Expression";
+const _Exp = "Expiration";
+const _F = "Filter";
+const _FD = "FieldDelimiter";
+const _FHI = "FileHeaderInfo";
+const _FO = "FetchOwner";
+const _FR = "FilterRule";
+const _FRN = "FilterRuleName";
+const _FRV = "FilterRuleValue";
+const _FRi = "FilterRules";
+const _Fi = "Field";
+const _Fo = "Format";
+const _Fr = "Frequency";
+const _G = "Grant";
+const _GFC = "GrantFullControl";
+const _GJP = "GlacierJobParameters";
+const _GR = "GrantRead";
+const _GRACP = "GrantReadACP";
+const _GW = "GrantWrite";
+const _GWACP = "GrantWriteACP";
+const _Gr = "Grants";
+const _Gra = "Grantee";
+const _HECRE = "HttpErrorCodeReturnedEquals";
+const _HN = "HostName";
+const _HRC = "HttpRedirectCode";
+const _I = "Id";
+const _IC = "InventoryConfiguration";
+const _ICL = "InventoryConfigurationList";
+const _ID = "IndexDocument";
+const _ID_ = "ID";
+const _IDn = "InventoryDestination";
+const _IE = "IsEnabled";
+const _IEn = "InventoryEncryption";
+const _IF = "InventoryFilter";
+const _IFn = "InventoryFormat";
+const _IFnv = "InventoryFrequency";
+const _II = "InventoryId";
+const _IIOV = "InventoryIncludedObjectVersions";
+const _IL = "IsLatest";
+const _IM = "IfMatch";
+const _IMS = "IfModifiedSince";
+const _INM = "IfNoneMatch";
+const _IOF = "InventoryOptionalField";
+const _IOV = "IncludedObjectVersions";
+const _IP = "IsPublic";
+const _IPA = "IgnorePublicAcls";
+const _IRIP = "IsRestoreInProgress";
+const _IS = "InputSerialization";
+const _ISBD = "InventoryS3BucketDestination";
+const _ISn = "InventorySchedule";
+const _IT = "IsTruncated";
+const _ITAO = "IntelligentTieringAndOperator";
+const _ITAT = "IntelligentTieringAccessTier";
+const _ITC = "IntelligentTieringConfiguration";
+const _ITCL = "IntelligentTieringConfigurationList";
+const _ITD = "IntelligentTieringDays";
+const _ITF = "IntelligentTieringFilter";
+const _ITI = "IntelligentTieringId";
+const _ITS = "IntelligentTieringStatus";
+const _IUS = "IfUnmodifiedSince";
+const _In = "Initiator";
+const _Ini = "Initiated";
+const _JSON = "JSON";
+const _JSONI = "JSONInput";
+const _JSONO = "JSONOutput";
+const _JSONT = "JSONType";
+const _K = "Key";
+const _KC = "KeyCount";
+const _KI = "KeyId";
+const _KM = "KeyMarker";
+const _KMSC = "KMSContext";
+const _KMSKI = "KMSKeyId";
+const _KMSMKID = "KMSMasterKeyID";
+const _KPE = "KeyPrefixEquals";
+const _L = "Location";
+const _LC = "LocationConstraint";
+const _LE = "LoggingEnabled";
+const _LEi = "LifecycleExpiration";
+const _LFA = "LambdaFunctionArn";
+const _LFC = "LambdaFunctionConfigurations";
+const _LFCa = "LambdaFunctionConfiguration";
+const _LI = "LocationInfo";
+const _LM = "LastModified";
+const _LNAS = "LocationNameAsString";
+const _LP = "LocationPrefix";
+const _LR = "LifecycleRule";
+const _LRAO = "LifecycleRuleAndOperator";
+const _LRF = "LifecycleRuleFilter";
+const _LT = "LocationType";
+const _M = "Marker";
+const _MAO = "MetricsAndOperator";
+const _MAS = "MaxAgeSeconds";
+const _MC = "MetricsConfiguration";
+const _MCL = "MetricsConfigurationList";
+const _MD = "MetadataDirective";
+const _MDB = "MaxDirectoryBuckets";
+const _MDf = "MfaDelete";
+const _ME = "MetadataEntry";
+const _MF = "MetricsFilter";
+const _MFA = "MFA";
+const _MFAD = "MFADelete";
+const _MI = "MetricsId";
+const _MK = "MaxKeys";
+const _MKe = "MetadataKey";
+const _MM = "MissingMeta";
+const _MP = "MaxParts";
+const _MS = "MetricsStatus";
+const _MU = "MaxUploads";
+const _MV = "MetadataValue";
+const _Me = "Metrics";
+const _Mes = "Message";
+const _Mi = "Minutes";
+const _Mo = "Mode";
+const _N = "Name";
+const _NC = "NotificationConfiguration";
+const _NCF = "NotificationConfigurationFilter";
+const _NCT = "NextContinuationToken";
+const _ND = "NoncurrentDays";
+const _NI = "NotificationId";
+const _NKM = "NextKeyMarker";
+const _NM = "NextMarker";
+const _NNV = "NewerNoncurrentVersions";
+const _NPNM = "NextPartNumberMarker";
+const _NUIM = "NextUploadIdMarker";
+const _NVE = "NoncurrentVersionExpiration";
+const _NVIM = "NextVersionIdMarker";
+const _NVT = "NoncurrentVersionTransitions";
+const _NVTo = "NoncurrentVersionTransition";
+const _O = "Owner";
+const _OA = "ObjectAttributes";
+const _OC = "OwnershipControls";
+const _OCACL = "ObjectCannedACL";
+const _OCR = "OwnershipControlsRule";
+const _OF = "OptionalFields";
+const _OI = "ObjectIdentifier";
+const _OK = "ObjectKey";
+const _OL = "OutputLocation";
+const _OLC = "ObjectLockConfiguration";
+const _OLE = "ObjectLockEnabled";
+const _OLEFB = "ObjectLockEnabledForBucket";
+const _OLLH = "ObjectLockLegalHold";
+const _OLLHS = "ObjectLockLegalHoldStatus";
+const _OLM = "ObjectLockMode";
+const _OLR = "ObjectLockRetention";
+const _OLRM = "ObjectLockRetentionMode";
+const _OLRUD = "ObjectLockRetainUntilDate";
+const _OLRb = "ObjectLockRule";
+const _OO = "ObjectOwnership";
+const _OOA = "OptionalObjectAttributes";
+const _OOw = "OwnerOverride";
+const _OP = "ObjectParts";
+const _OS = "OutputSerialization";
+const _OSGT = "ObjectSizeGreaterThan";
+const _OSGTB = "ObjectSizeGreaterThanBytes";
+const _OSLT = "ObjectSizeLessThan";
+const _OSLTB = "ObjectSizeLessThanBytes";
+const _OSV = "OutputSchemaVersion";
+const _OSb = "ObjectSize";
+const _OVI = "ObjectVersionId";
+const _Ob = "Objects";
+const _P = "Prefix";
+const _PABC = "PublicAccessBlockConfiguration";
+const _PC = "PartsCount";
+const _PDS = "PartitionDateSource";
+const _PI = "ParquetInput";
+const _PN = "PartNumber";
+const _PNM = "PartNumberMarker";
+const _PP = "PartitionedPrefix";
+const _Pa = "Payer";
+const _Par = "Part";
+const _Parq = "Parquet";
+const _Part = "Parts";
+const _Pe = "Permission";
+const _Pr = "Protocol";
+const _Pri = "Priority";
+const _Q = "Quiet";
+const _QA = "QueueArn";
+const _QC = "QueueConfiguration";
+const _QCu = "QueueConfigurations";
+const _QCuo = "QuoteCharacter";
+const _QEC = "QuoteEscapeCharacter";
+const _QF = "QuoteFields";
+const _Qu = "Queue";
+const _R = "Range";
+const _RART = "RedirectAllRequestsTo";
+const _RC = "RequestCharged";
+const _RCC = "ResponseCacheControl";
+const _RCD = "ResponseContentDisposition";
+const _RCE = "ResponseContentEncoding";
+const _RCL = "ResponseContentLanguage";
+const _RCT = "ResponseContentType";
+const _RCe = "ReplicationConfiguration";
+const _RD = "RecordDelimiter";
+const _RE = "ResponseExpires";
+const _RED = "RestoreExpiryDate";
+const _RKKID = "ReplicaKmsKeyID";
+const _RKPW = "ReplaceKeyPrefixWith";
+const _RKW = "ReplaceKeyWith";
+const _RM = "ReplicaModifications";
+const _RMS = "ReplicaModificationsStatus";
+const _ROP = "RestoreOutputPath";
+const _RP = "RequestPayer";
+const _RPB = "RestrictPublicBuckets";
+const _RPC = "RequestPaymentConfiguration";
+const _RPe = "RequestProgress";
+const _RR = "RequestRoute";
+const _RRAO = "ReplicationRuleAndOperator";
+const _RRF = "ReplicationRuleFilter";
+const _RRS = "ReplicationRuleStatus";
+const _RRT = "RestoreRequestType";
+const _RRe = "ReplicationRule";
+const _RRes = "RestoreRequest";
+const _RRo = "RoutingRules";
+const _RRou = "RoutingRule";
+const _RS = "ReplicationStatus";
+const _RSe = "RestoreStatus";
+const _RT = "RequestToken";
+const _RTS = "ReplicationTimeStatus";
+const _RTV = "ReplicationTimeValue";
+const _RTe = "ReplicationTime";
+const _RUD = "RetainUntilDate";
+const _Re = "Restore";
+const _Red = "Redirect";
+const _Ro = "Role";
+const _Ru = "Rule";
+const _Rul = "Rules";
+const _S = "Status";
+const _SA = "StartAfter";
+const _SAK = "SecretAccessKey";
+const _SBD = "S3BucketDestination";
+const _SC = "StorageClass";
+const _SCA = "StorageClassAnalysis";
+const _SCADE = "StorageClassAnalysisDataExport";
+const _SCASV = "StorageClassAnalysisSchemaVersion";
+const _SCt = "StatusCode";
+const _SDV = "SkipDestinationValidation";
+const _SK = "SSE-KMS";
+const _SKEO = "SseKmsEncryptedObjects";
+const _SKEOS = "SseKmsEncryptedObjectsStatus";
+const _SKF = "S3KeyFilter";
+const _SKe = "S3Key";
+const _SL = "S3Location";
+const _SM = "SessionMode";
+const _SOCR = "SelectObjectContentRequest";
+const _SP = "SelectParameters";
+const _SPi = "SimplePrefix";
+const _SR = "ScanRange";
+const _SS = "SSE-S3";
+const _SSC = "SourceSelectionCriteria";
+const _SSE = "ServerSideEncryption";
+const _SSEA = "SSEAlgorithm";
+const _SSEBD = "ServerSideEncryptionByDefault";
+const _SSEC = "ServerSideEncryptionConfiguration";
+const _SSECA = "SSECustomerAlgorithm";
+const _SSECK = "SSECustomerKey";
+const _SSECKMD = "SSECustomerKeyMD5";
+const _SSEKMS = "SSEKMS";
+const _SSEKMSEC = "SSEKMSEncryptionContext";
+const _SSEKMSKI = "SSEKMSKeyId";
+const _SSER = "ServerSideEncryptionRule";
+const _SSES = "SSES3";
+const _ST = "SessionToken";
+const _S_ = "S3";
+const _Sc = "Schedule";
+const _Se = "Setting";
+const _Si = "Size";
+const _St = "Start";
+const _Su = "Suffix";
+const _T = "Tagging";
+const _TA = "TopicArn";
+const _TB = "TargetBucket";
+const _TC = "TagCount";
+const _TCo = "TopicConfiguration";
+const _TCop = "TopicConfigurations";
+const _TD = "TaggingDirective";
+const _TG = "TargetGrants";
+const _TGa = "TargetGrant";
+const _TOKF = "TargetObjectKeyFormat";
+const _TP = "TargetPrefix";
+const _TPC = "TotalPartsCount";
+const _TS = "TagSet";
+const _TSC = "TransitionStorageClass";
+const _Ta = "Tag";
+const _Tag = "Tags";
+const _Ti = "Tier";
+const _Tie = "Tierings";
+const _Tier = "Tiering";
+const _Tim = "Time";
+const _To = "Token";
+const _Top = "Topic";
+const _Tr = "Transitions";
+const _Tra = "Transition";
+const _Ty = "Type";
+const _U = "Upload";
+const _UI = "UploadId";
+const _UIM = "UploadIdMarker";
+const _UM = "UserMetadata";
+const _URI = "URI";
+const _Up = "Uploads";
+const _V = "Version";
+const _VC = "VersionCount";
+const _VCe = "VersioningConfiguration";
+const _VI = "VersionId";
+const _VIM = "VersionIdMarker";
+const _Va = "Value";
+const _Ve = "Versions";
+const _WC = "WebsiteConfiguration";
+const _WRL = "WebsiteRedirectLocation";
+const _Y = "Years";
+const _a = "analytics";
+const _ac = "accelerate";
+const _acl = "acl";
+const _ar = "accept-ranges";
+const _at = "attributes";
+const _c = "cors";
+const _cc = "cache-control";
+const _cd = "content-disposition";
+const _ce = "content-encoding";
+const _cl = "content-language";
+const _cl_ = "content-length";
+const _cm = "content-md5";
+const _cr = "content-range";
+const _ct = "content-type";
+const _ct_ = "continuation-token";
+const _d = "delete";
+const _de = "delimiter";
+const _e = "expires";
+const _en = "encryption";
+const _et = "encoding-type";
+const _eta = "etag";
+const _fo = "fetch-owner";
+const _i = "id";
+const _im = "if-match";
+const _ims = "if-modified-since";
+const _in = "inventory";
+const _inm = "if-none-match";
+const _it = "intelligent-tiering";
+const _ius = "if-unmodified-since";
+const _km = "key-marker";
+const _l = "lifecycle";
+const _lh = "legal-hold";
+const _lm = "last-modified";
+const _lo = "location";
+const _log = "logging";
+const _lt = "list-type";
+const _m = "metrics";
+const _ma = "marker";
+const _mdb = "max-directory-buckets";
+const _me = "member";
+const _mk = "max-keys";
+const _mp = "max-parts";
+const _mu = "max-uploads";
+const _n = "notification";
+const _oC = "ownershipControls";
+const _ol = "object-lock";
+const _p = "policy";
+const _pAB = "publicAccessBlock";
+const _pN = "partNumber";
+const _pS = "policyStatus";
+const _pnm = "part-number-marker";
+const _pr = "prefix";
+const _r = "replication";
+const _rP = "requestPayment";
+const _ra = "range";
+const _rcc = "response-cache-control";
+const _rcd = "response-content-disposition";
+const _rce = "response-content-encoding";
+const _rcl = "response-content-language";
+const _rct = "response-content-type";
+const _re = "response-expires";
+const _res = "restore";
+const _ret = "retention";
+const _s = "session";
+const _sa = "start-after";
+const _se = "select";
+const _st = "select-type";
+const _t = "tagging";
+const _to = "torrent";
+const _u = "uploads";
+const _uI = "uploadId";
+const _uim = "upload-id-marker";
+const _v = "versioning";
+const _vI = "versionId";
+const _ve = '<?xml version="1.0" encoding="UTF-8"?>';
+const _ver = "versions";
+const _vim = "version-id-marker";
+const _w = "website";
+const _x = "xsi:type";
+const _xaa = "x-amz-acl";
+const _xaad = "x-amz-abort-date";
+const _xaapa = "x-amz-access-point-alias";
+const _xaari = "x-amz-abort-rule-id";
+const _xaas = "x-amz-archive-status";
+const _xabgr = "x-amz-bypass-governance-retention";
+const _xabln = "x-amz-bucket-location-name";
+const _xablt = "x-amz-bucket-location-type";
+const _xabole = "x-amz-bucket-object-lock-enabled";
+const _xabolt = "x-amz-bucket-object-lock-token";
+const _xabr = "x-amz-bucket-region";
+const _xaca = "x-amz-checksum-algorithm";
+const _xacc = "x-amz-checksum-crc32";
+const _xacc_ = "x-amz-checksum-crc32c";
+const _xacm = "x-amz-checksum-mode";
+const _xacrsba = "x-amz-confirm-remove-self-bucket-access";
+const _xacs = "x-amz-checksum-sha1";
+const _xacs_ = "x-amz-checksum-sha256";
+const _xacs__ = "x-amz-copy-source";
+const _xacsim = "x-amz-copy-source-if-match";
+const _xacsims = "x-amz-copy-source-if-modified-since";
+const _xacsinm = "x-amz-copy-source-if-none-match";
+const _xacsius = "x-amz-copy-source-if-unmodified-since";
+const _xacsm = "x-amz-create-session-mode";
+const _xacsr = "x-amz-copy-source-range";
+const _xacssseca = "x-amz-copy-source-server-side-encryption-customer-algorithm";
+const _xacssseck = "x-amz-copy-source-server-side-encryption-customer-key";
+const _xacssseckm = "x-amz-copy-source-server-side-encryption-customer-key-md5";
+const _xacsvi = "x-amz-copy-source-version-id";
+const _xadm = "x-amz-delete-marker";
+const _xae = "x-amz-expiration";
+const _xaebo = "x-amz-expected-bucket-owner";
+const _xafec = "x-amz-fwd-error-code";
+const _xafem = "x-amz-fwd-error-message";
+const _xafhar = "x-amz-fwd-header-accept-ranges";
+const _xafhcc = "x-amz-fwd-header-cache-control";
+const _xafhcd = "x-amz-fwd-header-content-disposition";
+const _xafhce = "x-amz-fwd-header-content-encoding";
+const _xafhcl = "x-amz-fwd-header-content-language";
+const _xafhcr = "x-amz-fwd-header-content-range";
+const _xafhct = "x-amz-fwd-header-content-type";
+const _xafhe = "x-amz-fwd-header-etag";
+const _xafhe_ = "x-amz-fwd-header-expires";
+const _xafhlm = "x-amz-fwd-header-last-modified";
+const _xafhxacc = "x-amz-fwd-header-x-amz-checksum-crc32";
+const _xafhxacc_ = "x-amz-fwd-header-x-amz-checksum-crc32c";
+const _xafhxacs = "x-amz-fwd-header-x-amz-checksum-sha1";
+const _xafhxacs_ = "x-amz-fwd-header-x-amz-checksum-sha256";
+const _xafhxadm = "x-amz-fwd-header-x-amz-delete-marker";
+const _xafhxae = "x-amz-fwd-header-x-amz-expiration";
+const _xafhxamm = "x-amz-fwd-header-x-amz-missing-meta";
+const _xafhxampc = "x-amz-fwd-header-x-amz-mp-parts-count";
+const _xafhxaollh = "x-amz-fwd-header-x-amz-object-lock-legal-hold";
+const _xafhxaolm = "x-amz-fwd-header-x-amz-object-lock-mode";
+const _xafhxaolrud = "x-amz-fwd-header-x-amz-object-lock-retain-until-date";
+const _xafhxar = "x-amz-fwd-header-x-amz-restore";
+const _xafhxarc = "x-amz-fwd-header-x-amz-request-charged";
+const _xafhxars = "x-amz-fwd-header-x-amz-replication-status";
+const _xafhxasc = "x-amz-fwd-header-x-amz-storage-class";
+const _xafhxasse = "x-amz-fwd-header-x-amz-server-side-encryption";
+const _xafhxasseakki = "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id";
+const _xafhxassebke = "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled";
+const _xafhxasseca = "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm";
+const _xafhxasseckm = "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-md5";
+const _xafhxatc = "x-amz-fwd-header-x-amz-tagging-count";
+const _xafhxavi = "x-amz-fwd-header-x-amz-version-id";
+const _xafs = "x-amz-fwd-status";
+const _xagfc = "x-amz-grant-full-control";
+const _xagr = "x-amz-grant-read";
+const _xagra = "x-amz-grant-read-acp";
+const _xagw = "x-amz-grant-write";
+const _xagwa = "x-amz-grant-write-acp";
+const _xam = "x-amz-mfa";
+const _xamd = "x-amz-metadata-directive";
+const _xamm = "x-amz-missing-meta";
+const _xamp = "x-amz-max-parts";
+const _xampc = "x-amz-mp-parts-count";
+const _xaoa = "x-amz-object-attributes";
+const _xaollh = "x-amz-object-lock-legal-hold";
+const _xaolm = "x-amz-object-lock-mode";
+const _xaolrud = "x-amz-object-lock-retain-until-date";
+const _xaoo = "x-amz-object-ownership";
+const _xaooa = "x-amz-optional-object-attributes";
+const _xapnm = "x-amz-part-number-marker";
+const _xar = "x-amz-restore";
+const _xarc = "x-amz-request-charged";
+const _xarop = "x-amz-restore-output-path";
+const _xarp = "x-amz-request-payer";
+const _xarr = "x-amz-request-route";
+const _xars = "x-amz-replication-status";
+const _xart = "x-amz-request-token";
+const _xasc = "x-amz-storage-class";
+const _xasca = "x-amz-sdk-checksum-algorithm";
+const _xasdv = "x-amz-skip-destination-validation";
+const _xasebo = "x-amz-source-expected-bucket-owner";
+const _xasse = "x-amz-server-side-encryption";
+const _xasseakki = "x-amz-server-side-encryption-aws-kms-key-id";
+const _xassebke = "x-amz-server-side-encryption-bucket-key-enabled";
+const _xassec = "x-amz-server-side-encryption-context";
+const _xasseca = "x-amz-server-side-encryption-customer-algorithm";
+const _xasseck = "x-amz-server-side-encryption-customer-key";
+const _xasseckm = "x-amz-server-side-encryption-customer-key-md5";
+const _xat = "x-amz-tagging";
+const _xatc = "x-amz-tagging-count";
+const _xatd = "x-amz-tagging-directive";
+const _xavi = "x-amz-version-id";
+const _xawrl = "x-amz-website-redirect-location";
+const _xi = "x-id";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

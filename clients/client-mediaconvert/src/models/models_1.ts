@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { MediaConvertServiceException as __BaseException } from "./MediaConvertServiceException";
+
 import {
   AccelerationSettings,
   AccelerationStatus,

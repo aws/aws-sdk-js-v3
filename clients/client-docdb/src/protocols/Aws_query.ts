@@ -400,8 +400,8 @@ export const se_AddSourceIdentifierToSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddSourceIdentifierToSubscriptionMessage(input, context),
-    Action: "AddSourceIdentifierToSubscription",
-    Version: "2014-10-31",
+    [_A]: _ASITS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -417,8 +417,8 @@ export const se_AddTagsToResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsToResourceMessage(input, context),
-    Action: "AddTagsToResource",
-    Version: "2014-10-31",
+    [_A]: _ATTR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -434,8 +434,8 @@ export const se_ApplyPendingMaintenanceActionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ApplyPendingMaintenanceActionMessage(input, context),
-    Action: "ApplyPendingMaintenanceAction",
-    Version: "2014-10-31",
+    [_A]: _APMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -451,8 +451,8 @@ export const se_CopyDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyDBClusterParameterGroupMessage(input, context),
-    Action: "CopyDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -468,8 +468,8 @@ export const se_CopyDBClusterSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CopyDBClusterSnapshotMessage(input, context),
-    Action: "CopyDBClusterSnapshot",
-    Version: "2014-10-31",
+    [_A]: _CDBCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -485,8 +485,8 @@ export const se_CreateDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterMessage(input, context),
-    Action: "CreateDBCluster",
-    Version: "2014-10-31",
+    [_A]: _CDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -502,8 +502,8 @@ export const se_CreateDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterParameterGroupMessage(input, context),
-    Action: "CreateDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBCPGr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -519,8 +519,8 @@ export const se_CreateDBClusterSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBClusterSnapshotMessage(input, context),
-    Action: "CreateDBClusterSnapshot",
-    Version: "2014-10-31",
+    [_A]: _CDBCSr,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -536,8 +536,8 @@ export const se_CreateDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBInstanceMessage(input, context),
-    Action: "CreateDBInstance",
-    Version: "2014-10-31",
+    [_A]: _CDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -553,8 +553,8 @@ export const se_CreateDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateDBSubnetGroupMessage(input, context),
-    Action: "CreateDBSubnetGroup",
-    Version: "2014-10-31",
+    [_A]: _CDBSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -570,8 +570,8 @@ export const se_CreateEventSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateEventSubscriptionMessage(input, context),
-    Action: "CreateEventSubscription",
-    Version: "2014-10-31",
+    [_A]: _CES,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -587,8 +587,8 @@ export const se_CreateGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateGlobalClusterMessage(input, context),
-    Action: "CreateGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _CGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -604,8 +604,8 @@ export const se_DeleteDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterMessage(input, context),
-    Action: "DeleteDBCluster",
-    Version: "2014-10-31",
+    [_A]: _DDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -621,8 +621,8 @@ export const se_DeleteDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterParameterGroupMessage(input, context),
-    Action: "DeleteDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _DDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -638,8 +638,8 @@ export const se_DeleteDBClusterSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBClusterSnapshotMessage(input, context),
-    Action: "DeleteDBClusterSnapshot",
-    Version: "2014-10-31",
+    [_A]: _DDBCS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -655,8 +655,8 @@ export const se_DeleteDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBInstanceMessage(input, context),
-    Action: "DeleteDBInstance",
-    Version: "2014-10-31",
+    [_A]: _DDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -672,8 +672,8 @@ export const se_DeleteDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteDBSubnetGroupMessage(input, context),
-    Action: "DeleteDBSubnetGroup",
-    Version: "2014-10-31",
+    [_A]: _DDBSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -689,8 +689,8 @@ export const se_DeleteEventSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteEventSubscriptionMessage(input, context),
-    Action: "DeleteEventSubscription",
-    Version: "2014-10-31",
+    [_A]: _DES,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -706,8 +706,8 @@ export const se_DeleteGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteGlobalClusterMessage(input, context),
-    Action: "DeleteGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _DGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -723,8 +723,8 @@ export const se_DescribeCertificatesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeCertificatesMessage(input, context),
-    Action: "DescribeCertificates",
-    Version: "2014-10-31",
+    [_A]: _DC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -740,8 +740,8 @@ export const se_DescribeDBClusterParameterGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterParameterGroupsMessage(input, context),
-    Action: "DescribeDBClusterParameterGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBCPGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -757,8 +757,8 @@ export const se_DescribeDBClusterParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterParametersMessage(input, context),
-    Action: "DescribeDBClusterParameters",
-    Version: "2014-10-31",
+    [_A]: _DDBCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -774,8 +774,8 @@ export const se_DescribeDBClustersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClustersMessage(input, context),
-    Action: "DescribeDBClusters",
-    Version: "2014-10-31",
+    [_A]: _DDBCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -791,8 +791,8 @@ export const se_DescribeDBClusterSnapshotAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterSnapshotAttributesMessage(input, context),
-    Action: "DescribeDBClusterSnapshotAttributes",
-    Version: "2014-10-31",
+    [_A]: _DDBCSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -808,8 +808,8 @@ export const se_DescribeDBClusterSnapshotsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBClusterSnapshotsMessage(input, context),
-    Action: "DescribeDBClusterSnapshots",
-    Version: "2014-10-31",
+    [_A]: _DDBCSe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -825,8 +825,8 @@ export const se_DescribeDBEngineVersionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBEngineVersionsMessage(input, context),
-    Action: "DescribeDBEngineVersions",
-    Version: "2014-10-31",
+    [_A]: _DDBEV,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -842,8 +842,8 @@ export const se_DescribeDBInstancesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBInstancesMessage(input, context),
-    Action: "DescribeDBInstances",
-    Version: "2014-10-31",
+    [_A]: _DDBIe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -859,8 +859,8 @@ export const se_DescribeDBSubnetGroupsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeDBSubnetGroupsMessage(input, context),
-    Action: "DescribeDBSubnetGroups",
-    Version: "2014-10-31",
+    [_A]: _DDBSGe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -876,8 +876,8 @@ export const se_DescribeEngineDefaultClusterParametersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEngineDefaultClusterParametersMessage(input, context),
-    Action: "DescribeEngineDefaultClusterParameters",
-    Version: "2014-10-31",
+    [_A]: _DEDCP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -893,8 +893,8 @@ export const se_DescribeEventCategoriesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventCategoriesMessage(input, context),
-    Action: "DescribeEventCategories",
-    Version: "2014-10-31",
+    [_A]: _DEC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -910,8 +910,8 @@ export const se_DescribeEventsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventsMessage(input, context),
-    Action: "DescribeEvents",
-    Version: "2014-10-31",
+    [_A]: _DE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -927,8 +927,8 @@ export const se_DescribeEventSubscriptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEventSubscriptionsMessage(input, context),
-    Action: "DescribeEventSubscriptions",
-    Version: "2014-10-31",
+    [_A]: _DESe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -944,8 +944,8 @@ export const se_DescribeGlobalClustersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeGlobalClustersMessage(input, context),
-    Action: "DescribeGlobalClusters",
-    Version: "2014-10-31",
+    [_A]: _DGCe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -961,8 +961,8 @@ export const se_DescribeOrderableDBInstanceOptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeOrderableDBInstanceOptionsMessage(input, context),
-    Action: "DescribeOrderableDBInstanceOptions",
-    Version: "2014-10-31",
+    [_A]: _DODBIO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -978,8 +978,8 @@ export const se_DescribePendingMaintenanceActionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribePendingMaintenanceActionsMessage(input, context),
-    Action: "DescribePendingMaintenanceActions",
-    Version: "2014-10-31",
+    [_A]: _DPMA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -995,8 +995,8 @@ export const se_FailoverDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_FailoverDBClusterMessage(input, context),
-    Action: "FailoverDBCluster",
-    Version: "2014-10-31",
+    [_A]: _FDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1012,8 +1012,8 @@ export const se_ListTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceMessage(input, context),
-    Action: "ListTagsForResource",
-    Version: "2014-10-31",
+    [_A]: _LTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1029,8 +1029,8 @@ export const se_ModifyDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterMessage(input, context),
-    Action: "ModifyDBCluster",
-    Version: "2014-10-31",
+    [_A]: _MDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1046,8 +1046,8 @@ export const se_ModifyDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterParameterGroupMessage(input, context),
-    Action: "ModifyDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _MDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1063,8 +1063,8 @@ export const se_ModifyDBClusterSnapshotAttributeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBClusterSnapshotAttributeMessage(input, context),
-    Action: "ModifyDBClusterSnapshotAttribute",
-    Version: "2014-10-31",
+    [_A]: _MDBCSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1080,8 +1080,8 @@ export const se_ModifyDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBInstanceMessage(input, context),
-    Action: "ModifyDBInstance",
-    Version: "2014-10-31",
+    [_A]: _MDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1097,8 +1097,8 @@ export const se_ModifyDBSubnetGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyDBSubnetGroupMessage(input, context),
-    Action: "ModifyDBSubnetGroup",
-    Version: "2014-10-31",
+    [_A]: _MDBSG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1114,8 +1114,8 @@ export const se_ModifyEventSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyEventSubscriptionMessage(input, context),
-    Action: "ModifyEventSubscription",
-    Version: "2014-10-31",
+    [_A]: _MES,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1131,8 +1131,8 @@ export const se_ModifyGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyGlobalClusterMessage(input, context),
-    Action: "ModifyGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _MGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1148,8 +1148,8 @@ export const se_RebootDBInstanceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RebootDBInstanceMessage(input, context),
-    Action: "RebootDBInstance",
-    Version: "2014-10-31",
+    [_A]: _RDBI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1165,8 +1165,8 @@ export const se_RemoveFromGlobalClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveFromGlobalClusterMessage(input, context),
-    Action: "RemoveFromGlobalCluster",
-    Version: "2014-10-31",
+    [_A]: _RFGC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1182,8 +1182,8 @@ export const se_RemoveSourceIdentifierFromSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveSourceIdentifierFromSubscriptionMessage(input, context),
-    Action: "RemoveSourceIdentifierFromSubscription",
-    Version: "2014-10-31",
+    [_A]: _RSIFS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1199,8 +1199,8 @@ export const se_RemoveTagsFromResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsFromResourceMessage(input, context),
-    Action: "RemoveTagsFromResource",
-    Version: "2014-10-31",
+    [_A]: _RTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1216,8 +1216,8 @@ export const se_ResetDBClusterParameterGroupCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ResetDBClusterParameterGroupMessage(input, context),
-    Action: "ResetDBClusterParameterGroup",
-    Version: "2014-10-31",
+    [_A]: _RDBCPG,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1233,8 +1233,8 @@ export const se_RestoreDBClusterFromSnapshotCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBClusterFromSnapshotMessage(input, context),
-    Action: "RestoreDBClusterFromSnapshot",
-    Version: "2014-10-31",
+    [_A]: _RDBCFS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1250,8 +1250,8 @@ export const se_RestoreDBClusterToPointInTimeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RestoreDBClusterToPointInTimeMessage(input, context),
-    Action: "RestoreDBClusterToPointInTime",
-    Version: "2014-10-31",
+    [_A]: _RDBCTPIT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1267,8 +1267,8 @@ export const se_StartDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StartDBClusterMessage(input, context),
-    Action: "StartDBCluster",
-    Version: "2014-10-31",
+    [_A]: _SDBC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1284,8 +1284,8 @@ export const se_StopDBClusterCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_StopDBClusterMessage(input, context),
-    Action: "StopDBCluster",
-    Version: "2014-10-31",
+    [_A]: _SDBCt,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -5053,11 +5053,11 @@ const se_AddSourceIdentifierToSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
   return entries;
 };
@@ -5067,12 +5067,12 @@ const se_AddSourceIdentifierToSubscriptionMessage = (
  */
 const se_AddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5091,14 +5091,14 @@ const se_ApplyPendingMaintenanceActionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ResourceIdentifier != null) {
-    entries["ResourceIdentifier"] = input.ResourceIdentifier;
+  if (input[_RI] != null) {
+    entries[_RI] = input[_RI];
   }
-  if (input.ApplyAction != null) {
-    entries["ApplyAction"] = input.ApplyAction;
+  if (input[_AA] != null) {
+    entries[_AA] = input[_AA];
   }
-  if (input.OptInType != null) {
-    entries["OptInType"] = input.OptInType;
+  if (input[_OIT] != null) {
+    entries[_OIT] = input[_OIT];
   }
   return entries;
 };
@@ -5143,9 +5143,9 @@ const se_CloudwatchLogsExportConfiguration = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnableLogTypes != null) {
-    const memberEntries = se_LogTypeList(input.EnableLogTypes, context);
-    if (input.EnableLogTypes?.length === 0) {
+  if (input[_ELT] != null) {
+    const memberEntries = se_LogTypeList(input[_ELT], context);
+    if (input[_ELT]?.length === 0) {
       entries.EnableLogTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5153,9 +5153,9 @@ const se_CloudwatchLogsExportConfiguration = (
       entries[loc] = value;
     });
   }
-  if (input.DisableLogTypes != null) {
-    const memberEntries = se_LogTypeList(input.DisableLogTypes, context);
-    if (input.DisableLogTypes?.length === 0) {
+  if (input[_DLT] != null) {
+    const memberEntries = se_LogTypeList(input[_DLT], context);
+    if (input[_DLT]?.length === 0) {
       entries.DisableLogTypes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5174,18 +5174,18 @@ const se_CopyDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SourceDBClusterParameterGroupIdentifier != null) {
-    entries["SourceDBClusterParameterGroupIdentifier"] = input.SourceDBClusterParameterGroupIdentifier;
+  if (input[_SDBCPGI] != null) {
+    entries[_SDBCPGI] = input[_SDBCPGI];
   }
-  if (input.TargetDBClusterParameterGroupIdentifier != null) {
-    entries["TargetDBClusterParameterGroupIdentifier"] = input.TargetDBClusterParameterGroupIdentifier;
+  if (input[_TDBCPGI] != null) {
+    entries[_TDBCPGI] = input[_TDBCPGI];
   }
-  if (input.TargetDBClusterParameterGroupDescription != null) {
-    entries["TargetDBClusterParameterGroupDescription"] = input.TargetDBClusterParameterGroupDescription;
+  if (input[_TDBCPGD] != null) {
+    entries[_TDBCPGD] = input[_TDBCPGD];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5201,24 +5201,24 @@ const se_CopyDBClusterParameterGroupMessage = (
  */
 const se_CopyDBClusterSnapshotMessage = (input: CopyDBClusterSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceDBClusterSnapshotIdentifier != null) {
-    entries["SourceDBClusterSnapshotIdentifier"] = input.SourceDBClusterSnapshotIdentifier;
+  if (input[_SDBCSI] != null) {
+    entries[_SDBCSI] = input[_SDBCSI];
   }
-  if (input.TargetDBClusterSnapshotIdentifier != null) {
-    entries["TargetDBClusterSnapshotIdentifier"] = input.TargetDBClusterSnapshotIdentifier;
+  if (input[_TDBCSI] != null) {
+    entries[_TDBCSI] = input[_TDBCSI];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
-  if (input.CopyTags != null) {
-    entries["CopyTags"] = input.CopyTags;
+  if (input[_CT] != null) {
+    entries[_CT] = input[_CT];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5234,9 +5234,9 @@ const se_CopyDBClusterSnapshotMessage = (input: CopyDBClusterSnapshotMessage, co
  */
 const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5244,18 +5244,18 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5263,33 +5263,33 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MasterUsername != null) {
-    entries["MasterUsername"] = input.MasterUsername;
+  if (input[_MU] != null) {
+    entries[_MU] = input[_MU];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5297,18 +5297,18 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.PreSignedUrl != null) {
-    entries["PreSignedUrl"] = input.PreSignedUrl;
+  if (input[_PSU] != null) {
+    entries[_PSU] = input[_PSU];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5316,14 +5316,14 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
   return entries;
 };
@@ -5336,18 +5336,18 @@ const se_CreateDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5363,15 +5363,15 @@ const se_CreateDBClusterParameterGroupMessage = (
  */
 const se_CreateDBClusterSnapshotMessage = (input: CreateDBClusterSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5387,27 +5387,27 @@ const se_CreateDBClusterSnapshotMessage = (input: CreateDBClusterSnapshotMessage
  */
 const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.AvailabilityZone != null) {
-    entries["AvailabilityZone"] = input.AvailabilityZone;
+  if (input[_AZv] != null) {
+    entries[_AZv] = input[_AZv];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5415,23 +5415,23 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
       entries[loc] = value;
     });
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.PromotionTier != null) {
-    entries["PromotionTier"] = input.PromotionTier;
+  if (input[_PT] != null) {
+    entries[_PT] = input[_PT];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.CACertificateIdentifier != null) {
-    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
   }
   return entries;
 };
@@ -5441,15 +5441,15 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
  */
 const se_CreateDBSubnetGroupMessage = (input: CreateDBSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.DBSubnetGroupDescription != null) {
-    entries["DBSubnetGroupDescription"] = input.DBSubnetGroupDescription;
+  if (input[_DBSGD] != null) {
+    entries[_DBSGD] = input[_DBSGD];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SIu] != null) {
+    const memberEntries = se_SubnetIdentifierList(input[_SIu], context);
+    if (input[_SIu]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5457,9 +5457,9 @@ const se_CreateDBSubnetGroupMessage = (input: CreateDBSubnetGroupMessage, contex
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5475,18 +5475,18 @@ const se_CreateDBSubnetGroupMessage = (input: CreateDBSubnetGroupMessage, contex
  */
 const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SnsTopicArn != null) {
-    entries["SnsTopicArn"] = input.SnsTopicArn;
+  if (input[_STA] != null) {
+    entries[_STA] = input[_STA];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.EventCategories != null) {
-    const memberEntries = se_EventCategoriesList(input.EventCategories, context);
-    if (input.EventCategories?.length === 0) {
+  if (input[_EC] != null) {
+    const memberEntries = se_EventCategoriesList(input[_EC], context);
+    if (input[_EC]?.length === 0) {
       entries.EventCategories = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5494,9 +5494,9 @@ const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage
       entries[loc] = value;
     });
   }
-  if (input.SourceIds != null) {
-    const memberEntries = se_SourceIdsList(input.SourceIds, context);
-    if (input.SourceIds?.length === 0) {
+  if (input[_SIo] != null) {
+    const memberEntries = se_SourceIdsList(input[_SIo], context);
+    if (input[_SIo]?.length === 0) {
       entries.SourceIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5504,12 +5504,12 @@ const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage
       entries[loc] = value;
     });
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_En] != null) {
+    entries[_En] = input[_En];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5525,26 +5525,26 @@ const se_CreateEventSubscriptionMessage = (input: CreateEventSubscriptionMessage
  */
 const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.SourceDBClusterIdentifier != null) {
-    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  if (input[_SDBCI] != null) {
+    entries[_SDBCI] = input[_SDBCI];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.DatabaseName != null) {
-    entries["DatabaseName"] = input.DatabaseName;
+  if (input[_DN] != null) {
+    entries[_DN] = input[_DN];
   }
-  if (input.StorageEncrypted != null) {
-    entries["StorageEncrypted"] = input.StorageEncrypted;
+  if (input[_SE] != null) {
+    entries[_SE] = input[_SE];
   }
   return entries;
 };
@@ -5554,14 +5554,14 @@ const se_CreateGlobalClusterMessage = (input: CreateGlobalClusterMessage, contex
  */
 const se_DeleteDBClusterMessage = (input: DeleteDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.SkipFinalSnapshot != null) {
-    entries["SkipFinalSnapshot"] = input.SkipFinalSnapshot;
+  if (input[_SFS] != null) {
+    entries[_SFS] = input[_SFS];
   }
-  if (input.FinalDBSnapshotIdentifier != null) {
-    entries["FinalDBSnapshotIdentifier"] = input.FinalDBSnapshotIdentifier;
+  if (input[_FDBSI] != null) {
+    entries[_FDBSI] = input[_FDBSI];
   }
   return entries;
 };
@@ -5574,8 +5574,8 @@ const se_DeleteDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
   return entries;
 };
@@ -5585,8 +5585,8 @@ const se_DeleteDBClusterParameterGroupMessage = (
  */
 const se_DeleteDBClusterSnapshotMessage = (input: DeleteDBClusterSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
   return entries;
 };
@@ -5596,8 +5596,8 @@ const se_DeleteDBClusterSnapshotMessage = (input: DeleteDBClusterSnapshotMessage
  */
 const se_DeleteDBInstanceMessage = (input: DeleteDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
   return entries;
 };
@@ -5607,8 +5607,8 @@ const se_DeleteDBInstanceMessage = (input: DeleteDBInstanceMessage, context: __S
  */
 const se_DeleteDBSubnetGroupMessage = (input: DeleteDBSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
   return entries;
 };
@@ -5618,8 +5618,8 @@ const se_DeleteDBSubnetGroupMessage = (input: DeleteDBSubnetGroupMessage, contex
  */
 const se_DeleteEventSubscriptionMessage = (input: DeleteEventSubscriptionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
   return entries;
 };
@@ -5629,8 +5629,8 @@ const se_DeleteEventSubscriptionMessage = (input: DeleteEventSubscriptionMessage
  */
 const se_DeleteGlobalClusterMessage = (input: DeleteGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
   return entries;
 };
@@ -5640,12 +5640,12 @@ const se_DeleteGlobalClusterMessage = (input: DeleteGlobalClusterMessage, contex
  */
 const se_DescribeCertificatesMessage = (input: DescribeCertificatesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CertificateIdentifier != null) {
-    entries["CertificateIdentifier"] = input.CertificateIdentifier;
+  if (input[_CI] != null) {
+    entries[_CI] = input[_CI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5653,11 +5653,11 @@ const se_DescribeCertificatesMessage = (input: DescribeCertificatesMessage, cont
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5670,12 +5670,12 @@ const se_DescribeDBClusterParameterGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5683,11 +5683,11 @@ const se_DescribeDBClusterParameterGroupsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5700,15 +5700,15 @@ const se_DescribeDBClusterParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5716,11 +5716,11 @@ const se_DescribeDBClusterParametersMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5730,12 +5730,12 @@ const se_DescribeDBClusterParametersMessage = (
  */
 const se_DescribeDBClustersMessage = (input: DescribeDBClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5743,11 +5743,11 @@ const se_DescribeDBClustersMessage = (input: DescribeDBClustersMessage, context:
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5760,8 +5760,8 @@ const se_DescribeDBClusterSnapshotAttributesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
   return entries;
 };
@@ -5774,18 +5774,18 @@ const se_DescribeDBClusterSnapshotsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.SnapshotType != null) {
-    entries["SnapshotType"] = input.SnapshotType;
+  if (input[_STn] != null) {
+    entries[_STn] = input[_STn];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5793,17 +5793,17 @@ const se_DescribeDBClusterSnapshotsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.IncludeShared != null) {
-    entries["IncludeShared"] = input.IncludeShared;
+  if (input[_IS] != null) {
+    entries[_IS] = input[_IS];
   }
-  if (input.IncludePublic != null) {
-    entries["IncludePublic"] = input.IncludePublic;
+  if (input[_IP] != null) {
+    entries[_IP] = input[_IP];
   }
   return entries;
 };
@@ -5813,18 +5813,18 @@ const se_DescribeDBClusterSnapshotsMessage = (
  */
 const se_DescribeDBEngineVersionsMessage = (input: DescribeDBEngineVersionsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5832,20 +5832,20 @@ const se_DescribeDBEngineVersionsMessage = (input: DescribeDBEngineVersionsMessa
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.DefaultOnly != null) {
-    entries["DefaultOnly"] = input.DefaultOnly;
+  if (input[_DO] != null) {
+    entries[_DO] = input[_DO];
   }
-  if (input.ListSupportedCharacterSets != null) {
-    entries["ListSupportedCharacterSets"] = input.ListSupportedCharacterSets;
+  if (input[_LSCS] != null) {
+    entries[_LSCS] = input[_LSCS];
   }
-  if (input.ListSupportedTimezones != null) {
-    entries["ListSupportedTimezones"] = input.ListSupportedTimezones;
+  if (input[_LST] != null) {
+    entries[_LST] = input[_LST];
   }
   return entries;
 };
@@ -5855,12 +5855,12 @@ const se_DescribeDBEngineVersionsMessage = (input: DescribeDBEngineVersionsMessa
  */
 const se_DescribeDBInstancesMessage = (input: DescribeDBInstancesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5868,11 +5868,11 @@ const se_DescribeDBInstancesMessage = (input: DescribeDBInstancesMessage, contex
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5882,12 +5882,12 @@ const se_DescribeDBInstancesMessage = (input: DescribeDBInstancesMessage, contex
  */
 const se_DescribeDBSubnetGroupsMessage = (input: DescribeDBSubnetGroupsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5895,11 +5895,11 @@ const se_DescribeDBSubnetGroupsMessage = (input: DescribeDBSubnetGroupsMessage, 
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5912,12 +5912,12 @@ const se_DescribeEngineDefaultClusterParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBParameterGroupFamily != null) {
-    entries["DBParameterGroupFamily"] = input.DBParameterGroupFamily;
+  if (input[_DBPGF] != null) {
+    entries[_DBPGF] = input[_DBPGF];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5925,11 +5925,11 @@ const se_DescribeEngineDefaultClusterParametersMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -5939,12 +5939,12 @@ const se_DescribeEngineDefaultClusterParametersMessage = (
  */
 const se_DescribeEventCategoriesMessage = (input: DescribeEventCategoriesMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5960,24 +5960,24 @@ const se_DescribeEventCategoriesMessage = (input: DescribeEventCategoriesMessage
  */
 const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.StartTime != null) {
-    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  if (input[_STt] != null) {
+    entries[_STt] = input[_STt].toISOString().split(".")[0] + "Z";
   }
-  if (input.EndTime != null) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
+  if (input[_ET] != null) {
+    entries[_ET] = input[_ET].toISOString().split(".")[0] + "Z";
   }
-  if (input.Duration != null) {
-    entries["Duration"] = input.Duration;
+  if (input[_Du] != null) {
+    entries[_Du] = input[_Du];
   }
-  if (input.EventCategories != null) {
-    const memberEntries = se_EventCategoriesList(input.EventCategories, context);
-    if (input.EventCategories?.length === 0) {
+  if (input[_EC] != null) {
+    const memberEntries = se_EventCategoriesList(input[_EC], context);
+    if (input[_EC]?.length === 0) {
       entries.EventCategories = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5985,9 +5985,9 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
       entries[loc] = value;
     });
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5995,11 +5995,11 @@ const se_DescribeEventsMessage = (input: DescribeEventsMessage, context: __Serde
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -6012,12 +6012,12 @@ const se_DescribeEventSubscriptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6025,11 +6025,11 @@ const se_DescribeEventSubscriptionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -6039,12 +6039,12 @@ const se_DescribeEventSubscriptionsMessage = (
  */
 const se_DescribeGlobalClustersMessage = (input: DescribeGlobalClustersMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6052,11 +6052,11 @@ const se_DescribeGlobalClustersMessage = (input: DescribeGlobalClustersMessage, 
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -6069,24 +6069,24 @@ const se_DescribeOrderableDBInstanceOptionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.LicenseModel != null) {
-    entries["LicenseModel"] = input.LicenseModel;
+  if (input[_LM] != null) {
+    entries[_LM] = input[_LM];
   }
-  if (input.Vpc != null) {
-    entries["Vpc"] = input.Vpc;
+  if (input[_Vp] != null) {
+    entries[_Vp] = input[_Vp];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6094,11 +6094,11 @@ const se_DescribeOrderableDBInstanceOptionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
   return entries;
 };
@@ -6111,12 +6111,12 @@ const se_DescribePendingMaintenanceActionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ResourceIdentifier != null) {
-    entries["ResourceIdentifier"] = input.ResourceIdentifier;
+  if (input[_RI] != null) {
+    entries[_RI] = input[_RI];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6124,11 +6124,11 @@ const se_DescribePendingMaintenanceActionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.MaxRecords != null) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -6154,11 +6154,11 @@ const se_EventCategoriesList = (input: string[], context: __SerdeContext): any =
  */
 const se_FailoverDBClusterMessage = (input: FailoverDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.TargetDBInstanceIdentifier != null) {
-    entries["TargetDBInstanceIdentifier"] = input.TargetDBInstanceIdentifier;
+  if (input[_TDBII] != null) {
+    entries[_TDBII] = input[_TDBII];
   }
   return entries;
 };
@@ -6168,12 +6168,12 @@ const se_FailoverDBClusterMessage = (input: FailoverDBClusterMessage, context: _
  */
 const se_Filter = (input: Filter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Values != null) {
-    const memberEntries = se_FilterValueList(input.Values, context);
-    if (input.Values?.length === 0) {
+  if (input[_Va] != null) {
+    const memberEntries = se_FilterValueList(input[_Va], context);
+    if (input[_Va]?.length === 0) {
       entries.Values = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6240,12 +6240,12 @@ const se_KeyList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ListTagsForResourceMessage = (input: ListTagsForResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.Filters != null) {
-    const memberEntries = se_FilterList(input.Filters, context);
-    if (input.Filters?.length === 0) {
+  if (input[_F] != null) {
+    const memberEntries = se_FilterList(input[_F], context);
+    if (input[_F]?.length === 0) {
       entries.Filters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6277,24 +6277,24 @@ const se_LogTypeList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.NewDBClusterIdentifier != null) {
-    entries["NewDBClusterIdentifier"] = input.NewDBClusterIdentifier;
+  if (input[_NDBCI] != null) {
+    entries[_NDBCI] = input[_NDBCI];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.BackupRetentionPeriod != null) {
-    entries["BackupRetentionPeriod"] = input.BackupRetentionPeriod;
+  if (input[_BRP] != null) {
+    entries[_BRP] = input[_BRP];
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6302,36 +6302,36 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.MasterUserPassword != null) {
-    entries["MasterUserPassword"] = input.MasterUserPassword;
+  if (input[_MUP] != null) {
+    entries[_MUP] = input[_MUP];
   }
-  if (input.PreferredBackupWindow != null) {
-    entries["PreferredBackupWindow"] = input.PreferredBackupWindow;
+  if (input[_PBW] != null) {
+    entries[_PBW] = input[_PBW];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.CloudwatchLogsExportConfiguration != null) {
-    const memberEntries = se_CloudwatchLogsExportConfiguration(input.CloudwatchLogsExportConfiguration, context);
+  if (input[_CLEC] != null) {
+    const memberEntries = se_CloudwatchLogsExportConfiguration(input[_CLEC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CloudwatchLogsExportConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.AllowMajorVersionUpgrade != null) {
-    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  if (input[_AMVUl] != null) {
+    entries[_AMVUl] = input[_AMVUl];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
   return entries;
 };
@@ -6344,12 +6344,12 @@ const se_ModifyDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_ParametersList(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_Pa] != null) {
+    const memberEntries = se_ParametersList(input[_Pa], context);
+    if (input[_Pa]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6368,15 +6368,15 @@ const se_ModifyDBClusterSnapshotAttributeMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterSnapshotIdentifier != null) {
-    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
+  if (input[_DBCSI] != null) {
+    entries[_DBCSI] = input[_DBCSI];
   }
-  if (input.AttributeName != null) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input[_AN] != null) {
+    entries[_AN] = input[_AN];
   }
-  if (input.ValuesToAdd != null) {
-    const memberEntries = se_AttributeValueList(input.ValuesToAdd, context);
-    if (input.ValuesToAdd?.length === 0) {
+  if (input[_VTA] != null) {
+    const memberEntries = se_AttributeValueList(input[_VTA], context);
+    if (input[_VTA]?.length === 0) {
       entries.ValuesToAdd = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6384,9 +6384,9 @@ const se_ModifyDBClusterSnapshotAttributeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ValuesToRemove != null) {
-    const memberEntries = se_AttributeValueList(input.ValuesToRemove, context);
-    if (input.ValuesToRemove?.length === 0) {
+  if (input[_VTR] != null) {
+    const memberEntries = se_AttributeValueList(input[_VTR], context);
+    if (input[_VTR]?.length === 0) {
       entries.ValuesToRemove = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6402,41 +6402,41 @@ const se_ModifyDBClusterSnapshotAttributeMessage = (
  */
 const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.DBInstanceClass != null) {
-    entries["DBInstanceClass"] = input.DBInstanceClass;
+  if (input[_DBIC] != null) {
+    entries[_DBIC] = input[_DBIC];
   }
-  if (input.ApplyImmediately != null) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
   }
-  if (input.PreferredMaintenanceWindow != null) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input[_PMW] != null) {
+    entries[_PMW] = input[_PMW];
   }
-  if (input.AutoMinorVersionUpgrade != null) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input[_AMVU] != null) {
+    entries[_AMVU] = input[_AMVU];
   }
-  if (input.NewDBInstanceIdentifier != null) {
-    entries["NewDBInstanceIdentifier"] = input.NewDBInstanceIdentifier;
+  if (input[_NDBII] != null) {
+    entries[_NDBII] = input[_NDBII];
   }
-  if (input.CACertificateIdentifier != null) {
-    entries["CACertificateIdentifier"] = input.CACertificateIdentifier;
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
   }
-  if (input.CopyTagsToSnapshot != null) {
-    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  if (input[_CTTS] != null) {
+    entries[_CTTS] = input[_CTTS];
   }
-  if (input.PromotionTier != null) {
-    entries["PromotionTier"] = input.PromotionTier;
+  if (input[_PT] != null) {
+    entries[_PT] = input[_PT];
   }
-  if (input.EnablePerformanceInsights != null) {
-    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  if (input[_EPI] != null) {
+    entries[_EPI] = input[_EPI];
   }
-  if (input.PerformanceInsightsKMSKeyId != null) {
-    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  if (input[_PIKMSKI] != null) {
+    entries[_PIKMSKI] = input[_PIKMSKI];
   }
-  if (input.CertificateRotationRestart != null) {
-    entries["CertificateRotationRestart"] = input.CertificateRotationRestart;
+  if (input[_CRR] != null) {
+    entries[_CRR] = input[_CRR];
   }
   return entries;
 };
@@ -6446,15 +6446,15 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
  */
 const se_ModifyDBSubnetGroupMessage = (input: ModifyDBSubnetGroupMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.DBSubnetGroupDescription != null) {
-    entries["DBSubnetGroupDescription"] = input.DBSubnetGroupDescription;
+  if (input[_DBSGD] != null) {
+    entries[_DBSGD] = input[_DBSGD];
   }
-  if (input.SubnetIds != null) {
-    const memberEntries = se_SubnetIdentifierList(input.SubnetIds, context);
-    if (input.SubnetIds?.length === 0) {
+  if (input[_SIu] != null) {
+    const memberEntries = se_SubnetIdentifierList(input[_SIu], context);
+    if (input[_SIu]?.length === 0) {
       entries.SubnetIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6470,18 +6470,18 @@ const se_ModifyDBSubnetGroupMessage = (input: ModifyDBSubnetGroupMessage, contex
  */
 const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SnsTopicArn != null) {
-    entries["SnsTopicArn"] = input.SnsTopicArn;
+  if (input[_STA] != null) {
+    entries[_STA] = input[_STA];
   }
-  if (input.SourceType != null) {
-    entries["SourceType"] = input.SourceType;
+  if (input[_STo] != null) {
+    entries[_STo] = input[_STo];
   }
-  if (input.EventCategories != null) {
-    const memberEntries = se_EventCategoriesList(input.EventCategories, context);
-    if (input.EventCategories?.length === 0) {
+  if (input[_EC] != null) {
+    const memberEntries = se_EventCategoriesList(input[_EC], context);
+    if (input[_EC]?.length === 0) {
       entries.EventCategories = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6489,8 +6489,8 @@ const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage
       entries[loc] = value;
     });
   }
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_En] != null) {
+    entries[_En] = input[_En];
   }
   return entries;
 };
@@ -6500,14 +6500,14 @@ const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage
  */
 const se_ModifyGlobalClusterMessage = (input: ModifyGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.NewGlobalClusterIdentifier != null) {
-    entries["NewGlobalClusterIdentifier"] = input.NewGlobalClusterIdentifier;
+  if (input[_NGCI] != null) {
+    entries[_NGCI] = input[_NGCI];
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
   return entries;
 };
@@ -6517,35 +6517,35 @@ const se_ModifyGlobalClusterMessage = (input: ModifyGlobalClusterMessage, contex
  */
 const se_Parameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterName != null) {
-    entries["ParameterName"] = input.ParameterName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.ParameterValue != null) {
-    entries["ParameterValue"] = input.ParameterValue;
+  if (input[_PV] != null) {
+    entries[_PV] = input[_PV];
   }
-  if (input.Description != null) {
-    entries["Description"] = input.Description;
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
-  if (input.Source != null) {
-    entries["Source"] = input.Source;
+  if (input[_S] != null) {
+    entries[_S] = input[_S];
   }
-  if (input.ApplyType != null) {
-    entries["ApplyType"] = input.ApplyType;
+  if (input[_AT] != null) {
+    entries[_AT] = input[_AT];
   }
-  if (input.DataType != null) {
-    entries["DataType"] = input.DataType;
+  if (input[_DT] != null) {
+    entries[_DT] = input[_DT];
   }
-  if (input.AllowedValues != null) {
-    entries["AllowedValues"] = input.AllowedValues;
+  if (input[_AV] != null) {
+    entries[_AV] = input[_AV];
   }
-  if (input.IsModifiable != null) {
-    entries["IsModifiable"] = input.IsModifiable;
+  if (input[_IM] != null) {
+    entries[_IM] = input[_IM];
   }
-  if (input.MinimumEngineVersion != null) {
-    entries["MinimumEngineVersion"] = input.MinimumEngineVersion;
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
   }
-  if (input.ApplyMethod != null) {
-    entries["ApplyMethod"] = input.ApplyMethod;
+  if (input[_AM] != null) {
+    entries[_AM] = input[_AM];
   }
   return entries;
 };
@@ -6574,11 +6574,11 @@ const se_ParametersList = (input: Parameter[], context: __SerdeContext): any => 
  */
 const se_RebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBInstanceIdentifier != null) {
-    entries["DBInstanceIdentifier"] = input.DBInstanceIdentifier;
+  if (input[_DBII] != null) {
+    entries[_DBII] = input[_DBII];
   }
-  if (input.ForceFailover != null) {
-    entries["ForceFailover"] = input.ForceFailover;
+  if (input[_FF] != null) {
+    entries[_FF] = input[_FF];
   }
   return entries;
 };
@@ -6588,11 +6588,11 @@ const se_RebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __S
  */
 const se_RemoveFromGlobalClusterMessage = (input: RemoveFromGlobalClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GlobalClusterIdentifier != null) {
-    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
   }
-  if (input.DbClusterIdentifier != null) {
-    entries["DbClusterIdentifier"] = input.DbClusterIdentifier;
+  if (input[_DCI] != null) {
+    entries[_DCI] = input[_DCI];
   }
   return entries;
 };
@@ -6605,11 +6605,11 @@ const se_RemoveSourceIdentifierFromSubscriptionMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionName != null) {
-    entries["SubscriptionName"] = input.SubscriptionName;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.SourceIdentifier != null) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
   return entries;
 };
@@ -6619,12 +6619,12 @@ const se_RemoveSourceIdentifierFromSubscriptionMessage = (
  */
 const se_RemoveTagsFromResourceMessage = (input: RemoveTagsFromResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceName != null) {
-    entries["ResourceName"] = input.ResourceName;
+  if (input[_RN] != null) {
+    entries[_RN] = input[_RN];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_KeyList(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_KeyList(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6643,15 +6643,15 @@ const se_ResetDBClusterParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.ResetAllParameters != null) {
-    entries["ResetAllParameters"] = input.ResetAllParameters;
+  if (input[_RAP] != null) {
+    entries[_RAP] = input[_RAP];
   }
-  if (input.Parameters != null) {
-    const memberEntries = se_ParametersList(input.Parameters, context);
-    if (input.Parameters?.length === 0) {
+  if (input[_Pa] != null) {
+    const memberEntries = se_ParametersList(input[_Pa], context);
+    if (input[_Pa]?.length === 0) {
       entries.Parameters = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6670,9 +6670,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6680,27 +6680,27 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.SnapshotIdentifier != null) {
-    entries["SnapshotIdentifier"] = input.SnapshotIdentifier;
+  if (input[_SIn] != null) {
+    entries[_SIn] = input[_SIn];
   }
-  if (input.Engine != null) {
-    entries["Engine"] = input.Engine;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.EngineVersion != null) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input[_EV] != null) {
+    entries[_EV] = input[_EV];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6708,9 +6708,9 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6718,12 +6718,12 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6731,14 +6731,14 @@ const se_RestoreDBClusterFromSnapshotMessage = (
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.DBClusterParameterGroupName != null) {
-    entries["DBClusterParameterGroupName"] = input.DBClusterParameterGroupName;
+  if (input[_DBCPGN] != null) {
+    entries[_DBCPGN] = input[_DBCPGN];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
   return entries;
 };
@@ -6751,30 +6751,30 @@ const se_RestoreDBClusterToPointInTimeMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
-  if (input.RestoreType != null) {
-    entries["RestoreType"] = input.RestoreType;
+  if (input[_RT] != null) {
+    entries[_RT] = input[_RT];
   }
-  if (input.SourceDBClusterIdentifier != null) {
-    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  if (input[_SDBCI] != null) {
+    entries[_SDBCI] = input[_SDBCI];
   }
-  if (input.RestoreToTime != null) {
-    entries["RestoreToTime"] = input.RestoreToTime.toISOString().split(".")[0] + "Z";
+  if (input[_RTT] != null) {
+    entries[_RTT] = input[_RTT].toISOString().split(".")[0] + "Z";
   }
-  if (input.UseLatestRestorableTime != null) {
-    entries["UseLatestRestorableTime"] = input.UseLatestRestorableTime;
+  if (input[_ULRT] != null) {
+    entries[_ULRT] = input[_ULRT];
   }
-  if (input.Port != null) {
-    entries["Port"] = input.Port;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DBSubnetGroupName != null) {
-    entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  if (input[_DBSGN] != null) {
+    entries[_DBSGN] = input[_DBSGN];
   }
-  if (input.VpcSecurityGroupIds != null) {
-    const memberEntries = se_VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
-    if (input.VpcSecurityGroupIds?.length === 0) {
+  if (input[_VSGI] != null) {
+    const memberEntries = se_VpcSecurityGroupIdList(input[_VSGI], context);
+    if (input[_VSGI]?.length === 0) {
       entries.VpcSecurityGroupIds = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6782,9 +6782,9 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6792,12 +6792,12 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId != null) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input[_KKI] != null) {
+    entries[_KKI] = input[_KKI];
   }
-  if (input.EnableCloudwatchLogsExports != null) {
-    const memberEntries = se_LogTypeList(input.EnableCloudwatchLogsExports, context);
-    if (input.EnableCloudwatchLogsExports?.length === 0) {
+  if (input[_ECLE] != null) {
+    const memberEntries = se_LogTypeList(input[_ECLE], context);
+    if (input[_ECLE]?.length === 0) {
       entries.EnableCloudwatchLogsExports = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6805,11 +6805,11 @@ const se_RestoreDBClusterToPointInTimeMessage = (
       entries[loc] = value;
     });
   }
-  if (input.DeletionProtection != null) {
-    entries["DeletionProtection"] = input.DeletionProtection;
+  if (input[_DP] != null) {
+    entries[_DP] = input[_DP];
   }
-  if (input.StorageType != null) {
-    entries["StorageType"] = input.StorageType;
+  if (input[_ST] != null) {
+    entries[_ST] = input[_ST];
   }
   return entries;
 };
@@ -6835,8 +6835,8 @@ const se_SourceIdsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_StartDBClusterMessage = (input: StartDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
   return entries;
 };
@@ -6846,8 +6846,8 @@ const se_StartDBClusterMessage = (input: StartDBClusterMessage, context: __Serde
  */
 const se_StopDBClusterMessage = (input: StopDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DBClusterIdentifier != null) {
-    entries["DBClusterIdentifier"] = input.DBClusterIdentifier;
+  if (input[_DBCI] != null) {
+    entries[_DBCI] = input[_DBCI];
   }
   return entries;
 };
@@ -6873,11 +6873,11 @@ const se_SubnetIdentifierList = (input: string[], context: __SerdeContext): any 
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Val] != null) {
+    entries[_Val] = input[_Val];
   }
   return entries;
 };
@@ -6925,8 +6925,8 @@ const de_AddSourceIdentifierToSubscriptionResult = (
   context: __SerdeContext
 ): AddSourceIdentifierToSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -6939,11 +6939,8 @@ const de_ApplyPendingMaintenanceActionResult = (
   context: __SerdeContext
 ): ApplyPendingMaintenanceActionResult => {
   const contents: any = {};
-  if (output["ResourcePendingMaintenanceActions"] !== undefined) {
-    contents.ResourcePendingMaintenanceActions = de_ResourcePendingMaintenanceActions(
-      output["ResourcePendingMaintenanceActions"],
-      context
-    );
+  if (output[_RPMA] != null) {
+    contents[_RPMA] = de_ResourcePendingMaintenanceActions(output[_RPMA], context);
   }
   return contents;
 };
@@ -6964,8 +6961,8 @@ const de_AttributeValueList = (output: any, context: __SerdeContext): string[] =
  */
 const de_AuthorizationNotFoundFault = (output: any, context: __SerdeContext): AuthorizationNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -6975,8 +6972,8 @@ const de_AuthorizationNotFoundFault = (output: any, context: __SerdeContext): Au
  */
 const de_AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   return contents;
 };
@@ -7019,23 +7016,23 @@ const de_CACertificateIdentifiersList = (output: any, context: __SerdeContext): 
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {};
-  if (output["CertificateIdentifier"] !== undefined) {
-    contents.CertificateIdentifier = __expectString(output["CertificateIdentifier"]);
+  if (output[_CI] != null) {
+    contents[_CI] = __expectString(output[_CI]);
   }
-  if (output["CertificateType"] !== undefined) {
-    contents.CertificateType = __expectString(output["CertificateType"]);
+  if (output[_CTe] != null) {
+    contents[_CTe] = __expectString(output[_CTe]);
   }
-  if (output["Thumbprint"] !== undefined) {
-    contents.Thumbprint = __expectString(output["Thumbprint"]);
+  if (output[_Th] != null) {
+    contents[_Th] = __expectString(output[_Th]);
   }
-  if (output["ValidFrom"] !== undefined) {
-    contents.ValidFrom = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidFrom"]));
+  if (output[_VF] != null) {
+    contents[_VF] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VF]));
   }
-  if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
+  if (output[_VT] != null) {
+    contents[_VT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VT]));
   }
-  if (output["CertificateArn"] !== undefined) {
-    contents.CertificateArn = __expectString(output["CertificateArn"]);
+  if (output[_CA] != null) {
+    contents[_CA] = __expectString(output[_CA]);
   }
   return contents;
 };
@@ -7045,11 +7042,11 @@ const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
  */
 const de_CertificateDetails = (output: any, context: __SerdeContext): CertificateDetails => {
   const contents: any = {};
-  if (output["CAIdentifier"] !== undefined) {
-    contents.CAIdentifier = __expectString(output["CAIdentifier"]);
+  if (output[_CAI] != null) {
+    contents[_CAI] = __expectString(output[_CAI]);
   }
-  if (output["ValidTill"] !== undefined) {
-    contents.ValidTill = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ValidTill"]));
+  if (output[_VT] != null) {
+    contents[_VT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_VT]));
   }
   return contents;
 };
@@ -7071,12 +7068,12 @@ const de_CertificateList = (output: any, context: __SerdeContext): Certificate[]
 const de_CertificateMessage = (output: any, context: __SerdeContext): CertificateMessage => {
   const contents: any = {};
   if (output.Certificates === "") {
-    contents.Certificates = [];
-  } else if (output["Certificates"] !== undefined && output["Certificates"]["Certificate"] !== undefined) {
-    contents.Certificates = de_CertificateList(__getArrayIfSingleItem(output["Certificates"]["Certificate"]), context);
+    contents[_C] = [];
+  } else if (output[_C] != null && output[_C][_Ce] != null) {
+    contents[_C] = de_CertificateList(__getArrayIfSingleItem(output[_C][_Ce]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -7086,8 +7083,8 @@ const de_CertificateMessage = (output: any, context: __SerdeContext): Certificat
  */
 const de_CertificateNotFoundFault = (output: any, context: __SerdeContext): CertificateNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7100,8 +7097,8 @@ const de_CopyDBClusterParameterGroupResult = (
   context: __SerdeContext
 ): CopyDBClusterParameterGroupResult => {
   const contents: any = {};
-  if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = de_DBClusterParameterGroup(output["DBClusterParameterGroup"], context);
+  if (output[_DBCPG] != null) {
+    contents[_DBCPG] = de_DBClusterParameterGroup(output[_DBCPG], context);
   }
   return contents;
 };
@@ -7111,8 +7108,8 @@ const de_CopyDBClusterParameterGroupResult = (
  */
 const de_CopyDBClusterSnapshotResult = (output: any, context: __SerdeContext): CopyDBClusterSnapshotResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshot"] !== undefined) {
-    contents.DBClusterSnapshot = de_DBClusterSnapshot(output["DBClusterSnapshot"], context);
+  if (output[_DBCS] != null) {
+    contents[_DBCS] = de_DBClusterSnapshot(output[_DBCS], context);
   }
   return contents;
 };
@@ -7125,8 +7122,8 @@ const de_CreateDBClusterParameterGroupResult = (
   context: __SerdeContext
 ): CreateDBClusterParameterGroupResult => {
   const contents: any = {};
-  if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = de_DBClusterParameterGroup(output["DBClusterParameterGroup"], context);
+  if (output[_DBCPG] != null) {
+    contents[_DBCPG] = de_DBClusterParameterGroup(output[_DBCPG], context);
   }
   return contents;
 };
@@ -7136,8 +7133,8 @@ const de_CreateDBClusterParameterGroupResult = (
  */
 const de_CreateDBClusterResult = (output: any, context: __SerdeContext): CreateDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -7147,8 +7144,8 @@ const de_CreateDBClusterResult = (output: any, context: __SerdeContext): CreateD
  */
 const de_CreateDBClusterSnapshotResult = (output: any, context: __SerdeContext): CreateDBClusterSnapshotResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshot"] !== undefined) {
-    contents.DBClusterSnapshot = de_DBClusterSnapshot(output["DBClusterSnapshot"], context);
+  if (output[_DBCS] != null) {
+    contents[_DBCS] = de_DBClusterSnapshot(output[_DBCS], context);
   }
   return contents;
 };
@@ -7158,8 +7155,8 @@ const de_CreateDBClusterSnapshotResult = (output: any, context: __SerdeContext):
  */
 const de_CreateDBInstanceResult = (output: any, context: __SerdeContext): CreateDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -7169,8 +7166,8 @@ const de_CreateDBInstanceResult = (output: any, context: __SerdeContext): Create
  */
 const de_CreateDBSubnetGroupResult = (output: any, context: __SerdeContext): CreateDBSubnetGroupResult => {
   const contents: any = {};
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = de_DBSubnetGroup(output["DBSubnetGroup"], context);
+  if (output[_DBSG] != null) {
+    contents[_DBSG] = de_DBSubnetGroup(output[_DBSG], context);
   }
   return contents;
 };
@@ -7180,8 +7177,8 @@ const de_CreateDBSubnetGroupResult = (output: any, context: __SerdeContext): Cre
  */
 const de_CreateEventSubscriptionResult = (output: any, context: __SerdeContext): CreateEventSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -7191,8 +7188,8 @@ const de_CreateEventSubscriptionResult = (output: any, context: __SerdeContext):
  */
 const de_CreateGlobalClusterResult = (output: any, context: __SerdeContext): CreateGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -7203,147 +7200,115 @@ const de_CreateGlobalClusterResult = (output: any, context: __SerdeContext): Cre
 const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   const contents: any = {};
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = __expectString(output["DBClusterParameterGroup"]);
+  if (output[_DBCPG] != null) {
+    contents[_DBCPG] = __expectString(output[_DBCPG]);
   }
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = __expectString(output["DBSubnetGroup"]);
+  if (output[_DBSG] != null) {
+    contents[_DBSG] = __expectString(output[_DBSG]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __expectString(output["PercentProgress"]);
+  if (output[_PP] != null) {
+    contents[_PP] = __expectString(output[_PP]);
   }
-  if (output["EarliestRestorableTime"] !== undefined) {
-    contents.EarliestRestorableTime = __expectNonNull(
-      __parseRfc3339DateTimeWithOffset(output["EarliestRestorableTime"])
-    );
+  if (output[_ERT] != null) {
+    contents[_ERT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ERT]));
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_End] != null) {
+    contents[_End] = __expectString(output[_End]);
   }
-  if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = __expectString(output["ReaderEndpoint"]);
+  if (output[_RE] != null) {
+    contents[_RE] = __expectString(output[_RE]);
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestRestorableTime"]));
+  if (output[_LRT] != null) {
+    contents[_LRT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LRT]));
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["PreferredBackupWindow"] !== undefined) {
-    contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
+  if (output[_PBW] != null) {
+    contents[_PBW] = __expectString(output[_PBW]);
   }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  if (output[_PMW] != null) {
+    contents[_PMW] = __expectString(output[_PMW]);
   }
-  if (output["ReplicationSourceIdentifier"] !== undefined) {
-    contents.ReplicationSourceIdentifier = __expectString(output["ReplicationSourceIdentifier"]);
+  if (output[_RSI] != null) {
+    contents[_RSI] = __expectString(output[_RSI]);
   }
   if (output.ReadReplicaIdentifiers === "") {
-    contents.ReadReplicaIdentifiers = [];
-  } else if (
-    output["ReadReplicaIdentifiers"] !== undefined &&
-    output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"] !== undefined
-  ) {
-    contents.ReadReplicaIdentifiers = de_ReadReplicaIdentifierList(
-      __getArrayIfSingleItem(output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"]),
-      context
-    );
+    contents[_RRI] = [];
+  } else if (output[_RRI] != null && output[_RRI][_RRIe] != null) {
+    contents[_RRI] = de_ReadReplicaIdentifierList(__getArrayIfSingleItem(output[_RRI][_RRIe]), context);
   }
   if (output.DBClusterMembers === "") {
-    contents.DBClusterMembers = [];
-  } else if (output["DBClusterMembers"] !== undefined && output["DBClusterMembers"]["DBClusterMember"] !== undefined) {
-    contents.DBClusterMembers = de_DBClusterMemberList(
-      __getArrayIfSingleItem(output["DBClusterMembers"]["DBClusterMember"]),
-      context
-    );
+    contents[_DBCM] = [];
+  } else if (output[_DBCM] != null && output[_DBCM][_DBCMl] != null) {
+    contents[_DBCM] = de_DBClusterMemberList(__getArrayIfSingleItem(output[_DBCM][_DBCMl]), context);
   }
   if (output.VpcSecurityGroups === "") {
-    contents.VpcSecurityGroups = [];
-  } else if (
-    output["VpcSecurityGroups"] !== undefined &&
-    output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
-  ) {
-    contents.VpcSecurityGroups = de_VpcSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]),
-      context
-    );
+    contents[_VSG] = [];
+  } else if (output[_VSG] != null && output[_VSG][_VSGM] != null) {
+    contents[_VSG] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSG][_VSGM]), context);
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DbClusterResourceId"] !== undefined) {
-    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
+  if (output[_DCRI] != null) {
+    contents[_DCRI] = __expectString(output[_DCRI]);
   }
-  if (output["DBClusterArn"] !== undefined) {
-    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  if (output[_DBCA] != null) {
+    contents[_DBCA] = __expectString(output[_DBCA]);
   }
   if (output.AssociatedRoles === "") {
-    contents.AssociatedRoles = [];
-  } else if (output["AssociatedRoles"] !== undefined && output["AssociatedRoles"]["DBClusterRole"] !== undefined) {
-    contents.AssociatedRoles = de_DBClusterRoles(
-      __getArrayIfSingleItem(output["AssociatedRoles"]["DBClusterRole"]),
-      context
-    );
+    contents[_AR] = [];
+  } else if (output[_AR] != null && output[_AR][_DBCR] != null) {
+    contents[_AR] = de_DBClusterRoles(__getArrayIfSingleItem(output[_AR][_DBCR]), context);
   }
-  if (output["CloneGroupId"] !== undefined) {
-    contents.CloneGroupId = __expectString(output["CloneGroupId"]);
+  if (output[_CGI] != null) {
+    contents[_CGI] = __expectString(output[_CGI]);
   }
-  if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
+  if (output[_CCT] != null) {
+    contents[_CCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCT]));
   }
   if (output.EnabledCloudwatchLogsExports === "") {
-    contents.EnabledCloudwatchLogsExports = [];
-  } else if (
-    output["EnabledCloudwatchLogsExports"] !== undefined &&
-    output["EnabledCloudwatchLogsExports"]["member"] !== undefined
-  ) {
-    contents.EnabledCloudwatchLogsExports = de_LogTypeList(
-      __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
-      context
-    );
+    contents[_ECLEn] = [];
+  } else if (output[_ECLEn] != null && output[_ECLEn][_me] != null) {
+    contents[_ECLEn] = de_LogTypeList(__getArrayIfSingleItem(output[_ECLEn][_me]), context);
   }
-  if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __parseBoolean(output[_DP]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
   return contents;
 };
@@ -7353,8 +7318,8 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
  */
 const de_DBClusterAlreadyExistsFault = (output: any, context: __SerdeContext): DBClusterAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7375,17 +7340,17 @@ const de_DBClusterList = (output: any, context: __SerdeContext): DBCluster[] => 
  */
 const de_DBClusterMember = (output: any, context: __SerdeContext): DBClusterMember => {
   const contents: any = {};
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["IsClusterWriter"] !== undefined) {
-    contents.IsClusterWriter = __parseBoolean(output["IsClusterWriter"]);
+  if (output[_ICW] != null) {
+    contents[_ICW] = __parseBoolean(output[_ICW]);
   }
-  if (output["DBClusterParameterGroupStatus"] !== undefined) {
-    contents.DBClusterParameterGroupStatus = __expectString(output["DBClusterParameterGroupStatus"]);
+  if (output[_DBCPGS] != null) {
+    contents[_DBCPGS] = __expectString(output[_DBCPGS]);
   }
-  if (output["PromotionTier"] !== undefined) {
-    contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;
+  if (output[_PT] != null) {
+    contents[_PT] = __strictParseInt32(output[_PT]) as number;
   }
   return contents;
 };
@@ -7406,13 +7371,13 @@ const de_DBClusterMemberList = (output: any, context: __SerdeContext): DBCluster
  */
 const de_DBClusterMessage = (output: any, context: __SerdeContext): DBClusterMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.DBClusters === "") {
-    contents.DBClusters = [];
-  } else if (output["DBClusters"] !== undefined && output["DBClusters"]["DBCluster"] !== undefined) {
-    contents.DBClusters = de_DBClusterList(__getArrayIfSingleItem(output["DBClusters"]["DBCluster"]), context);
+    contents[_DBCl] = [];
+  } else if (output[_DBCl] != null && output[_DBCl][_DBC] != null) {
+    contents[_DBCl] = de_DBClusterList(__getArrayIfSingleItem(output[_DBCl][_DBC]), context);
   }
   return contents;
 };
@@ -7422,8 +7387,8 @@ const de_DBClusterMessage = (output: any, context: __SerdeContext): DBClusterMes
  */
 const de_DBClusterNotFoundFault = (output: any, context: __SerdeContext): DBClusterNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7433,17 +7398,17 @@ const de_DBClusterNotFoundFault = (output: any, context: __SerdeContext): DBClus
  */
 const de_DBClusterParameterGroup = (output: any, context: __SerdeContext): DBClusterParameterGroup => {
   const contents: any = {};
-  if (output["DBClusterParameterGroupName"] !== undefined) {
-    contents.DBClusterParameterGroupName = __expectString(output["DBClusterParameterGroupName"]);
+  if (output[_DBCPGN] != null) {
+    contents[_DBCPGN] = __expectString(output[_DBCPGN]);
   }
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["DBClusterParameterGroupArn"] !== undefined) {
-    contents.DBClusterParameterGroupArn = __expectString(output["DBClusterParameterGroupArn"]);
+  if (output[_DBCPGA] != null) {
+    contents[_DBCPGA] = __expectString(output[_DBCPGA]);
   }
   return contents;
 };
@@ -7454,12 +7419,12 @@ const de_DBClusterParameterGroup = (output: any, context: __SerdeContext): DBClu
 const de_DBClusterParameterGroupDetails = (output: any, context: __SerdeContext): DBClusterParameterGroupDetails => {
   const contents: any = {};
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -7483,8 +7448,8 @@ const de_DBClusterParameterGroupNameMessage = (
   context: __SerdeContext
 ): DBClusterParameterGroupNameMessage => {
   const contents: any = {};
-  if (output["DBClusterParameterGroupName"] !== undefined) {
-    contents.DBClusterParameterGroupName = __expectString(output["DBClusterParameterGroupName"]);
+  if (output[_DBCPGN] != null) {
+    contents[_DBCPGN] = __expectString(output[_DBCPGN]);
   }
   return contents;
 };
@@ -7497,8 +7462,8 @@ const de_DBClusterParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): DBClusterParameterGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7508,19 +7473,13 @@ const de_DBClusterParameterGroupNotFoundFault = (
  */
 const de_DBClusterParameterGroupsMessage = (output: any, context: __SerdeContext): DBClusterParameterGroupsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.DBClusterParameterGroups === "") {
-    contents.DBClusterParameterGroups = [];
-  } else if (
-    output["DBClusterParameterGroups"] !== undefined &&
-    output["DBClusterParameterGroups"]["DBClusterParameterGroup"] !== undefined
-  ) {
-    contents.DBClusterParameterGroups = de_DBClusterParameterGroupList(
-      __getArrayIfSingleItem(output["DBClusterParameterGroups"]["DBClusterParameterGroup"]),
-      context
-    );
+    contents[_DBCPGl] = [];
+  } else if (output[_DBCPGl] != null && output[_DBCPGl][_DBCPG] != null) {
+    contents[_DBCPGl] = de_DBClusterParameterGroupList(__getArrayIfSingleItem(output[_DBCPGl][_DBCPG]), context);
   }
   return contents;
 };
@@ -7530,8 +7489,8 @@ const de_DBClusterParameterGroupsMessage = (output: any, context: __SerdeContext
  */
 const de_DBClusterQuotaExceededFault = (output: any, context: __SerdeContext): DBClusterQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7541,11 +7500,11 @@ const de_DBClusterQuotaExceededFault = (output: any, context: __SerdeContext): D
  */
 const de_DBClusterRole = (output: any, context: __SerdeContext): DBClusterRole => {
   const contents: any = {};
-  if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = __expectString(output["RoleArn"]);
+  if (output[_RA] != null) {
+    contents[_RA] = __expectString(output[_RA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -7567,66 +7526,60 @@ const de_DBClusterRoles = (output: any, context: __SerdeContext): DBClusterRole[
 const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSnapshot => {
   const contents: any = {};
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["DBClusterSnapshotIdentifier"] !== undefined) {
-    contents.DBClusterSnapshotIdentifier = __expectString(output["DBClusterSnapshotIdentifier"]);
+  if (output[_DBCSI] != null) {
+    contents[_DBCSI] = __expectString(output[_DBCSI]);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["SnapshotCreateTime"]));
+  if (output[_SCT] != null) {
+    contents[_SCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_SCT]));
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["ClusterCreateTime"] !== undefined) {
-    contents.ClusterCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ClusterCreateTime"]));
+  if (output[_CCT] != null) {
+    contents[_CCT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CCT]));
   }
-  if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = __expectString(output["MasterUsername"]);
+  if (output[_MU] != null) {
+    contents[_MU] = __expectString(output[_MU]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["SnapshotType"] !== undefined) {
-    contents.SnapshotType = __expectString(output["SnapshotType"]);
+  if (output[_STn] != null) {
+    contents[_STn] = __expectString(output[_STn]);
   }
-  if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = __strictParseInt32(output["PercentProgress"]) as number;
+  if (output[_PP] != null) {
+    contents[_PP] = __strictParseInt32(output[_PP]) as number;
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DBClusterSnapshotArn"] !== undefined) {
-    contents.DBClusterSnapshotArn = __expectString(output["DBClusterSnapshotArn"]);
+  if (output[_DBCSA] != null) {
+    contents[_DBCSA] = __expectString(output[_DBCSA]);
   }
-  if (output["SourceDBClusterSnapshotArn"] !== undefined) {
-    contents.SourceDBClusterSnapshotArn = __expectString(output["SourceDBClusterSnapshotArn"]);
+  if (output[_SDBCSA] != null) {
+    contents[_SDBCSA] = __expectString(output[_SDBCSA]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
   return contents;
 };
@@ -7639,8 +7592,8 @@ const de_DBClusterSnapshotAlreadyExistsFault = (
   context: __SerdeContext
 ): DBClusterSnapshotAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7650,16 +7603,13 @@ const de_DBClusterSnapshotAlreadyExistsFault = (
  */
 const de_DBClusterSnapshotAttribute = (output: any, context: __SerdeContext): DBClusterSnapshotAttribute => {
   const contents: any = {};
-  if (output["AttributeName"] !== undefined) {
-    contents.AttributeName = __expectString(output["AttributeName"]);
+  if (output[_AN] != null) {
+    contents[_AN] = __expectString(output[_AN]);
   }
   if (output.AttributeValues === "") {
-    contents.AttributeValues = [];
-  } else if (output["AttributeValues"] !== undefined && output["AttributeValues"]["AttributeValue"] !== undefined) {
-    contents.AttributeValues = de_AttributeValueList(
-      __getArrayIfSingleItem(output["AttributeValues"]["AttributeValue"]),
-      context
-    );
+    contents[_AVt] = [];
+  } else if (output[_AVt] != null && output[_AVt][_AVtt] != null) {
+    contents[_AVt] = de_AttributeValueList(__getArrayIfSingleItem(output[_AVt][_AVtt]), context);
   }
   return contents;
 };
@@ -7683,19 +7633,13 @@ const de_DBClusterSnapshotAttributesResult = (
   context: __SerdeContext
 ): DBClusterSnapshotAttributesResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshotIdentifier"] !== undefined) {
-    contents.DBClusterSnapshotIdentifier = __expectString(output["DBClusterSnapshotIdentifier"]);
+  if (output[_DBCSI] != null) {
+    contents[_DBCSI] = __expectString(output[_DBCSI]);
   }
   if (output.DBClusterSnapshotAttributes === "") {
-    contents.DBClusterSnapshotAttributes = [];
-  } else if (
-    output["DBClusterSnapshotAttributes"] !== undefined &&
-    output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"] !== undefined
-  ) {
-    contents.DBClusterSnapshotAttributes = de_DBClusterSnapshotAttributeList(
-      __getArrayIfSingleItem(output["DBClusterSnapshotAttributes"]["DBClusterSnapshotAttribute"]),
-      context
-    );
+    contents[_DBCSAl] = [];
+  } else if (output[_DBCSAl] != null && output[_DBCSAl][_DBCSAlu] != null) {
+    contents[_DBCSAl] = de_DBClusterSnapshotAttributeList(__getArrayIfSingleItem(output[_DBCSAl][_DBCSAlu]), context);
   }
   return contents;
 };
@@ -7716,19 +7660,13 @@ const de_DBClusterSnapshotList = (output: any, context: __SerdeContext): DBClust
  */
 const de_DBClusterSnapshotMessage = (output: any, context: __SerdeContext): DBClusterSnapshotMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.DBClusterSnapshots === "") {
-    contents.DBClusterSnapshots = [];
-  } else if (
-    output["DBClusterSnapshots"] !== undefined &&
-    output["DBClusterSnapshots"]["DBClusterSnapshot"] !== undefined
-  ) {
-    contents.DBClusterSnapshots = de_DBClusterSnapshotList(
-      __getArrayIfSingleItem(output["DBClusterSnapshots"]["DBClusterSnapshot"]),
-      context
-    );
+    contents[_DBCSl] = [];
+  } else if (output[_DBCSl] != null && output[_DBCSl][_DBCS] != null) {
+    contents[_DBCSl] = de_DBClusterSnapshotList(__getArrayIfSingleItem(output[_DBCSl][_DBCS]), context);
   }
   return contents;
 };
@@ -7738,8 +7676,8 @@ const de_DBClusterSnapshotMessage = (output: any, context: __SerdeContext): DBCl
  */
 const de_DBClusterSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBClusterSnapshotNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7749,58 +7687,41 @@ const de_DBClusterSnapshotNotFoundFault = (output: any, context: __SerdeContext)
  */
 const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersion => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["DBEngineDescription"] !== undefined) {
-    contents.DBEngineDescription = __expectString(output["DBEngineDescription"]);
+  if (output[_DBED] != null) {
+    contents[_DBED] = __expectString(output[_DBED]);
   }
-  if (output["DBEngineVersionDescription"] !== undefined) {
-    contents.DBEngineVersionDescription = __expectString(output["DBEngineVersionDescription"]);
+  if (output[_DBEVD] != null) {
+    contents[_DBEVD] = __expectString(output[_DBEVD]);
   }
   if (output.ValidUpgradeTarget === "") {
-    contents.ValidUpgradeTarget = [];
-  } else if (
-    output["ValidUpgradeTarget"] !== undefined &&
-    output["ValidUpgradeTarget"]["UpgradeTarget"] !== undefined
-  ) {
-    contents.ValidUpgradeTarget = de_ValidUpgradeTargetList(
-      __getArrayIfSingleItem(output["ValidUpgradeTarget"]["UpgradeTarget"]),
-      context
-    );
+    contents[_VUT] = [];
+  } else if (output[_VUT] != null && output[_VUT][_UT] != null) {
+    contents[_VUT] = de_ValidUpgradeTargetList(__getArrayIfSingleItem(output[_VUT][_UT]), context);
   }
   if (output.ExportableLogTypes === "") {
-    contents.ExportableLogTypes = [];
-  } else if (output["ExportableLogTypes"] !== undefined && output["ExportableLogTypes"]["member"] !== undefined) {
-    contents.ExportableLogTypes = de_LogTypeList(
-      __getArrayIfSingleItem(output["ExportableLogTypes"]["member"]),
-      context
-    );
+    contents[_ELTx] = [];
+  } else if (output[_ELTx] != null && output[_ELTx][_me] != null) {
+    contents[_ELTx] = de_LogTypeList(__getArrayIfSingleItem(output[_ELTx][_me]), context);
   }
-  if (output["SupportsLogExportsToCloudwatchLogs"] !== undefined) {
-    contents.SupportsLogExportsToCloudwatchLogs = __parseBoolean(output["SupportsLogExportsToCloudwatchLogs"]);
+  if (output[_SLETCL] != null) {
+    contents[_SLETCL] = __parseBoolean(output[_SLETCL]);
   }
   if (output.SupportedCACertificateIdentifiers === "") {
-    contents.SupportedCACertificateIdentifiers = [];
-  } else if (
-    output["SupportedCACertificateIdentifiers"] !== undefined &&
-    output["SupportedCACertificateIdentifiers"]["member"] !== undefined
-  ) {
-    contents.SupportedCACertificateIdentifiers = de_CACertificateIdentifiersList(
-      __getArrayIfSingleItem(output["SupportedCACertificateIdentifiers"]["member"]),
-      context
-    );
+    contents[_SCACI] = [];
+  } else if (output[_SCACI] != null && output[_SCACI][_me] != null) {
+    contents[_SCACI] = de_CACertificateIdentifiersList(__getArrayIfSingleItem(output[_SCACI][_me]), context);
   }
-  if (output["SupportsCertificateRotationWithoutRestart"] !== undefined) {
-    contents.SupportsCertificateRotationWithoutRestart = __parseBoolean(
-      output["SupportsCertificateRotationWithoutRestart"]
-    );
+  if (output[_SCRWR] != null) {
+    contents[_SCRWR] = __parseBoolean(output[_SCRWR]);
   }
   return contents;
 };
@@ -7821,16 +7742,13 @@ const de_DBEngineVersionList = (output: any, context: __SerdeContext): DBEngineV
  */
 const de_DBEngineVersionMessage = (output: any, context: __SerdeContext): DBEngineVersionMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.DBEngineVersions === "") {
-    contents.DBEngineVersions = [];
-  } else if (output["DBEngineVersions"] !== undefined && output["DBEngineVersions"]["DBEngineVersion"] !== undefined) {
-    contents.DBEngineVersions = de_DBEngineVersionList(
-      __getArrayIfSingleItem(output["DBEngineVersions"]["DBEngineVersion"]),
-      context
-    );
+    contents[_DBEV] = [];
+  } else if (output[_DBEV] != null && output[_DBEV][_DBEVn] != null) {
+    contents[_DBEV] = de_DBEngineVersionList(__getArrayIfSingleItem(output[_DBEV][_DBEVn]), context);
   }
   return contents;
 };
@@ -7840,110 +7758,95 @@ const de_DBEngineVersionMessage = (output: any, context: __SerdeContext): DBEngi
  */
 const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   const contents: any = {};
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["DBInstanceStatus"] !== undefined) {
-    contents.DBInstanceStatus = __expectString(output["DBInstanceStatus"]);
+  if (output[_DBIS] != null) {
+    contents[_DBIS] = __expectString(output[_DBIS]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = de_Endpoint(output["Endpoint"], context);
+  if (output[_End] != null) {
+    contents[_End] = de_Endpoint(output[_End], context);
   }
-  if (output["InstanceCreateTime"] !== undefined) {
-    contents.InstanceCreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["InstanceCreateTime"]));
+  if (output[_ICT] != null) {
+    contents[_ICT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ICT]));
   }
-  if (output["PreferredBackupWindow"] !== undefined) {
-    contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
+  if (output[_PBW] != null) {
+    contents[_PBW] = __expectString(output[_PBW]);
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
   if (output.VpcSecurityGroups === "") {
-    contents.VpcSecurityGroups = [];
-  } else if (
-    output["VpcSecurityGroups"] !== undefined &&
-    output["VpcSecurityGroups"]["VpcSecurityGroupMembership"] !== undefined
-  ) {
-    contents.VpcSecurityGroups = de_VpcSecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["VpcSecurityGroups"]["VpcSecurityGroupMembership"]),
-      context
-    );
+    contents[_VSG] = [];
+  } else if (output[_VSG] != null && output[_VSG][_VSGM] != null) {
+    contents[_VSG] = de_VpcSecurityGroupMembershipList(__getArrayIfSingleItem(output[_VSG][_VSGM]), context);
   }
-  if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
+  if (output[_AZv] != null) {
+    contents[_AZv] = __expectString(output[_AZv]);
   }
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = de_DBSubnetGroup(output["DBSubnetGroup"], context);
+  if (output[_DBSG] != null) {
+    contents[_DBSG] = de_DBSubnetGroup(output[_DBSG], context);
   }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  if (output[_PMW] != null) {
+    contents[_PMW] = __expectString(output[_PMW]);
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = de_PendingModifiedValues(output["PendingModifiedValues"], context);
+  if (output[_PMV] != null) {
+    contents[_PMV] = de_PendingModifiedValues(output[_PMV], context);
   }
-  if (output["LatestRestorableTime"] !== undefined) {
-    contents.LatestRestorableTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LatestRestorableTime"]));
+  if (output[_LRT] != null) {
+    contents[_LRT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LRT]));
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  if (output[_AMVU] != null) {
+    contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
-  if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
+  if (output[_PA] != null) {
+    contents[_PA] = __parseBoolean(output[_PA]);
   }
   if (output.StatusInfos === "") {
-    contents.StatusInfos = [];
-  } else if (output["StatusInfos"] !== undefined && output["StatusInfos"]["DBInstanceStatusInfo"] !== undefined) {
-    contents.StatusInfos = de_DBInstanceStatusInfoList(
-      __getArrayIfSingleItem(output["StatusInfos"]["DBInstanceStatusInfo"]),
-      context
-    );
+    contents[_SIt] = [];
+  } else if (output[_SIt] != null && output[_SIt][_DBISI] != null) {
+    contents[_SIt] = de_DBInstanceStatusInfoList(__getArrayIfSingleItem(output[_SIt][_DBISI]), context);
   }
-  if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  if (output[_DBCI] != null) {
+    contents[_DBCI] = __expectString(output[_DBCI]);
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  if (output[_KKI] != null) {
+    contents[_KKI] = __expectString(output[_KKI]);
   }
-  if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
+  if (output[_DRI] != null) {
+    contents[_DRI] = __expectString(output[_DRI]);
   }
-  if (output["CACertificateIdentifier"] !== undefined) {
-    contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
+  if (output[_CACI] != null) {
+    contents[_CACI] = __expectString(output[_CACI]);
   }
-  if (output["CopyTagsToSnapshot"] !== undefined) {
-    contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
+  if (output[_CTTS] != null) {
+    contents[_CTTS] = __parseBoolean(output[_CTTS]);
   }
-  if (output["PromotionTier"] !== undefined) {
-    contents.PromotionTier = __strictParseInt32(output["PromotionTier"]) as number;
+  if (output[_PT] != null) {
+    contents[_PT] = __strictParseInt32(output[_PT]) as number;
   }
-  if (output["DBInstanceArn"] !== undefined) {
-    contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
+  if (output[_DBIA] != null) {
+    contents[_DBIA] = __expectString(output[_DBIA]);
   }
   if (output.EnabledCloudwatchLogsExports === "") {
-    contents.EnabledCloudwatchLogsExports = [];
-  } else if (
-    output["EnabledCloudwatchLogsExports"] !== undefined &&
-    output["EnabledCloudwatchLogsExports"]["member"] !== undefined
-  ) {
-    contents.EnabledCloudwatchLogsExports = de_LogTypeList(
-      __getArrayIfSingleItem(output["EnabledCloudwatchLogsExports"]["member"]),
-      context
-    );
+    contents[_ECLEn] = [];
+  } else if (output[_ECLEn] != null && output[_ECLEn][_me] != null) {
+    contents[_ECLEn] = de_LogTypeList(__getArrayIfSingleItem(output[_ECLEn][_me]), context);
   }
-  if (output["CertificateDetails"] !== undefined) {
-    contents.CertificateDetails = de_CertificateDetails(output["CertificateDetails"], context);
+  if (output[_CD] != null) {
+    contents[_CD] = de_CertificateDetails(output[_CD], context);
   }
   return contents;
 };
@@ -7953,8 +7856,8 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
  */
 const de_DBInstanceAlreadyExistsFault = (output: any, context: __SerdeContext): DBInstanceAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -7975,13 +7878,13 @@ const de_DBInstanceList = (output: any, context: __SerdeContext): DBInstance[] =
  */
 const de_DBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.DBInstances === "") {
-    contents.DBInstances = [];
-  } else if (output["DBInstances"] !== undefined && output["DBInstances"]["DBInstance"] !== undefined) {
-    contents.DBInstances = de_DBInstanceList(__getArrayIfSingleItem(output["DBInstances"]["DBInstance"]), context);
+    contents[_DBIn] = [];
+  } else if (output[_DBIn] != null && output[_DBIn][_DBI] != null) {
+    contents[_DBIn] = de_DBInstanceList(__getArrayIfSingleItem(output[_DBIn][_DBI]), context);
   }
   return contents;
 };
@@ -7991,8 +7894,8 @@ const de_DBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceM
  */
 const de_DBInstanceNotFoundFault = (output: any, context: __SerdeContext): DBInstanceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8002,17 +7905,17 @@ const de_DBInstanceNotFoundFault = (output: any, context: __SerdeContext): DBIns
  */
 const de_DBInstanceStatusInfo = (output: any, context: __SerdeContext): DBInstanceStatusInfo => {
   const contents: any = {};
-  if (output["StatusType"] !== undefined) {
-    contents.StatusType = __expectString(output["StatusType"]);
+  if (output[_STta] != null) {
+    contents[_STta] = __expectString(output[_STta]);
   }
-  if (output["Normal"] !== undefined) {
-    contents.Normal = __parseBoolean(output["Normal"]);
+  if (output[_No] != null) {
+    contents[_No] = __parseBoolean(output[_No]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -8036,8 +7939,8 @@ const de_DBParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): DBParameterGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8047,8 +7950,8 @@ const de_DBParameterGroupAlreadyExistsFault = (
  */
 const de_DBParameterGroupNotFoundFault = (output: any, context: __SerdeContext): DBParameterGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8061,8 +7964,8 @@ const de_DBParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): DBParameterGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8072,8 +7975,8 @@ const de_DBParameterGroupQuotaExceededFault = (
  */
 const de_DBSecurityGroupNotFoundFault = (output: any, context: __SerdeContext): DBSecurityGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8083,8 +7986,8 @@ const de_DBSecurityGroupNotFoundFault = (output: any, context: __SerdeContext): 
  */
 const de_DBSnapshotAlreadyExistsFault = (output: any, context: __SerdeContext): DBSnapshotAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8094,8 +7997,8 @@ const de_DBSnapshotAlreadyExistsFault = (output: any, context: __SerdeContext): 
  */
 const de_DBSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBSnapshotNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8105,25 +8008,25 @@ const de_DBSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBSna
  */
 const de_DBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup => {
   const contents: any = {};
-  if (output["DBSubnetGroupName"] !== undefined) {
-    contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
+  if (output[_DBSGN] != null) {
+    contents[_DBSGN] = __expectString(output[_DBSGN]);
   }
-  if (output["DBSubnetGroupDescription"] !== undefined) {
-    contents.DBSubnetGroupDescription = __expectString(output["DBSubnetGroupDescription"]);
+  if (output[_DBSGD] != null) {
+    contents[_DBSGD] = __expectString(output[_DBSGD]);
   }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = __expectString(output["VpcId"]);
+  if (output[_VI] != null) {
+    contents[_VI] = __expectString(output[_VI]);
   }
-  if (output["SubnetGroupStatus"] !== undefined) {
-    contents.SubnetGroupStatus = __expectString(output["SubnetGroupStatus"]);
+  if (output[_SGS] != null) {
+    contents[_SGS] = __expectString(output[_SGS]);
   }
   if (output.Subnets === "") {
-    contents.Subnets = [];
-  } else if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
-    contents.Subnets = de_SubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_Sub] != null) {
+    contents[_Su] = de_SubnetList(__getArrayIfSingleItem(output[_Su][_Sub]), context);
   }
-  if (output["DBSubnetGroupArn"] !== undefined) {
-    contents.DBSubnetGroupArn = __expectString(output["DBSubnetGroupArn"]);
+  if (output[_DBSGA] != null) {
+    contents[_DBSGA] = __expectString(output[_DBSGA]);
   }
   return contents;
 };
@@ -8133,8 +8036,8 @@ const de_DBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup =
  */
 const de_DBSubnetGroupAlreadyExistsFault = (output: any, context: __SerdeContext): DBSubnetGroupAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8147,8 +8050,8 @@ const de_DBSubnetGroupDoesNotCoverEnoughAZs = (
   context: __SerdeContext
 ): DBSubnetGroupDoesNotCoverEnoughAZs => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8158,16 +8061,13 @@ const de_DBSubnetGroupDoesNotCoverEnoughAZs = (
  */
 const de_DBSubnetGroupMessage = (output: any, context: __SerdeContext): DBSubnetGroupMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.DBSubnetGroups === "") {
-    contents.DBSubnetGroups = [];
-  } else if (output["DBSubnetGroups"] !== undefined && output["DBSubnetGroups"]["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroups = de_DBSubnetGroups(
-      __getArrayIfSingleItem(output["DBSubnetGroups"]["DBSubnetGroup"]),
-      context
-    );
+    contents[_DBSGu] = [];
+  } else if (output[_DBSGu] != null && output[_DBSGu][_DBSG] != null) {
+    contents[_DBSGu] = de_DBSubnetGroups(__getArrayIfSingleItem(output[_DBSGu][_DBSG]), context);
   }
   return contents;
 };
@@ -8177,8 +8077,8 @@ const de_DBSubnetGroupMessage = (output: any, context: __SerdeContext): DBSubnet
  */
 const de_DBSubnetGroupNotFoundFault = (output: any, context: __SerdeContext): DBSubnetGroupNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8188,8 +8088,8 @@ const de_DBSubnetGroupNotFoundFault = (output: any, context: __SerdeContext): DB
  */
 const de_DBSubnetGroupQuotaExceededFault = (output: any, context: __SerdeContext): DBSubnetGroupQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8210,8 +8110,8 @@ const de_DBSubnetGroups = (output: any, context: __SerdeContext): DBSubnetGroup[
  */
 const de_DBSubnetQuotaExceededFault = (output: any, context: __SerdeContext): DBSubnetQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8221,8 +8121,8 @@ const de_DBSubnetQuotaExceededFault = (output: any, context: __SerdeContext): DB
  */
 const de_DBUpgradeDependencyFailureFault = (output: any, context: __SerdeContext): DBUpgradeDependencyFailureFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8232,8 +8132,8 @@ const de_DBUpgradeDependencyFailureFault = (output: any, context: __SerdeContext
  */
 const de_DeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -8243,8 +8143,8 @@ const de_DeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteD
  */
 const de_DeleteDBClusterSnapshotResult = (output: any, context: __SerdeContext): DeleteDBClusterSnapshotResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshot"] !== undefined) {
-    contents.DBClusterSnapshot = de_DBClusterSnapshot(output["DBClusterSnapshot"], context);
+  if (output[_DBCS] != null) {
+    contents[_DBCS] = de_DBClusterSnapshot(output[_DBCS], context);
   }
   return contents;
 };
@@ -8254,8 +8154,8 @@ const de_DeleteDBClusterSnapshotResult = (output: any, context: __SerdeContext):
  */
 const de_DeleteDBInstanceResult = (output: any, context: __SerdeContext): DeleteDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -8265,8 +8165,8 @@ const de_DeleteDBInstanceResult = (output: any, context: __SerdeContext): Delete
  */
 const de_DeleteEventSubscriptionResult = (output: any, context: __SerdeContext): DeleteEventSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -8276,8 +8176,8 @@ const de_DeleteEventSubscriptionResult = (output: any, context: __SerdeContext):
  */
 const de_DeleteGlobalClusterResult = (output: any, context: __SerdeContext): DeleteGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -8290,11 +8190,8 @@ const de_DescribeDBClusterSnapshotAttributesResult = (
   context: __SerdeContext
 ): DescribeDBClusterSnapshotAttributesResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshotAttributesResult"] !== undefined) {
-    contents.DBClusterSnapshotAttributesResult = de_DBClusterSnapshotAttributesResult(
-      output["DBClusterSnapshotAttributesResult"],
-      context
-    );
+  if (output[_DBCSAR] != null) {
+    contents[_DBCSAR] = de_DBClusterSnapshotAttributesResult(output[_DBCSAR], context);
   }
   return contents;
 };
@@ -8307,8 +8204,8 @@ const de_DescribeEngineDefaultClusterParametersResult = (
   context: __SerdeContext
 ): DescribeEngineDefaultClusterParametersResult => {
   const contents: any = {};
-  if (output["EngineDefaults"] !== undefined) {
-    contents.EngineDefaults = de_EngineDefaults(output["EngineDefaults"], context);
+  if (output[_ED] != null) {
+    contents[_ED] = de_EngineDefaults(output[_ED], context);
   }
   return contents;
 };
@@ -8318,14 +8215,14 @@ const de_DescribeEngineDefaultClusterParametersResult = (
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   const contents: any = {};
-  if (output["Address"] !== undefined) {
-    contents.Address = __expectString(output["Address"]);
+  if (output[_Ad] != null) {
+    contents[_Ad] = __expectString(output[_Ad]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
+  if (output[_HZI] != null) {
+    contents[_HZI] = __expectString(output[_HZI]);
   }
   return contents;
 };
@@ -8335,16 +8232,16 @@ const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
  */
 const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
   const contents: any = {};
-  if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
+  if (output[_DBPGF] != null) {
+    contents[_DBPGF] = __expectString(output[_DBPGF]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.Parameters === "") {
-    contents.Parameters = [];
-  } else if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = de_ParametersList(__getArrayIfSingleItem(output["Parameters"]["Parameter"]), context);
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_Par] != null) {
+    contents[_Pa] = de_ParametersList(__getArrayIfSingleItem(output[_Pa][_Par]), context);
   }
   return contents;
 };
@@ -8354,28 +8251,25 @@ const de_EngineDefaults = (output: any, context: __SerdeContext): EngineDefaults
  */
 const de_Event = (output: any, context: __SerdeContext): Event => {
   const contents: any = {};
-  if (output["SourceIdentifier"] !== undefined) {
-    contents.SourceIdentifier = __expectString(output["SourceIdentifier"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   if (output.EventCategories === "") {
-    contents.EventCategories = [];
-  } else if (output["EventCategories"] !== undefined && output["EventCategories"]["EventCategory"] !== undefined) {
-    contents.EventCategories = de_EventCategoriesList(
-      __getArrayIfSingleItem(output["EventCategories"]["EventCategory"]),
-      context
-    );
+    contents[_EC] = [];
+  } else if (output[_EC] != null && output[_EC][_ECv] != null) {
+    contents[_EC] = de_EventCategoriesList(__getArrayIfSingleItem(output[_EC][_ECv]), context);
   }
-  if (output["Date"] !== undefined) {
-    contents.Date = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Date"]));
+  if (output[_Da] != null) {
+    contents[_Da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_Da]));
   }
-  if (output["SourceArn"] !== undefined) {
-    contents.SourceArn = __expectString(output["SourceArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
   return contents;
 };
@@ -8396,16 +8290,13 @@ const de_EventCategoriesList = (output: any, context: __SerdeContext): string[] 
  */
 const de_EventCategoriesMap = (output: any, context: __SerdeContext): EventCategoriesMap => {
   const contents: any = {};
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
   if (output.EventCategories === "") {
-    contents.EventCategories = [];
-  } else if (output["EventCategories"] !== undefined && output["EventCategories"]["EventCategory"] !== undefined) {
-    contents.EventCategories = de_EventCategoriesList(
-      __getArrayIfSingleItem(output["EventCategories"]["EventCategory"]),
-      context
-    );
+    contents[_EC] = [];
+  } else if (output[_EC] != null && output[_EC][_ECv] != null) {
+    contents[_EC] = de_EventCategoriesList(__getArrayIfSingleItem(output[_EC][_ECv]), context);
   }
   return contents;
 };
@@ -8427,15 +8318,9 @@ const de_EventCategoriesMapList = (output: any, context: __SerdeContext): EventC
 const de_EventCategoriesMessage = (output: any, context: __SerdeContext): EventCategoriesMessage => {
   const contents: any = {};
   if (output.EventCategoriesMapList === "") {
-    contents.EventCategoriesMapList = [];
-  } else if (
-    output["EventCategoriesMapList"] !== undefined &&
-    output["EventCategoriesMapList"]["EventCategoriesMap"] !== undefined
-  ) {
-    contents.EventCategoriesMapList = de_EventCategoriesMapList(
-      __getArrayIfSingleItem(output["EventCategoriesMapList"]["EventCategoriesMap"]),
-      context
-    );
+    contents[_ECML] = [];
+  } else if (output[_ECML] != null && output[_ECML][_ECM] != null) {
+    contents[_ECML] = de_EventCategoriesMapList(__getArrayIfSingleItem(output[_ECML][_ECM]), context);
   }
   return contents;
 };
@@ -8456,13 +8341,13 @@ const de_EventList = (output: any, context: __SerdeContext): Event[] => {
  */
 const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.Events === "") {
-    contents.Events = [];
-  } else if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
-    contents.Events = de_EventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
+    contents[_Ev] = [];
+  } else if (output[_Ev] != null && output[_Ev][_Eve] != null) {
+    contents[_Ev] = de_EventList(__getArrayIfSingleItem(output[_Ev][_Eve]), context);
   }
   return contents;
 };
@@ -8472,45 +8357,39 @@ const de_EventsMessage = (output: any, context: __SerdeContext): EventsMessage =
  */
 const de_EventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
   const contents: any = {};
-  if (output["CustomerAwsId"] !== undefined) {
-    contents.CustomerAwsId = __expectString(output["CustomerAwsId"]);
+  if (output[_CAIu] != null) {
+    contents[_CAIu] = __expectString(output[_CAIu]);
   }
-  if (output["CustSubscriptionId"] !== undefined) {
-    contents.CustSubscriptionId = __expectString(output["CustSubscriptionId"]);
+  if (output[_CSI] != null) {
+    contents[_CSI] = __expectString(output[_CSI]);
   }
-  if (output["SnsTopicArn"] !== undefined) {
-    contents.SnsTopicArn = __expectString(output["SnsTopicArn"]);
+  if (output[_STA] != null) {
+    contents[_STA] = __expectString(output[_STA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["SubscriptionCreationTime"] !== undefined) {
-    contents.SubscriptionCreationTime = __expectString(output["SubscriptionCreationTime"]);
+  if (output[_SCTu] != null) {
+    contents[_SCTu] = __expectString(output[_SCTu]);
   }
-  if (output["SourceType"] !== undefined) {
-    contents.SourceType = __expectString(output["SourceType"]);
+  if (output[_STo] != null) {
+    contents[_STo] = __expectString(output[_STo]);
   }
   if (output.SourceIdsList === "") {
-    contents.SourceIdsList = [];
-  } else if (output["SourceIdsList"] !== undefined && output["SourceIdsList"]["SourceId"] !== undefined) {
-    contents.SourceIdsList = de_SourceIdsList(__getArrayIfSingleItem(output["SourceIdsList"]["SourceId"]), context);
+    contents[_SIL] = [];
+  } else if (output[_SIL] != null && output[_SIL][_SIou] != null) {
+    contents[_SIL] = de_SourceIdsList(__getArrayIfSingleItem(output[_SIL][_SIou]), context);
   }
   if (output.EventCategoriesList === "") {
-    contents.EventCategoriesList = [];
-  } else if (
-    output["EventCategoriesList"] !== undefined &&
-    output["EventCategoriesList"]["EventCategory"] !== undefined
-  ) {
-    contents.EventCategoriesList = de_EventCategoriesList(
-      __getArrayIfSingleItem(output["EventCategoriesList"]["EventCategory"]),
-      context
-    );
+    contents[_ECL] = [];
+  } else if (output[_ECL] != null && output[_ECL][_ECv] != null) {
+    contents[_ECL] = de_EventCategoriesList(__getArrayIfSingleItem(output[_ECL][_ECv]), context);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_En] != null) {
+    contents[_En] = __parseBoolean(output[_En]);
   }
-  if (output["EventSubscriptionArn"] !== undefined) {
-    contents.EventSubscriptionArn = __expectString(output["EventSubscriptionArn"]);
+  if (output[_ESA] != null) {
+    contents[_ESA] = __expectString(output[_ESA]);
   }
   return contents;
 };
@@ -8523,8 +8402,8 @@ const de_EventSubscriptionQuotaExceededFault = (
   context: __SerdeContext
 ): EventSubscriptionQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8545,19 +8424,13 @@ const de_EventSubscriptionsList = (output: any, context: __SerdeContext): EventS
  */
 const de_EventSubscriptionsMessage = (output: any, context: __SerdeContext): EventSubscriptionsMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.EventSubscriptionsList === "") {
-    contents.EventSubscriptionsList = [];
-  } else if (
-    output["EventSubscriptionsList"] !== undefined &&
-    output["EventSubscriptionsList"]["EventSubscription"] !== undefined
-  ) {
-    contents.EventSubscriptionsList = de_EventSubscriptionsList(
-      __getArrayIfSingleItem(output["EventSubscriptionsList"]["EventSubscription"]),
-      context
-    );
+    contents[_ESL] = [];
+  } else if (output[_ESL] != null && output[_ESL][_ES] != null) {
+    contents[_ESL] = de_EventSubscriptionsList(__getArrayIfSingleItem(output[_ESL][_ES]), context);
   }
   return contents;
 };
@@ -8567,8 +8440,8 @@ const de_EventSubscriptionsMessage = (output: any, context: __SerdeContext): Eve
  */
 const de_FailoverDBClusterResult = (output: any, context: __SerdeContext): FailoverDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -8578,43 +8451,37 @@ const de_FailoverDBClusterResult = (output: any, context: __SerdeContext): Failo
  */
 const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
   const contents: any = {};
-  if (output["GlobalClusterIdentifier"] !== undefined) {
-    contents.GlobalClusterIdentifier = __expectString(output["GlobalClusterIdentifier"]);
+  if (output[_GCI] != null) {
+    contents[_GCI] = __expectString(output[_GCI]);
   }
-  if (output["GlobalClusterResourceId"] !== undefined) {
-    contents.GlobalClusterResourceId = __expectString(output["GlobalClusterResourceId"]);
+  if (output[_GCRI] != null) {
+    contents[_GCRI] = __expectString(output[_GCRI]);
   }
-  if (output["GlobalClusterArn"] !== undefined) {
-    contents.GlobalClusterArn = __expectString(output["GlobalClusterArn"]);
+  if (output[_GCA] != null) {
+    contents[_GCA] = __expectString(output[_GCA]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DatabaseName"] !== undefined) {
-    contents.DatabaseName = __expectString(output["DatabaseName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  if (output[_SE] != null) {
+    contents[_SE] = __parseBoolean(output[_SE]);
   }
-  if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  if (output[_DP] != null) {
+    contents[_DP] = __parseBoolean(output[_DP]);
   }
   if (output.GlobalClusterMembers === "") {
-    contents.GlobalClusterMembers = [];
-  } else if (
-    output["GlobalClusterMembers"] !== undefined &&
-    output["GlobalClusterMembers"]["GlobalClusterMember"] !== undefined
-  ) {
-    contents.GlobalClusterMembers = de_GlobalClusterMemberList(
-      __getArrayIfSingleItem(output["GlobalClusterMembers"]["GlobalClusterMember"]),
-      context
-    );
+    contents[_GCM] = [];
+  } else if (output[_GCM] != null && output[_GCM][_GCMl] != null) {
+    contents[_GCM] = de_GlobalClusterMemberList(__getArrayIfSingleItem(output[_GCM][_GCMl]), context);
   }
   return contents;
 };
@@ -8624,8 +8491,8 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
  */
 const de_GlobalClusterAlreadyExistsFault = (output: any, context: __SerdeContext): GlobalClusterAlreadyExistsFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8646,16 +8513,16 @@ const de_GlobalClusterList = (output: any, context: __SerdeContext): GlobalClust
  */
 const de_GlobalClusterMember = (output: any, context: __SerdeContext): GlobalClusterMember => {
   const contents: any = {};
-  if (output["DBClusterArn"] !== undefined) {
-    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  if (output[_DBCA] != null) {
+    contents[_DBCA] = __expectString(output[_DBCA]);
   }
   if (output.Readers === "") {
-    contents.Readers = [];
-  } else if (output["Readers"] !== undefined && output["Readers"]["member"] !== undefined) {
-    contents.Readers = de_ReadersArnList(__getArrayIfSingleItem(output["Readers"]["member"]), context);
+    contents[_R] = [];
+  } else if (output[_R] != null && output[_R][_me] != null) {
+    contents[_R] = de_ReadersArnList(__getArrayIfSingleItem(output[_R][_me]), context);
   }
-  if (output["IsWriter"] !== undefined) {
-    contents.IsWriter = __parseBoolean(output["IsWriter"]);
+  if (output[_IW] != null) {
+    contents[_IW] = __parseBoolean(output[_IW]);
   }
   return contents;
 };
@@ -8676,8 +8543,8 @@ const de_GlobalClusterMemberList = (output: any, context: __SerdeContext): Globa
  */
 const de_GlobalClusterNotFoundFault = (output: any, context: __SerdeContext): GlobalClusterNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8687,8 +8554,8 @@ const de_GlobalClusterNotFoundFault = (output: any, context: __SerdeContext): Gl
  */
 const de_GlobalClusterQuotaExceededFault = (output: any, context: __SerdeContext): GlobalClusterQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8698,16 +8565,13 @@ const de_GlobalClusterQuotaExceededFault = (output: any, context: __SerdeContext
  */
 const de_GlobalClustersMessage = (output: any, context: __SerdeContext): GlobalClustersMessage => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   if (output.GlobalClusters === "") {
-    contents.GlobalClusters = [];
-  } else if (output["GlobalClusters"] !== undefined && output["GlobalClusters"]["GlobalClusterMember"] !== undefined) {
-    contents.GlobalClusters = de_GlobalClusterList(
-      __getArrayIfSingleItem(output["GlobalClusters"]["GlobalClusterMember"]),
-      context
-    );
+    contents[_GCl] = [];
+  } else if (output[_GCl] != null && output[_GCl][_GCMl] != null) {
+    contents[_GCl] = de_GlobalClusterList(__getArrayIfSingleItem(output[_GCl][_GCMl]), context);
   }
   return contents;
 };
@@ -8717,8 +8581,8 @@ const de_GlobalClustersMessage = (output: any, context: __SerdeContext): GlobalC
  */
 const de_InstanceQuotaExceededFault = (output: any, context: __SerdeContext): InstanceQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8731,8 +8595,8 @@ const de_InsufficientDBClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientDBClusterCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8745,8 +8609,8 @@ const de_InsufficientDBInstanceCapacityFault = (
   context: __SerdeContext
 ): InsufficientDBInstanceCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8759,8 +8623,8 @@ const de_InsufficientStorageClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientStorageClusterCapacityFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8773,8 +8637,8 @@ const de_InvalidDBClusterSnapshotStateFault = (
   context: __SerdeContext
 ): InvalidDBClusterSnapshotStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8784,8 +8648,8 @@ const de_InvalidDBClusterSnapshotStateFault = (
  */
 const de_InvalidDBClusterStateFault = (output: any, context: __SerdeContext): InvalidDBClusterStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8795,8 +8659,8 @@ const de_InvalidDBClusterStateFault = (output: any, context: __SerdeContext): In
  */
 const de_InvalidDBInstanceStateFault = (output: any, context: __SerdeContext): InvalidDBInstanceStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8809,8 +8673,8 @@ const de_InvalidDBParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidDBParameterGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8823,8 +8687,8 @@ const de_InvalidDBSecurityGroupStateFault = (
   context: __SerdeContext
 ): InvalidDBSecurityGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8834,8 +8698,8 @@ const de_InvalidDBSecurityGroupStateFault = (
  */
 const de_InvalidDBSnapshotStateFault = (output: any, context: __SerdeContext): InvalidDBSnapshotStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8845,8 +8709,8 @@ const de_InvalidDBSnapshotStateFault = (output: any, context: __SerdeContext): I
  */
 const de_InvalidDBSubnetGroupStateFault = (output: any, context: __SerdeContext): InvalidDBSubnetGroupStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8856,8 +8720,8 @@ const de_InvalidDBSubnetGroupStateFault = (output: any, context: __SerdeContext)
  */
 const de_InvalidDBSubnetStateFault = (output: any, context: __SerdeContext): InvalidDBSubnetStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8870,8 +8734,8 @@ const de_InvalidEventSubscriptionStateFault = (
   context: __SerdeContext
 ): InvalidEventSubscriptionStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8881,8 +8745,8 @@ const de_InvalidEventSubscriptionStateFault = (
  */
 const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext): InvalidGlobalClusterStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8892,8 +8756,8 @@ const de_InvalidGlobalClusterStateFault = (output: any, context: __SerdeContext)
  */
 const de_InvalidRestoreFault = (output: any, context: __SerdeContext): InvalidRestoreFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8903,8 +8767,8 @@ const de_InvalidRestoreFault = (output: any, context: __SerdeContext): InvalidRe
  */
 const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8914,8 +8778,8 @@ const de_InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet =
  */
 const de_InvalidVPCNetworkStateFault = (output: any, context: __SerdeContext): InvalidVPCNetworkStateFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8925,8 +8789,8 @@ const de_InvalidVPCNetworkStateFault = (output: any, context: __SerdeContext): I
  */
 const de_KMSKeyNotAccessibleFault = (output: any, context: __SerdeContext): KMSKeyNotAccessibleFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -8947,8 +8811,8 @@ const de_LogTypeList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_ModifyDBClusterResult = (output: any, context: __SerdeContext): ModifyDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -8961,11 +8825,8 @@ const de_ModifyDBClusterSnapshotAttributeResult = (
   context: __SerdeContext
 ): ModifyDBClusterSnapshotAttributeResult => {
   const contents: any = {};
-  if (output["DBClusterSnapshotAttributesResult"] !== undefined) {
-    contents.DBClusterSnapshotAttributesResult = de_DBClusterSnapshotAttributesResult(
-      output["DBClusterSnapshotAttributesResult"],
-      context
-    );
+  if (output[_DBCSAR] != null) {
+    contents[_DBCSAR] = de_DBClusterSnapshotAttributesResult(output[_DBCSAR], context);
   }
   return contents;
 };
@@ -8975,8 +8836,8 @@ const de_ModifyDBClusterSnapshotAttributeResult = (
  */
 const de_ModifyDBInstanceResult = (output: any, context: __SerdeContext): ModifyDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -8986,8 +8847,8 @@ const de_ModifyDBInstanceResult = (output: any, context: __SerdeContext): Modify
  */
 const de_ModifyDBSubnetGroupResult = (output: any, context: __SerdeContext): ModifyDBSubnetGroupResult => {
   const contents: any = {};
-  if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = de_DBSubnetGroup(output["DBSubnetGroup"], context);
+  if (output[_DBSG] != null) {
+    contents[_DBSG] = de_DBSubnetGroup(output[_DBSG], context);
   }
   return contents;
 };
@@ -8997,8 +8858,8 @@ const de_ModifyDBSubnetGroupResult = (output: any, context: __SerdeContext): Mod
  */
 const de_ModifyEventSubscriptionResult = (output: any, context: __SerdeContext): ModifyEventSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -9008,8 +8869,8 @@ const de_ModifyEventSubscriptionResult = (output: any, context: __SerdeContext):
  */
 const de_ModifyGlobalClusterResult = (output: any, context: __SerdeContext): ModifyGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -9019,34 +8880,28 @@ const de_ModifyGlobalClusterResult = (output: any, context: __SerdeContext): Mod
  */
 const de_OrderableDBInstanceOption = (output: any, context: __SerdeContext): OrderableDBInstanceOption => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (
-    output["AvailabilityZones"] !== undefined &&
-    output["AvailabilityZones"]["AvailabilityZone"] !== undefined
-  ) {
-    contents.AvailabilityZones = de_AvailabilityZoneList(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["AvailabilityZone"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_AZv] != null) {
+    contents[_AZ] = de_AvailabilityZoneList(__getArrayIfSingleItem(output[_AZ][_AZv]), context);
   }
-  if (output["Vpc"] !== undefined) {
-    contents.Vpc = __parseBoolean(output["Vpc"]);
+  if (output[_Vp] != null) {
+    contents[_Vp] = __parseBoolean(output[_Vp]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
   return contents;
 };
@@ -9071,18 +8926,12 @@ const de_OrderableDBInstanceOptionsMessage = (
 ): OrderableDBInstanceOptionsMessage => {
   const contents: any = {};
   if (output.OrderableDBInstanceOptions === "") {
-    contents.OrderableDBInstanceOptions = [];
-  } else if (
-    output["OrderableDBInstanceOptions"] !== undefined &&
-    output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"] !== undefined
-  ) {
-    contents.OrderableDBInstanceOptions = de_OrderableDBInstanceOptionsList(
-      __getArrayIfSingleItem(output["OrderableDBInstanceOptions"]["OrderableDBInstanceOption"]),
-      context
-    );
+    contents[_ODBIO] = [];
+  } else if (output[_ODBIO] != null && output[_ODBIO][_ODBIOr] != null) {
+    contents[_ODBIO] = de_OrderableDBInstanceOptionsList(__getArrayIfSingleItem(output[_ODBIO][_ODBIOr]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9092,35 +8941,35 @@ const de_OrderableDBInstanceOptionsMessage = (
  */
 const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
   const contents: any = {};
-  if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = __expectString(output["ParameterName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = __expectString(output["ParameterValue"]);
+  if (output[_PV] != null) {
+    contents[_PV] = __expectString(output[_PV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Source"] !== undefined) {
-    contents.Source = __expectString(output["Source"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["ApplyType"] !== undefined) {
-    contents.ApplyType = __expectString(output["ApplyType"]);
+  if (output[_AT] != null) {
+    contents[_AT] = __expectString(output[_AT]);
   }
-  if (output["DataType"] !== undefined) {
-    contents.DataType = __expectString(output["DataType"]);
+  if (output[_DT] != null) {
+    contents[_DT] = __expectString(output[_DT]);
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = __expectString(output["AllowedValues"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
+  if (output[_IM] != null) {
+    contents[_IM] = __parseBoolean(output[_IM]);
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
+  if (output[_MEV] != null) {
+    contents[_MEV] = __expectString(output[_MEV]);
   }
-  if (output["ApplyMethod"] !== undefined) {
-    contents.ApplyMethod = __expectString(output["ApplyMethod"]);
+  if (output[_AM] != null) {
+    contents[_AM] = __expectString(output[_AM]);
   }
   return contents;
 };
@@ -9142,14 +8991,14 @@ const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] =>
 const de_PendingCloudwatchLogsExports = (output: any, context: __SerdeContext): PendingCloudwatchLogsExports => {
   const contents: any = {};
   if (output.LogTypesToEnable === "") {
-    contents.LogTypesToEnable = [];
-  } else if (output["LogTypesToEnable"] !== undefined && output["LogTypesToEnable"]["member"] !== undefined) {
-    contents.LogTypesToEnable = de_LogTypeList(__getArrayIfSingleItem(output["LogTypesToEnable"]["member"]), context);
+    contents[_LTTE] = [];
+  } else if (output[_LTTE] != null && output[_LTTE][_me] != null) {
+    contents[_LTTE] = de_LogTypeList(__getArrayIfSingleItem(output[_LTTE][_me]), context);
   }
   if (output.LogTypesToDisable === "") {
-    contents.LogTypesToDisable = [];
-  } else if (output["LogTypesToDisable"] !== undefined && output["LogTypesToDisable"]["member"] !== undefined) {
-    contents.LogTypesToDisable = de_LogTypeList(__getArrayIfSingleItem(output["LogTypesToDisable"]["member"]), context);
+    contents[_LTTD] = [];
+  } else if (output[_LTTD] != null && output[_LTTD][_me] != null) {
+    contents[_LTTD] = de_LogTypeList(__getArrayIfSingleItem(output[_LTTD][_me]), context);
   }
   return contents;
 };
@@ -9159,23 +9008,23 @@ const de_PendingCloudwatchLogsExports = (output: any, context: __SerdeContext): 
  */
 const de_PendingMaintenanceAction = (output: any, context: __SerdeContext): PendingMaintenanceAction => {
   const contents: any = {};
-  if (output["Action"] !== undefined) {
-    contents.Action = __expectString(output["Action"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["AutoAppliedAfterDate"] !== undefined) {
-    contents.AutoAppliedAfterDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["AutoAppliedAfterDate"]));
+  if (output[_AAAD] != null) {
+    contents[_AAAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_AAAD]));
   }
-  if (output["ForcedApplyDate"] !== undefined) {
-    contents.ForcedApplyDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["ForcedApplyDate"]));
+  if (output[_FAD] != null) {
+    contents[_FAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_FAD]));
   }
-  if (output["OptInStatus"] !== undefined) {
-    contents.OptInStatus = __expectString(output["OptInStatus"]);
+  if (output[_OIS] != null) {
+    contents[_OIS] = __expectString(output[_OIS]);
   }
-  if (output["CurrentApplyDate"] !== undefined) {
-    contents.CurrentApplyDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CurrentApplyDate"]));
+  if (output[_CAD] != null) {
+    contents[_CAD] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CAD]));
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -9211,18 +9060,12 @@ const de_PendingMaintenanceActionsMessage = (
 ): PendingMaintenanceActionsMessage => {
   const contents: any = {};
   if (output.PendingMaintenanceActions === "") {
-    contents.PendingMaintenanceActions = [];
-  } else if (
-    output["PendingMaintenanceActions"] !== undefined &&
-    output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"] !== undefined
-  ) {
-    contents.PendingMaintenanceActions = de_PendingMaintenanceActions(
-      __getArrayIfSingleItem(output["PendingMaintenanceActions"]["ResourcePendingMaintenanceActions"]),
-      context
-    );
+    contents[_PMA] = [];
+  } else if (output[_PMA] != null && output[_PMA][_RPMA] != null) {
+    contents[_PMA] = de_PendingMaintenanceActions(__getArrayIfSingleItem(output[_PMA][_RPMA]), context);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -9232,50 +9075,47 @@ const de_PendingMaintenanceActionsMessage = (
  */
 const de_PendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
   const contents: any = {};
-  if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
+  if (output[_DBIC] != null) {
+    contents[_DBIC] = __expectString(output[_DBIC]);
   }
-  if (output["AllocatedStorage"] !== undefined) {
-    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  if (output[_AS] != null) {
+    contents[_AS] = __strictParseInt32(output[_AS]) as number;
   }
-  if (output["MasterUserPassword"] !== undefined) {
-    contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
+  if (output[_MUP] != null) {
+    contents[_MUP] = __expectString(output[_MUP]);
   }
-  if (output["Port"] !== undefined) {
-    contents.Port = __strictParseInt32(output["Port"]) as number;
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
-  if (output["BackupRetentionPeriod"] !== undefined) {
-    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  if (output[_BRP] != null) {
+    contents[_BRP] = __strictParseInt32(output[_BRP]) as number;
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
+  if (output[_MAZ] != null) {
+    contents[_MAZ] = __parseBoolean(output[_MAZ]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = __expectString(output["LicenseModel"]);
+  if (output[_LM] != null) {
+    contents[_LM] = __expectString(output[_LM]);
   }
-  if (output["Iops"] !== undefined) {
-    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  if (output[_I] != null) {
+    contents[_I] = __strictParseInt32(output[_I]) as number;
   }
-  if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
+  if (output[_DBII] != null) {
+    contents[_DBII] = __expectString(output[_DBII]);
   }
-  if (output["StorageType"] !== undefined) {
-    contents.StorageType = __expectString(output["StorageType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["CACertificateIdentifier"] !== undefined) {
-    contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
+  if (output[_CACI] != null) {
+    contents[_CACI] = __expectString(output[_CACI]);
   }
-  if (output["DBSubnetGroupName"] !== undefined) {
-    contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
+  if (output[_DBSGN] != null) {
+    contents[_DBSGN] = __expectString(output[_DBSGN]);
   }
-  if (output["PendingCloudwatchLogsExports"] !== undefined) {
-    contents.PendingCloudwatchLogsExports = de_PendingCloudwatchLogsExports(
-      output["PendingCloudwatchLogsExports"],
-      context
-    );
+  if (output[_PCLE] != null) {
+    contents[_PCLE] = de_PendingCloudwatchLogsExports(output[_PCLE], context);
   }
   return contents;
 };
@@ -9307,8 +9147,8 @@ const de_ReadReplicaIdentifierList = (output: any, context: __SerdeContext): str
  */
 const de_RebootDBInstanceResult = (output: any, context: __SerdeContext): RebootDBInstanceResult => {
   const contents: any = {};
-  if (output["DBInstance"] !== undefined) {
-    contents.DBInstance = de_DBInstance(output["DBInstance"], context);
+  if (output[_DBI] != null) {
+    contents[_DBI] = de_DBInstance(output[_DBI], context);
   }
   return contents;
 };
@@ -9318,8 +9158,8 @@ const de_RebootDBInstanceResult = (output: any, context: __SerdeContext): Reboot
  */
 const de_RemoveFromGlobalClusterResult = (output: any, context: __SerdeContext): RemoveFromGlobalClusterResult => {
   const contents: any = {};
-  if (output["GlobalCluster"] !== undefined) {
-    contents.GlobalCluster = de_GlobalCluster(output["GlobalCluster"], context);
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
   }
   return contents;
 };
@@ -9332,8 +9172,8 @@ const de_RemoveSourceIdentifierFromSubscriptionResult = (
   context: __SerdeContext
 ): RemoveSourceIdentifierFromSubscriptionResult => {
   const contents: any = {};
-  if (output["EventSubscription"] !== undefined) {
-    contents.EventSubscription = de_EventSubscription(output["EventSubscription"], context);
+  if (output[_ES] != null) {
+    contents[_ES] = de_EventSubscription(output[_ES], context);
   }
   return contents;
 };
@@ -9343,8 +9183,8 @@ const de_RemoveSourceIdentifierFromSubscriptionResult = (
  */
 const de_ResourceNotFoundFault = (output: any, context: __SerdeContext): ResourceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9357,19 +9197,13 @@ const de_ResourcePendingMaintenanceActions = (
   context: __SerdeContext
 ): ResourcePendingMaintenanceActions => {
   const contents: any = {};
-  if (output["ResourceIdentifier"] !== undefined) {
-    contents.ResourceIdentifier = __expectString(output["ResourceIdentifier"]);
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
   }
   if (output.PendingMaintenanceActionDetails === "") {
-    contents.PendingMaintenanceActionDetails = [];
-  } else if (
-    output["PendingMaintenanceActionDetails"] !== undefined &&
-    output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"] !== undefined
-  ) {
-    contents.PendingMaintenanceActionDetails = de_PendingMaintenanceActionDetails(
-      __getArrayIfSingleItem(output["PendingMaintenanceActionDetails"]["PendingMaintenanceAction"]),
-      context
-    );
+    contents[_PMAD] = [];
+  } else if (output[_PMAD] != null && output[_PMAD][_PMAe] != null) {
+    contents[_PMAD] = de_PendingMaintenanceActionDetails(__getArrayIfSingleItem(output[_PMAD][_PMAe]), context);
   }
   return contents;
 };
@@ -9382,8 +9216,8 @@ const de_RestoreDBClusterFromSnapshotResult = (
   context: __SerdeContext
 ): RestoreDBClusterFromSnapshotResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -9396,8 +9230,8 @@ const de_RestoreDBClusterToPointInTimeResult = (
   context: __SerdeContext
 ): RestoreDBClusterToPointInTimeResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -9410,8 +9244,8 @@ const de_SharedSnapshotQuotaExceededFault = (
   context: __SerdeContext
 ): SharedSnapshotQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9421,8 +9255,8 @@ const de_SharedSnapshotQuotaExceededFault = (
  */
 const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): SnapshotQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9432,8 +9266,8 @@ const de_SnapshotQuotaExceededFault = (output: any, context: __SerdeContext): Sn
  */
 const de_SNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9443,8 +9277,8 @@ const de_SNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInval
  */
 const de_SNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNoAuthorizationFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9454,8 +9288,8 @@ const de_SNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNo
  */
 const de_SNSTopicArnNotFoundFault = (output: any, context: __SerdeContext): SNSTopicArnNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9476,8 +9310,8 @@ const de_SourceIdsList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_SourceNotFoundFault = (output: any, context: __SerdeContext): SourceNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9487,8 +9321,8 @@ const de_SourceNotFoundFault = (output: any, context: __SerdeContext): SourceNot
  */
 const de_StartDBClusterResult = (output: any, context: __SerdeContext): StartDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -9498,8 +9332,8 @@ const de_StartDBClusterResult = (output: any, context: __SerdeContext): StartDBC
  */
 const de_StopDBClusterResult = (output: any, context: __SerdeContext): StopDBClusterResult => {
   const contents: any = {};
-  if (output["DBCluster"] !== undefined) {
-    contents.DBCluster = de_DBCluster(output["DBCluster"], context);
+  if (output[_DBC] != null) {
+    contents[_DBC] = de_DBCluster(output[_DBC], context);
   }
   return contents;
 };
@@ -9509,8 +9343,8 @@ const de_StopDBClusterResult = (output: any, context: __SerdeContext): StopDBClu
  */
 const de_StorageQuotaExceededFault = (output: any, context: __SerdeContext): StorageQuotaExceededFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9520,8 +9354,8 @@ const de_StorageQuotaExceededFault = (output: any, context: __SerdeContext): Sto
  */
 const de_StorageTypeNotSupportedFault = (output: any, context: __SerdeContext): StorageTypeNotSupportedFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9531,14 +9365,14 @@ const de_StorageTypeNotSupportedFault = (output: any, context: __SerdeContext): 
  */
 const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   const contents: any = {};
-  if (output["SubnetIdentifier"] !== undefined) {
-    contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
+  if (output[_SIub] != null) {
+    contents[_SIub] = __expectString(output[_SIub]);
   }
-  if (output["SubnetAvailabilityZone"] !== undefined) {
-    contents.SubnetAvailabilityZone = de_AvailabilityZone(output["SubnetAvailabilityZone"], context);
+  if (output[_SAZ] != null) {
+    contents[_SAZ] = de_AvailabilityZone(output[_SAZ], context);
   }
-  if (output["SubnetStatus"] !== undefined) {
-    contents.SubnetStatus = __expectString(output["SubnetStatus"]);
+  if (output[_SS] != null) {
+    contents[_SS] = __expectString(output[_SS]);
   }
   return contents;
 };
@@ -9548,8 +9382,8 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
  */
 const de_SubnetAlreadyInUse = (output: any, context: __SerdeContext): SubnetAlreadyInUse => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9570,8 +9404,8 @@ const de_SubnetList = (output: any, context: __SerdeContext): Subnet[] => {
  */
 const de_SubscriptionAlreadyExistFault = (output: any, context: __SerdeContext): SubscriptionAlreadyExistFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9584,8 +9418,8 @@ const de_SubscriptionCategoryNotFoundFault = (
   context: __SerdeContext
 ): SubscriptionCategoryNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9595,8 +9429,8 @@ const de_SubscriptionCategoryNotFoundFault = (
  */
 const de_SubscriptionNotFoundFault = (output: any, context: __SerdeContext): SubscriptionNotFoundFault => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -9606,11 +9440,11 @@ const de_SubscriptionNotFoundFault = (output: any, context: __SerdeContext): Sub
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
   }
   return contents;
 };
@@ -9632,9 +9466,9 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
 const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
   const contents: any = {};
   if (output.TagList === "") {
-    contents.TagList = [];
-  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
-    contents.TagList = de_TagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+    contents[_TL] = [];
+  } else if (output[_TL] != null && output[_TL][_Ta] != null) {
+    contents[_TL] = de_TagList(__getArrayIfSingleItem(output[_TL][_Ta]), context);
   }
   return contents;
 };
@@ -9644,20 +9478,20 @@ const de_TagListMessage = (output: any, context: __SerdeContext): TagListMessage
  */
 const de_UpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget => {
   const contents: any = {};
-  if (output["Engine"] !== undefined) {
-    contents.Engine = __expectString(output["Engine"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  if (output[_EV] != null) {
+    contents[_EV] = __expectString(output[_EV]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["AutoUpgrade"] !== undefined) {
-    contents.AutoUpgrade = __parseBoolean(output["AutoUpgrade"]);
+  if (output[_AU] != null) {
+    contents[_AU] = __parseBoolean(output[_AU]);
   }
-  if (output["IsMajorVersionUpgrade"] !== undefined) {
-    contents.IsMajorVersionUpgrade = __parseBoolean(output["IsMajorVersionUpgrade"]);
+  if (output[_IMVU] != null) {
+    contents[_IMVU] = __parseBoolean(output[_IMVU]);
   }
   return contents;
 };
@@ -9678,11 +9512,11 @@ const de_ValidUpgradeTargetList = (output: any, context: __SerdeContext): Upgrad
  */
 const de_VpcSecurityGroupMembership = (output: any, context: __SerdeContext): VpcSecurityGroupMembership => {
   const contents: any = {};
-  if (output["VpcSecurityGroupId"] !== undefined) {
-    contents.VpcSecurityGroupId = __expectString(output["VpcSecurityGroupId"]);
+  if (output[_VSGIp] != null) {
+    contents[_VSGIp] = __expectString(output[_VSGIp]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -9738,6 +9572,300 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2014-10-31";
+const _A = "Action";
+const _AA = "ApplyAction";
+const _AAAD = "AutoAppliedAfterDate";
+const _AI = "ApplyImmediately";
+const _AM = "ApplyMethod";
+const _AMVU = "AutoMinorVersionUpgrade";
+const _AMVUl = "AllowMajorVersionUpgrade";
+const _AN = "AttributeName";
+const _APMA = "ApplyPendingMaintenanceAction";
+const _AR = "AssociatedRoles";
+const _AS = "AllocatedStorage";
+const _ASITS = "AddSourceIdentifierToSubscription";
+const _AT = "ApplyType";
+const _ATTR = "AddTagsToResource";
+const _AU = "AutoUpgrade";
+const _AV = "AllowedValues";
+const _AVt = "AttributeValues";
+const _AVtt = "AttributeValue";
+const _AZ = "AvailabilityZones";
+const _AZv = "AvailabilityZone";
+const _Ad = "Address";
+const _BRP = "BackupRetentionPeriod";
+const _C = "Certificates";
+const _CA = "CertificateArn";
+const _CACI = "CACertificateIdentifier";
+const _CAD = "CurrentApplyDate";
+const _CAI = "CAIdentifier";
+const _CAIu = "CustomerAwsId";
+const _CCT = "ClusterCreateTime";
+const _CD = "CertificateDetails";
+const _CDBC = "CreateDBCluster";
+const _CDBCPG = "CopyDBClusterParameterGroup";
+const _CDBCPGr = "CreateDBClusterParameterGroup";
+const _CDBCS = "CopyDBClusterSnapshot";
+const _CDBCSr = "CreateDBClusterSnapshot";
+const _CDBI = "CreateDBInstance";
+const _CDBSG = "CreateDBSubnetGroup";
+const _CES = "CreateEventSubscription";
+const _CGC = "CreateGlobalCluster";
+const _CGI = "CloneGroupId";
+const _CI = "CertificateIdentifier";
+const _CLEC = "CloudwatchLogsExportConfiguration";
+const _CRR = "CertificateRotationRestart";
+const _CSI = "CustSubscriptionId";
+const _CT = "CopyTags";
+const _CTTS = "CopyTagsToSnapshot";
+const _CTe = "CertificateType";
+const _Ce = "Certificate";
+const _D = "Description";
+const _DBC = "DBCluster";
+const _DBCA = "DBClusterArn";
+const _DBCI = "DBClusterIdentifier";
+const _DBCM = "DBClusterMembers";
+const _DBCMl = "DBClusterMember";
+const _DBCPG = "DBClusterParameterGroup";
+const _DBCPGA = "DBClusterParameterGroupArn";
+const _DBCPGN = "DBClusterParameterGroupName";
+const _DBCPGS = "DBClusterParameterGroupStatus";
+const _DBCPGl = "DBClusterParameterGroups";
+const _DBCR = "DBClusterRole";
+const _DBCS = "DBClusterSnapshot";
+const _DBCSA = "DBClusterSnapshotArn";
+const _DBCSAR = "DBClusterSnapshotAttributesResult";
+const _DBCSAl = "DBClusterSnapshotAttributes";
+const _DBCSAlu = "DBClusterSnapshotAttribute";
+const _DBCSI = "DBClusterSnapshotIdentifier";
+const _DBCSl = "DBClusterSnapshots";
+const _DBCl = "DBClusters";
+const _DBED = "DBEngineDescription";
+const _DBEV = "DBEngineVersions";
+const _DBEVD = "DBEngineVersionDescription";
+const _DBEVn = "DBEngineVersion";
+const _DBI = "DBInstance";
+const _DBIA = "DBInstanceArn";
+const _DBIC = "DBInstanceClass";
+const _DBII = "DBInstanceIdentifier";
+const _DBIS = "DBInstanceStatus";
+const _DBISI = "DBInstanceStatusInfo";
+const _DBIn = "DBInstances";
+const _DBPGF = "DBParameterGroupFamily";
+const _DBSG = "DBSubnetGroup";
+const _DBSGA = "DBSubnetGroupArn";
+const _DBSGD = "DBSubnetGroupDescription";
+const _DBSGN = "DBSubnetGroupName";
+const _DBSGu = "DBSubnetGroups";
+const _DC = "DescribeCertificates";
+const _DCI = "DbClusterIdentifier";
+const _DCRI = "DbClusterResourceId";
+const _DDBC = "DeleteDBCluster";
+const _DDBCP = "DescribeDBClusterParameters";
+const _DDBCPG = "DeleteDBClusterParameterGroup";
+const _DDBCPGe = "DescribeDBClusterParameterGroups";
+const _DDBCS = "DeleteDBClusterSnapshot";
+const _DDBCSA = "DescribeDBClusterSnapshotAttributes";
+const _DDBCSe = "DescribeDBClusterSnapshots";
+const _DDBCe = "DescribeDBClusters";
+const _DDBEV = "DescribeDBEngineVersions";
+const _DDBI = "DeleteDBInstance";
+const _DDBIe = "DescribeDBInstances";
+const _DDBSG = "DeleteDBSubnetGroup";
+const _DDBSGe = "DescribeDBSubnetGroups";
+const _DE = "DescribeEvents";
+const _DEC = "DescribeEventCategories";
+const _DEDCP = "DescribeEngineDefaultClusterParameters";
+const _DES = "DeleteEventSubscription";
+const _DESe = "DescribeEventSubscriptions";
+const _DGC = "DeleteGlobalCluster";
+const _DGCe = "DescribeGlobalClusters";
+const _DLT = "DisableLogTypes";
+const _DN = "DatabaseName";
+const _DO = "DefaultOnly";
+const _DODBIO = "DescribeOrderableDBInstanceOptions";
+const _DP = "DeletionProtection";
+const _DPMA = "DescribePendingMaintenanceActions";
+const _DRI = "DbiResourceId";
+const _DT = "DataType";
+const _Da = "Date";
+const _Du = "Duration";
+const _E = "Engine";
+const _EC = "EventCategories";
+const _ECL = "EventCategoriesList";
+const _ECLE = "EnableCloudwatchLogsExports";
+const _ECLEn = "EnabledCloudwatchLogsExports";
+const _ECM = "EventCategoriesMap";
+const _ECML = "EventCategoriesMapList";
+const _ECv = "EventCategory";
+const _ED = "EngineDefaults";
+const _ELT = "EnableLogTypes";
+const _ELTx = "ExportableLogTypes";
+const _EPI = "EnablePerformanceInsights";
+const _ERT = "EarliestRestorableTime";
+const _ES = "EventSubscription";
+const _ESA = "EventSubscriptionArn";
+const _ESL = "EventSubscriptionsList";
+const _ET = "EndTime";
+const _EV = "EngineVersion";
+const _En = "Enabled";
+const _End = "Endpoint";
+const _Ev = "Events";
+const _Eve = "Event";
+const _F = "Filters";
+const _FAD = "ForcedApplyDate";
+const _FDBC = "FailoverDBCluster";
+const _FDBSI = "FinalDBSnapshotIdentifier";
+const _FF = "ForceFailover";
+const _GC = "GlobalCluster";
+const _GCA = "GlobalClusterArn";
+const _GCI = "GlobalClusterIdentifier";
+const _GCM = "GlobalClusterMembers";
+const _GCMl = "GlobalClusterMember";
+const _GCRI = "GlobalClusterResourceId";
+const _GCl = "GlobalClusters";
+const _HZI = "HostedZoneId";
+const _I = "Iops";
+const _ICT = "InstanceCreateTime";
+const _ICW = "IsClusterWriter";
+const _IM = "IsModifiable";
+const _IMVU = "IsMajorVersionUpgrade";
+const _IP = "IncludePublic";
+const _IS = "IncludeShared";
+const _IW = "IsWriter";
+const _K = "Key";
+const _KKI = "KmsKeyId";
+const _LM = "LicenseModel";
+const _LRT = "LatestRestorableTime";
+const _LSCS = "ListSupportedCharacterSets";
+const _LST = "ListSupportedTimezones";
+const _LTFR = "ListTagsForResource";
+const _LTTD = "LogTypesToDisable";
+const _LTTE = "LogTypesToEnable";
+const _M = "Marker";
+const _MAZ = "MultiAZ";
+const _MDBC = "ModifyDBCluster";
+const _MDBCPG = "ModifyDBClusterParameterGroup";
+const _MDBCSA = "ModifyDBClusterSnapshotAttribute";
+const _MDBI = "ModifyDBInstance";
+const _MDBSG = "ModifyDBSubnetGroup";
+const _MES = "ModifyEventSubscription";
+const _MEV = "MinimumEngineVersion";
+const _MGC = "ModifyGlobalCluster";
+const _MR = "MaxRecords";
+const _MU = "MasterUsername";
+const _MUP = "MasterUserPassword";
+const _Me = "Message";
+const _N = "Name";
+const _NDBCI = "NewDBClusterIdentifier";
+const _NDBII = "NewDBInstanceIdentifier";
+const _NGCI = "NewGlobalClusterIdentifier";
+const _No = "Normal";
+const _ODBIO = "OrderableDBInstanceOptions";
+const _ODBIOr = "OrderableDBInstanceOption";
+const _OIS = "OptInStatus";
+const _OIT = "OptInType";
+const _P = "Port";
+const _PA = "PubliclyAccessible";
+const _PBW = "PreferredBackupWindow";
+const _PCLE = "PendingCloudwatchLogsExports";
+const _PIKMSKI = "PerformanceInsightsKMSKeyId";
+const _PMA = "PendingMaintenanceActions";
+const _PMAD = "PendingMaintenanceActionDetails";
+const _PMAe = "PendingMaintenanceAction";
+const _PMV = "PendingModifiedValues";
+const _PMW = "PreferredMaintenanceWindow";
+const _PN = "ParameterName";
+const _PP = "PercentProgress";
+const _PSU = "PreSignedUrl";
+const _PT = "PromotionTier";
+const _PV = "ParameterValue";
+const _Pa = "Parameters";
+const _Par = "Parameter";
+const _R = "Readers";
+const _RA = "RoleArn";
+const _RAP = "ResetAllParameters";
+const _RDBCFS = "RestoreDBClusterFromSnapshot";
+const _RDBCPG = "ResetDBClusterParameterGroup";
+const _RDBCTPIT = "RestoreDBClusterToPointInTime";
+const _RDBI = "RebootDBInstance";
+const _RE = "ReaderEndpoint";
+const _RFGC = "RemoveFromGlobalCluster";
+const _RI = "ResourceIdentifier";
+const _RN = "ResourceName";
+const _RPMA = "ResourcePendingMaintenanceActions";
+const _RRI = "ReadReplicaIdentifiers";
+const _RRIe = "ReadReplicaIdentifier";
+const _RSI = "ReplicationSourceIdentifier";
+const _RSIFS = "RemoveSourceIdentifierFromSubscription";
+const _RT = "RestoreType";
+const _RTFR = "RemoveTagsFromResource";
+const _RTT = "RestoreToTime";
+const _S = "Source";
+const _SA = "SourceArn";
+const _SAZ = "SubnetAvailabilityZone";
+const _SCACI = "SupportedCACertificateIdentifiers";
+const _SCRWR = "SupportsCertificateRotationWithoutRestart";
+const _SCT = "SnapshotCreateTime";
+const _SCTu = "SubscriptionCreationTime";
+const _SDBC = "StartDBCluster";
+const _SDBCI = "SourceDBClusterIdentifier";
+const _SDBCPGI = "SourceDBClusterParameterGroupIdentifier";
+const _SDBCSA = "SourceDBClusterSnapshotArn";
+const _SDBCSI = "SourceDBClusterSnapshotIdentifier";
+const _SDBCt = "StopDBCluster";
+const _SE = "StorageEncrypted";
+const _SFS = "SkipFinalSnapshot";
+const _SGS = "SubnetGroupStatus";
+const _SI = "SourceIdentifier";
+const _SIL = "SourceIdsList";
+const _SIn = "SnapshotIdentifier";
+const _SIo = "SourceIds";
+const _SIou = "SourceId";
+const _SIt = "StatusInfos";
+const _SIu = "SubnetIds";
+const _SIub = "SubnetIdentifier";
+const _SLETCL = "SupportsLogExportsToCloudwatchLogs";
+const _SN = "SubscriptionName";
+const _SS = "SubnetStatus";
+const _ST = "StorageType";
+const _STA = "SnsTopicArn";
+const _STn = "SnapshotType";
+const _STo = "SourceType";
+const _STt = "StartTime";
+const _STta = "StatusType";
+const _St = "Status";
+const _Su = "Subnets";
+const _Sub = "Subnet";
+const _T = "Tags";
+const _TDBCPGD = "TargetDBClusterParameterGroupDescription";
+const _TDBCPGI = "TargetDBClusterParameterGroupIdentifier";
+const _TDBCSI = "TargetDBClusterSnapshotIdentifier";
+const _TDBII = "TargetDBInstanceIdentifier";
+const _TK = "TagKeys";
+const _TL = "TagList";
+const _Ta = "Tag";
+const _Th = "Thumbprint";
+const _ULRT = "UseLatestRestorableTime";
+const _UT = "UpgradeTarget";
+const _V = "Version";
+const _VF = "ValidFrom";
+const _VI = "VpcId";
+const _VSG = "VpcSecurityGroups";
+const _VSGI = "VpcSecurityGroupIds";
+const _VSGIp = "VpcSecurityGroupId";
+const _VSGM = "VpcSecurityGroupMembership";
+const _VT = "ValidTill";
+const _VTA = "ValuesToAdd";
+const _VTR = "ValuesToRemove";
+const _VUT = "ValidUpgradeTarget";
+const _Va = "Values";
+const _Val = "Value";
+const _Vp = "Vpc";
+const _m = "message";
+const _me = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

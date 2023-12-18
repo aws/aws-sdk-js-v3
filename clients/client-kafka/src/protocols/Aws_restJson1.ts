@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -253,28 +254,20 @@ export const se_BatchAssociateScramSecretCommand = async (
   input: BatchAssociateScramSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/scram-secrets");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       secretArnList: [, (_) => _json(_), `SecretArnList`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -284,28 +277,20 @@ export const se_BatchDisassociateScramSecretCommand = async (
   input: BatchDisassociateScramSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/scram-secrets");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       secretArnList: [, (_) => _json(_), `SecretArnList`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -315,11 +300,11 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
+  b.bp("/v1/clusters");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -337,15 +322,8 @@ export const se_CreateClusterCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -355,11 +333,11 @@ export const se_CreateClusterV2Command = async (
   input: CreateClusterV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters";
+  b.bp("/api/v2/clusters");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -369,15 +347,8 @@ export const se_CreateClusterV2Command = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -387,11 +358,11 @@ export const se_CreateConfigurationCommand = async (
   input: CreateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
+  b.bp("/v1/configurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -401,15 +372,8 @@ export const se_CreateConfigurationCommand = async (
       serverProperties: [, (_) => context.base64Encoder(_), `ServerProperties`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -419,12 +383,11 @@ export const se_CreateReplicatorCommand = async (
   input: CreateReplicatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/replication/v1/replicators";
+  b.bp("/replication/v1/replicators");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -436,15 +399,8 @@ export const se_CreateReplicatorCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -454,11 +410,11 @@ export const se_CreateVpcConnectionCommand = async (
   input: CreateVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection";
+  b.bp("/v1/vpc-connection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -470,15 +426,8 @@ export const se_CreateVpcConnectionCommand = async (
       vpcId: [, , `VpcId`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -488,25 +437,16 @@ export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    currentVersion: [, input.CurrentVersion!],
+    [_cV]: [, input[_CV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -516,21 +456,13 @@ export const se_DeleteClusterPolicyCommand = async (
   input: DeleteClusterPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/policy");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -540,20 +472,13 @@ export const se_DeleteConfigurationCommand = async (
   input: DeleteConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -563,33 +488,16 @@ export const se_DeleteReplicatorCommand = async (
   input: DeleteReplicatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/replication/v1/replicators/{ReplicatorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReplicatorArn",
-    () => input.ReplicatorArn!,
-    "{ReplicatorArn}",
-    false
-  );
+  b.bp("/replication/v1/replicators/{ReplicatorArn}");
+  b.p("ReplicatorArn", () => input.ReplicatorArn!, "{ReplicatorArn}", false);
   const query: any = map({
-    currentVersion: [, input.CurrentVersion!],
+    [_cV]: [, input[_CV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -599,20 +507,13 @@ export const se_DeleteVpcConnectionCommand = async (
   input: DeleteVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/vpc-connection/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -622,21 +523,13 @@ export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -646,28 +539,13 @@ export const se_DescribeClusterOperationCommand = async (
   input: DescribeClusterOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/operations/{ClusterOperationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ClusterOperationArn",
-    () => input.ClusterOperationArn!,
-    "{ClusterOperationArn}",
-    false
-  );
+  b.bp("/v1/operations/{ClusterOperationArn}");
+  b.p("ClusterOperationArn", () => input.ClusterOperationArn!, "{ClusterOperationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -677,28 +555,13 @@ export const se_DescribeClusterOperationV2Command = async (
   input: DescribeClusterOperationV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/operations/{ClusterOperationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ClusterOperationArn",
-    () => input.ClusterOperationArn!,
-    "{ClusterOperationArn}",
-    false
-  );
+  b.bp("/api/v2/operations/{ClusterOperationArn}");
+  b.p("ClusterOperationArn", () => input.ClusterOperationArn!, "{ClusterOperationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -708,21 +571,13 @@ export const se_DescribeClusterV2Command = async (
   input: DescribeClusterV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters/{ClusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/api/v2/clusters/{ClusterArn}");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -732,20 +587,13 @@ export const se_DescribeConfigurationCommand = async (
   input: DescribeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -755,23 +603,14 @@ export const se_DescribeConfigurationRevisionCommand = async (
   input: DescribeConfigurationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/configurations/{Arn}/revisions/{Revision}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Revision", () => input.Revision!.toString(), "{Revision}", false);
+  b.bp("/v1/configurations/{Arn}/revisions/{Revision}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
+  b.p("Revision", () => input.Revision!.toString(), "{Revision}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -781,29 +620,13 @@ export const se_DescribeReplicatorCommand = async (
   input: DescribeReplicatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/replication/v1/replicators/{ReplicatorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReplicatorArn",
-    () => input.ReplicatorArn!,
-    "{ReplicatorArn}",
-    false
-  );
+  b.bp("/replication/v1/replicators/{ReplicatorArn}");
+  b.p("ReplicatorArn", () => input.ReplicatorArn!, "{ReplicatorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -813,20 +636,13 @@ export const se_DescribeVpcConnectionCommand = async (
   input: DescribeVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/vpc-connection/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -836,22 +652,13 @@ export const se_GetBootstrapBrokersCommand = async (
   input: GetBootstrapBrokersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/clusters/{ClusterArn}/bootstrap-brokers";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/bootstrap-brokers");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -861,21 +668,13 @@ export const se_GetClusterPolicyCommand = async (
   input: GetClusterPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/policy");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -885,24 +684,15 @@ export const se_GetCompatibleKafkaVersionsCommand = async (
   input: GetCompatibleKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/compatible-kafka-versions";
+  b.bp("/v1/compatible-kafka-versions");
   const query: any = map({
-    clusterArn: [, input.ClusterArn!],
+    [_cA]: [, input[_CA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -912,27 +702,17 @@ export const se_ListClientVpcConnectionsCommand = async (
   input: ListClientVpcConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/clusters/{ClusterArn}/client-vpc-connections";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/client-vpc-connections");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -942,26 +722,17 @@ export const se_ListClusterOperationsCommand = async (
   input: ListClusterOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/operations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/operations");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -971,26 +742,17 @@ export const se_ListClusterOperationsV2Command = async (
   input: ListClusterOperationsV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters/{ClusterArn}/operations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/api/v2/clusters/{ClusterArn}/operations");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1000,25 +762,17 @@ export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
+  b.bp("/v1/clusters");
   const query: any = map({
-    clusterNameFilter: [, input.ClusterNameFilter!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNF]: [, input[_CNF]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1028,26 +782,18 @@ export const se_ListClustersV2Command = async (
   input: ListClustersV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters";
+  b.bp("/api/v2/clusters");
   const query: any = map({
-    clusterNameFilter: [, input.ClusterNameFilter!],
-    clusterTypeFilter: [, input.ClusterTypeFilter!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNF]: [, input[_CNF]!],
+    [_cTF]: [, input[_CTF]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1057,26 +803,17 @@ export const se_ListConfigurationRevisionsCommand = async (
   input: ListConfigurationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}/revisions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}/revisions");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1086,24 +823,16 @@ export const se_ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
+  b.bp("/v1/configurations");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1113,24 +842,16 @@ export const se_ListKafkaVersionsCommand = async (
   input: ListKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/kafka-versions";
+  b.bp("/v1/kafka-versions");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1140,26 +861,17 @@ export const se_ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1169,26 +881,17 @@ export const se_ListReplicatorsCommand = async (
   input: ListReplicatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/replication/v1/replicators";
+  b.bp("/replication/v1/replicators");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    replicatorNameFilter: [, input.ReplicatorNameFilter!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_rNF]: [, input[_RNF]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1198,26 +901,17 @@ export const se_ListScramSecretsCommand = async (
   input: ListScramSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/scram-secrets");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1227,20 +921,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/v1/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1250,24 +937,16 @@ export const se_ListVpcConnectionsCommand = async (
   input: ListVpcConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connections";
+  b.bp("/v1/vpc-connections");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1277,13 +956,12 @@ export const se_PutClusterPolicyCommand = async (
   input: PutClusterPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/policy");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1291,15 +969,8 @@ export const se_PutClusterPolicyCommand = async (
       policy: [, , `Policy`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1309,28 +980,20 @@ export const se_RebootBrokerCommand = async (
   input: RebootBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/reboot-broker";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/reboot-broker");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       brokerIds: [, (_) => _json(_), `BrokerIds`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1340,29 +1003,20 @@ export const se_RejectClientVpcConnectionCommand = async (
   input: RejectClientVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/clusters/{ClusterArn}/client-vpc-connection";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/client-vpc-connection");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       vpcConnectionArn: [, , `VpcConnectionArn`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1372,27 +1026,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/v1/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1402,27 +1049,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/v1/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1432,13 +1071,12 @@ export const se_UpdateBrokerCountCommand = async (
   input: UpdateBrokerCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/count";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes/count");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1446,15 +1084,8 @@ export const se_UpdateBrokerCountCommand = async (
       targetNumberOfBrokerNodes: [, , `TargetNumberOfBrokerNodes`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1464,13 +1095,12 @@ export const se_UpdateBrokerStorageCommand = async (
   input: UpdateBrokerStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/storage";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes/storage");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1478,15 +1108,8 @@ export const se_UpdateBrokerStorageCommand = async (
       targetBrokerEBSVolumeInfo: [, (_) => se___listOfBrokerEBSVolumeInfo(_, context), `TargetBrokerEBSVolumeInfo`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1496,13 +1119,12 @@ export const se_UpdateBrokerTypeCommand = async (
   input: UpdateBrokerTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/type";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes/type");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1510,15 +1132,8 @@ export const se_UpdateBrokerTypeCommand = async (
       targetInstanceType: [, , `TargetInstanceType`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1528,13 +1143,12 @@ export const se_UpdateClusterConfigurationCommand = async (
   input: UpdateClusterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/configuration");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1542,15 +1156,8 @@ export const se_UpdateClusterConfigurationCommand = async (
       currentVersion: [, , `CurrentVersion`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1560,13 +1167,12 @@ export const se_UpdateClusterKafkaVersionCommand = async (
   input: UpdateClusterKafkaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/version";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/version");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1575,15 +1181,8 @@ export const se_UpdateClusterKafkaVersionCommand = async (
       targetKafkaVersion: [, , `TargetKafkaVersion`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1593,12 +1192,12 @@ export const se_UpdateConfigurationCommand = async (
   input: UpdateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1606,15 +1205,8 @@ export const se_UpdateConfigurationCommand = async (
       serverProperties: [, (_) => context.base64Encoder(_), `ServerProperties`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1624,13 +1216,12 @@ export const se_UpdateConnectivityCommand = async (
   input: UpdateConnectivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/connectivity";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/connectivity");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1638,15 +1229,8 @@ export const se_UpdateConnectivityCommand = async (
       currentVersion: [, , `CurrentVersion`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1656,13 +1240,12 @@ export const se_UpdateMonitoringCommand = async (
   input: UpdateMonitoringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/monitoring";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/monitoring");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1672,15 +1255,8 @@ export const se_UpdateMonitoringCommand = async (
       openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1690,21 +1266,12 @@ export const se_UpdateReplicationInfoCommand = async (
   input: UpdateReplicationInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/replication/v1/replicators/{ReplicatorArn}/replication-info";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReplicatorArn",
-    () => input.ReplicatorArn!,
-    "{ReplicatorArn}",
-    false
-  );
+  b.bp("/replication/v1/replicators/{ReplicatorArn}/replication-info");
+  b.p("ReplicatorArn", () => input.ReplicatorArn!, "{ReplicatorArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1715,15 +1282,8 @@ export const se_UpdateReplicationInfoCommand = async (
       topicReplication: [, (_) => se_TopicReplicationUpdate(_, context), `TopicReplication`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1733,13 +1293,12 @@ export const se_UpdateSecurityCommand = async (
   input: UpdateSecurityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/security";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/security");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1748,15 +1307,8 @@ export const se_UpdateSecurityCommand = async (
       encryptionInfo: [, (_) => se_EncryptionInfo(_, context), `EncryptionInfo`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1766,13 +1318,12 @@ export const se_UpdateStorageCommand = async (
   input: UpdateStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/storage";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/storage");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1782,15 +1333,8 @@ export const se_UpdateStorageCommand = async (
       volumeSizeGB: [, , `VolumeSizeGB`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6843,6 +6387,23 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CA = "ClusterArn";
+const _CNF = "ClusterNameFilter";
+const _CTF = "ClusterTypeFilter";
+const _CV = "CurrentVersion";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RNF = "ReplicatorNameFilter";
+const _TK = "TagKeys";
+const _cA = "clusterArn";
+const _cNF = "clusterNameFilter";
+const _cTF = "clusterTypeFilter";
+const _cV = "currentVersion";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rNF = "replicatorNameFilter";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

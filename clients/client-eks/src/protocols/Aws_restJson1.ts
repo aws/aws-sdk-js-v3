@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -267,14 +268,12 @@ export const se_AssociateEncryptionConfigCommand = async (
   input: AssociateEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/encryption-config/associate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/encryption-config/associate");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -282,15 +281,8 @@ export const se_AssociateEncryptionConfigCommand = async (
       encryptionConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -300,14 +292,12 @@ export const se_AssociateIdentityProviderConfigCommand = async (
   input: AssociateIdentityProviderConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/identity-provider-configs/associate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/identity-provider-configs/associate");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -316,15 +306,8 @@ export const se_AssociateIdentityProviderConfigCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -370,13 +353,12 @@ export const se_CreateAddonCommand = async (
   input: CreateAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/addons";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/addons");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -389,15 +371,8 @@ export const se_CreateAddonCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -407,11 +382,11 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters";
+  b.bp("/clusters");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -428,15 +403,8 @@ export const se_CreateClusterCommand = async (
       version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -446,12 +414,11 @@ export const se_CreateEksAnywhereSubscriptionCommand = async (
   input: CreateEksAnywhereSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions";
+  b.bp("/eks-anywhere-subscriptions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -464,15 +431,8 @@ export const se_CreateEksAnywhereSubscriptionCommand = async (
       term: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -482,13 +442,12 @@ export const se_CreateFargateProfileCommand = async (
   input: CreateFargateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/fargate-profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/fargate-profiles");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -500,15 +459,8 @@ export const se_CreateFargateProfileCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -518,13 +470,12 @@ export const se_CreateNodegroupCommand = async (
   input: CreateNodegroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/node-groups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/node-groups");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -547,15 +498,8 @@ export const se_CreateNodegroupCommand = async (
       version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -565,14 +509,12 @@ export const se_CreatePodIdentityAssociationCommand = async (
   input: CreatePodIdentityAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/pod-identity-associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/pod-identity-associations");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -583,15 +525,8 @@ export const se_CreatePodIdentityAssociationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -634,27 +569,17 @@ export const se_DeleteAddonCommand = async (
   input: DeleteAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/addons/{addonName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "addonName", () => input.addonName!, "{addonName}", false);
+  b.bp("/clusters/{clusterName}/addons/{addonName}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("addonName", () => input.addonName!, "{addonName}", false);
   const query: any = map({
-    preserve: [() => input.preserve !== void 0, () => input.preserve!.toString()],
+    [_p]: [() => input.preserve !== void 0, () => input[_p]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -664,20 +589,13 @@ export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/clusters/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -687,21 +605,13 @@ export const se_DeleteEksAnywhereSubscriptionCommand = async (
   input: DeleteEksAnywhereSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/eks-anywhere-subscriptions/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -711,30 +621,14 @@ export const se_DeleteFargateProfileCommand = async (
   input: DeleteFargateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "fargateProfileName",
-    () => input.fargateProfileName!,
-    "{fargateProfileName}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/fargate-profiles/{fargateProfileName}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("fargateProfileName", () => input.fargateProfileName!, "{fargateProfileName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -744,30 +638,14 @@ export const se_DeleteNodegroupCommand = async (
   input: DeleteNodegroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/node-groups/{nodegroupName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nodegroupName",
-    () => input.nodegroupName!,
-    "{nodegroupName}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/node-groups/{nodegroupName}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("nodegroupName", () => input.nodegroupName!, "{nodegroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -777,30 +655,14 @@ export const se_DeletePodIdentityAssociationCommand = async (
   input: DeletePodIdentityAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/pod-identity-associations/{associationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "associationId",
-    () => input.associationId!,
-    "{associationId}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/pod-identity-associations/{associationId}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("associationId", () => input.associationId!, "{associationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -810,21 +672,13 @@ export const se_DeregisterClusterCommand = async (
   input: DeregisterClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-registrations/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/cluster-registrations/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -867,23 +721,14 @@ export const se_DescribeAddonCommand = async (
   input: DescribeAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/addons/{addonName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "addonName", () => input.addonName!, "{addonName}", false);
+  b.bp("/clusters/{clusterName}/addons/{addonName}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("addonName", () => input.addonName!, "{addonName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -893,25 +738,16 @@ export const se_DescribeAddonConfigurationCommand = async (
   input: DescribeAddonConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/addons/configuration-schemas";
+  b.bp("/addons/configuration-schemas");
   const query: any = map({
-    addonName: [, __expectNonNull(input.addonName!, `addonName`)],
-    addonVersion: [, __expectNonNull(input.addonVersion!, `addonVersion`)],
+    [_aN]: [, __expectNonNull(input[_aN]!, `addonName`)],
+    [_aV]: [, __expectNonNull(input[_aV]!, `addonVersion`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -921,30 +757,21 @@ export const se_DescribeAddonVersionsCommand = async (
   input: DescribeAddonVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/addons/supported-versions";
+  b.bp("/addons/supported-versions");
   const query: any = map({
-    kubernetesVersion: [, input.kubernetesVersion!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    addonName: [, input.addonName!],
-    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
-    publishers: [() => input.publishers !== void 0, () => (input.publishers! || []).map((_entry) => _entry as any)],
-    owners: [() => input.owners !== void 0, () => (input.owners! || []).map((_entry) => _entry as any)],
+    [_kV]: [, input[_kV]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_aN]: [, input[_aN]!],
+    [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
+    [_pu]: [() => input.publishers !== void 0, () => (input[_pu]! || []).map((_entry) => _entry as any)],
+    [_o]: [() => input.owners !== void 0, () => (input[_o]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -954,20 +781,13 @@ export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/clusters/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -977,21 +797,13 @@ export const se_DescribeEksAnywhereSubscriptionCommand = async (
   input: DescribeEksAnywhereSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/eks-anywhere-subscriptions/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1001,30 +813,14 @@ export const se_DescribeFargateProfileCommand = async (
   input: DescribeFargateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "fargateProfileName",
-    () => input.fargateProfileName!,
-    "{fargateProfileName}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/fargate-profiles/{fargateProfileName}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("fargateProfileName", () => input.fargateProfileName!, "{fargateProfileName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1034,29 +830,20 @@ export const se_DescribeIdentityProviderConfigCommand = async (
   input: DescribeIdentityProviderConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/identity-provider-configs/describe";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/identity-provider-configs/describe");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       identityProviderConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1066,30 +853,14 @@ export const se_DescribeNodegroupCommand = async (
   input: DescribeNodegroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/node-groups/{nodegroupName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nodegroupName",
-    () => input.nodegroupName!,
-    "{nodegroupName}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/node-groups/{nodegroupName}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("nodegroupName", () => input.nodegroupName!, "{nodegroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1099,30 +870,14 @@ export const se_DescribePodIdentityAssociationCommand = async (
   input: DescribePodIdentityAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/pod-identity-associations/{associationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "associationId",
-    () => input.associationId!,
-    "{associationId}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/pod-identity-associations/{associationId}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("associationId", () => input.associationId!, "{associationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1132,27 +887,18 @@ export const se_DescribeUpdateCommand = async (
   input: DescribeUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates/{updateId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "updateId", () => input.updateId!, "{updateId}", false);
+  b.bp("/clusters/{name}/updates/{updateId}");
+  b.p("name", () => input.name!, "{name}", false);
+  b.p("updateId", () => input.updateId!, "{updateId}", false);
   const query: any = map({
-    nodegroupName: [, input.nodegroupName!],
-    addonName: [, input.addonName!],
+    [_nN]: [, input[_nN]!],
+    [_aN]: [, input[_aN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1196,14 +942,12 @@ export const se_DisassociateIdentityProviderConfigCommand = async (
   input: DisassociateIdentityProviderConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/identity-provider-configs/disassociate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/identity-provider-configs/disassociate");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1211,15 +955,8 @@ export const se_DisassociateIdentityProviderConfigCommand = async (
       identityProviderConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1286,26 +1023,17 @@ export const se_ListAddonsCommand = async (
   input: ListAddonsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/addons";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/addons");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1353,25 +1081,17 @@ export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters";
+  b.bp("/clusters");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    include: [() => input.include !== void 0, () => (input.include! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_i]: [() => input.include !== void 0, () => (input[_i]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1381,29 +1101,17 @@ export const se_ListEksAnywhereSubscriptionsCommand = async (
   input: ListEksAnywhereSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions";
+  b.bp("/eks-anywhere-subscriptions");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    includeStatus: [
-      () => input.includeStatus !== void 0,
-      () => (input.includeStatus! || []).map((_entry) => _entry as any),
-    ],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_iS]: [() => input.includeStatus !== void 0, () => (input[_iS]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1413,26 +1121,17 @@ export const se_ListFargateProfilesCommand = async (
   input: ListFargateProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/fargate-profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/fargate-profiles");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1442,27 +1141,17 @@ export const se_ListIdentityProviderConfigsCommand = async (
   input: ListIdentityProviderConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/identity-provider-configs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/identity-provider-configs");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1472,26 +1161,17 @@ export const se_ListNodegroupsCommand = async (
   input: ListNodegroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/node-groups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/node-groups");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1501,29 +1181,19 @@ export const se_ListPodIdentityAssociationsCommand = async (
   input: ListPodIdentityAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/pod-identity-associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/pod-identity-associations");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    namespace: [, input.namespace!],
-    serviceAccount: [, input.serviceAccount!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_n]: [, input[_n]!],
+    [_sA]: [, input[_sA]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1533,20 +1203,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1556,27 +1219,19 @@ export const se_ListUpdatesCommand = async (
   input: ListUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/clusters/{name}/updates");
+  b.p("name", () => input.name!, "{name}", false);
   const query: any = map({
-    nodegroupName: [, input.nodegroupName!],
-    addonName: [, input.addonName!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nN]: [, input[_nN]!],
+    [_aN]: [, input[_aN]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1586,11 +1241,11 @@ export const se_RegisterClusterCommand = async (
   input: RegisterClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/cluster-registrations";
+  b.bp("/cluster-registrations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1600,15 +1255,8 @@ export const se_RegisterClusterCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1618,27 +1266,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1648,27 +1289,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1720,15 +1353,13 @@ export const se_UpdateAddonCommand = async (
   input: UpdateAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/addons/{addonName}/update";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "addonName", () => input.addonName!, "{addonName}", false);
+  b.bp("/clusters/{clusterName}/addons/{addonName}/update");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("addonName", () => input.addonName!, "{addonName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1739,15 +1370,8 @@ export const se_UpdateAddonCommand = async (
       serviceAccountRoleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1757,13 +1381,12 @@ export const se_UpdateClusterConfigCommand = async (
   input: UpdateClusterConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/update-config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/clusters/{name}/update-config");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1773,15 +1396,8 @@ export const se_UpdateClusterConfigCommand = async (
       resourcesVpcConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1791,12 +1407,12 @@ export const se_UpdateClusterVersionCommand = async (
   input: UpdateClusterVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/clusters/{name}/updates");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1804,15 +1420,8 @@ export const se_UpdateClusterVersionCommand = async (
       version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1822,13 +1431,12 @@ export const se_UpdateEksAnywhereSubscriptionCommand = async (
   input: UpdateEksAnywhereSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eks-anywhere-subscriptions/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/eks-anywhere-subscriptions/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1836,15 +1444,8 @@ export const se_UpdateEksAnywhereSubscriptionCommand = async (
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1854,22 +1455,13 @@ export const se_UpdateNodegroupConfigCommand = async (
   input: UpdateNodegroupConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nodegroupName",
-    () => input.nodegroupName!,
-    "{nodegroupName}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/node-groups/{nodegroupName}/update-config");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("nodegroupName", () => input.nodegroupName!, "{nodegroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1880,15 +1472,8 @@ export const se_UpdateNodegroupConfigCommand = async (
       updateConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1898,22 +1483,13 @@ export const se_UpdateNodegroupVersionCommand = async (
   input: UpdateNodegroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "nodegroupName",
-    () => input.nodegroupName!,
-    "{nodegroupName}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/node-groups/{nodegroupName}/update-version");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("nodegroupName", () => input.nodegroupName!, "{nodegroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1924,15 +1500,8 @@ export const se_UpdateNodegroupVersionCommand = async (
       version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1942,22 +1511,13 @@ export const se_UpdatePodIdentityAssociationCommand = async (
   input: UpdatePodIdentityAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/pod-identity-associations/{associationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "associationId",
-    () => input.associationId!,
-    "{associationId}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/pod-identity-associations/{associationId}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("associationId", () => input.associationId!, "{associationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1965,15 +1525,8 @@ export const se_UpdatePodIdentityAssociationCommand = async (
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5806,6 +5359,22 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _aN = "addonName";
+const _aV = "addonVersion";
+const _i = "include";
+const _iS = "includeStatus";
+const _kV = "kubernetesVersion";
+const _mR = "maxResults";
+const _n = "namespace";
+const _nN = "nodegroupName";
+const _nT = "nextToken";
+const _o = "owners";
+const _p = "preserve";
+const _pu = "publishers";
+const _sA = "serviceAccount";
+const _t = "types";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

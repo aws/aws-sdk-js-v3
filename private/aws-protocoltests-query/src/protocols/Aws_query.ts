@@ -149,8 +149,8 @@ export const se_DatetimeOffsetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "DatetimeOffsets",
-    Version: "2020-01-08",
+    [_A]: _DO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -166,8 +166,8 @@ export const se_EmptyInputAndEmptyOutputCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_EmptyInputAndEmptyOutputInput(input, context),
-    Action: "EmptyInputAndEmptyOutput",
-    Version: "2020-01-08",
+    [_A]: _EIAEO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -181,8 +181,8 @@ export const se_EndpointOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "EndpointOperation",
-    Version: "2020-01-08",
+    [_A]: _EO,
+    [_V]: _,
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -205,8 +205,8 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_HostLabelInput(input, context),
-    Action: "EndpointWithHostLabelOperation",
-    Version: "2020-01-08",
+    [_A]: _EWHLO,
+    [_V]: _,
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -231,8 +231,8 @@ export const se_FlattenedXmlMapCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "FlattenedXmlMap",
-    Version: "2020-01-08",
+    [_A]: _FXM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -246,8 +246,8 @@ export const se_FlattenedXmlMapWithXmlNameCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "FlattenedXmlMapWithXmlName",
-    Version: "2020-01-08",
+    [_A]: _FXMWXN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -261,8 +261,8 @@ export const se_FlattenedXmlMapWithXmlNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "FlattenedXmlMapWithXmlNamespace",
-    Version: "2020-01-08",
+    [_A]: _FXMWXNl,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -276,8 +276,8 @@ export const se_FractionalSecondsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "FractionalSeconds",
-    Version: "2020-01-08",
+    [_A]: _FS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -291,8 +291,8 @@ export const se_GreetingWithErrorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "GreetingWithErrors",
-    Version: "2020-01-08",
+    [_A]: _GWE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -306,8 +306,8 @@ export const se_HostWithPathOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "HostWithPathOperation",
-    Version: "2020-01-08",
+    [_A]: _HWPO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -321,8 +321,8 @@ export const se_IgnoresWrappingXmlNameCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "IgnoresWrappingXmlName",
-    Version: "2020-01-08",
+    [_A]: _IWXN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -338,8 +338,8 @@ export const se_NestedStructuresCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_NestedStructuresInput(input, context),
-    Action: "NestedStructures",
-    Version: "2020-01-08",
+    [_A]: _NS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -353,8 +353,8 @@ export const se_NoInputAndNoOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "NoInputAndNoOutput",
-    Version: "2020-01-08",
+    [_A]: _NIANO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -370,8 +370,8 @@ export const se_NoInputAndOutputCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_NoInputAndOutputInput(input, context),
-    Action: "NoInputAndOutput",
-    Version: "2020-01-08",
+    [_A]: _NIAO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -387,8 +387,8 @@ export const se_PutWithContentEncodingCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutWithContentEncodingInput(input, context),
-    Action: "PutWithContentEncoding",
-    Version: "2020-01-08",
+    [_A]: _PWCE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -404,8 +404,8 @@ export const se_QueryIdempotencyTokenAutoFillCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_QueryIdempotencyTokenAutoFillInput(input, context),
-    Action: "QueryIdempotencyTokenAutoFill",
-    Version: "2020-01-08",
+    [_A]: _QITAF,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -421,8 +421,8 @@ export const se_QueryListsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_QueryListsInput(input, context),
-    Action: "QueryLists",
-    Version: "2020-01-08",
+    [_A]: _QL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -438,8 +438,8 @@ export const se_QueryMapsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_QueryMapsInput(input, context),
-    Action: "QueryMaps",
-    Version: "2020-01-08",
+    [_A]: _QM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -455,8 +455,8 @@ export const se_QueryTimestampsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_QueryTimestampsInput(input, context),
-    Action: "QueryTimestamps",
-    Version: "2020-01-08",
+    [_A]: _QT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -470,8 +470,8 @@ export const se_RecursiveXmlShapesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "RecursiveXmlShapes",
-    Version: "2020-01-08",
+    [_A]: _RXS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -487,8 +487,8 @@ export const se_SimpleInputParamsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SimpleInputParamsInput(input, context),
-    Action: "SimpleInputParams",
-    Version: "2020-01-08",
+    [_A]: _SIP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -502,8 +502,8 @@ export const se_SimpleScalarXmlPropertiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "SimpleScalarXmlProperties",
-    Version: "2020-01-08",
+    [_A]: _SSXP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -517,8 +517,8 @@ export const se_XmlBlobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlBlobs",
-    Version: "2020-01-08",
+    [_A]: _XB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -532,8 +532,8 @@ export const se_XmlEmptyBlobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlEmptyBlobs",
-    Version: "2020-01-08",
+    [_A]: _XEB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -547,8 +547,8 @@ export const se_XmlEmptyListsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlEmptyLists",
-    Version: "2020-01-08",
+    [_A]: _XEL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -562,8 +562,8 @@ export const se_XmlEmptyMapsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlEmptyMaps",
-    Version: "2020-01-08",
+    [_A]: _XEM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -577,8 +577,8 @@ export const se_XmlEnumsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlEnums",
-    Version: "2020-01-08",
+    [_A]: _XE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -592,8 +592,8 @@ export const se_XmlIntEnumsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlIntEnums",
-    Version: "2020-01-08",
+    [_A]: _XIE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -607,8 +607,8 @@ export const se_XmlListsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlLists",
-    Version: "2020-01-08",
+    [_A]: _XL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -622,8 +622,8 @@ export const se_XmlMapsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlMaps",
-    Version: "2020-01-08",
+    [_A]: _XM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -637,8 +637,8 @@ export const se_XmlMapsXmlNameCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlMapsXmlName",
-    Version: "2020-01-08",
+    [_A]: _XMXN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -652,8 +652,8 @@ export const se_XmlNamespacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlNamespaces",
-    Version: "2020-01-08",
+    [_A]: _XN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -667,8 +667,8 @@ export const se_XmlTimestampsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = SHARED_HEADERS;
   const body = buildFormUrlencodedString({
-    Action: "XmlTimestamps",
-    Version: "2020-01-08",
+    [_A]: _XT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2043,8 +2043,8 @@ const se_EmptyInputAndEmptyOutputInput = (input: EmptyInputAndEmptyOutputInput, 
  */
 const se_HostLabelInput = (input: HostLabelInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.label != null) {
-    entries["label"] = input.label;
+  if (input[_l] != null) {
+    entries[_l] = input[_l];
   }
   return entries;
 };
@@ -2105,8 +2105,8 @@ const se_MapWithXmlName = (input: Record<string, string>, context: __SerdeContex
  */
 const se_NestedStructuresInput = (input: NestedStructuresInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Nested != null) {
-    const memberEntries = se_StructArg(input.Nested, context);
+  if (input[_N] != null) {
+    const memberEntries = se_StructArg(input[_N], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Nested.${key}`;
       entries[loc] = value;
@@ -2120,9 +2120,9 @@ const se_NestedStructuresInput = (input: NestedStructuresInput, context: __Serde
  */
 const se_NestedStructWithList = (input: NestedStructWithList, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListArg != null) {
-    const memberEntries = se_StringList(input.ListArg, context);
-    if (input.ListArg?.length === 0) {
+  if (input[_LA] != null) {
+    const memberEntries = se_StringList(input[_LA], context);
+    if (input[_LA]?.length === 0) {
       entries.ListArg = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2138,8 +2138,8 @@ const se_NestedStructWithList = (input: NestedStructWithList, context: __SerdeCo
  */
 const se_NestedStructWithMap = (input: NestedStructWithMap, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MapArg != null) {
-    const memberEntries = se_StringMap(input.MapArg, context);
+  if (input[_MA] != null) {
+    const memberEntries = se_StringMap(input[_MA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapArg.${key}`;
       entries[loc] = value;
@@ -2161,11 +2161,11 @@ const se_NoInputAndOutputInput = (input: NoInputAndOutputInput, context: __Serde
  */
 const se_PutWithContentEncodingInput = (input: PutWithContentEncodingInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.encoding != null) {
-    entries["encoding"] = input.encoding;
+  if (input[_e] != null) {
+    entries[_e] = input[_e];
   }
-  if (input.data != null) {
-    entries["data"] = input.data;
+  if (input[_d] != null) {
+    entries[_d] = input[_d];
   }
   return entries;
 };
@@ -2178,11 +2178,11 @@ const se_QueryIdempotencyTokenAutoFillInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.token === undefined) {
-    input.token = generateIdempotencyToken();
+  if (input[_t] === undefined) {
+    input[_t] = generateIdempotencyToken();
   }
-  if (input.token != null) {
-    entries["token"] = input.token;
+  if (input[_t] != null) {
+    entries[_t] = input[_t];
   }
   return entries;
 };
@@ -2192,9 +2192,9 @@ const se_QueryIdempotencyTokenAutoFillInput = (
  */
 const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ListArg != null) {
-    const memberEntries = se_StringList(input.ListArg, context);
-    if (input.ListArg?.length === 0) {
+  if (input[_LA] != null) {
+    const memberEntries = se_StringList(input[_LA], context);
+    if (input[_LA]?.length === 0) {
       entries.ListArg = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2202,9 +2202,9 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.ComplexListArg != null) {
-    const memberEntries = se_GreetingList(input.ComplexListArg, context);
-    if (input.ComplexListArg?.length === 0) {
+  if (input[_CLA] != null) {
+    const memberEntries = se_GreetingList(input[_CLA], context);
+    if (input[_CLA]?.length === 0) {
       entries.ComplexListArg = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2212,9 +2212,9 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.FlattenedListArg != null) {
-    const memberEntries = se_StringList(input.FlattenedListArg, context);
-    if (input.FlattenedListArg?.length === 0) {
+  if (input[_FLA] != null) {
+    const memberEntries = se_StringList(input[_FLA], context);
+    if (input[_FLA]?.length === 0) {
       entries.FlattenedListArg = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2222,9 +2222,9 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.ListArgWithXmlNameMember != null) {
-    const memberEntries = se_ListWithXmlName(input.ListArgWithXmlNameMember, context);
-    if (input.ListArgWithXmlNameMember?.length === 0) {
+  if (input[_LAWXNM] != null) {
+    const memberEntries = se_ListWithXmlName(input[_LAWXNM], context);
+    if (input[_LAWXNM]?.length === 0) {
       entries.ListArgWithXmlNameMember = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2232,9 +2232,9 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.FlattenedListArgWithXmlName != null) {
-    const memberEntries = se_ListWithXmlName(input.FlattenedListArgWithXmlName, context);
-    if (input.FlattenedListArgWithXmlName?.length === 0) {
+  if (input[_FLAWXN] != null) {
+    const memberEntries = se_ListWithXmlName(input[_FLAWXN], context);
+    if (input[_FLAWXN]?.length === 0) {
       entries.Hi = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2242,8 +2242,8 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.NestedWithList != null) {
-    const memberEntries = se_NestedStructWithList(input.NestedWithList, context);
+  if (input[_NWL] != null) {
+    const memberEntries = se_NestedStructWithList(input[_NWL], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NestedWithList.${key}`;
       entries[loc] = value;
@@ -2257,57 +2257,57 @@ const se_QueryListsInput = (input: QueryListsInput, context: __SerdeContext): an
  */
 const se_QueryMapsInput = (input: QueryMapsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MapArg != null) {
-    const memberEntries = se_StringMap(input.MapArg, context);
+  if (input[_MA] != null) {
+    const memberEntries = se_StringMap(input[_MA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapArg.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RenamedMapArg != null) {
-    const memberEntries = se_StringMap(input.RenamedMapArg, context);
+  if (input[_RMA] != null) {
+    const memberEntries = se_StringMap(input[_RMA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Foo.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ComplexMapArg != null) {
-    const memberEntries = se_ComplexMap(input.ComplexMapArg, context);
+  if (input[_CMA] != null) {
+    const memberEntries = se_ComplexMap(input[_CMA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexMapArg.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MapWithXmlMemberName != null) {
-    const memberEntries = se_MapWithXmlName(input.MapWithXmlMemberName, context);
+  if (input[_MWXMN] != null) {
+    const memberEntries = se_MapWithXmlName(input[_MWXMN], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapWithXmlMemberName.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FlattenedMap != null) {
-    const memberEntries = se_StringMap(input.FlattenedMap, context);
+  if (input[_FM] != null) {
+    const memberEntries = se_StringMap(input[_FM], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlattenedMap.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
-  if (input.FlattenedMapWithXmlName != null) {
-    const memberEntries = se_MapWithXmlName(input.FlattenedMapWithXmlName, context);
+  if (input[_FMWXN] != null) {
+    const memberEntries = se_MapWithXmlName(input[_FMWXN], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
-  if (input.MapOfLists != null) {
-    const memberEntries = se_MapOfLists(input.MapOfLists, context);
+  if (input[_MOL] != null) {
+    const memberEntries = se_MapOfLists(input[_MOL], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapOfLists.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NestedStructWithMap != null) {
-    const memberEntries = se_NestedStructWithMap(input.NestedStructWithMap, context);
+  if (input[_NSWM] != null) {
+    const memberEntries = se_NestedStructWithMap(input[_NSWM], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NestedStructWithMap.${key}`;
       entries[loc] = value;
@@ -2321,14 +2321,14 @@ const se_QueryMapsInput = (input: QueryMapsInput, context: __SerdeContext): any 
  */
 const se_QueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.normalFormat != null) {
-    entries["normalFormat"] = input.normalFormat.toISOString().split(".")[0] + "Z";
+  if (input[_nF] != null) {
+    entries[_nF] = input[_nF].toISOString().split(".")[0] + "Z";
   }
-  if (input.epochMember != null) {
-    entries["epochMember"] = Math.round(input.epochMember.getTime() / 1000);
+  if (input[_eM] != null) {
+    entries[_eM] = Math.round(input[_eM].getTime() / 1000);
   }
-  if (input.epochTarget != null) {
-    entries["epochTarget"] = Math.round(input.epochTarget.getTime() / 1000);
+  if (input[_eT] != null) {
+    entries[_eT] = Math.round(input[_eT].getTime() / 1000);
   }
   return entries;
 };
@@ -2338,32 +2338,32 @@ const se_QueryTimestampsInput = (input: QueryTimestampsInput, context: __SerdeCo
  */
 const se_SimpleInputParamsInput = (input: SimpleInputParamsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Foo != null) {
-    entries["Foo"] = input.Foo;
+  if (input[_F] != null) {
+    entries[_F] = input[_F];
   }
-  if (input.Bar != null) {
-    entries["Bar"] = input.Bar;
+  if (input[_B] != null) {
+    entries[_B] = input[_B];
   }
-  if (input.Baz != null) {
-    entries["Baz"] = input.Baz;
+  if (input[_Ba] != null) {
+    entries[_Ba] = input[_Ba];
   }
-  if (input.Bam != null) {
-    entries["Bam"] = input.Bam;
+  if (input[_Bam] != null) {
+    entries[_Bam] = input[_Bam];
   }
-  if (input.FloatValue != null) {
-    entries["FloatValue"] = __serializeFloat(input.FloatValue);
+  if (input[_FV] != null) {
+    entries[_FV] = __serializeFloat(input[_FV]);
   }
-  if (input.Boo != null) {
-    entries["Boo"] = __serializeFloat(input.Boo);
+  if (input[_Bo] != null) {
+    entries[_Bo] = __serializeFloat(input[_Bo]);
   }
-  if (input.Qux != null) {
-    entries["Qux"] = context.base64Encoder(input.Qux);
+  if (input[_Q] != null) {
+    entries[_Q] = context.base64Encoder(input[_Q]);
   }
-  if (input.FooEnum != null) {
-    entries["FooEnum"] = input.FooEnum;
+  if (input[_FE] != null) {
+    entries[_FE] = input[_FE];
   }
-  if (input.IntegerEnum != null) {
-    entries["IntegerEnum"] = input.IntegerEnum;
+  if (input[_IE] != null) {
+    entries[_IE] = input[_IE];
   }
   return entries;
 };
@@ -2373,14 +2373,14 @@ const se_SimpleInputParamsInput = (input: SimpleInputParamsInput, context: __Ser
  */
 const se_StructArg = (input: StructArg, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StringArg != null) {
-    entries["StringArg"] = input.StringArg;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
-  if (input.OtherArg != null) {
-    entries["OtherArg"] = input.OtherArg;
+  if (input[_OA] != null) {
+    entries[_OA] = input[_OA];
   }
-  if (input.RecursiveArg != null) {
-    const memberEntries = se_StructArg(input.RecursiveArg, context);
+  if (input[_RA] != null) {
+    const memberEntries = se_StructArg(input[_RA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecursiveArg.${key}`;
       entries[loc] = value;
@@ -2413,8 +2413,8 @@ const se_GreetingList = (input: GreetingStruct[], context: __SerdeContext): any 
  */
 const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.hi != null) {
-    entries["hi"] = input.hi;
+  if (input[_h] != null) {
+    entries[_h] = input[_h];
   }
   return entries;
 };
@@ -2456,11 +2456,11 @@ const se_StringMap = (input: Record<string, string>, context: __SerdeContext): a
  */
 const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => {
   const contents: any = {};
-  if (output["TopLevel"] !== undefined) {
-    contents.TopLevel = __expectString(output["TopLevel"]);
+  if (output[_TL] != null) {
+    contents[_TL] = __expectString(output[_TL]);
   }
-  if (output["Nested"] !== undefined) {
-    contents.Nested = de_ComplexNestedErrorData(output["Nested"], context);
+  if (output[_N] != null) {
+    contents[_N] = de_ComplexNestedErrorData(output[_N], context);
   }
   return contents;
 };
@@ -2470,8 +2470,8 @@ const de_ComplexError = (output: any, context: __SerdeContext): ComplexError => 
  */
 const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   const contents: any = {};
-  if (output["Foo"] !== undefined) {
-    contents.Foo = __expectString(output["Foo"]);
+  if (output[_F] != null) {
+    contents[_F] = __expectString(output[_F]);
   }
   return contents;
 };
@@ -2481,8 +2481,8 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
  */
 const de_CustomCodeError = (output: any, context: __SerdeContext): CustomCodeError => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -2492,8 +2492,8 @@ const de_CustomCodeError = (output: any, context: __SerdeContext): CustomCodeErr
  */
 const de_DatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
   const contents: any = {};
-  if (output["datetime"] !== undefined) {
-    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
+  if (output[_da] != null) {
+    contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_da]));
   }
   return contents;
 };
@@ -2512,9 +2512,9 @@ const de_EmptyInputAndEmptyOutputOutput = (output: any, context: __SerdeContext)
 const de_FlattenedXmlMapOutput = (output: any, context: __SerdeContext): FlattenedXmlMapOutput => {
   const contents: any = {};
   if (output.myMap === "") {
-    contents.myMap = {};
-  } else if (output["myMap"] !== undefined) {
-    contents.myMap = de_FooEnumMap(__getArrayIfSingleItem(output["myMap"]), context);
+    contents[_mM] = {};
+  } else if (output[_mM] != null) {
+    contents[_mM] = de_FooEnumMap(__getArrayIfSingleItem(output[_mM]), context);
   }
   return contents;
 };
@@ -2528,9 +2528,9 @@ const de_FlattenedXmlMapWithXmlNameOutput = (
 ): FlattenedXmlMapWithXmlNameOutput => {
   const contents: any = {};
   if (output.KVP === "") {
-    contents.myMap = {};
-  } else if (output["KVP"] !== undefined) {
-    contents.myMap = de_FlattenedXmlMapWithXmlNameOutputMap(__getArrayIfSingleItem(output["KVP"]), context);
+    contents[_mM] = {};
+  } else if (output[_KVP] != null) {
+    contents[_mM] = de_FlattenedXmlMapWithXmlNameOutputMap(__getArrayIfSingleItem(output[_KVP]), context);
   }
   return contents;
 };
@@ -2557,9 +2557,9 @@ const de_FlattenedXmlMapWithXmlNamespaceOutput = (
 ): FlattenedXmlMapWithXmlNamespaceOutput => {
   const contents: any = {};
   if (output.KVP === "") {
-    contents.myMap = {};
-  } else if (output["KVP"] !== undefined) {
-    contents.myMap = de_FlattenedXmlMapWithXmlNamespaceOutputMap(__getArrayIfSingleItem(output["KVP"]), context);
+    contents[_mM] = {};
+  } else if (output[_KVP] != null) {
+    contents[_mM] = de_FlattenedXmlMapWithXmlNamespaceOutputMap(__getArrayIfSingleItem(output[_KVP]), context);
   }
   return contents;
 };
@@ -2582,8 +2582,8 @@ const de_FlattenedXmlMapWithXmlNamespaceOutputMap = (output: any, context: __Ser
  */
 const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
   const contents: any = {};
-  if (output["datetime"] !== undefined) {
-    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
+  if (output[_da] != null) {
+    contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_da]));
   }
   return contents;
 };
@@ -2593,8 +2593,8 @@ const de_FractionalSecondsOutput = (output: any, context: __SerdeContext): Fract
  */
 const de_GreetingWithErrorsOutput = (output: any, context: __SerdeContext): GreetingWithErrorsOutput => {
   const contents: any = {};
-  if (output["greeting"] !== undefined) {
-    contents.greeting = __expectString(output["greeting"]);
+  if (output[_g] != null) {
+    contents[_g] = __expectString(output[_g]);
   }
   return contents;
 };
@@ -2604,8 +2604,8 @@ const de_GreetingWithErrorsOutput = (output: any, context: __SerdeContext): Gree
  */
 const de_IgnoresWrappingXmlNameOutput = (output: any, context: __SerdeContext): IgnoresWrappingXmlNameOutput => {
   const contents: any = {};
-  if (output["foo"] !== undefined) {
-    contents.foo = __expectString(output["foo"]);
+  if (output[_f] != null) {
+    contents[_f] = __expectString(output[_f]);
   }
   return contents;
 };
@@ -2615,8 +2615,8 @@ const de_IgnoresWrappingXmlNameOutput = (output: any, context: __SerdeContext): 
  */
 const de_InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -2656,8 +2656,8 @@ const de_NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInpu
  */
 const de_RecursiveXmlShapesOutput = (output: any, context: __SerdeContext): RecursiveXmlShapesOutput => {
   const contents: any = {};
-  if (output["nested"] !== undefined) {
-    contents.nested = de_RecursiveXmlShapesOutputNested1(output["nested"], context);
+  if (output[_n] != null) {
+    contents[_n] = de_RecursiveXmlShapesOutputNested1(output[_n], context);
   }
   return contents;
 };
@@ -2667,11 +2667,11 @@ const de_RecursiveXmlShapesOutput = (output: any, context: __SerdeContext): Recu
  */
 const de_RecursiveXmlShapesOutputNested1 = (output: any, context: __SerdeContext): RecursiveXmlShapesOutputNested1 => {
   const contents: any = {};
-  if (output["foo"] !== undefined) {
-    contents.foo = __expectString(output["foo"]);
+  if (output[_f] != null) {
+    contents[_f] = __expectString(output[_f]);
   }
-  if (output["nested"] !== undefined) {
-    contents.nested = de_RecursiveXmlShapesOutputNested2(output["nested"], context);
+  if (output[_n] != null) {
+    contents[_n] = de_RecursiveXmlShapesOutputNested2(output[_n], context);
   }
   return contents;
 };
@@ -2681,11 +2681,11 @@ const de_RecursiveXmlShapesOutputNested1 = (output: any, context: __SerdeContext
  */
 const de_RecursiveXmlShapesOutputNested2 = (output: any, context: __SerdeContext): RecursiveXmlShapesOutputNested2 => {
   const contents: any = {};
-  if (output["bar"] !== undefined) {
-    contents.bar = __expectString(output["bar"]);
+  if (output[_b] != null) {
+    contents[_b] = __expectString(output[_b]);
   }
-  if (output["recursiveMember"] !== undefined) {
-    contents.recursiveMember = de_RecursiveXmlShapesOutputNested1(output["recursiveMember"], context);
+  if (output[_rM] != null) {
+    contents[_rM] = de_RecursiveXmlShapesOutputNested1(output[_rM], context);
   }
   return contents;
 };
@@ -2706,35 +2706,35 @@ const de_RenamedListMembers = (output: any, context: __SerdeContext): string[] =
  */
 const de_SimpleScalarXmlPropertiesOutput = (output: any, context: __SerdeContext): SimpleScalarXmlPropertiesOutput => {
   const contents: any = {};
-  if (output["stringValue"] !== undefined) {
-    contents.stringValue = __expectString(output["stringValue"]);
+  if (output[_sV] != null) {
+    contents[_sV] = __expectString(output[_sV]);
   }
-  if (output["emptyStringValue"] !== undefined) {
-    contents.emptyStringValue = __expectString(output["emptyStringValue"]);
+  if (output[_eSV] != null) {
+    contents[_eSV] = __expectString(output[_eSV]);
   }
-  if (output["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = __parseBoolean(output["trueBooleanValue"]);
+  if (output[_tBV] != null) {
+    contents[_tBV] = __parseBoolean(output[_tBV]);
   }
-  if (output["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = __parseBoolean(output["falseBooleanValue"]);
+  if (output[_fBV] != null) {
+    contents[_fBV] = __parseBoolean(output[_fBV]);
   }
-  if (output["byteValue"] !== undefined) {
-    contents.byteValue = __strictParseByte(output["byteValue"]) as number;
+  if (output[_bV] != null) {
+    contents[_bV] = __strictParseByte(output[_bV]) as number;
   }
-  if (output["shortValue"] !== undefined) {
-    contents.shortValue = __strictParseShort(output["shortValue"]) as number;
+  if (output[_sVh] != null) {
+    contents[_sVh] = __strictParseShort(output[_sVh]) as number;
   }
-  if (output["integerValue"] !== undefined) {
-    contents.integerValue = __strictParseInt32(output["integerValue"]) as number;
+  if (output[_iV] != null) {
+    contents[_iV] = __strictParseInt32(output[_iV]) as number;
   }
-  if (output["longValue"] !== undefined) {
-    contents.longValue = __strictParseLong(output["longValue"]) as number;
+  if (output[_lV] != null) {
+    contents[_lV] = __strictParseLong(output[_lV]) as number;
   }
-  if (output["floatValue"] !== undefined) {
-    contents.floatValue = __strictParseFloat(output["floatValue"]) as number;
+  if (output[_fV] != null) {
+    contents[_fV] = __strictParseFloat(output[_fV]) as number;
   }
-  if (output["DoubleDribble"] !== undefined) {
-    contents.doubleValue = __strictParseFloat(output["DoubleDribble"]) as number;
+  if (output[_DD] != null) {
+    contents[_dV] = __strictParseFloat(output[_DD]) as number;
   }
   return contents;
 };
@@ -2755,11 +2755,11 @@ const de_StructureList = (output: any, context: __SerdeContext): StructureListMe
  */
 const de_StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   const contents: any = {};
-  if (output["value"] !== undefined) {
-    contents.a = __expectString(output["value"]);
+  if (output[_v] != null) {
+    contents[_a] = __expectString(output[_v]);
   }
-  if (output["other"] !== undefined) {
-    contents.b = __expectString(output["other"]);
+  if (output[_o] != null) {
+    contents[_b_] = __expectString(output[_o]);
   }
   return contents;
 };
@@ -2769,8 +2769,8 @@ const de_StructureListMember = (output: any, context: __SerdeContext): Structure
  */
 const de_XmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput => {
   const contents: any = {};
-  if (output["data"] !== undefined) {
-    contents.data = context.base64Decoder(output["data"]);
+  if (output[_d] != null) {
+    contents[_d] = context.base64Decoder(output[_d]);
   }
   return contents;
 };
@@ -2780,29 +2780,29 @@ const de_XmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput
  */
 const de_XmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput => {
   const contents: any = {};
-  if (output["fooEnum1"] !== undefined) {
-    contents.fooEnum1 = __expectString(output["fooEnum1"]);
+  if (output[_fE] != null) {
+    contents[_fE] = __expectString(output[_fE]);
   }
-  if (output["fooEnum2"] !== undefined) {
-    contents.fooEnum2 = __expectString(output["fooEnum2"]);
+  if (output[_fEo] != null) {
+    contents[_fEo] = __expectString(output[_fEo]);
   }
-  if (output["fooEnum3"] !== undefined) {
-    contents.fooEnum3 = __expectString(output["fooEnum3"]);
+  if (output[_fEoo] != null) {
+    contents[_fEoo] = __expectString(output[_fEoo]);
   }
   if (output.fooEnumList === "") {
-    contents.fooEnumList = [];
-  } else if (output["fooEnumList"] !== undefined && output["fooEnumList"]["member"] !== undefined) {
-    contents.fooEnumList = de_FooEnumList(__getArrayIfSingleItem(output["fooEnumList"]["member"]), context);
+    contents[_fEL] = [];
+  } else if (output[_fEL] != null && output[_fEL][_m] != null) {
+    contents[_fEL] = de_FooEnumList(__getArrayIfSingleItem(output[_fEL][_m]), context);
   }
   if (output.fooEnumSet === "") {
-    contents.fooEnumSet = [];
-  } else if (output["fooEnumSet"] !== undefined && output["fooEnumSet"]["member"] !== undefined) {
-    contents.fooEnumSet = de_FooEnumSet(__getArrayIfSingleItem(output["fooEnumSet"]["member"]), context);
+    contents[_fES] = [];
+  } else if (output[_fES] != null && output[_fES][_m] != null) {
+    contents[_fES] = de_FooEnumSet(__getArrayIfSingleItem(output[_fES][_m]), context);
   }
   if (output.fooEnumMap === "") {
-    contents.fooEnumMap = {};
-  } else if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
-    contents.fooEnumMap = de_FooEnumMap(__getArrayIfSingleItem(output["fooEnumMap"]["entry"]), context);
+    contents[_fEM] = {};
+  } else if (output[_fEM] != null && output[_fEM][_en] != null) {
+    contents[_fEM] = de_FooEnumMap(__getArrayIfSingleItem(output[_fEM][_en]), context);
   }
   return contents;
 };
@@ -2812,29 +2812,29 @@ const de_XmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput
  */
 const de_XmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnumsOutput => {
   const contents: any = {};
-  if (output["intEnum1"] !== undefined) {
-    contents.intEnum1 = __strictParseInt32(output["intEnum1"]) as number;
+  if (output[_iE] != null) {
+    contents[_iE] = __strictParseInt32(output[_iE]) as number;
   }
-  if (output["intEnum2"] !== undefined) {
-    contents.intEnum2 = __strictParseInt32(output["intEnum2"]) as number;
+  if (output[_iEn] != null) {
+    contents[_iEn] = __strictParseInt32(output[_iEn]) as number;
   }
-  if (output["intEnum3"] !== undefined) {
-    contents.intEnum3 = __strictParseInt32(output["intEnum3"]) as number;
+  if (output[_iEnt] != null) {
+    contents[_iEnt] = __strictParseInt32(output[_iEnt]) as number;
   }
   if (output.intEnumList === "") {
-    contents.intEnumList = [];
-  } else if (output["intEnumList"] !== undefined && output["intEnumList"]["member"] !== undefined) {
-    contents.intEnumList = de_IntegerEnumList(__getArrayIfSingleItem(output["intEnumList"]["member"]), context);
+    contents[_iEL] = [];
+  } else if (output[_iEL] != null && output[_iEL][_m] != null) {
+    contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(output[_iEL][_m]), context);
   }
   if (output.intEnumSet === "") {
-    contents.intEnumSet = [];
-  } else if (output["intEnumSet"] !== undefined && output["intEnumSet"]["member"] !== undefined) {
-    contents.intEnumSet = de_IntegerEnumSet(__getArrayIfSingleItem(output["intEnumSet"]["member"]), context);
+    contents[_iES] = [];
+  } else if (output[_iES] != null && output[_iES][_m] != null) {
+    contents[_iES] = de_IntegerEnumSet(__getArrayIfSingleItem(output[_iES][_m]), context);
   }
   if (output.intEnumMap === "") {
-    contents.intEnumMap = {};
-  } else if (output["intEnumMap"] !== undefined && output["intEnumMap"]["entry"] !== undefined) {
-    contents.intEnumMap = de_IntegerEnumMap(__getArrayIfSingleItem(output["intEnumMap"]["entry"]), context);
+    contents[_iEM] = {};
+  } else if (output[_iEM] != null && output[_iEM][_en] != null) {
+    contents[_iEM] = de_IntegerEnumMap(__getArrayIfSingleItem(output[_iEM][_en]), context);
   }
   return contents;
 };
@@ -2845,83 +2845,74 @@ const de_XmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnums
 const de_XmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
   const contents: any = {};
   if (output.stringList === "") {
-    contents.stringList = [];
-  } else if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
-    contents.stringList = de_StringList(__getArrayIfSingleItem(output["stringList"]["member"]), context);
+    contents[_sL] = [];
+  } else if (output[_sL] != null && output[_sL][_m] != null) {
+    contents[_sL] = de_StringList(__getArrayIfSingleItem(output[_sL][_m]), context);
   }
   if (output.stringSet === "") {
-    contents.stringSet = [];
-  } else if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
-    contents.stringSet = de_StringSet(__getArrayIfSingleItem(output["stringSet"]["member"]), context);
+    contents[_sS] = [];
+  } else if (output[_sS] != null && output[_sS][_m] != null) {
+    contents[_sS] = de_StringSet(__getArrayIfSingleItem(output[_sS][_m]), context);
   }
   if (output.integerList === "") {
-    contents.integerList = [];
-  } else if (output["integerList"] !== undefined && output["integerList"]["member"] !== undefined) {
-    contents.integerList = de_IntegerList(__getArrayIfSingleItem(output["integerList"]["member"]), context);
+    contents[_iL] = [];
+  } else if (output[_iL] != null && output[_iL][_m] != null) {
+    contents[_iL] = de_IntegerList(__getArrayIfSingleItem(output[_iL][_m]), context);
   }
   if (output.booleanList === "") {
-    contents.booleanList = [];
-  } else if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
-    contents.booleanList = de_BooleanList(__getArrayIfSingleItem(output["booleanList"]["member"]), context);
+    contents[_bL] = [];
+  } else if (output[_bL] != null && output[_bL][_m] != null) {
+    contents[_bL] = de_BooleanList(__getArrayIfSingleItem(output[_bL][_m]), context);
   }
   if (output.timestampList === "") {
-    contents.timestampList = [];
-  } else if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
-    contents.timestampList = de_TimestampList(__getArrayIfSingleItem(output["timestampList"]["member"]), context);
+    contents[_tL] = [];
+  } else if (output[_tL] != null && output[_tL][_m] != null) {
+    contents[_tL] = de_TimestampList(__getArrayIfSingleItem(output[_tL][_m]), context);
   }
   if (output.enumList === "") {
-    contents.enumList = [];
-  } else if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
-    contents.enumList = de_FooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
+    contents[_eL] = [];
+  } else if (output[_eL] != null && output[_eL][_m] != null) {
+    contents[_eL] = de_FooEnumList(__getArrayIfSingleItem(output[_eL][_m]), context);
   }
   if (output.intEnumList === "") {
-    contents.intEnumList = [];
-  } else if (output["intEnumList"] !== undefined && output["intEnumList"]["member"] !== undefined) {
-    contents.intEnumList = de_IntegerEnumList(__getArrayIfSingleItem(output["intEnumList"]["member"]), context);
+    contents[_iEL] = [];
+  } else if (output[_iEL] != null && output[_iEL][_m] != null) {
+    contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(output[_iEL][_m]), context);
   }
   if (output.nestedStringList === "") {
-    contents.nestedStringList = [];
-  } else if (output["nestedStringList"] !== undefined && output["nestedStringList"]["member"] !== undefined) {
-    contents.nestedStringList = de_NestedStringList(
-      __getArrayIfSingleItem(output["nestedStringList"]["member"]),
-      context
-    );
+    contents[_nSL] = [];
+  } else if (output[_nSL] != null && output[_nSL][_m] != null) {
+    contents[_nSL] = de_NestedStringList(__getArrayIfSingleItem(output[_nSL][_m]), context);
   }
   if (output.renamed === "") {
-    contents.renamedListMembers = [];
-  } else if (output["renamed"] !== undefined && output["renamed"]["item"] !== undefined) {
-    contents.renamedListMembers = de_RenamedListMembers(__getArrayIfSingleItem(output["renamed"]["item"]), context);
+    contents[_rLM] = [];
+  } else if (output[_r] != null && output[_r][_i] != null) {
+    contents[_rLM] = de_RenamedListMembers(__getArrayIfSingleItem(output[_r][_i]), context);
   }
   if (output.flattenedList === "") {
-    contents.flattenedList = [];
-  } else if (output["flattenedList"] !== undefined) {
-    contents.flattenedList = de_RenamedListMembers(__getArrayIfSingleItem(output["flattenedList"]), context);
+    contents[_fL] = [];
+  } else if (output[_fL] != null) {
+    contents[_fL] = de_RenamedListMembers(__getArrayIfSingleItem(output[_fL]), context);
   }
   if (output.customName === "") {
-    contents.flattenedList2 = [];
-  } else if (output["customName"] !== undefined) {
-    contents.flattenedList2 = de_RenamedListMembers(__getArrayIfSingleItem(output["customName"]), context);
+    contents[_fLl] = [];
+  } else if (output[_cN] != null) {
+    contents[_fLl] = de_RenamedListMembers(__getArrayIfSingleItem(output[_cN]), context);
   }
   if (output.flattenedListWithMemberNamespace === "") {
-    contents.flattenedListWithMemberNamespace = [];
-  } else if (output["flattenedListWithMemberNamespace"] !== undefined) {
-    contents.flattenedListWithMemberNamespace = de_ListWithMemberNamespace(
-      __getArrayIfSingleItem(output["flattenedListWithMemberNamespace"]),
-      context
-    );
+    contents[_fLWMN] = [];
+  } else if (output[_fLWMN] != null) {
+    contents[_fLWMN] = de_ListWithMemberNamespace(__getArrayIfSingleItem(output[_fLWMN]), context);
   }
   if (output.flattenedListWithNamespace === "") {
-    contents.flattenedListWithNamespace = [];
-  } else if (output["flattenedListWithNamespace"] !== undefined) {
-    contents.flattenedListWithNamespace = de_ListWithNamespace(
-      __getArrayIfSingleItem(output["flattenedListWithNamespace"]),
-      context
-    );
+    contents[_fLWN] = [];
+  } else if (output[_fLWN] != null) {
+    contents[_fLWN] = de_ListWithNamespace(__getArrayIfSingleItem(output[_fLWN]), context);
   }
   if (output.myStructureList === "") {
-    contents.structureList = [];
-  } else if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
-    contents.structureList = de_StructureList(__getArrayIfSingleItem(output["myStructureList"]["item"]), context);
+    contents[_sLt] = [];
+  } else if (output[_mSL] != null && output[_mSL][_i] != null) {
+    contents[_sLt] = de_StructureList(__getArrayIfSingleItem(output[_mSL][_i]), context);
   }
   return contents;
 };
@@ -2932,9 +2923,9 @@ const de_XmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput
 const de_XmlMapsOutput = (output: any, context: __SerdeContext): XmlMapsOutput => {
   const contents: any = {};
   if (output.myMap === "") {
-    contents.myMap = {};
-  } else if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
-    contents.myMap = de_XmlMapsOutputMap(__getArrayIfSingleItem(output["myMap"]["entry"]), context);
+    contents[_mM] = {};
+  } else if (output[_mM] != null && output[_mM][_en] != null) {
+    contents[_mM] = de_XmlMapsOutputMap(__getArrayIfSingleItem(output[_mM][_en]), context);
   }
   return contents;
 };
@@ -2958,9 +2949,9 @@ const de_XmlMapsOutputMap = (output: any, context: __SerdeContext): Record<strin
 const de_XmlMapsXmlNameOutput = (output: any, context: __SerdeContext): XmlMapsXmlNameOutput => {
   const contents: any = {};
   if (output.myMap === "") {
-    contents.myMap = {};
-  } else if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
-    contents.myMap = de_XmlMapsXmlNameOutputMap(__getArrayIfSingleItem(output["myMap"]["entry"]), context);
+    contents[_mM] = {};
+  } else if (output[_mM] != null && output[_mM][_en] != null) {
+    contents[_mM] = de_XmlMapsXmlNameOutputMap(__getArrayIfSingleItem(output[_mM][_en]), context);
   }
   return contents;
 };
@@ -2994,13 +2985,13 @@ const de_XmlNamespacedList = (output: any, context: __SerdeContext): string[] =>
  */
 const de_XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
   const contents: any = {};
-  if (output["foo"] !== undefined) {
-    contents.foo = __expectString(output["foo"]);
+  if (output[_f] != null) {
+    contents[_f] = __expectString(output[_f]);
   }
   if (output.values === "") {
-    contents.values = [];
-  } else if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
-    contents.values = de_XmlNamespacedList(__getArrayIfSingleItem(output["values"]["member"]), context);
+    contents[_va] = [];
+  } else if (output[_va] != null && output[_va][_m] != null) {
+    contents[_va] = de_XmlNamespacedList(__getArrayIfSingleItem(output[_va][_m]), context);
   }
   return contents;
 };
@@ -3010,8 +3001,8 @@ const de_XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespa
  */
 const de_XmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamespacesOutput => {
   const contents: any = {};
-  if (output["nested"] !== undefined) {
-    contents.nested = de_XmlNamespaceNested(output["nested"], context);
+  if (output[_n] != null) {
+    contents[_n] = de_XmlNamespaceNested(output[_n], context);
   }
   return contents;
 };
@@ -3021,26 +3012,26 @@ const de_XmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamesp
  */
 const de_XmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
   const contents: any = {};
-  if (output["normal"] !== undefined) {
-    contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["normal"]));
+  if (output[_no] != null) {
+    contents[_no] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_no]));
   }
-  if (output["dateTime"] !== undefined) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTime"]));
+  if (output[_dT] != null) {
+    contents[_dT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_dT]));
   }
-  if (output["dateTimeOnTarget"] !== undefined) {
-    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["dateTimeOnTarget"]));
+  if (output[_dTOT] != null) {
+    contents[_dTOT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_dTOT]));
   }
-  if (output["epochSeconds"] !== undefined) {
-    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(output["epochSeconds"]));
+  if (output[_eS] != null) {
+    contents[_eS] = __expectNonNull(__parseEpochTimestamp(output[_eS]));
   }
-  if (output["epochSecondsOnTarget"] !== undefined) {
-    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(output["epochSecondsOnTarget"]));
+  if (output[_eSOT] != null) {
+    contents[_eSOT] = __expectNonNull(__parseEpochTimestamp(output[_eSOT]));
   }
-  if (output["httpDate"] !== undefined) {
-    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(output["httpDate"]));
+  if (output[_hD] != null) {
+    contents[_hD] = __expectNonNull(__parseRfc7231DateTime(output[_hD]));
   }
-  if (output["httpDateOnTarget"] !== undefined) {
-    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(output["httpDateOnTarget"]));
+  if (output[_hDOT] != null) {
+    contents[_hDOT] = __expectNonNull(__parseRfc7231DateTime(output[_hDOT]));
   }
   return contents;
 };
@@ -3096,8 +3087,8 @@ const de_FooEnumSet = (output: any, context: __SerdeContext): FooEnum[] => {
  */
 const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   const contents: any = {};
-  if (output["hi"] !== undefined) {
-    contents.hi = __expectString(output["hi"]);
+  if (output[_h] != null) {
+    contents[_h] = __expectString(output[_h]);
   }
   return contents;
 };
@@ -3232,6 +3223,142 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2020-01-08";
+const _A = "Action";
+const _B = "Bar";
+const _Ba = "Baz";
+const _Bam = "Bam";
+const _Bo = "Boo";
+const _CLA = "ComplexListArg";
+const _CMA = "ComplexMapArg";
+const _DD = "DoubleDribble";
+const _DO = "DatetimeOffsets";
+const _EIAEO = "EmptyInputAndEmptyOutput";
+const _EO = "EndpointOperation";
+const _EWHLO = "EndpointWithHostLabelOperation";
+const _F = "Foo";
+const _FE = "FooEnum";
+const _FLA = "FlattenedListArg";
+const _FLAWXN = "FlattenedListArgWithXmlName";
+const _FM = "FlattenedMap";
+const _FMWXN = "FlattenedMapWithXmlName";
+const _FS = "FractionalSeconds";
+const _FV = "FloatValue";
+const _FXM = "FlattenedXmlMap";
+const _FXMWXN = "FlattenedXmlMapWithXmlName";
+const _FXMWXNl = "FlattenedXmlMapWithXmlNamespace";
+const _GWE = "GreetingWithErrors";
+const _HWPO = "HostWithPathOperation";
+const _IE = "IntegerEnum";
+const _IWXN = "IgnoresWrappingXmlName";
+const _KVP = "KVP";
+const _LA = "ListArg";
+const _LAWXNM = "ListArgWithXmlNameMember";
+const _M = "Message";
+const _MA = "MapArg";
+const _MOL = "MapOfLists";
+const _MWXMN = "MapWithXmlMemberName";
+const _N = "Nested";
+const _NIANO = "NoInputAndNoOutput";
+const _NIAO = "NoInputAndOutput";
+const _NS = "NestedStructures";
+const _NSWM = "NestedStructWithMap";
+const _NWL = "NestedWithList";
+const _OA = "OtherArg";
+const _PWCE = "PutWithContentEncoding";
+const _Q = "Qux";
+const _QITAF = "QueryIdempotencyTokenAutoFill";
+const _QL = "QueryLists";
+const _QM = "QueryMaps";
+const _QT = "QueryTimestamps";
+const _RA = "RecursiveArg";
+const _RMA = "RenamedMapArg";
+const _RXS = "RecursiveXmlShapes";
+const _SA = "StringArg";
+const _SIP = "SimpleInputParams";
+const _SSXP = "SimpleScalarXmlProperties";
+const _TL = "TopLevel";
+const _V = "Version";
+const _XB = "XmlBlobs";
+const _XE = "XmlEnums";
+const _XEB = "XmlEmptyBlobs";
+const _XEL = "XmlEmptyLists";
+const _XEM = "XmlEmptyMaps";
+const _XIE = "XmlIntEnums";
+const _XL = "XmlLists";
+const _XM = "XmlMaps";
+const _XMXN = "XmlMapsXmlName";
+const _XN = "XmlNamespaces";
+const _XT = "XmlTimestamps";
+const _a = "a";
+const _b = "bar";
+const _bL = "booleanList";
+const _bV = "byteValue";
+const _b_ = "b";
+const _cN = "customName";
+const _d = "data";
+const _dT = "dateTime";
+const _dTOT = "dateTimeOnTarget";
+const _dV = "doubleValue";
+const _da = "datetime";
+const _e = "encoding";
+const _eL = "enumList";
+const _eM = "epochMember";
+const _eS = "epochSeconds";
+const _eSOT = "epochSecondsOnTarget";
+const _eSV = "emptyStringValue";
+const _eT = "epochTarget";
+const _en = "entry";
+const _f = "foo";
+const _fBV = "falseBooleanValue";
+const _fE = "fooEnum1";
+const _fEL = "fooEnumList";
+const _fEM = "fooEnumMap";
+const _fES = "fooEnumSet";
+const _fEo = "fooEnum2";
+const _fEoo = "fooEnum3";
+const _fL = "flattenedList";
+const _fLWMN = "flattenedListWithMemberNamespace";
+const _fLWN = "flattenedListWithNamespace";
+const _fLl = "flattenedList2";
+const _fV = "floatValue";
+const _g = "greeting";
+const _h = "hi";
+const _hD = "httpDate";
+const _hDOT = "httpDateOnTarget";
+const _i = "item";
+const _iE = "intEnum1";
+const _iEL = "intEnumList";
+const _iEM = "intEnumMap";
+const _iES = "intEnumSet";
+const _iEn = "intEnum2";
+const _iEnt = "intEnum3";
+const _iL = "integerList";
+const _iV = "integerValue";
+const _l = "label";
+const _lV = "longValue";
+const _m = "member";
+const _mM = "myMap";
+const _mSL = "myStructureList";
+const _n = "nested";
+const _nF = "normalFormat";
+const _nSL = "nestedStringList";
+const _no = "normal";
+const _o = "other";
+const _r = "renamed";
+const _rLM = "renamedListMembers";
+const _rM = "recursiveMember";
+const _sL = "stringList";
+const _sLt = "structureList";
+const _sS = "stringSet";
+const _sV = "stringValue";
+const _sVh = "shortValue";
+const _t = "token";
+const _tBV = "trueBooleanValue";
+const _tL = "timestampList";
+const _v = "value";
+const _va = "values";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

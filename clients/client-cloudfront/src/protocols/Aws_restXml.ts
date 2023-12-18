@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   collectBody,
@@ -682,33 +683,16 @@ export const se_AssociateAliasCommand = async (
   input: AssociateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distribution/{TargetDistributionId}/associate-alias";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TargetDistributionId",
-    () => input.TargetDistributionId!,
-    "{TargetDistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distribution/{TargetDistributionId}/associate-alias");
+  b.p("TargetDistributionId", () => input.TargetDistributionId!, "{TargetDistributionId}", false);
   const query: any = map({
-    Alias: [, __expectNonNull(input.Alias!, `Alias`)],
+    [_A]: [, __expectNonNull(input[_A]!, `Alias`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -718,45 +702,27 @@ export const se_CopyDistributionCommand = async (
   input: CopyDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    staging: [() => isSerializableHeaderValue(input.Staging), () => input.Staging!.toString()],
-    "if-match": input.IfMatch!,
+    [_s]: [() => isSerializableHeaderValue(input[_S]), () => input[_S]!.toString()],
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distribution/{PrimaryDistributionId}/copy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PrimaryDistributionId",
-    () => input.PrimaryDistributionId!,
-    "{PrimaryDistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distribution/{PrimaryDistributionId}/copy");
+  b.p("PrimaryDistributionId", () => input.PrimaryDistributionId!, "{PrimaryDistributionId}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CopyDistributionRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.CallerReference !== undefined) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CDR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.Enabled !== undefined) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -766,29 +732,21 @@ export const se_CreateCachePolicyCommand = async (
   input: CreateCachePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
+  b.bp("/2020-05-31/cache-policy");
   let body: any;
   let contents: any;
   if (input.CachePolicyConfig !== undefined) {
     contents = se_CachePolicyConfig(input.CachePolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -798,30 +756,21 @@ export const se_CreateCloudFrontOriginAccessIdentityCommand = async (
   input: CreateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-identity/cloudfront";
+  b.bp("/2020-05-31/origin-access-identity/cloudfront");
   let body: any;
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = se_CloudFrontOriginAccessIdentityConfig(input.CloudFrontOriginAccessIdentityConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -831,29 +780,21 @@ export const se_CreateContinuousDeploymentPolicyCommand = async (
   input: CreateContinuousDeploymentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/continuous-deployment-policy";
+  b.bp("/2020-05-31/continuous-deployment-policy");
   let body: any;
   let contents: any;
   if (input.ContinuousDeploymentPolicyConfig !== undefined) {
     contents = se_ContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -863,29 +804,21 @@ export const se_CreateDistributionCommand = async (
   input: CreateDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
+  b.bp("/2020-05-31/distribution");
   let body: any;
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = se_DistributionConfig(input.DistributionConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -895,33 +828,24 @@ export const se_CreateDistributionWithTagsCommand = async (
   input: CreateDistributionWithTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
+  b.bp("/2020-05-31/distribution");
   const query: any = map({
-    WithTags: [, ""],
+    [_WT]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.DistributionConfigWithTags !== undefined) {
     contents = se_DistributionConfigWithTags(input.DistributionConfigWithTags, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -931,29 +855,21 @@ export const se_CreateFieldLevelEncryptionConfigCommand = async (
   input: CreateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption";
+  b.bp("/2020-05-31/field-level-encryption");
   let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = se_FieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -963,30 +879,21 @@ export const se_CreateFieldLevelEncryptionProfileCommand = async (
   input: CreateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption-profile";
+  b.bp("/2020-05-31/field-level-encryption-profile");
   let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = se_FieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -996,37 +903,27 @@ export const se_CreateFunctionCommand = async (
   input: CreateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
+  b.bp("/2020-05-31/function");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateFunctionRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.FunctionCode !== undefined) {
-    const node = __XmlNode.of("FunctionBlob", context.base64Encoder(input.FunctionCode)).withName("FunctionCode");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CFR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_FC] != null) {
+    bn.c(__XmlNode.of(_FB, context.base64Encoder(input[_FC])).n(_FC));
   }
-  if (input.FunctionConfig !== undefined) {
-    const node = se_FunctionConfig(input.FunctionConfig, context).withName("FunctionConfig");
-    bodyNode.addChildNode(node);
+  if (input[_FCu] != null) {
+    bn.c(se_FunctionConfig(input[_FCu], context).n(_FCu));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("FunctionName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_FN, input[_N]).n(_N));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1036,38 +933,22 @@ export const se_CreateInvalidationCommand = async (
   input: CreateInvalidationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distribution/{DistributionId}/invalidation";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DistributionId",
-    () => input.DistributionId!,
-    "{DistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distribution/{DistributionId}/invalidation");
+  b.p("DistributionId", () => input.DistributionId!, "{DistributionId}", false);
   let body: any;
   let contents: any;
   if (input.InvalidationBatch !== undefined) {
     contents = se_InvalidationBatch(input.InvalidationBatch, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1077,28 +958,21 @@ export const se_CreateKeyGroupCommand = async (
   input: CreateKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
+  b.bp("/2020-05-31/key-group");
   let body: any;
   let contents: any;
   if (input.KeyGroupConfig !== undefined) {
     contents = se_KeyGroupConfig(input.KeyGroupConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1108,38 +982,27 @@ export const se_CreateKeyValueStoreCommand = async (
   input: CreateKeyValueStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store";
+  b.bp("/2020-05-31/key-value-store");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateKeyValueStoreRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("KeyValueStoreComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_CKVSR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_KVSC, input[_C]).n(_C));
   }
-  if (input.ImportSource !== undefined) {
-    const node = se_ImportSource(input.ImportSource, context).withName("ImportSource");
-    bodyNode.addChildNode(node);
+  if (input[_IS] != null) {
+    bn.c(se_ImportSource(input[_IS], context).n(_IS));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("KeyValueStoreName", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_KVSN, input[_N]).n(_N));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1149,38 +1012,22 @@ export const se_CreateMonitoringSubscriptionCommand = async (
   input: CreateMonitoringSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DistributionId",
-    () => input.DistributionId!,
-    "{DistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distributions/{DistributionId}/monitoring-subscription");
+  b.p("DistributionId", () => input.DistributionId!, "{DistributionId}", false);
   let body: any;
   let contents: any;
   if (input.MonitoringSubscription !== undefined) {
     contents = se_MonitoringSubscription(input.MonitoringSubscription, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1190,29 +1037,21 @@ export const se_CreateOriginAccessControlCommand = async (
   input: CreateOriginAccessControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-access-control";
+  b.bp("/2020-05-31/origin-access-control");
   let body: any;
   let contents: any;
   if (input.OriginAccessControlConfig !== undefined) {
     contents = se_OriginAccessControlConfig(input.OriginAccessControlConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1222,29 +1061,21 @@ export const se_CreateOriginRequestPolicyCommand = async (
   input: CreateOriginRequestPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy";
+  b.bp("/2020-05-31/origin-request-policy");
   let body: any;
   let contents: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     contents = se_OriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1254,28 +1085,21 @@ export const se_CreatePublicKeyCommand = async (
   input: CreatePublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
+  b.bp("/2020-05-31/public-key");
   let body: any;
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = se_PublicKeyConfig(input.PublicKeyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1285,50 +1109,26 @@ export const se_CreateRealtimeLogConfigCommand = async (
   input: CreateRealtimeLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
+  b.bp("/2020-05-31/realtime-log-config");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("CreateRealtimeLogConfigRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.EndPoints !== undefined) {
-    const nodes = se_EndPointList(input.EndPoints, context);
-    const containerNode = new __XmlNode("EndPoints");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  body = _ve;
+  const bn = new __XmlNode(_CRLCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  bn.lc(input, "EndPoints", "EndPoints", () => se_EndPointList(input[_EP]!, context));
+  bn.lc(input, "Fields", "Fields", () => se_FieldList(input[_F]!, context));
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.Fields !== undefined) {
-    const nodes = se_FieldList(input.Fields, context);
-    const containerNode = new __XmlNode("Fields");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_SR] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_SR])).n(_SR));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
-  }
-  if (input.SamplingRate !== undefined) {
-    const node = __XmlNode.of("long", String(input.SamplingRate)).withName("SamplingRate");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1338,29 +1138,21 @@ export const se_CreateResponseHeadersPolicyCommand = async (
   input: CreateResponseHeadersPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy";
+  b.bp("/2020-05-31/response-headers-policy");
   let body: any;
   let contents: any;
   if (input.ResponseHeadersPolicyConfig !== undefined) {
     contents = se_ResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1370,29 +1162,21 @@ export const se_CreateStreamingDistributionCommand = async (
   input: CreateStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
+  b.bp("/2020-05-31/streaming-distribution");
   let body: any;
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1402,33 +1186,24 @@ export const se_CreateStreamingDistributionWithTagsCommand = async (
   input: CreateStreamingDistributionWithTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
+  b.bp("/2020-05-31/streaming-distribution");
   const query: any = map({
-    WithTags: [, ""],
+    [_WT]: [, ""],
   });
   let body: any;
   let contents: any;
   if (input.StreamingDistributionConfigWithTags !== undefined) {
     contents = se_StreamingDistributionConfigWithTags(input.StreamingDistributionConfigWithTags, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1438,23 +1213,15 @@ export const se_DeleteCachePolicyCommand = async (
   input: DeleteCachePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/cache-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1464,24 +1231,15 @@ export const se_DeleteCloudFrontOriginAccessIdentityCommand = async (
   input: DeleteCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-identity/cloudfront/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-identity/cloudfront/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1491,24 +1249,15 @@ export const se_DeleteContinuousDeploymentPolicyCommand = async (
   input: DeleteContinuousDeploymentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/continuous-deployment-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/continuous-deployment-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1518,23 +1267,15 @@ export const se_DeleteDistributionCommand = async (
   input: DeleteDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1544,23 +1285,15 @@ export const se_DeleteFieldLevelEncryptionConfigCommand = async (
   input: DeleteFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1570,24 +1303,15 @@ export const se_DeleteFieldLevelEncryptionProfileCommand = async (
   input: DeleteFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption-profile/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption-profile/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1597,23 +1321,15 @@ export const se_DeleteFunctionCommand = async (
   input: DeleteFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/function/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1623,23 +1339,15 @@ export const se_DeleteKeyGroupCommand = async (
   input: DeleteKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/key-group/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1649,23 +1357,15 @@ export const se_DeleteKeyValueStoreCommand = async (
   input: DeleteKeyValueStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/key-value-store/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1675,29 +1375,13 @@ export const se_DeleteMonitoringSubscriptionCommand = async (
   input: DeleteMonitoringSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DistributionId",
-    () => input.DistributionId!,
-    "{DistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distributions/{DistributionId}/monitoring-subscription");
+  b.p("DistributionId", () => input.DistributionId!, "{DistributionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1707,23 +1391,15 @@ export const se_DeleteOriginAccessControlCommand = async (
   input: DeleteOriginAccessControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-access-control/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-control/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1733,23 +1409,15 @@ export const se_DeleteOriginRequestPolicyCommand = async (
   input: DeleteOriginRequestPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-request-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1759,23 +1427,15 @@ export const se_DeletePublicKeyCommand = async (
   input: DeletePublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/public-key/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1785,34 +1445,24 @@ export const se_DeleteRealtimeLogConfigCommand = async (
   input: DeleteRealtimeLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/delete-realtime-log-config";
+  b.bp("/2020-05-31/delete-realtime-log-config");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("DeleteRealtimeLogConfigRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.ARN !== undefined) {
-    const node = __XmlNode.of("string", input.ARN).withName("ARN");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_DRLCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_ARN] != null) {
+    bn.c(__XmlNode.of(_st, input[_ARN]).n(_ARN));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1822,23 +1472,15 @@ export const se_DeleteResponseHeadersPolicyCommand = async (
   input: DeleteResponseHeadersPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/response-headers-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1848,23 +1490,15 @@ export const se_DeleteStreamingDistributionCommand = async (
   input: DeleteStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/streaming-distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1874,25 +1508,16 @@ export const se_DescribeFunctionCommand = async (
   input: DescribeFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}/describe";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/function/{Name}/describe");
+  b.p("Name", () => input.Name!, "{Name}", false);
   const query: any = map({
-    Stage: [, input.Stage!],
+    [_St]: [, input[_St]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1902,21 +1527,13 @@ export const se_DescribeKeyValueStoreCommand = async (
   input: DescribeKeyValueStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/key-value-store/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1926,21 +1543,13 @@ export const se_GetCachePolicyCommand = async (
   input: GetCachePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/cache-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1950,21 +1559,13 @@ export const se_GetCachePolicyConfigCommand = async (
   input: GetCachePolicyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/cache-policy/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1974,22 +1575,13 @@ export const se_GetCloudFrontOriginAccessIdentityCommand = async (
   input: GetCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-identity/cloudfront/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-identity/cloudfront/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1999,22 +1591,13 @@ export const se_GetCloudFrontOriginAccessIdentityConfigCommand = async (
   input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-identity/cloudfront/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2024,22 +1607,13 @@ export const se_GetContinuousDeploymentPolicyCommand = async (
   input: GetContinuousDeploymentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/continuous-deployment-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/continuous-deployment-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2049,22 +1623,13 @@ export const se_GetContinuousDeploymentPolicyConfigCommand = async (
   input: GetContinuousDeploymentPolicyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/continuous-deployment-policy/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/continuous-deployment-policy/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2074,21 +1639,13 @@ export const se_GetDistributionCommand = async (
   input: GetDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2098,21 +1655,13 @@ export const se_GetDistributionConfigCommand = async (
   input: GetDistributionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/distribution/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2122,21 +1671,13 @@ export const se_GetFieldLevelEncryptionCommand = async (
   input: GetFieldLevelEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2146,22 +1687,13 @@ export const se_GetFieldLevelEncryptionConfigCommand = async (
   input: GetFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2171,22 +1703,13 @@ export const se_GetFieldLevelEncryptionProfileCommand = async (
   input: GetFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption-profile/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption-profile/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2196,22 +1719,13 @@ export const se_GetFieldLevelEncryptionProfileConfigCommand = async (
   input: GetFieldLevelEncryptionProfileConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption-profile/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption-profile/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2221,25 +1735,16 @@ export const se_GetFunctionCommand = async (
   input: GetFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/function/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   const query: any = map({
-    Stage: [, input.Stage!],
+    [_St]: [, input[_St]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2249,30 +1754,14 @@ export const se_GetInvalidationCommand = async (
   input: GetInvalidationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distribution/{DistributionId}/invalidation/{Id}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DistributionId",
-    () => input.DistributionId!,
-    "{DistributionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/distribution/{DistributionId}/invalidation/{Id}");
+  b.p("DistributionId", () => input.DistributionId!, "{DistributionId}", false);
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2282,21 +1771,13 @@ export const se_GetKeyGroupCommand = async (
   input: GetKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/key-group/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2306,21 +1787,13 @@ export const se_GetKeyGroupConfigCommand = async (
   input: GetKeyGroupConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/key-group/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2330,29 +1803,13 @@ export const se_GetMonitoringSubscriptionCommand = async (
   input: GetMonitoringSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DistributionId",
-    () => input.DistributionId!,
-    "{DistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distributions/{DistributionId}/monitoring-subscription");
+  b.p("DistributionId", () => input.DistributionId!, "{DistributionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2362,21 +1819,13 @@ export const se_GetOriginAccessControlCommand = async (
   input: GetOriginAccessControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-access-control/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-control/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2386,22 +1835,13 @@ export const se_GetOriginAccessControlConfigCommand = async (
   input: GetOriginAccessControlConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-control/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-control/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2411,21 +1851,13 @@ export const se_GetOriginRequestPolicyCommand = async (
   input: GetOriginRequestPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-request-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2435,22 +1867,13 @@ export const se_GetOriginRequestPolicyConfigCommand = async (
   input: GetOriginRequestPolicyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-request-policy/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-request-policy/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2460,21 +1883,13 @@ export const se_GetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/public-key/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2484,21 +1899,13 @@ export const se_GetPublicKeyConfigCommand = async (
   input: GetPublicKeyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/public-key/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2508,34 +1915,24 @@ export const se_GetRealtimeLogConfigCommand = async (
   input: GetRealtimeLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/get-realtime-log-config";
+  b.bp("/2020-05-31/get-realtime-log-config");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("GetRealtimeLogConfigRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.ARN !== undefined) {
-    const node = __XmlNode.of("string", input.ARN).withName("ARN");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_GRLCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_ARN] != null) {
+    bn.c(__XmlNode.of(_st, input[_ARN]).n(_ARN));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2545,21 +1942,13 @@ export const se_GetResponseHeadersPolicyCommand = async (
   input: GetResponseHeadersPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/response-headers-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2569,22 +1958,13 @@ export const se_GetResponseHeadersPolicyConfigCommand = async (
   input: GetResponseHeadersPolicyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/response-headers-policy/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/response-headers-policy/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2594,21 +1974,13 @@ export const se_GetStreamingDistributionCommand = async (
   input: GetStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/streaming-distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2618,22 +1990,13 @@ export const se_GetStreamingDistributionConfigCommand = async (
   input: GetStreamingDistributionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/streaming-distribution/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/streaming-distribution/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2643,26 +2006,17 @@ export const se_ListCachePoliciesCommand = async (
   input: ListCachePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
+  b.bp("/2020-05-31/cache-policy");
   const query: any = map({
-    Type: [, input.Type!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_T]: [, input[_T]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2672,26 +2026,16 @@ export const se_ListCloudFrontOriginAccessIdentitiesCommand = async (
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-identity/cloudfront";
+  b.bp("/2020-05-31/origin-access-identity/cloudfront");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2701,27 +2045,18 @@ export const se_ListConflictingAliasesCommand = async (
   input: ListConflictingAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/conflicting-alias";
+  b.bp("/2020-05-31/conflicting-alias");
   const query: any = map({
-    DistributionId: [, __expectNonNull(input.DistributionId!, `DistributionId`)],
-    Alias: [, __expectNonNull(input.Alias!, `Alias`)],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_DI]: [, __expectNonNull(input[_DI]!, `DistributionId`)],
+    [_A]: [, __expectNonNull(input[_A]!, `Alias`)],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2731,25 +2066,16 @@ export const se_ListContinuousDeploymentPoliciesCommand = async (
   input: ListContinuousDeploymentPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/continuous-deployment-policy";
+  b.bp("/2020-05-31/continuous-deployment-policy");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2759,25 +2085,16 @@ export const se_ListDistributionsCommand = async (
   input: ListDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
+  b.bp("/2020-05-31/distribution");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2787,34 +2104,17 @@ export const se_ListDistributionsByCachePolicyIdCommand = async (
   input: ListDistributionsByCachePolicyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "CachePolicyId",
-    () => input.CachePolicyId!,
-    "{CachePolicyId}",
-    false
-  );
+  b.bp("/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}");
+  b.p("CachePolicyId", () => input.CachePolicyId!, "{CachePolicyId}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2824,27 +2124,17 @@ export const se_ListDistributionsByKeyGroupCommand = async (
   input: ListDistributionsByKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributionsByKeyGroupId/{KeyGroupId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "KeyGroupId", () => input.KeyGroupId!, "{KeyGroupId}", false);
+  b.bp("/2020-05-31/distributionsByKeyGroupId/{KeyGroupId}");
+  b.p("KeyGroupId", () => input.KeyGroupId!, "{KeyGroupId}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2854,34 +2144,17 @@ export const se_ListDistributionsByOriginRequestPolicyIdCommand = async (
   input: ListDistributionsByOriginRequestPolicyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "OriginRequestPolicyId",
-    () => input.OriginRequestPolicyId!,
-    "{OriginRequestPolicyId}",
-    false
-  );
+  b.bp("/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}");
+  b.p("OriginRequestPolicyId", () => input.OriginRequestPolicyId!, "{OriginRequestPolicyId}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2891,43 +2164,30 @@ export const se_ListDistributionsByRealtimeLogConfigCommand = async (
   input: ListDistributionsByRealtimeLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributionsByRealtimeLogConfig";
+  b.bp("/2020-05-31/distributionsByRealtimeLogConfig");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("ListDistributionsByRealtimeLogConfigRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.Marker !== undefined) {
-    const node = __XmlNode.of("string", input.Marker).withName("Marker");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_LDBRLCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_M] != null) {
+    bn.c(__XmlNode.of(_st, input[_M]).n(_M));
   }
-  if (input.MaxItems !== undefined) {
-    const node = __XmlNode.of("Integer", String(input.MaxItems)).withName("MaxItems");
-    bodyNode.addChildNode(node);
+  if (input[_MI] != null) {
+    bn.c(__XmlNode.of(_I, String(input[_MI])).n(_MI));
   }
-  if (input.RealtimeLogConfigArn !== undefined) {
-    const node = __XmlNode.of("string", input.RealtimeLogConfigArn).withName("RealtimeLogConfigArn");
-    bodyNode.addChildNode(node);
+  if (input[_RLCA] != null) {
+    bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
   }
-  if (input.RealtimeLogConfigName !== undefined) {
-    const node = __XmlNode.of("string", input.RealtimeLogConfigName).withName("RealtimeLogConfigName");
-    bodyNode.addChildNode(node);
+  if (input[_RLCN] != null) {
+    bn.c(__XmlNode.of(_st, input[_RLCN]).n(_RLCN));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2937,34 +2197,17 @@ export const se_ListDistributionsByResponseHeadersPolicyIdCommand = async (
   input: ListDistributionsByResponseHeadersPolicyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ResponseHeadersPolicyId",
-    () => input.ResponseHeadersPolicyId!,
-    "{ResponseHeadersPolicyId}",
-    false
-  );
+  b.bp("/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}");
+  b.p("ResponseHeadersPolicyId", () => input.ResponseHeadersPolicyId!, "{ResponseHeadersPolicyId}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2974,27 +2217,17 @@ export const se_ListDistributionsByWebACLIdCommand = async (
   input: ListDistributionsByWebACLIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distributionsByWebACLId/{WebACLId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WebACLId", () => input.WebACLId!, "{WebACLId}", false);
+  b.bp("/2020-05-31/distributionsByWebACLId/{WebACLId}");
+  b.p("WebACLId", () => input.WebACLId!, "{WebACLId}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3004,25 +2237,16 @@ export const se_ListFieldLevelEncryptionConfigsCommand = async (
   input: ListFieldLevelEncryptionConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption";
+  b.bp("/2020-05-31/field-level-encryption");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3032,26 +2256,16 @@ export const se_ListFieldLevelEncryptionProfilesCommand = async (
   input: ListFieldLevelEncryptionProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption-profile";
+  b.bp("/2020-05-31/field-level-encryption-profile");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3061,25 +2275,17 @@ export const se_ListFunctionsCommand = async (
   input: ListFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
+  b.bp("/2020-05-31/function");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    Stage: [, input.Stage!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_St]: [, input[_St]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3089,34 +2295,17 @@ export const se_ListInvalidationsCommand = async (
   input: ListInvalidationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distribution/{DistributionId}/invalidation";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DistributionId",
-    () => input.DistributionId!,
-    "{DistributionId}",
-    false
-  );
+  b.bp("/2020-05-31/distribution/{DistributionId}/invalidation");
+  b.p("DistributionId", () => input.DistributionId!, "{DistributionId}", false);
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3126,24 +2315,16 @@ export const se_ListKeyGroupsCommand = async (
   input: ListKeyGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
+  b.bp("/2020-05-31/key-group");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3153,26 +2334,17 @@ export const se_ListKeyValueStoresCommand = async (
   input: ListKeyValueStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store";
+  b.bp("/2020-05-31/key-value-store");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    Status: [, input.Status!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_Sta]: [, input[_Sta]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3182,25 +2354,16 @@ export const se_ListOriginAccessControlsCommand = async (
   input: ListOriginAccessControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-access-control";
+  b.bp("/2020-05-31/origin-access-control");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3210,26 +2373,17 @@ export const se_ListOriginRequestPoliciesCommand = async (
   input: ListOriginRequestPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy";
+  b.bp("/2020-05-31/origin-request-policy");
   const query: any = map({
-    Type: [, input.Type!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_T]: [, input[_T]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3239,24 +2393,16 @@ export const se_ListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
+  b.bp("/2020-05-31/public-key");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3266,25 +2412,16 @@ export const se_ListRealtimeLogConfigsCommand = async (
   input: ListRealtimeLogConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
+  b.bp("/2020-05-31/realtime-log-config");
   const query: any = map({
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    Marker: [, input.Marker!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_M]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3294,26 +2431,17 @@ export const se_ListResponseHeadersPoliciesCommand = async (
   input: ListResponseHeadersPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy";
+  b.bp("/2020-05-31/response-headers-policy");
   const query: any = map({
-    Type: [, input.Type!],
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_T]: [, input[_T]!],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3323,25 +2451,16 @@ export const se_ListStreamingDistributionsCommand = async (
   input: ListStreamingDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
+  b.bp("/2020-05-31/streaming-distribution");
   const query: any = map({
-    Marker: [, input.Marker!],
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3351,23 +2470,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
+  b.bp("/2020-05-31/tagging");
   const query: any = map({
-    Resource: [, __expectNonNull(input.Resource!, `Resource`)],
+    [_R]: [, __expectNonNull(input[_R]!, `Resource`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3377,23 +2488,15 @@ export const se_PublishFunctionCommand = async (
   input: PublishFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}/publish";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/function/{Name}/publish");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3403,33 +2506,25 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
+  b.bp("/2020-05-31/tagging");
   const query: any = map({
-    Operation: [, "Tag"],
-    Resource: [, __expectNonNull(input.Resource!, `Resource`)],
+    [_O]: [, "Tag"],
+    [_R]: [, __expectNonNull(input[_R]!, `Resource`)],
   });
   let body: any;
   let contents: any;
   if (input.Tags !== undefined) {
     contents = se_Tags(input.Tags, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3439,36 +2534,26 @@ export const se_TestFunctionCommand = async (
   input: TestFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}/test";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/function/{Name}/test");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("TestFunctionRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.EventObject !== undefined) {
-    const node = __XmlNode.of("FunctionEventObject", context.base64Encoder(input.EventObject)).withName("EventObject");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_TFR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_EO] != null) {
+    bn.c(__XmlNode.of(_FEO, context.base64Encoder(input[_EO])).n(_EO));
   }
-  if (input.Stage !== undefined) {
-    const node = __XmlNode.of("FunctionStage", input.Stage).withName("Stage");
-    bodyNode.addChildNode(node);
+  if (input[_St] != null) {
+    bn.c(__XmlNode.of(_FS, input[_St]).n(_St));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3478,33 +2563,25 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
+  b.bp("/2020-05-31/tagging");
   const query: any = map({
-    Operation: [, "Untag"],
-    Resource: [, __expectNonNull(input.Resource!, `Resource`)],
+    [_O]: [, "Untag"],
+    [_R]: [, __expectNonNull(input[_R]!, `Resource`)],
   });
   let body: any;
   let contents: any;
   if (input.TagKeys !== undefined) {
     contents = se_TagKeys(input.TagKeys, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3514,31 +2591,23 @@ export const se_UpdateCachePolicyCommand = async (
   input: UpdateCachePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/cache-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.CachePolicyConfig !== undefined) {
     contents = se_CachePolicyConfig(input.CachePolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3548,32 +2617,23 @@ export const se_UpdateCloudFrontOriginAccessIdentityCommand = async (
   input: UpdateCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-identity/cloudfront/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = se_CloudFrontOriginAccessIdentityConfig(input.CloudFrontOriginAccessIdentityConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3583,32 +2643,23 @@ export const se_UpdateContinuousDeploymentPolicyCommand = async (
   input: UpdateContinuousDeploymentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/continuous-deployment-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/continuous-deployment-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.ContinuousDeploymentPolicyConfig !== undefined) {
     contents = se_ContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3618,31 +2669,23 @@ export const se_UpdateDistributionCommand = async (
   input: UpdateDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/distribution/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = se_DistributionConfig(input.DistributionConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3652,28 +2695,18 @@ export const se_UpdateDistributionWithStagingConfigCommand = async (
   input: UpdateDistributionWithStagingConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/distribution/{Id}/promote-staging-config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/distribution/{Id}/promote-staging-config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    StagingDistributionId: [, input.StagingDistributionId!],
+    [_SDI]: [, input[_SDI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3683,32 +2716,23 @@ export const se_UpdateFieldLevelEncryptionConfigCommand = async (
   input: UpdateFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = se_FieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3718,32 +2742,23 @@ export const se_UpdateFieldLevelEncryptionProfileCommand = async (
   input: UpdateFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/field-level-encryption-profile/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/field-level-encryption-profile/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = se_FieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3753,36 +2768,26 @@ export const se_UpdateFunctionCommand = async (
   input: UpdateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/function/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateFunctionRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.FunctionCode !== undefined) {
-    const node = __XmlNode.of("FunctionBlob", context.base64Encoder(input.FunctionCode)).withName("FunctionCode");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_UFR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_FC] != null) {
+    bn.c(__XmlNode.of(_FB, context.base64Encoder(input[_FC])).n(_FC));
   }
-  if (input.FunctionConfig !== undefined) {
-    const node = se_FunctionConfig(input.FunctionConfig, context).withName("FunctionConfig");
-    bodyNode.addChildNode(node);
+  if (input[_FCu] != null) {
+    bn.c(se_FunctionConfig(input[_FCu], context).n(_FCu));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3792,31 +2797,23 @@ export const se_UpdateKeyGroupCommand = async (
   input: UpdateKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/key-group/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.KeyGroupConfig !== undefined) {
     contents = se_KeyGroupConfig(input.KeyGroupConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3826,32 +2823,23 @@ export const se_UpdateKeyValueStoreCommand = async (
   input: UpdateKeyValueStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-value-store/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2020-05-31/key-value-store/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateKeyValueStoreRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.Comment !== undefined) {
-    const node = __XmlNode.of("KeyValueStoreComment", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_UKVSR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_KVSC, input[_C]).n(_C));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3861,32 +2849,23 @@ export const se_UpdateOriginAccessControlCommand = async (
   input: UpdateOriginAccessControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/origin-access-control/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-access-control/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.OriginAccessControlConfig !== undefined) {
     contents = se_OriginAccessControlConfig(input.OriginAccessControlConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3896,31 +2875,23 @@ export const se_UpdateOriginRequestPolicyCommand = async (
   input: UpdateOriginRequestPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/origin-request-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     contents = se_OriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3930,31 +2901,23 @@ export const se_UpdatePublicKeyCommand = async (
   input: UpdatePublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/public-key/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = se_PublicKeyConfig(input.PublicKeyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3964,54 +2927,29 @@ export const se_UpdateRealtimeLogConfigCommand = async (
   input: UpdateRealtimeLogConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
+  b.bp("/2020-05-31/realtime-log-config");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("UpdateRealtimeLogConfigRequest");
-  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input.ARN !== undefined) {
-    const node = __XmlNode.of("string", input.ARN).withName("ARN");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_URLCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_ARN] != null) {
+    bn.c(__XmlNode.of(_st, input[_ARN]).n(_ARN));
   }
-  if (input.EndPoints !== undefined) {
-    const nodes = se_EndPointList(input.EndPoints, context);
-    const containerNode = new __XmlNode("EndPoints");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "EndPoints", "EndPoints", () => se_EndPointList(input[_EP]!, context));
+  bn.lc(input, "Fields", "Fields", () => se_FieldList(input[_F]!, context));
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.Fields !== undefined) {
-    const nodes = se_FieldList(input.Fields, context);
-    const containerNode = new __XmlNode("Fields");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  if (input[_SR] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_SR])).n(_SR));
   }
-  if (input.Name !== undefined) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
-  }
-  if (input.SamplingRate !== undefined) {
-    const node = __XmlNode.of("long", String(input.SamplingRate)).withName("SamplingRate");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4021,31 +2959,23 @@ export const se_UpdateResponseHeadersPolicyCommand = async (
   input: UpdateResponseHeadersPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/response-headers-policy/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.ResponseHeadersPolicyConfig !== undefined) {
     contents = se_ResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4055,32 +2985,23 @@ export const se_UpdateStreamingDistributionCommand = async (
   input: UpdateStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "if-match": input.IfMatch!,
+    [_im]: input[_IM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2020-05-31/streaming-distribution/{Id}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2020-05-31/streaming-distribution/{Id}/config");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4150,8 +3071,8 @@ export const de_CopyDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
@@ -4385,8 +3306,8 @@ export const de_CreateCachePolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = de_CachePolicy(data, context);
@@ -4452,8 +3373,8 @@ export const de_CreateCloudFrontOriginAccessIdentityCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = de_CloudFrontOriginAccessIdentity(data, context);
@@ -4510,8 +3431,8 @@ export const de_CreateContinuousDeploymentPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(data, context);
@@ -4571,8 +3492,8 @@ export const de_CreateDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
@@ -4809,8 +3730,8 @@ export const de_CreateDistributionWithTagsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
@@ -5050,8 +3971,8 @@ export const de_CreateFieldLevelEncryptionConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = de_FieldLevelEncryption(data, context);
@@ -5117,8 +4038,8 @@ export const de_CreateFieldLevelEncryptionProfileCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = de_FieldLevelEncryptionProfile(data, context);
@@ -5184,8 +4105,8 @@ export const de_CreateFunctionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
@@ -5242,7 +4163,7 @@ export const de_CreateInvalidationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
+    [_L]: [, output.headers[_lo]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Invalidation = de_Invalidation(data, context);
@@ -5305,8 +4226,8 @@ export const de_CreateKeyGroupCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = de_KeyGroup(data, context);
@@ -5360,8 +4281,8 @@ export const de_CreateKeyValueStoreCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
-    Location: [, output.headers["location"]],
+    [_ET]: [, output.headers[_e]],
+    [_L]: [, output.headers[_lo]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
@@ -5471,8 +4392,8 @@ export const de_CreateOriginAccessControlCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControl = de_OriginAccessControl(data, context);
@@ -5523,8 +4444,8 @@ export const de_CreateOriginRequestPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = de_OriginRequestPolicy(data, context);
@@ -5590,8 +4511,8 @@ export const de_CreatePublicKeyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = de_PublicKey(data, context);
@@ -5644,8 +4565,8 @@ export const de_CreateRealtimeLogConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["RealtimeLogConfig"] !== undefined) {
-    contents.RealtimeLogConfig = de_RealtimeLogConfig(data["RealtimeLogConfig"], context);
+  if (data[_RLC] != null) {
+    contents[_RLC] = de_RealtimeLogConfig(data[_RLC], context);
   }
   return contents;
 };
@@ -5697,8 +4618,8 @@ export const de_CreateResponseHeadersPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(data, context);
@@ -5764,8 +4685,8 @@ export const de_CreateStreamingDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
@@ -5846,8 +4767,8 @@ export const de_CreateStreamingDistributionWithTagsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Location: [, output.headers["location"]],
-    ETag: [, output.headers["etag"]],
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
@@ -6814,7 +5735,7 @@ export const de_DescribeFunctionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
@@ -6862,7 +5783,7 @@ export const de_DescribeKeyValueStoreCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
@@ -6913,7 +5834,7 @@ export const de_GetCachePolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = de_CachePolicy(data, context);
@@ -6961,7 +5882,7 @@ export const de_GetCachePolicyConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicyConfig = de_CachePolicyConfig(data, context);
@@ -7009,7 +5930,7 @@ export const de_GetCloudFrontOriginAccessIdentityCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = de_CloudFrontOriginAccessIdentity(data, context);
@@ -7057,7 +5978,7 @@ export const de_GetCloudFrontOriginAccessIdentityConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentityConfig = de_CloudFrontOriginAccessIdentityConfig(data, context);
@@ -7105,7 +6026,7 @@ export const de_GetContinuousDeploymentPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(data, context);
@@ -7153,7 +6074,7 @@ export const de_GetContinuousDeploymentPolicyConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicyConfig = de_ContinuousDeploymentPolicyConfig(data, context);
@@ -7201,7 +6122,7 @@ export const de_GetDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
@@ -7249,7 +6170,7 @@ export const de_GetDistributionConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionConfig = de_DistributionConfig(data, context);
@@ -7297,7 +6218,7 @@ export const de_GetFieldLevelEncryptionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = de_FieldLevelEncryption(data, context);
@@ -7345,7 +6266,7 @@ export const de_GetFieldLevelEncryptionConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionConfig = de_FieldLevelEncryptionConfig(data, context);
@@ -7393,7 +6314,7 @@ export const de_GetFieldLevelEncryptionProfileCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = de_FieldLevelEncryptionProfile(data, context);
@@ -7441,7 +6362,7 @@ export const de_GetFieldLevelEncryptionProfileConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfileConfig = de_FieldLevelEncryptionProfileConfig(data, context);
@@ -7489,8 +6410,8 @@ export const de_GetFunctionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
-    ContentType: [, output.headers["content-type"]],
+    [_ET]: [, output.headers[_e]],
+    [_CT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.FunctionCode = data;
@@ -7588,7 +6509,7 @@ export const de_GetKeyGroupCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = de_KeyGroup(data, context);
@@ -7633,7 +6554,7 @@ export const de_GetKeyGroupConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroupConfig = de_KeyGroupConfig(data, context);
@@ -7731,7 +6652,7 @@ export const de_GetOriginAccessControlCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControl = de_OriginAccessControl(data, context);
@@ -7779,7 +6700,7 @@ export const de_GetOriginAccessControlConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControlConfig = de_OriginAccessControlConfig(data, context);
@@ -7827,7 +6748,7 @@ export const de_GetOriginRequestPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = de_OriginRequestPolicy(data, context);
@@ -7875,7 +6796,7 @@ export const de_GetOriginRequestPolicyConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicyConfig = de_OriginRequestPolicyConfig(data, context);
@@ -7923,7 +6844,7 @@ export const de_GetPublicKeyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = de_PublicKey(data, context);
@@ -7971,7 +6892,7 @@ export const de_GetPublicKeyConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKeyConfig = de_PublicKeyConfig(data, context);
@@ -8021,8 +6942,8 @@ export const de_GetRealtimeLogConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["RealtimeLogConfig"] !== undefined) {
-    contents.RealtimeLogConfig = de_RealtimeLogConfig(data["RealtimeLogConfig"], context);
+  if (data[_RLC] != null) {
+    contents[_RLC] = de_RealtimeLogConfig(data[_RLC], context);
   }
   return contents;
 };
@@ -8071,7 +6992,7 @@ export const de_GetResponseHeadersPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(data, context);
@@ -8119,7 +7040,7 @@ export const de_GetResponseHeadersPolicyConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicyConfig = de_ResponseHeadersPolicyConfig(data, context);
@@ -8167,7 +7088,7 @@ export const de_GetStreamingDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
@@ -8215,7 +7136,7 @@ export const de_GetStreamingDistributionConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistributionConfig = de_StreamingDistributionConfig(data, context);
@@ -9613,7 +8534,7 @@ export const de_UpdateCachePolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CachePolicy = de_CachePolicy(data, context);
@@ -9688,7 +8609,7 @@ export const de_UpdateCloudFrontOriginAccessIdentityCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CloudFrontOriginAccessIdentity = de_CloudFrontOriginAccessIdentity(data, context);
@@ -9754,7 +8675,7 @@ export const de_UpdateContinuousDeploymentPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(data, context);
@@ -9817,7 +8738,7 @@ export const de_UpdateDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
@@ -10057,7 +8978,7 @@ export const de_UpdateDistributionWithStagingConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
@@ -10282,7 +9203,7 @@ export const de_UpdateFieldLevelEncryptionConfigCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryption = de_FieldLevelEncryption(data, context);
@@ -10357,7 +9278,7 @@ export const de_UpdateFieldLevelEncryptionProfileCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FieldLevelEncryptionProfile = de_FieldLevelEncryptionProfile(data, context);
@@ -10435,7 +9356,7 @@ export const de_UpdateFunctionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["ettag"]],
+    [_ET]: [, output.headers[_et]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.FunctionSummary = de_FunctionSummary(data, context);
@@ -10495,7 +9416,7 @@ export const de_UpdateKeyGroupCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroup = de_KeyGroup(data, context);
@@ -10555,7 +9476,7 @@ export const de_UpdateKeyValueStoreCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
@@ -10612,7 +9533,7 @@ export const de_UpdateOriginAccessControlCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginAccessControl = de_OriginAccessControl(data, context);
@@ -10675,7 +9596,7 @@ export const de_UpdateOriginRequestPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.OriginRequestPolicy = de_OriginRequestPolicy(data, context);
@@ -10750,7 +9671,7 @@ export const de_UpdatePublicKeyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.PublicKey = de_PublicKey(data, context);
@@ -10815,8 +9736,8 @@ export const de_UpdateRealtimeLogConfigCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["RealtimeLogConfig"] !== undefined) {
-    contents.RealtimeLogConfig = de_RealtimeLogConfig(data["RealtimeLogConfig"], context);
+  if (data[_RLC] != null) {
+    contents[_RLC] = de_RealtimeLogConfig(data[_RLC], context);
   }
   return contents;
 };
@@ -10865,7 +9786,7 @@ export const de_UpdateResponseHeadersPolicyCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(data, context);
@@ -10940,7 +9861,7 @@ export const de_UpdateStreamingDistributionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ETag: [, output.headers["etag"]],
+    [_ET]: [, output.headers[_e]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.StreamingDistribution = de_StreamingDistribution(data, context);
@@ -11019,8 +9940,8 @@ const throwDefaultError = withBaseException(__BaseException);
 const de_AccessDeniedRes = async (parsedOutput: any, context: __SerdeContext): Promise<AccessDenied> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new AccessDenied({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11035,8 +9956,8 @@ const de_AccessDeniedRes = async (parsedOutput: any, context: __SerdeContext): P
 const de_BatchTooLargeRes = async (parsedOutput: any, context: __SerdeContext): Promise<BatchTooLarge> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new BatchTooLarge({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11054,8 +9975,8 @@ const de_CachePolicyAlreadyExistsRes = async (
 ): Promise<CachePolicyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CachePolicyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11070,8 +9991,8 @@ const de_CachePolicyAlreadyExistsRes = async (
 const de_CachePolicyInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<CachePolicyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CachePolicyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11089,8 +10010,8 @@ const de_CannotChangeImmutablePublicKeyFieldsRes = async (
 ): Promise<CannotChangeImmutablePublicKeyFields> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CannotChangeImmutablePublicKeyFields({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11108,8 +10029,8 @@ const de_CannotDeleteEntityWhileInUseRes = async (
 ): Promise<CannotDeleteEntityWhileInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CannotDeleteEntityWhileInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11127,8 +10048,8 @@ const de_CloudFrontOriginAccessIdentityAlreadyExistsRes = async (
 ): Promise<CloudFrontOriginAccessIdentityAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CloudFrontOriginAccessIdentityAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11146,8 +10067,8 @@ const de_CloudFrontOriginAccessIdentityInUseRes = async (
 ): Promise<CloudFrontOriginAccessIdentityInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CloudFrontOriginAccessIdentityInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11162,8 +10083,8 @@ const de_CloudFrontOriginAccessIdentityInUseRes = async (
 const de_CNAMEAlreadyExistsRes = async (parsedOutput: any, context: __SerdeContext): Promise<CNAMEAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CNAMEAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11181,8 +10102,8 @@ const de_ContinuousDeploymentPolicyAlreadyExistsRes = async (
 ): Promise<ContinuousDeploymentPolicyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new ContinuousDeploymentPolicyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11200,8 +10121,8 @@ const de_ContinuousDeploymentPolicyInUseRes = async (
 ): Promise<ContinuousDeploymentPolicyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new ContinuousDeploymentPolicyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11219,8 +10140,8 @@ const de_DistributionAlreadyExistsRes = async (
 ): Promise<DistributionAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new DistributionAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11238,8 +10159,8 @@ const de_DistributionNotDisabledRes = async (
 ): Promise<DistributionNotDisabled> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new DistributionNotDisabled({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11254,8 +10175,8 @@ const de_DistributionNotDisabledRes = async (
 const de_EntityAlreadyExistsRes = async (parsedOutput: any, context: __SerdeContext): Promise<EntityAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new EntityAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11270,8 +10191,8 @@ const de_EntityAlreadyExistsRes = async (parsedOutput: any, context: __SerdeCont
 const de_EntityLimitExceededRes = async (parsedOutput: any, context: __SerdeContext): Promise<EntityLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new EntityLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11286,8 +10207,8 @@ const de_EntityLimitExceededRes = async (parsedOutput: any, context: __SerdeCont
 const de_EntityNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<EntityNotFound> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new EntityNotFound({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11305,8 +10226,8 @@ const de_EntitySizeLimitExceededRes = async (
 ): Promise<EntitySizeLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new EntitySizeLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11324,8 +10245,8 @@ const de_FieldLevelEncryptionConfigAlreadyExistsRes = async (
 ): Promise<FieldLevelEncryptionConfigAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FieldLevelEncryptionConfigAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11343,8 +10264,8 @@ const de_FieldLevelEncryptionConfigInUseRes = async (
 ): Promise<FieldLevelEncryptionConfigInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FieldLevelEncryptionConfigInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11362,8 +10283,8 @@ const de_FieldLevelEncryptionProfileAlreadyExistsRes = async (
 ): Promise<FieldLevelEncryptionProfileAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FieldLevelEncryptionProfileAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11381,8 +10302,8 @@ const de_FieldLevelEncryptionProfileInUseRes = async (
 ): Promise<FieldLevelEncryptionProfileInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FieldLevelEncryptionProfileInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11400,8 +10321,8 @@ const de_FieldLevelEncryptionProfileSizeExceededRes = async (
 ): Promise<FieldLevelEncryptionProfileSizeExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FieldLevelEncryptionProfileSizeExceeded({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11419,8 +10340,8 @@ const de_FunctionAlreadyExistsRes = async (
 ): Promise<FunctionAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FunctionAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11435,8 +10356,8 @@ const de_FunctionAlreadyExistsRes = async (
 const de_FunctionInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<FunctionInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FunctionInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11454,8 +10375,8 @@ const de_FunctionSizeLimitExceededRes = async (
 ): Promise<FunctionSizeLimitExceeded> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new FunctionSizeLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11470,8 +10391,8 @@ const de_FunctionSizeLimitExceededRes = async (
 const de_IllegalDeleteRes = async (parsedOutput: any, context: __SerdeContext): Promise<IllegalDelete> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new IllegalDelete({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11489,8 +10410,8 @@ const de_IllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorRes = asyn
 ): Promise<IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11508,8 +10429,8 @@ const de_IllegalOriginAccessConfigurationRes = async (
 ): Promise<IllegalOriginAccessConfiguration> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new IllegalOriginAccessConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11524,8 +10445,8 @@ const de_IllegalOriginAccessConfigurationRes = async (
 const de_IllegalUpdateRes = async (parsedOutput: any, context: __SerdeContext): Promise<IllegalUpdate> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new IllegalUpdate({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11543,8 +10464,8 @@ const de_InconsistentQuantitiesRes = async (
 ): Promise<InconsistentQuantities> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InconsistentQuantities({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11559,8 +10480,8 @@ const de_InconsistentQuantitiesRes = async (
 const de_InvalidArgumentRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidArgument> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidArgument({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11578,8 +10499,8 @@ const de_InvalidDefaultRootObjectRes = async (
 ): Promise<InvalidDefaultRootObject> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidDefaultRootObject({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11597,8 +10518,8 @@ const de_InvalidDomainNameForOriginAccessControlRes = async (
 ): Promise<InvalidDomainNameForOriginAccessControl> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidDomainNameForOriginAccessControl({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11613,8 +10534,8 @@ const de_InvalidDomainNameForOriginAccessControlRes = async (
 const de_InvalidErrorCodeRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidErrorCode> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidErrorCode({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11632,8 +10553,8 @@ const de_InvalidForwardCookiesRes = async (
 ): Promise<InvalidForwardCookies> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidForwardCookies({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11651,8 +10572,8 @@ const de_InvalidFunctionAssociationRes = async (
 ): Promise<InvalidFunctionAssociation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidFunctionAssociation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11670,8 +10591,8 @@ const de_InvalidGeoRestrictionParameterRes = async (
 ): Promise<InvalidGeoRestrictionParameter> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidGeoRestrictionParameter({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11689,8 +10610,8 @@ const de_InvalidHeadersForS3OriginRes = async (
 ): Promise<InvalidHeadersForS3Origin> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidHeadersForS3Origin({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11708,8 +10629,8 @@ const de_InvalidIfMatchVersionRes = async (
 ): Promise<InvalidIfMatchVersion> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidIfMatchVersion({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11727,8 +10648,8 @@ const de_InvalidLambdaFunctionAssociationRes = async (
 ): Promise<InvalidLambdaFunctionAssociation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidLambdaFunctionAssociation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11743,8 +10664,8 @@ const de_InvalidLambdaFunctionAssociationRes = async (
 const de_InvalidLocationCodeRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidLocationCode> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidLocationCode({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11762,8 +10683,8 @@ const de_InvalidMinimumProtocolVersionRes = async (
 ): Promise<InvalidMinimumProtocolVersion> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidMinimumProtocolVersion({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11778,8 +10699,8 @@ const de_InvalidMinimumProtocolVersionRes = async (
 const de_InvalidOriginRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidOrigin> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidOrigin({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11797,8 +10718,8 @@ const de_InvalidOriginAccessControlRes = async (
 ): Promise<InvalidOriginAccessControl> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidOriginAccessControl({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11816,8 +10737,8 @@ const de_InvalidOriginAccessIdentityRes = async (
 ): Promise<InvalidOriginAccessIdentity> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidOriginAccessIdentity({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11835,8 +10756,8 @@ const de_InvalidOriginKeepaliveTimeoutRes = async (
 ): Promise<InvalidOriginKeepaliveTimeout> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidOriginKeepaliveTimeout({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11854,8 +10775,8 @@ const de_InvalidOriginReadTimeoutRes = async (
 ): Promise<InvalidOriginReadTimeout> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidOriginReadTimeout({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11873,8 +10794,8 @@ const de_InvalidProtocolSettingsRes = async (
 ): Promise<InvalidProtocolSettings> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidProtocolSettings({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11892,8 +10813,8 @@ const de_InvalidQueryStringParametersRes = async (
 ): Promise<InvalidQueryStringParameters> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidQueryStringParameters({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11908,8 +10829,8 @@ const de_InvalidQueryStringParametersRes = async (
 const de_InvalidRelativePathRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidRelativePath> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidRelativePath({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11927,8 +10848,8 @@ const de_InvalidRequiredProtocolRes = async (
 ): Promise<InvalidRequiredProtocol> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidRequiredProtocol({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11943,8 +10864,8 @@ const de_InvalidRequiredProtocolRes = async (
 const de_InvalidResponseCodeRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidResponseCode> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidResponseCode({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11959,8 +10880,8 @@ const de_InvalidResponseCodeRes = async (parsedOutput: any, context: __SerdeCont
 const de_InvalidTaggingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTagging> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidTagging({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11975,8 +10896,8 @@ const de_InvalidTaggingRes = async (parsedOutput: any, context: __SerdeContext):
 const de_InvalidTTLOrderRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidTTLOrder> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidTTLOrder({
     $metadata: deserializeMetadata(parsedOutput),
@@ -11994,8 +10915,8 @@ const de_InvalidViewerCertificateRes = async (
 ): Promise<InvalidViewerCertificate> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidViewerCertificate({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12010,8 +10931,8 @@ const de_InvalidViewerCertificateRes = async (
 const de_InvalidWebACLIdRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidWebACLId> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidWebACLId({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12029,8 +10950,8 @@ const de_KeyGroupAlreadyExistsRes = async (
 ): Promise<KeyGroupAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new KeyGroupAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12045,8 +10966,8 @@ const de_KeyGroupAlreadyExistsRes = async (
 const de_MissingBodyRes = async (parsedOutput: any, context: __SerdeContext): Promise<MissingBody> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new MissingBody({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12064,8 +10985,8 @@ const de_MonitoringSubscriptionAlreadyExistsRes = async (
 ): Promise<MonitoringSubscriptionAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new MonitoringSubscriptionAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12080,8 +11001,8 @@ const de_MonitoringSubscriptionAlreadyExistsRes = async (
 const de_NoSuchCachePolicyRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchCachePolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchCachePolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12099,8 +11020,8 @@ const de_NoSuchCloudFrontOriginAccessIdentityRes = async (
 ): Promise<NoSuchCloudFrontOriginAccessIdentity> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchCloudFrontOriginAccessIdentity({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12118,8 +11039,8 @@ const de_NoSuchContinuousDeploymentPolicyRes = async (
 ): Promise<NoSuchContinuousDeploymentPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchContinuousDeploymentPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12134,8 +11055,8 @@ const de_NoSuchContinuousDeploymentPolicyRes = async (
 const de_NoSuchDistributionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchDistribution> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchDistribution({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12153,8 +11074,8 @@ const de_NoSuchFieldLevelEncryptionConfigRes = async (
 ): Promise<NoSuchFieldLevelEncryptionConfig> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchFieldLevelEncryptionConfig({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12172,8 +11093,8 @@ const de_NoSuchFieldLevelEncryptionProfileRes = async (
 ): Promise<NoSuchFieldLevelEncryptionProfile> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchFieldLevelEncryptionProfile({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12191,8 +11112,8 @@ const de_NoSuchFunctionExistsRes = async (
 ): Promise<NoSuchFunctionExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchFunctionExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12207,8 +11128,8 @@ const de_NoSuchFunctionExistsRes = async (
 const de_NoSuchInvalidationRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchInvalidation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchInvalidation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12226,8 +11147,8 @@ const de_NoSuchMonitoringSubscriptionRes = async (
 ): Promise<NoSuchMonitoringSubscription> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchMonitoringSubscription({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12242,8 +11163,8 @@ const de_NoSuchMonitoringSubscriptionRes = async (
 const de_NoSuchOriginRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchOrigin> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchOrigin({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12261,8 +11182,8 @@ const de_NoSuchOriginAccessControlRes = async (
 ): Promise<NoSuchOriginAccessControl> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchOriginAccessControl({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12280,8 +11201,8 @@ const de_NoSuchOriginRequestPolicyRes = async (
 ): Promise<NoSuchOriginRequestPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchOriginRequestPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12296,8 +11217,8 @@ const de_NoSuchOriginRequestPolicyRes = async (
 const de_NoSuchPublicKeyRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchPublicKey> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchPublicKey({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12315,8 +11236,8 @@ const de_NoSuchRealtimeLogConfigRes = async (
 ): Promise<NoSuchRealtimeLogConfig> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchRealtimeLogConfig({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12331,8 +11252,8 @@ const de_NoSuchRealtimeLogConfigRes = async (
 const de_NoSuchResourceRes = async (parsedOutput: any, context: __SerdeContext): Promise<NoSuchResource> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchResource({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12350,8 +11271,8 @@ const de_NoSuchResponseHeadersPolicyRes = async (
 ): Promise<NoSuchResponseHeadersPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12369,8 +11290,8 @@ const de_NoSuchStreamingDistributionRes = async (
 ): Promise<NoSuchStreamingDistribution> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new NoSuchStreamingDistribution({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12388,8 +11309,8 @@ const de_OriginAccessControlAlreadyExistsRes = async (
 ): Promise<OriginAccessControlAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new OriginAccessControlAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12407,8 +11328,8 @@ const de_OriginAccessControlInUseRes = async (
 ): Promise<OriginAccessControlInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new OriginAccessControlInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12426,8 +11347,8 @@ const de_OriginRequestPolicyAlreadyExistsRes = async (
 ): Promise<OriginRequestPolicyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new OriginRequestPolicyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12445,8 +11366,8 @@ const de_OriginRequestPolicyInUseRes = async (
 ): Promise<OriginRequestPolicyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new OriginRequestPolicyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12461,8 +11382,8 @@ const de_OriginRequestPolicyInUseRes = async (
 const de_PreconditionFailedRes = async (parsedOutput: any, context: __SerdeContext): Promise<PreconditionFailed> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new PreconditionFailed({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12480,8 +11401,8 @@ const de_PublicKeyAlreadyExistsRes = async (
 ): Promise<PublicKeyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new PublicKeyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12496,8 +11417,8 @@ const de_PublicKeyAlreadyExistsRes = async (
 const de_PublicKeyInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<PublicKeyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new PublicKeyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12515,8 +11436,8 @@ const de_QueryArgProfileEmptyRes = async (
 ): Promise<QueryArgProfileEmpty> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new QueryArgProfileEmpty({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12534,8 +11455,8 @@ const de_RealtimeLogConfigAlreadyExistsRes = async (
 ): Promise<RealtimeLogConfigAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new RealtimeLogConfigAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12553,8 +11474,8 @@ const de_RealtimeLogConfigInUseRes = async (
 ): Promise<RealtimeLogConfigInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new RealtimeLogConfigInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12572,8 +11493,8 @@ const de_RealtimeLogConfigOwnerMismatchRes = async (
 ): Promise<RealtimeLogConfigOwnerMismatch> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new RealtimeLogConfigOwnerMismatch({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12588,8 +11509,8 @@ const de_RealtimeLogConfigOwnerMismatchRes = async (
 const de_ResourceInUseRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new ResourceInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12607,8 +11528,8 @@ const de_ResponseHeadersPolicyAlreadyExistsRes = async (
 ): Promise<ResponseHeadersPolicyAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new ResponseHeadersPolicyAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12626,8 +11547,8 @@ const de_ResponseHeadersPolicyInUseRes = async (
 ): Promise<ResponseHeadersPolicyInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new ResponseHeadersPolicyInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12645,8 +11566,8 @@ const de_StagingDistributionInUseRes = async (
 ): Promise<StagingDistributionInUse> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new StagingDistributionInUse({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12664,8 +11585,8 @@ const de_StreamingDistributionAlreadyExistsRes = async (
 ): Promise<StreamingDistributionAlreadyExists> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new StreamingDistributionAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12683,8 +11604,8 @@ const de_StreamingDistributionNotDisabledRes = async (
 ): Promise<StreamingDistributionNotDisabled> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new StreamingDistributionNotDisabled({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12699,8 +11620,8 @@ const de_StreamingDistributionNotDisabledRes = async (
 const de_TestFunctionFailedRes = async (parsedOutput: any, context: __SerdeContext): Promise<TestFunctionFailed> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TestFunctionFailed({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12718,8 +11639,8 @@ const de_TooLongCSPInResponseHeadersPolicyRes = async (
 ): Promise<TooLongCSPInResponseHeadersPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooLongCSPInResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12737,8 +11658,8 @@ const de_TooManyCacheBehaviorsRes = async (
 ): Promise<TooManyCacheBehaviors> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCacheBehaviors({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12756,8 +11677,8 @@ const de_TooManyCachePoliciesRes = async (
 ): Promise<TooManyCachePolicies> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCachePolicies({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12772,8 +11693,8 @@ const de_TooManyCachePoliciesRes = async (
 const de_TooManyCertificatesRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyCertificates> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCertificates({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12791,8 +11712,8 @@ const de_TooManyCloudFrontOriginAccessIdentitiesRes = async (
 ): Promise<TooManyCloudFrontOriginAccessIdentities> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCloudFrontOriginAccessIdentities({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12810,8 +11731,8 @@ const de_TooManyContinuousDeploymentPoliciesRes = async (
 ): Promise<TooManyContinuousDeploymentPolicies> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyContinuousDeploymentPolicies({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12829,8 +11750,8 @@ const de_TooManyCookieNamesInWhiteListRes = async (
 ): Promise<TooManyCookieNamesInWhiteList> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCookieNamesInWhiteList({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12848,8 +11769,8 @@ const de_TooManyCookiesInCachePolicyRes = async (
 ): Promise<TooManyCookiesInCachePolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCookiesInCachePolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12867,8 +11788,8 @@ const de_TooManyCookiesInOriginRequestPolicyRes = async (
 ): Promise<TooManyCookiesInOriginRequestPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCookiesInOriginRequestPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12886,8 +11807,8 @@ const de_TooManyCustomHeadersInResponseHeadersPolicyRes = async (
 ): Promise<TooManyCustomHeadersInResponseHeadersPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyCustomHeadersInResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12905,8 +11826,8 @@ const de_TooManyDistributionCNAMEsRes = async (
 ): Promise<TooManyDistributionCNAMEs> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionCNAMEs({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12924,8 +11845,8 @@ const de_TooManyDistributionsRes = async (
 ): Promise<TooManyDistributions> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributions({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12943,8 +11864,8 @@ const de_TooManyDistributionsAssociatedToCachePolicyRes = async (
 ): Promise<TooManyDistributionsAssociatedToCachePolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsAssociatedToCachePolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12962,8 +11883,8 @@ const de_TooManyDistributionsAssociatedToFieldLevelEncryptionConfigRes = async (
 ): Promise<TooManyDistributionsAssociatedToFieldLevelEncryptionConfig> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsAssociatedToFieldLevelEncryptionConfig({
     $metadata: deserializeMetadata(parsedOutput),
@@ -12981,8 +11902,8 @@ const de_TooManyDistributionsAssociatedToKeyGroupRes = async (
 ): Promise<TooManyDistributionsAssociatedToKeyGroup> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsAssociatedToKeyGroup({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13000,8 +11921,8 @@ const de_TooManyDistributionsAssociatedToOriginAccessControlRes = async (
 ): Promise<TooManyDistributionsAssociatedToOriginAccessControl> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsAssociatedToOriginAccessControl({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13019,8 +11940,8 @@ const de_TooManyDistributionsAssociatedToOriginRequestPolicyRes = async (
 ): Promise<TooManyDistributionsAssociatedToOriginRequestPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsAssociatedToOriginRequestPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13038,8 +11959,8 @@ const de_TooManyDistributionsAssociatedToResponseHeadersPolicyRes = async (
 ): Promise<TooManyDistributionsAssociatedToResponseHeadersPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsAssociatedToResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13057,8 +11978,8 @@ const de_TooManyDistributionsWithFunctionAssociationsRes = async (
 ): Promise<TooManyDistributionsWithFunctionAssociations> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsWithFunctionAssociations({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13076,8 +11997,8 @@ const de_TooManyDistributionsWithLambdaAssociationsRes = async (
 ): Promise<TooManyDistributionsWithLambdaAssociations> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsWithLambdaAssociations({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13095,8 +12016,8 @@ const de_TooManyDistributionsWithSingleFunctionARNRes = async (
 ): Promise<TooManyDistributionsWithSingleFunctionARN> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyDistributionsWithSingleFunctionARN({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13114,8 +12035,8 @@ const de_TooManyFieldLevelEncryptionConfigsRes = async (
 ): Promise<TooManyFieldLevelEncryptionConfigs> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFieldLevelEncryptionConfigs({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13133,8 +12054,8 @@ const de_TooManyFieldLevelEncryptionContentTypeProfilesRes = async (
 ): Promise<TooManyFieldLevelEncryptionContentTypeProfiles> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFieldLevelEncryptionContentTypeProfiles({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13152,8 +12073,8 @@ const de_TooManyFieldLevelEncryptionEncryptionEntitiesRes = async (
 ): Promise<TooManyFieldLevelEncryptionEncryptionEntities> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFieldLevelEncryptionEncryptionEntities({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13171,8 +12092,8 @@ const de_TooManyFieldLevelEncryptionFieldPatternsRes = async (
 ): Promise<TooManyFieldLevelEncryptionFieldPatterns> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFieldLevelEncryptionFieldPatterns({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13190,8 +12111,8 @@ const de_TooManyFieldLevelEncryptionProfilesRes = async (
 ): Promise<TooManyFieldLevelEncryptionProfiles> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFieldLevelEncryptionProfiles({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13209,8 +12130,8 @@ const de_TooManyFieldLevelEncryptionQueryArgProfilesRes = async (
 ): Promise<TooManyFieldLevelEncryptionQueryArgProfiles> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFieldLevelEncryptionQueryArgProfiles({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13228,8 +12149,8 @@ const de_TooManyFunctionAssociationsRes = async (
 ): Promise<TooManyFunctionAssociations> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFunctionAssociations({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13244,8 +12165,8 @@ const de_TooManyFunctionAssociationsRes = async (
 const de_TooManyFunctionsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyFunctions> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyFunctions({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13263,8 +12184,8 @@ const de_TooManyHeadersInCachePolicyRes = async (
 ): Promise<TooManyHeadersInCachePolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyHeadersInCachePolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13282,8 +12203,8 @@ const de_TooManyHeadersInForwardedValuesRes = async (
 ): Promise<TooManyHeadersInForwardedValues> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyHeadersInForwardedValues({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13301,8 +12222,8 @@ const de_TooManyHeadersInOriginRequestPolicyRes = async (
 ): Promise<TooManyHeadersInOriginRequestPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyHeadersInOriginRequestPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13320,8 +12241,8 @@ const de_TooManyInvalidationsInProgressRes = async (
 ): Promise<TooManyInvalidationsInProgress> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyInvalidationsInProgress({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13336,8 +12257,8 @@ const de_TooManyInvalidationsInProgressRes = async (
 const de_TooManyKeyGroupsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyKeyGroups> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyKeyGroups({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13355,8 +12276,8 @@ const de_TooManyKeyGroupsAssociatedToDistributionRes = async (
 ): Promise<TooManyKeyGroupsAssociatedToDistribution> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyKeyGroupsAssociatedToDistribution({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13374,8 +12295,8 @@ const de_TooManyLambdaFunctionAssociationsRes = async (
 ): Promise<TooManyLambdaFunctionAssociations> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyLambdaFunctionAssociations({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13393,8 +12314,8 @@ const de_TooManyOriginAccessControlsRes = async (
 ): Promise<TooManyOriginAccessControls> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyOriginAccessControls({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13412,8 +12333,8 @@ const de_TooManyOriginCustomHeadersRes = async (
 ): Promise<TooManyOriginCustomHeaders> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyOriginCustomHeaders({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13431,8 +12352,8 @@ const de_TooManyOriginGroupsPerDistributionRes = async (
 ): Promise<TooManyOriginGroupsPerDistribution> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyOriginGroupsPerDistribution({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13450,8 +12371,8 @@ const de_TooManyOriginRequestPoliciesRes = async (
 ): Promise<TooManyOriginRequestPolicies> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyOriginRequestPolicies({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13466,8 +12387,8 @@ const de_TooManyOriginRequestPoliciesRes = async (
 const de_TooManyOriginsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyOrigins> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyOrigins({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13482,8 +12403,8 @@ const de_TooManyOriginsRes = async (parsedOutput: any, context: __SerdeContext):
 const de_TooManyPublicKeysRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyPublicKeys> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyPublicKeys({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13501,8 +12422,8 @@ const de_TooManyPublicKeysInKeyGroupRes = async (
 ): Promise<TooManyPublicKeysInKeyGroup> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyPublicKeysInKeyGroup({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13520,8 +12441,8 @@ const de_TooManyQueryStringParametersRes = async (
 ): Promise<TooManyQueryStringParameters> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyQueryStringParameters({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13539,8 +12460,8 @@ const de_TooManyQueryStringsInCachePolicyRes = async (
 ): Promise<TooManyQueryStringsInCachePolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyQueryStringsInCachePolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13558,8 +12479,8 @@ const de_TooManyQueryStringsInOriginRequestPolicyRes = async (
 ): Promise<TooManyQueryStringsInOriginRequestPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyQueryStringsInOriginRequestPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13577,8 +12498,8 @@ const de_TooManyRealtimeLogConfigsRes = async (
 ): Promise<TooManyRealtimeLogConfigs> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyRealtimeLogConfigs({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13596,8 +12517,8 @@ const de_TooManyRemoveHeadersInResponseHeadersPolicyRes = async (
 ): Promise<TooManyRemoveHeadersInResponseHeadersPolicy> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyRemoveHeadersInResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13615,8 +12536,8 @@ const de_TooManyResponseHeadersPoliciesRes = async (
 ): Promise<TooManyResponseHeadersPolicies> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyResponseHeadersPolicies({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13634,8 +12555,8 @@ const de_TooManyStreamingDistributionCNAMEsRes = async (
 ): Promise<TooManyStreamingDistributionCNAMEs> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyStreamingDistributionCNAMEs({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13653,8 +12574,8 @@ const de_TooManyStreamingDistributionsRes = async (
 ): Promise<TooManyStreamingDistributions> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyStreamingDistributions({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13672,8 +12593,8 @@ const de_TooManyTrustedSignersRes = async (
 ): Promise<TooManyTrustedSigners> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TooManyTrustedSigners({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13691,8 +12612,8 @@ const de_TrustedKeyGroupDoesNotExistRes = async (
 ): Promise<TrustedKeyGroupDoesNotExist> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TrustedKeyGroupDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13710,8 +12631,8 @@ const de_TrustedSignerDoesNotExistRes = async (
 ): Promise<TrustedSignerDoesNotExist> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new TrustedSignerDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13729,8 +12650,8 @@ const de_UnsupportedOperationRes = async (
 ): Promise<UnsupportedOperation> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new UnsupportedOperation({
     $metadata: deserializeMetadata(parsedOutput),
@@ -13746,8 +12667,8 @@ const se_AccessControlAllowHeadersList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Header");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_H);
     });
 };
 
@@ -13761,8 +12682,8 @@ const se_AccessControlAllowMethodsList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("ResponseHeadersPolicyAccessControlAllowMethodsValues", entry);
-      return node.withName("Method");
+      const n = __XmlNode.of(_RHPACAMV, entry);
+      return n.n(_Met);
     });
 };
 
@@ -13773,8 +12694,8 @@ const se_AccessControlAllowOriginsList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Origin");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_Or);
     });
 };
 
@@ -13785,8 +12706,8 @@ const se_AccessControlExposeHeadersList = (input: string[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Header");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_H);
     });
 };
 
@@ -13794,20 +12715,12 @@ const se_AccessControlExposeHeadersList = (input: string[], context: __SerdeCont
  * serializeAws_restXmlAliases
  */
 const se_Aliases = (input: Aliases, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Aliases");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Al);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_AliasList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_AliasList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -13817,8 +12730,8 @@ const se_AliasList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("CNAME");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_CNAME);
     });
 };
 
@@ -13826,24 +12739,15 @@ const se_AliasList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlAllowedMethods
  */
 const se_AllowedMethods = (input: AllowedMethods, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("AllowedMethods");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_AM);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_MethodsList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_It]!, context));
+  if (input[_CM] != null) {
+    bn.c(se_CachedMethods(input[_CM], context).n(_CM));
   }
-  if (input.CachedMethods != null) {
-    const node = se_CachedMethods(input.CachedMethods, context).withName("CachedMethods");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -13853,8 +12757,8 @@ const se_AwsAccountNumberList = (input: string[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("AwsAccountNumber");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_AAN);
     });
 };
 
@@ -13862,86 +12766,63 @@ const se_AwsAccountNumberList = (input: string[], context: __SerdeContext): any 
  * serializeAws_restXmlCacheBehavior
  */
 const se_CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CacheBehavior");
-  if (input.PathPattern != null) {
-    const node = __XmlNode.of("string", input.PathPattern).withName("PathPattern");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CB);
+  if (input[_PP] != null) {
+    bn.c(__XmlNode.of(_st, input[_PP]).n(_PP));
   }
-  if (input.TargetOriginId != null) {
-    const node = __XmlNode.of("string", input.TargetOriginId).withName("TargetOriginId");
-    bodyNode.addChildNode(node);
+  if (input[_TOI] != null) {
+    bn.c(__XmlNode.of(_st, input[_TOI]).n(_TOI));
   }
-  if (input.TrustedSigners != null) {
-    const node = se_TrustedSigners(input.TrustedSigners, context).withName("TrustedSigners");
-    bodyNode.addChildNode(node);
+  if (input[_TS] != null) {
+    bn.c(se_TrustedSigners(input[_TS], context).n(_TS));
   }
-  if (input.TrustedKeyGroups != null) {
-    const node = se_TrustedKeyGroups(input.TrustedKeyGroups, context).withName("TrustedKeyGroups");
-    bodyNode.addChildNode(node);
+  if (input[_TKG] != null) {
+    bn.c(se_TrustedKeyGroups(input[_TKG], context).n(_TKG));
   }
-  if (input.ViewerProtocolPolicy != null) {
-    const node = __XmlNode.of("ViewerProtocolPolicy", input.ViewerProtocolPolicy).withName("ViewerProtocolPolicy");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _VPP);
+  if (input[_AM] != null) {
+    bn.c(se_AllowedMethods(input[_AM], context).n(_AM));
   }
-  if (input.AllowedMethods != null) {
-    const node = se_AllowedMethods(input.AllowedMethods, context).withName("AllowedMethods");
-    bodyNode.addChildNode(node);
+  if (input[_SS] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_SS])).n(_SS));
   }
-  if (input.SmoothStreaming != null) {
-    const node = __XmlNode.of("boolean", String(input.SmoothStreaming)).withName("SmoothStreaming");
-    bodyNode.addChildNode(node);
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Co])).n(_Co));
   }
-  if (input.Compress != null) {
-    const node = __XmlNode.of("boolean", String(input.Compress)).withName("Compress");
-    bodyNode.addChildNode(node);
+  if (input[_LFA] != null) {
+    bn.c(se_LambdaFunctionAssociations(input[_LFA], context).n(_LFA));
   }
-  if (input.LambdaFunctionAssociations != null) {
-    const node = se_LambdaFunctionAssociations(input.LambdaFunctionAssociations, context).withName(
-      "LambdaFunctionAssociations"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_FA] != null) {
+    bn.c(se_FunctionAssociations(input[_FA], context).n(_FA));
   }
-  if (input.FunctionAssociations != null) {
-    const node = se_FunctionAssociations(input.FunctionAssociations, context).withName("FunctionAssociations");
-    bodyNode.addChildNode(node);
+  if (input[_FLEI] != null) {
+    bn.c(__XmlNode.of(_st, input[_FLEI]).n(_FLEI));
   }
-  if (input.FieldLevelEncryptionId != null) {
-    const node = __XmlNode.of("string", input.FieldLevelEncryptionId).withName("FieldLevelEncryptionId");
-    bodyNode.addChildNode(node);
+  if (input[_RLCA] != null) {
+    bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
   }
-  if (input.RealtimeLogConfigArn != null) {
-    const node = __XmlNode.of("string", input.RealtimeLogConfigArn).withName("RealtimeLogConfigArn");
-    bodyNode.addChildNode(node);
+  if (input[_CPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_CPI]).n(_CPI));
   }
-  if (input.CachePolicyId != null) {
-    const node = __XmlNode.of("string", input.CachePolicyId).withName("CachePolicyId");
-    bodyNode.addChildNode(node);
+  if (input[_ORPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_ORPI]).n(_ORPI));
   }
-  if (input.OriginRequestPolicyId != null) {
-    const node = __XmlNode.of("string", input.OriginRequestPolicyId).withName("OriginRequestPolicyId");
-    bodyNode.addChildNode(node);
+  if (input[_RHPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_RHPI]).n(_RHPI));
   }
-  if (input.ResponseHeadersPolicyId != null) {
-    const node = __XmlNode.of("string", input.ResponseHeadersPolicyId).withName("ResponseHeadersPolicyId");
-    bodyNode.addChildNode(node);
+  if (input[_FV] != null) {
+    bn.c(se_ForwardedValues(input[_FV], context).n(_FV));
   }
-  if (input.ForwardedValues != null) {
-    const node = se_ForwardedValues(input.ForwardedValues, context).withName("ForwardedValues");
-    bodyNode.addChildNode(node);
+  if (input[_MTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_MTTL])).n(_MTTL));
   }
-  if (input.MinTTL != null) {
-    const node = __XmlNode.of("long", String(input.MinTTL)).withName("MinTTL");
-    bodyNode.addChildNode(node);
+  if (input[_DTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_DTTL])).n(_DTTL));
   }
-  if (input.DefaultTTL != null) {
-    const node = __XmlNode.of("long", String(input.DefaultTTL)).withName("DefaultTTL");
-    bodyNode.addChildNode(node);
+  if (input[_MTTLa] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_MTTLa])).n(_MTTLa));
   }
-  if (input.MaxTTL != null) {
-    const node = __XmlNode.of("long", String(input.MaxTTL)).withName("MaxTTL");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -13951,8 +12832,8 @@ const se_CacheBehaviorList = (input: CacheBehavior[], context: __SerdeContext): 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_CacheBehavior(entry, context);
-      return node.withName("CacheBehavior");
+      const n = se_CacheBehavior(entry, context);
+      return n.n(_CB);
     });
 };
 
@@ -13960,125 +12841,92 @@ const se_CacheBehaviorList = (input: CacheBehavior[], context: __SerdeContext): 
  * serializeAws_restXmlCacheBehaviors
  */
 const se_CacheBehaviors = (input: CacheBehaviors, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CacheBehaviors");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CBa);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_CacheBehaviorList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_CacheBehaviorList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCachedMethods
  */
 const se_CachedMethods = (input: CachedMethods, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CachedMethods");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CM);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_MethodsList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCachePolicyConfig
  */
 const se_CachePolicyConfig = (input: CachePolicyConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CachePolicyConfig");
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CPC);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.DefaultTTL != null) {
-    const node = __XmlNode.of("long", String(input.DefaultTTL)).withName("DefaultTTL");
-    bodyNode.addChildNode(node);
+  if (input[_DTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_DTTL])).n(_DTTL));
   }
-  if (input.MaxTTL != null) {
-    const node = __XmlNode.of("long", String(input.MaxTTL)).withName("MaxTTL");
-    bodyNode.addChildNode(node);
+  if (input[_MTTLa] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_MTTLa])).n(_MTTLa));
   }
-  if (input.MinTTL != null) {
-    const node = __XmlNode.of("long", String(input.MinTTL)).withName("MinTTL");
-    bodyNode.addChildNode(node);
+  if (input[_MTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_MTTL])).n(_MTTL));
   }
-  if (input.ParametersInCacheKeyAndForwardedToOrigin != null) {
-    const node = se_ParametersInCacheKeyAndForwardedToOrigin(
-      input.ParametersInCacheKeyAndForwardedToOrigin,
-      context
-    ).withName("ParametersInCacheKeyAndForwardedToOrigin");
-    bodyNode.addChildNode(node);
+  if (input[_PICKAFTO] != null) {
+    bn.c(se_ParametersInCacheKeyAndForwardedToOrigin(input[_PICKAFTO], context).n(_PICKAFTO));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCachePolicyCookiesConfig
  */
 const se_CachePolicyCookiesConfig = (input: CachePolicyCookiesConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CachePolicyCookiesConfig");
-  if (input.CookieBehavior != null) {
-    const node = __XmlNode.of("CachePolicyCookieBehavior", input.CookieBehavior).withName("CookieBehavior");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CPCC);
+  if (input[_CBo] != null) {
+    bn.c(__XmlNode.of(_CPCB, input[_CBo]).n(_CBo));
   }
-  if (input.Cookies != null) {
-    const node = se_CookieNames(input.Cookies, context).withName("Cookies");
-    bodyNode.addChildNode(node);
+  if (input[_Coo] != null) {
+    bn.c(se_CookieNames(input[_Coo], context).n(_Coo));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCachePolicyHeadersConfig
  */
 const se_CachePolicyHeadersConfig = (input: CachePolicyHeadersConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CachePolicyHeadersConfig");
-  if (input.HeaderBehavior != null) {
-    const node = __XmlNode.of("CachePolicyHeaderBehavior", input.HeaderBehavior).withName("HeaderBehavior");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CPHC);
+  if (input[_HB] != null) {
+    bn.c(__XmlNode.of(_CPHB, input[_HB]).n(_HB));
   }
-  if (input.Headers != null) {
-    const node = se_Headers(input.Headers, context).withName("Headers");
-    bodyNode.addChildNode(node);
+  if (input[_He] != null) {
+    bn.c(se_Headers(input[_He], context).n(_He));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCachePolicyQueryStringsConfig
  */
 const se_CachePolicyQueryStringsConfig = (input: CachePolicyQueryStringsConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CachePolicyQueryStringsConfig");
-  if (input.QueryStringBehavior != null) {
-    const node = __XmlNode
-      .of("CachePolicyQueryStringBehavior", input.QueryStringBehavior)
-      .withName("QueryStringBehavior");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CPQSC);
+  if (input[_QSB] != null) {
+    bn.c(__XmlNode.of(_CPQSB, input[_QSB]).n(_QSB));
   }
-  if (input.QueryStrings != null) {
-    const node = se_QueryStringNames(input.QueryStrings, context).withName("QueryStrings");
-    bodyNode.addChildNode(node);
+  if (input[_QS] != null) {
+    bn.c(se_QueryStringNames(input[_QS], context).n(_QS));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14088,54 +12936,43 @@ const se_CloudFrontOriginAccessIdentityConfig = (
   input: CloudFrontOriginAccessIdentityConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("CloudFrontOriginAccessIdentityConfig");
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CFOAIC);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlContentTypeProfile
  */
 const se_ContentTypeProfile = (input: ContentTypeProfile, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ContentTypeProfile");
-  if (input.Format != null) {
-    const node = __XmlNode.of("Format", input.Format).withName("Format");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CTP);
+  bn.cc(input, _Fo);
+  if (input[_PI] != null) {
+    bn.c(__XmlNode.of(_st, input[_PI]).n(_PI));
   }
-  if (input.ProfileId != null) {
-    const node = __XmlNode.of("string", input.ProfileId).withName("ProfileId");
-    bodyNode.addChildNode(node);
+  if (input[_CT] != null) {
+    bn.c(__XmlNode.of(_st, input[_CT]).n(_CT));
   }
-  if (input.ContentType != null) {
-    const node = __XmlNode.of("string", input.ContentType).withName("ContentType");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlContentTypeProfileConfig
  */
 const se_ContentTypeProfileConfig = (input: ContentTypeProfileConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ContentTypeProfileConfig");
-  if (input.ForwardWhenContentTypeIsUnknown != null) {
-    const node = __XmlNode
-      .of("boolean", String(input.ForwardWhenContentTypeIsUnknown))
-      .withName("ForwardWhenContentTypeIsUnknown");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CTPC);
+  if (input[_FWCTIU] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_FWCTIU])).n(_FWCTIU));
   }
-  if (input.ContentTypeProfiles != null) {
-    const node = se_ContentTypeProfiles(input.ContentTypeProfiles, context).withName("ContentTypeProfiles");
-    bodyNode.addChildNode(node);
+  if (input[_CTPo] != null) {
+    bn.c(se_ContentTypeProfiles(input[_CTPo], context).n(_CTPo));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14145,8 +12982,8 @@ const se_ContentTypeProfileList = (input: ContentTypeProfile[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ContentTypeProfile(entry, context);
-      return node.withName("ContentTypeProfile");
+      const n = se_ContentTypeProfile(entry, context);
+      return n.n(_CTP);
     });
 };
 
@@ -14154,42 +12991,29 @@ const se_ContentTypeProfileList = (input: ContentTypeProfile[], context: __Serde
  * serializeAws_restXmlContentTypeProfiles
  */
 const se_ContentTypeProfiles = (input: ContentTypeProfiles, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ContentTypeProfiles");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CTPo);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_ContentTypeProfileList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_ContentTypeProfileList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlContinuousDeploymentPolicyConfig
  */
 const se_ContinuousDeploymentPolicyConfig = (input: ContinuousDeploymentPolicyConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ContinuousDeploymentPolicyConfig");
-  if (input.StagingDistributionDnsNames != null) {
-    const node = se_StagingDistributionDnsNames(input.StagingDistributionDnsNames, context).withName(
-      "StagingDistributionDnsNames"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CDPC);
+  if (input[_SDDN] != null) {
+    bn.c(se_StagingDistributionDnsNames(input[_SDDN], context).n(_SDDN));
   }
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.TrafficConfig != null) {
-    const node = se_TrafficConfig(input.TrafficConfig, context).withName("TrafficConfig");
-    bodyNode.addChildNode(node);
+  if (input[_TC] != null) {
+    bn.c(se_TrafficConfig(input[_TC], context).n(_TC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14199,16 +13023,14 @@ const se_ContinuousDeploymentSingleHeaderConfig = (
   input: ContinuousDeploymentSingleHeaderConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ContinuousDeploymentSingleHeaderConfig");
-  if (input.Header != null) {
-    const node = __XmlNode.of("string", input.Header).withName("Header");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CDSHC);
+  if (input[_H] != null) {
+    bn.c(__XmlNode.of(_st, input[_H]).n(_H));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("string", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_st, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14218,16 +13040,14 @@ const se_ContinuousDeploymentSingleWeightConfig = (
   input: ContinuousDeploymentSingleWeightConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ContinuousDeploymentSingleWeightConfig");
-  if (input.Weight != null) {
-    const node = __XmlNode.of("float", String(input.Weight)).withName("Weight");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CDSWC);
+  if (input[_W] != null) {
+    bn.c(__XmlNode.of(_f, String(input[_W])).n(_W));
   }
-  if (input.SessionStickinessConfig != null) {
-    const node = se_SessionStickinessConfig(input.SessionStickinessConfig, context).withName("SessionStickinessConfig");
-    bodyNode.addChildNode(node);
+  if (input[_SSC] != null) {
+    bn.c(se_SessionStickinessConfig(input[_SSC], context).n(_SSC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14237,8 +13057,8 @@ const se_CookieNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Name");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_N);
     });
 };
 
@@ -14246,60 +13066,46 @@ const se_CookieNameList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlCookieNames
  */
 const se_CookieNames = (input: CookieNames, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CookieNames");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CN);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_CookieNameList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_CookieNameList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCookiePreference
  */
 const se_CookiePreference = (input: CookiePreference, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CookiePreference");
-  if (input.Forward != null) {
-    const node = __XmlNode.of("ItemSelection", input.Forward).withName("Forward");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CP);
+  if (input[_For] != null) {
+    bn.c(__XmlNode.of(_ISt, input[_For]).n(_For));
   }
-  if (input.WhitelistedNames != null) {
-    const node = se_CookieNames(input.WhitelistedNames, context).withName("WhitelistedNames");
-    bodyNode.addChildNode(node);
+  if (input[_WN] != null) {
+    bn.c(se_CookieNames(input[_WN], context).n(_WN));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCustomErrorResponse
  */
 const se_CustomErrorResponse = (input: CustomErrorResponse, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CustomErrorResponse");
-  if (input.ErrorCode != null) {
-    const node = __XmlNode.of("integer", String(input.ErrorCode)).withName("ErrorCode");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CER);
+  if (input[_EC] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_EC])).n(_EC));
   }
-  if (input.ResponsePagePath != null) {
-    const node = __XmlNode.of("string", input.ResponsePagePath).withName("ResponsePagePath");
-    bodyNode.addChildNode(node);
+  if (input[_RPP] != null) {
+    bn.c(__XmlNode.of(_st, input[_RPP]).n(_RPP));
   }
-  if (input.ResponseCode != null) {
-    const node = __XmlNode.of("string", input.ResponseCode).withName("ResponseCode");
-    bodyNode.addChildNode(node);
+  if (input[_RC] != null) {
+    bn.c(__XmlNode.of(_st, input[_RC]).n(_RC));
   }
-  if (input.ErrorCachingMinTTL != null) {
-    const node = __XmlNode.of("long", String(input.ErrorCachingMinTTL)).withName("ErrorCachingMinTTL");
-    bodyNode.addChildNode(node);
+  if (input[_ECMTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_ECMTTL])).n(_ECMTTL));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14309,8 +13115,8 @@ const se_CustomErrorResponseList = (input: CustomErrorResponse[], context: __Ser
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_CustomErrorResponse(entry, context);
-      return node.withName("CustomErrorResponse");
+      const n = se_CustomErrorResponse(entry, context);
+      return n.n(_CER);
     });
 };
 
@@ -14318,294 +13124,212 @@ const se_CustomErrorResponseList = (input: CustomErrorResponse[], context: __Ser
  * serializeAws_restXmlCustomErrorResponses
  */
 const se_CustomErrorResponses = (input: CustomErrorResponses, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CustomErrorResponses");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CERu);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_CustomErrorResponseList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_CustomErrorResponseList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCustomHeaders
  */
 const se_CustomHeaders = (input: CustomHeaders, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CustomHeaders");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_CH);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_OriginCustomHeadersList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_OriginCustomHeadersList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlCustomOriginConfig
  */
 const se_CustomOriginConfig = (input: CustomOriginConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("CustomOriginConfig");
-  if (input.HTTPPort != null) {
-    const node = __XmlNode.of("integer", String(input.HTTPPort)).withName("HTTPPort");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_COC);
+  if (input[_HTTPP] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_HTTPP])).n(_HTTPP));
   }
-  if (input.HTTPSPort != null) {
-    const node = __XmlNode.of("integer", String(input.HTTPSPort)).withName("HTTPSPort");
-    bodyNode.addChildNode(node);
+  if (input[_HTTPSP] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_HTTPSP])).n(_HTTPSP));
   }
-  if (input.OriginProtocolPolicy != null) {
-    const node = __XmlNode.of("OriginProtocolPolicy", input.OriginProtocolPolicy).withName("OriginProtocolPolicy");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _OPP);
+  if (input[_OSP] != null) {
+    bn.c(se_OriginSslProtocols(input[_OSP], context).n(_OSP));
   }
-  if (input.OriginSslProtocols != null) {
-    const node = se_OriginSslProtocols(input.OriginSslProtocols, context).withName("OriginSslProtocols");
-    bodyNode.addChildNode(node);
+  if (input[_ORT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ORT])).n(_ORT));
   }
-  if (input.OriginReadTimeout != null) {
-    const node = __XmlNode.of("integer", String(input.OriginReadTimeout)).withName("OriginReadTimeout");
-    bodyNode.addChildNode(node);
+  if (input[_OKT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_OKT])).n(_OKT));
   }
-  if (input.OriginKeepaliveTimeout != null) {
-    const node = __XmlNode.of("integer", String(input.OriginKeepaliveTimeout)).withName("OriginKeepaliveTimeout");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDefaultCacheBehavior
  */
 const se_DefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DefaultCacheBehavior");
-  if (input.TargetOriginId != null) {
-    const node = __XmlNode.of("string", input.TargetOriginId).withName("TargetOriginId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DCB);
+  if (input[_TOI] != null) {
+    bn.c(__XmlNode.of(_st, input[_TOI]).n(_TOI));
   }
-  if (input.TrustedSigners != null) {
-    const node = se_TrustedSigners(input.TrustedSigners, context).withName("TrustedSigners");
-    bodyNode.addChildNode(node);
+  if (input[_TS] != null) {
+    bn.c(se_TrustedSigners(input[_TS], context).n(_TS));
   }
-  if (input.TrustedKeyGroups != null) {
-    const node = se_TrustedKeyGroups(input.TrustedKeyGroups, context).withName("TrustedKeyGroups");
-    bodyNode.addChildNode(node);
+  if (input[_TKG] != null) {
+    bn.c(se_TrustedKeyGroups(input[_TKG], context).n(_TKG));
   }
-  if (input.ViewerProtocolPolicy != null) {
-    const node = __XmlNode.of("ViewerProtocolPolicy", input.ViewerProtocolPolicy).withName("ViewerProtocolPolicy");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _VPP);
+  if (input[_AM] != null) {
+    bn.c(se_AllowedMethods(input[_AM], context).n(_AM));
   }
-  if (input.AllowedMethods != null) {
-    const node = se_AllowedMethods(input.AllowedMethods, context).withName("AllowedMethods");
-    bodyNode.addChildNode(node);
+  if (input[_SS] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_SS])).n(_SS));
   }
-  if (input.SmoothStreaming != null) {
-    const node = __XmlNode.of("boolean", String(input.SmoothStreaming)).withName("SmoothStreaming");
-    bodyNode.addChildNode(node);
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Co])).n(_Co));
   }
-  if (input.Compress != null) {
-    const node = __XmlNode.of("boolean", String(input.Compress)).withName("Compress");
-    bodyNode.addChildNode(node);
+  if (input[_LFA] != null) {
+    bn.c(se_LambdaFunctionAssociations(input[_LFA], context).n(_LFA));
   }
-  if (input.LambdaFunctionAssociations != null) {
-    const node = se_LambdaFunctionAssociations(input.LambdaFunctionAssociations, context).withName(
-      "LambdaFunctionAssociations"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_FA] != null) {
+    bn.c(se_FunctionAssociations(input[_FA], context).n(_FA));
   }
-  if (input.FunctionAssociations != null) {
-    const node = se_FunctionAssociations(input.FunctionAssociations, context).withName("FunctionAssociations");
-    bodyNode.addChildNode(node);
+  if (input[_FLEI] != null) {
+    bn.c(__XmlNode.of(_st, input[_FLEI]).n(_FLEI));
   }
-  if (input.FieldLevelEncryptionId != null) {
-    const node = __XmlNode.of("string", input.FieldLevelEncryptionId).withName("FieldLevelEncryptionId");
-    bodyNode.addChildNode(node);
+  if (input[_RLCA] != null) {
+    bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
   }
-  if (input.RealtimeLogConfigArn != null) {
-    const node = __XmlNode.of("string", input.RealtimeLogConfigArn).withName("RealtimeLogConfigArn");
-    bodyNode.addChildNode(node);
+  if (input[_CPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_CPI]).n(_CPI));
   }
-  if (input.CachePolicyId != null) {
-    const node = __XmlNode.of("string", input.CachePolicyId).withName("CachePolicyId");
-    bodyNode.addChildNode(node);
+  if (input[_ORPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_ORPI]).n(_ORPI));
   }
-  if (input.OriginRequestPolicyId != null) {
-    const node = __XmlNode.of("string", input.OriginRequestPolicyId).withName("OriginRequestPolicyId");
-    bodyNode.addChildNode(node);
+  if (input[_RHPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_RHPI]).n(_RHPI));
   }
-  if (input.ResponseHeadersPolicyId != null) {
-    const node = __XmlNode.of("string", input.ResponseHeadersPolicyId).withName("ResponseHeadersPolicyId");
-    bodyNode.addChildNode(node);
+  if (input[_FV] != null) {
+    bn.c(se_ForwardedValues(input[_FV], context).n(_FV));
   }
-  if (input.ForwardedValues != null) {
-    const node = se_ForwardedValues(input.ForwardedValues, context).withName("ForwardedValues");
-    bodyNode.addChildNode(node);
+  if (input[_MTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_MTTL])).n(_MTTL));
   }
-  if (input.MinTTL != null) {
-    const node = __XmlNode.of("long", String(input.MinTTL)).withName("MinTTL");
-    bodyNode.addChildNode(node);
+  if (input[_DTTL] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_DTTL])).n(_DTTL));
   }
-  if (input.DefaultTTL != null) {
-    const node = __XmlNode.of("long", String(input.DefaultTTL)).withName("DefaultTTL");
-    bodyNode.addChildNode(node);
+  if (input[_MTTLa] != null) {
+    bn.c(__XmlNode.of(_l, String(input[_MTTLa])).n(_MTTLa));
   }
-  if (input.MaxTTL != null) {
-    const node = __XmlNode.of("long", String(input.MaxTTL)).withName("MaxTTL");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDistributionConfig
  */
 const se_DistributionConfig = (input: DistributionConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DistributionConfig");
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DC);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.Aliases != null) {
-    const node = se_Aliases(input.Aliases, context).withName("Aliases");
-    bodyNode.addChildNode(node);
+  if (input[_Al] != null) {
+    bn.c(se_Aliases(input[_Al], context).n(_Al));
   }
-  if (input.DefaultRootObject != null) {
-    const node = __XmlNode.of("string", input.DefaultRootObject).withName("DefaultRootObject");
-    bodyNode.addChildNode(node);
+  if (input[_DRO] != null) {
+    bn.c(__XmlNode.of(_st, input[_DRO]).n(_DRO));
   }
-  if (input.Origins != null) {
-    const node = se_Origins(input.Origins, context).withName("Origins");
-    bodyNode.addChildNode(node);
+  if (input[_Ori] != null) {
+    bn.c(se_Origins(input[_Ori], context).n(_Ori));
   }
-  if (input.OriginGroups != null) {
-    const node = se_OriginGroups(input.OriginGroups, context).withName("OriginGroups");
-    bodyNode.addChildNode(node);
+  if (input[_OG] != null) {
+    bn.c(se_OriginGroups(input[_OG], context).n(_OG));
   }
-  if (input.DefaultCacheBehavior != null) {
-    const node = se_DefaultCacheBehavior(input.DefaultCacheBehavior, context).withName("DefaultCacheBehavior");
-    bodyNode.addChildNode(node);
+  if (input[_DCB] != null) {
+    bn.c(se_DefaultCacheBehavior(input[_DCB], context).n(_DCB));
   }
-  if (input.CacheBehaviors != null) {
-    const node = se_CacheBehaviors(input.CacheBehaviors, context).withName("CacheBehaviors");
-    bodyNode.addChildNode(node);
+  if (input[_CBa] != null) {
+    bn.c(se_CacheBehaviors(input[_CBa], context).n(_CBa));
   }
-  if (input.CustomErrorResponses != null) {
-    const node = se_CustomErrorResponses(input.CustomErrorResponses, context).withName("CustomErrorResponses");
-    bodyNode.addChildNode(node);
+  if (input[_CERu] != null) {
+    bn.c(se_CustomErrorResponses(input[_CERu], context).n(_CERu));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("CommentType", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_CTo, input[_C]).n(_C));
   }
-  if (input.Logging != null) {
-    const node = se_LoggingConfig(input.Logging, context).withName("Logging");
-    bodyNode.addChildNode(node);
+  if (input[_Lo] != null) {
+    bn.c(se_LoggingConfig(input[_Lo], context).n(_Lo));
   }
-  if (input.PriceClass != null) {
-    const node = __XmlNode.of("PriceClass", input.PriceClass).withName("PriceClass");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _PC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  if (input[_VC] != null) {
+    bn.c(se_ViewerCertificate(input[_VC], context).n(_VC));
   }
-  if (input.ViewerCertificate != null) {
-    const node = se_ViewerCertificate(input.ViewerCertificate, context).withName("ViewerCertificate");
-    bodyNode.addChildNode(node);
+  if (input[_Re] != null) {
+    bn.c(se_Restrictions(input[_Re], context).n(_Re));
   }
-  if (input.Restrictions != null) {
-    const node = se_Restrictions(input.Restrictions, context).withName("Restrictions");
-    bodyNode.addChildNode(node);
+  if (input[_WACLI] != null) {
+    bn.c(__XmlNode.of(_st, input[_WACLI]).n(_WACLI));
   }
-  if (input.WebACLId != null) {
-    const node = __XmlNode.of("string", input.WebACLId).withName("WebACLId");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _HV);
+  if (input[_IIPVE] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_IIPVE])).n(_IIPVE));
   }
-  if (input.HttpVersion != null) {
-    const node = __XmlNode.of("HttpVersion", input.HttpVersion).withName("HttpVersion");
-    bodyNode.addChildNode(node);
+  if (input[_CDPI] != null) {
+    bn.c(__XmlNode.of(_st, input[_CDPI]).n(_CDPI));
   }
-  if (input.IsIPV6Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.IsIPV6Enabled)).withName("IsIPV6Enabled");
-    bodyNode.addChildNode(node);
+  if (input[_S] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_S])).n(_S));
   }
-  if (input.ContinuousDeploymentPolicyId != null) {
-    const node = __XmlNode.of("string", input.ContinuousDeploymentPolicyId).withName("ContinuousDeploymentPolicyId");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Staging != null) {
-    const node = __XmlNode.of("boolean", String(input.Staging)).withName("Staging");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlDistributionConfigWithTags
  */
 const se_DistributionConfigWithTags = (input: DistributionConfigWithTags, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("DistributionConfigWithTags");
-  if (input.DistributionConfig != null) {
-    const node = se_DistributionConfig(input.DistributionConfig, context).withName("DistributionConfig");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_DCWT);
+  if (input[_DC] != null) {
+    bn.c(se_DistributionConfig(input[_DC], context).n(_DC));
   }
-  if (input.Tags != null) {
-    const node = se_Tags(input.Tags, context).withName("Tags");
-    bodyNode.addChildNode(node);
+  if (input[_Ta] != null) {
+    bn.c(se_Tags(input[_Ta], context).n(_Ta));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlEncryptionEntities
  */
 const se_EncryptionEntities = (input: EncryptionEntities, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("EncryptionEntities");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_EE);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_EncryptionEntityList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_EncryptionEntityList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlEncryptionEntity
  */
 const se_EncryptionEntity = (input: EncryptionEntity, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("EncryptionEntity");
-  if (input.PublicKeyId != null) {
-    const node = __XmlNode.of("string", input.PublicKeyId).withName("PublicKeyId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_EEn);
+  if (input[_PKI] != null) {
+    bn.c(__XmlNode.of(_st, input[_PKI]).n(_PKI));
   }
-  if (input.ProviderId != null) {
-    const node = __XmlNode.of("string", input.ProviderId).withName("ProviderId");
-    bodyNode.addChildNode(node);
+  if (input[_PIr] != null) {
+    bn.c(__XmlNode.of(_st, input[_PIr]).n(_PIr));
   }
-  if (input.FieldPatterns != null) {
-    const node = se_FieldPatterns(input.FieldPatterns, context).withName("FieldPatterns");
-    bodyNode.addChildNode(node);
+  if (input[_FP] != null) {
+    bn.c(se_FieldPatterns(input[_FP], context).n(_FP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14615,8 +13339,8 @@ const se_EncryptionEntityList = (input: EncryptionEntity[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_EncryptionEntity(entry, context);
-      return node.withName("EncryptionEntity");
+      const n = se_EncryptionEntity(entry, context);
+      return n.n(_EEn);
     });
 };
 
@@ -14624,16 +13348,14 @@ const se_EncryptionEntityList = (input: EncryptionEntity[], context: __SerdeCont
  * serializeAws_restXmlEndPoint
  */
 const se_EndPoint = (input: EndPoint, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("EndPoint");
-  if (input.StreamType != null) {
-    const node = __XmlNode.of("string", input.StreamType).withName("StreamType");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_EPn);
+  if (input[_ST] != null) {
+    bn.c(__XmlNode.of(_st, input[_ST]).n(_ST));
   }
-  if (input.KinesisStreamConfig != null) {
-    const node = se_KinesisStreamConfig(input.KinesisStreamConfig, context).withName("KinesisStreamConfig");
-    bodyNode.addChildNode(node);
+  if (input[_KSC] != null) {
+    bn.c(se_KinesisStreamConfig(input[_KSC], context).n(_KSC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14643,8 +13365,8 @@ const se_EndPointList = (input: EndPoint[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_EndPoint(entry, context);
-      return node.withName("member");
+      const n = se_EndPoint(entry, context);
+      return n.n(_m);
     });
 };
 
@@ -14652,26 +13374,20 @@ const se_EndPointList = (input: EndPoint[], context: __SerdeContext): any => {
  * serializeAws_restXmlFieldLevelEncryptionConfig
  */
 const se_FieldLevelEncryptionConfig = (input: FieldLevelEncryptionConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("FieldLevelEncryptionConfig");
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FLEC);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.QueryArgProfileConfig != null) {
-    const node = se_QueryArgProfileConfig(input.QueryArgProfileConfig, context).withName("QueryArgProfileConfig");
-    bodyNode.addChildNode(node);
+  if (input[_QAPC] != null) {
+    bn.c(se_QueryArgProfileConfig(input[_QAPC], context).n(_QAPC));
   }
-  if (input.ContentTypeProfileConfig != null) {
-    const node = se_ContentTypeProfileConfig(input.ContentTypeProfileConfig, context).withName(
-      "ContentTypeProfileConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_CTPC] != null) {
+    bn.c(se_ContentTypeProfileConfig(input[_CTPC], context).n(_CTPC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14681,24 +13397,20 @@ const se_FieldLevelEncryptionProfileConfig = (
   input: FieldLevelEncryptionProfileConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("FieldLevelEncryptionProfileConfig");
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FLEPC);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.EncryptionEntities != null) {
-    const node = se_EncryptionEntities(input.EncryptionEntities, context).withName("EncryptionEntities");
-    bodyNode.addChildNode(node);
+  if (input[_EE] != null) {
+    bn.c(se_EncryptionEntities(input[_EE], context).n(_EE));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -14708,8 +13420,8 @@ const se_FieldList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Field");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_Fi);
     });
 };
 
@@ -14720,8 +13432,8 @@ const se_FieldPatternList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("FieldPattern");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_FPi);
     });
 };
 
@@ -14729,60 +13441,42 @@ const se_FieldPatternList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlFieldPatterns
  */
 const se_FieldPatterns = (input: FieldPatterns, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("FieldPatterns");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FP);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_FieldPatternList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_FieldPatternList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlForwardedValues
  */
 const se_ForwardedValues = (input: ForwardedValues, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ForwardedValues");
-  if (input.QueryString != null) {
-    const node = __XmlNode.of("boolean", String(input.QueryString)).withName("QueryString");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FV);
+  if (input[_QSu] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_QSu])).n(_QSu));
   }
-  if (input.Cookies != null) {
-    const node = se_CookiePreference(input.Cookies, context).withName("Cookies");
-    bodyNode.addChildNode(node);
+  if (input[_Coo] != null) {
+    bn.c(se_CookiePreference(input[_Coo], context).n(_Coo));
   }
-  if (input.Headers != null) {
-    const node = se_Headers(input.Headers, context).withName("Headers");
-    bodyNode.addChildNode(node);
+  if (input[_He] != null) {
+    bn.c(se_Headers(input[_He], context).n(_He));
   }
-  if (input.QueryStringCacheKeys != null) {
-    const node = se_QueryStringCacheKeys(input.QueryStringCacheKeys, context).withName("QueryStringCacheKeys");
-    bodyNode.addChildNode(node);
+  if (input[_QSCK] != null) {
+    bn.c(se_QueryStringCacheKeys(input[_QSCK], context).n(_QSCK));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlFunctionAssociation
  */
 const se_FunctionAssociation = (input: FunctionAssociation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("FunctionAssociation");
-  if (input.FunctionARN != null) {
-    const node = __XmlNode.of("FunctionARN", input.FunctionARN).withName("FunctionARN");
-    bodyNode.addChildNode(node);
-  }
-  if (input.EventType != null) {
-    const node = __XmlNode.of("EventType", input.EventType).withName("EventType");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_FAu);
+  bn.cc(input, _FARN);
+  bn.cc(input, _ETv);
+  return bn;
 };
 
 /**
@@ -14792,8 +13486,8 @@ const se_FunctionAssociationList = (input: FunctionAssociation[], context: __Ser
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_FunctionAssociation(entry, context);
-      return node.withName("FunctionAssociation");
+      const n = se_FunctionAssociation(entry, context);
+      return n.n(_FAu);
     });
 };
 
@@ -14801,66 +13495,44 @@ const se_FunctionAssociationList = (input: FunctionAssociation[], context: __Ser
  * serializeAws_restXmlFunctionAssociations
  */
 const se_FunctionAssociations = (input: FunctionAssociations, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("FunctionAssociations");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FA);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_FunctionAssociationList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_FunctionAssociationList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlFunctionConfig
  */
 const se_FunctionConfig = (input: FunctionConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("FunctionConfig");
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_FCu);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.Runtime != null) {
-    const node = __XmlNode.of("FunctionRuntime", input.Runtime).withName("Runtime");
-    bodyNode.addChildNode(node);
+  if (input[_Ru] != null) {
+    bn.c(__XmlNode.of(_FR, input[_Ru]).n(_Ru));
   }
-  if (input.KeyValueStoreAssociations != null) {
-    const node = se_KeyValueStoreAssociations(input.KeyValueStoreAssociations, context).withName(
-      "KeyValueStoreAssociations"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_KVSA] != null) {
+    bn.c(se_KeyValueStoreAssociations(input[_KVSA], context).n(_KVSA));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlGeoRestriction
  */
 const se_GeoRestriction = (input: GeoRestriction, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("GeoRestriction");
-  if (input.RestrictionType != null) {
-    const node = __XmlNode.of("GeoRestrictionType", input.RestrictionType).withName("RestrictionType");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_GR);
+  if (input[_RT] != null) {
+    bn.c(__XmlNode.of(_GRT, input[_RT]).n(_RT));
   }
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_LocationList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_LocationList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -14870,8 +13542,8 @@ const se_HeaderList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Name");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_N);
     });
 };
 
@@ -14879,88 +13551,64 @@ const se_HeaderList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlHeaders
  */
 const se_Headers = (input: Headers, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Headers");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_He);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_HeaderList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_HeaderList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlImportSource
  */
 const se_ImportSource = (input: ImportSource, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ImportSource");
-  if (input.SourceType != null) {
-    const node = __XmlNode.of("ImportSourceType", input.SourceType).withName("SourceType");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_IS);
+  if (input[_STo] != null) {
+    bn.c(__XmlNode.of(_IST, input[_STo]).n(_STo));
   }
-  if (input.SourceARN != null) {
-    const node = __XmlNode.of("string", input.SourceARN).withName("SourceARN");
-    bodyNode.addChildNode(node);
+  if (input[_SARN] != null) {
+    bn.c(__XmlNode.of(_st, input[_SARN]).n(_SARN));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlInvalidationBatch
  */
 const se_InvalidationBatch = (input: InvalidationBatch, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("InvalidationBatch");
-  if (input.Paths != null) {
-    const node = se_Paths(input.Paths, context).withName("Paths");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_IB);
+  if (input[_P] != null) {
+    bn.c(se_Paths(input[_P], context).n(_P));
   }
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlKeyGroupConfig
  */
 const se_KeyGroupConfig = (input: KeyGroupConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("KeyGroupConfig");
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_KGC);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.Items != null) {
-    const nodes = se_PublicKeyIdList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
+  bn.lc(input, "Items", "Items", () => se_PublicKeyIdList(input[_It]!, context));
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlKeyValueStoreAssociation
  */
 const se_KeyValueStoreAssociation = (input: KeyValueStoreAssociation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("KeyValueStoreAssociation");
-  if (input.KeyValueStoreARN != null) {
-    const node = __XmlNode.of("KeyValueStoreARN", input.KeyValueStoreARN).withName("KeyValueStoreARN");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_KVSAe);
+  bn.cc(input, _KVSARN);
+  return bn;
 };
 
 /**
@@ -14970,8 +13618,8 @@ const se_KeyValueStoreAssociationList = (input: KeyValueStoreAssociation[], cont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_KeyValueStoreAssociation(entry, context);
-      return node.withName("KeyValueStoreAssociation");
+      const n = se_KeyValueStoreAssociation(entry, context);
+      return n.n(_KVSAe);
     });
 };
 
@@ -14979,56 +13627,39 @@ const se_KeyValueStoreAssociationList = (input: KeyValueStoreAssociation[], cont
  * serializeAws_restXmlKeyValueStoreAssociations
  */
 const se_KeyValueStoreAssociations = (input: KeyValueStoreAssociations, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("KeyValueStoreAssociations");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_KVSA);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_KeyValueStoreAssociationList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_KeyValueStoreAssociationList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlKinesisStreamConfig
  */
 const se_KinesisStreamConfig = (input: KinesisStreamConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("KinesisStreamConfig");
-  if (input.RoleARN != null) {
-    const node = __XmlNode.of("string", input.RoleARN).withName("RoleARN");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_KSC);
+  if (input[_RARN] != null) {
+    bn.c(__XmlNode.of(_st, input[_RARN]).n(_RARN));
   }
-  if (input.StreamARN != null) {
-    const node = __XmlNode.of("string", input.StreamARN).withName("StreamARN");
-    bodyNode.addChildNode(node);
+  if (input[_SARNt] != null) {
+    bn.c(__XmlNode.of(_st, input[_SARNt]).n(_SARNt));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlLambdaFunctionAssociation
  */
 const se_LambdaFunctionAssociation = (input: LambdaFunctionAssociation, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LambdaFunctionAssociation");
-  if (input.LambdaFunctionARN != null) {
-    const node = __XmlNode.of("LambdaFunctionARN", input.LambdaFunctionARN).withName("LambdaFunctionARN");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LFAa);
+  bn.cc(input, _LFARN);
+  bn.cc(input, _ETv);
+  if (input[_IBn] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_IBn])).n(_IBn));
   }
-  if (input.EventType != null) {
-    const node = __XmlNode.of("EventType", input.EventType).withName("EventType");
-    bodyNode.addChildNode(node);
-  }
-  if (input.IncludeBody != null) {
-    const node = __XmlNode.of("boolean", String(input.IncludeBody)).withName("IncludeBody");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15038,8 +13669,8 @@ const se_LambdaFunctionAssociationList = (input: LambdaFunctionAssociation[], co
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_LambdaFunctionAssociation(entry, context);
-      return node.withName("LambdaFunctionAssociation");
+      const n = se_LambdaFunctionAssociation(entry, context);
+      return n.n(_LFAa);
     });
 };
 
@@ -15047,20 +13678,12 @@ const se_LambdaFunctionAssociationList = (input: LambdaFunctionAssociation[], co
  * serializeAws_restXmlLambdaFunctionAssociations
  */
 const se_LambdaFunctionAssociations = (input: LambdaFunctionAssociations, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LambdaFunctionAssociations");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LFA);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_LambdaFunctionAssociationList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_LambdaFunctionAssociationList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15070,8 +13693,8 @@ const se_LocationList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Location");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_L);
     });
 };
 
@@ -15079,24 +13702,20 @@ const se_LocationList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlLoggingConfig
  */
 const se_LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("LoggingConfig");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_LC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.IncludeCookies != null) {
-    const node = __XmlNode.of("boolean", String(input.IncludeCookies)).withName("IncludeCookies");
-    bodyNode.addChildNode(node);
+  if (input[_IC] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_IC])).n(_IC));
   }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("string", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_st, input[_B]).n(_B));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("string", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_Pr] != null) {
+    bn.c(__XmlNode.of(_st, input[_Pr]).n(_Pr));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15106,8 +13725,8 @@ const se_MethodsList = (input: Method[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Method", entry);
-      return node.withName("Method");
+      const n = __XmlNode.of(_Met, entry);
+      return n.n(_Met);
     });
 };
 
@@ -15115,108 +13734,86 @@ const se_MethodsList = (input: Method[], context: __SerdeContext): any => {
  * serializeAws_restXmlMonitoringSubscription
  */
 const se_MonitoringSubscription = (input: MonitoringSubscription, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("MonitoringSubscription");
-  if (input.RealtimeMetricsSubscriptionConfig != null) {
-    const node = se_RealtimeMetricsSubscriptionConfig(input.RealtimeMetricsSubscriptionConfig, context).withName(
-      "RealtimeMetricsSubscriptionConfig"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_MS);
+  if (input[_RMSC] != null) {
+    bn.c(se_RealtimeMetricsSubscriptionConfig(input[_RMSC], context).n(_RMSC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOrigin
  */
 const se_Origin = (input: Origin, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Origin");
-  if (input.Id != null) {
-    const node = __XmlNode.of("string", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Or);
+  if (input[_Id] != null) {
+    bn.c(__XmlNode.of(_st, input[_Id]).n(_Id));
   }
-  if (input.DomainName != null) {
-    const node = __XmlNode.of("string", input.DomainName).withName("DomainName");
-    bodyNode.addChildNode(node);
+  if (input[_DN] != null) {
+    bn.c(__XmlNode.of(_st, input[_DN]).n(_DN));
   }
-  if (input.OriginPath != null) {
-    const node = __XmlNode.of("string", input.OriginPath).withName("OriginPath");
-    bodyNode.addChildNode(node);
+  if (input[_OP] != null) {
+    bn.c(__XmlNode.of(_st, input[_OP]).n(_OP));
   }
-  if (input.CustomHeaders != null) {
-    const node = se_CustomHeaders(input.CustomHeaders, context).withName("CustomHeaders");
-    bodyNode.addChildNode(node);
+  if (input[_CH] != null) {
+    bn.c(se_CustomHeaders(input[_CH], context).n(_CH));
   }
-  if (input.S3OriginConfig != null) {
-    const node = se_S3OriginConfig(input.S3OriginConfig, context).withName("S3OriginConfig");
-    bodyNode.addChildNode(node);
+  if (input[_SOC] != null) {
+    bn.c(se_S3OriginConfig(input[_SOC], context).n(_SOC));
   }
-  if (input.CustomOriginConfig != null) {
-    const node = se_CustomOriginConfig(input.CustomOriginConfig, context).withName("CustomOriginConfig");
-    bodyNode.addChildNode(node);
+  if (input[_COC] != null) {
+    bn.c(se_CustomOriginConfig(input[_COC], context).n(_COC));
   }
-  if (input.ConnectionAttempts != null) {
-    const node = __XmlNode.of("integer", String(input.ConnectionAttempts)).withName("ConnectionAttempts");
-    bodyNode.addChildNode(node);
+  if (input[_CA] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_CA])).n(_CA));
   }
-  if (input.ConnectionTimeout != null) {
-    const node = __XmlNode.of("integer", String(input.ConnectionTimeout)).withName("ConnectionTimeout");
-    bodyNode.addChildNode(node);
+  if (input[_CTon] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_CTon])).n(_CTon));
   }
-  if (input.OriginShield != null) {
-    const node = se_OriginShield(input.OriginShield, context).withName("OriginShield");
-    bodyNode.addChildNode(node);
+  if (input[_OS] != null) {
+    bn.c(se_OriginShield(input[_OS], context).n(_OS));
   }
-  if (input.OriginAccessControlId != null) {
-    const node = __XmlNode.of("string", input.OriginAccessControlId).withName("OriginAccessControlId");
-    bodyNode.addChildNode(node);
+  if (input[_OACI] != null) {
+    bn.c(__XmlNode.of(_st, input[_OACI]).n(_OACI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginAccessControlConfig
  */
 const se_OriginAccessControlConfig = (input: OriginAccessControlConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginAccessControlConfig");
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OACC);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.Description != null) {
-    const node = __XmlNode.of("string", input.Description).withName("Description");
-    bodyNode.addChildNode(node);
+  if (input[_D] != null) {
+    bn.c(__XmlNode.of(_st, input[_D]).n(_D));
   }
-  if (input.SigningProtocol != null) {
-    const node = __XmlNode.of("OriginAccessControlSigningProtocols", input.SigningProtocol).withName("SigningProtocol");
-    bodyNode.addChildNode(node);
+  if (input[_SP] != null) {
+    bn.c(__XmlNode.of(_OACSP, input[_SP]).n(_SP));
   }
-  if (input.SigningBehavior != null) {
-    const node = __XmlNode.of("OriginAccessControlSigningBehaviors", input.SigningBehavior).withName("SigningBehavior");
-    bodyNode.addChildNode(node);
+  if (input[_SB] != null) {
+    bn.c(__XmlNode.of(_OACSB, input[_SB]).n(_SB));
   }
-  if (input.OriginAccessControlOriginType != null) {
-    const node = __XmlNode
-      .of("OriginAccessControlOriginTypes", input.OriginAccessControlOriginType)
-      .withName("OriginAccessControlOriginType");
-    bodyNode.addChildNode(node);
+  if (input[_OACOT] != null) {
+    bn.c(__XmlNode.of(_OACOTr, input[_OACOT]).n(_OACOT));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginCustomHeader
  */
 const se_OriginCustomHeader = (input: OriginCustomHeader, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginCustomHeader");
-  if (input.HeaderName != null) {
-    const node = __XmlNode.of("string", input.HeaderName).withName("HeaderName");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OCH);
+  if (input[_HN] != null) {
+    bn.c(__XmlNode.of(_st, input[_HN]).n(_HN));
   }
-  if (input.HeaderValue != null) {
-    const node = __XmlNode.of("sensitiveStringType", input.HeaderValue).withName("HeaderValue");
-    bodyNode.addChildNode(node);
+  if (input[_HVe] != null) {
+    bn.c(__XmlNode.of(_sST, input[_HVe]).n(_HVe));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15226,8 +13823,8 @@ const se_OriginCustomHeadersList = (input: OriginCustomHeader[], context: __Serd
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_OriginCustomHeader(entry, context);
-      return node.withName("OriginCustomHeader");
+      const n = se_OriginCustomHeader(entry, context);
+      return n.n(_OCH);
     });
 };
 
@@ -15235,32 +13832,28 @@ const se_OriginCustomHeadersList = (input: OriginCustomHeader[], context: __Serd
  * serializeAws_restXmlOriginGroup
  */
 const se_OriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginGroup");
-  if (input.Id != null) {
-    const node = __XmlNode.of("string", input.Id).withName("Id");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OGr);
+  if (input[_Id] != null) {
+    bn.c(__XmlNode.of(_st, input[_Id]).n(_Id));
   }
-  if (input.FailoverCriteria != null) {
-    const node = se_OriginGroupFailoverCriteria(input.FailoverCriteria, context).withName("FailoverCriteria");
-    bodyNode.addChildNode(node);
+  if (input[_FCa] != null) {
+    bn.c(se_OriginGroupFailoverCriteria(input[_FCa], context).n(_FCa));
   }
-  if (input.Members != null) {
-    const node = se_OriginGroupMembers(input.Members, context).withName("Members");
-    bodyNode.addChildNode(node);
+  if (input[_Mem] != null) {
+    bn.c(se_OriginGroupMembers(input[_Mem], context).n(_Mem));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginGroupFailoverCriteria
  */
 const se_OriginGroupFailoverCriteria = (input: OriginGroupFailoverCriteria, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginGroupFailoverCriteria");
-  if (input.StatusCodes != null) {
-    const node = se_StatusCodes(input.StatusCodes, context).withName("StatusCodes");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OGFC);
+  if (input[_SC] != null) {
+    bn.c(se_StatusCodes(input[_SC], context).n(_SC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15270,8 +13863,8 @@ const se_OriginGroupList = (input: OriginGroup[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_OriginGroup(entry, context);
-      return node.withName("OriginGroup");
+      const n = se_OriginGroup(entry, context);
+      return n.n(_OGr);
     });
 };
 
@@ -15279,12 +13872,11 @@ const se_OriginGroupList = (input: OriginGroup[], context: __SerdeContext): any 
  * serializeAws_restXmlOriginGroupMember
  */
 const se_OriginGroupMember = (input: OriginGroupMember, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginGroupMember");
-  if (input.OriginId != null) {
-    const node = __XmlNode.of("string", input.OriginId).withName("OriginId");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OGM);
+  if (input[_OI] != null) {
+    bn.c(__XmlNode.of(_st, input[_OI]).n(_OI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15294,8 +13886,8 @@ const se_OriginGroupMemberList = (input: OriginGroupMember[], context: __SerdeCo
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_OriginGroupMember(entry, context);
-      return node.withName("OriginGroupMember");
+      const n = se_OriginGroupMember(entry, context);
+      return n.n(_OGM);
     });
 };
 
@@ -15303,40 +13895,24 @@ const se_OriginGroupMemberList = (input: OriginGroupMember[], context: __SerdeCo
  * serializeAws_restXmlOriginGroupMembers
  */
 const se_OriginGroupMembers = (input: OriginGroupMembers, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginGroupMembers");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OGMr);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_OriginGroupMemberList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_OriginGroupMemberList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginGroups
  */
 const se_OriginGroups = (input: OriginGroups, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginGroups");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OG);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_OriginGroupList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_OriginGroupList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15346,8 +13922,8 @@ const se_OriginList = (input: Origin[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Origin(entry, context);
-      return node.withName("Origin");
+      const n = se_Origin(entry, context);
+      return n.n(_Or);
     });
 };
 
@@ -15355,62 +13931,51 @@ const se_OriginList = (input: Origin[], context: __SerdeContext): any => {
  * serializeAws_restXmlOriginRequestPolicyConfig
  */
 const se_OriginRequestPolicyConfig = (input: OriginRequestPolicyConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginRequestPolicyConfig");
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ORPC);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.HeadersConfig != null) {
-    const node = se_OriginRequestPolicyHeadersConfig(input.HeadersConfig, context).withName("HeadersConfig");
-    bodyNode.addChildNode(node);
+  if (input[_HC] != null) {
+    bn.c(se_OriginRequestPolicyHeadersConfig(input[_HC], context).n(_HC));
   }
-  if (input.CookiesConfig != null) {
-    const node = se_OriginRequestPolicyCookiesConfig(input.CookiesConfig, context).withName("CookiesConfig");
-    bodyNode.addChildNode(node);
+  if (input[_CC] != null) {
+    bn.c(se_OriginRequestPolicyCookiesConfig(input[_CC], context).n(_CC));
   }
-  if (input.QueryStringsConfig != null) {
-    const node = se_OriginRequestPolicyQueryStringsConfig(input.QueryStringsConfig, context).withName(
-      "QueryStringsConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_QSC] != null) {
+    bn.c(se_OriginRequestPolicyQueryStringsConfig(input[_QSC], context).n(_QSC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginRequestPolicyCookiesConfig
  */
 const se_OriginRequestPolicyCookiesConfig = (input: OriginRequestPolicyCookiesConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginRequestPolicyCookiesConfig");
-  if (input.CookieBehavior != null) {
-    const node = __XmlNode.of("OriginRequestPolicyCookieBehavior", input.CookieBehavior).withName("CookieBehavior");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ORPCC);
+  if (input[_CBo] != null) {
+    bn.c(__XmlNode.of(_ORPCB, input[_CBo]).n(_CBo));
   }
-  if (input.Cookies != null) {
-    const node = se_CookieNames(input.Cookies, context).withName("Cookies");
-    bodyNode.addChildNode(node);
+  if (input[_Coo] != null) {
+    bn.c(se_CookieNames(input[_Coo], context).n(_Coo));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginRequestPolicyHeadersConfig
  */
 const se_OriginRequestPolicyHeadersConfig = (input: OriginRequestPolicyHeadersConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginRequestPolicyHeadersConfig");
-  if (input.HeaderBehavior != null) {
-    const node = __XmlNode.of("OriginRequestPolicyHeaderBehavior", input.HeaderBehavior).withName("HeaderBehavior");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ORPHC);
+  if (input[_HB] != null) {
+    bn.c(__XmlNode.of(_ORPHB, input[_HB]).n(_HB));
   }
-  if (input.Headers != null) {
-    const node = se_Headers(input.Headers, context).withName("Headers");
-    bodyNode.addChildNode(node);
+  if (input[_He] != null) {
+    bn.c(se_Headers(input[_He], context).n(_He));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15420,74 +13985,50 @@ const se_OriginRequestPolicyQueryStringsConfig = (
   input: OriginRequestPolicyQueryStringsConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("OriginRequestPolicyQueryStringsConfig");
-  if (input.QueryStringBehavior != null) {
-    const node = __XmlNode
-      .of("OriginRequestPolicyQueryStringBehavior", input.QueryStringBehavior)
-      .withName("QueryStringBehavior");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_ORPQSC);
+  if (input[_QSB] != null) {
+    bn.c(__XmlNode.of(_ORPQSB, input[_QSB]).n(_QSB));
   }
-  if (input.QueryStrings != null) {
-    const node = se_QueryStringNames(input.QueryStrings, context).withName("QueryStrings");
-    bodyNode.addChildNode(node);
+  if (input[_QS] != null) {
+    bn.c(se_QueryStringNames(input[_QS], context).n(_QS));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOrigins
  */
 const se_Origins = (input: Origins, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Origins");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Ori);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_OriginList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_OriginList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginShield
  */
 const se_OriginShield = (input: OriginShield, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginShield");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OS);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.OriginShieldRegion != null) {
-    const node = __XmlNode.of("OriginShieldRegion", input.OriginShieldRegion).withName("OriginShieldRegion");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _OSR);
+  return bn;
 };
 
 /**
  * serializeAws_restXmlOriginSslProtocols
  */
 const se_OriginSslProtocols = (input: OriginSslProtocols, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("OriginSslProtocols");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_OSP);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_SslProtocolsList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_SslProtocolsList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15497,30 +14038,23 @@ const se_ParametersInCacheKeyAndForwardedToOrigin = (
   input: ParametersInCacheKeyAndForwardedToOrigin,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ParametersInCacheKeyAndForwardedToOrigin");
-  if (input.EnableAcceptEncodingGzip != null) {
-    const node = __XmlNode.of("boolean", String(input.EnableAcceptEncodingGzip)).withName("EnableAcceptEncodingGzip");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PICKAFTO);
+  if (input[_EAEG] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_EAEG])).n(_EAEG));
   }
-  if (input.EnableAcceptEncodingBrotli != null) {
-    const node = __XmlNode
-      .of("boolean", String(input.EnableAcceptEncodingBrotli))
-      .withName("EnableAcceptEncodingBrotli");
-    bodyNode.addChildNode(node);
+  if (input[_EAEB] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_EAEB])).n(_EAEB));
   }
-  if (input.HeadersConfig != null) {
-    const node = se_CachePolicyHeadersConfig(input.HeadersConfig, context).withName("HeadersConfig");
-    bodyNode.addChildNode(node);
+  if (input[_HC] != null) {
+    bn.c(se_CachePolicyHeadersConfig(input[_HC], context).n(_HC));
   }
-  if (input.CookiesConfig != null) {
-    const node = se_CachePolicyCookiesConfig(input.CookiesConfig, context).withName("CookiesConfig");
-    bodyNode.addChildNode(node);
+  if (input[_CC] != null) {
+    bn.c(se_CachePolicyCookiesConfig(input[_CC], context).n(_CC));
   }
-  if (input.QueryStringsConfig != null) {
-    const node = se_CachePolicyQueryStringsConfig(input.QueryStringsConfig, context).withName("QueryStringsConfig");
-    bodyNode.addChildNode(node);
+  if (input[_QSC] != null) {
+    bn.c(se_CachePolicyQueryStringsConfig(input[_QSC], context).n(_QSC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15530,8 +14064,8 @@ const se_PathList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Path");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_Pa);
     });
 };
 
@@ -15539,44 +14073,32 @@ const se_PathList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlPaths
  */
 const se_Paths = (input: Paths, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Paths");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_P);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_PathList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_PathList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPublicKeyConfig
  */
 const se_PublicKeyConfig = (input: PublicKeyConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PublicKeyConfig");
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PKC);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.EncodedKey != null) {
-    const node = __XmlNode.of("string", input.EncodedKey).withName("EncodedKey");
-    bodyNode.addChildNode(node);
+  if (input[_EK] != null) {
+    bn.c(__XmlNode.of(_st, input[_EK]).n(_EK));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15586,8 +14108,8 @@ const se_PublicKeyIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("PublicKey");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_PK);
     });
 };
 
@@ -15595,34 +14117,28 @@ const se_PublicKeyIdList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlQueryArgProfile
  */
 const se_QueryArgProfile = (input: QueryArgProfile, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("QueryArgProfile");
-  if (input.QueryArg != null) {
-    const node = __XmlNode.of("string", input.QueryArg).withName("QueryArg");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_QAP);
+  if (input[_QA] != null) {
+    bn.c(__XmlNode.of(_st, input[_QA]).n(_QA));
   }
-  if (input.ProfileId != null) {
-    const node = __XmlNode.of("string", input.ProfileId).withName("ProfileId");
-    bodyNode.addChildNode(node);
+  if (input[_PI] != null) {
+    bn.c(__XmlNode.of(_st, input[_PI]).n(_PI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlQueryArgProfileConfig
  */
 const se_QueryArgProfileConfig = (input: QueryArgProfileConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("QueryArgProfileConfig");
-  if (input.ForwardWhenQueryArgProfileIsUnknown != null) {
-    const node = __XmlNode
-      .of("boolean", String(input.ForwardWhenQueryArgProfileIsUnknown))
-      .withName("ForwardWhenQueryArgProfileIsUnknown");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_QAPC);
+  if (input[_FWQAPIU] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_FWQAPIU])).n(_FWQAPIU));
   }
-  if (input.QueryArgProfiles != null) {
-    const node = se_QueryArgProfiles(input.QueryArgProfiles, context).withName("QueryArgProfiles");
-    bodyNode.addChildNode(node);
+  if (input[_QAPu] != null) {
+    bn.c(se_QueryArgProfiles(input[_QAPu], context).n(_QAPu));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15632,8 +14148,8 @@ const se_QueryArgProfileList = (input: QueryArgProfile[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_QueryArgProfile(entry, context);
-      return node.withName("QueryArgProfile");
+      const n = se_QueryArgProfile(entry, context);
+      return n.n(_QAP);
     });
 };
 
@@ -15641,40 +14157,24 @@ const se_QueryArgProfileList = (input: QueryArgProfile[], context: __SerdeContex
  * serializeAws_restXmlQueryArgProfiles
  */
 const se_QueryArgProfiles = (input: QueryArgProfiles, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("QueryArgProfiles");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_QAPu);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_QueryArgProfileList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_QueryArgProfileList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlQueryStringCacheKeys
  */
 const se_QueryStringCacheKeys = (input: QueryStringCacheKeys, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("QueryStringCacheKeys");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_QSCK);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_QueryStringCacheKeysList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_QueryStringCacheKeysList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15684,8 +14184,8 @@ const se_QueryStringCacheKeysList = (input: string[], context: __SerdeContext): 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Name");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_N);
     });
 };
 
@@ -15693,20 +14193,12 @@ const se_QueryStringCacheKeysList = (input: string[], context: __SerdeContext): 
  * serializeAws_restXmlQueryStringNames
  */
 const se_QueryStringNames = (input: QueryStringNames, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("QueryStringNames");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_QSN);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_QueryStringNamesList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_QueryStringNamesList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15716,8 +14208,8 @@ const se_QueryStringNamesList = (input: string[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("Name");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_N);
     });
 };
 
@@ -15728,14 +14220,9 @@ const se_RealtimeMetricsSubscriptionConfig = (
   input: RealtimeMetricsSubscriptionConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("RealtimeMetricsSubscriptionConfig");
-  if (input.RealtimeMetricsSubscriptionStatus != null) {
-    const node = __XmlNode
-      .of("RealtimeMetricsSubscriptionStatus", input.RealtimeMetricsSubscriptionStatus)
-      .withName("RealtimeMetricsSubscriptionStatus");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_RMSC);
+  bn.cc(input, _RMSS);
+  return bn;
 };
 
 /**
@@ -15745,20 +14232,12 @@ const se_ResponseHeadersPolicyAccessControlAllowHeaders = (
   input: ResponseHeadersPolicyAccessControlAllowHeaders,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowHeaders");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPACAH);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_AccessControlAllowHeadersList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowHeadersList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15768,20 +14247,12 @@ const se_ResponseHeadersPolicyAccessControlAllowMethods = (
   input: ResponseHeadersPolicyAccessControlAllowMethods,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowMethods");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPACAM);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_AccessControlAllowMethodsList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowMethodsList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15791,20 +14262,12 @@ const se_ResponseHeadersPolicyAccessControlAllowOrigins = (
   input: ResponseHeadersPolicyAccessControlAllowOrigins,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowOrigins");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPACAO);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_AccessControlAllowOriginsList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowOriginsList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -15814,64 +14277,41 @@ const se_ResponseHeadersPolicyAccessControlExposeHeaders = (
   input: ResponseHeadersPolicyAccessControlExposeHeaders,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlExposeHeaders");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPACEH);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_AccessControlExposeHeadersList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_AccessControlExposeHeadersList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlResponseHeadersPolicyConfig
  */
 const se_ResponseHeadersPolicyConfig = (input: ResponseHeadersPolicyConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyConfig");
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPC);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.Name != null) {
-    const node = __XmlNode.of("string", input.Name).withName("Name");
-    bodyNode.addChildNode(node);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
   }
-  if (input.CorsConfig != null) {
-    const node = se_ResponseHeadersPolicyCorsConfig(input.CorsConfig, context).withName("CorsConfig");
-    bodyNode.addChildNode(node);
+  if (input[_CCo] != null) {
+    bn.c(se_ResponseHeadersPolicyCorsConfig(input[_CCo], context).n(_CCo));
   }
-  if (input.SecurityHeadersConfig != null) {
-    const node = se_ResponseHeadersPolicySecurityHeadersConfig(input.SecurityHeadersConfig, context).withName(
-      "SecurityHeadersConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_SHC] != null) {
+    bn.c(se_ResponseHeadersPolicySecurityHeadersConfig(input[_SHC], context).n(_SHC));
   }
-  if (input.ServerTimingHeadersConfig != null) {
-    const node = se_ResponseHeadersPolicyServerTimingHeadersConfig(input.ServerTimingHeadersConfig, context).withName(
-      "ServerTimingHeadersConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_STHC] != null) {
+    bn.c(se_ResponseHeadersPolicyServerTimingHeadersConfig(input[_STHC], context).n(_STHC));
   }
-  if (input.CustomHeadersConfig != null) {
-    const node = se_ResponseHeadersPolicyCustomHeadersConfig(input.CustomHeadersConfig, context).withName(
-      "CustomHeadersConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_CHC] != null) {
+    bn.c(se_ResponseHeadersPolicyCustomHeadersConfig(input[_CHC], context).n(_CHC));
   }
-  if (input.RemoveHeadersConfig != null) {
-    const node = se_ResponseHeadersPolicyRemoveHeadersConfig(input.RemoveHeadersConfig, context).withName(
-      "RemoveHeadersConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_RHC] != null) {
+    bn.c(se_ResponseHeadersPolicyRemoveHeadersConfig(input[_RHC], context).n(_RHC));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15881,16 +14321,14 @@ const se_ResponseHeadersPolicyContentSecurityPolicy = (
   input: ResponseHeadersPolicyContentSecurityPolicy,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyContentSecurityPolicy");
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPCSP);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  if (input.ContentSecurityPolicy != null) {
-    const node = __XmlNode.of("string", input.ContentSecurityPolicy).withName("ContentSecurityPolicy");
-    bodyNode.addChildNode(node);
+  if (input[_CSP] != null) {
+    bn.c(__XmlNode.of(_st, input[_CSP]).n(_CSP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15900,58 +14338,40 @@ const se_ResponseHeadersPolicyContentTypeOptions = (
   input: ResponseHeadersPolicyContentTypeOptions,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyContentTypeOptions");
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPCTO);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlResponseHeadersPolicyCorsConfig
  */
 const se_ResponseHeadersPolicyCorsConfig = (input: ResponseHeadersPolicyCorsConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyCorsConfig");
-  if (input.AccessControlAllowOrigins != null) {
-    const node = se_ResponseHeadersPolicyAccessControlAllowOrigins(input.AccessControlAllowOrigins, context).withName(
-      "AccessControlAllowOrigins"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPCC);
+  if (input[_ACAO] != null) {
+    bn.c(se_ResponseHeadersPolicyAccessControlAllowOrigins(input[_ACAO], context).n(_ACAO));
   }
-  if (input.AccessControlAllowHeaders != null) {
-    const node = se_ResponseHeadersPolicyAccessControlAllowHeaders(input.AccessControlAllowHeaders, context).withName(
-      "AccessControlAllowHeaders"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ACAH] != null) {
+    bn.c(se_ResponseHeadersPolicyAccessControlAllowHeaders(input[_ACAH], context).n(_ACAH));
   }
-  if (input.AccessControlAllowMethods != null) {
-    const node = se_ResponseHeadersPolicyAccessControlAllowMethods(input.AccessControlAllowMethods, context).withName(
-      "AccessControlAllowMethods"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ACAM] != null) {
+    bn.c(se_ResponseHeadersPolicyAccessControlAllowMethods(input[_ACAM], context).n(_ACAM));
   }
-  if (input.AccessControlAllowCredentials != null) {
-    const node = __XmlNode
-      .of("boolean", String(input.AccessControlAllowCredentials))
-      .withName("AccessControlAllowCredentials");
-    bodyNode.addChildNode(node);
+  if (input[_ACAC] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_ACAC])).n(_ACAC));
   }
-  if (input.AccessControlExposeHeaders != null) {
-    const node = se_ResponseHeadersPolicyAccessControlExposeHeaders(input.AccessControlExposeHeaders, context).withName(
-      "AccessControlExposeHeaders"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_ACEH] != null) {
+    bn.c(se_ResponseHeadersPolicyAccessControlExposeHeaders(input[_ACEH], context).n(_ACEH));
   }
-  if (input.AccessControlMaxAgeSec != null) {
-    const node = __XmlNode.of("integer", String(input.AccessControlMaxAgeSec)).withName("AccessControlMaxAgeSec");
-    bodyNode.addChildNode(node);
+  if (input[_ACMAS] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ACMAS])).n(_ACMAS));
   }
-  if (input.OriginOverride != null) {
-    const node = __XmlNode.of("boolean", String(input.OriginOverride)).withName("OriginOverride");
-    bodyNode.addChildNode(node);
+  if (input[_OO] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_OO])).n(_OO));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15961,20 +14381,17 @@ const se_ResponseHeadersPolicyCustomHeader = (
   input: ResponseHeadersPolicyCustomHeader,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyCustomHeader");
-  if (input.Header != null) {
-    const node = __XmlNode.of("string", input.Header).withName("Header");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPCH);
+  if (input[_H] != null) {
+    bn.c(__XmlNode.of(_st, input[_H]).n(_H));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("string", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_st, input[_V]).n(_V));
   }
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -15987,8 +14404,8 @@ const se_ResponseHeadersPolicyCustomHeaderList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ResponseHeadersPolicyCustomHeader(entry, context);
-      return node.withName("ResponseHeadersPolicyCustomHeader");
+      const n = se_ResponseHeadersPolicyCustomHeader(entry, context);
+      return n.n(_RHPCH);
     });
 };
 
@@ -15999,20 +14416,12 @@ const se_ResponseHeadersPolicyCustomHeadersConfig = (
   input: ResponseHeadersPolicyCustomHeadersConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyCustomHeadersConfig");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPCHC);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_ResponseHeadersPolicyCustomHeaderList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyCustomHeaderList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -16022,16 +14431,14 @@ const se_ResponseHeadersPolicyFrameOptions = (
   input: ResponseHeadersPolicyFrameOptions,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyFrameOptions");
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPFO);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  if (input.FrameOption != null) {
-    const node = __XmlNode.of("FrameOptionsList", input.FrameOption).withName("FrameOption");
-    bodyNode.addChildNode(node);
+  if (input[_FO] != null) {
+    bn.c(__XmlNode.of(_FOL, input[_FO]).n(_FO));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16041,16 +14448,14 @@ const se_ResponseHeadersPolicyReferrerPolicy = (
   input: ResponseHeadersPolicyReferrerPolicy,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyReferrerPolicy");
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPRP);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  if (input.ReferrerPolicy != null) {
-    const node = __XmlNode.of("ReferrerPolicyList", input.ReferrerPolicy).withName("ReferrerPolicy");
-    bodyNode.addChildNode(node);
+  if (input[_RP] != null) {
+    bn.c(__XmlNode.of(_RPL, input[_RP]).n(_RP));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16060,12 +14465,11 @@ const se_ResponseHeadersPolicyRemoveHeader = (
   input: ResponseHeadersPolicyRemoveHeader,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyRemoveHeader");
-  if (input.Header != null) {
-    const node = __XmlNode.of("string", input.Header).withName("Header");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPRH);
+  if (input[_H] != null) {
+    bn.c(__XmlNode.of(_st, input[_H]).n(_H));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16078,8 +14482,8 @@ const se_ResponseHeadersPolicyRemoveHeaderList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_ResponseHeadersPolicyRemoveHeader(entry, context);
-      return node.withName("ResponseHeadersPolicyRemoveHeader");
+      const n = se_ResponseHeadersPolicyRemoveHeader(entry, context);
+      return n.n(_RHPRH);
     });
 };
 
@@ -16090,20 +14494,12 @@ const se_ResponseHeadersPolicyRemoveHeadersConfig = (
   input: ResponseHeadersPolicyRemoveHeadersConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyRemoveHeadersConfig");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPRHC);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_ResponseHeadersPolicyRemoveHeaderList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyRemoveHeaderList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -16113,38 +14509,26 @@ const se_ResponseHeadersPolicySecurityHeadersConfig = (
   input: ResponseHeadersPolicySecurityHeadersConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicySecurityHeadersConfig");
-  if (input.XSSProtection != null) {
-    const node = se_ResponseHeadersPolicyXSSProtection(input.XSSProtection, context).withName("XSSProtection");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPSHC);
+  if (input[_XSSP] != null) {
+    bn.c(se_ResponseHeadersPolicyXSSProtection(input[_XSSP], context).n(_XSSP));
   }
-  if (input.FrameOptions != null) {
-    const node = se_ResponseHeadersPolicyFrameOptions(input.FrameOptions, context).withName("FrameOptions");
-    bodyNode.addChildNode(node);
+  if (input[_FOr] != null) {
+    bn.c(se_ResponseHeadersPolicyFrameOptions(input[_FOr], context).n(_FOr));
   }
-  if (input.ReferrerPolicy != null) {
-    const node = se_ResponseHeadersPolicyReferrerPolicy(input.ReferrerPolicy, context).withName("ReferrerPolicy");
-    bodyNode.addChildNode(node);
+  if (input[_RP] != null) {
+    bn.c(se_ResponseHeadersPolicyReferrerPolicy(input[_RP], context).n(_RP));
   }
-  if (input.ContentSecurityPolicy != null) {
-    const node = se_ResponseHeadersPolicyContentSecurityPolicy(input.ContentSecurityPolicy, context).withName(
-      "ContentSecurityPolicy"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_CSP] != null) {
+    bn.c(se_ResponseHeadersPolicyContentSecurityPolicy(input[_CSP], context).n(_CSP));
   }
-  if (input.ContentTypeOptions != null) {
-    const node = se_ResponseHeadersPolicyContentTypeOptions(input.ContentTypeOptions, context).withName(
-      "ContentTypeOptions"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_CTO] != null) {
+    bn.c(se_ResponseHeadersPolicyContentTypeOptions(input[_CTO], context).n(_CTO));
   }
-  if (input.StrictTransportSecurity != null) {
-    const node = se_ResponseHeadersPolicyStrictTransportSecurity(input.StrictTransportSecurity, context).withName(
-      "StrictTransportSecurity"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_STS] != null) {
+    bn.c(se_ResponseHeadersPolicyStrictTransportSecurity(input[_STS], context).n(_STS));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16154,16 +14538,14 @@ const se_ResponseHeadersPolicyServerTimingHeadersConfig = (
   input: ResponseHeadersPolicyServerTimingHeadersConfig,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyServerTimingHeadersConfig");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPSTHC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.SamplingRate != null) {
-    const node = __XmlNode.of("SamplingRate", String(input.SamplingRate)).withName("SamplingRate");
-    bodyNode.addChildNode(node);
+  if (input[_SR] != null) {
+    bn.c(__XmlNode.of(_SR, String(input[_SR])).n(_SR));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16173,24 +14555,20 @@ const se_ResponseHeadersPolicyStrictTransportSecurity = (
   input: ResponseHeadersPolicyStrictTransportSecurity,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyStrictTransportSecurity");
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPSTS);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  if (input.IncludeSubdomains != null) {
-    const node = __XmlNode.of("boolean", String(input.IncludeSubdomains)).withName("IncludeSubdomains");
-    bodyNode.addChildNode(node);
+  if (input[_ISn] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_ISn])).n(_ISn));
   }
-  if (input.Preload != null) {
-    const node = __XmlNode.of("boolean", String(input.Preload)).withName("Preload");
-    bodyNode.addChildNode(node);
+  if (input[_Pre] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Pre])).n(_Pre));
   }
-  if (input.AccessControlMaxAgeSec != null) {
-    const node = __XmlNode.of("integer", String(input.AccessControlMaxAgeSec)).withName("AccessControlMaxAgeSec");
-    bodyNode.addChildNode(node);
+  if (input[_ACMAS] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ACMAS])).n(_ACMAS));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16200,80 +14578,70 @@ const se_ResponseHeadersPolicyXSSProtection = (
   input: ResponseHeadersPolicyXSSProtection,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("ResponseHeadersPolicyXSSProtection");
-  if (input.Override != null) {
-    const node = __XmlNode.of("boolean", String(input.Override)).withName("Override");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RHPXSSP);
+  if (input[_Ov] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
-  if (input.Protection != null) {
-    const node = __XmlNode.of("boolean", String(input.Protection)).withName("Protection");
-    bodyNode.addChildNode(node);
+  if (input[_Pro] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Pro])).n(_Pro));
   }
-  if (input.ModeBlock != null) {
-    const node = __XmlNode.of("boolean", String(input.ModeBlock)).withName("ModeBlock");
-    bodyNode.addChildNode(node);
+  if (input[_MB] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_MB])).n(_MB));
   }
-  if (input.ReportUri != null) {
-    const node = __XmlNode.of("string", input.ReportUri).withName("ReportUri");
-    bodyNode.addChildNode(node);
+  if (input[_RU] != null) {
+    bn.c(__XmlNode.of(_st, input[_RU]).n(_RU));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlRestrictions
  */
 const se_Restrictions = (input: Restrictions, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Restrictions");
-  if (input.GeoRestriction != null) {
-    const node = se_GeoRestriction(input.GeoRestriction, context).withName("GeoRestriction");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Re);
+  if (input[_GR] != null) {
+    bn.c(se_GeoRestriction(input[_GR], context).n(_GR));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3Origin
  */
 const se_S3Origin = (input: S3Origin, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3Origin");
-  if (input.DomainName != null) {
-    const node = __XmlNode.of("string", input.DomainName).withName("DomainName");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SO);
+  if (input[_DN] != null) {
+    bn.c(__XmlNode.of(_st, input[_DN]).n(_DN));
   }
-  if (input.OriginAccessIdentity != null) {
-    const node = __XmlNode.of("string", input.OriginAccessIdentity).withName("OriginAccessIdentity");
-    bodyNode.addChildNode(node);
+  if (input[_OAI] != null) {
+    bn.c(__XmlNode.of(_st, input[_OAI]).n(_OAI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlS3OriginConfig
  */
 const se_S3OriginConfig = (input: S3OriginConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("S3OriginConfig");
-  if (input.OriginAccessIdentity != null) {
-    const node = __XmlNode.of("string", input.OriginAccessIdentity).withName("OriginAccessIdentity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SOC);
+  if (input[_OAI] != null) {
+    bn.c(__XmlNode.of(_st, input[_OAI]).n(_OAI));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlSessionStickinessConfig
  */
 const se_SessionStickinessConfig = (input: SessionStickinessConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("SessionStickinessConfig");
-  if (input.IdleTTL != null) {
-    const node = __XmlNode.of("integer", String(input.IdleTTL)).withName("IdleTTL");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SSC);
+  if (input[_ITTL] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ITTL])).n(_ITTL));
   }
-  if (input.MaximumTTL != null) {
-    const node = __XmlNode.of("integer", String(input.MaximumTTL)).withName("MaximumTTL");
-    bodyNode.addChildNode(node);
+  if (input[_MTTLax] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_MTTLax])).n(_MTTLax));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16283,8 +14651,8 @@ const se_SslProtocolsList = (input: SslProtocol[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("SslProtocol", entry);
-      return node.withName("SslProtocol");
+      const n = __XmlNode.of(_SPs, entry);
+      return n.n(_SPs);
     });
 };
 
@@ -16295,8 +14663,8 @@ const se_StagingDistributionDnsNameList = (input: string[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("DnsName");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_DNn);
     });
 };
 
@@ -16304,20 +14672,12 @@ const se_StagingDistributionDnsNameList = (input: string[], context: __SerdeCont
  * serializeAws_restXmlStagingDistributionDnsNames
  */
 const se_StagingDistributionDnsNames = (input: StagingDistributionDnsNames, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StagingDistributionDnsNames");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SDDN);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_StagingDistributionDnsNameList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_StagingDistributionDnsNameList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -16327,8 +14687,8 @@ const se_StatusCodeList = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("integer", String(entry));
-      return node.withName("StatusCode");
+      const n = __XmlNode.of(_i, String(entry));
+      return n.n(_SCt);
     });
 };
 
@@ -16336,60 +14696,42 @@ const se_StatusCodeList = (input: number[], context: __SerdeContext): any => {
  * serializeAws_restXmlStatusCodes
  */
 const se_StatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StatusCodes");
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SC);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_StatusCodeList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_StatusCodeList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStreamingDistributionConfig
  */
 const se_StreamingDistributionConfig = (input: StreamingDistributionConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StreamingDistributionConfig");
-  if (input.CallerReference != null) {
-    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SDC);
+  if (input[_CR] != null) {
+    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
   }
-  if (input.S3Origin != null) {
-    const node = se_S3Origin(input.S3Origin, context).withName("S3Origin");
-    bodyNode.addChildNode(node);
+  if (input[_SO] != null) {
+    bn.c(se_S3Origin(input[_SO], context).n(_SO));
   }
-  if (input.Aliases != null) {
-    const node = se_Aliases(input.Aliases, context).withName("Aliases");
-    bodyNode.addChildNode(node);
+  if (input[_Al] != null) {
+    bn.c(se_Aliases(input[_Al], context).n(_Al));
   }
-  if (input.Comment != null) {
-    const node = __XmlNode.of("string", input.Comment).withName("Comment");
-    bodyNode.addChildNode(node);
+  if (input[_C] != null) {
+    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
   }
-  if (input.Logging != null) {
-    const node = se_StreamingLoggingConfig(input.Logging, context).withName("Logging");
-    bodyNode.addChildNode(node);
+  if (input[_Lo] != null) {
+    bn.c(se_StreamingLoggingConfig(input[_Lo], context).n(_Lo));
   }
-  if (input.TrustedSigners != null) {
-    const node = se_TrustedSigners(input.TrustedSigners, context).withName("TrustedSigners");
-    bodyNode.addChildNode(node);
+  if (input[_TS] != null) {
+    bn.c(se_TrustedSigners(input[_TS], context).n(_TS));
   }
-  if (input.PriceClass != null) {
-    const node = __XmlNode.of("PriceClass", input.PriceClass).withName("PriceClass");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _PC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16399,54 +14741,45 @@ const se_StreamingDistributionConfigWithTags = (
   input: StreamingDistributionConfigWithTags,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("StreamingDistributionConfigWithTags");
-  if (input.StreamingDistributionConfig != null) {
-    const node = se_StreamingDistributionConfig(input.StreamingDistributionConfig, context).withName(
-      "StreamingDistributionConfig"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SDCWT);
+  if (input[_SDC] != null) {
+    bn.c(se_StreamingDistributionConfig(input[_SDC], context).n(_SDC));
   }
-  if (input.Tags != null) {
-    const node = se_Tags(input.Tags, context).withName("Tags");
-    bodyNode.addChildNode(node);
+  if (input[_Ta] != null) {
+    bn.c(se_Tags(input[_Ta], context).n(_Ta));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlStreamingLoggingConfig
  */
 const se_StreamingLoggingConfig = (input: StreamingLoggingConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StreamingLoggingConfig");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.Bucket != null) {
-    const node = __XmlNode.of("string", input.Bucket).withName("Bucket");
-    bodyNode.addChildNode(node);
+  if (input[_B] != null) {
+    bn.c(__XmlNode.of(_st, input[_B]).n(_B));
   }
-  if (input.Prefix != null) {
-    const node = __XmlNode.of("string", input.Prefix).withName("Prefix");
-    bodyNode.addChildNode(node);
+  if (input[_Pr] != null) {
+    bn.c(__XmlNode.of(_st, input[_Pr]).n(_Pr));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tag");
-  if (input.Key != null) {
-    const node = __XmlNode.of("TagKey", input.Key).withName("Key");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_Tag);
+  if (input[_K] != null) {
+    bn.c(__XmlNode.of(_TK, input[_K]).n(_K));
   }
-  if (input.Value != null) {
-    const node = __XmlNode.of("TagValue", input.Value).withName("Value");
-    bodyNode.addChildNode(node);
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_TV, input[_V]).n(_V));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16456,8 +14789,8 @@ const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("TagKey", entry);
-      return node.withName("Key");
+      const n = __XmlNode.of(_TK, entry);
+      return n.n(_K);
     });
 };
 
@@ -16465,16 +14798,9 @@ const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlTagKeys
  */
 const se_TagKeys = (input: TagKeys, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TagKeys");
-  if (input.Items != null) {
-    const nodes = se_TagKeyList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_TKa);
+  bn.lc(input, "Items", "Items", () => se_TagKeyList(input[_It]!, context));
+  return bn;
 };
 
 /**
@@ -16484,8 +14810,8 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_Tag(entry, context);
-      return node.withName("Tag");
+      const n = se_Tag(entry, context);
+      return n.n(_Tag);
     });
 };
 
@@ -16493,40 +14819,26 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  * serializeAws_restXmlTags
  */
 const se_Tags = (input: Tags, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Tags");
-  if (input.Items != null) {
-    const nodes = se_TagList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  const bn = new __XmlNode(_Ta);
+  bn.lc(input, "Items", "Items", () => se_TagList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTrafficConfig
  */
 const se_TrafficConfig = (input: TrafficConfig, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TrafficConfig");
-  if (input.SingleWeightConfig != null) {
-    const node = se_ContinuousDeploymentSingleWeightConfig(input.SingleWeightConfig, context).withName(
-      "SingleWeightConfig"
-    );
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_TC);
+  if (input[_SWC] != null) {
+    bn.c(se_ContinuousDeploymentSingleWeightConfig(input[_SWC], context).n(_SWC));
   }
-  if (input.SingleHeaderConfig != null) {
-    const node = se_ContinuousDeploymentSingleHeaderConfig(input.SingleHeaderConfig, context).withName(
-      "SingleHeaderConfig"
-    );
-    bodyNode.addChildNode(node);
+  if (input[_SHCi] != null) {
+    bn.c(se_ContinuousDeploymentSingleHeaderConfig(input[_SHCi], context).n(_SHCi));
   }
-  if (input.Type != null) {
-    const node = __XmlNode.of("ContinuousDeploymentPolicyType", input.Type).withName("Type");
-    bodyNode.addChildNode(node);
+  if (input[_T] != null) {
+    bn.c(__XmlNode.of(_CDPT, input[_T]).n(_T));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -16536,8 +14848,8 @@ const se_TrustedKeyGroupIdList = (input: string[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("string", entry);
-      return node.withName("KeyGroup");
+      const n = __XmlNode.of(_st, entry);
+      return n.n(_KG);
     });
 };
 
@@ -16545,88 +14857,53 @@ const se_TrustedKeyGroupIdList = (input: string[], context: __SerdeContext): any
  * serializeAws_restXmlTrustedKeyGroups
  */
 const se_TrustedKeyGroups = (input: TrustedKeyGroups, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TrustedKeyGroups");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_TKG);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_TrustedKeyGroupIdList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_TrustedKeyGroupIdList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlTrustedSigners
  */
 const se_TrustedSigners = (input: TrustedSigners, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("TrustedSigners");
-  if (input.Enabled != null) {
-    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_TS);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input.Quantity != null) {
-    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
-    bodyNode.addChildNode(node);
+  if (input[_Q] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  if (input.Items != null) {
-    const nodes = se_AwsAccountNumberList(input.Items, context);
-    const containerNode = new __XmlNode("Items");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  return bodyNode;
+  bn.lc(input, "Items", "Items", () => se_AwsAccountNumberList(input[_It]!, context));
+  return bn;
 };
 
 /**
  * serializeAws_restXmlViewerCertificate
  */
 const se_ViewerCertificate = (input: ViewerCertificate, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("ViewerCertificate");
-  if (input.CloudFrontDefaultCertificate != null) {
-    const node = __XmlNode
-      .of("boolean", String(input.CloudFrontDefaultCertificate))
-      .withName("CloudFrontDefaultCertificate");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_VC);
+  if (input[_CFDC] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_CFDC])).n(_CFDC));
   }
-  if (input.IAMCertificateId != null) {
-    const node = __XmlNode.of("string", input.IAMCertificateId).withName("IAMCertificateId");
-    bodyNode.addChildNode(node);
+  if (input[_IAMCI] != null) {
+    bn.c(__XmlNode.of(_st, input[_IAMCI]).n(_IAMCI));
   }
-  if (input.ACMCertificateArn != null) {
-    const node = __XmlNode.of("string", input.ACMCertificateArn).withName("ACMCertificateArn");
-    bodyNode.addChildNode(node);
+  if (input[_ACMCA] != null) {
+    bn.c(__XmlNode.of(_st, input[_ACMCA]).n(_ACMCA));
   }
-  if (input.SSLSupportMethod != null) {
-    const node = __XmlNode.of("SSLSupportMethod", input.SSLSupportMethod).withName("SSLSupportMethod");
-    bodyNode.addChildNode(node);
+  bn.cc(input, _SSLSM);
+  bn.cc(input, _MPV);
+  if (input[_Ce] != null) {
+    bn.c(__XmlNode.of(_st, input[_Ce]).n(_Ce));
   }
-  if (input.MinimumProtocolVersion != null) {
-    const node = __XmlNode
-      .of("MinimumProtocolVersion", input.MinimumProtocolVersion)
-      .withName("MinimumProtocolVersion");
-    bodyNode.addChildNode(node);
-  }
-  if (input.Certificate != null) {
-    const node = __XmlNode.of("string", input.Certificate).withName("Certificate");
-    bodyNode.addChildNode(node);
-  }
-  if (input.CertificateSource != null) {
-    const node = __XmlNode.of("CertificateSource", input.CertificateSource).withName("CertificateSource");
-    bodyNode.addChildNode(node);
-  }
-  return bodyNode;
+  bn.cc(input, _CS);
+  return bn;
 };
 
 /**
@@ -16681,16 +14958,16 @@ const de_AccessControlExposeHeadersList = (output: any, context: __SerdeContext)
  */
 const de_ActiveTrustedKeyGroups = (output: any, context: __SerdeContext): ActiveTrustedKeyGroups => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["KeyGroup"] !== undefined) {
-    contents.Items = de_KGKeyPairIdsList(__getArrayIfSingleItem(output["Items"]["KeyGroup"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KG] != null) {
+    contents[_It] = de_KGKeyPairIdsList(__getArrayIfSingleItem(output[_It][_KG]), context);
   }
   return contents;
 };
@@ -16700,16 +14977,16 @@ const de_ActiveTrustedKeyGroups = (output: any, context: __SerdeContext): Active
  */
 const de_ActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTrustedSigners => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Signer"] !== undefined) {
-    contents.Items = de_SignerList(__getArrayIfSingleItem(output["Items"]["Signer"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Si] != null) {
+    contents[_It] = de_SignerList(__getArrayIfSingleItem(output[_It][_Si]), context);
   }
   return contents;
 };
@@ -16719,13 +14996,13 @@ const de_ActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTr
  */
 const de_Aliases = (output: any, context: __SerdeContext): Aliases => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
-    contents.Items = de_AliasList(__getArrayIfSingleItem(output["Items"]["CNAME"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CNAME] != null) {
+    contents[_It] = de_AliasList(__getArrayIfSingleItem(output[_It][_CNAME]), context);
   }
   return contents;
 };
@@ -16735,11 +15012,11 @@ const de_Aliases = (output: any, context: __SerdeContext): Aliases => {
  */
 const de_AliasICPRecordal = (output: any, context: __SerdeContext): AliasICPRecordal => {
   const contents: any = {};
-  if (output["CNAME"] !== undefined) {
-    contents.CNAME = __expectString(output["CNAME"]);
+  if (output[_CNAME] != null) {
+    contents[_CNAME] = __expectString(output[_CNAME]);
   }
-  if (output["ICPRecordalStatus"] !== undefined) {
-    contents.ICPRecordalStatus = __expectString(output["ICPRecordalStatus"]);
+  if (output[_ICPRS] != null) {
+    contents[_ICPRS] = __expectString(output[_ICPRS]);
   }
   return contents;
 };
@@ -16771,16 +15048,16 @@ const de_AliasList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_AllowedMethods = (output: any, context: __SerdeContext): AllowedMethods => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
-    contents.Items = de_MethodsList(__getArrayIfSingleItem(output["Items"]["Method"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Met] != null) {
+    contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
   }
-  if (output["CachedMethods"] !== undefined) {
-    contents.CachedMethods = de_CachedMethods(output["CachedMethods"], context);
+  if (output[_CM] != null) {
+    contents[_CM] = de_CachedMethods(output[_CM], context);
   }
   return contents;
 };
@@ -16801,62 +15078,62 @@ const de_AwsAccountNumberList = (output: any, context: __SerdeContext): string[]
  */
 const de_CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
   const contents: any = {};
-  if (output["PathPattern"] !== undefined) {
-    contents.PathPattern = __expectString(output["PathPattern"]);
+  if (output[_PP] != null) {
+    contents[_PP] = __expectString(output[_PP]);
   }
-  if (output["TargetOriginId"] !== undefined) {
-    contents.TargetOriginId = __expectString(output["TargetOriginId"]);
+  if (output[_TOI] != null) {
+    contents[_TOI] = __expectString(output[_TOI]);
   }
-  if (output["TrustedSigners"] !== undefined) {
-    contents.TrustedSigners = de_TrustedSigners(output["TrustedSigners"], context);
+  if (output[_TS] != null) {
+    contents[_TS] = de_TrustedSigners(output[_TS], context);
   }
-  if (output["TrustedKeyGroups"] !== undefined) {
-    contents.TrustedKeyGroups = de_TrustedKeyGroups(output["TrustedKeyGroups"], context);
+  if (output[_TKG] != null) {
+    contents[_TKG] = de_TrustedKeyGroups(output[_TKG], context);
   }
-  if (output["ViewerProtocolPolicy"] !== undefined) {
-    contents.ViewerProtocolPolicy = __expectString(output["ViewerProtocolPolicy"]);
+  if (output[_VPP] != null) {
+    contents[_VPP] = __expectString(output[_VPP]);
   }
-  if (output["AllowedMethods"] !== undefined) {
-    contents.AllowedMethods = de_AllowedMethods(output["AllowedMethods"], context);
+  if (output[_AM] != null) {
+    contents[_AM] = de_AllowedMethods(output[_AM], context);
   }
-  if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming = __parseBoolean(output["SmoothStreaming"]);
+  if (output[_SS] != null) {
+    contents[_SS] = __parseBoolean(output[_SS]);
   }
-  if (output["Compress"] !== undefined) {
-    contents.Compress = __parseBoolean(output["Compress"]);
+  if (output[_Co] != null) {
+    contents[_Co] = __parseBoolean(output[_Co]);
   }
-  if (output["LambdaFunctionAssociations"] !== undefined) {
-    contents.LambdaFunctionAssociations = de_LambdaFunctionAssociations(output["LambdaFunctionAssociations"], context);
+  if (output[_LFA] != null) {
+    contents[_LFA] = de_LambdaFunctionAssociations(output[_LFA], context);
   }
-  if (output["FunctionAssociations"] !== undefined) {
-    contents.FunctionAssociations = de_FunctionAssociations(output["FunctionAssociations"], context);
+  if (output[_FA] != null) {
+    contents[_FA] = de_FunctionAssociations(output[_FA], context);
   }
-  if (output["FieldLevelEncryptionId"] !== undefined) {
-    contents.FieldLevelEncryptionId = __expectString(output["FieldLevelEncryptionId"]);
+  if (output[_FLEI] != null) {
+    contents[_FLEI] = __expectString(output[_FLEI]);
   }
-  if (output["RealtimeLogConfigArn"] !== undefined) {
-    contents.RealtimeLogConfigArn = __expectString(output["RealtimeLogConfigArn"]);
+  if (output[_RLCA] != null) {
+    contents[_RLCA] = __expectString(output[_RLCA]);
   }
-  if (output["CachePolicyId"] !== undefined) {
-    contents.CachePolicyId = __expectString(output["CachePolicyId"]);
+  if (output[_CPI] != null) {
+    contents[_CPI] = __expectString(output[_CPI]);
   }
-  if (output["OriginRequestPolicyId"] !== undefined) {
-    contents.OriginRequestPolicyId = __expectString(output["OriginRequestPolicyId"]);
+  if (output[_ORPI] != null) {
+    contents[_ORPI] = __expectString(output[_ORPI]);
   }
-  if (output["ResponseHeadersPolicyId"] !== undefined) {
-    contents.ResponseHeadersPolicyId = __expectString(output["ResponseHeadersPolicyId"]);
+  if (output[_RHPI] != null) {
+    contents[_RHPI] = __expectString(output[_RHPI]);
   }
-  if (output["ForwardedValues"] !== undefined) {
-    contents.ForwardedValues = de_ForwardedValues(output["ForwardedValues"], context);
+  if (output[_FV] != null) {
+    contents[_FV] = de_ForwardedValues(output[_FV], context);
   }
-  if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = __strictParseLong(output["MinTTL"]) as number;
+  if (output[_MTTL] != null) {
+    contents[_MTTL] = __strictParseLong(output[_MTTL]) as number;
   }
-  if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = __strictParseLong(output["DefaultTTL"]) as number;
+  if (output[_DTTL] != null) {
+    contents[_DTTL] = __strictParseLong(output[_DTTL]) as number;
   }
-  if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = __strictParseLong(output["MaxTTL"]) as number;
+  if (output[_MTTLa] != null) {
+    contents[_MTTLa] = __strictParseLong(output[_MTTLa]) as number;
   }
   return contents;
 };
@@ -16877,13 +15154,13 @@ const de_CacheBehaviorList = (output: any, context: __SerdeContext): CacheBehavi
  */
 const de_CacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["CacheBehavior"] !== undefined) {
-    contents.Items = de_CacheBehaviorList(__getArrayIfSingleItem(output["Items"]["CacheBehavior"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CB] != null) {
+    contents[_It] = de_CacheBehaviorList(__getArrayIfSingleItem(output[_It][_CB]), context);
   }
   return contents;
 };
@@ -16893,13 +15170,13 @@ const de_CacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors
  */
 const de_CachedMethods = (output: any, context: __SerdeContext): CachedMethods => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
-    contents.Items = de_MethodsList(__getArrayIfSingleItem(output["Items"]["Method"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Met] != null) {
+    contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
   }
   return contents;
 };
@@ -16909,14 +15186,14 @@ const de_CachedMethods = (output: any, context: __SerdeContext): CachedMethods =
  */
 const de_CachePolicy = (output: any, context: __SerdeContext): CachePolicy => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["CachePolicyConfig"] !== undefined) {
-    contents.CachePolicyConfig = de_CachePolicyConfig(output["CachePolicyConfig"], context);
+  if (output[_CPC] != null) {
+    contents[_CPC] = de_CachePolicyConfig(output[_CPC], context);
   }
   return contents;
 };
@@ -16926,26 +15203,23 @@ const de_CachePolicy = (output: any, context: __SerdeContext): CachePolicy => {
  */
 const de_CachePolicyConfig = (output: any, context: __SerdeContext): CachePolicyConfig => {
   const contents: any = {};
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = __strictParseLong(output["DefaultTTL"]) as number;
+  if (output[_DTTL] != null) {
+    contents[_DTTL] = __strictParseLong(output[_DTTL]) as number;
   }
-  if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = __strictParseLong(output["MaxTTL"]) as number;
+  if (output[_MTTLa] != null) {
+    contents[_MTTLa] = __strictParseLong(output[_MTTLa]) as number;
   }
-  if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = __strictParseLong(output["MinTTL"]) as number;
+  if (output[_MTTL] != null) {
+    contents[_MTTL] = __strictParseLong(output[_MTTL]) as number;
   }
-  if (output["ParametersInCacheKeyAndForwardedToOrigin"] !== undefined) {
-    contents.ParametersInCacheKeyAndForwardedToOrigin = de_ParametersInCacheKeyAndForwardedToOrigin(
-      output["ParametersInCacheKeyAndForwardedToOrigin"],
-      context
-    );
+  if (output[_PICKAFTO] != null) {
+    contents[_PICKAFTO] = de_ParametersInCacheKeyAndForwardedToOrigin(output[_PICKAFTO], context);
   }
   return contents;
 };
@@ -16955,11 +15229,11 @@ const de_CachePolicyConfig = (output: any, context: __SerdeContext): CachePolicy
  */
 const de_CachePolicyCookiesConfig = (output: any, context: __SerdeContext): CachePolicyCookiesConfig => {
   const contents: any = {};
-  if (output["CookieBehavior"] !== undefined) {
-    contents.CookieBehavior = __expectString(output["CookieBehavior"]);
+  if (output[_CBo] != null) {
+    contents[_CBo] = __expectString(output[_CBo]);
   }
-  if (output["Cookies"] !== undefined) {
-    contents.Cookies = de_CookieNames(output["Cookies"], context);
+  if (output[_Coo] != null) {
+    contents[_Coo] = de_CookieNames(output[_Coo], context);
   }
   return contents;
 };
@@ -16969,11 +15243,11 @@ const de_CachePolicyCookiesConfig = (output: any, context: __SerdeContext): Cach
  */
 const de_CachePolicyHeadersConfig = (output: any, context: __SerdeContext): CachePolicyHeadersConfig => {
   const contents: any = {};
-  if (output["HeaderBehavior"] !== undefined) {
-    contents.HeaderBehavior = __expectString(output["HeaderBehavior"]);
+  if (output[_HB] != null) {
+    contents[_HB] = __expectString(output[_HB]);
   }
-  if (output["Headers"] !== undefined) {
-    contents.Headers = de_Headers(output["Headers"], context);
+  if (output[_He] != null) {
+    contents[_He] = de_Headers(output[_He], context);
   }
   return contents;
 };
@@ -16983,19 +15257,19 @@ const de_CachePolicyHeadersConfig = (output: any, context: __SerdeContext): Cach
  */
 const de_CachePolicyList = (output: any, context: __SerdeContext): CachePolicyList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["CachePolicySummary"] !== undefined) {
-    contents.Items = de_CachePolicySummaryList(__getArrayIfSingleItem(output["Items"]["CachePolicySummary"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CPS] != null) {
+    contents[_It] = de_CachePolicySummaryList(__getArrayIfSingleItem(output[_It][_CPS]), context);
   }
   return contents;
 };
@@ -17005,11 +15279,11 @@ const de_CachePolicyList = (output: any, context: __SerdeContext): CachePolicyLi
  */
 const de_CachePolicyQueryStringsConfig = (output: any, context: __SerdeContext): CachePolicyQueryStringsConfig => {
   const contents: any = {};
-  if (output["QueryStringBehavior"] !== undefined) {
-    contents.QueryStringBehavior = __expectString(output["QueryStringBehavior"]);
+  if (output[_QSB] != null) {
+    contents[_QSB] = __expectString(output[_QSB]);
   }
-  if (output["QueryStrings"] !== undefined) {
-    contents.QueryStrings = de_QueryStringNames(output["QueryStrings"], context);
+  if (output[_QS] != null) {
+    contents[_QS] = de_QueryStringNames(output[_QS], context);
   }
   return contents;
 };
@@ -17019,11 +15293,11 @@ const de_CachePolicyQueryStringsConfig = (output: any, context: __SerdeContext):
  */
 const de_CachePolicySummary = (output: any, context: __SerdeContext): CachePolicySummary => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["CachePolicy"] !== undefined) {
-    contents.CachePolicy = de_CachePolicy(output["CachePolicy"], context);
+  if (output[_CPa] != null) {
+    contents[_CPa] = de_CachePolicy(output[_CPa], context);
   }
   return contents;
 };
@@ -17044,17 +15318,14 @@ const de_CachePolicySummaryList = (output: any, context: __SerdeContext): CacheP
  */
 const de_CloudFrontOriginAccessIdentity = (output: any, context: __SerdeContext): CloudFrontOriginAccessIdentity => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["S3CanonicalUserId"] !== undefined) {
-    contents.S3CanonicalUserId = __expectString(output["S3CanonicalUserId"]);
+  if (output[_SCUI] != null) {
+    contents[_SCUI] = __expectString(output[_SCUI]);
   }
-  if (output["CloudFrontOriginAccessIdentityConfig"] !== undefined) {
-    contents.CloudFrontOriginAccessIdentityConfig = de_CloudFrontOriginAccessIdentityConfig(
-      output["CloudFrontOriginAccessIdentityConfig"],
-      context
-    );
+  if (output[_CFOAIC] != null) {
+    contents[_CFOAIC] = de_CloudFrontOriginAccessIdentityConfig(output[_CFOAIC], context);
   }
   return contents;
 };
@@ -17067,11 +15338,11 @@ const de_CloudFrontOriginAccessIdentityConfig = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentityConfig => {
   const contents: any = {};
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -17084,28 +15355,25 @@ const de_CloudFrontOriginAccessIdentityList = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentityList => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["CloudFrontOriginAccessIdentitySummary"] !== undefined) {
-    contents.Items = de_CloudFrontOriginAccessIdentitySummaryList(
-      __getArrayIfSingleItem(output["Items"]["CloudFrontOriginAccessIdentitySummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CFOAIS] != null) {
+    contents[_It] = de_CloudFrontOriginAccessIdentitySummaryList(__getArrayIfSingleItem(output[_It][_CFOAIS]), context);
   }
   return contents;
 };
@@ -17118,14 +15386,14 @@ const de_CloudFrontOriginAccessIdentitySummary = (
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentitySummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["S3CanonicalUserId"] !== undefined) {
-    contents.S3CanonicalUserId = __expectString(output["S3CanonicalUserId"]);
+  if (output[_SCUI] != null) {
+    contents[_SCUI] = __expectString(output[_SCUI]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -17149,14 +15417,14 @@ const de_CloudFrontOriginAccessIdentitySummaryList = (
  */
 const de_ConflictingAlias = (output: any, context: __SerdeContext): ConflictingAlias => {
   const contents: any = {};
-  if (output["Alias"] !== undefined) {
-    contents.Alias = __expectString(output["Alias"]);
+  if (output[_A] != null) {
+    contents[_A] = __expectString(output[_A]);
   }
-  if (output["DistributionId"] !== undefined) {
-    contents.DistributionId = __expectString(output["DistributionId"]);
+  if (output[_DI] != null) {
+    contents[_DI] = __expectString(output[_DI]);
   }
-  if (output["AccountId"] !== undefined) {
-    contents.AccountId = __expectString(output["AccountId"]);
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
   }
   return contents;
 };
@@ -17177,19 +15445,19 @@ const de_ConflictingAliases = (output: any, context: __SerdeContext): Conflictin
  */
 const de_ConflictingAliasesList = (output: any, context: __SerdeContext): ConflictingAliasesList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["ConflictingAlias"] !== undefined) {
-    contents.Items = de_ConflictingAliases(__getArrayIfSingleItem(output["Items"]["ConflictingAlias"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CAo] != null) {
+    contents[_It] = de_ConflictingAliases(__getArrayIfSingleItem(output[_It][_CAo]), context);
   }
   return contents;
 };
@@ -17199,14 +15467,14 @@ const de_ConflictingAliasesList = (output: any, context: __SerdeContext): Confli
  */
 const de_ContentTypeProfile = (output: any, context: __SerdeContext): ContentTypeProfile => {
   const contents: any = {};
-  if (output["Format"] !== undefined) {
-    contents.Format = __expectString(output["Format"]);
+  if (output[_Fo] != null) {
+    contents[_Fo] = __expectString(output[_Fo]);
   }
-  if (output["ProfileId"] !== undefined) {
-    contents.ProfileId = __expectString(output["ProfileId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
-  if (output["ContentType"] !== undefined) {
-    contents.ContentType = __expectString(output["ContentType"]);
+  if (output[_CT] != null) {
+    contents[_CT] = __expectString(output[_CT]);
   }
   return contents;
 };
@@ -17216,11 +15484,11 @@ const de_ContentTypeProfile = (output: any, context: __SerdeContext): ContentTyp
  */
 const de_ContentTypeProfileConfig = (output: any, context: __SerdeContext): ContentTypeProfileConfig => {
   const contents: any = {};
-  if (output["ForwardWhenContentTypeIsUnknown"] !== undefined) {
-    contents.ForwardWhenContentTypeIsUnknown = __parseBoolean(output["ForwardWhenContentTypeIsUnknown"]);
+  if (output[_FWCTIU] != null) {
+    contents[_FWCTIU] = __parseBoolean(output[_FWCTIU]);
   }
-  if (output["ContentTypeProfiles"] !== undefined) {
-    contents.ContentTypeProfiles = de_ContentTypeProfiles(output["ContentTypeProfiles"], context);
+  if (output[_CTPo] != null) {
+    contents[_CTPo] = de_ContentTypeProfiles(output[_CTPo], context);
   }
   return contents;
 };
@@ -17241,13 +15509,13 @@ const de_ContentTypeProfileList = (output: any, context: __SerdeContext): Conten
  */
 const de_ContentTypeProfiles = (output: any, context: __SerdeContext): ContentTypeProfiles => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["ContentTypeProfile"] !== undefined) {
-    contents.Items = de_ContentTypeProfileList(__getArrayIfSingleItem(output["Items"]["ContentTypeProfile"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CTP] != null) {
+    contents[_It] = de_ContentTypeProfileList(__getArrayIfSingleItem(output[_It][_CTP]), context);
   }
   return contents;
 };
@@ -17257,17 +15525,14 @@ const de_ContentTypeProfiles = (output: any, context: __SerdeContext): ContentTy
  */
 const de_ContinuousDeploymentPolicy = (output: any, context: __SerdeContext): ContinuousDeploymentPolicy => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["ContinuousDeploymentPolicyConfig"] !== undefined) {
-    contents.ContinuousDeploymentPolicyConfig = de_ContinuousDeploymentPolicyConfig(
-      output["ContinuousDeploymentPolicyConfig"],
-      context
-    );
+  if (output[_CDPC] != null) {
+    contents[_CDPC] = de_ContinuousDeploymentPolicyConfig(output[_CDPC], context);
   }
   return contents;
 };
@@ -17280,17 +15545,14 @@ const de_ContinuousDeploymentPolicyConfig = (
   context: __SerdeContext
 ): ContinuousDeploymentPolicyConfig => {
   const contents: any = {};
-  if (output["StagingDistributionDnsNames"] !== undefined) {
-    contents.StagingDistributionDnsNames = de_StagingDistributionDnsNames(
-      output["StagingDistributionDnsNames"],
-      context
-    );
+  if (output[_SDDN] != null) {
+    contents[_SDDN] = de_StagingDistributionDnsNames(output[_SDDN], context);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["TrafficConfig"] !== undefined) {
-    contents.TrafficConfig = de_TrafficConfig(output["TrafficConfig"], context);
+  if (output[_TC] != null) {
+    contents[_TC] = de_TrafficConfig(output[_TC], context);
   }
   return contents;
 };
@@ -17300,22 +15562,19 @@ const de_ContinuousDeploymentPolicyConfig = (
  */
 const de_ContinuousDeploymentPolicyList = (output: any, context: __SerdeContext): ContinuousDeploymentPolicyList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["ContinuousDeploymentPolicySummary"] !== undefined) {
-    contents.Items = de_ContinuousDeploymentPolicySummaryList(
-      __getArrayIfSingleItem(output["Items"]["ContinuousDeploymentPolicySummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CDPS] != null) {
+    contents[_It] = de_ContinuousDeploymentPolicySummaryList(__getArrayIfSingleItem(output[_It][_CDPS]), context);
   }
   return contents;
 };
@@ -17328,8 +15587,8 @@ const de_ContinuousDeploymentPolicySummary = (
   context: __SerdeContext
 ): ContinuousDeploymentPolicySummary => {
   const contents: any = {};
-  if (output["ContinuousDeploymentPolicy"] !== undefined) {
-    contents.ContinuousDeploymentPolicy = de_ContinuousDeploymentPolicy(output["ContinuousDeploymentPolicy"], context);
+  if (output[_CDP] != null) {
+    contents[_CDP] = de_ContinuousDeploymentPolicy(output[_CDP], context);
   }
   return contents;
 };
@@ -17356,11 +15615,11 @@ const de_ContinuousDeploymentSingleHeaderConfig = (
   context: __SerdeContext
 ): ContinuousDeploymentSingleHeaderConfig => {
   const contents: any = {};
-  if (output["Header"] !== undefined) {
-    contents.Header = __expectString(output["Header"]);
+  if (output[_H] != null) {
+    contents[_H] = __expectString(output[_H]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -17373,11 +15632,11 @@ const de_ContinuousDeploymentSingleWeightConfig = (
   context: __SerdeContext
 ): ContinuousDeploymentSingleWeightConfig => {
   const contents: any = {};
-  if (output["Weight"] !== undefined) {
-    contents.Weight = __strictParseFloat(output["Weight"]) as number;
+  if (output[_W] != null) {
+    contents[_W] = __strictParseFloat(output[_W]) as number;
   }
-  if (output["SessionStickinessConfig"] !== undefined) {
-    contents.SessionStickinessConfig = de_SessionStickinessConfig(output["SessionStickinessConfig"], context);
+  if (output[_SSC] != null) {
+    contents[_SSC] = de_SessionStickinessConfig(output[_SSC], context);
   }
   return contents;
 };
@@ -17398,13 +15657,13 @@ const de_CookieNameList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_CookieNames = (output: any, context: __SerdeContext): CookieNames => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    contents.Items = de_CookieNameList(__getArrayIfSingleItem(output["Items"]["Name"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_CookieNameList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -17414,11 +15673,11 @@ const de_CookieNames = (output: any, context: __SerdeContext): CookieNames => {
  */
 const de_CookiePreference = (output: any, context: __SerdeContext): CookiePreference => {
   const contents: any = {};
-  if (output["Forward"] !== undefined) {
-    contents.Forward = __expectString(output["Forward"]);
+  if (output[_For] != null) {
+    contents[_For] = __expectString(output[_For]);
   }
-  if (output["WhitelistedNames"] !== undefined) {
-    contents.WhitelistedNames = de_CookieNames(output["WhitelistedNames"], context);
+  if (output[_WN] != null) {
+    contents[_WN] = de_CookieNames(output[_WN], context);
   }
   return contents;
 };
@@ -17428,17 +15687,17 @@ const de_CookiePreference = (output: any, context: __SerdeContext): CookiePrefer
  */
 const de_CustomErrorResponse = (output: any, context: __SerdeContext): CustomErrorResponse => {
   const contents: any = {};
-  if (output["ErrorCode"] !== undefined) {
-    contents.ErrorCode = __strictParseInt32(output["ErrorCode"]) as number;
+  if (output[_EC] != null) {
+    contents[_EC] = __strictParseInt32(output[_EC]) as number;
   }
-  if (output["ResponsePagePath"] !== undefined) {
-    contents.ResponsePagePath = __expectString(output["ResponsePagePath"]);
+  if (output[_RPP] != null) {
+    contents[_RPP] = __expectString(output[_RPP]);
   }
-  if (output["ResponseCode"] !== undefined) {
-    contents.ResponseCode = __expectString(output["ResponseCode"]);
+  if (output[_RC] != null) {
+    contents[_RC] = __expectString(output[_RC]);
   }
-  if (output["ErrorCachingMinTTL"] !== undefined) {
-    contents.ErrorCachingMinTTL = __strictParseLong(output["ErrorCachingMinTTL"]) as number;
+  if (output[_ECMTTL] != null) {
+    contents[_ECMTTL] = __strictParseLong(output[_ECMTTL]) as number;
   }
   return contents;
 };
@@ -17459,16 +15718,13 @@ const de_CustomErrorResponseList = (output: any, context: __SerdeContext): Custo
  */
 const de_CustomErrorResponses = (output: any, context: __SerdeContext): CustomErrorResponses => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["CustomErrorResponse"] !== undefined) {
-    contents.Items = de_CustomErrorResponseList(
-      __getArrayIfSingleItem(output["Items"]["CustomErrorResponse"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CER] != null) {
+    contents[_It] = de_CustomErrorResponseList(__getArrayIfSingleItem(output[_It][_CER]), context);
   }
   return contents;
 };
@@ -17478,13 +15734,13 @@ const de_CustomErrorResponses = (output: any, context: __SerdeContext): CustomEr
  */
 const de_CustomHeaders = (output: any, context: __SerdeContext): CustomHeaders => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["OriginCustomHeader"] !== undefined) {
-    contents.Items = de_OriginCustomHeadersList(__getArrayIfSingleItem(output["Items"]["OriginCustomHeader"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OCH] != null) {
+    contents[_It] = de_OriginCustomHeadersList(__getArrayIfSingleItem(output[_It][_OCH]), context);
   }
   return contents;
 };
@@ -17494,23 +15750,23 @@ const de_CustomHeaders = (output: any, context: __SerdeContext): CustomHeaders =
  */
 const de_CustomOriginConfig = (output: any, context: __SerdeContext): CustomOriginConfig => {
   const contents: any = {};
-  if (output["HTTPPort"] !== undefined) {
-    contents.HTTPPort = __strictParseInt32(output["HTTPPort"]) as number;
+  if (output[_HTTPP] != null) {
+    contents[_HTTPP] = __strictParseInt32(output[_HTTPP]) as number;
   }
-  if (output["HTTPSPort"] !== undefined) {
-    contents.HTTPSPort = __strictParseInt32(output["HTTPSPort"]) as number;
+  if (output[_HTTPSP] != null) {
+    contents[_HTTPSP] = __strictParseInt32(output[_HTTPSP]) as number;
   }
-  if (output["OriginProtocolPolicy"] !== undefined) {
-    contents.OriginProtocolPolicy = __expectString(output["OriginProtocolPolicy"]);
+  if (output[_OPP] != null) {
+    contents[_OPP] = __expectString(output[_OPP]);
   }
-  if (output["OriginSslProtocols"] !== undefined) {
-    contents.OriginSslProtocols = de_OriginSslProtocols(output["OriginSslProtocols"], context);
+  if (output[_OSP] != null) {
+    contents[_OSP] = de_OriginSslProtocols(output[_OSP], context);
   }
-  if (output["OriginReadTimeout"] !== undefined) {
-    contents.OriginReadTimeout = __strictParseInt32(output["OriginReadTimeout"]) as number;
+  if (output[_ORT] != null) {
+    contents[_ORT] = __strictParseInt32(output[_ORT]) as number;
   }
-  if (output["OriginKeepaliveTimeout"] !== undefined) {
-    contents.OriginKeepaliveTimeout = __strictParseInt32(output["OriginKeepaliveTimeout"]) as number;
+  if (output[_OKT] != null) {
+    contents[_OKT] = __strictParseInt32(output[_OKT]) as number;
   }
   return contents;
 };
@@ -17520,59 +15776,59 @@ const de_CustomOriginConfig = (output: any, context: __SerdeContext): CustomOrig
  */
 const de_DefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultCacheBehavior => {
   const contents: any = {};
-  if (output["TargetOriginId"] !== undefined) {
-    contents.TargetOriginId = __expectString(output["TargetOriginId"]);
+  if (output[_TOI] != null) {
+    contents[_TOI] = __expectString(output[_TOI]);
   }
-  if (output["TrustedSigners"] !== undefined) {
-    contents.TrustedSigners = de_TrustedSigners(output["TrustedSigners"], context);
+  if (output[_TS] != null) {
+    contents[_TS] = de_TrustedSigners(output[_TS], context);
   }
-  if (output["TrustedKeyGroups"] !== undefined) {
-    contents.TrustedKeyGroups = de_TrustedKeyGroups(output["TrustedKeyGroups"], context);
+  if (output[_TKG] != null) {
+    contents[_TKG] = de_TrustedKeyGroups(output[_TKG], context);
   }
-  if (output["ViewerProtocolPolicy"] !== undefined) {
-    contents.ViewerProtocolPolicy = __expectString(output["ViewerProtocolPolicy"]);
+  if (output[_VPP] != null) {
+    contents[_VPP] = __expectString(output[_VPP]);
   }
-  if (output["AllowedMethods"] !== undefined) {
-    contents.AllowedMethods = de_AllowedMethods(output["AllowedMethods"], context);
+  if (output[_AM] != null) {
+    contents[_AM] = de_AllowedMethods(output[_AM], context);
   }
-  if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming = __parseBoolean(output["SmoothStreaming"]);
+  if (output[_SS] != null) {
+    contents[_SS] = __parseBoolean(output[_SS]);
   }
-  if (output["Compress"] !== undefined) {
-    contents.Compress = __parseBoolean(output["Compress"]);
+  if (output[_Co] != null) {
+    contents[_Co] = __parseBoolean(output[_Co]);
   }
-  if (output["LambdaFunctionAssociations"] !== undefined) {
-    contents.LambdaFunctionAssociations = de_LambdaFunctionAssociations(output["LambdaFunctionAssociations"], context);
+  if (output[_LFA] != null) {
+    contents[_LFA] = de_LambdaFunctionAssociations(output[_LFA], context);
   }
-  if (output["FunctionAssociations"] !== undefined) {
-    contents.FunctionAssociations = de_FunctionAssociations(output["FunctionAssociations"], context);
+  if (output[_FA] != null) {
+    contents[_FA] = de_FunctionAssociations(output[_FA], context);
   }
-  if (output["FieldLevelEncryptionId"] !== undefined) {
-    contents.FieldLevelEncryptionId = __expectString(output["FieldLevelEncryptionId"]);
+  if (output[_FLEI] != null) {
+    contents[_FLEI] = __expectString(output[_FLEI]);
   }
-  if (output["RealtimeLogConfigArn"] !== undefined) {
-    contents.RealtimeLogConfigArn = __expectString(output["RealtimeLogConfigArn"]);
+  if (output[_RLCA] != null) {
+    contents[_RLCA] = __expectString(output[_RLCA]);
   }
-  if (output["CachePolicyId"] !== undefined) {
-    contents.CachePolicyId = __expectString(output["CachePolicyId"]);
+  if (output[_CPI] != null) {
+    contents[_CPI] = __expectString(output[_CPI]);
   }
-  if (output["OriginRequestPolicyId"] !== undefined) {
-    contents.OriginRequestPolicyId = __expectString(output["OriginRequestPolicyId"]);
+  if (output[_ORPI] != null) {
+    contents[_ORPI] = __expectString(output[_ORPI]);
   }
-  if (output["ResponseHeadersPolicyId"] !== undefined) {
-    contents.ResponseHeadersPolicyId = __expectString(output["ResponseHeadersPolicyId"]);
+  if (output[_RHPI] != null) {
+    contents[_RHPI] = __expectString(output[_RHPI]);
   }
-  if (output["ForwardedValues"] !== undefined) {
-    contents.ForwardedValues = de_ForwardedValues(output["ForwardedValues"], context);
+  if (output[_FV] != null) {
+    contents[_FV] = de_ForwardedValues(output[_FV], context);
   }
-  if (output["MinTTL"] !== undefined) {
-    contents.MinTTL = __strictParseLong(output["MinTTL"]) as number;
+  if (output[_MTTL] != null) {
+    contents[_MTTL] = __strictParseLong(output[_MTTL]) as number;
   }
-  if (output["DefaultTTL"] !== undefined) {
-    contents.DefaultTTL = __strictParseLong(output["DefaultTTL"]) as number;
+  if (output[_DTTL] != null) {
+    contents[_DTTL] = __strictParseLong(output[_DTTL]) as number;
   }
-  if (output["MaxTTL"] !== undefined) {
-    contents.MaxTTL = __strictParseLong(output["MaxTTL"]) as number;
+  if (output[_MTTLa] != null) {
+    contents[_MTTLa] = __strictParseLong(output[_MTTLa]) as number;
   }
   return contents;
 };
@@ -17582,43 +15838,37 @@ const de_DefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultC
  */
 const de_Distribution = (output: any, context: __SerdeContext): Distribution => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["InProgressInvalidationBatches"] !== undefined) {
-    contents.InProgressInvalidationBatches = __strictParseInt32(output["InProgressInvalidationBatches"]) as number;
+  if (output[_IPIB] != null) {
+    contents[_IPIB] = __strictParseInt32(output[_IPIB]) as number;
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["ActiveTrustedSigners"] !== undefined) {
-    contents.ActiveTrustedSigners = de_ActiveTrustedSigners(output["ActiveTrustedSigners"], context);
+  if (output[_ATS] != null) {
+    contents[_ATS] = de_ActiveTrustedSigners(output[_ATS], context);
   }
-  if (output["ActiveTrustedKeyGroups"] !== undefined) {
-    contents.ActiveTrustedKeyGroups = de_ActiveTrustedKeyGroups(output["ActiveTrustedKeyGroups"], context);
+  if (output[_ATKG] != null) {
+    contents[_ATKG] = de_ActiveTrustedKeyGroups(output[_ATKG], context);
   }
-  if (output["DistributionConfig"] !== undefined) {
-    contents.DistributionConfig = de_DistributionConfig(output["DistributionConfig"], context);
+  if (output[_DC] != null) {
+    contents[_DC] = de_DistributionConfig(output[_DC], context);
   }
   if (output.AliasICPRecordals === "") {
-    contents.AliasICPRecordals = [];
-  } else if (
-    output["AliasICPRecordals"] !== undefined &&
-    output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
-  ) {
-    contents.AliasICPRecordals = de_AliasICPRecordals(
-      __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
-      context
-    );
+    contents[_AICPR] = [];
+  } else if (output[_AICPR] != null && output[_AICPR][_AICPRl] != null) {
+    contents[_AICPR] = de_AliasICPRecordals(__getArrayIfSingleItem(output[_AICPR][_AICPRl]), context);
   }
   return contents;
 };
@@ -17628,62 +15878,62 @@ const de_Distribution = (output: any, context: __SerdeContext): Distribution => 
  */
 const de_DistributionConfig = (output: any, context: __SerdeContext): DistributionConfig => {
   const contents: any = {};
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["Aliases"] !== undefined) {
-    contents.Aliases = de_Aliases(output["Aliases"], context);
+  if (output[_Al] != null) {
+    contents[_Al] = de_Aliases(output[_Al], context);
   }
-  if (output["DefaultRootObject"] !== undefined) {
-    contents.DefaultRootObject = __expectString(output["DefaultRootObject"]);
+  if (output[_DRO] != null) {
+    contents[_DRO] = __expectString(output[_DRO]);
   }
-  if (output["Origins"] !== undefined) {
-    contents.Origins = de_Origins(output["Origins"], context);
+  if (output[_Ori] != null) {
+    contents[_Ori] = de_Origins(output[_Ori], context);
   }
-  if (output["OriginGroups"] !== undefined) {
-    contents.OriginGroups = de_OriginGroups(output["OriginGroups"], context);
+  if (output[_OG] != null) {
+    contents[_OG] = de_OriginGroups(output[_OG], context);
   }
-  if (output["DefaultCacheBehavior"] !== undefined) {
-    contents.DefaultCacheBehavior = de_DefaultCacheBehavior(output["DefaultCacheBehavior"], context);
+  if (output[_DCB] != null) {
+    contents[_DCB] = de_DefaultCacheBehavior(output[_DCB], context);
   }
-  if (output["CacheBehaviors"] !== undefined) {
-    contents.CacheBehaviors = de_CacheBehaviors(output["CacheBehaviors"], context);
+  if (output[_CBa] != null) {
+    contents[_CBa] = de_CacheBehaviors(output[_CBa], context);
   }
-  if (output["CustomErrorResponses"] !== undefined) {
-    contents.CustomErrorResponses = de_CustomErrorResponses(output["CustomErrorResponses"], context);
+  if (output[_CERu] != null) {
+    contents[_CERu] = de_CustomErrorResponses(output[_CERu], context);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Logging"] !== undefined) {
-    contents.Logging = de_LoggingConfig(output["Logging"], context);
+  if (output[_Lo] != null) {
+    contents[_Lo] = de_LoggingConfig(output[_Lo], context);
   }
-  if (output["PriceClass"] !== undefined) {
-    contents.PriceClass = __expectString(output["PriceClass"]);
+  if (output[_PC] != null) {
+    contents[_PC] = __expectString(output[_PC]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["ViewerCertificate"] !== undefined) {
-    contents.ViewerCertificate = de_ViewerCertificate(output["ViewerCertificate"], context);
+  if (output[_VC] != null) {
+    contents[_VC] = de_ViewerCertificate(output[_VC], context);
   }
-  if (output["Restrictions"] !== undefined) {
-    contents.Restrictions = de_Restrictions(output["Restrictions"], context);
+  if (output[_Re] != null) {
+    contents[_Re] = de_Restrictions(output[_Re], context);
   }
-  if (output["WebACLId"] !== undefined) {
-    contents.WebACLId = __expectString(output["WebACLId"]);
+  if (output[_WACLI] != null) {
+    contents[_WACLI] = __expectString(output[_WACLI]);
   }
-  if (output["HttpVersion"] !== undefined) {
-    contents.HttpVersion = __expectString(output["HttpVersion"]);
+  if (output[_HV] != null) {
+    contents[_HV] = __expectString(output[_HV]);
   }
-  if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled = __parseBoolean(output["IsIPV6Enabled"]);
+  if (output[_IIPVE] != null) {
+    contents[_IIPVE] = __parseBoolean(output[_IIPVE]);
   }
-  if (output["ContinuousDeploymentPolicyId"] !== undefined) {
-    contents.ContinuousDeploymentPolicyId = __expectString(output["ContinuousDeploymentPolicyId"]);
+  if (output[_CDPI] != null) {
+    contents[_CDPI] = __expectString(output[_CDPI]);
   }
-  if (output["Staging"] !== undefined) {
-    contents.Staging = __parseBoolean(output["Staging"]);
+  if (output[_S] != null) {
+    contents[_S] = __parseBoolean(output[_S]);
   }
   return contents;
 };
@@ -17693,25 +15943,25 @@ const de_DistributionConfig = (output: any, context: __SerdeContext): Distributi
  */
 const de_DistributionIdList = (output: any, context: __SerdeContext): DistributionIdList => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["DistributionId"] !== undefined) {
-    contents.Items = de_DistributionIdListSummary(__getArrayIfSingleItem(output["Items"]["DistributionId"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DI] != null) {
+    contents[_It] = de_DistributionIdListSummary(__getArrayIfSingleItem(output[_It][_DI]), context);
   }
   return contents;
 };
@@ -17732,28 +15982,25 @@ const de_DistributionIdListSummary = (output: any, context: __SerdeContext): str
  */
 const de_DistributionList = (output: any, context: __SerdeContext): DistributionList => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["DistributionSummary"] !== undefined) {
-    contents.Items = de_DistributionSummaryList(
-      __getArrayIfSingleItem(output["Items"]["DistributionSummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DS] != null) {
+    contents[_It] = de_DistributionSummaryList(__getArrayIfSingleItem(output[_It][_DS]), context);
   }
   return contents;
 };
@@ -17763,76 +16010,70 @@ const de_DistributionList = (output: any, context: __SerdeContext): Distribution
  */
 const de_DistributionSummary = (output: any, context: __SerdeContext): DistributionSummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["Aliases"] !== undefined) {
-    contents.Aliases = de_Aliases(output["Aliases"], context);
+  if (output[_Al] != null) {
+    contents[_Al] = de_Aliases(output[_Al], context);
   }
-  if (output["Origins"] !== undefined) {
-    contents.Origins = de_Origins(output["Origins"], context);
+  if (output[_Ori] != null) {
+    contents[_Ori] = de_Origins(output[_Ori], context);
   }
-  if (output["OriginGroups"] !== undefined) {
-    contents.OriginGroups = de_OriginGroups(output["OriginGroups"], context);
+  if (output[_OG] != null) {
+    contents[_OG] = de_OriginGroups(output[_OG], context);
   }
-  if (output["DefaultCacheBehavior"] !== undefined) {
-    contents.DefaultCacheBehavior = de_DefaultCacheBehavior(output["DefaultCacheBehavior"], context);
+  if (output[_DCB] != null) {
+    contents[_DCB] = de_DefaultCacheBehavior(output[_DCB], context);
   }
-  if (output["CacheBehaviors"] !== undefined) {
-    contents.CacheBehaviors = de_CacheBehaviors(output["CacheBehaviors"], context);
+  if (output[_CBa] != null) {
+    contents[_CBa] = de_CacheBehaviors(output[_CBa], context);
   }
-  if (output["CustomErrorResponses"] !== undefined) {
-    contents.CustomErrorResponses = de_CustomErrorResponses(output["CustomErrorResponses"], context);
+  if (output[_CERu] != null) {
+    contents[_CERu] = de_CustomErrorResponses(output[_CERu], context);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["PriceClass"] !== undefined) {
-    contents.PriceClass = __expectString(output["PriceClass"]);
+  if (output[_PC] != null) {
+    contents[_PC] = __expectString(output[_PC]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["ViewerCertificate"] !== undefined) {
-    contents.ViewerCertificate = de_ViewerCertificate(output["ViewerCertificate"], context);
+  if (output[_VC] != null) {
+    contents[_VC] = de_ViewerCertificate(output[_VC], context);
   }
-  if (output["Restrictions"] !== undefined) {
-    contents.Restrictions = de_Restrictions(output["Restrictions"], context);
+  if (output[_Re] != null) {
+    contents[_Re] = de_Restrictions(output[_Re], context);
   }
-  if (output["WebACLId"] !== undefined) {
-    contents.WebACLId = __expectString(output["WebACLId"]);
+  if (output[_WACLI] != null) {
+    contents[_WACLI] = __expectString(output[_WACLI]);
   }
-  if (output["HttpVersion"] !== undefined) {
-    contents.HttpVersion = __expectString(output["HttpVersion"]);
+  if (output[_HV] != null) {
+    contents[_HV] = __expectString(output[_HV]);
   }
-  if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled = __parseBoolean(output["IsIPV6Enabled"]);
+  if (output[_IIPVE] != null) {
+    contents[_IIPVE] = __parseBoolean(output[_IIPVE]);
   }
   if (output.AliasICPRecordals === "") {
-    contents.AliasICPRecordals = [];
-  } else if (
-    output["AliasICPRecordals"] !== undefined &&
-    output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
-  ) {
-    contents.AliasICPRecordals = de_AliasICPRecordals(
-      __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
-      context
-    );
+    contents[_AICPR] = [];
+  } else if (output[_AICPR] != null && output[_AICPR][_AICPRl] != null) {
+    contents[_AICPR] = de_AliasICPRecordals(__getArrayIfSingleItem(output[_AICPR][_AICPRl]), context);
   }
-  if (output["Staging"] !== undefined) {
-    contents.Staging = __parseBoolean(output["Staging"]);
+  if (output[_S] != null) {
+    contents[_S] = __parseBoolean(output[_S]);
   }
   return contents;
 };
@@ -17853,13 +16094,13 @@ const de_DistributionSummaryList = (output: any, context: __SerdeContext): Distr
  */
 const de_EncryptionEntities = (output: any, context: __SerdeContext): EncryptionEntities => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["EncryptionEntity"] !== undefined) {
-    contents.Items = de_EncryptionEntityList(__getArrayIfSingleItem(output["Items"]["EncryptionEntity"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_EEn] != null) {
+    contents[_It] = de_EncryptionEntityList(__getArrayIfSingleItem(output[_It][_EEn]), context);
   }
   return contents;
 };
@@ -17869,14 +16110,14 @@ const de_EncryptionEntities = (output: any, context: __SerdeContext): Encryption
  */
 const de_EncryptionEntity = (output: any, context: __SerdeContext): EncryptionEntity => {
   const contents: any = {};
-  if (output["PublicKeyId"] !== undefined) {
-    contents.PublicKeyId = __expectString(output["PublicKeyId"]);
+  if (output[_PKI] != null) {
+    contents[_PKI] = __expectString(output[_PKI]);
   }
-  if (output["ProviderId"] !== undefined) {
-    contents.ProviderId = __expectString(output["ProviderId"]);
+  if (output[_PIr] != null) {
+    contents[_PIr] = __expectString(output[_PIr]);
   }
-  if (output["FieldPatterns"] !== undefined) {
-    contents.FieldPatterns = de_FieldPatterns(output["FieldPatterns"], context);
+  if (output[_FP] != null) {
+    contents[_FP] = de_FieldPatterns(output[_FP], context);
   }
   return contents;
 };
@@ -17897,11 +16138,11 @@ const de_EncryptionEntityList = (output: any, context: __SerdeContext): Encrypti
  */
 const de_EndPoint = (output: any, context: __SerdeContext): EndPoint => {
   const contents: any = {};
-  if (output["StreamType"] !== undefined) {
-    contents.StreamType = __expectString(output["StreamType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["KinesisStreamConfig"] !== undefined) {
-    contents.KinesisStreamConfig = de_KinesisStreamConfig(output["KinesisStreamConfig"], context);
+  if (output[_KSC] != null) {
+    contents[_KSC] = de_KinesisStreamConfig(output[_KSC], context);
   }
   return contents;
 };
@@ -17922,14 +16163,14 @@ const de_EndPointList = (output: any, context: __SerdeContext): EndPoint[] => {
  */
 const de_FieldLevelEncryption = (output: any, context: __SerdeContext): FieldLevelEncryption => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["FieldLevelEncryptionConfig"] !== undefined) {
-    contents.FieldLevelEncryptionConfig = de_FieldLevelEncryptionConfig(output["FieldLevelEncryptionConfig"], context);
+  if (output[_FLEC] != null) {
+    contents[_FLEC] = de_FieldLevelEncryptionConfig(output[_FLEC], context);
   }
   return contents;
 };
@@ -17939,17 +16180,17 @@ const de_FieldLevelEncryption = (output: any, context: __SerdeContext): FieldLev
  */
 const de_FieldLevelEncryptionConfig = (output: any, context: __SerdeContext): FieldLevelEncryptionConfig => {
   const contents: any = {};
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["QueryArgProfileConfig"] !== undefined) {
-    contents.QueryArgProfileConfig = de_QueryArgProfileConfig(output["QueryArgProfileConfig"], context);
+  if (output[_QAPC] != null) {
+    contents[_QAPC] = de_QueryArgProfileConfig(output[_QAPC], context);
   }
-  if (output["ContentTypeProfileConfig"] !== undefined) {
-    contents.ContentTypeProfileConfig = de_ContentTypeProfileConfig(output["ContentTypeProfileConfig"], context);
+  if (output[_CTPC] != null) {
+    contents[_CTPC] = de_ContentTypeProfileConfig(output[_CTPC], context);
   }
   return contents;
 };
@@ -17959,22 +16200,19 @@ const de_FieldLevelEncryptionConfig = (output: any, context: __SerdeContext): Fi
  */
 const de_FieldLevelEncryptionList = (output: any, context: __SerdeContext): FieldLevelEncryptionList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["FieldLevelEncryptionSummary"] !== undefined) {
-    contents.Items = de_FieldLevelEncryptionSummaryList(
-      __getArrayIfSingleItem(output["Items"]["FieldLevelEncryptionSummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FLES] != null) {
+    contents[_It] = de_FieldLevelEncryptionSummaryList(__getArrayIfSingleItem(output[_It][_FLES]), context);
   }
   return contents;
 };
@@ -17984,17 +16222,14 @@ const de_FieldLevelEncryptionList = (output: any, context: __SerdeContext): Fiel
  */
 const de_FieldLevelEncryptionProfile = (output: any, context: __SerdeContext): FieldLevelEncryptionProfile => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["FieldLevelEncryptionProfileConfig"] !== undefined) {
-    contents.FieldLevelEncryptionProfileConfig = de_FieldLevelEncryptionProfileConfig(
-      output["FieldLevelEncryptionProfileConfig"],
-      context
-    );
+  if (output[_FLEPC] != null) {
+    contents[_FLEPC] = de_FieldLevelEncryptionProfileConfig(output[_FLEPC], context);
   }
   return contents;
 };
@@ -18007,17 +16242,17 @@ const de_FieldLevelEncryptionProfileConfig = (
   context: __SerdeContext
 ): FieldLevelEncryptionProfileConfig => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["EncryptionEntities"] !== undefined) {
-    contents.EncryptionEntities = de_EncryptionEntities(output["EncryptionEntities"], context);
+  if (output[_EE] != null) {
+    contents[_EE] = de_EncryptionEntities(output[_EE], context);
   }
   return contents;
 };
@@ -18027,22 +16262,19 @@ const de_FieldLevelEncryptionProfileConfig = (
  */
 const de_FieldLevelEncryptionProfileList = (output: any, context: __SerdeContext): FieldLevelEncryptionProfileList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["FieldLevelEncryptionProfileSummary"] !== undefined) {
-    contents.Items = de_FieldLevelEncryptionProfileSummaryList(
-      __getArrayIfSingleItem(output["Items"]["FieldLevelEncryptionProfileSummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FLEPS] != null) {
+    contents[_It] = de_FieldLevelEncryptionProfileSummaryList(__getArrayIfSingleItem(output[_It][_FLEPS]), context);
   }
   return contents;
 };
@@ -18055,20 +16287,20 @@ const de_FieldLevelEncryptionProfileSummary = (
   context: __SerdeContext
 ): FieldLevelEncryptionProfileSummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["EncryptionEntities"] !== undefined) {
-    contents.EncryptionEntities = de_EncryptionEntities(output["EncryptionEntities"], context);
+  if (output[_EE] != null) {
+    contents[_EE] = de_EncryptionEntities(output[_EE], context);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -18092,20 +16324,20 @@ const de_FieldLevelEncryptionProfileSummaryList = (
  */
 const de_FieldLevelEncryptionSummary = (output: any, context: __SerdeContext): FieldLevelEncryptionSummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["QueryArgProfileConfig"] !== undefined) {
-    contents.QueryArgProfileConfig = de_QueryArgProfileConfig(output["QueryArgProfileConfig"], context);
+  if (output[_QAPC] != null) {
+    contents[_QAPC] = de_QueryArgProfileConfig(output[_QAPC], context);
   }
-  if (output["ContentTypeProfileConfig"] !== undefined) {
-    contents.ContentTypeProfileConfig = de_ContentTypeProfileConfig(output["ContentTypeProfileConfig"], context);
+  if (output[_CTPC] != null) {
+    contents[_CTPC] = de_ContentTypeProfileConfig(output[_CTPC], context);
   }
   return contents;
 };
@@ -18148,13 +16380,13 @@ const de_FieldPatternList = (output: any, context: __SerdeContext): string[] => 
  */
 const de_FieldPatterns = (output: any, context: __SerdeContext): FieldPatterns => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["FieldPattern"] !== undefined) {
-    contents.Items = de_FieldPatternList(__getArrayIfSingleItem(output["Items"]["FieldPattern"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FPi] != null) {
+    contents[_It] = de_FieldPatternList(__getArrayIfSingleItem(output[_It][_FPi]), context);
   }
   return contents;
 };
@@ -18164,17 +16396,17 @@ const de_FieldPatterns = (output: any, context: __SerdeContext): FieldPatterns =
  */
 const de_ForwardedValues = (output: any, context: __SerdeContext): ForwardedValues => {
   const contents: any = {};
-  if (output["QueryString"] !== undefined) {
-    contents.QueryString = __parseBoolean(output["QueryString"]);
+  if (output[_QSu] != null) {
+    contents[_QSu] = __parseBoolean(output[_QSu]);
   }
-  if (output["Cookies"] !== undefined) {
-    contents.Cookies = de_CookiePreference(output["Cookies"], context);
+  if (output[_Coo] != null) {
+    contents[_Coo] = de_CookiePreference(output[_Coo], context);
   }
-  if (output["Headers"] !== undefined) {
-    contents.Headers = de_Headers(output["Headers"], context);
+  if (output[_He] != null) {
+    contents[_He] = de_Headers(output[_He], context);
   }
-  if (output["QueryStringCacheKeys"] !== undefined) {
-    contents.QueryStringCacheKeys = de_QueryStringCacheKeys(output["QueryStringCacheKeys"], context);
+  if (output[_QSCK] != null) {
+    contents[_QSCK] = de_QueryStringCacheKeys(output[_QSCK], context);
   }
   return contents;
 };
@@ -18184,11 +16416,11 @@ const de_ForwardedValues = (output: any, context: __SerdeContext): ForwardedValu
  */
 const de_FunctionAssociation = (output: any, context: __SerdeContext): FunctionAssociation => {
   const contents: any = {};
-  if (output["FunctionARN"] !== undefined) {
-    contents.FunctionARN = __expectString(output["FunctionARN"]);
+  if (output[_FARN] != null) {
+    contents[_FARN] = __expectString(output[_FARN]);
   }
-  if (output["EventType"] !== undefined) {
-    contents.EventType = __expectString(output["EventType"]);
+  if (output[_ETv] != null) {
+    contents[_ETv] = __expectString(output[_ETv]);
   }
   return contents;
 };
@@ -18209,16 +16441,13 @@ const de_FunctionAssociationList = (output: any, context: __SerdeContext): Funct
  */
 const de_FunctionAssociations = (output: any, context: __SerdeContext): FunctionAssociations => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["FunctionAssociation"] !== undefined) {
-    contents.Items = de_FunctionAssociationList(
-      __getArrayIfSingleItem(output["Items"]["FunctionAssociation"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FAu] != null) {
+    contents[_It] = de_FunctionAssociationList(__getArrayIfSingleItem(output[_It][_FAu]), context);
   }
   return contents;
 };
@@ -18228,14 +16457,14 @@ const de_FunctionAssociations = (output: any, context: __SerdeContext): Function
  */
 const de_FunctionConfig = (output: any, context: __SerdeContext): FunctionConfig => {
   const contents: any = {};
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Runtime"] !== undefined) {
-    contents.Runtime = __expectString(output["Runtime"]);
+  if (output[_Ru] != null) {
+    contents[_Ru] = __expectString(output[_Ru]);
   }
-  if (output["KeyValueStoreAssociations"] !== undefined) {
-    contents.KeyValueStoreAssociations = de_KeyValueStoreAssociations(output["KeyValueStoreAssociations"], context);
+  if (output[_KVSA] != null) {
+    contents[_KVSA] = de_KeyValueStoreAssociations(output[_KVSA], context);
   }
   return contents;
 };
@@ -18256,19 +16485,19 @@ const de_FunctionExecutionLogList = (output: any, context: __SerdeContext): stri
  */
 const de_FunctionList = (output: any, context: __SerdeContext): FunctionList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["FunctionSummary"] !== undefined) {
-    contents.Items = de_FunctionSummaryList(__getArrayIfSingleItem(output["Items"]["FunctionSummary"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FSu] != null) {
+    contents[_It] = de_FunctionSummaryList(__getArrayIfSingleItem(output[_It][_FSu]), context);
   }
   return contents;
 };
@@ -18278,17 +16507,17 @@ const de_FunctionList = (output: any, context: __SerdeContext): FunctionList => 
  */
 const de_FunctionMetadata = (output: any, context: __SerdeContext): FunctionMetadata => {
   const contents: any = {};
-  if (output["FunctionARN"] !== undefined) {
-    contents.FunctionARN = __expectString(output["FunctionARN"]);
+  if (output[_FARN] != null) {
+    contents[_FARN] = __expectString(output[_FARN]);
   }
-  if (output["Stage"] !== undefined) {
-    contents.Stage = __expectString(output["Stage"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
   return contents;
 };
@@ -18298,17 +16527,17 @@ const de_FunctionMetadata = (output: any, context: __SerdeContext): FunctionMeta
  */
 const de_FunctionSummary = (output: any, context: __SerdeContext): FunctionSummary => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["FunctionConfig"] !== undefined) {
-    contents.FunctionConfig = de_FunctionConfig(output["FunctionConfig"], context);
+  if (output[_FCu] != null) {
+    contents[_FCu] = de_FunctionConfig(output[_FCu], context);
   }
-  if (output["FunctionMetadata"] !== undefined) {
-    contents.FunctionMetadata = de_FunctionMetadata(output["FunctionMetadata"], context);
+  if (output[_FM] != null) {
+    contents[_FM] = de_FunctionMetadata(output[_FM], context);
   }
   return contents;
 };
@@ -18329,16 +16558,16 @@ const de_FunctionSummaryList = (output: any, context: __SerdeContext): FunctionS
  */
 const de_GeoRestriction = (output: any, context: __SerdeContext): GeoRestriction => {
   const contents: any = {};
-  if (output["RestrictionType"] !== undefined) {
-    contents.RestrictionType = __expectString(output["RestrictionType"]);
+  if (output[_RT] != null) {
+    contents[_RT] = __expectString(output[_RT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Location"] !== undefined) {
-    contents.Items = de_LocationList(__getArrayIfSingleItem(output["Items"]["Location"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_L] != null) {
+    contents[_It] = de_LocationList(__getArrayIfSingleItem(output[_It][_L]), context);
   }
   return contents;
 };
@@ -18359,13 +16588,13 @@ const de_HeaderList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_Headers = (output: any, context: __SerdeContext): Headers => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    contents.Items = de_HeaderList(__getArrayIfSingleItem(output["Items"]["Name"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_HeaderList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -18375,17 +16604,17 @@ const de_Headers = (output: any, context: __SerdeContext): Headers => {
  */
 const de_Invalidation = (output: any, context: __SerdeContext): Invalidation => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTre] != null) {
+    contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
   }
-  if (output["InvalidationBatch"] !== undefined) {
-    contents.InvalidationBatch = de_InvalidationBatch(output["InvalidationBatch"], context);
+  if (output[_IB] != null) {
+    contents[_IB] = de_InvalidationBatch(output[_IB], context);
   }
   return contents;
 };
@@ -18395,11 +16624,11 @@ const de_Invalidation = (output: any, context: __SerdeContext): Invalidation => 
  */
 const de_InvalidationBatch = (output: any, context: __SerdeContext): InvalidationBatch => {
   const contents: any = {};
-  if (output["Paths"] !== undefined) {
-    contents.Paths = de_Paths(output["Paths"], context);
+  if (output[_P] != null) {
+    contents[_P] = de_Paths(output[_P], context);
   }
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
   return contents;
 };
@@ -18409,28 +16638,25 @@ const de_InvalidationBatch = (output: any, context: __SerdeContext): Invalidatio
  */
 const de_InvalidationList = (output: any, context: __SerdeContext): InvalidationList => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["InvalidationSummary"] !== undefined) {
-    contents.Items = de_InvalidationSummaryList(
-      __getArrayIfSingleItem(output["Items"]["InvalidationSummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_ISnv] != null) {
+    contents[_It] = de_InvalidationSummaryList(__getArrayIfSingleItem(output[_It][_ISnv]), context);
   }
   return contents;
 };
@@ -18440,14 +16666,14 @@ const de_InvalidationList = (output: any, context: __SerdeContext): Invalidation
  */
 const de_InvalidationSummary = (output: any, context: __SerdeContext): InvalidationSummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["CreateTime"] !== undefined) {
-    contents.CreateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreateTime"]));
+  if (output[_CTre] != null) {
+    contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
   return contents;
 };
@@ -18468,14 +16694,14 @@ const de_InvalidationSummaryList = (output: any, context: __SerdeContext): Inval
  */
 const de_KeyGroup = (output: any, context: __SerdeContext): KeyGroup => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["KeyGroupConfig"] !== undefined) {
-    contents.KeyGroupConfig = de_KeyGroupConfig(output["KeyGroupConfig"], context);
+  if (output[_KGC] != null) {
+    contents[_KGC] = de_KeyGroupConfig(output[_KGC], context);
   }
   return contents;
 };
@@ -18485,16 +16711,16 @@ const de_KeyGroup = (output: any, context: __SerdeContext): KeyGroup => {
  */
 const de_KeyGroupConfig = (output: any, context: __SerdeContext): KeyGroupConfig => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["PublicKey"] !== undefined) {
-    contents.Items = de_PublicKeyIdList(__getArrayIfSingleItem(output["Items"]["PublicKey"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_PK] != null) {
+    contents[_It] = de_PublicKeyIdList(__getArrayIfSingleItem(output[_It][_PK]), context);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -18504,19 +16730,19 @@ const de_KeyGroupConfig = (output: any, context: __SerdeContext): KeyGroupConfig
  */
 const de_KeyGroupList = (output: any, context: __SerdeContext): KeyGroupList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["KeyGroupSummary"] !== undefined) {
-    contents.Items = de_KeyGroupSummaryList(__getArrayIfSingleItem(output["Items"]["KeyGroupSummary"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KGS] != null) {
+    contents[_It] = de_KeyGroupSummaryList(__getArrayIfSingleItem(output[_It][_KGS]), context);
   }
   return contents;
 };
@@ -18526,8 +16752,8 @@ const de_KeyGroupList = (output: any, context: __SerdeContext): KeyGroupList => 
  */
 const de_KeyGroupSummary = (output: any, context: __SerdeContext): KeyGroupSummary => {
   const contents: any = {};
-  if (output["KeyGroup"] !== undefined) {
-    contents.KeyGroup = de_KeyGroup(output["KeyGroup"], context);
+  if (output[_KG] != null) {
+    contents[_KG] = de_KeyGroup(output[_KG], context);
   }
   return contents;
 };
@@ -18559,13 +16785,13 @@ const de_KeyPairIdList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_KeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["KeyPairId"] !== undefined) {
-    contents.Items = de_KeyPairIdList(__getArrayIfSingleItem(output["Items"]["KeyPairId"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KPI] != null) {
+    contents[_It] = de_KeyPairIdList(__getArrayIfSingleItem(output[_It][_KPI]), context);
   }
   return contents;
 };
@@ -18575,23 +16801,23 @@ const de_KeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
  */
 const de_KeyValueStore = (output: any, context: __SerdeContext): KeyValueStore => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
   return contents;
 };
@@ -18601,8 +16827,8 @@ const de_KeyValueStore = (output: any, context: __SerdeContext): KeyValueStore =
  */
 const de_KeyValueStoreAssociation = (output: any, context: __SerdeContext): KeyValueStoreAssociation => {
   const contents: any = {};
-  if (output["KeyValueStoreARN"] !== undefined) {
-    contents.KeyValueStoreARN = __expectString(output["KeyValueStoreARN"]);
+  if (output[_KVSARN] != null) {
+    contents[_KVSARN] = __expectString(output[_KVSARN]);
   }
   return contents;
 };
@@ -18623,16 +16849,13 @@ const de_KeyValueStoreAssociationList = (output: any, context: __SerdeContext): 
  */
 const de_KeyValueStoreAssociations = (output: any, context: __SerdeContext): KeyValueStoreAssociations => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["KeyValueStoreAssociation"] !== undefined) {
-    contents.Items = de_KeyValueStoreAssociationList(
-      __getArrayIfSingleItem(output["Items"]["KeyValueStoreAssociation"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KVSAe] != null) {
+    contents[_It] = de_KeyValueStoreAssociationList(__getArrayIfSingleItem(output[_It][_KVSAe]), context);
   }
   return contents;
 };
@@ -18642,19 +16865,19 @@ const de_KeyValueStoreAssociations = (output: any, context: __SerdeContext): Key
  */
 const de_KeyValueStoreList = (output: any, context: __SerdeContext): KeyValueStoreList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["KeyValueStore"] !== undefined) {
-    contents.Items = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output["Items"]["KeyValueStore"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KVS] != null) {
+    contents[_It] = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output[_It][_KVS]), context);
   }
   return contents;
 };
@@ -18675,11 +16898,11 @@ const de_KeyValueStoreSummaryList = (output: any, context: __SerdeContext): KeyV
  */
 const de_KGKeyPairIds = (output: any, context: __SerdeContext): KGKeyPairIds => {
   const contents: any = {};
-  if (output["KeyGroupId"] !== undefined) {
-    contents.KeyGroupId = __expectString(output["KeyGroupId"]);
+  if (output[_KGI] != null) {
+    contents[_KGI] = __expectString(output[_KGI]);
   }
-  if (output["KeyPairIds"] !== undefined) {
-    contents.KeyPairIds = de_KeyPairIds(output["KeyPairIds"], context);
+  if (output[_KPIe] != null) {
+    contents[_KPIe] = de_KeyPairIds(output[_KPIe], context);
   }
   return contents;
 };
@@ -18700,11 +16923,11 @@ const de_KGKeyPairIdsList = (output: any, context: __SerdeContext): KGKeyPairIds
  */
 const de_KinesisStreamConfig = (output: any, context: __SerdeContext): KinesisStreamConfig => {
   const contents: any = {};
-  if (output["RoleARN"] !== undefined) {
-    contents.RoleARN = __expectString(output["RoleARN"]);
+  if (output[_RARN] != null) {
+    contents[_RARN] = __expectString(output[_RARN]);
   }
-  if (output["StreamARN"] !== undefined) {
-    contents.StreamARN = __expectString(output["StreamARN"]);
+  if (output[_SARNt] != null) {
+    contents[_SARNt] = __expectString(output[_SARNt]);
   }
   return contents;
 };
@@ -18714,14 +16937,14 @@ const de_KinesisStreamConfig = (output: any, context: __SerdeContext): KinesisSt
  */
 const de_LambdaFunctionAssociation = (output: any, context: __SerdeContext): LambdaFunctionAssociation => {
   const contents: any = {};
-  if (output["LambdaFunctionARN"] !== undefined) {
-    contents.LambdaFunctionARN = __expectString(output["LambdaFunctionARN"]);
+  if (output[_LFARN] != null) {
+    contents[_LFARN] = __expectString(output[_LFARN]);
   }
-  if (output["EventType"] !== undefined) {
-    contents.EventType = __expectString(output["EventType"]);
+  if (output[_ETv] != null) {
+    contents[_ETv] = __expectString(output[_ETv]);
   }
-  if (output["IncludeBody"] !== undefined) {
-    contents.IncludeBody = __parseBoolean(output["IncludeBody"]);
+  if (output[_IBn] != null) {
+    contents[_IBn] = __parseBoolean(output[_IBn]);
   }
   return contents;
 };
@@ -18742,16 +16965,13 @@ const de_LambdaFunctionAssociationList = (output: any, context: __SerdeContext):
  */
 const de_LambdaFunctionAssociations = (output: any, context: __SerdeContext): LambdaFunctionAssociations => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["LambdaFunctionAssociation"] !== undefined) {
-    contents.Items = de_LambdaFunctionAssociationList(
-      __getArrayIfSingleItem(output["Items"]["LambdaFunctionAssociation"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_LFAa] != null) {
+    contents[_It] = de_LambdaFunctionAssociationList(__getArrayIfSingleItem(output[_It][_LFAa]), context);
   }
   return contents;
 };
@@ -18772,17 +16992,17 @@ const de_LocationList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["IncludeCookies"] !== undefined) {
-    contents.IncludeCookies = __parseBoolean(output["IncludeCookies"]);
+  if (output[_IC] != null) {
+    contents[_IC] = __parseBoolean(output[_IC]);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
   return contents;
 };
@@ -18803,11 +17023,8 @@ const de_MethodsList = (output: any, context: __SerdeContext): Method[] => {
  */
 const de_MonitoringSubscription = (output: any, context: __SerdeContext): MonitoringSubscription => {
   const contents: any = {};
-  if (output["RealtimeMetricsSubscriptionConfig"] !== undefined) {
-    contents.RealtimeMetricsSubscriptionConfig = de_RealtimeMetricsSubscriptionConfig(
-      output["RealtimeMetricsSubscriptionConfig"],
-      context
-    );
+  if (output[_RMSC] != null) {
+    contents[_RMSC] = de_RealtimeMetricsSubscriptionConfig(output[_RMSC], context);
   }
   return contents;
 };
@@ -18817,35 +17034,35 @@ const de_MonitoringSubscription = (output: any, context: __SerdeContext): Monito
  */
 const de_Origin = (output: any, context: __SerdeContext): Origin => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["OriginPath"] !== undefined) {
-    contents.OriginPath = __expectString(output["OriginPath"]);
+  if (output[_OP] != null) {
+    contents[_OP] = __expectString(output[_OP]);
   }
-  if (output["CustomHeaders"] !== undefined) {
-    contents.CustomHeaders = de_CustomHeaders(output["CustomHeaders"], context);
+  if (output[_CH] != null) {
+    contents[_CH] = de_CustomHeaders(output[_CH], context);
   }
-  if (output["S3OriginConfig"] !== undefined) {
-    contents.S3OriginConfig = de_S3OriginConfig(output["S3OriginConfig"], context);
+  if (output[_SOC] != null) {
+    contents[_SOC] = de_S3OriginConfig(output[_SOC], context);
   }
-  if (output["CustomOriginConfig"] !== undefined) {
-    contents.CustomOriginConfig = de_CustomOriginConfig(output["CustomOriginConfig"], context);
+  if (output[_COC] != null) {
+    contents[_COC] = de_CustomOriginConfig(output[_COC], context);
   }
-  if (output["ConnectionAttempts"] !== undefined) {
-    contents.ConnectionAttempts = __strictParseInt32(output["ConnectionAttempts"]) as number;
+  if (output[_CA] != null) {
+    contents[_CA] = __strictParseInt32(output[_CA]) as number;
   }
-  if (output["ConnectionTimeout"] !== undefined) {
-    contents.ConnectionTimeout = __strictParseInt32(output["ConnectionTimeout"]) as number;
+  if (output[_CTon] != null) {
+    contents[_CTon] = __strictParseInt32(output[_CTon]) as number;
   }
-  if (output["OriginShield"] !== undefined) {
-    contents.OriginShield = de_OriginShield(output["OriginShield"], context);
+  if (output[_OS] != null) {
+    contents[_OS] = de_OriginShield(output[_OS], context);
   }
-  if (output["OriginAccessControlId"] !== undefined) {
-    contents.OriginAccessControlId = __expectString(output["OriginAccessControlId"]);
+  if (output[_OACI] != null) {
+    contents[_OACI] = __expectString(output[_OACI]);
   }
   return contents;
 };
@@ -18855,11 +17072,11 @@ const de_Origin = (output: any, context: __SerdeContext): Origin => {
  */
 const de_OriginAccessControl = (output: any, context: __SerdeContext): OriginAccessControl => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["OriginAccessControlConfig"] !== undefined) {
-    contents.OriginAccessControlConfig = de_OriginAccessControlConfig(output["OriginAccessControlConfig"], context);
+  if (output[_OACC] != null) {
+    contents[_OACC] = de_OriginAccessControlConfig(output[_OACC], context);
   }
   return contents;
 };
@@ -18869,20 +17086,20 @@ const de_OriginAccessControl = (output: any, context: __SerdeContext): OriginAcc
  */
 const de_OriginAccessControlConfig = (output: any, context: __SerdeContext): OriginAccessControlConfig => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["SigningProtocol"] !== undefined) {
-    contents.SigningProtocol = __expectString(output["SigningProtocol"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
-  if (output["SigningBehavior"] !== undefined) {
-    contents.SigningBehavior = __expectString(output["SigningBehavior"]);
+  if (output[_SB] != null) {
+    contents[_SB] = __expectString(output[_SB]);
   }
-  if (output["OriginAccessControlOriginType"] !== undefined) {
-    contents.OriginAccessControlOriginType = __expectString(output["OriginAccessControlOriginType"]);
+  if (output[_OACOT] != null) {
+    contents[_OACOT] = __expectString(output[_OACOT]);
   }
   return contents;
 };
@@ -18892,28 +17109,25 @@ const de_OriginAccessControlConfig = (output: any, context: __SerdeContext): Ori
  */
 const de_OriginAccessControlList = (output: any, context: __SerdeContext): OriginAccessControlList => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["OriginAccessControlSummary"] !== undefined) {
-    contents.Items = de_OriginAccessControlSummaryList(
-      __getArrayIfSingleItem(output["Items"]["OriginAccessControlSummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OACS] != null) {
+    contents[_It] = de_OriginAccessControlSummaryList(__getArrayIfSingleItem(output[_It][_OACS]), context);
   }
   return contents;
 };
@@ -18923,23 +17137,23 @@ const de_OriginAccessControlList = (output: any, context: __SerdeContext): Origi
  */
 const de_OriginAccessControlSummary = (output: any, context: __SerdeContext): OriginAccessControlSummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["SigningProtocol"] !== undefined) {
-    contents.SigningProtocol = __expectString(output["SigningProtocol"]);
+  if (output[_SP] != null) {
+    contents[_SP] = __expectString(output[_SP]);
   }
-  if (output["SigningBehavior"] !== undefined) {
-    contents.SigningBehavior = __expectString(output["SigningBehavior"]);
+  if (output[_SB] != null) {
+    contents[_SB] = __expectString(output[_SB]);
   }
-  if (output["OriginAccessControlOriginType"] !== undefined) {
-    contents.OriginAccessControlOriginType = __expectString(output["OriginAccessControlOriginType"]);
+  if (output[_OACOT] != null) {
+    contents[_OACOT] = __expectString(output[_OACOT]);
   }
   return contents;
 };
@@ -18960,11 +17174,11 @@ const de_OriginAccessControlSummaryList = (output: any, context: __SerdeContext)
  */
 const de_OriginCustomHeader = (output: any, context: __SerdeContext): OriginCustomHeader => {
   const contents: any = {};
-  if (output["HeaderName"] !== undefined) {
-    contents.HeaderName = __expectString(output["HeaderName"]);
+  if (output[_HN] != null) {
+    contents[_HN] = __expectString(output[_HN]);
   }
-  if (output["HeaderValue"] !== undefined) {
-    contents.HeaderValue = __expectString(output["HeaderValue"]);
+  if (output[_HVe] != null) {
+    contents[_HVe] = __expectString(output[_HVe]);
   }
   return contents;
 };
@@ -18985,14 +17199,14 @@ const de_OriginCustomHeadersList = (output: any, context: __SerdeContext): Origi
  */
 const de_OriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["FailoverCriteria"] !== undefined) {
-    contents.FailoverCriteria = de_OriginGroupFailoverCriteria(output["FailoverCriteria"], context);
+  if (output[_FCa] != null) {
+    contents[_FCa] = de_OriginGroupFailoverCriteria(output[_FCa], context);
   }
-  if (output["Members"] !== undefined) {
-    contents.Members = de_OriginGroupMembers(output["Members"], context);
+  if (output[_Mem] != null) {
+    contents[_Mem] = de_OriginGroupMembers(output[_Mem], context);
   }
   return contents;
 };
@@ -19002,8 +17216,8 @@ const de_OriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
  */
 const de_OriginGroupFailoverCriteria = (output: any, context: __SerdeContext): OriginGroupFailoverCriteria => {
   const contents: any = {};
-  if (output["StatusCodes"] !== undefined) {
-    contents.StatusCodes = de_StatusCodes(output["StatusCodes"], context);
+  if (output[_SC] != null) {
+    contents[_SC] = de_StatusCodes(output[_SC], context);
   }
   return contents;
 };
@@ -19024,8 +17238,8 @@ const de_OriginGroupList = (output: any, context: __SerdeContext): OriginGroup[]
  */
 const de_OriginGroupMember = (output: any, context: __SerdeContext): OriginGroupMember => {
   const contents: any = {};
-  if (output["OriginId"] !== undefined) {
-    contents.OriginId = __expectString(output["OriginId"]);
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
   }
   return contents;
 };
@@ -19046,13 +17260,13 @@ const de_OriginGroupMemberList = (output: any, context: __SerdeContext): OriginG
  */
 const de_OriginGroupMembers = (output: any, context: __SerdeContext): OriginGroupMembers => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["OriginGroupMember"] !== undefined) {
-    contents.Items = de_OriginGroupMemberList(__getArrayIfSingleItem(output["Items"]["OriginGroupMember"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OGM] != null) {
+    contents[_It] = de_OriginGroupMemberList(__getArrayIfSingleItem(output[_It][_OGM]), context);
   }
   return contents;
 };
@@ -19062,13 +17276,13 @@ const de_OriginGroupMembers = (output: any, context: __SerdeContext): OriginGrou
  */
 const de_OriginGroups = (output: any, context: __SerdeContext): OriginGroups => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["OriginGroup"] !== undefined) {
-    contents.Items = de_OriginGroupList(__getArrayIfSingleItem(output["Items"]["OriginGroup"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OGr] != null) {
+    contents[_It] = de_OriginGroupList(__getArrayIfSingleItem(output[_It][_OGr]), context);
   }
   return contents;
 };
@@ -19089,14 +17303,14 @@ const de_OriginList = (output: any, context: __SerdeContext): Origin[] => {
  */
 const de_OriginRequestPolicy = (output: any, context: __SerdeContext): OriginRequestPolicy => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["OriginRequestPolicyConfig"] !== undefined) {
-    contents.OriginRequestPolicyConfig = de_OriginRequestPolicyConfig(output["OriginRequestPolicyConfig"], context);
+  if (output[_ORPC] != null) {
+    contents[_ORPC] = de_OriginRequestPolicyConfig(output[_ORPC], context);
   }
   return contents;
 };
@@ -19106,20 +17320,20 @@ const de_OriginRequestPolicy = (output: any, context: __SerdeContext): OriginReq
  */
 const de_OriginRequestPolicyConfig = (output: any, context: __SerdeContext): OriginRequestPolicyConfig => {
   const contents: any = {};
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["HeadersConfig"] !== undefined) {
-    contents.HeadersConfig = de_OriginRequestPolicyHeadersConfig(output["HeadersConfig"], context);
+  if (output[_HC] != null) {
+    contents[_HC] = de_OriginRequestPolicyHeadersConfig(output[_HC], context);
   }
-  if (output["CookiesConfig"] !== undefined) {
-    contents.CookiesConfig = de_OriginRequestPolicyCookiesConfig(output["CookiesConfig"], context);
+  if (output[_CC] != null) {
+    contents[_CC] = de_OriginRequestPolicyCookiesConfig(output[_CC], context);
   }
-  if (output["QueryStringsConfig"] !== undefined) {
-    contents.QueryStringsConfig = de_OriginRequestPolicyQueryStringsConfig(output["QueryStringsConfig"], context);
+  if (output[_QSC] != null) {
+    contents[_QSC] = de_OriginRequestPolicyQueryStringsConfig(output[_QSC], context);
   }
   return contents;
 };
@@ -19132,11 +17346,11 @@ const de_OriginRequestPolicyCookiesConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyCookiesConfig => {
   const contents: any = {};
-  if (output["CookieBehavior"] !== undefined) {
-    contents.CookieBehavior = __expectString(output["CookieBehavior"]);
+  if (output[_CBo] != null) {
+    contents[_CBo] = __expectString(output[_CBo]);
   }
-  if (output["Cookies"] !== undefined) {
-    contents.Cookies = de_CookieNames(output["Cookies"], context);
+  if (output[_Coo] != null) {
+    contents[_Coo] = de_CookieNames(output[_Coo], context);
   }
   return contents;
 };
@@ -19149,11 +17363,11 @@ const de_OriginRequestPolicyHeadersConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyHeadersConfig => {
   const contents: any = {};
-  if (output["HeaderBehavior"] !== undefined) {
-    contents.HeaderBehavior = __expectString(output["HeaderBehavior"]);
+  if (output[_HB] != null) {
+    contents[_HB] = __expectString(output[_HB]);
   }
-  if (output["Headers"] !== undefined) {
-    contents.Headers = de_Headers(output["Headers"], context);
+  if (output[_He] != null) {
+    contents[_He] = de_Headers(output[_He], context);
   }
   return contents;
 };
@@ -19163,22 +17377,19 @@ const de_OriginRequestPolicyHeadersConfig = (
  */
 const de_OriginRequestPolicyList = (output: any, context: __SerdeContext): OriginRequestPolicyList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["OriginRequestPolicySummary"] !== undefined) {
-    contents.Items = de_OriginRequestPolicySummaryList(
-      __getArrayIfSingleItem(output["Items"]["OriginRequestPolicySummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_ORPS] != null) {
+    contents[_It] = de_OriginRequestPolicySummaryList(__getArrayIfSingleItem(output[_It][_ORPS]), context);
   }
   return contents;
 };
@@ -19191,11 +17402,11 @@ const de_OriginRequestPolicyQueryStringsConfig = (
   context: __SerdeContext
 ): OriginRequestPolicyQueryStringsConfig => {
   const contents: any = {};
-  if (output["QueryStringBehavior"] !== undefined) {
-    contents.QueryStringBehavior = __expectString(output["QueryStringBehavior"]);
+  if (output[_QSB] != null) {
+    contents[_QSB] = __expectString(output[_QSB]);
   }
-  if (output["QueryStrings"] !== undefined) {
-    contents.QueryStrings = de_QueryStringNames(output["QueryStrings"], context);
+  if (output[_QS] != null) {
+    contents[_QS] = de_QueryStringNames(output[_QS], context);
   }
   return contents;
 };
@@ -19205,11 +17416,11 @@ const de_OriginRequestPolicyQueryStringsConfig = (
  */
 const de_OriginRequestPolicySummary = (output: any, context: __SerdeContext): OriginRequestPolicySummary => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["OriginRequestPolicy"] !== undefined) {
-    contents.OriginRequestPolicy = de_OriginRequestPolicy(output["OriginRequestPolicy"], context);
+  if (output[_ORP] != null) {
+    contents[_ORP] = de_OriginRequestPolicy(output[_ORP], context);
   }
   return contents;
 };
@@ -19230,13 +17441,13 @@ const de_OriginRequestPolicySummaryList = (output: any, context: __SerdeContext)
  */
 const de_Origins = (output: any, context: __SerdeContext): Origins => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
-    contents.Items = de_OriginList(__getArrayIfSingleItem(output["Items"]["Origin"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Or] != null) {
+    contents[_It] = de_OriginList(__getArrayIfSingleItem(output[_It][_Or]), context);
   }
   return contents;
 };
@@ -19246,11 +17457,11 @@ const de_Origins = (output: any, context: __SerdeContext): Origins => {
  */
 const de_OriginShield = (output: any, context: __SerdeContext): OriginShield => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["OriginShieldRegion"] !== undefined) {
-    contents.OriginShieldRegion = __expectString(output["OriginShieldRegion"]);
+  if (output[_OSR] != null) {
+    contents[_OSR] = __expectString(output[_OSR]);
   }
   return contents;
 };
@@ -19260,13 +17471,13 @@ const de_OriginShield = (output: any, context: __SerdeContext): OriginShield => 
  */
 const de_OriginSslProtocols = (output: any, context: __SerdeContext): OriginSslProtocols => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["SslProtocol"] !== undefined) {
-    contents.Items = de_SslProtocolsList(__getArrayIfSingleItem(output["Items"]["SslProtocol"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_SPs] != null) {
+    contents[_It] = de_SslProtocolsList(__getArrayIfSingleItem(output[_It][_SPs]), context);
   }
   return contents;
 };
@@ -19279,20 +17490,20 @@ const de_ParametersInCacheKeyAndForwardedToOrigin = (
   context: __SerdeContext
 ): ParametersInCacheKeyAndForwardedToOrigin => {
   const contents: any = {};
-  if (output["EnableAcceptEncodingGzip"] !== undefined) {
-    contents.EnableAcceptEncodingGzip = __parseBoolean(output["EnableAcceptEncodingGzip"]);
+  if (output[_EAEG] != null) {
+    contents[_EAEG] = __parseBoolean(output[_EAEG]);
   }
-  if (output["EnableAcceptEncodingBrotli"] !== undefined) {
-    contents.EnableAcceptEncodingBrotli = __parseBoolean(output["EnableAcceptEncodingBrotli"]);
+  if (output[_EAEB] != null) {
+    contents[_EAEB] = __parseBoolean(output[_EAEB]);
   }
-  if (output["HeadersConfig"] !== undefined) {
-    contents.HeadersConfig = de_CachePolicyHeadersConfig(output["HeadersConfig"], context);
+  if (output[_HC] != null) {
+    contents[_HC] = de_CachePolicyHeadersConfig(output[_HC], context);
   }
-  if (output["CookiesConfig"] !== undefined) {
-    contents.CookiesConfig = de_CachePolicyCookiesConfig(output["CookiesConfig"], context);
+  if (output[_CC] != null) {
+    contents[_CC] = de_CachePolicyCookiesConfig(output[_CC], context);
   }
-  if (output["QueryStringsConfig"] !== undefined) {
-    contents.QueryStringsConfig = de_CachePolicyQueryStringsConfig(output["QueryStringsConfig"], context);
+  if (output[_QSC] != null) {
+    contents[_QSC] = de_CachePolicyQueryStringsConfig(output[_QSC], context);
   }
   return contents;
 };
@@ -19313,13 +17524,13 @@ const de_PathList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_Paths = (output: any, context: __SerdeContext): Paths => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Path"] !== undefined) {
-    contents.Items = de_PathList(__getArrayIfSingleItem(output["Items"]["Path"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Pa] != null) {
+    contents[_It] = de_PathList(__getArrayIfSingleItem(output[_It][_Pa]), context);
   }
   return contents;
 };
@@ -19329,14 +17540,14 @@ const de_Paths = (output: any, context: __SerdeContext): Paths => {
  */
 const de_PublicKey = (output: any, context: __SerdeContext): PublicKey => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["PublicKeyConfig"] !== undefined) {
-    contents.PublicKeyConfig = de_PublicKeyConfig(output["PublicKeyConfig"], context);
+  if (output[_PKC] != null) {
+    contents[_PKC] = de_PublicKeyConfig(output[_PKC], context);
   }
   return contents;
 };
@@ -19346,17 +17557,17 @@ const de_PublicKey = (output: any, context: __SerdeContext): PublicKey => {
  */
 const de_PublicKeyConfig = (output: any, context: __SerdeContext): PublicKeyConfig => {
   const contents: any = {};
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["EncodedKey"] !== undefined) {
-    contents.EncodedKey = __expectString(output["EncodedKey"]);
+  if (output[_EK] != null) {
+    contents[_EK] = __expectString(output[_EK]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -19377,19 +17588,19 @@ const de_PublicKeyIdList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKeyList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["PublicKeySummary"] !== undefined) {
-    contents.Items = de_PublicKeySummaryList(__getArrayIfSingleItem(output["Items"]["PublicKeySummary"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_PKS] != null) {
+    contents[_It] = de_PublicKeySummaryList(__getArrayIfSingleItem(output[_It][_PKS]), context);
   }
   return contents;
 };
@@ -19399,20 +17610,20 @@ const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKeyList =
  */
 const de_PublicKeySummary = (output: any, context: __SerdeContext): PublicKeySummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
   }
-  if (output["EncodedKey"] !== undefined) {
-    contents.EncodedKey = __expectString(output["EncodedKey"]);
+  if (output[_EK] != null) {
+    contents[_EK] = __expectString(output[_EK]);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -19433,11 +17644,11 @@ const de_PublicKeySummaryList = (output: any, context: __SerdeContext): PublicKe
  */
 const de_QueryArgProfile = (output: any, context: __SerdeContext): QueryArgProfile => {
   const contents: any = {};
-  if (output["QueryArg"] !== undefined) {
-    contents.QueryArg = __expectString(output["QueryArg"]);
+  if (output[_QA] != null) {
+    contents[_QA] = __expectString(output[_QA]);
   }
-  if (output["ProfileId"] !== undefined) {
-    contents.ProfileId = __expectString(output["ProfileId"]);
+  if (output[_PI] != null) {
+    contents[_PI] = __expectString(output[_PI]);
   }
   return contents;
 };
@@ -19447,11 +17658,11 @@ const de_QueryArgProfile = (output: any, context: __SerdeContext): QueryArgProfi
  */
 const de_QueryArgProfileConfig = (output: any, context: __SerdeContext): QueryArgProfileConfig => {
   const contents: any = {};
-  if (output["ForwardWhenQueryArgProfileIsUnknown"] !== undefined) {
-    contents.ForwardWhenQueryArgProfileIsUnknown = __parseBoolean(output["ForwardWhenQueryArgProfileIsUnknown"]);
+  if (output[_FWQAPIU] != null) {
+    contents[_FWQAPIU] = __parseBoolean(output[_FWQAPIU]);
   }
-  if (output["QueryArgProfiles"] !== undefined) {
-    contents.QueryArgProfiles = de_QueryArgProfiles(output["QueryArgProfiles"], context);
+  if (output[_QAPu] != null) {
+    contents[_QAPu] = de_QueryArgProfiles(output[_QAPu], context);
   }
   return contents;
 };
@@ -19472,13 +17683,13 @@ const de_QueryArgProfileList = (output: any, context: __SerdeContext): QueryArgP
  */
 const de_QueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProfiles => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["QueryArgProfile"] !== undefined) {
-    contents.Items = de_QueryArgProfileList(__getArrayIfSingleItem(output["Items"]["QueryArgProfile"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_QAP] != null) {
+    contents[_It] = de_QueryArgProfileList(__getArrayIfSingleItem(output[_It][_QAP]), context);
   }
   return contents;
 };
@@ -19488,13 +17699,13 @@ const de_QueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProf
  */
 const de_QueryStringCacheKeys = (output: any, context: __SerdeContext): QueryStringCacheKeys => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    contents.Items = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output["Items"]["Name"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -19515,13 +17726,13 @@ const de_QueryStringCacheKeysList = (output: any, context: __SerdeContext): stri
  */
 const de_QueryStringNames = (output: any, context: __SerdeContext): QueryStringNames => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
-    contents.Items = de_QueryStringNamesList(__getArrayIfSingleItem(output["Items"]["Name"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_QueryStringNamesList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -19542,24 +17753,24 @@ const de_QueryStringNamesList = (output: any, context: __SerdeContext): string[]
  */
 const de_RealtimeLogConfig = (output: any, context: __SerdeContext): RealtimeLogConfig => {
   const contents: any = {};
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["SamplingRate"] !== undefined) {
-    contents.SamplingRate = __strictParseLong(output["SamplingRate"]) as number;
+  if (output[_SR] != null) {
+    contents[_SR] = __strictParseLong(output[_SR]) as number;
   }
   if (output.EndPoints === "") {
-    contents.EndPoints = [];
-  } else if (output["EndPoints"] !== undefined && output["EndPoints"]["member"] !== undefined) {
-    contents.EndPoints = de_EndPointList(__getArrayIfSingleItem(output["EndPoints"]["member"]), context);
+    contents[_EP] = [];
+  } else if (output[_EP] != null && output[_EP][_m] != null) {
+    contents[_EP] = de_EndPointList(__getArrayIfSingleItem(output[_EP][_m]), context);
   }
   if (output.Fields === "") {
-    contents.Fields = [];
-  } else if (output["Fields"] !== undefined && output["Fields"]["Field"] !== undefined) {
-    contents.Fields = de_FieldList(__getArrayIfSingleItem(output["Fields"]["Field"]), context);
+    contents[_F] = [];
+  } else if (output[_F] != null && output[_F][_Fi] != null) {
+    contents[_F] = de_FieldList(__getArrayIfSingleItem(output[_F][_Fi]), context);
   }
   return contents;
 };
@@ -19580,22 +17791,22 @@ const de_RealtimeLogConfigList = (output: any, context: __SerdeContext): Realtim
  */
 const de_RealtimeLogConfigs = (output: any, context: __SerdeContext): RealtimeLogConfigs => {
   const contents: any = {};
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["member"] !== undefined) {
-    contents.Items = de_RealtimeLogConfigList(__getArrayIfSingleItem(output["Items"]["member"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_m] != null) {
+    contents[_It] = de_RealtimeLogConfigList(__getArrayIfSingleItem(output[_It][_m]), context);
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -19608,8 +17819,8 @@ const de_RealtimeMetricsSubscriptionConfig = (
   context: __SerdeContext
 ): RealtimeMetricsSubscriptionConfig => {
   const contents: any = {};
-  if (output["RealtimeMetricsSubscriptionStatus"] !== undefined) {
-    contents.RealtimeMetricsSubscriptionStatus = __expectString(output["RealtimeMetricsSubscriptionStatus"]);
+  if (output[_RMSS] != null) {
+    contents[_RMSS] = __expectString(output[_RMSS]);
   }
   return contents;
 };
@@ -19619,17 +17830,14 @@ const de_RealtimeMetricsSubscriptionConfig = (
  */
 const de_ResponseHeadersPolicy = (output: any, context: __SerdeContext): ResponseHeadersPolicy => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["ResponseHeadersPolicyConfig"] !== undefined) {
-    contents.ResponseHeadersPolicyConfig = de_ResponseHeadersPolicyConfig(
-      output["ResponseHeadersPolicyConfig"],
-      context
-    );
+  if (output[_RHPC] != null) {
+    contents[_RHPC] = de_ResponseHeadersPolicyConfig(output[_RHPC], context);
   }
   return contents;
 };
@@ -19642,13 +17850,13 @@ const de_ResponseHeadersPolicyAccessControlAllowHeaders = (
   context: __SerdeContext
 ): ResponseHeadersPolicyAccessControlAllowHeaders => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
-    contents.Items = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output["Items"]["Header"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_H] != null) {
+    contents[_It] = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
   }
   return contents;
 };
@@ -19661,13 +17869,13 @@ const de_ResponseHeadersPolicyAccessControlAllowMethods = (
   context: __SerdeContext
 ): ResponseHeadersPolicyAccessControlAllowMethods => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
-    contents.Items = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output["Items"]["Method"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Met] != null) {
+    contents[_It] = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
   }
   return contents;
 };
@@ -19680,13 +17888,13 @@ const de_ResponseHeadersPolicyAccessControlAllowOrigins = (
   context: __SerdeContext
 ): ResponseHeadersPolicyAccessControlAllowOrigins => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
-    contents.Items = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output["Items"]["Origin"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Or] != null) {
+    contents[_It] = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output[_It][_Or]), context);
   }
   return contents;
 };
@@ -19699,13 +17907,13 @@ const de_ResponseHeadersPolicyAccessControlExposeHeaders = (
   context: __SerdeContext
 ): ResponseHeadersPolicyAccessControlExposeHeaders => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
-    contents.Items = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output["Items"]["Header"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_H] != null) {
+    contents[_It] = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
   }
   return contents;
 };
@@ -19715,32 +17923,26 @@ const de_ResponseHeadersPolicyAccessControlExposeHeaders = (
  */
 const de_ResponseHeadersPolicyConfig = (output: any, context: __SerdeContext): ResponseHeadersPolicyConfig => {
   const contents: any = {};
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["CorsConfig"] !== undefined) {
-    contents.CorsConfig = de_ResponseHeadersPolicyCorsConfig(output["CorsConfig"], context);
+  if (output[_CCo] != null) {
+    contents[_CCo] = de_ResponseHeadersPolicyCorsConfig(output[_CCo], context);
   }
-  if (output["SecurityHeadersConfig"] !== undefined) {
-    contents.SecurityHeadersConfig = de_ResponseHeadersPolicySecurityHeadersConfig(
-      output["SecurityHeadersConfig"],
-      context
-    );
+  if (output[_SHC] != null) {
+    contents[_SHC] = de_ResponseHeadersPolicySecurityHeadersConfig(output[_SHC], context);
   }
-  if (output["ServerTimingHeadersConfig"] !== undefined) {
-    contents.ServerTimingHeadersConfig = de_ResponseHeadersPolicyServerTimingHeadersConfig(
-      output["ServerTimingHeadersConfig"],
-      context
-    );
+  if (output[_STHC] != null) {
+    contents[_STHC] = de_ResponseHeadersPolicyServerTimingHeadersConfig(output[_STHC], context);
   }
-  if (output["CustomHeadersConfig"] !== undefined) {
-    contents.CustomHeadersConfig = de_ResponseHeadersPolicyCustomHeadersConfig(output["CustomHeadersConfig"], context);
+  if (output[_CHC] != null) {
+    contents[_CHC] = de_ResponseHeadersPolicyCustomHeadersConfig(output[_CHC], context);
   }
-  if (output["RemoveHeadersConfig"] !== undefined) {
-    contents.RemoveHeadersConfig = de_ResponseHeadersPolicyRemoveHeadersConfig(output["RemoveHeadersConfig"], context);
+  if (output[_RHC] != null) {
+    contents[_RHC] = de_ResponseHeadersPolicyRemoveHeadersConfig(output[_RHC], context);
   }
   return contents;
 };
@@ -19753,11 +17955,11 @@ const de_ResponseHeadersPolicyContentSecurityPolicy = (
   context: __SerdeContext
 ): ResponseHeadersPolicyContentSecurityPolicy => {
   const contents: any = {};
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
-  if (output["ContentSecurityPolicy"] !== undefined) {
-    contents.ContentSecurityPolicy = __expectString(output["ContentSecurityPolicy"]);
+  if (output[_CSP] != null) {
+    contents[_CSP] = __expectString(output[_CSP]);
   }
   return contents;
 };
@@ -19770,8 +17972,8 @@ const de_ResponseHeadersPolicyContentTypeOptions = (
   context: __SerdeContext
 ): ResponseHeadersPolicyContentTypeOptions => {
   const contents: any = {};
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
   return contents;
 };
@@ -19781,38 +17983,26 @@ const de_ResponseHeadersPolicyContentTypeOptions = (
  */
 const de_ResponseHeadersPolicyCorsConfig = (output: any, context: __SerdeContext): ResponseHeadersPolicyCorsConfig => {
   const contents: any = {};
-  if (output["AccessControlAllowOrigins"] !== undefined) {
-    contents.AccessControlAllowOrigins = de_ResponseHeadersPolicyAccessControlAllowOrigins(
-      output["AccessControlAllowOrigins"],
-      context
-    );
+  if (output[_ACAO] != null) {
+    contents[_ACAO] = de_ResponseHeadersPolicyAccessControlAllowOrigins(output[_ACAO], context);
   }
-  if (output["AccessControlAllowHeaders"] !== undefined) {
-    contents.AccessControlAllowHeaders = de_ResponseHeadersPolicyAccessControlAllowHeaders(
-      output["AccessControlAllowHeaders"],
-      context
-    );
+  if (output[_ACAH] != null) {
+    contents[_ACAH] = de_ResponseHeadersPolicyAccessControlAllowHeaders(output[_ACAH], context);
   }
-  if (output["AccessControlAllowMethods"] !== undefined) {
-    contents.AccessControlAllowMethods = de_ResponseHeadersPolicyAccessControlAllowMethods(
-      output["AccessControlAllowMethods"],
-      context
-    );
+  if (output[_ACAM] != null) {
+    contents[_ACAM] = de_ResponseHeadersPolicyAccessControlAllowMethods(output[_ACAM], context);
   }
-  if (output["AccessControlAllowCredentials"] !== undefined) {
-    contents.AccessControlAllowCredentials = __parseBoolean(output["AccessControlAllowCredentials"]);
+  if (output[_ACAC] != null) {
+    contents[_ACAC] = __parseBoolean(output[_ACAC]);
   }
-  if (output["AccessControlExposeHeaders"] !== undefined) {
-    contents.AccessControlExposeHeaders = de_ResponseHeadersPolicyAccessControlExposeHeaders(
-      output["AccessControlExposeHeaders"],
-      context
-    );
+  if (output[_ACEH] != null) {
+    contents[_ACEH] = de_ResponseHeadersPolicyAccessControlExposeHeaders(output[_ACEH], context);
   }
-  if (output["AccessControlMaxAgeSec"] !== undefined) {
-    contents.AccessControlMaxAgeSec = __strictParseInt32(output["AccessControlMaxAgeSec"]) as number;
+  if (output[_ACMAS] != null) {
+    contents[_ACMAS] = __strictParseInt32(output[_ACMAS]) as number;
   }
-  if (output["OriginOverride"] !== undefined) {
-    contents.OriginOverride = __parseBoolean(output["OriginOverride"]);
+  if (output[_OO] != null) {
+    contents[_OO] = __parseBoolean(output[_OO]);
   }
   return contents;
 };
@@ -19825,14 +18015,14 @@ const de_ResponseHeadersPolicyCustomHeader = (
   context: __SerdeContext
 ): ResponseHeadersPolicyCustomHeader => {
   const contents: any = {};
-  if (output["Header"] !== undefined) {
-    contents.Header = __expectString(output["Header"]);
+  if (output[_H] != null) {
+    contents[_H] = __expectString(output[_H]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
   return contents;
 };
@@ -19859,16 +18049,13 @@ const de_ResponseHeadersPolicyCustomHeadersConfig = (
   context: __SerdeContext
 ): ResponseHeadersPolicyCustomHeadersConfig => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicyCustomHeader"] !== undefined) {
-    contents.Items = de_ResponseHeadersPolicyCustomHeaderList(
-      __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicyCustomHeader"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_RHPCH] != null) {
+    contents[_It] = de_ResponseHeadersPolicyCustomHeaderList(__getArrayIfSingleItem(output[_It][_RHPCH]), context);
   }
   return contents;
 };
@@ -19881,11 +18068,11 @@ const de_ResponseHeadersPolicyFrameOptions = (
   context: __SerdeContext
 ): ResponseHeadersPolicyFrameOptions => {
   const contents: any = {};
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
-  if (output["FrameOption"] !== undefined) {
-    contents.FrameOption = __expectString(output["FrameOption"]);
+  if (output[_FO] != null) {
+    contents[_FO] = __expectString(output[_FO]);
   }
   return contents;
 };
@@ -19895,22 +18082,19 @@ const de_ResponseHeadersPolicyFrameOptions = (
  */
 const de_ResponseHeadersPolicyList = (output: any, context: __SerdeContext): ResponseHeadersPolicyList => {
   const contents: any = {};
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicySummary"] !== undefined) {
-    contents.Items = de_ResponseHeadersPolicySummaryList(
-      __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicySummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_RHPS] != null) {
+    contents[_It] = de_ResponseHeadersPolicySummaryList(__getArrayIfSingleItem(output[_It][_RHPS]), context);
   }
   return contents;
 };
@@ -19923,11 +18107,11 @@ const de_ResponseHeadersPolicyReferrerPolicy = (
   context: __SerdeContext
 ): ResponseHeadersPolicyReferrerPolicy => {
   const contents: any = {};
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
-  if (output["ReferrerPolicy"] !== undefined) {
-    contents.ReferrerPolicy = __expectString(output["ReferrerPolicy"]);
+  if (output[_RP] != null) {
+    contents[_RP] = __expectString(output[_RP]);
   }
   return contents;
 };
@@ -19940,8 +18124,8 @@ const de_ResponseHeadersPolicyRemoveHeader = (
   context: __SerdeContext
 ): ResponseHeadersPolicyRemoveHeader => {
   const contents: any = {};
-  if (output["Header"] !== undefined) {
-    contents.Header = __expectString(output["Header"]);
+  if (output[_H] != null) {
+    contents[_H] = __expectString(output[_H]);
   }
   return contents;
 };
@@ -19968,16 +18152,13 @@ const de_ResponseHeadersPolicyRemoveHeadersConfig = (
   context: __SerdeContext
 ): ResponseHeadersPolicyRemoveHeadersConfig => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicyRemoveHeader"] !== undefined) {
-    contents.Items = de_ResponseHeadersPolicyRemoveHeaderList(
-      __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicyRemoveHeader"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_RHPRH] != null) {
+    contents[_It] = de_ResponseHeadersPolicyRemoveHeaderList(__getArrayIfSingleItem(output[_It][_RHPRH]), context);
   }
   return contents;
 };
@@ -19990,29 +18171,23 @@ const de_ResponseHeadersPolicySecurityHeadersConfig = (
   context: __SerdeContext
 ): ResponseHeadersPolicySecurityHeadersConfig => {
   const contents: any = {};
-  if (output["XSSProtection"] !== undefined) {
-    contents.XSSProtection = de_ResponseHeadersPolicyXSSProtection(output["XSSProtection"], context);
+  if (output[_XSSP] != null) {
+    contents[_XSSP] = de_ResponseHeadersPolicyXSSProtection(output[_XSSP], context);
   }
-  if (output["FrameOptions"] !== undefined) {
-    contents.FrameOptions = de_ResponseHeadersPolicyFrameOptions(output["FrameOptions"], context);
+  if (output[_FOr] != null) {
+    contents[_FOr] = de_ResponseHeadersPolicyFrameOptions(output[_FOr], context);
   }
-  if (output["ReferrerPolicy"] !== undefined) {
-    contents.ReferrerPolicy = de_ResponseHeadersPolicyReferrerPolicy(output["ReferrerPolicy"], context);
+  if (output[_RP] != null) {
+    contents[_RP] = de_ResponseHeadersPolicyReferrerPolicy(output[_RP], context);
   }
-  if (output["ContentSecurityPolicy"] !== undefined) {
-    contents.ContentSecurityPolicy = de_ResponseHeadersPolicyContentSecurityPolicy(
-      output["ContentSecurityPolicy"],
-      context
-    );
+  if (output[_CSP] != null) {
+    contents[_CSP] = de_ResponseHeadersPolicyContentSecurityPolicy(output[_CSP], context);
   }
-  if (output["ContentTypeOptions"] !== undefined) {
-    contents.ContentTypeOptions = de_ResponseHeadersPolicyContentTypeOptions(output["ContentTypeOptions"], context);
+  if (output[_CTO] != null) {
+    contents[_CTO] = de_ResponseHeadersPolicyContentTypeOptions(output[_CTO], context);
   }
-  if (output["StrictTransportSecurity"] !== undefined) {
-    contents.StrictTransportSecurity = de_ResponseHeadersPolicyStrictTransportSecurity(
-      output["StrictTransportSecurity"],
-      context
-    );
+  if (output[_STS] != null) {
+    contents[_STS] = de_ResponseHeadersPolicyStrictTransportSecurity(output[_STS], context);
   }
   return contents;
 };
@@ -20025,11 +18200,11 @@ const de_ResponseHeadersPolicyServerTimingHeadersConfig = (
   context: __SerdeContext
 ): ResponseHeadersPolicyServerTimingHeadersConfig => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["SamplingRate"] !== undefined) {
-    contents.SamplingRate = __strictParseFloat(output["SamplingRate"]) as number;
+  if (output[_SR] != null) {
+    contents[_SR] = __strictParseFloat(output[_SR]) as number;
   }
   return contents;
 };
@@ -20042,17 +18217,17 @@ const de_ResponseHeadersPolicyStrictTransportSecurity = (
   context: __SerdeContext
 ): ResponseHeadersPolicyStrictTransportSecurity => {
   const contents: any = {};
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
-  if (output["IncludeSubdomains"] !== undefined) {
-    contents.IncludeSubdomains = __parseBoolean(output["IncludeSubdomains"]);
+  if (output[_ISn] != null) {
+    contents[_ISn] = __parseBoolean(output[_ISn]);
   }
-  if (output["Preload"] !== undefined) {
-    contents.Preload = __parseBoolean(output["Preload"]);
+  if (output[_Pre] != null) {
+    contents[_Pre] = __parseBoolean(output[_Pre]);
   }
-  if (output["AccessControlMaxAgeSec"] !== undefined) {
-    contents.AccessControlMaxAgeSec = __strictParseInt32(output["AccessControlMaxAgeSec"]) as number;
+  if (output[_ACMAS] != null) {
+    contents[_ACMAS] = __strictParseInt32(output[_ACMAS]) as number;
   }
   return contents;
 };
@@ -20062,11 +18237,11 @@ const de_ResponseHeadersPolicyStrictTransportSecurity = (
  */
 const de_ResponseHeadersPolicySummary = (output: any, context: __SerdeContext): ResponseHeadersPolicySummary => {
   const contents: any = {};
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
-  if (output["ResponseHeadersPolicy"] !== undefined) {
-    contents.ResponseHeadersPolicy = de_ResponseHeadersPolicy(output["ResponseHeadersPolicy"], context);
+  if (output[_RHP] != null) {
+    contents[_RHP] = de_ResponseHeadersPolicy(output[_RHP], context);
   }
   return contents;
 };
@@ -20090,17 +18265,17 @@ const de_ResponseHeadersPolicyXSSProtection = (
   context: __SerdeContext
 ): ResponseHeadersPolicyXSSProtection => {
   const contents: any = {};
-  if (output["Override"] !== undefined) {
-    contents.Override = __parseBoolean(output["Override"]);
+  if (output[_Ov] != null) {
+    contents[_Ov] = __parseBoolean(output[_Ov]);
   }
-  if (output["Protection"] !== undefined) {
-    contents.Protection = __parseBoolean(output["Protection"]);
+  if (output[_Pro] != null) {
+    contents[_Pro] = __parseBoolean(output[_Pro]);
   }
-  if (output["ModeBlock"] !== undefined) {
-    contents.ModeBlock = __parseBoolean(output["ModeBlock"]);
+  if (output[_MB] != null) {
+    contents[_MB] = __parseBoolean(output[_MB]);
   }
-  if (output["ReportUri"] !== undefined) {
-    contents.ReportUri = __expectString(output["ReportUri"]);
+  if (output[_RU] != null) {
+    contents[_RU] = __expectString(output[_RU]);
   }
   return contents;
 };
@@ -20110,8 +18285,8 @@ const de_ResponseHeadersPolicyXSSProtection = (
  */
 const de_Restrictions = (output: any, context: __SerdeContext): Restrictions => {
   const contents: any = {};
-  if (output["GeoRestriction"] !== undefined) {
-    contents.GeoRestriction = de_GeoRestriction(output["GeoRestriction"], context);
+  if (output[_GR] != null) {
+    contents[_GR] = de_GeoRestriction(output[_GR], context);
   }
   return contents;
 };
@@ -20121,11 +18296,11 @@ const de_Restrictions = (output: any, context: __SerdeContext): Restrictions => 
  */
 const de_S3Origin = (output: any, context: __SerdeContext): S3Origin => {
   const contents: any = {};
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["OriginAccessIdentity"] !== undefined) {
-    contents.OriginAccessIdentity = __expectString(output["OriginAccessIdentity"]);
+  if (output[_OAI] != null) {
+    contents[_OAI] = __expectString(output[_OAI]);
   }
   return contents;
 };
@@ -20135,8 +18310,8 @@ const de_S3Origin = (output: any, context: __SerdeContext): S3Origin => {
  */
 const de_S3OriginConfig = (output: any, context: __SerdeContext): S3OriginConfig => {
   const contents: any = {};
-  if (output["OriginAccessIdentity"] !== undefined) {
-    contents.OriginAccessIdentity = __expectString(output["OriginAccessIdentity"]);
+  if (output[_OAI] != null) {
+    contents[_OAI] = __expectString(output[_OAI]);
   }
   return contents;
 };
@@ -20146,11 +18321,11 @@ const de_S3OriginConfig = (output: any, context: __SerdeContext): S3OriginConfig
  */
 const de_SessionStickinessConfig = (output: any, context: __SerdeContext): SessionStickinessConfig => {
   const contents: any = {};
-  if (output["IdleTTL"] !== undefined) {
-    contents.IdleTTL = __strictParseInt32(output["IdleTTL"]) as number;
+  if (output[_ITTL] != null) {
+    contents[_ITTL] = __strictParseInt32(output[_ITTL]) as number;
   }
-  if (output["MaximumTTL"] !== undefined) {
-    contents.MaximumTTL = __strictParseInt32(output["MaximumTTL"]) as number;
+  if (output[_MTTLax] != null) {
+    contents[_MTTLax] = __strictParseInt32(output[_MTTLax]) as number;
   }
   return contents;
 };
@@ -20160,11 +18335,11 @@ const de_SessionStickinessConfig = (output: any, context: __SerdeContext): Sessi
  */
 const de_Signer = (output: any, context: __SerdeContext): Signer => {
   const contents: any = {};
-  if (output["AwsAccountNumber"] !== undefined) {
-    contents.AwsAccountNumber = __expectString(output["AwsAccountNumber"]);
+  if (output[_AAN] != null) {
+    contents[_AAN] = __expectString(output[_AAN]);
   }
-  if (output["KeyPairIds"] !== undefined) {
-    contents.KeyPairIds = de_KeyPairIds(output["KeyPairIds"], context);
+  if (output[_KPIe] != null) {
+    contents[_KPIe] = de_KeyPairIds(output[_KPIe], context);
   }
   return contents;
 };
@@ -20207,13 +18382,13 @@ const de_StagingDistributionDnsNameList = (output: any, context: __SerdeContext)
  */
 const de_StagingDistributionDnsNames = (output: any, context: __SerdeContext): StagingDistributionDnsNames => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["DnsName"] !== undefined) {
-    contents.Items = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output["Items"]["DnsName"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DNn] != null) {
+    contents[_It] = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output[_It][_DNn]), context);
   }
   return contents;
 };
@@ -20234,13 +18409,13 @@ const de_StatusCodeList = (output: any, context: __SerdeContext): number[] => {
  */
 const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
   const contents: any = {};
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["StatusCode"] !== undefined) {
-    contents.Items = de_StatusCodeList(__getArrayIfSingleItem(output["Items"]["StatusCode"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_SCt] != null) {
+    contents[_It] = de_StatusCodeList(__getArrayIfSingleItem(output[_It][_SCt]), context);
   }
   return contents;
 };
@@ -20250,29 +18425,26 @@ const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
  */
 const de_StreamingDistribution = (output: any, context: __SerdeContext): StreamingDistribution => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["ActiveTrustedSigners"] !== undefined) {
-    contents.ActiveTrustedSigners = de_ActiveTrustedSigners(output["ActiveTrustedSigners"], context);
+  if (output[_ATS] != null) {
+    contents[_ATS] = de_ActiveTrustedSigners(output[_ATS], context);
   }
-  if (output["StreamingDistributionConfig"] !== undefined) {
-    contents.StreamingDistributionConfig = de_StreamingDistributionConfig(
-      output["StreamingDistributionConfig"],
-      context
-    );
+  if (output[_SDC] != null) {
+    contents[_SDC] = de_StreamingDistributionConfig(output[_SDC], context);
   }
   return contents;
 };
@@ -20282,29 +18454,29 @@ const de_StreamingDistribution = (output: any, context: __SerdeContext): Streami
  */
 const de_StreamingDistributionConfig = (output: any, context: __SerdeContext): StreamingDistributionConfig => {
   const contents: any = {};
-  if (output["CallerReference"] !== undefined) {
-    contents.CallerReference = __expectString(output["CallerReference"]);
+  if (output[_CR] != null) {
+    contents[_CR] = __expectString(output[_CR]);
   }
-  if (output["S3Origin"] !== undefined) {
-    contents.S3Origin = de_S3Origin(output["S3Origin"], context);
+  if (output[_SO] != null) {
+    contents[_SO] = de_S3Origin(output[_SO], context);
   }
-  if (output["Aliases"] !== undefined) {
-    contents.Aliases = de_Aliases(output["Aliases"], context);
+  if (output[_Al] != null) {
+    contents[_Al] = de_Aliases(output[_Al], context);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Logging"] !== undefined) {
-    contents.Logging = de_StreamingLoggingConfig(output["Logging"], context);
+  if (output[_Lo] != null) {
+    contents[_Lo] = de_StreamingLoggingConfig(output[_Lo], context);
   }
-  if (output["TrustedSigners"] !== undefined) {
-    contents.TrustedSigners = de_TrustedSigners(output["TrustedSigners"], context);
+  if (output[_TS] != null) {
+    contents[_TS] = de_TrustedSigners(output[_TS], context);
   }
-  if (output["PriceClass"] !== undefined) {
-    contents.PriceClass = __expectString(output["PriceClass"]);
+  if (output[_PC] != null) {
+    contents[_PC] = __expectString(output[_PC]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
   return contents;
 };
@@ -20314,28 +18486,25 @@ const de_StreamingDistributionConfig = (output: any, context: __SerdeContext): S
  */
 const de_StreamingDistributionList = (output: any, context: __SerdeContext): StreamingDistributionList => {
   const contents: any = {};
-  if (output["Marker"] !== undefined) {
-    contents.Marker = __expectString(output["Marker"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
-  if (output["MaxItems"] !== undefined) {
-    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["StreamingDistributionSummary"] !== undefined) {
-    contents.Items = de_StreamingDistributionSummaryList(
-      __getArrayIfSingleItem(output["Items"]["StreamingDistributionSummary"]),
-      context
-    );
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_SDS] != null) {
+    contents[_It] = de_StreamingDistributionSummaryList(__getArrayIfSingleItem(output[_It][_SDS]), context);
   }
   return contents;
 };
@@ -20345,38 +18514,38 @@ const de_StreamingDistributionList = (output: any, context: __SerdeContext): Str
  */
 const de_StreamingDistributionSummary = (output: any, context: __SerdeContext): StreamingDistributionSummary => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = __expectString(output["ARN"]);
+  if (output[_ARN] != null) {
+    contents[_ARN] = __expectString(output[_ARN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
   }
-  if (output["LastModifiedTime"] !== undefined) {
-    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["LastModifiedTime"]));
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output["DomainName"] !== undefined) {
-    contents.DomainName = __expectString(output["DomainName"]);
+  if (output[_DN] != null) {
+    contents[_DN] = __expectString(output[_DN]);
   }
-  if (output["S3Origin"] !== undefined) {
-    contents.S3Origin = de_S3Origin(output["S3Origin"], context);
+  if (output[_SO] != null) {
+    contents[_SO] = de_S3Origin(output[_SO], context);
   }
-  if (output["Aliases"] !== undefined) {
-    contents.Aliases = de_Aliases(output["Aliases"], context);
+  if (output[_Al] != null) {
+    contents[_Al] = de_Aliases(output[_Al], context);
   }
-  if (output["TrustedSigners"] !== undefined) {
-    contents.TrustedSigners = de_TrustedSigners(output["TrustedSigners"], context);
+  if (output[_TS] != null) {
+    contents[_TS] = de_TrustedSigners(output[_TS], context);
   }
-  if (output["Comment"] !== undefined) {
-    contents.Comment = __expectString(output["Comment"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["PriceClass"] !== undefined) {
-    contents.PriceClass = __expectString(output["PriceClass"]);
+  if (output[_PC] != null) {
+    contents[_PC] = __expectString(output[_PC]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
   return contents;
 };
@@ -20397,14 +18566,14 @@ const de_StreamingDistributionSummaryList = (output: any, context: __SerdeContex
  */
 const de_StreamingLoggingConfig = (output: any, context: __SerdeContext): StreamingLoggingConfig => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["Bucket"] !== undefined) {
-    contents.Bucket = __expectString(output["Bucket"]);
+  if (output[_B] != null) {
+    contents[_B] = __expectString(output[_B]);
   }
-  if (output["Prefix"] !== undefined) {
-    contents.Prefix = __expectString(output["Prefix"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
   return contents;
 };
@@ -20414,11 +18583,11 @@ const de_StreamingLoggingConfig = (output: any, context: __SerdeContext): Stream
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
   }
   return contents;
 };
@@ -20440,9 +18609,9 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
 const de_Tags = (output: any, context: __SerdeContext): Tags => {
   const contents: any = {};
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["Tag"] !== undefined) {
-    contents.Items = de_TagList(__getArrayIfSingleItem(output["Items"]["Tag"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Tag] != null) {
+    contents[_It] = de_TagList(__getArrayIfSingleItem(output[_It][_Tag]), context);
   }
   return contents;
 };
@@ -20452,25 +18621,22 @@ const de_Tags = (output: any, context: __SerdeContext): Tags => {
  */
 const de_TestResult = (output: any, context: __SerdeContext): TestResult => {
   const contents: any = {};
-  if (output["FunctionSummary"] !== undefined) {
-    contents.FunctionSummary = de_FunctionSummary(output["FunctionSummary"], context);
+  if (output[_FSu] != null) {
+    contents[_FSu] = de_FunctionSummary(output[_FSu], context);
   }
-  if (output["ComputeUtilization"] !== undefined) {
-    contents.ComputeUtilization = __expectString(output["ComputeUtilization"]);
+  if (output[_CU] != null) {
+    contents[_CU] = __expectString(output[_CU]);
   }
   if (output.FunctionExecutionLogs === "") {
-    contents.FunctionExecutionLogs = [];
-  } else if (output["FunctionExecutionLogs"] !== undefined && output["FunctionExecutionLogs"]["member"] !== undefined) {
-    contents.FunctionExecutionLogs = de_FunctionExecutionLogList(
-      __getArrayIfSingleItem(output["FunctionExecutionLogs"]["member"]),
-      context
-    );
+    contents[_FEL] = [];
+  } else if (output[_FEL] != null && output[_FEL][_m] != null) {
+    contents[_FEL] = de_FunctionExecutionLogList(__getArrayIfSingleItem(output[_FEL][_m]), context);
   }
-  if (output["FunctionErrorMessage"] !== undefined) {
-    contents.FunctionErrorMessage = __expectString(output["FunctionErrorMessage"]);
+  if (output[_FEM] != null) {
+    contents[_FEM] = __expectString(output[_FEM]);
   }
-  if (output["FunctionOutput"] !== undefined) {
-    contents.FunctionOutput = __expectString(output["FunctionOutput"]);
+  if (output[_FOu] != null) {
+    contents[_FOu] = __expectString(output[_FOu]);
   }
   return contents;
 };
@@ -20480,14 +18646,14 @@ const de_TestResult = (output: any, context: __SerdeContext): TestResult => {
  */
 const de_TrafficConfig = (output: any, context: __SerdeContext): TrafficConfig => {
   const contents: any = {};
-  if (output["SingleWeightConfig"] !== undefined) {
-    contents.SingleWeightConfig = de_ContinuousDeploymentSingleWeightConfig(output["SingleWeightConfig"], context);
+  if (output[_SWC] != null) {
+    contents[_SWC] = de_ContinuousDeploymentSingleWeightConfig(output[_SWC], context);
   }
-  if (output["SingleHeaderConfig"] !== undefined) {
-    contents.SingleHeaderConfig = de_ContinuousDeploymentSingleHeaderConfig(output["SingleHeaderConfig"], context);
+  if (output[_SHCi] != null) {
+    contents[_SHCi] = de_ContinuousDeploymentSingleHeaderConfig(output[_SHCi], context);
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = __expectString(output["Type"]);
+  if (output[_T] != null) {
+    contents[_T] = __expectString(output[_T]);
   }
   return contents;
 };
@@ -20508,16 +18674,16 @@ const de_TrustedKeyGroupIdList = (output: any, context: __SerdeContext): string[
  */
 const de_TrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGroups => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["KeyGroup"] !== undefined) {
-    contents.Items = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output["Items"]["KeyGroup"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KG] != null) {
+    contents[_It] = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output[_It][_KG]), context);
   }
   return contents;
 };
@@ -20527,16 +18693,16 @@ const de_TrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGr
  */
 const de_TrustedSigners = (output: any, context: __SerdeContext): TrustedSigners => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["Quantity"] !== undefined) {
-    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents.Items = [];
-  } else if (output["Items"] !== undefined && output["Items"]["AwsAccountNumber"] !== undefined) {
-    contents.Items = de_AwsAccountNumberList(__getArrayIfSingleItem(output["Items"]["AwsAccountNumber"]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_AAN] != null) {
+    contents[_It] = de_AwsAccountNumberList(__getArrayIfSingleItem(output[_It][_AAN]), context);
   }
   return contents;
 };
@@ -20546,26 +18712,26 @@ const de_TrustedSigners = (output: any, context: __SerdeContext): TrustedSigners
  */
 const de_ViewerCertificate = (output: any, context: __SerdeContext): ViewerCertificate => {
   const contents: any = {};
-  if (output["CloudFrontDefaultCertificate"] !== undefined) {
-    contents.CloudFrontDefaultCertificate = __parseBoolean(output["CloudFrontDefaultCertificate"]);
+  if (output[_CFDC] != null) {
+    contents[_CFDC] = __parseBoolean(output[_CFDC]);
   }
-  if (output["IAMCertificateId"] !== undefined) {
-    contents.IAMCertificateId = __expectString(output["IAMCertificateId"]);
+  if (output[_IAMCI] != null) {
+    contents[_IAMCI] = __expectString(output[_IAMCI]);
   }
-  if (output["ACMCertificateArn"] !== undefined) {
-    contents.ACMCertificateArn = __expectString(output["ACMCertificateArn"]);
+  if (output[_ACMCA] != null) {
+    contents[_ACMCA] = __expectString(output[_ACMCA]);
   }
-  if (output["SSLSupportMethod"] !== undefined) {
-    contents.SSLSupportMethod = __expectString(output["SSLSupportMethod"]);
+  if (output[_SSLSM] != null) {
+    contents[_SSLSM] = __expectString(output[_SSLSM]);
   }
-  if (output["MinimumProtocolVersion"] !== undefined) {
-    contents.MinimumProtocolVersion = __expectString(output["MinimumProtocolVersion"]);
+  if (output[_MPV] != null) {
+    contents[_MPV] = __expectString(output[_MPV]);
   }
-  if (output["Certificate"] !== undefined) {
-    contents.Certificate = __expectString(output["Certificate"]);
+  if (output[_Ce] != null) {
+    contents[_Ce] = __expectString(output[_Ce]);
   }
-  if (output["CertificateSource"] !== undefined) {
-    contents.CertificateSource = __expectString(output["CertificateSource"]);
+  if (output[_CS] != null) {
+    contents[_CS] = __expectString(output[_CS]);
   }
   return contents;
 };
@@ -20588,6 +18754,371 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "Alias";
+const _AAN = "AwsAccountNumber";
+const _ACAC = "AccessControlAllowCredentials";
+const _ACAH = "AccessControlAllowHeaders";
+const _ACAM = "AccessControlAllowMethods";
+const _ACAO = "AccessControlAllowOrigins";
+const _ACEH = "AccessControlExposeHeaders";
+const _ACMAS = "AccessControlMaxAgeSec";
+const _ACMCA = "ACMCertificateArn";
+const _AI = "AccountId";
+const _AICPR = "AliasICPRecordals";
+const _AICPRl = "AliasICPRecordal";
+const _AM = "AllowedMethods";
+const _ARN = "ARN";
+const _ATKG = "ActiveTrustedKeyGroups";
+const _ATS = "ActiveTrustedSigners";
+const _Al = "Aliases";
+const _B = "Bucket";
+const _C = "Comment";
+const _CA = "ConnectionAttempts";
+const _CAo = "ConflictingAlias";
+const _CB = "CacheBehavior";
+const _CBa = "CacheBehaviors";
+const _CBo = "CookieBehavior";
+const _CC = "CookiesConfig";
+const _CCo = "CorsConfig";
+const _CDP = "ContinuousDeploymentPolicy";
+const _CDPC = "ContinuousDeploymentPolicyConfig";
+const _CDPI = "ContinuousDeploymentPolicyId";
+const _CDPS = "ContinuousDeploymentPolicySummary";
+const _CDPT = "ContinuousDeploymentPolicyType";
+const _CDR = "CopyDistributionRequest";
+const _CDSHC = "ContinuousDeploymentSingleHeaderConfig";
+const _CDSWC = "ContinuousDeploymentSingleWeightConfig";
+const _CER = "CustomErrorResponse";
+const _CERu = "CustomErrorResponses";
+const _CFDC = "CloudFrontDefaultCertificate";
+const _CFOAIC = "CloudFrontOriginAccessIdentityConfig";
+const _CFOAIS = "CloudFrontOriginAccessIdentitySummary";
+const _CFR = "CreateFunctionRequest";
+const _CH = "CustomHeaders";
+const _CHC = "CustomHeadersConfig";
+const _CKVSR = "CreateKeyValueStoreRequest";
+const _CM = "CachedMethods";
+const _CN = "CookieNames";
+const _CNAME = "CNAME";
+const _COC = "CustomOriginConfig";
+const _CP = "CookiePreference";
+const _CPC = "CachePolicyConfig";
+const _CPCB = "CachePolicyCookieBehavior";
+const _CPCC = "CachePolicyCookiesConfig";
+const _CPHB = "CachePolicyHeaderBehavior";
+const _CPHC = "CachePolicyHeadersConfig";
+const _CPI = "CachePolicyId";
+const _CPQSB = "CachePolicyQueryStringBehavior";
+const _CPQSC = "CachePolicyQueryStringsConfig";
+const _CPS = "CachePolicySummary";
+const _CPa = "CachePolicy";
+const _CR = "CallerReference";
+const _CRLCR = "CreateRealtimeLogConfigRequest";
+const _CS = "CertificateSource";
+const _CSP = "ContentSecurityPolicy";
+const _CT = "ContentType";
+const _CTO = "ContentTypeOptions";
+const _CTP = "ContentTypeProfile";
+const _CTPC = "ContentTypeProfileConfig";
+const _CTPo = "ContentTypeProfiles";
+const _CTo = "CommentType";
+const _CTon = "ConnectionTimeout";
+const _CTr = "CreatedTime";
+const _CTre = "CreateTime";
+const _CU = "ComputeUtilization";
+const _Ce = "Certificate";
+const _Co = "Compress";
+const _Coo = "Cookies";
+const _D = "Description";
+const _DC = "DistributionConfig";
+const _DCB = "DefaultCacheBehavior";
+const _DCWT = "DistributionConfigWithTags";
+const _DI = "DistributionId";
+const _DN = "DomainName";
+const _DNn = "DnsName";
+const _DRLCR = "DeleteRealtimeLogConfigRequest";
+const _DRO = "DefaultRootObject";
+const _DS = "DistributionSummary";
+const _DTTL = "DefaultTTL";
+const _E = "Enabled";
+const _EAEB = "EnableAcceptEncodingBrotli";
+const _EAEG = "EnableAcceptEncodingGzip";
+const _EC = "ErrorCode";
+const _ECMTTL = "ErrorCachingMinTTL";
+const _EE = "EncryptionEntities";
+const _EEn = "EncryptionEntity";
+const _EK = "EncodedKey";
+const _EO = "EventObject";
+const _EP = "EndPoints";
+const _EPn = "EndPoint";
+const _ET = "ETag";
+const _ETv = "EventType";
+const _F = "Fields";
+const _FA = "FunctionAssociations";
+const _FARN = "FunctionARN";
+const _FAu = "FunctionAssociation";
+const _FB = "FunctionBlob";
+const _FC = "FunctionCode";
+const _FCa = "FailoverCriteria";
+const _FCu = "FunctionConfig";
+const _FEL = "FunctionExecutionLogs";
+const _FEM = "FunctionErrorMessage";
+const _FEO = "FunctionEventObject";
+const _FLEC = "FieldLevelEncryptionConfig";
+const _FLEI = "FieldLevelEncryptionId";
+const _FLEPC = "FieldLevelEncryptionProfileConfig";
+const _FLEPS = "FieldLevelEncryptionProfileSummary";
+const _FLES = "FieldLevelEncryptionSummary";
+const _FM = "FunctionMetadata";
+const _FN = "FunctionName";
+const _FO = "FrameOption";
+const _FOL = "FrameOptionsList";
+const _FOr = "FrameOptions";
+const _FOu = "FunctionOutput";
+const _FP = "FieldPatterns";
+const _FPi = "FieldPattern";
+const _FR = "FunctionRuntime";
+const _FS = "FunctionStage";
+const _FSu = "FunctionSummary";
+const _FV = "ForwardedValues";
+const _FWCTIU = "ForwardWhenContentTypeIsUnknown";
+const _FWQAPIU = "ForwardWhenQueryArgProfileIsUnknown";
+const _Fi = "Field";
+const _Fo = "Format";
+const _For = "Forward";
+const _GR = "GeoRestriction";
+const _GRLCR = "GetRealtimeLogConfigRequest";
+const _GRT = "GeoRestrictionType";
+const _H = "Header";
+const _HB = "HeaderBehavior";
+const _HC = "HeadersConfig";
+const _HN = "HeaderName";
+const _HTTPP = "HTTPPort";
+const _HTTPSP = "HTTPSPort";
+const _HV = "HttpVersion";
+const _HVe = "HeaderValue";
+const _He = "Headers";
+const _I = "Integer";
+const _IAMCI = "IAMCertificateId";
+const _IB = "InvalidationBatch";
+const _IBn = "IncludeBody";
+const _IC = "IncludeCookies";
+const _ICPRS = "ICPRecordalStatus";
+const _IIPVE = "IsIPV6Enabled";
+const _IM = "IfMatch";
+const _IPIB = "InProgressInvalidationBatches";
+const _IS = "ImportSource";
+const _IST = "ImportSourceType";
+const _ISn = "IncludeSubdomains";
+const _ISnv = "InvalidationSummary";
+const _ISt = "ItemSelection";
+const _IT = "IsTruncated";
+const _ITTL = "IdleTTL";
+const _Id = "Id";
+const _It = "Items";
+const _K = "Key";
+const _KG = "KeyGroup";
+const _KGC = "KeyGroupConfig";
+const _KGI = "KeyGroupId";
+const _KGS = "KeyGroupSummary";
+const _KPI = "KeyPairId";
+const _KPIe = "KeyPairIds";
+const _KSC = "KinesisStreamConfig";
+const _KVS = "KeyValueStore";
+const _KVSA = "KeyValueStoreAssociations";
+const _KVSARN = "KeyValueStoreARN";
+const _KVSAe = "KeyValueStoreAssociation";
+const _KVSC = "KeyValueStoreComment";
+const _KVSN = "KeyValueStoreName";
+const _L = "Location";
+const _LC = "LoggingConfig";
+const _LDBRLCR = "ListDistributionsByRealtimeLogConfigRequest";
+const _LFA = "LambdaFunctionAssociations";
+const _LFARN = "LambdaFunctionARN";
+const _LFAa = "LambdaFunctionAssociation";
+const _LMT = "LastModifiedTime";
+const _Lo = "Logging";
+const _M = "Marker";
+const _MB = "ModeBlock";
+const _MI = "MaxItems";
+const _MPV = "MinimumProtocolVersion";
+const _MS = "MonitoringSubscription";
+const _MTTL = "MinTTL";
+const _MTTLa = "MaxTTL";
+const _MTTLax = "MaximumTTL";
+const _Me = "Message";
+const _Mem = "Members";
+const _Met = "Method";
+const _N = "Name";
+const _NM = "NextMarker";
+const _O = "Operation";
+const _OACC = "OriginAccessControlConfig";
+const _OACI = "OriginAccessControlId";
+const _OACOT = "OriginAccessControlOriginType";
+const _OACOTr = "OriginAccessControlOriginTypes";
+const _OACS = "OriginAccessControlSummary";
+const _OACSB = "OriginAccessControlSigningBehaviors";
+const _OACSP = "OriginAccessControlSigningProtocols";
+const _OAI = "OriginAccessIdentity";
+const _OCH = "OriginCustomHeader";
+const _OG = "OriginGroups";
+const _OGFC = "OriginGroupFailoverCriteria";
+const _OGM = "OriginGroupMember";
+const _OGMr = "OriginGroupMembers";
+const _OGr = "OriginGroup";
+const _OI = "OriginId";
+const _OKT = "OriginKeepaliveTimeout";
+const _OO = "OriginOverride";
+const _OP = "OriginPath";
+const _OPP = "OriginProtocolPolicy";
+const _ORP = "OriginRequestPolicy";
+const _ORPC = "OriginRequestPolicyConfig";
+const _ORPCB = "OriginRequestPolicyCookieBehavior";
+const _ORPCC = "OriginRequestPolicyCookiesConfig";
+const _ORPHB = "OriginRequestPolicyHeaderBehavior";
+const _ORPHC = "OriginRequestPolicyHeadersConfig";
+const _ORPI = "OriginRequestPolicyId";
+const _ORPQSB = "OriginRequestPolicyQueryStringBehavior";
+const _ORPQSC = "OriginRequestPolicyQueryStringsConfig";
+const _ORPS = "OriginRequestPolicySummary";
+const _ORT = "OriginReadTimeout";
+const _OS = "OriginShield";
+const _OSP = "OriginSslProtocols";
+const _OSR = "OriginShieldRegion";
+const _Or = "Origin";
+const _Ori = "Origins";
+const _Ov = "Override";
+const _P = "Paths";
+const _PC = "PriceClass";
+const _PI = "ProfileId";
+const _PICKAFTO = "ParametersInCacheKeyAndForwardedToOrigin";
+const _PIr = "ProviderId";
+const _PK = "PublicKey";
+const _PKC = "PublicKeyConfig";
+const _PKI = "PublicKeyId";
+const _PKS = "PublicKeySummary";
+const _PP = "PathPattern";
+const _Pa = "Path";
+const _Pr = "Prefix";
+const _Pre = "Preload";
+const _Pro = "Protection";
+const _Q = "Quantity";
+const _QA = "QueryArg";
+const _QAP = "QueryArgProfile";
+const _QAPC = "QueryArgProfileConfig";
+const _QAPu = "QueryArgProfiles";
+const _QS = "QueryStrings";
+const _QSB = "QueryStringBehavior";
+const _QSC = "QueryStringsConfig";
+const _QSCK = "QueryStringCacheKeys";
+const _QSN = "QueryStringNames";
+const _QSu = "QueryString";
+const _R = "Resource";
+const _RARN = "RoleARN";
+const _RC = "ResponseCode";
+const _RHC = "RemoveHeadersConfig";
+const _RHP = "ResponseHeadersPolicy";
+const _RHPACAH = "ResponseHeadersPolicyAccessControlAllowHeaders";
+const _RHPACAM = "ResponseHeadersPolicyAccessControlAllowMethods";
+const _RHPACAMV = "ResponseHeadersPolicyAccessControlAllowMethodsValues";
+const _RHPACAO = "ResponseHeadersPolicyAccessControlAllowOrigins";
+const _RHPACEH = "ResponseHeadersPolicyAccessControlExposeHeaders";
+const _RHPC = "ResponseHeadersPolicyConfig";
+const _RHPCC = "ResponseHeadersPolicyCorsConfig";
+const _RHPCH = "ResponseHeadersPolicyCustomHeader";
+const _RHPCHC = "ResponseHeadersPolicyCustomHeadersConfig";
+const _RHPCSP = "ResponseHeadersPolicyContentSecurityPolicy";
+const _RHPCTO = "ResponseHeadersPolicyContentTypeOptions";
+const _RHPFO = "ResponseHeadersPolicyFrameOptions";
+const _RHPI = "ResponseHeadersPolicyId";
+const _RHPRH = "ResponseHeadersPolicyRemoveHeader";
+const _RHPRHC = "ResponseHeadersPolicyRemoveHeadersConfig";
+const _RHPRP = "ResponseHeadersPolicyReferrerPolicy";
+const _RHPS = "ResponseHeadersPolicySummary";
+const _RHPSHC = "ResponseHeadersPolicySecurityHeadersConfig";
+const _RHPSTHC = "ResponseHeadersPolicyServerTimingHeadersConfig";
+const _RHPSTS = "ResponseHeadersPolicyStrictTransportSecurity";
+const _RHPXSSP = "ResponseHeadersPolicyXSSProtection";
+const _RLC = "RealtimeLogConfig";
+const _RLCA = "RealtimeLogConfigArn";
+const _RLCN = "RealtimeLogConfigName";
+const _RMSC = "RealtimeMetricsSubscriptionConfig";
+const _RMSS = "RealtimeMetricsSubscriptionStatus";
+const _RP = "ReferrerPolicy";
+const _RPL = "ReferrerPolicyList";
+const _RPP = "ResponsePagePath";
+const _RT = "RestrictionType";
+const _RU = "ReportUri";
+const _Re = "Restrictions";
+const _Ru = "Runtime";
+const _S = "Staging";
+const _SARN = "SourceARN";
+const _SARNt = "StreamARN";
+const _SB = "SigningBehavior";
+const _SC = "StatusCodes";
+const _SCUI = "S3CanonicalUserId";
+const _SCt = "StatusCode";
+const _SDC = "StreamingDistributionConfig";
+const _SDCWT = "StreamingDistributionConfigWithTags";
+const _SDDN = "StagingDistributionDnsNames";
+const _SDI = "StagingDistributionId";
+const _SDS = "StreamingDistributionSummary";
+const _SHC = "SecurityHeadersConfig";
+const _SHCi = "SingleHeaderConfig";
+const _SLC = "StreamingLoggingConfig";
+const _SO = "S3Origin";
+const _SOC = "S3OriginConfig";
+const _SP = "SigningProtocol";
+const _SPs = "SslProtocol";
+const _SR = "SamplingRate";
+const _SS = "SmoothStreaming";
+const _SSC = "SessionStickinessConfig";
+const _SSLSM = "SSLSupportMethod";
+const _ST = "StreamType";
+const _STHC = "ServerTimingHeadersConfig";
+const _STS = "StrictTransportSecurity";
+const _STo = "SourceType";
+const _SWC = "SingleWeightConfig";
+const _Si = "Signer";
+const _St = "Stage";
+const _Sta = "Status";
+const _T = "Type";
+const _TC = "TrafficConfig";
+const _TFR = "TestFunctionRequest";
+const _TK = "TagKey";
+const _TKG = "TrustedKeyGroups";
+const _TKa = "TagKeys";
+const _TOI = "TargetOriginId";
+const _TS = "TrustedSigners";
+const _TV = "TagValue";
+const _Ta = "Tags";
+const _Tag = "Tag";
+const _UFR = "UpdateFunctionRequest";
+const _UKVSR = "UpdateKeyValueStoreRequest";
+const _URLCR = "UpdateRealtimeLogConfigRequest";
+const _V = "Value";
+const _VC = "ViewerCertificate";
+const _VPP = "ViewerProtocolPolicy";
+const _W = "Weight";
+const _WACLI = "WebACLId";
+const _WN = "WhitelistedNames";
+const _WT = "WithTags";
+const _XSSP = "XSSProtection";
+const _b = "boolean";
+const _ct = "content-type";
+const _e = "etag";
+const _et = "ettag";
+const _f = "float";
+const _i = "integer";
+const _im = "if-match";
+const _l = "long";
+const _lo = "location";
+const _m = "member";
+const _s = "staging";
+const _sST = "sensitiveStringType";
+const _st = "string";
+const _ve = '<?xml version="1.0" encoding="UTF-8"?>';
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

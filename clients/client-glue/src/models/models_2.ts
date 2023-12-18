@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
+
 import {
   Action,
   Aggregate,
@@ -111,6 +112,7 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
 import {
   ColumnStatistics,
   Compatibility,

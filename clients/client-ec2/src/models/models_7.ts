@@ -20,6 +20,7 @@ import {
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
 } from "./models_0";
+
 import {
   AmdSevSnpSpecification,
   BlockDeviceMapping,
@@ -37,8 +38,11 @@ import {
   ShutdownBehavior,
   SpotInstanceType,
 } from "./models_1";
+
 import { SnapshotState, SSEType, TransitGatewayRoute } from "./models_2";
+
 import { ClientVpnConnectionStatus, Filter } from "./models_3";
+
 import {
   HttpTokensState,
   InstanceAttributeName,
@@ -58,6 +62,7 @@ import {
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
 } from "./models_4";
+
 import {
   CapacityReservationSpecification,
   InstanceMonitoring,

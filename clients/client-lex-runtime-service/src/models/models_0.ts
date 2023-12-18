@@ -4,6 +4,7 @@ import {
   LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";

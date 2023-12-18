@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -76,43 +77,29 @@ export const se_StartCallAnalyticsStreamTranscriptionCommand = async (
   input: StartCallAnalyticsStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amzn-transcribe-language-code": input.LanguageCode!,
-    "x-amzn-transcribe-sample-rate": [
-      () => isSerializableHeaderValue(input.MediaSampleRateHertz),
-      () => input.MediaSampleRateHertz!.toString(),
-    ],
-    "x-amzn-transcribe-media-encoding": input.MediaEncoding!,
-    "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    "x-amzn-transcribe-session-id": input.SessionId!,
-    "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
-    "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
-    "x-amzn-transcribe-language-model-name": input.LanguageModelName!,
-    "x-amzn-transcribe-enable-partial-results-stabilization": [
-      () => isSerializableHeaderValue(input.EnablePartialResultsStabilization),
-      () => input.EnablePartialResultsStabilization!.toString(),
-    ],
-    "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
-    "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
-    "x-amzn-transcribe-content-redaction-type": input.ContentRedactionType!,
-    "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
+    [_xatlc]: input[_LC]!,
+    [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
+    [_xatme]: input[_ME]!,
+    [_xatvn]: input[_VN]!,
+    [_xatsi]: input[_SI]!,
+    [_xatvfn]: input[_VFN]!,
+    [_xatvfm]: input[_VFM]!,
+    [_xatlmn]: input[_LMN]!,
+    [_xateprs]: [() => isSerializableHeaderValue(input[_EPRS]), () => input[_EPRS]!.toString()],
+    [_xatprs]: input[_PRS]!,
+    [_xatcit]: input[_CIT]!,
+    [_xatcrt]: input[_CRT]!,
+    [_xatpet]: input[_PET]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/call-analytics-stream-transcription";
+  b.bp("/call-analytics-stream-transcription");
   let body: any;
   if (input.AudioStream !== undefined) {
     body = se_AudioStream(input.AudioStream, context);
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -122,47 +109,27 @@ export const se_StartMedicalStreamTranscriptionCommand = async (
   input: StartMedicalStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amzn-transcribe-language-code": input.LanguageCode!,
-    "x-amzn-transcribe-sample-rate": [
-      () => isSerializableHeaderValue(input.MediaSampleRateHertz),
-      () => input.MediaSampleRateHertz!.toString(),
-    ],
-    "x-amzn-transcribe-media-encoding": input.MediaEncoding!,
-    "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    "x-amzn-transcribe-specialty": input.Specialty!,
-    "x-amzn-transcribe-type": input.Type!,
-    "x-amzn-transcribe-show-speaker-label": [
-      () => isSerializableHeaderValue(input.ShowSpeakerLabel),
-      () => input.ShowSpeakerLabel!.toString(),
-    ],
-    "x-amzn-transcribe-session-id": input.SessionId!,
-    "x-amzn-transcribe-enable-channel-identification": [
-      () => isSerializableHeaderValue(input.EnableChannelIdentification),
-      () => input.EnableChannelIdentification!.toString(),
-    ],
-    "x-amzn-transcribe-number-of-channels": [
-      () => isSerializableHeaderValue(input.NumberOfChannels),
-      () => input.NumberOfChannels!.toString(),
-    ],
-    "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
+    [_xatlc]: input[_LC]!,
+    [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
+    [_xatme]: input[_ME]!,
+    [_xatvn]: input[_VN]!,
+    [_xats]: input[_S]!,
+    [_xatt]: input[_T]!,
+    [_xatssl]: [() => isSerializableHeaderValue(input[_SSL]), () => input[_SSL]!.toString()],
+    [_xatsi]: input[_SI]!,
+    [_xateci]: [() => isSerializableHeaderValue(input[_ECI]), () => input[_ECI]!.toString()],
+    [_xatnoc]: [() => isSerializableHeaderValue(input[_NOC]), () => input[_NOC]!.toString()],
+    [_xatcit]: input[_CIT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/medical-stream-transcription";
+  b.bp("/medical-stream-transcription");
   let body: any;
   if (input.AudioStream !== undefined) {
     body = se_AudioStream(input.AudioStream, context);
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -172,66 +139,38 @@ export const se_StartStreamTranscriptionCommand = async (
   input: StartStreamTranscriptionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amzn-transcribe-language-code": input.LanguageCode!,
-    "x-amzn-transcribe-sample-rate": [
-      () => isSerializableHeaderValue(input.MediaSampleRateHertz),
-      () => input.MediaSampleRateHertz!.toString(),
-    ],
-    "x-amzn-transcribe-media-encoding": input.MediaEncoding!,
-    "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    "x-amzn-transcribe-session-id": input.SessionId!,
-    "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
-    "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
-    "x-amzn-transcribe-show-speaker-label": [
-      () => isSerializableHeaderValue(input.ShowSpeakerLabel),
-      () => input.ShowSpeakerLabel!.toString(),
-    ],
-    "x-amzn-transcribe-enable-channel-identification": [
-      () => isSerializableHeaderValue(input.EnableChannelIdentification),
-      () => input.EnableChannelIdentification!.toString(),
-    ],
-    "x-amzn-transcribe-number-of-channels": [
-      () => isSerializableHeaderValue(input.NumberOfChannels),
-      () => input.NumberOfChannels!.toString(),
-    ],
-    "x-amzn-transcribe-enable-partial-results-stabilization": [
-      () => isSerializableHeaderValue(input.EnablePartialResultsStabilization),
-      () => input.EnablePartialResultsStabilization!.toString(),
-    ],
-    "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
-    "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
-    "x-amzn-transcribe-content-redaction-type": input.ContentRedactionType!,
-    "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
-    "x-amzn-transcribe-language-model-name": input.LanguageModelName!,
-    "x-amzn-transcribe-identify-language": [
-      () => isSerializableHeaderValue(input.IdentifyLanguage),
-      () => input.IdentifyLanguage!.toString(),
-    ],
-    "x-amzn-transcribe-language-options": input.LanguageOptions!,
-    "x-amzn-transcribe-preferred-language": input.PreferredLanguage!,
-    "x-amzn-transcribe-identify-multiple-languages": [
-      () => isSerializableHeaderValue(input.IdentifyMultipleLanguages),
-      () => input.IdentifyMultipleLanguages!.toString(),
-    ],
-    "x-amzn-transcribe-vocabulary-names": input.VocabularyNames!,
-    "x-amzn-transcribe-vocabulary-filter-names": input.VocabularyFilterNames!,
+    [_xatlc]: input[_LC]!,
+    [_xatsr]: [() => isSerializableHeaderValue(input[_MSRH]), () => input[_MSRH]!.toString()],
+    [_xatme]: input[_ME]!,
+    [_xatvn]: input[_VN]!,
+    [_xatsi]: input[_SI]!,
+    [_xatvfn]: input[_VFN]!,
+    [_xatvfm]: input[_VFM]!,
+    [_xatssl]: [() => isSerializableHeaderValue(input[_SSL]), () => input[_SSL]!.toString()],
+    [_xateci]: [() => isSerializableHeaderValue(input[_ECI]), () => input[_ECI]!.toString()],
+    [_xatnoc]: [() => isSerializableHeaderValue(input[_NOC]), () => input[_NOC]!.toString()],
+    [_xateprs]: [() => isSerializableHeaderValue(input[_EPRS]), () => input[_EPRS]!.toString()],
+    [_xatprs]: input[_PRS]!,
+    [_xatcit]: input[_CIT]!,
+    [_xatcrt]: input[_CRT]!,
+    [_xatpet]: input[_PET]!,
+    [_xatlmn]: input[_LMN]!,
+    [_xatil]: [() => isSerializableHeaderValue(input[_IL]), () => input[_IL]!.toString()],
+    [_xatlo]: input[_LO]!,
+    [_xatpl]: input[_PL]!,
+    [_xatiml]: [() => isSerializableHeaderValue(input[_IML]), () => input[_IML]!.toString()],
+    [_xatvn_]: input[_VNo]!,
+    [_xatvfn_]: input[_VFNo]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
+  b.bp("/stream-transcription");
   let body: any;
   if (input.AudioStream !== undefined) {
     body = se_AudioStream(input.AudioStream, context);
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -246,26 +185,20 @@ export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestId: [, output.headers["x-amzn-request-id"]],
-    LanguageCode: [, output.headers["x-amzn-transcribe-language-code"]],
-    MediaSampleRateHertz: [
-      () => void 0 !== output.headers["x-amzn-transcribe-sample-rate"],
-      () => __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]),
-    ],
-    MediaEncoding: [, output.headers["x-amzn-transcribe-media-encoding"]],
-    VocabularyName: [, output.headers["x-amzn-transcribe-vocabulary-name"]],
-    SessionId: [, output.headers["x-amzn-transcribe-session-id"]],
-    VocabularyFilterName: [, output.headers["x-amzn-transcribe-vocabulary-filter-name"]],
-    VocabularyFilterMethod: [, output.headers["x-amzn-transcribe-vocabulary-filter-method"]],
-    LanguageModelName: [, output.headers["x-amzn-transcribe-language-model-name"]],
-    EnablePartialResultsStabilization: [
-      () => void 0 !== output.headers["x-amzn-transcribe-enable-partial-results-stabilization"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-partial-results-stabilization"]),
-    ],
-    PartialResultsStability: [, output.headers["x-amzn-transcribe-partial-results-stability"]],
-    ContentIdentificationType: [, output.headers["x-amzn-transcribe-content-identification-type"]],
-    ContentRedactionType: [, output.headers["x-amzn-transcribe-content-redaction-type"]],
-    PiiEntityTypes: [, output.headers["x-amzn-transcribe-pii-entity-types"]],
+    [_RI]: [, output.headers[_xari]],
+    [_LC]: [, output.headers[_xatlc]],
+    [_MSRH]: [() => void 0 !== output.headers[_xatsr], () => __strictParseInt32(output.headers[_xatsr])],
+    [_ME]: [, output.headers[_xatme]],
+    [_VN]: [, output.headers[_xatvn]],
+    [_SI]: [, output.headers[_xatsi]],
+    [_VFN]: [, output.headers[_xatvfn]],
+    [_VFM]: [, output.headers[_xatvfm]],
+    [_LMN]: [, output.headers[_xatlmn]],
+    [_EPRS]: [() => void 0 !== output.headers[_xateprs], () => __parseBoolean(output.headers[_xateprs])],
+    [_PRS]: [, output.headers[_xatprs]],
+    [_CIT]: [, output.headers[_xatcit]],
+    [_CRT]: [, output.headers[_xatcrt]],
+    [_PET]: [, output.headers[_xatpet]],
   });
   const data: any = output.body;
   contents.CallAnalyticsTranscriptResultStream = de_CallAnalyticsTranscriptResultStream(data, context);
@@ -322,30 +255,18 @@ export const de_StartMedicalStreamTranscriptionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestId: [, output.headers["x-amzn-request-id"]],
-    LanguageCode: [, output.headers["x-amzn-transcribe-language-code"]],
-    MediaSampleRateHertz: [
-      () => void 0 !== output.headers["x-amzn-transcribe-sample-rate"],
-      () => __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]),
-    ],
-    MediaEncoding: [, output.headers["x-amzn-transcribe-media-encoding"]],
-    VocabularyName: [, output.headers["x-amzn-transcribe-vocabulary-name"]],
-    Specialty: [, output.headers["x-amzn-transcribe-specialty"]],
-    Type: [, output.headers["x-amzn-transcribe-type"]],
-    ShowSpeakerLabel: [
-      () => void 0 !== output.headers["x-amzn-transcribe-show-speaker-label"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]),
-    ],
-    SessionId: [, output.headers["x-amzn-transcribe-session-id"]],
-    EnableChannelIdentification: [
-      () => void 0 !== output.headers["x-amzn-transcribe-enable-channel-identification"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-channel-identification"]),
-    ],
-    NumberOfChannels: [
-      () => void 0 !== output.headers["x-amzn-transcribe-number-of-channels"],
-      () => __strictParseInt32(output.headers["x-amzn-transcribe-number-of-channels"]),
-    ],
-    ContentIdentificationType: [, output.headers["x-amzn-transcribe-content-identification-type"]],
+    [_RI]: [, output.headers[_xari]],
+    [_LC]: [, output.headers[_xatlc]],
+    [_MSRH]: [() => void 0 !== output.headers[_xatsr], () => __strictParseInt32(output.headers[_xatsr])],
+    [_ME]: [, output.headers[_xatme]],
+    [_VN]: [, output.headers[_xatvn]],
+    [_S]: [, output.headers[_xats]],
+    [_T]: [, output.headers[_xatt]],
+    [_SSL]: [() => void 0 !== output.headers[_xatssl], () => __parseBoolean(output.headers[_xatssl])],
+    [_SI]: [, output.headers[_xatsi]],
+    [_ECI]: [() => void 0 !== output.headers[_xateci], () => __parseBoolean(output.headers[_xateci])],
+    [_NOC]: [() => void 0 !== output.headers[_xatnoc], () => __strictParseInt32(output.headers[_xatnoc])],
+    [_CIT]: [, output.headers[_xatcit]],
   });
   const data: any = output.body;
   contents.TranscriptResultStream = de_MedicalTranscriptResultStream(data, context);
@@ -402,50 +323,29 @@ export const de_StartStreamTranscriptionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    RequestId: [, output.headers["x-amzn-request-id"]],
-    LanguageCode: [, output.headers["x-amzn-transcribe-language-code"]],
-    MediaSampleRateHertz: [
-      () => void 0 !== output.headers["x-amzn-transcribe-sample-rate"],
-      () => __strictParseInt32(output.headers["x-amzn-transcribe-sample-rate"]),
-    ],
-    MediaEncoding: [, output.headers["x-amzn-transcribe-media-encoding"]],
-    VocabularyName: [, output.headers["x-amzn-transcribe-vocabulary-name"]],
-    SessionId: [, output.headers["x-amzn-transcribe-session-id"]],
-    VocabularyFilterName: [, output.headers["x-amzn-transcribe-vocabulary-filter-name"]],
-    VocabularyFilterMethod: [, output.headers["x-amzn-transcribe-vocabulary-filter-method"]],
-    ShowSpeakerLabel: [
-      () => void 0 !== output.headers["x-amzn-transcribe-show-speaker-label"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]),
-    ],
-    EnableChannelIdentification: [
-      () => void 0 !== output.headers["x-amzn-transcribe-enable-channel-identification"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-channel-identification"]),
-    ],
-    NumberOfChannels: [
-      () => void 0 !== output.headers["x-amzn-transcribe-number-of-channels"],
-      () => __strictParseInt32(output.headers["x-amzn-transcribe-number-of-channels"]),
-    ],
-    EnablePartialResultsStabilization: [
-      () => void 0 !== output.headers["x-amzn-transcribe-enable-partial-results-stabilization"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-enable-partial-results-stabilization"]),
-    ],
-    PartialResultsStability: [, output.headers["x-amzn-transcribe-partial-results-stability"]],
-    ContentIdentificationType: [, output.headers["x-amzn-transcribe-content-identification-type"]],
-    ContentRedactionType: [, output.headers["x-amzn-transcribe-content-redaction-type"]],
-    PiiEntityTypes: [, output.headers["x-amzn-transcribe-pii-entity-types"]],
-    LanguageModelName: [, output.headers["x-amzn-transcribe-language-model-name"]],
-    IdentifyLanguage: [
-      () => void 0 !== output.headers["x-amzn-transcribe-identify-language"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-identify-language"]),
-    ],
-    LanguageOptions: [, output.headers["x-amzn-transcribe-language-options"]],
-    PreferredLanguage: [, output.headers["x-amzn-transcribe-preferred-language"]],
-    IdentifyMultipleLanguages: [
-      () => void 0 !== output.headers["x-amzn-transcribe-identify-multiple-languages"],
-      () => __parseBoolean(output.headers["x-amzn-transcribe-identify-multiple-languages"]),
-    ],
-    VocabularyNames: [, output.headers["x-amzn-transcribe-vocabulary-names"]],
-    VocabularyFilterNames: [, output.headers["x-amzn-transcribe-vocabulary-filter-names"]],
+    [_RI]: [, output.headers[_xari]],
+    [_LC]: [, output.headers[_xatlc]],
+    [_MSRH]: [() => void 0 !== output.headers[_xatsr], () => __strictParseInt32(output.headers[_xatsr])],
+    [_ME]: [, output.headers[_xatme]],
+    [_VN]: [, output.headers[_xatvn]],
+    [_SI]: [, output.headers[_xatsi]],
+    [_VFN]: [, output.headers[_xatvfn]],
+    [_VFM]: [, output.headers[_xatvfm]],
+    [_SSL]: [() => void 0 !== output.headers[_xatssl], () => __parseBoolean(output.headers[_xatssl])],
+    [_ECI]: [() => void 0 !== output.headers[_xateci], () => __parseBoolean(output.headers[_xateci])],
+    [_NOC]: [() => void 0 !== output.headers[_xatnoc], () => __strictParseInt32(output.headers[_xatnoc])],
+    [_EPRS]: [() => void 0 !== output.headers[_xateprs], () => __parseBoolean(output.headers[_xateprs])],
+    [_PRS]: [, output.headers[_xatprs]],
+    [_CIT]: [, output.headers[_xatcit]],
+    [_CRT]: [, output.headers[_xatcrt]],
+    [_PET]: [, output.headers[_xatpet]],
+    [_LMN]: [, output.headers[_xatlmn]],
+    [_IL]: [() => void 0 !== output.headers[_xatil], () => __parseBoolean(output.headers[_xatil])],
+    [_LO]: [, output.headers[_xatlo]],
+    [_PL]: [, output.headers[_xatpl]],
+    [_IML]: [() => void 0 !== output.headers[_xatiml], () => __parseBoolean(output.headers[_xatiml])],
+    [_VNo]: [, output.headers[_xatvn_]],
+    [_VFNo]: [, output.headers[_xatvfn_]],
   });
   const data: any = output.body;
   contents.TranscriptResultStream = de_TranscriptResultStream(data, context);
@@ -1206,6 +1106,57 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CIT = "ContentIdentificationType";
+const _CRT = "ContentRedactionType";
+const _ECI = "EnableChannelIdentification";
+const _EPRS = "EnablePartialResultsStabilization";
+const _IL = "IdentifyLanguage";
+const _IML = "IdentifyMultipleLanguages";
+const _LC = "LanguageCode";
+const _LMN = "LanguageModelName";
+const _LO = "LanguageOptions";
+const _ME = "MediaEncoding";
+const _MSRH = "MediaSampleRateHertz";
+const _NOC = "NumberOfChannels";
+const _PET = "PiiEntityTypes";
+const _PL = "PreferredLanguage";
+const _PRS = "PartialResultsStability";
+const _RI = "RequestId";
+const _S = "Specialty";
+const _SI = "SessionId";
+const _SSL = "ShowSpeakerLabel";
+const _T = "Type";
+const _VFM = "VocabularyFilterMethod";
+const _VFN = "VocabularyFilterName";
+const _VFNo = "VocabularyFilterNames";
+const _VN = "VocabularyName";
+const _VNo = "VocabularyNames";
+const _xari = "x-amzn-request-id";
+const _xatcit = "x-amzn-transcribe-content-identification-type";
+const _xatcrt = "x-amzn-transcribe-content-redaction-type";
+const _xateci = "x-amzn-transcribe-enable-channel-identification";
+const _xateprs = "x-amzn-transcribe-enable-partial-results-stabilization";
+const _xatil = "x-amzn-transcribe-identify-language";
+const _xatiml = "x-amzn-transcribe-identify-multiple-languages";
+const _xatlc = "x-amzn-transcribe-language-code";
+const _xatlmn = "x-amzn-transcribe-language-model-name";
+const _xatlo = "x-amzn-transcribe-language-options";
+const _xatme = "x-amzn-transcribe-media-encoding";
+const _xatnoc = "x-amzn-transcribe-number-of-channels";
+const _xatpet = "x-amzn-transcribe-pii-entity-types";
+const _xatpl = "x-amzn-transcribe-preferred-language";
+const _xatprs = "x-amzn-transcribe-partial-results-stability";
+const _xats = "x-amzn-transcribe-specialty";
+const _xatsi = "x-amzn-transcribe-session-id";
+const _xatsr = "x-amzn-transcribe-sample-rate";
+const _xatssl = "x-amzn-transcribe-show-speaker-label";
+const _xatt = "x-amzn-transcribe-type";
+const _xatvfm = "x-amzn-transcribe-vocabulary-filter-method";
+const _xatvfn = "x-amzn-transcribe-vocabulary-filter-name";
+const _xatvfn_ = "x-amzn-transcribe-vocabulary-filter-names";
+const _xatvn = "x-amzn-transcribe-vocabulary-name";
+const _xatvn_ = "x-amzn-transcribe-vocabulary-names";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

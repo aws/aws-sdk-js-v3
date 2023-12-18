@@ -78,8 +78,8 @@ export const se_AssumeRoleCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssumeRoleRequest(input, context),
-    Action: "AssumeRole",
-    Version: "2011-06-15",
+    [_A]: _AR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -95,8 +95,8 @@ export const se_AssumeRoleWithSAMLCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssumeRoleWithSAMLRequest(input, context),
-    Action: "AssumeRoleWithSAML",
-    Version: "2011-06-15",
+    [_A]: _ARWSAML,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -112,8 +112,8 @@ export const se_AssumeRoleWithWebIdentityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AssumeRoleWithWebIdentityRequest(input, context),
-    Action: "AssumeRoleWithWebIdentity",
-    Version: "2011-06-15",
+    [_A]: _ARWWI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -129,8 +129,8 @@ export const se_DecodeAuthorizationMessageCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DecodeAuthorizationMessageRequest(input, context),
-    Action: "DecodeAuthorizationMessage",
-    Version: "2011-06-15",
+    [_A]: _DAM,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -146,8 +146,8 @@ export const se_GetAccessKeyInfoCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetAccessKeyInfoRequest(input, context),
-    Action: "GetAccessKeyInfo",
-    Version: "2011-06-15",
+    [_A]: _GAKI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -163,8 +163,8 @@ export const se_GetCallerIdentityCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetCallerIdentityRequest(input, context),
-    Action: "GetCallerIdentity",
-    Version: "2011-06-15",
+    [_A]: _GCI,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -180,8 +180,8 @@ export const se_GetFederationTokenCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetFederationTokenRequest(input, context),
-    Action: "GetFederationToken",
-    Version: "2011-06-15",
+    [_A]: _GFT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -197,8 +197,8 @@ export const se_GetSessionTokenCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSessionTokenRequest(input, context),
-    Action: "GetSessionToken",
-    Version: "2011-06-15",
+    [_A]: _GST,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -740,15 +740,15 @@ const de_RegionDisabledExceptionRes = async (
  */
 const se_AssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.RoleSessionName != null) {
-    entries["RoleSessionName"] = input.RoleSessionName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.PolicyArns != null) {
-    const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-    if (input.PolicyArns?.length === 0) {
+  if (input[_PA] != null) {
+    const memberEntries = se_policyDescriptorListType(input[_PA], context);
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -756,15 +756,15 @@ const se_AssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.Policy != null) {
-    entries["Policy"] = input.Policy;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DurationSeconds != null) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -772,9 +772,9 @@ const se_AssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.TransitiveTagKeys != null) {
-    const memberEntries = se_tagKeyListType(input.TransitiveTagKeys, context);
-    if (input.TransitiveTagKeys?.length === 0) {
+  if (input[_TTK] != null) {
+    const memberEntries = se_tagKeyListType(input[_TTK], context);
+    if (input[_TTK]?.length === 0) {
       entries.TransitiveTagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -782,21 +782,21 @@ const se_AssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext)
       entries[loc] = value;
     });
   }
-  if (input.ExternalId != null) {
-    entries["ExternalId"] = input.ExternalId;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.TokenCode != null) {
-    entries["TokenCode"] = input.TokenCode;
+  if (input[_TC] != null) {
+    entries[_TC] = input[_TC];
   }
-  if (input.SourceIdentity != null) {
-    entries["SourceIdentity"] = input.SourceIdentity;
+  if (input[_SI] != null) {
+    entries[_SI] = input[_SI];
   }
-  if (input.ProvidedContexts != null) {
-    const memberEntries = se_ProvidedContextsListType(input.ProvidedContexts, context);
-    if (input.ProvidedContexts?.length === 0) {
+  if (input[_PC] != null) {
+    const memberEntries = se_ProvidedContextsListType(input[_PC], context);
+    if (input[_PC]?.length === 0) {
       entries.ProvidedContexts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -812,18 +812,18 @@ const se_AssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext)
  */
 const se_AssumeRoleWithSAMLRequest = (input: AssumeRoleWithSAMLRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.PrincipalArn != null) {
-    entries["PrincipalArn"] = input.PrincipalArn;
+  if (input[_PAr] != null) {
+    entries[_PAr] = input[_PAr];
   }
-  if (input.SAMLAssertion != null) {
-    entries["SAMLAssertion"] = input.SAMLAssertion;
+  if (input[_SAMLA] != null) {
+    entries[_SAMLA] = input[_SAMLA];
   }
-  if (input.PolicyArns != null) {
-    const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-    if (input.PolicyArns?.length === 0) {
+  if (input[_PA] != null) {
+    const memberEntries = se_policyDescriptorListType(input[_PA], context);
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -831,11 +831,11 @@ const se_AssumeRoleWithSAMLRequest = (input: AssumeRoleWithSAMLRequest, context:
       entries[loc] = value;
     });
   }
-  if (input.Policy != null) {
-    entries["Policy"] = input.Policy;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DurationSeconds != null) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
   }
   return entries;
 };
@@ -845,21 +845,21 @@ const se_AssumeRoleWithSAMLRequest = (input: AssumeRoleWithSAMLRequest, context:
  */
 const se_AssumeRoleWithWebIdentityRequest = (input: AssumeRoleWithWebIdentityRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleArn != null) {
-    entries["RoleArn"] = input.RoleArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.RoleSessionName != null) {
-    entries["RoleSessionName"] = input.RoleSessionName;
+  if (input[_RSN] != null) {
+    entries[_RSN] = input[_RSN];
   }
-  if (input.WebIdentityToken != null) {
-    entries["WebIdentityToken"] = input.WebIdentityToken;
+  if (input[_WIT] != null) {
+    entries[_WIT] = input[_WIT];
   }
-  if (input.ProviderId != null) {
-    entries["ProviderId"] = input.ProviderId;
+  if (input[_PI] != null) {
+    entries[_PI] = input[_PI];
   }
-  if (input.PolicyArns != null) {
-    const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-    if (input.PolicyArns?.length === 0) {
+  if (input[_PA] != null) {
+    const memberEntries = se_policyDescriptorListType(input[_PA], context);
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -867,11 +867,11 @@ const se_AssumeRoleWithWebIdentityRequest = (input: AssumeRoleWithWebIdentityReq
       entries[loc] = value;
     });
   }
-  if (input.Policy != null) {
-    entries["Policy"] = input.Policy;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.DurationSeconds != null) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
   }
   return entries;
 };
@@ -884,8 +884,8 @@ const se_DecodeAuthorizationMessageRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EncodedMessage != null) {
-    entries["EncodedMessage"] = input.EncodedMessage;
+  if (input[_EM] != null) {
+    entries[_EM] = input[_EM];
   }
   return entries;
 };
@@ -895,8 +895,8 @@ const se_DecodeAuthorizationMessageRequest = (
  */
 const se_GetAccessKeyInfoRequest = (input: GetAccessKeyInfoRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccessKeyId != null) {
-    entries["AccessKeyId"] = input.AccessKeyId;
+  if (input[_AKI] != null) {
+    entries[_AKI] = input[_AKI];
   }
   return entries;
 };
@@ -914,15 +914,15 @@ const se_GetCallerIdentityRequest = (input: GetCallerIdentityRequest, context: _
  */
 const se_GetFederationTokenRequest = (input: GetFederationTokenRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Policy != null) {
-    entries["Policy"] = input.Policy;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.PolicyArns != null) {
-    const memberEntries = se_policyDescriptorListType(input.PolicyArns, context);
-    if (input.PolicyArns?.length === 0) {
+  if (input[_PA] != null) {
+    const memberEntries = se_policyDescriptorListType(input[_PA], context);
+    if (input[_PA]?.length === 0) {
       entries.PolicyArns = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -930,12 +930,12 @@ const se_GetFederationTokenRequest = (input: GetFederationTokenRequest, context:
       entries[loc] = value;
     });
   }
-  if (input.DurationSeconds != null) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_tagListType(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_tagListType(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -951,14 +951,14 @@ const se_GetFederationTokenRequest = (input: GetFederationTokenRequest, context:
  */
 const se_GetSessionTokenRequest = (input: GetSessionTokenRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DurationSeconds != null) {
-    entries["DurationSeconds"] = input.DurationSeconds;
+  if (input[_DS] != null) {
+    entries[_DS] = input[_DS];
   }
-  if (input.SerialNumber != null) {
-    entries["SerialNumber"] = input.SerialNumber;
+  if (input[_SN] != null) {
+    entries[_SN] = input[_SN];
   }
-  if (input.TokenCode != null) {
-    entries["TokenCode"] = input.TokenCode;
+  if (input[_TC] != null) {
+    entries[_TC] = input[_TC];
   }
   return entries;
 };
@@ -987,8 +987,8 @@ const se_policyDescriptorListType = (input: PolicyDescriptorType[], context: __S
  */
 const se_PolicyDescriptorType = (input: PolicyDescriptorType, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.arn != null) {
-    entries["arn"] = input.arn;
+  if (input[_a] != null) {
+    entries[_a] = input[_a];
   }
   return entries;
 };
@@ -998,11 +998,11 @@ const se_PolicyDescriptorType = (input: PolicyDescriptorType, context: __SerdeCo
  */
 const se_ProvidedContext = (input: ProvidedContext, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ProviderArn != null) {
-    entries["ProviderArn"] = input.ProviderArn;
+  if (input[_PAro] != null) {
+    entries[_PAro] = input[_PAro];
   }
-  if (input.ContextAssertion != null) {
-    entries["ContextAssertion"] = input.ContextAssertion;
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -1031,11 +1031,11 @@ const se_ProvidedContextsListType = (input: ProvidedContext[], context: __SerdeC
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -1080,11 +1080,11 @@ const se_tagListType = (input: Tag[], context: __SerdeContext): any => {
  */
 const de_AssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUser => {
   const contents: any = {};
-  if (output["AssumedRoleId"] !== undefined) {
-    contents.AssumedRoleId = __expectString(output["AssumedRoleId"]);
+  if (output[_ARI] != null) {
+    contents[_ARI] = __expectString(output[_ARI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -1094,17 +1094,17 @@ const de_AssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUs
  */
 const de_AssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
   const contents: any = {};
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = de_Credentials(output["Credentials"], context);
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
   }
-  if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+  if (output[_ARU] != null) {
+    contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
   }
-  if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = __strictParseInt32(output["PackedPolicySize"]) as number;
+  if (output[_PPS] != null) {
+    contents[_PPS] = __strictParseInt32(output[_PPS]) as number;
   }
-  if (output["SourceIdentity"] !== undefined) {
-    contents.SourceIdentity = __expectString(output["SourceIdentity"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -1114,32 +1114,32 @@ const de_AssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRole
  */
 const de_AssumeRoleWithSAMLResponse = (output: any, context: __SerdeContext): AssumeRoleWithSAMLResponse => {
   const contents: any = {};
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = de_Credentials(output["Credentials"], context);
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
   }
-  if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+  if (output[_ARU] != null) {
+    contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
   }
-  if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = __strictParseInt32(output["PackedPolicySize"]) as number;
+  if (output[_PPS] != null) {
+    contents[_PPS] = __strictParseInt32(output[_PPS]) as number;
   }
-  if (output["Subject"] !== undefined) {
-    contents.Subject = __expectString(output["Subject"]);
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
   }
-  if (output["SubjectType"] !== undefined) {
-    contents.SubjectType = __expectString(output["SubjectType"]);
+  if (output[_ST] != null) {
+    contents[_ST] = __expectString(output[_ST]);
   }
-  if (output["Issuer"] !== undefined) {
-    contents.Issuer = __expectString(output["Issuer"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Audience"] !== undefined) {
-    contents.Audience = __expectString(output["Audience"]);
+  if (output[_Au] != null) {
+    contents[_Au] = __expectString(output[_Au]);
   }
-  if (output["NameQualifier"] !== undefined) {
-    contents.NameQualifier = __expectString(output["NameQualifier"]);
+  if (output[_NQ] != null) {
+    contents[_NQ] = __expectString(output[_NQ]);
   }
-  if (output["SourceIdentity"] !== undefined) {
-    contents.SourceIdentity = __expectString(output["SourceIdentity"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -1152,26 +1152,26 @@ const de_AssumeRoleWithWebIdentityResponse = (
   context: __SerdeContext
 ): AssumeRoleWithWebIdentityResponse => {
   const contents: any = {};
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = de_Credentials(output["Credentials"], context);
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
   }
-  if (output["SubjectFromWebIdentityToken"] !== undefined) {
-    contents.SubjectFromWebIdentityToken = __expectString(output["SubjectFromWebIdentityToken"]);
+  if (output[_SFWIT] != null) {
+    contents[_SFWIT] = __expectString(output[_SFWIT]);
   }
-  if (output["AssumedRoleUser"] !== undefined) {
-    contents.AssumedRoleUser = de_AssumedRoleUser(output["AssumedRoleUser"], context);
+  if (output[_ARU] != null) {
+    contents[_ARU] = de_AssumedRoleUser(output[_ARU], context);
   }
-  if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = __strictParseInt32(output["PackedPolicySize"]) as number;
+  if (output[_PPS] != null) {
+    contents[_PPS] = __strictParseInt32(output[_PPS]) as number;
   }
-  if (output["Provider"] !== undefined) {
-    contents.Provider = __expectString(output["Provider"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
-  if (output["Audience"] !== undefined) {
-    contents.Audience = __expectString(output["Audience"]);
+  if (output[_Au] != null) {
+    contents[_Au] = __expectString(output[_Au]);
   }
-  if (output["SourceIdentity"] !== undefined) {
-    contents.SourceIdentity = __expectString(output["SourceIdentity"]);
+  if (output[_SI] != null) {
+    contents[_SI] = __expectString(output[_SI]);
   }
   return contents;
 };
@@ -1181,17 +1181,17 @@ const de_AssumeRoleWithWebIdentityResponse = (
  */
 const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
   const contents: any = {};
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = __expectString(output["AccessKeyId"]);
+  if (output[_AKI] != null) {
+    contents[_AKI] = __expectString(output[_AKI]);
   }
-  if (output["SecretAccessKey"] !== undefined) {
-    contents.SecretAccessKey = __expectString(output["SecretAccessKey"]);
+  if (output[_SAK] != null) {
+    contents[_SAK] = __expectString(output[_SAK]);
   }
-  if (output["SessionToken"] !== undefined) {
-    contents.SessionToken = __expectString(output["SessionToken"]);
+  if (output[_STe] != null) {
+    contents[_STe] = __expectString(output[_STe]);
   }
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Expiration"]));
+  if (output[_E] != null) {
+    contents[_E] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_E]));
   }
   return contents;
 };
@@ -1204,8 +1204,8 @@ const de_DecodeAuthorizationMessageResponse = (
   context: __SerdeContext
 ): DecodeAuthorizationMessageResponse => {
   const contents: any = {};
-  if (output["DecodedMessage"] !== undefined) {
-    contents.DecodedMessage = __expectString(output["DecodedMessage"]);
+  if (output[_DM] != null) {
+    contents[_DM] = __expectString(output[_DM]);
   }
   return contents;
 };
@@ -1215,8 +1215,8 @@ const de_DecodeAuthorizationMessageResponse = (
  */
 const de_ExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1226,11 +1226,11 @@ const de_ExpiredTokenException = (output: any, context: __SerdeContext): Expired
  */
 const de_FederatedUser = (output: any, context: __SerdeContext): FederatedUser => {
   const contents: any = {};
-  if (output["FederatedUserId"] !== undefined) {
-    contents.FederatedUserId = __expectString(output["FederatedUserId"]);
+  if (output[_FUI] != null) {
+    contents[_FUI] = __expectString(output[_FUI]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -1240,8 +1240,8 @@ const de_FederatedUser = (output: any, context: __SerdeContext): FederatedUser =
  */
 const de_GetAccessKeyInfoResponse = (output: any, context: __SerdeContext): GetAccessKeyInfoResponse => {
   const contents: any = {};
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Ac] != null) {
+    contents[_Ac] = __expectString(output[_Ac]);
   }
   return contents;
 };
@@ -1251,14 +1251,14 @@ const de_GetAccessKeyInfoResponse = (output: any, context: __SerdeContext): GetA
  */
 const de_GetCallerIdentityResponse = (output: any, context: __SerdeContext): GetCallerIdentityResponse => {
   const contents: any = {};
-  if (output["UserId"] !== undefined) {
-    contents.UserId = __expectString(output["UserId"]);
+  if (output[_UI] != null) {
+    contents[_UI] = __expectString(output[_UI]);
   }
-  if (output["Account"] !== undefined) {
-    contents.Account = __expectString(output["Account"]);
+  if (output[_Ac] != null) {
+    contents[_Ac] = __expectString(output[_Ac]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = __expectString(output["Arn"]);
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
   }
   return contents;
 };
@@ -1268,14 +1268,14 @@ const de_GetCallerIdentityResponse = (output: any, context: __SerdeContext): Get
  */
 const de_GetFederationTokenResponse = (output: any, context: __SerdeContext): GetFederationTokenResponse => {
   const contents: any = {};
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = de_Credentials(output["Credentials"], context);
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
   }
-  if (output["FederatedUser"] !== undefined) {
-    contents.FederatedUser = de_FederatedUser(output["FederatedUser"], context);
+  if (output[_FU] != null) {
+    contents[_FU] = de_FederatedUser(output[_FU], context);
   }
-  if (output["PackedPolicySize"] !== undefined) {
-    contents.PackedPolicySize = __strictParseInt32(output["PackedPolicySize"]) as number;
+  if (output[_PPS] != null) {
+    contents[_PPS] = __strictParseInt32(output[_PPS]) as number;
   }
   return contents;
 };
@@ -1285,8 +1285,8 @@ const de_GetFederationTokenResponse = (output: any, context: __SerdeContext): Ge
  */
 const de_GetSessionTokenResponse = (output: any, context: __SerdeContext): GetSessionTokenResponse => {
   const contents: any = {};
-  if (output["Credentials"] !== undefined) {
-    contents.Credentials = de_Credentials(output["Credentials"], context);
+  if (output[_C] != null) {
+    contents[_C] = de_Credentials(output[_C], context);
   }
   return contents;
 };
@@ -1296,8 +1296,8 @@ const de_GetSessionTokenResponse = (output: any, context: __SerdeContext): GetSe
  */
 const de_IDPCommunicationErrorException = (output: any, context: __SerdeContext): IDPCommunicationErrorException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1307,8 +1307,8 @@ const de_IDPCommunicationErrorException = (output: any, context: __SerdeContext)
  */
 const de_IDPRejectedClaimException = (output: any, context: __SerdeContext): IDPRejectedClaimException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1321,8 +1321,8 @@ const de_InvalidAuthorizationMessageException = (
   context: __SerdeContext
 ): InvalidAuthorizationMessageException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1332,8 +1332,8 @@ const de_InvalidAuthorizationMessageException = (
  */
 const de_InvalidIdentityTokenException = (output: any, context: __SerdeContext): InvalidIdentityTokenException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1346,8 +1346,8 @@ const de_MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1357,8 +1357,8 @@ const de_MalformedPolicyDocumentException = (
  */
 const de_PackedPolicyTooLargeException = (output: any, context: __SerdeContext): PackedPolicyTooLargeException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1368,8 +1368,8 @@ const de_PackedPolicyTooLargeException = (output: any, context: __SerdeContext):
  */
 const de_RegionDisabledException = (output: any, context: __SerdeContext): RegionDisabledException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -1414,6 +1414,63 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2011-06-15";
+const _A = "Action";
+const _AKI = "AccessKeyId";
+const _AR = "AssumeRole";
+const _ARI = "AssumedRoleId";
+const _ARU = "AssumedRoleUser";
+const _ARWSAML = "AssumeRoleWithSAML";
+const _ARWWI = "AssumeRoleWithWebIdentity";
+const _Ac = "Account";
+const _Ar = "Arn";
+const _Au = "Audience";
+const _C = "Credentials";
+const _CA = "ContextAssertion";
+const _DAM = "DecodeAuthorizationMessage";
+const _DM = "DecodedMessage";
+const _DS = "DurationSeconds";
+const _E = "Expiration";
+const _EI = "ExternalId";
+const _EM = "EncodedMessage";
+const _FU = "FederatedUser";
+const _FUI = "FederatedUserId";
+const _GAKI = "GetAccessKeyInfo";
+const _GCI = "GetCallerIdentity";
+const _GFT = "GetFederationToken";
+const _GST = "GetSessionToken";
+const _I = "Issuer";
+const _K = "Key";
+const _N = "Name";
+const _NQ = "NameQualifier";
+const _P = "Policy";
+const _PA = "PolicyArns";
+const _PAr = "PrincipalArn";
+const _PAro = "ProviderArn";
+const _PC = "ProvidedContexts";
+const _PI = "ProviderId";
+const _PPS = "PackedPolicySize";
+const _Pr = "Provider";
+const _RA = "RoleArn";
+const _RSN = "RoleSessionName";
+const _S = "Subject";
+const _SAK = "SecretAccessKey";
+const _SAMLA = "SAMLAssertion";
+const _SFWIT = "SubjectFromWebIdentityToken";
+const _SI = "SourceIdentity";
+const _SN = "SerialNumber";
+const _ST = "SubjectType";
+const _STe = "SessionToken";
+const _T = "Tags";
+const _TC = "TokenCode";
+const _TTK = "TransitiveTagKeys";
+const _UI = "UserId";
+const _V = "Version";
+const _Va = "Value";
+const _WIT = "WebIdentityToken";
+const _a = "arn";
+const _m = "message";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

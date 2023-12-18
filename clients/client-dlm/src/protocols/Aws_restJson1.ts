@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -86,11 +87,11 @@ export const se_CreateLifecyclePolicyCommand = async (
   input: CreateLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policies";
+  b.bp("/policies");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -108,15 +109,8 @@ export const se_CreateLifecyclePolicyCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -126,20 +120,13 @@ export const se_DeleteLifecyclePolicyCommand = async (
   input: DeleteLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policies/{PolicyId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PolicyId", () => input.PolicyId!, "{PolicyId}", false);
+  b.bp("/policies/{PolicyId}");
+  b.p("PolicyId", () => input.PolicyId!, "{PolicyId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -149,31 +136,20 @@ export const se_GetLifecyclePoliciesCommand = async (
   input: GetLifecyclePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policies";
+  b.bp("/policies");
   const query: any = map({
-    policyIds: [() => input.PolicyIds !== void 0, () => (input.PolicyIds! || []).map((_entry) => _entry as any)],
-    state: [, input.State!],
-    resourceTypes: [
-      () => input.ResourceTypes !== void 0,
-      () => (input.ResourceTypes! || []).map((_entry) => _entry as any),
-    ],
-    targetTags: [() => input.TargetTags !== void 0, () => (input.TargetTags! || []).map((_entry) => _entry as any)],
-    tagsToAdd: [() => input.TagsToAdd !== void 0, () => (input.TagsToAdd! || []).map((_entry) => _entry as any)],
-    defaultPolicyType: [, input.DefaultPolicyType!],
+    [_pI]: [() => input.PolicyIds !== void 0, () => (input[_PI]! || []).map((_entry) => _entry as any)],
+    [_s]: [, input[_S]!],
+    [_rT]: [() => input.ResourceTypes !== void 0, () => (input[_RT]! || []).map((_entry) => _entry as any)],
+    [_tT]: [() => input.TargetTags !== void 0, () => (input[_TT]! || []).map((_entry) => _entry as any)],
+    [_tTA]: [() => input.TagsToAdd !== void 0, () => (input[_TTA]! || []).map((_entry) => _entry as any)],
+    [_dPT]: [, input[_DPT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -183,20 +159,13 @@ export const se_GetLifecyclePolicyCommand = async (
   input: GetLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policies/{PolicyId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PolicyId", () => input.PolicyId!, "{PolicyId}", false);
+  b.bp("/policies/{PolicyId}");
+  b.p("PolicyId", () => input.PolicyId!, "{PolicyId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -206,20 +175,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -229,27 +191,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -259,27 +214,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -289,12 +236,12 @@ export const se_UpdateLifecyclePolicyCommand = async (
   input: UpdateLifecyclePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policies/{PolicyId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PolicyId", () => input.PolicyId!, "{PolicyId}", false);
+  b.bp("/policies/{PolicyId}");
+  b.p("PolicyId", () => input.PolicyId!, "{PolicyId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -310,15 +257,8 @@ export const se_UpdateLifecyclePolicyCommand = async (
       State: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1046,6 +986,21 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _DPT = "DefaultPolicyType";
+const _PI = "PolicyIds";
+const _RT = "ResourceTypes";
+const _S = "State";
+const _TK = "TagKeys";
+const _TT = "TargetTags";
+const _TTA = "TagsToAdd";
+const _dPT = "defaultPolicyType";
+const _pI = "policyIds";
+const _rT = "resourceTypes";
+const _s = "state";
+const _tK = "tagKeys";
+const _tT = "targetTags";
+const _tTA = "tagsToAdd";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

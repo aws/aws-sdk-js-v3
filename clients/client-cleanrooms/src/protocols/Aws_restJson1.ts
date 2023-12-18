@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -306,36 +307,20 @@ export const se_BatchGetCollaborationAnalysisTemplateCommand = async (
   input: BatchGetCollaborationAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/batch-analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/batch-analysistemplates");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       analysisTemplateArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -345,36 +330,20 @@ export const se_BatchGetSchemaCommand = async (
   input: BatchGetSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/batch-schema";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/batch-schema");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       names: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -384,21 +353,12 @@ export const se_CreateAnalysisTemplateCommand = async (
   input: CreateAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -410,15 +370,8 @@ export const se_CreateAnalysisTemplateCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -428,11 +381,11 @@ export const se_CreateCollaborationCommand = async (
   input: CreateCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations";
+  b.bp("/collaborations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -447,15 +400,8 @@ export const se_CreateCollaborationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -465,21 +411,12 @@ export const se_CreateConfiguredAudienceModelAssociationCommand = async (
   input: CreateConfiguredAudienceModelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/configuredaudiencemodelassociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -490,15 +427,8 @@ export const se_CreateConfiguredAudienceModelAssociationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -508,11 +438,11 @@ export const se_CreateConfiguredTableCommand = async (
   input: CreateConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuredTables";
+  b.bp("/configuredTables");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -524,15 +454,8 @@ export const se_CreateConfiguredTableCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -542,21 +465,12 @@ export const se_CreateConfiguredTableAnalysisRuleCommand = async (
   input: CreateConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -564,15 +478,8 @@ export const se_CreateConfiguredTableAnalysisRuleCommand = async (
       analysisRuleType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,21 +489,12 @@ export const se_CreateConfiguredTableAssociationCommand = async (
   input: CreateConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -607,15 +505,8 @@ export const se_CreateConfiguredTableAssociationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -625,11 +516,11 @@ export const se_CreateMembershipCommand = async (
   input: CreateMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships";
+  b.bp("/memberships");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -640,15 +531,8 @@ export const se_CreateMembershipCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -658,21 +542,12 @@ export const se_CreatePrivacyBudgetTemplateCommand = async (
   input: CreatePrivacyBudgetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/privacybudgettemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -682,15 +557,8 @@ export const se_CreatePrivacyBudgetTemplateCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -700,37 +568,14 @@ export const se_DeleteAnalysisTemplateCommand = async (
   input: DeleteAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateIdentifier",
-    () => input.analysisTemplateIdentifier!,
-    "{analysisTemplateIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("analysisTemplateIdentifier", () => input.analysisTemplateIdentifier!, "{analysisTemplateIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -740,28 +585,13 @@ export const se_DeleteCollaborationCommand = async (
   input: DeleteCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations/{collaborationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -771,37 +601,21 @@ export const se_DeleteConfiguredAudienceModelAssociationCommand = async (
   input: DeleteConfiguredAudienceModelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
+  );
+  b.p(
     "configuredAudienceModelAssociationIdentifier",
     () => input.configuredAudienceModelAssociationIdentifier!,
     "{configuredAudienceModelAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -811,29 +625,13 @@ export const se_DeleteConfiguredTableCommand = async (
   input: DeleteConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -843,37 +641,14 @@ export const se_DeleteConfiguredTableAnalysisRuleCommand = async (
   input: DeleteConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisRuleType",
-    () => input.analysisRuleType!,
-    "{analysisRuleType}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -883,37 +658,19 @@ export const se_DeleteConfiguredTableAssociationCommand = async (
   input: DeleteConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}");
+  b.p(
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -923,30 +680,14 @@ export const se_DeleteMemberCommand = async (
   input: DeleteMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/member/{accountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/collaborations/{collaborationIdentifier}/member/{accountId}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -956,28 +697,13 @@ export const se_DeleteMembershipCommand = async (
   input: DeleteMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships/{membershipIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -987,37 +713,19 @@ export const se_DeletePrivacyBudgetTemplateCommand = async (
   input: DeletePrivacyBudgetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
     "privacyBudgetTemplateIdentifier",
     () => input.privacyBudgetTemplateIdentifier!,
     "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1027,37 +735,14 @@ export const se_GetAnalysisTemplateCommand = async (
   input: GetAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateIdentifier",
-    () => input.analysisTemplateIdentifier!,
-    "{analysisTemplateIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("analysisTemplateIdentifier", () => input.analysisTemplateIdentifier!, "{analysisTemplateIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1067,28 +752,13 @@ export const se_GetCollaborationCommand = async (
   input: GetCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations/{collaborationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1098,37 +768,14 @@ export const se_GetCollaborationAnalysisTemplateCommand = async (
   input: GetCollaborationAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateArn",
-    () => input.analysisTemplateArn!,
-    "{analysisTemplateArn}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("analysisTemplateArn", () => input.analysisTemplateArn!, "{analysisTemplateArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1138,37 +785,21 @@ export const se_GetCollaborationConfiguredAudienceModelAssociationCommand = asyn
   input: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
+  b.bp(
+    "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p(
     "configuredAudienceModelAssociationIdentifier",
     () => input.configuredAudienceModelAssociationIdentifier!,
     "{configuredAudienceModelAssociationIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1178,37 +809,19 @@ export const se_GetCollaborationPrivacyBudgetTemplateCommand = async (
   input: GetCollaborationPrivacyBudgetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/collaborations/{collaborationIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p(
     "privacyBudgetTemplateIdentifier",
     () => input.privacyBudgetTemplateIdentifier!,
     "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1218,37 +831,21 @@ export const se_GetConfiguredAudienceModelAssociationCommand = async (
   input: GetConfiguredAudienceModelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
+  );
+  b.p(
     "configuredAudienceModelAssociationIdentifier",
     () => input.configuredAudienceModelAssociationIdentifier!,
     "{configuredAudienceModelAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1258,29 +855,13 @@ export const se_GetConfiguredTableCommand = async (
   input: GetConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1290,37 +871,14 @@ export const se_GetConfiguredTableAnalysisRuleCommand = async (
   input: GetConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisRuleType",
-    () => input.analysisRuleType!,
-    "{analysisRuleType}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1330,37 +888,19 @@ export const se_GetConfiguredTableAssociationCommand = async (
   input: GetConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}");
+  b.p(
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1370,28 +910,13 @@ export const se_GetMembershipCommand = async (
   input: GetMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships/{membershipIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1401,37 +926,19 @@ export const se_GetPrivacyBudgetTemplateCommand = async (
   input: GetPrivacyBudgetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
     "privacyBudgetTemplateIdentifier",
     () => input.privacyBudgetTemplateIdentifier!,
     "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1441,37 +948,14 @@ export const se_GetProtectedQueryCommand = async (
   input: GetProtectedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "protectedQueryIdentifier",
-    () => input.protectedQueryIdentifier!,
-    "{protectedQueryIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("protectedQueryIdentifier", () => input.protectedQueryIdentifier!, "{protectedQueryIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1481,30 +965,14 @@ export const se_GetSchemaCommand = async (
   input: GetSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/schemas/{name}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/collaborations/{collaborationIdentifier}/schemas/{name}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1514,31 +982,15 @@ export const se_GetSchemaAnalysisRuleCommand = async (
   input: GetSchemaAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "type", () => input.type!, "{type}", false);
+  b.bp("/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  b.p("type", () => input.type!, "{type}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1548,34 +1000,17 @@ export const se_ListAnalysisTemplatesCommand = async (
   input: ListAnalysisTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1585,34 +1020,17 @@ export const se_ListCollaborationAnalysisTemplatesCommand = async (
   input: ListCollaborationAnalysisTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/analysistemplates");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1622,34 +1040,17 @@ export const se_ListCollaborationConfiguredAudienceModelAssociationsCommand = as
   input: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1659,35 +1060,18 @@ export const se_ListCollaborationPrivacyBudgetsCommand = async (
   input: ListCollaborationPrivacyBudgetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/privacybudgets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/privacybudgets");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    privacyBudgetType: [, __expectNonNull(input.privacyBudgetType!, `privacyBudgetType`)],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_pBT]: [, __expectNonNull(input[_pBT]!, `privacyBudgetType`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1697,34 +1081,17 @@ export const se_ListCollaborationPrivacyBudgetTemplatesCommand = async (
   input: ListCollaborationPrivacyBudgetTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/privacybudgettemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/privacybudgettemplates");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1734,25 +1101,17 @@ export const se_ListCollaborationsCommand = async (
   input: ListCollaborationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations";
+  b.bp("/collaborations");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    memberStatus: [, input.memberStatus!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_mS]: [, input[_mS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1762,34 +1121,17 @@ export const se_ListConfiguredAudienceModelAssociationsCommand = async (
   input: ListConfiguredAudienceModelAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/configuredaudiencemodelassociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1799,34 +1141,17 @@ export const se_ListConfiguredTableAssociationsCommand = async (
   input: ListConfiguredTableAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1836,24 +1161,16 @@ export const se_ListConfiguredTablesCommand = async (
   input: ListConfiguredTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuredTables";
+  b.bp("/configuredTables");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1863,34 +1180,17 @@ export const se_ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/members";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/members");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1900,25 +1200,17 @@ export const se_ListMembershipsCommand = async (
   input: ListMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships";
+  b.bp("/memberships");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    status: [, input.status!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_s]: [, input[_s]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1928,35 +1220,18 @@ export const se_ListPrivacyBudgetsCommand = async (
   input: ListPrivacyBudgetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/privacybudgets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/privacybudgets");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    privacyBudgetType: [, __expectNonNull(input.privacyBudgetType!, `privacyBudgetType`)],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_pBT]: [, __expectNonNull(input[_pBT]!, `privacyBudgetType`)],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1966,34 +1241,17 @@ export const se_ListPrivacyBudgetTemplatesCommand = async (
   input: ListPrivacyBudgetTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/privacybudgettemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2003,35 +1261,18 @@ export const se_ListProtectedQueriesCommand = async (
   input: ListProtectedQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    status: [, input.status!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_s]: [, input[_s]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2041,35 +1282,18 @@ export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/schemas";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/schemas");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    schemaType: [, input.schemaType!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_sT]: [, input[_sT]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2079,20 +1303,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2102,36 +1319,20 @@ export const se_PreviewPrivacyImpactCommand = async (
   input: PreviewPrivacyImpactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/previewprivacyimpact";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/previewprivacyimpact");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       parameters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2141,21 +1342,12 @@ export const se_StartProtectedQueryCommand = async (
   input: StartProtectedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2164,15 +1356,8 @@ export const se_StartProtectedQueryCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2182,27 +1367,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2212,27 +1390,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2242,44 +1412,21 @@ export const se_UpdateAnalysisTemplateCommand = async (
   input: UpdateAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateIdentifier",
-    () => input.analysisTemplateIdentifier!,
-    "{analysisTemplateIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("analysisTemplateIdentifier", () => input.analysisTemplateIdentifier!, "{analysisTemplateIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2289,20 +1436,12 @@ export const se_UpdateCollaborationCommand = async (
   input: UpdateCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations/{collaborationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2310,15 +1449,8 @@ export const se_UpdateCollaborationCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2328,29 +1460,20 @@ export const se_UpdateConfiguredAudienceModelAssociationCommand = async (
   input: UpdateConfiguredAudienceModelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
+  );
+  b.p(
     "configuredAudienceModelAssociationIdentifier",
     () => input.configuredAudienceModelAssociationIdentifier!,
     "{configuredAudienceModelAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2358,15 +1481,8 @@ export const se_UpdateConfiguredAudienceModelAssociationCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2376,21 +1492,12 @@ export const se_UpdateConfiguredTableCommand = async (
   input: UpdateConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2398,15 +1505,8 @@ export const se_UpdateConfiguredTableCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2416,44 +1516,21 @@ export const se_UpdateConfiguredTableAnalysisRuleCommand = async (
   input: UpdateConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisRuleType",
-    () => input.analysisRuleType!,
-    "{analysisRuleType}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       analysisRulePolicy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2463,29 +1540,18 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
   input: UpdateConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}");
+  b.p(
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2493,15 +1559,8 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2511,20 +1570,12 @@ export const se_UpdateMembershipCommand = async (
   input: UpdateMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships/{membershipIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2532,15 +1583,8 @@ export const se_UpdateMembershipCommand = async (
       queryLogStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2550,24 +1594,13 @@ export const se_UpdatePrivacyBudgetTemplateCommand = async (
   input: UpdatePrivacyBudgetTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
     "privacyBudgetTemplateIdentifier",
     () => input.privacyBudgetTemplateIdentifier!,
     "{privacyBudgetTemplateIdentifier}",
@@ -2580,15 +1613,8 @@ export const se_UpdatePrivacyBudgetTemplateCommand = async (
       privacyBudgetType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2598,44 +1624,21 @@ export const se_UpdateProtectedQueryCommand = async (
   input: UpdateProtectedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "protectedQueryIdentifier",
-    () => input.protectedQueryIdentifier!,
-    "{protectedQueryIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("protectedQueryIdentifier", () => input.protectedQueryIdentifier!, "{protectedQueryIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       targetStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7506,6 +6509,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _mS = "memberStatus";
+const _nT = "nextToken";
+const _pBT = "privacyBudgetType";
+const _s = "status";
+const _sT = "schemaType";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

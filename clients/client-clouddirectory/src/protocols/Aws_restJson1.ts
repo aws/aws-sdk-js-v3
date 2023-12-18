@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -280,14 +281,12 @@ export const se_AddFacetToObjectCommand = async (
   input: AddFacetToObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/facets";
+  b.bp("/amazonclouddirectory/2017-01-11/object/facets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -296,15 +295,8 @@ export const se_AddFacetToObjectCommand = async (
       SchemaFacet: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -314,29 +306,20 @@ export const se_ApplySchemaCommand = async (
   input: ApplySchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/apply";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/apply");
   let body: any;
   body = JSON.stringify(
     take(input, {
       PublishedSchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -346,14 +329,12 @@ export const se_AttachObjectCommand = async (
   input: AttachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/attach";
+  b.bp("/amazonclouddirectory/2017-01-11/object/attach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -362,15 +343,8 @@ export const se_AttachObjectCommand = async (
       ParentReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -380,14 +354,12 @@ export const se_AttachPolicyCommand = async (
   input: AttachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/policy/attach";
+  b.bp("/amazonclouddirectory/2017-01-11/policy/attach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -395,15 +367,8 @@ export const se_AttachPolicyCommand = async (
       PolicyReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -413,14 +378,12 @@ export const se_AttachToIndexCommand = async (
   input: AttachToIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/index/attach";
+  b.bp("/amazonclouddirectory/2017-01-11/index/attach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -428,15 +391,8 @@ export const se_AttachToIndexCommand = async (
       TargetReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -446,14 +402,12 @@ export const se_AttachTypedLinkCommand = async (
   input: AttachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/attach";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/attach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -463,15 +417,8 @@ export const se_AttachTypedLinkCommand = async (
       TypedLinkFacet: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -481,30 +428,21 @@ export const se_BatchReadCommand = async (
   input: BatchReadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/batchread";
+  b.bp("/amazonclouddirectory/2017-01-11/batchread");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Operations: (_) => se_BatchReadOperationList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -514,29 +452,20 @@ export const se_BatchWriteCommand = async (
   input: BatchWriteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/batchwrite";
+  b.bp("/amazonclouddirectory/2017-01-11/batchwrite");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Operations: (_) => se_BatchWriteOperationList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -546,29 +475,20 @@ export const se_CreateDirectoryCommand = async (
   input: CreateDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/directory/create";
+  b.bp("/amazonclouddirectory/2017-01-11/directory/create");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -578,14 +498,12 @@ export const se_CreateFacetCommand = async (
   input: CreateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/facet/create";
+  b.bp("/amazonclouddirectory/2017-01-11/facet/create");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -595,15 +513,8 @@ export const se_CreateFacetCommand = async (
       ObjectType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -613,13 +524,12 @@ export const se_CreateIndexCommand = async (
   input: CreateIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/index";
+  b.bp("/amazonclouddirectory/2017-01-11/index");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -629,15 +539,8 @@ export const se_CreateIndexCommand = async (
       ParentReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -647,13 +550,12 @@ export const se_CreateObjectCommand = async (
   input: CreateObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/object";
+  b.bp("/amazonclouddirectory/2017-01-11/object");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -663,15 +565,8 @@ export const se_CreateObjectCommand = async (
       SchemaFacets: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -681,28 +576,19 @@ export const se_CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/create";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/create");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -712,29 +598,20 @@ export const se_CreateTypedLinkFacetCommand = async (
   input: CreateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/facet/create");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Facet: (_) => se_TypedLinkFacet(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -744,23 +621,14 @@ export const se_DeleteDirectoryCommand = async (
   input: DeleteDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/directory";
+  b.bp("/amazonclouddirectory/2017-01-11/directory");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -770,29 +638,20 @@ export const se_DeleteFacetCommand = async (
   input: DeleteFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/facet/delete";
+  b.bp("/amazonclouddirectory/2017-01-11/facet/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -802,29 +661,20 @@ export const se_DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/delete";
+  b.bp("/amazonclouddirectory/2017-01-11/object/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -834,22 +684,14 @@ export const se_DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/schema";
+  b.bp("/amazonclouddirectory/2017-01-11/schema");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -859,29 +701,20 @@ export const se_DeleteTypedLinkFacetCommand = async (
   input: DeleteTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/facet/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -891,14 +724,12 @@ export const se_DetachFromIndexCommand = async (
   input: DetachFromIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/index/detach";
+  b.bp("/amazonclouddirectory/2017-01-11/index/detach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -906,15 +737,8 @@ export const se_DetachFromIndexCommand = async (
       TargetReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -924,14 +748,12 @@ export const se_DetachObjectCommand = async (
   input: DetachObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/detach";
+  b.bp("/amazonclouddirectory/2017-01-11/object/detach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -939,15 +761,8 @@ export const se_DetachObjectCommand = async (
       ParentReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -957,14 +772,12 @@ export const se_DetachPolicyCommand = async (
   input: DetachPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/policy/detach";
+  b.bp("/amazonclouddirectory/2017-01-11/policy/detach");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -972,15 +785,8 @@ export const se_DetachPolicyCommand = async (
       PolicyReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -990,29 +796,20 @@ export const se_DetachTypedLinkCommand = async (
   input: DetachTypedLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/detach";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/detach");
   let body: any;
   body = JSON.stringify(
     take(input, {
       TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1022,23 +819,14 @@ export const se_DisableDirectoryCommand = async (
   input: DisableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/directory/disable";
+  b.bp("/amazonclouddirectory/2017-01-11/directory/disable");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1048,23 +836,14 @@ export const se_EnableDirectoryCommand = async (
   input: EnableDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/directory/enable";
+  b.bp("/amazonclouddirectory/2017-01-11/directory/enable");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1074,28 +853,19 @@ export const se_GetAppliedSchemaVersionCommand = async (
   input: GetAppliedSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/getappliedschema");
   let body: any;
   body = JSON.stringify(
     take(input, {
       SchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1105,23 +875,14 @@ export const se_GetDirectoryCommand = async (
   input: GetDirectoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/directory/get";
+  b.bp("/amazonclouddirectory/2017-01-11/directory/get");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1131,28 +892,20 @@ export const se_GetFacetCommand = async (
   input: GetFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
+  b.bp("/amazonclouddirectory/2017-01-11/facet");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1162,14 +915,12 @@ export const se_GetLinkAttributesCommand = async (
   input: GetLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/attributes/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1178,15 +929,8 @@ export const se_GetLinkAttributesCommand = async (
       TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1196,15 +940,13 @@ export const se_GetObjectAttributesCommand = async (
   input: GetObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/attributes/get";
+  b.bp("/amazonclouddirectory/2017-01-11/object/attributes/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1213,15 +955,8 @@ export const se_GetObjectAttributesCommand = async (
       SchemaFacet: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1231,30 +966,21 @@ export const se_GetObjectInformationCommand = async (
   input: GetObjectInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/information";
+  b.bp("/amazonclouddirectory/2017-01-11/object/information");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1264,23 +990,14 @@ export const se_GetSchemaAsJsonCommand = async (
   input: GetSchemaAsJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/json";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/json");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1290,29 +1007,20 @@ export const se_GetTypedLinkFacetInformationCommand = async (
   input: GetTypedLinkFacetInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/facet/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1322,13 +1030,11 @@ export const se_ListAppliedSchemaArnsCommand = async (
   input: ListAppliedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/applied";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/applied");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1338,15 +1044,8 @@ export const se_ListAppliedSchemaArnsCommand = async (
       SchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1356,15 +1055,13 @@ export const se_ListAttachedIndicesCommand = async (
   input: ListAttachedIndicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/indices";
+  b.bp("/amazonclouddirectory/2017-01-11/object/indices");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1373,15 +1070,8 @@ export const se_ListAttachedIndicesCommand = async (
       TargetReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1391,13 +1081,11 @@ export const se_ListDevelopmentSchemaArnsCommand = async (
   input: ListDevelopmentSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/development";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/development");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1405,15 +1093,8 @@ export const se_ListDevelopmentSchemaArnsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1423,13 +1104,11 @@ export const se_ListDirectoriesCommand = async (
   input: ListDirectoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/directory/list";
+  b.bp("/amazonclouddirectory/2017-01-11/directory/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1438,15 +1117,8 @@ export const se_ListDirectoriesCommand = async (
       state: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1456,14 +1128,12 @@ export const se_ListFacetAttributesCommand = async (
   input: ListFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/facet/attributes";
+  b.bp("/amazonclouddirectory/2017-01-11/facet/attributes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1472,15 +1142,8 @@ export const se_ListFacetAttributesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1490,14 +1153,12 @@ export const se_ListFacetNamesCommand = async (
   input: ListFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/facet/list";
+  b.bp("/amazonclouddirectory/2017-01-11/facet/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1505,15 +1166,8 @@ export const se_ListFacetNamesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1523,14 +1177,12 @@ export const se_ListIncomingTypedLinksCommand = async (
   input: ListIncomingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/incoming";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/incoming");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1542,15 +1194,8 @@ export const se_ListIncomingTypedLinksCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1560,15 +1205,13 @@ export const se_ListIndexCommand = async (
   input: ListIndexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/index/targets";
+  b.bp("/amazonclouddirectory/2017-01-11/index/targets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1578,15 +1221,8 @@ export const se_ListIndexCommand = async (
       RangesOnIndexedValues: (_) => se_ObjectAttributeRangeList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1596,13 +1232,11 @@ export const se_ListManagedSchemaArnsCommand = async (
   input: ListManagedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/managed";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/managed");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1611,15 +1245,8 @@ export const se_ListManagedSchemaArnsCommand = async (
       SchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1629,15 +1256,13 @@ export const se_ListObjectAttributesCommand = async (
   input: ListObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/attributes";
+  b.bp("/amazonclouddirectory/2017-01-11/object/attributes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1647,15 +1272,8 @@ export const se_ListObjectAttributesCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1665,15 +1283,13 @@ export const se_ListObjectChildrenCommand = async (
   input: ListObjectChildrenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/children";
+  b.bp("/amazonclouddirectory/2017-01-11/object/children");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1682,15 +1298,8 @@ export const se_ListObjectChildrenCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1700,14 +1309,12 @@ export const se_ListObjectParentPathsCommand = async (
   input: ListObjectParentPathsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/parentpaths";
+  b.bp("/amazonclouddirectory/2017-01-11/object/parentpaths");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1716,15 +1323,8 @@ export const se_ListObjectParentPathsCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1734,15 +1334,13 @@ export const se_ListObjectParentsCommand = async (
   input: ListObjectParentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/parent";
+  b.bp("/amazonclouddirectory/2017-01-11/object/parent");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1752,15 +1350,8 @@ export const se_ListObjectParentsCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1770,15 +1361,13 @@ export const se_ListObjectPoliciesCommand = async (
   input: ListObjectPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/policy";
+  b.bp("/amazonclouddirectory/2017-01-11/object/policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1787,15 +1376,8 @@ export const se_ListObjectPoliciesCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1805,14 +1387,12 @@ export const se_ListOutgoingTypedLinksCommand = async (
   input: ListOutgoingTypedLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/outgoing");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1824,15 +1404,8 @@ export const se_ListOutgoingTypedLinksCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1842,15 +1415,13 @@ export const se_ListPolicyAttachmentsCommand = async (
   input: ListPolicyAttachmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
-    "x-amz-consistency-level": input.ConsistencyLevel!,
+    [_xadp]: input[_DA]!,
+    [_xacl]: input[_CL]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/policy/attachment";
+  b.bp("/amazonclouddirectory/2017-01-11/policy/attachment");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1859,15 +1430,8 @@ export const se_ListPolicyAttachmentsCommand = async (
       PolicyReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1877,13 +1441,11 @@ export const se_ListPublishedSchemaArnsCommand = async (
   input: ListPublishedSchemaArnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/published";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/published");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1892,15 +1454,8 @@ export const se_ListPublishedSchemaArnsCommand = async (
       SchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1910,12 +1465,11 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags";
+  b.bp("/amazonclouddirectory/2017-01-11/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1924,15 +1478,8 @@ export const se_ListTagsForResourceCommand = async (
       ResourceArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1942,14 +1489,12 @@ export const se_ListTypedLinkFacetAttributesCommand = async (
   input: ListTypedLinkFacetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/facet/attributes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1958,15 +1503,8 @@ export const se_ListTypedLinkFacetAttributesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1976,14 +1514,12 @@ export const se_ListTypedLinkFacetNamesCommand = async (
   input: ListTypedLinkFacetNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/facet/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1991,15 +1527,8 @@ export const se_ListTypedLinkFacetNamesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2009,14 +1538,12 @@ export const se_LookupPolicyCommand = async (
   input: LookupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/policy/lookup";
+  b.bp("/amazonclouddirectory/2017-01-11/policy/lookup");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2025,15 +1552,8 @@ export const se_LookupPolicyCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2043,14 +1563,12 @@ export const se_PublishSchemaCommand = async (
   input: PublishSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DevelopmentSchemaArn!,
+    [_xadp]: input[_DSA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/publish";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/publish");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2059,15 +1577,8 @@ export const se_PublishSchemaCommand = async (
       Version: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2077,29 +1588,20 @@ export const se_PutSchemaFromJsonCommand = async (
   input: PutSchemaFromJsonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/json";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/json");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Document: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2109,14 +1611,12 @@ export const se_RemoveFacetFromObjectCommand = async (
   input: RemoveFacetFromObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/facets/delete";
+  b.bp("/amazonclouddirectory/2017-01-11/object/facets/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2124,15 +1624,8 @@ export const se_RemoveFacetFromObjectCommand = async (
       SchemaFacet: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2142,12 +1635,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags/add";
+  b.bp("/amazonclouddirectory/2017-01-11/tags/add");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2155,15 +1647,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2173,13 +1658,11 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/tags/remove";
+  b.bp("/amazonclouddirectory/2017-01-11/tags/remove");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2187,15 +1670,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2205,13 +1681,12 @@ export const se_UpdateFacetCommand = async (
   input: UpdateFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
+  b.bp("/amazonclouddirectory/2017-01-11/facet");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2220,15 +1695,8 @@ export const se_UpdateFacetCommand = async (
       ObjectType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2238,14 +1706,12 @@ export const se_UpdateLinkAttributesCommand = async (
   input: UpdateLinkAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/attributes/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2253,15 +1719,8 @@ export const se_UpdateLinkAttributesCommand = async (
       TypedLinkSpecifier: (_) => se_TypedLinkSpecifier(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2271,14 +1730,12 @@ export const se_UpdateObjectAttributesCommand = async (
   input: UpdateObjectAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.DirectoryArn!,
+    [_xadp]: input[_DA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/object/update";
+  b.bp("/amazonclouddirectory/2017-01-11/object/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2286,15 +1743,8 @@ export const se_UpdateObjectAttributesCommand = async (
       ObjectReference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2304,29 +1754,20 @@ export const se_UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/update";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2336,14 +1777,12 @@ export const se_UpdateTypedLinkFacetCommand = async (
   input: UpdateTypedLinkFacetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-data-partition": input.SchemaArn!,
+    [_xadp]: input[_SA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/typedlink/facet";
+  b.bp("/amazonclouddirectory/2017-01-11/typedlink/facet");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2352,15 +1791,8 @@ export const se_UpdateTypedLinkFacetCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2370,13 +1802,11 @@ export const se_UpgradeAppliedSchemaCommand = async (
   input: UpgradeAppliedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/upgradeapplied");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2385,15 +1815,8 @@ export const se_UpgradeAppliedSchemaCommand = async (
       PublishedSchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2403,13 +1826,11 @@ export const se_UpgradePublishedSchemaCommand = async (
   input: UpgradePublishedSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
+  b.bp("/amazonclouddirectory/2017-01-11/schema/upgradepublished");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2419,15 +1840,8 @@ export const se_UpgradePublishedSchemaCommand = async (
       PublishedSchemaArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -8766,6 +8180,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CL = "ConsistencyLevel";
+const _DA = "DirectoryArn";
+const _DSA = "DevelopmentSchemaArn";
+const _SA = "SchemaArn";
+const _xacl = "x-amz-consistency-level";
+const _xadp = "x-amz-data-partition";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
