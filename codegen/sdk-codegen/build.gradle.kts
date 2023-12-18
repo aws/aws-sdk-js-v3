@@ -106,7 +106,6 @@ tasks.register("generate-smithy-build") {
             val experimentalIdentityAndAuthServices = setOf(
                 ShapeId.from("com.amazonaws.codecatalyst#CodeCatalyst"),
                 ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"),
-                ShapeId.from("com.amazonaws.sqs#AmazonSQS"),
                 ShapeId.from("com.amazonaws.dynamodb#DynamoDB_20120810"),
             )
             val projectionContents = Node.objectNodeBuilder()
