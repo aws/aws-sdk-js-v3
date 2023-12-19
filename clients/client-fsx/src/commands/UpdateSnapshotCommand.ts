@@ -432,6 +432,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //                   DeleteIntermediateData: true || false,
  * //                   SourceSnapshotARN: "STRING_VALUE",
  * //                   DestinationSnapshot: "STRING_VALUE",
+ * //                   CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //                 },
  * //               },
  * //               TargetSnapshotValues: {
@@ -601,6 +602,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //             DeleteIntermediateData: true || false,
  * //             SourceSnapshotARN: "STRING_VALUE",
  * //             DestinationSnapshot: "STRING_VALUE",
+ * //             CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //           },
  * //         },
  * //         TargetSnapshotValues: "<Snapshot>",

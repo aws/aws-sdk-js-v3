@@ -402,6 +402,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //                     DeleteIntermediateData: true || false,
  * //                     SourceSnapshotARN: "STRING_VALUE",
  * //                     DestinationSnapshot: "STRING_VALUE",
+ * //                     CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //                   },
  * //                 },
  * //                 TargetSnapshotValues: { // Snapshot
@@ -576,6 +577,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //               DeleteIntermediateData: true || false,
  * //               SourceSnapshotARN: "STRING_VALUE",
  * //               DestinationSnapshot: "STRING_VALUE",
+ * //               CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //             },
  * //           },
  * //           TargetSnapshotValues: {

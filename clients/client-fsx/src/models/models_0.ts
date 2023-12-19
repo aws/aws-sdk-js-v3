@@ -2147,6 +2147,21 @@ export interface OntapVolumeConfiguration {
  * @public
  * @enum
  */
+export const OpenZFSCopyStrategy = {
+  CLONE: "CLONE",
+  FULL_COPY: "FULL_COPY",
+  INCREMENTAL_COPY: "INCREMENTAL_COPY",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSCopyStrategy = (typeof OpenZFSCopyStrategy)[keyof typeof OpenZFSCopyStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const OpenZFSDataCompressionType = {
   LZ4: "LZ4",
   NONE: "NONE",
@@ -2210,21 +2225,6 @@ export interface OpenZFSNfsExport {
    */
   ClientConfigurations: OpenZFSClientConfiguration[] | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const OpenZFSCopyStrategy = {
-  CLONE: "CLONE",
-  FULL_COPY: "FULL_COPY",
-  INCREMENTAL_COPY: "INCREMENTAL_COPY",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSCopyStrategy = (typeof OpenZFSCopyStrategy)[keyof typeof OpenZFSCopyStrategy];
 
 /**
  * @public
@@ -2453,6 +2453,32 @@ export interface OpenZFSVolumeConfiguration {
    *             destination volume.</p>
    */
   DestinationSnapshot?: string;
+
+  /**
+   * @public
+   * <p>Specifies the strategy used when copying data from the snapshot to the new volume. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLONE</code> - The new volume references the data in the origin
+   *                     snapshot. Cloning a snapshot is faster than copying data from the snapshot to a
+   *                     new volume and doesn't consume disk throughput. However, the origin snapshot
+   *                     can't be deleted if there is a volume using its copied data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new
+   *                     volume.</p>
+   *                <p>Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>INCREMENTAL_COPY</code> option is only for updating an existing volume
+   *                 by using a snapshot from another FSx for OpenZFS file system. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html">CopySnapshotAndUpdateVolume</a>.</p>
+   *          </note>
+   */
+  CopyStrategy?: OpenZFSCopyStrategy;
 }
 
 /**
@@ -5544,7 +5570,10 @@ export interface CreateFileSystemOntapConfiguration {
    *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
    *          <ul>
    *             <li>
-   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value</p>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value for file systems with one HA pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code> / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and 6).</p>
    *             </li>
    *             <li>
    *                <p>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</p>
@@ -8847,6 +8876,14 @@ export interface DescribeSnapshotsRequest {
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>Set to <code>false</code> (default) if you want to only see the snapshots in your
+   *             Amazon Web Services account. Set to <code>true</code> if you want to see the
+   *             snapshots in your account and the ones shared with you from another account.</p>
+   */
+  IncludeShared?: boolean;
 }
 
 /**
@@ -9677,8 +9714,17 @@ export interface UpdateFileSystemOntapConfiguration {
    *             </li>
    *          </ul>
    *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
-   *          <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value.</p>
-   *          <p>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value for file systems with one HA pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code> / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and 6).</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</p>
+   *             </li>
+   *          </ul>
    */
   ThroughputCapacityPerHAPair?: number;
 }

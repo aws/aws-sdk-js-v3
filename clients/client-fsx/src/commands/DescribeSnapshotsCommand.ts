@@ -88,6 +88,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeShared: true || false,
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
@@ -469,6 +470,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //                     DeleteIntermediateData: true || false,
  * //                     SourceSnapshotARN: "STRING_VALUE",
  * //                     DestinationSnapshot: "STRING_VALUE",
+ * //                     CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //                   },
  * //                 },
  * //                 TargetSnapshotValues: {
@@ -638,6 +640,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //               DeleteIntermediateData: true || false,
  * //               SourceSnapshotARN: "STRING_VALUE",
  * //               DestinationSnapshot: "STRING_VALUE",
+ * //               CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //             },
  * //           },
  * //           TargetSnapshotValues: "<Snapshot>",

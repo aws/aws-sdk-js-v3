@@ -559,6 +559,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //                   DeleteIntermediateData: true || false,
  * //                   SourceSnapshotARN: "STRING_VALUE",
  * //                   DestinationSnapshot: "STRING_VALUE",
+ * //                   CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //                 },
  * //               },
  * //               TargetSnapshotValues: { // Snapshot
@@ -687,6 +688,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //       DeleteIntermediateData: true || false,
  * //       SourceSnapshotARN: "STRING_VALUE",
  * //       DestinationSnapshot: "STRING_VALUE",
+ * //       CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //     },
  * //   },
  * // };

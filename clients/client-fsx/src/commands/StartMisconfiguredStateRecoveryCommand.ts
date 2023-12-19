@@ -371,6 +371,7 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //                   DeleteIntermediateData: true || false,
  * //                   SourceSnapshotARN: "STRING_VALUE",
  * //                   DestinationSnapshot: "STRING_VALUE",
+ * //                   CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //                 },
  * //               },
  * //               TargetSnapshotValues: { // Snapshot
@@ -545,6 +546,7 @@ export interface StartMisconfiguredStateRecoveryCommandOutput
  * //             DeleteIntermediateData: true || false,
  * //             SourceSnapshotARN: "STRING_VALUE",
  * //             DestinationSnapshot: "STRING_VALUE",
+ * //             CopyStrategy: "CLONE" || "FULL_COPY" || "INCREMENTAL_COPY",
  * //           },
  * //         },
  * //         TargetSnapshotValues: {
