@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { CostExplorerClient } from "../CostExplorerClient";
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: CostExplorerClient,
-  input: GetSavingsPlansUtilizationDetailsCommandInput,
-  ...args: any
-): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateGetSavingsPlansUtilizationDetails(
+export const paginateGetSavingsPlansUtilizationDetails: (
   config: CostExplorerPaginationConfiguration,
   input: GetSavingsPlansUtilizationDetailsCommandInput,
-  ...additionalArguments: any
-): Paginator<GetSavingsPlansUtilizationDetailsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: GetSavingsPlansUtilizationDetailsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CostExplorerClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected CostExplorer | CostExplorerClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<GetSavingsPlansUtilizationDetailsCommandOutput> = createPaginator<
+  CostExplorerPaginationConfiguration,
+  GetSavingsPlansUtilizationDetailsCommandInput,
+  GetSavingsPlansUtilizationDetailsCommandOutput
+>(CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand, "NextToken", "NextToken", "MaxResults");

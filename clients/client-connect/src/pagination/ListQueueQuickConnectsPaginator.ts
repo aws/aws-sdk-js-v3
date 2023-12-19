@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { ConnectClient } from "../ConnectClient";
 import { ConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ConnectClient,
-  input: ListQueueQuickConnectsCommandInput,
-  ...args: any
-): Promise<ListQueueQuickConnectsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListQueueQuickConnectsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListQueueQuickConnects(
+export const paginateListQueueQuickConnects: (
   config: ConnectPaginationConfiguration,
   input: ListQueueQuickConnectsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListQueueQuickConnectsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListQueueQuickConnectsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof ConnectClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Connect | ConnectClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListQueueQuickConnectsCommandOutput> = createPaginator<
+  ConnectPaginationConfiguration,
+  ListQueueQuickConnectsCommandInput,
+  ListQueueQuickConnectsCommandOutput
+>(ConnectClient, ListQueueQuickConnectsCommand, "NextToken", "NextToken", "MaxResults");

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { ComputeOptimizerClient } from "../ComputeOptimizerClient";
 import { ComputeOptimizerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ComputeOptimizerClient,
-  input: GetLambdaFunctionRecommendationsCommandInput,
-  ...args: any
-): Promise<GetLambdaFunctionRecommendationsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new GetLambdaFunctionRecommendationsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateGetLambdaFunctionRecommendations(
+export const paginateGetLambdaFunctionRecommendations: (
   config: ComputeOptimizerPaginationConfiguration,
   input: GetLambdaFunctionRecommendationsCommandInput,
-  ...additionalArguments: any
-): Paginator<GetLambdaFunctionRecommendationsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: GetLambdaFunctionRecommendationsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof ComputeOptimizerClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected ComputeOptimizer | ComputeOptimizerClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<GetLambdaFunctionRecommendationsCommandOutput> = createPaginator<
+  ComputeOptimizerPaginationConfiguration,
+  GetLambdaFunctionRecommendationsCommandInput,
+  GetLambdaFunctionRecommendationsCommandOutput
+>(ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand, "nextToken", "nextToken", "maxResults");

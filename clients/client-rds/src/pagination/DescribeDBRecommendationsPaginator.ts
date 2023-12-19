@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: RDSClient,
-  input: DescribeDBRecommendationsCommandInput,
-  ...args: any
-): Promise<DescribeDBRecommendationsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new DescribeDBRecommendationsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateDescribeDBRecommendations(
+export const paginateDescribeDBRecommendations: (
   config: RDSPaginationConfiguration,
   input: DescribeDBRecommendationsCommandInput,
-  ...additionalArguments: any
-): Paginator<DescribeDBRecommendationsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.Marker
-  let token: typeof input.Marker | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: DescribeDBRecommendationsCommandOutput;
-  while (hasNext) {
-    input.Marker = token;
-    input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof RDSClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected RDS | RDSClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.Marker;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<DescribeDBRecommendationsCommandOutput> = createPaginator<
+  RDSPaginationConfiguration,
+  DescribeDBRecommendationsCommandInput,
+  DescribeDBRecommendationsCommandOutput
+>(RDSClient, DescribeDBRecommendationsCommand, "Marker", "Marker", "MaxRecords");

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { SageMakerA2IRuntimeClient } from "../SageMakerA2IRuntimeClient";
 import { SageMakerA2IRuntimePaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: SageMakerA2IRuntimeClient,
-  input: ListHumanLoopsCommandInput,
-  ...args: any
-): Promise<ListHumanLoopsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListHumanLoopsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListHumanLoops(
+export const paginateListHumanLoops: (
   config: SageMakerA2IRuntimePaginationConfiguration,
   input: ListHumanLoopsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListHumanLoopsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListHumanLoopsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SageMakerA2IRuntimeClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected SageMakerA2IRuntime | SageMakerA2IRuntimeClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListHumanLoopsCommandOutput> = createPaginator<
+  SageMakerA2IRuntimePaginationConfiguration,
+  ListHumanLoopsCommandInput,
+  ListHumanLoopsCommandOutput
+>(SageMakerA2IRuntimeClient, ListHumanLoopsCommand, "NextToken", "NextToken", "MaxResults");

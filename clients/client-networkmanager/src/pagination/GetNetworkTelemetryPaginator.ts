@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: NetworkManagerClient,
-  input: GetNetworkTelemetryCommandInput,
-  ...args: any
-): Promise<GetNetworkTelemetryCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new GetNetworkTelemetryCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateGetNetworkTelemetry(
+export const paginateGetNetworkTelemetry: (
   config: NetworkManagerPaginationConfiguration,
   input: GetNetworkTelemetryCommandInput,
-  ...additionalArguments: any
-): Paginator<GetNetworkTelemetryCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: GetNetworkTelemetryCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof NetworkManagerClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<GetNetworkTelemetryCommandOutput> = createPaginator<
+  NetworkManagerPaginationConfiguration,
+  GetNetworkTelemetryCommandInput,
+  GetNetworkTelemetryCommandOutput
+>(NetworkManagerClient, GetNetworkTelemetryCommand, "NextToken", "NextToken", "MaxResults");

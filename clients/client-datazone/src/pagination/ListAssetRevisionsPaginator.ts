@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { DataZoneClient } from "../DataZoneClient";
 import { DataZonePaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: DataZoneClient,
-  input: ListAssetRevisionsCommandInput,
-  ...args: any
-): Promise<ListAssetRevisionsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListAssetRevisionsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListAssetRevisions(
+export const paginateListAssetRevisions: (
   config: DataZonePaginationConfiguration,
   input: ListAssetRevisionsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListAssetRevisionsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListAssetRevisionsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof DataZoneClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected DataZone | DataZoneClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListAssetRevisionsCommandOutput> = createPaginator<
+  DataZonePaginationConfiguration,
+  ListAssetRevisionsCommandInput,
+  ListAssetRevisionsCommandOutput
+>(DataZoneClient, ListAssetRevisionsCommand, "nextToken", "nextToken", "maxResults");

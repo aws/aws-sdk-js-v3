@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
@@ -6,41 +7,14 @@ import { ImagebuilderClient } from "../ImagebuilderClient";
 import { ImagebuilderPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ImagebuilderClient,
-  input: ListImagesCommandInput,
-  ...args: any
-): Promise<ListImagesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListImagesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListImages(
+export const paginateListImages: (
   config: ImagebuilderPaginationConfiguration,
   input: ListImagesCommandInput,
-  ...additionalArguments: any
-): Paginator<ListImagesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListImagesCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof ImagebuilderClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Imagebuilder | ImagebuilderClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListImagesCommandOutput> = createPaginator<
+  ImagebuilderPaginationConfiguration,
+  ListImagesCommandInput,
+  ListImagesCommandOutput
+>(ImagebuilderClient, ListImagesCommand, "nextToken", "nextToken", "maxResults");

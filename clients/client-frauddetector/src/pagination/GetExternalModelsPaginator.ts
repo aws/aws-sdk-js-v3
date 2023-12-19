@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: FraudDetectorClient,
-  input: GetExternalModelsCommandInput,
-  ...args: any
-): Promise<GetExternalModelsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new GetExternalModelsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateGetExternalModels(
+export const paginateGetExternalModels: (
   config: FraudDetectorPaginationConfiguration,
   input: GetExternalModelsCommandInput,
-  ...additionalArguments: any
-): Paginator<GetExternalModelsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: GetExternalModelsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof FraudDetectorClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<GetExternalModelsCommandOutput> = createPaginator<
+  FraudDetectorPaginationConfiguration,
+  GetExternalModelsCommandInput,
+  GetExternalModelsCommandOutput
+>(FraudDetectorClient, GetExternalModelsCommand, "nextToken", "nextToken", "maxResults");

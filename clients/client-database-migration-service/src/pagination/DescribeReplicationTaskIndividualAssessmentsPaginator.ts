@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,20 @@ import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClien
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: DatabaseMigrationServiceClient,
-  input: DescribeReplicationTaskIndividualAssessmentsCommandInput,
-  ...args: any
-): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new DescribeReplicationTaskIndividualAssessmentsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateDescribeReplicationTaskIndividualAssessments(
+export const paginateDescribeReplicationTaskIndividualAssessments: (
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeReplicationTaskIndividualAssessmentsCommandInput,
-  ...additionalArguments: any
-): Paginator<DescribeReplicationTaskIndividualAssessmentsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.Marker
-  let token: typeof input.Marker | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: DescribeReplicationTaskIndividualAssessmentsCommandOutput;
-  while (hasNext) {
-    input.Marker = token;
-    input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationServiceClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.Marker;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<DescribeReplicationTaskIndividualAssessmentsCommandOutput> = createPaginator<
+  DatabaseMigrationServicePaginationConfiguration,
+  DescribeReplicationTaskIndividualAssessmentsCommandInput,
+  DescribeReplicationTaskIndividualAssessmentsCommandOutput
+>(
+  DatabaseMigrationServiceClient,
+  DescribeReplicationTaskIndividualAssessmentsCommand,
+  "Marker",
+  "Marker",
+  "MaxRecords"
+);

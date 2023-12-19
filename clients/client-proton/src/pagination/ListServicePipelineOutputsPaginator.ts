@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,40 +11,14 @@ import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ProtonClient,
-  input: ListServicePipelineOutputsCommandInput,
-  ...args: any
-): Promise<ListServicePipelineOutputsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListServicePipelineOutputsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListServicePipelineOutputs(
+export const paginateListServicePipelineOutputs: (
   config: ProtonPaginationConfiguration,
   input: ListServicePipelineOutputsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListServicePipelineOutputsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListServicePipelineOutputsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    if (config.client instanceof ProtonClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Proton | ProtonClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListServicePipelineOutputsCommandOutput> = createPaginator<
+  ProtonPaginationConfiguration,
+  ListServicePipelineOutputsCommandInput,
+  ListServicePipelineOutputsCommandOutput
+>(ProtonClient, ListServicePipelineOutputsCommand, "nextToken", "nextToken", "");

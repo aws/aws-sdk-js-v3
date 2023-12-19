@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: IoTClient,
-  input: ListAttachedPoliciesCommandInput,
-  ...args: any
-): Promise<ListAttachedPoliciesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListAttachedPoliciesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListAttachedPolicies(
+export const paginateListAttachedPolicies: (
   config: IoTPaginationConfiguration,
   input: ListAttachedPoliciesCommandInput,
-  ...additionalArguments: any
-): Paginator<ListAttachedPoliciesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.marker
-  let token: typeof input.marker | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListAttachedPoliciesCommandOutput;
-  while (hasNext) {
-    input.marker = token;
-    input["pageSize"] = config.pageSize;
-    if (config.client instanceof IoTClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected IoT | IoTClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextMarker;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListAttachedPoliciesCommandOutput> = createPaginator<
+  IoTPaginationConfiguration,
+  ListAttachedPoliciesCommandInput,
+  ListAttachedPoliciesCommandOutput
+>(IoTClient, ListAttachedPoliciesCommand, "marker", "nextMarker", "pageSize");

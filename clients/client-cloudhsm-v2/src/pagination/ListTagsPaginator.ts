@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { CloudHSMV2Client } from "../CloudHSMV2Client";
@@ -6,41 +7,14 @@ import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "..
 import { CloudHSMV2PaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: CloudHSMV2Client,
-  input: ListTagsCommandInput,
-  ...args: any
-): Promise<ListTagsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListTagsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListTags(
+export const paginateListTags: (
   config: CloudHSMV2PaginationConfiguration,
   input: ListTagsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListTagsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListTagsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudHSMV2Client) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected CloudHSMV2 | CloudHSMV2Client");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListTagsCommandOutput> = createPaginator<
+  CloudHSMV2PaginationConfiguration,
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+>(CloudHSMV2Client, ListTagsCommand, "NextToken", "NextToken", "MaxResults");

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { DatabaseMigrationServiceClient } from "../DatabaseMigrationServiceClien
 import { DatabaseMigrationServicePaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: DatabaseMigrationServiceClient,
-  input: DescribeMetadataModelExportsToTargetCommandInput,
-  ...args: any
-): Promise<DescribeMetadataModelExportsToTargetCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new DescribeMetadataModelExportsToTargetCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateDescribeMetadataModelExportsToTarget(
+export const paginateDescribeMetadataModelExportsToTarget: (
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeMetadataModelExportsToTargetCommandInput,
-  ...additionalArguments: any
-): Paginator<DescribeMetadataModelExportsToTargetCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.Marker
-  let token: typeof input.Marker | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: DescribeMetadataModelExportsToTargetCommandOutput;
-  while (hasNext) {
-    input.Marker = token;
-    input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof DatabaseMigrationServiceClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.Marker;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<DescribeMetadataModelExportsToTargetCommandOutput> = createPaginator<
+  DatabaseMigrationServicePaginationConfiguration,
+  DescribeMetadataModelExportsToTargetCommandInput,
+  DescribeMetadataModelExportsToTargetCommandOutput
+>(DatabaseMigrationServiceClient, DescribeMetadataModelExportsToTargetCommand, "Marker", "Marker", "MaxRecords");
