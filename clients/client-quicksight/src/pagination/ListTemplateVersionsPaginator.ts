@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: QuickSightClient,
-  input: ListTemplateVersionsCommandInput,
-  ...args: any
-): Promise<ListTemplateVersionsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListTemplateVersionsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListTemplateVersions(
+export const paginateListTemplateVersions: (
   config: QuickSightPaginationConfiguration,
   input: ListTemplateVersionsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListTemplateVersionsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListTemplateVersionsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof QuickSightClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected QuickSight | QuickSightClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListTemplateVersionsCommandOutput> = createPaginator<
+  QuickSightPaginationConfiguration,
+  ListTemplateVersionsCommandInput,
+  ListTemplateVersionsCommandOutput
+>(QuickSightClient, ListTemplateVersionsCommand, "NextToken", "NextToken", "MaxResults");

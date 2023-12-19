@@ -227,22 +227,13 @@ export const se_AssociateAccessPolicyCommand = async (
   input: AssociateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/access-entries/{principalArn}/access-policies";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "principalArn",
-    () => input.principalArn!,
-    "{principalArn}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/access-entries/{principalArn}/access-policies");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("principalArn", () => input.principalArn!, "{principalArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -250,15 +241,8 @@ export const se_AssociateAccessPolicyCommand = async (
       policyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -317,13 +301,12 @@ export const se_CreateAccessEntryCommand = async (
   input: CreateAccessEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/access-entries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/access-entries");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -335,15 +318,8 @@ export const se_CreateAccessEntryCommand = async (
       username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -536,30 +512,14 @@ export const se_DeleteAccessEntryCommand = async (
   input: DeleteAccessEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/access-entries/{principalArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "principalArn",
-    () => input.principalArn!,
-    "{principalArn}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/access-entries/{principalArn}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("principalArn", () => input.principalArn!, "{principalArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -688,30 +648,14 @@ export const se_DescribeAccessEntryCommand = async (
   input: DescribeAccessEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/access-entries/{principalArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "principalArn",
-    () => input.principalArn!,
-    "{principalArn}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/access-entries/{principalArn}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("principalArn", () => input.principalArn!, "{principalArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -908,31 +852,15 @@ export const se_DisassociateAccessPolicyCommand = async (
   input: DisassociateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/access-entries/{principalArn}/access-policies/{policyArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "principalArn",
-    () => input.principalArn!,
-    "{principalArn}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "policyArn", () => input.policyArn!, "{policyArn}", false);
+  b.bp("/clusters/{clusterName}/access-entries/{principalArn}/access-policies/{policyArn}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("principalArn", () => input.principalArn!, "{principalArn}", false);
+  b.p("policyArn", () => input.policyArn!, "{policyArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -966,27 +894,18 @@ export const se_ListAccessEntriesCommand = async (
   input: ListAccessEntriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/access-entries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/clusters/{clusterName}/access-entries");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    associatedPolicyArn: [, input.associatedPolicyArn!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_aPA]: [, input[_aPA]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -996,24 +915,16 @@ export const se_ListAccessPoliciesCommand = async (
   input: ListAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies";
+  b.bp("/access-policies");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1043,35 +954,18 @@ export const se_ListAssociatedAccessPoliciesCommand = async (
   input: ListAssociatedAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/access-entries/{principalArn}/access-policies";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "principalArn",
-    () => input.principalArn!,
-    "{principalArn}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/access-entries/{principalArn}/access-policies");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("principalArn", () => input.principalArn!, "{principalArn}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1311,22 +1205,13 @@ export const se_UpdateAccessEntryCommand = async (
   input: UpdateAccessEntryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/clusters/{clusterName}/access-entries/{principalArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "principalArn",
-    () => input.principalArn!,
-    "{principalArn}",
-    false
-  );
+  b.bp("/clusters/{clusterName}/access-entries/{principalArn}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("principalArn", () => input.principalArn!, "{principalArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1335,15 +1220,8 @@ export const se_UpdateAccessEntryCommand = async (
       username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5361,6 +5239,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _aN = "addonName";
+const _aPA = "associatedPolicyArn";
 const _aV = "addonVersion";
 const _i = "include";
 const _iS = "includeStatus";

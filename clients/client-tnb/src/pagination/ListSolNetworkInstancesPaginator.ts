@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { TnbClient } from "../TnbClient";
 import { TnbPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: TnbClient,
-  input: ListSolNetworkInstancesCommandInput,
-  ...args: any
-): Promise<ListSolNetworkInstancesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListSolNetworkInstancesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListSolNetworkInstances(
+export const paginateListSolNetworkInstances: (
   config: TnbPaginationConfiguration,
   input: ListSolNetworkInstancesCommandInput,
-  ...additionalArguments: any
-): Paginator<ListSolNetworkInstancesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListSolNetworkInstancesCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof TnbClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Tnb | TnbClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListSolNetworkInstancesCommandOutput> = createPaginator<
+  TnbPaginationConfiguration,
+  ListSolNetworkInstancesCommandInput,
+  ListSolNetworkInstancesCommandOutput
+>(TnbClient, ListSolNetworkInstancesCommand, "nextToken", "nextToken", "maxResults");

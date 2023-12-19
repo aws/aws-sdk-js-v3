@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
@@ -6,41 +7,14 @@ import { KinesisVideoClient } from "../KinesisVideoClient";
 import { KinesisVideoPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: KinesisVideoClient,
-  input: ListStreamsCommandInput,
-  ...args: any
-): Promise<ListStreamsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListStreamsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListStreams(
+export const paginateListStreams: (
   config: KinesisVideoPaginationConfiguration,
   input: ListStreamsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListStreamsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListStreamsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof KinesisVideoClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected KinesisVideo | KinesisVideoClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListStreamsCommandOutput> = createPaginator<
+  KinesisVideoPaginationConfiguration,
+  ListStreamsCommandInput,
+  ListStreamsCommandOutput
+>(KinesisVideoClient, ListStreamsCommand, "NextToken", "NextToken", "MaxResults");

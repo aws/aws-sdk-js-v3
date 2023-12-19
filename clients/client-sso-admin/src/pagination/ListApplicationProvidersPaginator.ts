@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: SSOAdminClient,
-  input: ListApplicationProvidersCommandInput,
-  ...args: any
-): Promise<ListApplicationProvidersCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListApplicationProvidersCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListApplicationProviders(
+export const paginateListApplicationProviders: (
   config: SSOAdminPaginationConfiguration,
   input: ListApplicationProvidersCommandInput,
-  ...additionalArguments: any
-): Paginator<ListApplicationProvidersCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListApplicationProvidersCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof SSOAdminClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListApplicationProvidersCommandOutput> = createPaginator<
+  SSOAdminPaginationConfiguration,
+  ListApplicationProvidersCommandInput,
+  ListApplicationProvidersCommandOutput
+>(SSOAdminClient, ListApplicationProvidersCommand, "NextToken", "NextToken", "MaxResults");

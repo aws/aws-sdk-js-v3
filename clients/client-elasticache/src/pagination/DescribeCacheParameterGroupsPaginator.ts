@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ElastiCacheClient,
-  input: DescribeCacheParameterGroupsCommandInput,
-  ...args: any
-): Promise<DescribeCacheParameterGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new DescribeCacheParameterGroupsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateDescribeCacheParameterGroups(
+export const paginateDescribeCacheParameterGroups: (
   config: ElastiCachePaginationConfiguration,
   input: DescribeCacheParameterGroupsCommandInput,
-  ...additionalArguments: any
-): Paginator<DescribeCacheParameterGroupsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.Marker
-  let token: typeof input.Marker | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: DescribeCacheParameterGroupsCommandOutput;
-  while (hasNext) {
-    input.Marker = token;
-    input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof ElastiCacheClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.Marker;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<DescribeCacheParameterGroupsCommandOutput> = createPaginator<
+  ElastiCachePaginationConfiguration,
+  DescribeCacheParameterGroupsCommandInput,
+  DescribeCacheParameterGroupsCommandOutput
+>(ElastiCacheClient, DescribeCacheParameterGroupsCommand, "Marker", "Marker", "MaxRecords");

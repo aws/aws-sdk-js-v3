@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: IoTThingsGraphClient,
-  input: SearchSystemTemplatesCommandInput,
-  ...args: any
-): Promise<SearchSystemTemplatesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new SearchSystemTemplatesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateSearchSystemTemplates(
+export const paginateSearchSystemTemplates: (
   config: IoTThingsGraphPaginationConfiguration,
   input: SearchSystemTemplatesCommandInput,
-  ...additionalArguments: any
-): Paginator<SearchSystemTemplatesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: SearchSystemTemplatesCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof IoTThingsGraphClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected IoTThingsGraph | IoTThingsGraphClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<SearchSystemTemplatesCommandOutput> = createPaginator<
+  IoTThingsGraphPaginationConfiguration,
+  SearchSystemTemplatesCommandInput,
+  SearchSystemTemplatesCommandOutput
+>(IoTThingsGraphClient, SearchSystemTemplatesCommand, "nextToken", "nextToken", "maxResults");

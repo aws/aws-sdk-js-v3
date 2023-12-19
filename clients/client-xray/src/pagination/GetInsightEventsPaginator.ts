@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: XRayClient,
-  input: GetInsightEventsCommandInput,
-  ...args: any
-): Promise<GetInsightEventsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new GetInsightEventsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateGetInsightEvents(
+export const paginateGetInsightEvents: (
   config: XRayPaginationConfiguration,
   input: GetInsightEventsCommandInput,
-  ...additionalArguments: any
-): Paginator<GetInsightEventsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: GetInsightEventsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof XRayClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected XRay | XRayClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<GetInsightEventsCommandOutput> = createPaginator<
+  XRayPaginationConfiguration,
+  GetInsightEventsCommandInput,
+  GetInsightEventsCommandOutput
+>(XRayClient, GetInsightEventsCommand, "NextToken", "NextToken", "MaxResults");

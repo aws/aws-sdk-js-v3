@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { BedrockAgentClient } from "../BedrockAgentClient";
@@ -10,41 +11,14 @@ import {
 import { BedrockAgentPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: BedrockAgentClient,
-  input: ListKnowledgeBasesCommandInput,
-  ...args: any
-): Promise<ListKnowledgeBasesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListKnowledgeBasesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListKnowledgeBases(
+export const paginateListKnowledgeBases: (
   config: BedrockAgentPaginationConfiguration,
   input: ListKnowledgeBasesCommandInput,
-  ...additionalArguments: any
-): Paginator<ListKnowledgeBasesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListKnowledgeBasesCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof BedrockAgentClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected BedrockAgent | BedrockAgentClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListKnowledgeBasesCommandOutput> = createPaginator<
+  BedrockAgentPaginationConfiguration,
+  ListKnowledgeBasesCommandInput,
+  ListKnowledgeBasesCommandOutput
+>(BedrockAgentClient, ListKnowledgeBasesCommand, "nextToken", "nextToken", "maxResults");

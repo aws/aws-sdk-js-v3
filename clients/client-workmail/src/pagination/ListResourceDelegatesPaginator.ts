@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { WorkMailClient } from "../WorkMailClient";
 import { WorkMailPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: WorkMailClient,
-  input: ListResourceDelegatesCommandInput,
-  ...args: any
-): Promise<ListResourceDelegatesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListResourceDelegatesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListResourceDelegates(
+export const paginateListResourceDelegates: (
   config: WorkMailPaginationConfiguration,
   input: ListResourceDelegatesCommandInput,
-  ...additionalArguments: any
-): Paginator<ListResourceDelegatesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListResourceDelegatesCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof WorkMailClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected WorkMail | WorkMailClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListResourceDelegatesCommandOutput> = createPaginator<
+  WorkMailPaginationConfiguration,
+  ListResourceDelegatesCommandInput,
+  ListResourceDelegatesCommandOutput
+>(WorkMailClient, ListResourceDelegatesCommand, "NextToken", "NextToken", "MaxResults");

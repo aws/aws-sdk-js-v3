@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryCli
 import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ServiceCatalogAppRegistryClient,
-  input: ListAssociatedAttributeGroupsCommandInput,
-  ...args: any
-): Promise<ListAssociatedAttributeGroupsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListAssociatedAttributeGroupsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListAssociatedAttributeGroups(
+export const paginateListAssociatedAttributeGroups: (
   config: ServiceCatalogAppRegistryPaginationConfiguration,
   input: ListAssociatedAttributeGroupsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListAssociatedAttributeGroupsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListAssociatedAttributeGroupsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof ServiceCatalogAppRegistryClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected ServiceCatalogAppRegistry | ServiceCatalogAppRegistryClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListAssociatedAttributeGroupsCommandOutput> = createPaginator<
+  ServiceCatalogAppRegistryPaginationConfiguration,
+  ListAssociatedAttributeGroupsCommandInput,
+  ListAssociatedAttributeGroupsCommandOutput
+>(ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand, "nextToken", "nextToken", "maxResults");
