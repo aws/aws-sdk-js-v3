@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.477.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.476.0...v3.477.0) (2023-12-19)
+
+
+### Features
+
+* **client-appsync:** This release adds additional configurations on GraphQL APIs for limits on query depth, resolver count, and introspection ([a69d6cf](https://github.com/aws/aws-sdk-js-v3/commit/a69d6cf362aac0c9fd4d9f82378d914db374db9f))
+* **client-chime-sdk-meetings:** Add meeting features to specify a maximum camera resolution, a maximum content sharing resolution, and a maximum number of attendees for a given meeting. ([9a30a93](https://github.com/aws/aws-sdk-js-v3/commit/9a30a93d62405108abed5716cd940f50db66e2da))
+* **client-ec2:** Provision BYOIPv4 address ranges and advertise them by specifying the network border groups option in Los Angeles, Phoenix and Dallas AWS Local Zones. ([0d9d3e8](https://github.com/aws/aws-sdk-js-v3/commit/0d9d3e82ea19aa0cf6930ba02282277b92bc2d29))
+* **client-fsx:** Added support for FSx for OpenZFS on-demand data replication across AWS accounts and/or regions.Added the IncludeShared attribute for DescribeSnapshots.Added the CopyStrategy attribute for OpenZFSVolumeConfiguration. ([02c79f9](https://github.com/aws/aws-sdk-js-v3/commit/02c79f92d8ffd182899aaaac131ced235597800c))
+* **client-marketplace-catalog:** AWS Marketplace now supports a new API, BatchDescribeEntities, which returns metadata and content for multiple entities. ([d96b606](https://github.com/aws/aws-sdk-js-v3/commit/d96b6069c459666f998f339ebddc063cf7f606f9))
+* **client-rds:** RDS - The release adds two new APIs: DescribeDBRecommendations and ModifyDBRecommendation ([ba936d1](https://github.com/aws/aws-sdk-js-v3/commit/ba936d143fd4c11837258dcf74709b6fbc760b91))
+* **clients:** update client endpoints as of 2023-12-19 ([f9e6192](https://github.com/aws/aws-sdk-js-v3/commit/f9e6192774827fc98cabe56ddc0539d7fc998de7))
+* **experimentalIdentityAndAuth:** release phase for SQS and DynamoDB ([#5284](https://github.com/aws/aws-sdk-js-v3/issues/5284)) ([b3d1497](https://github.com/aws/aws-sdk-js-v3/commit/b3d1497682f0bb8a358dc6f4687aef4485ebc92e))
+* xml codegen reduction ([#5566](https://github.com/aws/aws-sdk-js-v3/issues/5566)) ([3ed7c81](https://github.com/aws/aws-sdk-js-v3/commit/3ed7c81f9191182826de7645078cc6ed1d2ee959))
+
+
+
+
+
 # [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
 
 
