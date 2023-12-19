@@ -20,7 +20,6 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ScanCommand(input), ...args);
 };
-
 /**
  * @public
  *
