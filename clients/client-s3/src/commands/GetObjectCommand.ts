@@ -1,23 +1,12 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetObjectOutput,
   GetObjectOutputFilterSensitiveLog,
@@ -344,89 +333,35 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * ```
  *
  */
-export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectCommandOutput, S3ClientResolvedConfig> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      Key: { type: "contextParams", name: "Key" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetObjectCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetObjectCommandInput, GetObjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetObjectCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class GetObjectCommand extends $Command
+  .classBuilder<
+    GetObjectCommandInput,
+    GetObjectCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+    Key: { type: "contextParams", name: "Key" },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getSsecPlugin(config),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestChecksumRequired: false,
         requestValidationModeMember: "ChecksumMode",
         responseAlgorithms: ["CRC32", "CRC32C", "SHA256", "SHA1"],
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "GetObjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: GetObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonS3",
-        operation: "GetObject",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetObjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetObjectCommandOutput> {
-    return de_GetObjectCommand(output, context);
-  }
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "GetObject", {})
+  .n("S3Client", "GetObjectCommand")
+  .f(GetObjectRequestFilterSensitiveLog, GetObjectOutputFilterSensitiveLog)
+  .ser(se_GetObjectCommand)
+  .de(de_GetObjectCommand)
+  .build() {}

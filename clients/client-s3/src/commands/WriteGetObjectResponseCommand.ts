@@ -1,20 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { WriteGetObjectResponseRequest, WriteGetObjectResponseRequestFilterSensitiveLog } from "../models/models_1";
 import { de_WriteGetObjectResponseCommand, se_WriteGetObjectResponseCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -144,82 +134,27 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
-export class WriteGetObjectResponseCommand extends $Command<
-  WriteGetObjectResponseCommandInput,
-  WriteGetObjectResponseCommandOutput,
-  S3ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: WriteGetObjectResponseCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<WriteGetObjectResponseCommandInput, WriteGetObjectResponseCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, WriteGetObjectResponseCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "WriteGetObjectResponseCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: WriteGetObjectResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonS3",
-        operation: "WriteGetObjectResponse",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: WriteGetObjectResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_WriteGetObjectResponseCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<WriteGetObjectResponseCommandOutput> {
-    return de_WriteGetObjectResponseCommand(output, context);
-  }
-}
+export class WriteGetObjectResponseCommand extends $Command
+  .classBuilder<
+    WriteGetObjectResponseCommandInput,
+    WriteGetObjectResponseCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonS3", "WriteGetObjectResponse", {})
+  .n("S3Client", "WriteGetObjectResponseCommand")
+  .f(WriteGetObjectResponseRequestFilterSensitiveLog, void 0)
+  .ser(se_WriteGetObjectResponseCommand)
+  .de(de_WriteGetObjectResponseCommand)
+  .build() {}

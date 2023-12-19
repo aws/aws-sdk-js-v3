@@ -8,7 +8,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.rulers": [80, 120],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -1,20 +1,11 @@
 // smithy-typescript generated code
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  SMITHY_CONTEXT_KEY,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMultipartUploadOutput,
   CreateMultipartUploadOutputFilterSensitiveLog,
@@ -349,84 +340,29 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  * ```
  *
  */
-export class CreateMultipartUploadCommand extends $Command<
-  CreateMultipartUploadCommandInput,
-  CreateMultipartUploadCommandOutput,
-  S3ClientResolvedConfig
-> {
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      Key: { type: "contextParams", name: "Key" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      DisableS3ExpressSessionAuth: { type: "clientContextParams", name: "disableS3ExpressSessionAuth" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateMultipartUploadCommandInput) {
-    super();
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateMultipartUploadCommandInput, CreateMultipartUploadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateMultipartUploadCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getSsecPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "CreateMultipartUploadCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateMultipartUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMultipartUploadOutputFilterSensitiveLog,
-      [SMITHY_CONTEXT_KEY]: {
-        service: "AmazonS3",
-        operation: "CreateMultipartUpload",
-      },
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateMultipartUploadCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMultipartUploadCommandOutput> {
-    return de_CreateMultipartUploadCommand(output, context);
-  }
-}
+export class CreateMultipartUploadCommand extends $Command
+  .classBuilder<
+    CreateMultipartUploadCommandInput,
+    CreateMultipartUploadCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+    Key: { type: "contextParams", name: "Key" },
+  })
+  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ClientResolvedConfig) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getSsecPlugin(config),
+    ];
+  })
+  .s("AmazonS3", "CreateMultipartUpload", {})
+  .n("S3Client", "CreateMultipartUploadCommand")
+  .f(CreateMultipartUploadRequestFilterSensitiveLog, CreateMultipartUploadOutputFilterSensitiveLog)
+  .ser(se_CreateMultipartUploadCommand)
+  .de(de_CreateMultipartUploadCommand)
+  .build() {}
