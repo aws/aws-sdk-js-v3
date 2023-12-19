@@ -76,6 +76,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  *     },
  *   ],
  *   MultiRegion: true || false,
+ *   NetworkBorderGroup: "STRING_VALUE",
  * };
  * const command = new ProvisionByoipCidrCommand(input);
  * const response = await client.send(command);
@@ -93,6 +94,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * //     ],
  * //     StatusMessage: "STRING_VALUE",
  * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //     NetworkBorderGroup: "STRING_VALUE",
  * //   },
  * // };
  *

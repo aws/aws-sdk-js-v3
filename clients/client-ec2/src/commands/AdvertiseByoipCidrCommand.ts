@@ -58,6 +58,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  *   Cidr: "STRING_VALUE", // required
  *   Asn: "STRING_VALUE",
  *   DryRun: true || false,
+ *   NetworkBorderGroup: "STRING_VALUE",
  * };
  * const command = new AdvertiseByoipCidrCommand(input);
  * const response = await client.send(command);
@@ -75,6 +76,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * //     ],
  * //     StatusMessage: "STRING_VALUE",
  * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //     NetworkBorderGroup: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -68,6 +68,7 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * //       ],
  * //       StatusMessage: "STRING_VALUE",
  * //       State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-deprovision" || "pending-provision" || "provisioned" || "provisioned-not-publicly-advertisable",
+ * //       NetworkBorderGroup: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

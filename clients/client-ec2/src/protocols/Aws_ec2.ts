@@ -39349,6 +39349,9 @@ const se_AdvertiseByoipCidrRequest = (input: AdvertiseByoipCidrRequest, context:
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
+  if (input[_NBG] != null) {
+    entries[_NBG] = input[_NBG];
+  }
   return entries;
 };
 
@@ -62045,6 +62048,9 @@ const se_ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequest, context:
   if (input[_MRu] != null) {
     entries[_MRu] = input[_MRu];
   }
+  if (input[_NBG] != null) {
+    entries[_NBG] = input[_NBG];
+  }
   return entries;
 };
 
@@ -69329,6 +69335,9 @@ const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_nBG] != null) {
+    contents[_NBG] = __expectString(output[_nBG]);
   }
   return contents;
 };
