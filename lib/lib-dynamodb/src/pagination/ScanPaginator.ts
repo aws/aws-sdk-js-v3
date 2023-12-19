@@ -2,7 +2,6 @@
 import { Paginator } from "@smithy/types";
 
 import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
-import { DynamoDBDocument } from "../DynamoDBDocument";
 import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
 import { DynamoDBDocumentPaginationConfiguration } from "./Interfaces";
 
@@ -21,17 +20,7 @@ const makePagedClientRequest = async (
   // @ts-ignore
   return await client.send(new ScanCommand(input), ...args);
 };
-/**
- * @internal
- */
-const makePagedRequest = async (
-  client: DynamoDBDocument,
-  input: ScanCommandInput,
-  ...args: any
-): Promise<ScanCommandOutput> => {
-  // @ts-ignore
-  return await client.scan(input, ...args);
-};
+
 /**
  * @public
  *
@@ -51,9 +40,7 @@ export async function* paginateScan(
   while (hasNext) {
     input.ExclusiveStartKey = token;
     input["Limit"] = config.pageSize;
-    if (config.client instanceof DynamoDBDocument) {
-      page = await makePagedRequest(config.client, input, ...additionalArguments);
-    } else if (config.client instanceof DynamoDBDocumentClient) {
+    if (config.client instanceof DynamoDBDocumentClient) {
       page = await makePagedClientRequest(config.client, input, ...additionalArguments);
     } else {
       throw new Error("Invalid client, expected DynamoDBDocument | DynamoDBDocumentClient");
