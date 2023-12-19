@@ -258,6 +258,10 @@ import {
   DescribeDBProxyTargetsCommandOutput,
 } from "../commands/DescribeDBProxyTargetsCommand";
 import {
+  DescribeDBRecommendationsCommandInput,
+  DescribeDBRecommendationsCommandOutput,
+} from "../commands/DescribeDBRecommendationsCommand";
+import {
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
 } from "../commands/DescribeDBSecurityGroupsCommand";
@@ -395,6 +399,10 @@ import {
   ModifyDBProxyTargetGroupCommandInput,
   ModifyDBProxyTargetGroupCommandOutput,
 } from "../commands/ModifyDBProxyTargetGroupCommand";
+import {
+  ModifyDBRecommendationCommandInput,
+  ModifyDBRecommendationCommandOutput,
+} from "../commands/ModifyDBRecommendationCommand";
 import {
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput,
@@ -807,6 +815,7 @@ import {
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
   ConnectionPoolConfigurationInfo,
+  ContextAttribute,
   DBClusterAutomatedBackupMessage,
   DBClusterBacktrackMessage,
   DBClusterBacktrackNotFoundFault,
@@ -831,6 +840,9 @@ import {
   DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
   DBProxyTargetGroup,
+  DBRecommendation,
+  DBRecommendationMessage,
+  DBRecommendationsMessage,
   DBSecurityGroupMessage,
   DBSnapshotAttribute,
   DBSnapshotAttributesResult,
@@ -864,6 +876,7 @@ import {
   DescribeDBProxyTargetGroupsResponse,
   DescribeDBProxyTargetsRequest,
   DescribeDBProxyTargetsResponse,
+  DescribeDBRecommendationsMessage,
   DescribeDBSecurityGroupsMessage,
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
@@ -891,6 +904,7 @@ import {
   DescribeTenantDatabasesMessage,
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
+  DocLink,
   DoubleRange,
   DownloadDBLogFilePortionDetails,
   DownloadDBLogFilePortionMessage,
@@ -916,7 +930,11 @@ import {
   InvalidExportSourceStateFault,
   InvalidRestoreFault,
   InvalidS3BucketFault,
+  IssueDetails,
   ListTagsForResourceMessage,
+  Metric,
+  MetricQuery,
+  MetricReference,
   MinimumEngineVersionPerAllowedValue,
   ModifyActivityStreamRequest,
   ModifyActivityStreamResponse,
@@ -939,6 +957,7 @@ import {
   ModifyDBProxyResponse,
   ModifyDBProxyTargetGroupRequest,
   ModifyDBProxyTargetGroupResponse,
+  ModifyDBRecommendationMessage,
   ModifyDBSnapshotAttributeMessage,
   ModifyDBSnapshotAttributeResult,
   ModifyDBSnapshotMessage,
@@ -963,6 +982,9 @@ import {
   OrderableDBInstanceOptionsMessage,
   Parameter,
   PendingMaintenanceActionsMessage,
+  PerformanceInsightsMetricDimensionGroup,
+  PerformanceInsightsMetricQuery,
+  PerformanceIssueDetails,
   PointInTimeRestoreNotEnabledFault,
   PromoteReadReplicaDBClusterMessage,
   PromoteReadReplicaDBClusterResult,
@@ -975,7 +997,11 @@ import {
   RebootDBClusterResult,
   RebootDBInstanceMessage,
   RebootDBInstanceResult,
+  RecommendedAction,
+  RecommendedActionParameter,
+  RecommendedActionUpdate,
   RecurringCharge,
+  ReferenceDetails,
   RegisterDBProxyTargetsRequest,
   RegisterDBProxyTargetsResponse,
   RemoveFromGlobalClusterMessage,
@@ -1009,6 +1035,7 @@ import {
   RestoreDBInstanceToPointInTimeResult,
   RevokeDBSecurityGroupIngressMessage,
   RevokeDBSecurityGroupIngressResult,
+  ScalarReferenceDetails,
   SharedSnapshotQuotaExceededFault,
   SourceRegion,
   SourceRegionMessage,
@@ -2304,6 +2331,23 @@ export const se_DescribeDBProxyTargetsCommand = async (
 };
 
 /**
+ * serializeAws_queryDescribeDBRecommendationsCommand
+ */
+export const se_DescribeDBRecommendationsCommand = async (
+  input: DescribeDBRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeDBRecommendationsMessage(input, context),
+    [_A]: _DDBR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDescribeDBSecurityGroupsCommand
  */
 export const se_DescribeDBSecurityGroupsCommand = async (
@@ -2961,6 +3005,23 @@ export const se_ModifyDBProxyTargetGroupCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyDBProxyTargetGroupRequest(input, context),
     [_A]: _MDBPTG,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyDBRecommendationCommand
+ */
+export const se_ModifyDBRecommendationCommand = async (
+  input: ModifyDBRecommendationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyDBRecommendationMessage(input, context),
+    [_A]: _MDBR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7598,6 +7659,46 @@ const de_DescribeDBProxyTargetsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDescribeDBRecommendationsCommand
+ */
+export const de_DescribeDBRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeDBRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBRecommendationsMessage(data.DescribeDBRecommendationsResult, context);
+  const response: DescribeDBRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBRecommendationsCommandError
+ */
+const de_DescribeDBRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_queryDescribeDBSecurityGroupsCommand
  */
 export const de_DescribeDBSecurityGroupsCommand = async (
@@ -9557,6 +9658,46 @@ const de_ModifyDBProxyTargetGroupCommandError = async (
         errorCode,
       });
   }
+};
+
+/**
+ * deserializeAws_queryModifyDBRecommendationCommand
+ */
+export const de_ModifyDBRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBRecommendationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ModifyDBRecommendationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBRecommendationMessage(data.ModifyDBRecommendationResult, context);
+  const response: ModifyDBRecommendationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBRecommendationCommandError
+ */
+const de_ModifyDBRecommendationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBRecommendationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
 };
 
 /**
@@ -16743,6 +16884,39 @@ const se_DescribeDBProxyTargetsRequest = (input: DescribeDBProxyTargetsRequest, 
 };
 
 /**
+ * serializeAws_queryDescribeDBRecommendationsMessage
+ */
+const se_DescribeDBRecommendationsMessage = (input: DescribeDBRecommendationsMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LUA] != null) {
+    entries[_LUA] = input[_LUA].toISOString().split(".")[0] + "Z";
+  }
+  if (input[_LUB] != null) {
+    entries[_LUB] = input[_LUB].toISOString().split(".")[0] + "Z";
+  }
+  if (input[_L] != null) {
+    entries[_L] = input[_L];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_Ma] != null) {
+    entries[_Ma] = input[_Ma];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeDBSecurityGroupsMessage
  */
 const se_DescribeDBSecurityGroupsMessage = (input: DescribeDBSecurityGroupsMessage, context: __SerdeContext): any => {
@@ -18318,6 +18492,33 @@ const se_ModifyDBProxyTargetGroupRequest = (input: ModifyDBProxyTargetGroupReque
 };
 
 /**
+ * serializeAws_queryModifyDBRecommendationMessage
+ */
+const se_ModifyDBRecommendationMessage = (input: ModifyDBRecommendationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RIe] != null) {
+    entries[_RIe] = input[_RIe];
+  }
+  if (input[_L] != null) {
+    entries[_L] = input[_L];
+  }
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
+  }
+  if (input[_RAU] != null) {
+    const memberEntries = se_RecommendedActionUpdateList(input[_RAU], context);
+    if (input[_RAU]?.length === 0) {
+      entries.RecommendedActionUpdates = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RecommendedActionUpdates.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryModifyDBSnapshotAttributeMessage
  */
 const se_ModifyDBSnapshotAttributeMessage = (input: ModifyDBSnapshotAttributeMessage, context: __SerdeContext): any => {
@@ -18834,6 +19035,39 @@ const se_RebootDBInstanceMessage = (input: RebootDBInstanceMessage, context: __S
   }
   if (input[_FF] != null) {
     entries[_FF] = input[_FF];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRecommendedActionUpdate
+ */
+const se_RecommendedActionUpdate = (input: RecommendedActionUpdate, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_AIc] != null) {
+    entries[_AIc] = input[_AIc];
+  }
+  if (input[_St] != null) {
+    entries[_St] = input[_St];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRecommendedActionUpdateList
+ */
+const se_RecommendedActionUpdateList = (input: RecommendedActionUpdate[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_RecommendedActionUpdate(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -20861,6 +21095,31 @@ const de_ConnectionPoolConfigurationInfo = (output: any, context: __SerdeContext
     contents[_IQ] = __expectString(output[_IQ]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryContextAttribute
+ */
+const de_ContextAttribute = (output: any, context: __SerdeContext): ContextAttribute => {
+  const contents: any = {};
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
+  }
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryContextAttributeList
+ */
+const de_ContextAttributeList = (output: any, context: __SerdeContext): ContextAttribute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContextAttribute(entry, context);
+    });
 };
 
 /**
@@ -23501,6 +23760,116 @@ const de_DBProxyTargetNotFoundFault = (output: any, context: __SerdeContext): DB
 };
 
 /**
+ * deserializeAws_queryDBRecommendation
+ */
+const de_DBRecommendation = (output: any, context: __SerdeContext): DBRecommendation => {
+  const contents: any = {};
+  if (output[_RIe] != null) {
+    contents[_RIe] = __expectString(output[_RIe]);
+  }
+  if (output[_TI] != null) {
+    contents[_TI] = __expectString(output[_TI]);
+  }
+  if (output[_Se] != null) {
+    contents[_Se] = __expectString(output[_Se]);
+  }
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectString(output[_RAe]);
+  }
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_CTre] != null) {
+    contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTre]));
+  }
+  if (output[_UTp] != null) {
+    contents[_UTp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_UTp]));
+  }
+  if (output[_De] != null) {
+    contents[_De] = __expectString(output[_De]);
+  }
+  if (output[_Re] != null) {
+    contents[_Re] = __expectString(output[_Re]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
+  }
+  if (output.RecommendedActions === "") {
+    contents[_RAec] = [];
+  } else if (output[_RAec] != null && output[_RAec][_me] != null) {
+    contents[_RAec] = de_RecommendedActionList(__getArrayIfSingleItem(output[_RAec][_me]), context);
+  }
+  if (output[_Ca] != null) {
+    contents[_Ca] = __expectString(output[_Ca]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_TDy] != null) {
+    contents[_TDy] = __expectString(output[_TDy]);
+  }
+  if (output[_TRy] != null) {
+    contents[_TRy] = __expectString(output[_TRy]);
+  }
+  if (output[_Imp] != null) {
+    contents[_Imp] = __expectString(output[_Imp]);
+  }
+  if (output[_AId] != null) {
+    contents[_AId] = __expectString(output[_AId]);
+  }
+  if (output.Links === "") {
+    contents[_Li] = [];
+  } else if (output[_Li] != null && output[_Li][_me] != null) {
+    contents[_Li] = de_DocLinkList(__getArrayIfSingleItem(output[_Li][_me]), context);
+  }
+  if (output[_IDs] != null) {
+    contents[_IDs] = de_IssueDetails(output[_IDs], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBRecommendationList
+ */
+const de_DBRecommendationList = (output: any, context: __SerdeContext): DBRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DBRecommendation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryDBRecommendationMessage
+ */
+const de_DBRecommendationMessage = (output: any, context: __SerdeContext): DBRecommendationMessage => {
+  const contents: any = {};
+  if (output[_DBR] != null) {
+    contents[_DBR] = de_DBRecommendation(output[_DBR], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBRecommendationsMessage
+ */
+const de_DBRecommendationsMessage = (output: any, context: __SerdeContext): DBRecommendationsMessage => {
+  const contents: any = {};
+  if (output.DBRecommendations === "") {
+    contents[_DBRe] = [];
+  } else if (output[_DBRe] != null && output[_DBRe][_me] != null) {
+    contents[_DBRe] = de_DBRecommendationList(__getArrayIfSingleItem(output[_DBRe][_me]), context);
+  }
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDBSecurityGroup
  */
 const de_DBSecurityGroup = (output: any, context: __SerdeContext): DBSecurityGroup => {
@@ -24455,6 +24824,31 @@ const de_DescribeValidDBInstanceModificationsResult = (
 };
 
 /**
+ * deserializeAws_queryDocLink
+ */
+const de_DocLink = (output: any, context: __SerdeContext): DocLink => {
+  const contents: any = {};
+  if (output[_Te] != null) {
+    contents[_Te] = __expectString(output[_Te]);
+  }
+  if (output[_Ur] != null) {
+    contents[_Ur] = __expectString(output[_Ur]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDocLinkList
+ */
+const de_DocLinkList = (output: any, context: __SerdeContext): DocLink[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DocLink(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryDomainMembership
  */
 const de_DomainMembership = (output: any, context: __SerdeContext): DomainMembership => {
@@ -25077,9 +25471,9 @@ const de_GlobalClusterMember = (output: any, context: __SerdeContext): GlobalClu
     contents[_DBCA] = __expectString(output[_DBCA]);
   }
   if (output.Readers === "") {
-    contents[_Re] = [];
-  } else if (output[_Re] != null && output[_Re][_me] != null) {
-    contents[_Re] = de_ReadersArnList(__getArrayIfSingleItem(output[_Re][_me]), context);
+    contents[_Read] = [];
+  } else if (output[_Read] != null && output[_Read][_me] != null) {
+    contents[_Read] = de_ReadersArnList(__getArrayIfSingleItem(output[_Read][_me]), context);
   }
   if (output[_IW] != null) {
     contents[_IW] = __parseBoolean(output[_IW]);
@@ -25722,6 +26116,17 @@ const de_IPRangeList = (output: any, context: __SerdeContext): IPRange[] => {
 };
 
 /**
+ * deserializeAws_queryIssueDetails
+ */
+const de_IssueDetails = (output: any, context: __SerdeContext): IssueDetails => {
+  const contents: any = {};
+  if (output[_PID] != null) {
+    contents[_PID] = de_PerformanceIssueDetails(output[_PID], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryKMSKeyNotAccessibleFault
  */
 const de_KMSKeyNotAccessibleFault = (output: any, context: __SerdeContext): KMSKeyNotAccessibleFault => {
@@ -25758,6 +26163,75 @@ const de_MasterUserSecret = (output: any, context: __SerdeContext): MasterUserSe
     contents[_KKI] = __expectString(output[_KKI]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryMetric
+ */
+const de_Metric = (output: any, context: __SerdeContext): Metric => {
+  const contents: any = {};
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output.References === "") {
+    contents[_Ref] = [];
+  } else if (output[_Ref] != null && output[_Ref][_me] != null) {
+    contents[_Ref] = de_MetricReferenceList(__getArrayIfSingleItem(output[_Ref][_me]), context);
+  }
+  if (output[_SDta] != null) {
+    contents[_SDta] = __expectString(output[_SDta]);
+  }
+  if (output[_MQ] != null) {
+    contents[_MQ] = de_MetricQuery(output[_MQ], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryMetricList
+ */
+const de_MetricList = (output: any, context: __SerdeContext): Metric[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Metric(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryMetricQuery
+ */
+const de_MetricQuery = (output: any, context: __SerdeContext): MetricQuery => {
+  const contents: any = {};
+  if (output[_PIMQ] != null) {
+    contents[_PIMQ] = de_PerformanceInsightsMetricQuery(output[_PIMQ], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryMetricReference
+ */
+const de_MetricReference = (output: any, context: __SerdeContext): MetricReference => {
+  const contents: any = {};
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_RD] != null) {
+    contents[_RD] = de_ReferenceDetails(output[_RD], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryMetricReferenceList
+ */
+const de_MetricReferenceList = (output: any, context: __SerdeContext): MetricReference[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetricReference(entry, context);
+    });
 };
 
 /**
@@ -26786,6 +27260,64 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
 };
 
 /**
+ * deserializeAws_queryPerformanceInsightsMetricDimensionGroup
+ */
+const de_PerformanceInsightsMetricDimensionGroup = (
+  output: any,
+  context: __SerdeContext
+): PerformanceInsightsMetricDimensionGroup => {
+  const contents: any = {};
+  if (output.Dimensions === "") {
+    contents[_Di] = [];
+  } else if (output[_Di] != null && output[_Di][_me] != null) {
+    contents[_Di] = de_StringList(__getArrayIfSingleItem(output[_Di][_me]), context);
+  }
+  if (output[_G] != null) {
+    contents[_G] = __expectString(output[_G]);
+  }
+  if (output[_Lim] != null) {
+    contents[_Lim] = __strictParseInt32(output[_Lim]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryPerformanceInsightsMetricQuery
+ */
+const de_PerformanceInsightsMetricQuery = (output: any, context: __SerdeContext): PerformanceInsightsMetricQuery => {
+  const contents: any = {};
+  if (output[_GB] != null) {
+    contents[_GB] = de_PerformanceInsightsMetricDimensionGroup(output[_GB], context);
+  }
+  if (output[_Met] != null) {
+    contents[_Met] = __expectString(output[_Met]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryPerformanceIssueDetails
+ */
+const de_PerformanceIssueDetails = (output: any, context: __SerdeContext): PerformanceIssueDetails => {
+  const contents: any = {};
+  if (output[_STta] != null) {
+    contents[_STta] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STta]));
+  }
+  if (output[_ETn] != null) {
+    contents[_ETn] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_ETn]));
+  }
+  if (output.Metrics === "") {
+    contents[_Metr] = [];
+  } else if (output[_Metr] != null && output[_Metr][_me] != null) {
+    contents[_Metr] = de_MetricList(__getArrayIfSingleItem(output[_Metr][_me]), context);
+  }
+  if (output[_An] != null) {
+    contents[_An] = __expectString(output[_An]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryPointInTimeRestoreNotEnabledFault
  */
 const de_PointInTimeRestoreNotEnabledFault = (
@@ -26989,6 +27521,83 @@ const de_RebootDBInstanceResult = (output: any, context: __SerdeContext): Reboot
 };
 
 /**
+ * deserializeAws_queryRecommendedAction
+ */
+const de_RecommendedAction = (output: any, context: __SerdeContext): RecommendedAction => {
+  const contents: any = {};
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
+  }
+  if (output[_Tit] != null) {
+    contents[_Tit] = __expectString(output[_Tit]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_Ope] != null) {
+    contents[_Ope] = __expectString(output[_Ope]);
+  }
+  if (output.Parameters === "") {
+    contents[_Pa] = [];
+  } else if (output[_Pa] != null && output[_Pa][_me] != null) {
+    contents[_Pa] = de_RecommendedActionParameterList(__getArrayIfSingleItem(output[_Pa][_me]), context);
+  }
+  if (output.ApplyModes === "") {
+    contents[_AMpp] = [];
+  } else if (output[_AMpp] != null && output[_AMpp][_me] != null) {
+    contents[_AMpp] = de_StringList(__getArrayIfSingleItem(output[_AMpp][_me]), context);
+  }
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_IDs] != null) {
+    contents[_IDs] = de_IssueDetails(output[_IDs], context);
+  }
+  if (output.ContextAttributes === "") {
+    contents[_CAo] = [];
+  } else if (output[_CAo] != null && output[_CAo][_me] != null) {
+    contents[_CAo] = de_ContextAttributeList(__getArrayIfSingleItem(output[_CAo][_me]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRecommendedActionList
+ */
+const de_RecommendedActionList = (output: any, context: __SerdeContext): RecommendedAction[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RecommendedAction(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryRecommendedActionParameter
+ */
+const de_RecommendedActionParameter = (output: any, context: __SerdeContext): RecommendedActionParameter => {
+  const contents: any = {};
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
+  }
+  if (output[_Val] != null) {
+    contents[_Val] = __expectString(output[_Val]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRecommendedActionParameterList
+ */
+const de_RecommendedActionParameterList = (output: any, context: __SerdeContext): RecommendedActionParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RecommendedActionParameter(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryRecurringCharge
  */
 const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
@@ -27011,6 +27620,17 @@ const de_RecurringChargeList = (output: any, context: __SerdeContext): Recurring
     .map((entry: any) => {
       return de_RecurringCharge(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryReferenceDetails
+ */
+const de_ReferenceDetails = (output: any, context: __SerdeContext): ReferenceDetails => {
+  const contents: any = {};
+  if (output[_SRD] != null) {
+    contents[_SRD] = de_ScalarReferenceDetails(output[_SRD], context);
+  }
+  return contents;
 };
 
 /**
@@ -27391,6 +28011,17 @@ const de_RevokeDBSecurityGroupIngressResult = (
   const contents: any = {};
   if (output[_DBSGe] != null) {
     contents[_DBSGe] = de_DBSecurityGroup(output[_DBSGe], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryScalarReferenceDetails
+ */
+const de_ScalarReferenceDetails = (output: any, context: __SerdeContext): ScalarReferenceDetails => {
+  const contents: any = {};
+  if (output[_Val] != null) {
+    contents[_Val] = __strictParseFloat(output[_Val]) as number;
   }
   return contents;
 };
@@ -28372,10 +29003,13 @@ const _ADP = "AdditionalDataPending";
 const _AEC = "AdditionalEncryptionContext";
 const _AEMC = "AllowEngineModeChange";
 const _AI = "ApplyImmediately";
+const _AIc = "ActionId";
+const _AId = "AdditionalInfo";
 const _AM = "AutomationMode";
 const _AMVU = "AutoMinorVersionUpgrade";
 const _AMVUl = "AllowMajorVersionUpgrade";
 const _AMp = "ApplyMethod";
+const _AMpp = "ApplyModes";
 const _AN = "AttributeName";
 const _AP = "AutoPause";
 const _APF = "AvailableProcessorFeatures";
@@ -28411,6 +29045,7 @@ const _AZ = "AvailabilityZones";
 const _AZG = "AvailabilityZoneGroup";
 const _AZv = "AvailabilityZone";
 const _Ad = "Address";
+const _An = "Analysis";
 const _Ar = "Arn";
 const _Au = "Auth";
 const _BCCR = "BacktrackConsumedChangeRecords";
@@ -28433,6 +29068,7 @@ const _CACI = "CACertificateIdentifier";
 const _CAD = "CurrentApplyDate";
 const _CAI = "CAIdentifier";
 const _CAIu = "CustomerAwsId";
+const _CAo = "ContextAttributes";
 const _CBGD = "CreateBlueGreenDeployment";
 const _CBT = "ConnectionBorrowTimeout";
 const _CC = "CurrentCapacity";
@@ -28488,6 +29124,8 @@ const _CTTS = "CopyTagsToSnapshot";
 const _CTe = "CertificateType";
 const _CTo = "CopyTimestamp";
 const _CTr = "CreateTime";
+const _CTre = "CreatedTime";
+const _Ca = "Category";
 const _Ce = "Certificates";
 const _Cer = "Certificate";
 const _D = "Description";
@@ -28570,6 +29208,8 @@ const _DBPNo = "DBPortNumber";
 const _DBPT = "DBProxyTargets";
 const _DBPTG = "DBProxyTargetGroup";
 const _DBPr = "DBProxies";
+const _DBR = "DBRecommendation";
+const _DBRe = "DBRecommendations";
 const _DBS = "DBSnapshot";
 const _DBSA = "DBSnapshotArn";
 const _DBSAR = "DBSnapshotAttributesResult";
@@ -28630,6 +29270,7 @@ const _DDBPTG = "DescribeDBProxyTargetGroups";
 const _DDBPTe = "DescribeDBProxyTargets";
 const _DDBPe = "DescribeDBParameters";
 const _DDBPes = "DescribeDBProxies";
+const _DDBR = "DescribeDBRecommendations";
 const _DDBS = "DeleteDBSnapshot";
 const _DDBSA = "DescribeDBSnapshotAttributes";
 const _DDBSG = "DeleteDBSecurityGroup";
@@ -28684,6 +29325,8 @@ const _DTe = "DeleteTime";
 const _DV = "DefaultValue";
 const _DVDBIM = "DescribeValidDBInstanceModifications";
 const _Da = "Date";
+const _De = "Detection";
+const _Di = "Dimensions";
 const _Do = "Domain";
 const _Du = "Duration";
 const _E = "Engine";
@@ -28752,6 +29395,8 @@ const _FS = "FileSize";
 const _FSa = "FailoverState";
 const _Fi = "Filters";
 const _Fr = "From";
+const _G = "Group";
+const _GB = "GroupBy";
 const _GC = "GlobalCluster";
 const _GCA = "GlobalClusterArn";
 const _GCI = "GlobalClusterIdentifier";
@@ -28775,6 +29420,7 @@ const _ICTn = "InstanceCreateTime";
 const _ICW = "IsClusterWriter";
 const _ID = "IsDefault";
 const _IDLA = "IsDataLossAllowed";
+const _IDs = "IssueDetails";
 const _IE = "IntegrationError";
 const _II = "ImageId";
 const _IIn = "IntegrationIdentifier";
@@ -28794,12 +29440,14 @@ const _ISI = "InterconnectSubnetId";
 const _ITSR = "IopsToStorageRatio";
 const _IW = "IsWriter";
 const _Im = "Image";
+const _Imp = "Impact";
 const _In = "Integrations";
 const _Int = "Integration";
 const _K = "Key";
 const _KKI = "KmsKeyId";
 const _KMSKI = "KMSKeyId";
 const _KSN = "KinesisStreamName";
+const _L = "Locale";
 const _LE = "ListenerEndpoint";
 const _LFD = "LogFileData";
 const _LFN = "LogFileName";
@@ -28812,8 +29460,12 @@ const _LT = "LatestTime";
 const _LTFR = "ListTagsForResource";
 const _LTTD = "LogTypesToDisable";
 const _LTTE = "LogTypesToEnable";
+const _LUA = "LastUpdatedAfter";
+const _LUB = "LastUpdatedBefore";
 const _LW = "LastWritten";
 const _LWFS = "LocalWriteForwardingStatus";
+const _Li = "Links";
+const _Lim = "Limit";
 const _M = "Manifest";
 const _MAS = "ModifyActivityStream";
 const _MASa = "MaxAllocatedStorage";
@@ -28834,6 +29486,7 @@ const _MDBP = "ModifyDBProxy";
 const _MDBPE = "ModifyDBProxyEndpoint";
 const _MDBPG = "ModifyDBParameterGroup";
 const _MDBPTG = "ModifyDBProxyTargetGroup";
+const _MDBR = "ModifyDBRecommendation";
 const _MDBS = "ModifyDBSnapshot";
 const _MDBSA = "ModifyDBSnapshotAttribute";
 const _MDBSG = "ModifyDBSubnetGroup";
@@ -28850,6 +29503,7 @@ const _MIPG = "MinIopsPerGib";
 const _MIPGa = "MaxIopsPerGib";
 const _MMUP = "ManageMasterUserPassword";
 const _MOG = "ModifyOptionGroup";
+const _MQ = "MetricQuery";
 const _MR = "MaxRecords";
 const _MRA = "MonitoringRoleArn";
 const _MRMEV = "MinimumRequiredMinorEngineVersion";
@@ -28868,6 +29522,8 @@ const _MUSKKI = "MasterUserSecretKmsKeyId";
 const _Ma = "Marker";
 const _Max = "Max";
 const _Me = "Message";
+const _Met = "Metric";
+const _Metr = "Metrics";
 const _Mo = "Mode";
 const _N = "Name";
 const _NCSN = "NcharCharacterSetName";
@@ -28914,6 +29570,7 @@ const _OTR = "OptionsToRemove";
 const _OU = "OU";
 const _OV = "OptionVersion";
 const _Op = "Option";
+const _Ope = "Operation";
 const _P = "Port";
 const _PA = "PubliclyAccessible";
 const _PAS = "ParameterApplyStatus";
@@ -28924,8 +29581,10 @@ const _PD = "ProductDescription";
 const _PF = "ProcessorFeatures";
 const _PFr = "ProcessorFeature";
 const _PI = "ProvisionedIops";
+const _PID = "PerformanceIssueDetails";
 const _PIE = "PerformanceInsightsEnabled";
 const _PIKMSKI = "PerformanceInsightsKMSKeyId";
+const _PIMQ = "PerformanceInsightsMetricQuery";
 const _PIRP = "PerformanceInsightsRetentionPeriod";
 const _PMA = "PendingMaintenanceActions";
 const _PMAD = "PendingMaintenanceActionDetails";
@@ -28951,13 +29610,16 @@ const _R = "Region";
 const _RA = "RoleArn";
 const _RAMEVU = "RequiresAutoMinorEngineVersionUpgrade";
 const _RAP = "ResetAllParameters";
+const _RAU = "RecommendedActionUpdates";
 const _RAe = "ResourceArn";
+const _RAec = "RecommendedActions";
 const _RC = "RecurringCharges";
 const _RCA = "RecurringChargeAmount";
 const _RCCC = "RdsCustomClusterConfiguration";
 const _RCF = "RecurringChargeFrequency";
 const _RCO = "RemoveCustomerOverride";
 const _RCe = "RecurringCharge";
+const _RD = "ReferenceDetails";
 const _RDBC = "RebootDBCluster";
 const _RDBCFS = "RestoreDBClusterFromS3";
 const _RDBCFSe = "RestoreDBClusterFromSnapshot";
@@ -28982,6 +29644,7 @@ const _RFAMM = "ResumeFullAutomationModeMinutes";
 const _RFAMT = "ResumeFullAutomationModeTime";
 const _RFGC = "RemoveFromGlobalCluster";
 const _RI = "ResourceIdentifier";
+const _RIe = "RecommendationId";
 const _RM = "ReplicaMode";
 const _RMUP = "RotateMasterUserPassword";
 const _RN = "ResourceName";
@@ -29008,8 +29671,10 @@ const _RTT = "RestoreToTime";
 const _RTe = "RestoreTime";
 const _RW = "RestoreWindow";
 const _Ra = "Range";
-const _Re = "Readers";
+const _Re = "Recommendation";
 const _Rea = "Reason";
+const _Read = "Readers";
+const _Ref = "References";
 const _Ro = "Role";
 const _S = "Source";
 const _SA = "SourceArn";
@@ -29057,6 +29722,7 @@ const _SDRI = "SourceDbiResourceId";
 const _SDT = "SnapshotDatabaseTime";
 const _SDe = "SettingDescription";
 const _SDt = "StatusDetails";
+const _SDta = "StatisticsDetails";
 const _SE = "StorageEncrypted";
 const _SEM = "SupportedEngineModes";
 const _SEMu = "SupportsEnhancedMonitoring";
@@ -29099,6 +29765,7 @@ const _SPF = "SessionPinningFilters";
 const _SPI = "SupportsPerformanceInsights";
 const _SPQ = "SupportsParallelQuery";
 const _SR = "SourceRegion";
+const _SRD = "ScalarReferenceDetails";
 const _SRR = "SwitchoverReadReplica";
 const _SRRu = "SupportsReadReplica";
 const _SRo = "SourceRegions";
@@ -29123,6 +29790,7 @@ const _STu = "SupportedTimezones";
 const _STw = "SwitchoverTimeout";
 const _SUAP = "SecondsUntilAutoPause";
 const _SVSC = "ServerlessV2ScalingConfiguration";
+const _Se = "Severity";
 const _Si = "Size";
 const _St = "Status";
 const _Sta = "State";
@@ -29156,6 +29824,7 @@ const _TDCI = "TargetDbClusterIdentifier";
 const _TDCT = "TenantDatabaseCreateTime";
 const _TDRI = "TenantDatabaseResourceId";
 const _TDe = "TenantDatabases";
+const _TDy = "TypeDetection";
 const _TEDIGB = "TotalExtractedDataInGB";
 const _TET = "TaskEndTime";
 const _TEV = "TargetEngineVersion";
@@ -29164,6 +29833,7 @@ const _TGA = "TargetGroupArn";
 const _TGMDI = "TransitGatewayMulticastDomainId";
 const _TGN = "TargetGroupName";
 const _TH = "TargetHealth";
+const _TI = "TypeId";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TM = "TargetMember";
@@ -29171,13 +29841,16 @@ const _TN = "TimezoneName";
 const _TOGD = "TargetOptionGroupDescription";
 const _TOGI = "TargetOptionGroupIdentifier";
 const _TR = "TargetRole";
+const _TRy = "TypeRecommendation";
 const _TST = "TaskStartTime";
 const _Ta = "Target";
 const _Tag = "Tag";
 const _Tar = "Targets";
 const _Tas = "Tasks";
+const _Te = "Text";
 const _Th = "Thumbprint";
 const _Ti = "Timezone";
+const _Tit = "Title";
 const _To = "To";
 const _Ty = "Type";
 const _U = "Used";
@@ -29191,6 +29864,8 @@ const _UP = "UsagePrice";
 const _USC = "UpgradeStorageConfig";
 const _UT = "UpgradeTarget";
 const _UTSC = "UpgradeTargetStorageConfig";
+const _UTp = "UpdatedTime";
+const _Ur = "Url";
 const _V = "Version";
 const _VDBIMM = "ValidDBInstanceModificationsMessage";
 const _VF = "ValidFrom";

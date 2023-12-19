@@ -282,6 +282,10 @@ import {
   DescribeDBProxyTargetsCommandOutput,
 } from "./commands/DescribeDBProxyTargetsCommand";
 import {
+  DescribeDBRecommendationsCommandInput,
+  DescribeDBRecommendationsCommandOutput,
+} from "./commands/DescribeDBRecommendationsCommand";
+import {
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand";
@@ -419,6 +423,10 @@ import {
   ModifyDBProxyTargetGroupCommandInput,
   ModifyDBProxyTargetGroupCommandOutput,
 } from "./commands/ModifyDBProxyTargetGroupCommand";
+import {
+  ModifyDBRecommendationCommandInput,
+  ModifyDBRecommendationCommandOutput,
+} from "./commands/ModifyDBRecommendationCommand";
 import {
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput,
@@ -631,6 +639,7 @@ export type ServiceInputTypes =
   | DescribeDBProxyEndpointsCommandInput
   | DescribeDBProxyTargetGroupsCommandInput
   | DescribeDBProxyTargetsCommandInput
+  | DescribeDBRecommendationsCommandInput
   | DescribeDBSecurityGroupsCommandInput
   | DescribeDBSnapshotAttributesCommandInput
   | DescribeDBSnapshotTenantDatabasesCommandInput
@@ -670,6 +679,7 @@ export type ServiceInputTypes =
   | ModifyDBProxyCommandInput
   | ModifyDBProxyEndpointCommandInput
   | ModifyDBProxyTargetGroupCommandInput
+  | ModifyDBRecommendationCommandInput
   | ModifyDBSnapshotAttributeCommandInput
   | ModifyDBSnapshotCommandInput
   | ModifyDBSubnetGroupCommandInput
@@ -788,6 +798,7 @@ export type ServiceOutputTypes =
   | DescribeDBProxyEndpointsCommandOutput
   | DescribeDBProxyTargetGroupsCommandOutput
   | DescribeDBProxyTargetsCommandOutput
+  | DescribeDBRecommendationsCommandOutput
   | DescribeDBSecurityGroupsCommandOutput
   | DescribeDBSnapshotAttributesCommandOutput
   | DescribeDBSnapshotTenantDatabasesCommandOutput
@@ -827,6 +838,7 @@ export type ServiceOutputTypes =
   | ModifyDBProxyCommandOutput
   | ModifyDBProxyEndpointCommandOutput
   | ModifyDBProxyTargetGroupCommandOutput
+  | ModifyDBRecommendationCommandOutput
   | ModifyDBSnapshotAttributeCommandOutput
   | ModifyDBSnapshotCommandOutput
   | ModifyDBSubnetGroupCommandOutput

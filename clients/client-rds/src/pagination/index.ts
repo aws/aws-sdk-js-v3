@@ -28,6 +28,7 @@ export * from "./DescribeDBProxiesPaginator";
 export * from "./DescribeDBProxyEndpointsPaginator";
 export * from "./DescribeDBProxyTargetGroupsPaginator";
 export * from "./DescribeDBProxyTargetsPaginator";
+export * from "./DescribeDBRecommendationsPaginator";
 export * from "./DescribeDBSecurityGroupsPaginator";
 export * from "./DescribeDBSnapshotTenantDatabasesPaginator";
 export * from "./DescribeDBSnapshotsPaginator";

@@ -13900,6 +13900,11 @@ export interface DescribeAccountAttributesMessage {}
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DescribeDBRecommendations</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DescribePendingMaintenanceActions</code>
  *                </p>
  *             </li>

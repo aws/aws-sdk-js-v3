@@ -373,6 +373,11 @@ import {
   DescribeDBProxyTargetsCommandOutput,
 } from "./commands/DescribeDBProxyTargetsCommand";
 import {
+  DescribeDBRecommendationsCommand,
+  DescribeDBRecommendationsCommandInput,
+  DescribeDBRecommendationsCommandOutput,
+} from "./commands/DescribeDBRecommendationsCommand";
+import {
   DescribeDBSecurityGroupsCommand,
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
@@ -567,6 +572,11 @@ import {
   ModifyDBProxyTargetGroupCommandInput,
   ModifyDBProxyTargetGroupCommandOutput,
 } from "./commands/ModifyDBProxyTargetGroupCommand";
+import {
+  ModifyDBRecommendationCommand,
+  ModifyDBRecommendationCommandInput,
+  ModifyDBRecommendationCommandOutput,
+} from "./commands/ModifyDBRecommendationCommand";
 import {
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSnapshotAttributeCommandInput,
@@ -839,6 +849,7 @@ const commands = {
   DescribeDBProxyEndpointsCommand,
   DescribeDBProxyTargetGroupsCommand,
   DescribeDBProxyTargetsCommand,
+  DescribeDBRecommendationsCommand,
   DescribeDBSecurityGroupsCommand,
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotsCommand,
@@ -878,6 +889,7 @@ const commands = {
   ModifyDBProxyCommand,
   ModifyDBProxyEndpointCommand,
   ModifyDBProxyTargetGroupCommand,
+  ModifyDBRecommendationCommand,
   ModifyDBSnapshotCommand,
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSubnetGroupCommand,
@@ -2155,6 +2167,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DescribeDBRecommendationsCommand}
+   */
+  describeDBRecommendations(
+    args: DescribeDBRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBRecommendationsCommandOutput>;
+  describeDBRecommendations(
+    args: DescribeDBRecommendationsCommandInput,
+    cb: (err: any, data?: DescribeDBRecommendationsCommandOutput) => void
+  ): void;
+  describeDBRecommendations(
+    args: DescribeDBRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDBSecurityGroupsCommand}
    */
   describeDBSecurityGroups(
@@ -2803,6 +2832,23 @@ export interface RDS {
     args: ModifyDBProxyTargetGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyDBProxyTargetGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyDBRecommendationCommand}
+   */
+  modifyDBRecommendation(
+    args: ModifyDBRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDBRecommendationCommandOutput>;
+  modifyDBRecommendation(
+    args: ModifyDBRecommendationCommandInput,
+    cb: (err: any, data?: ModifyDBRecommendationCommandOutput) => void
+  ): void;
+  modifyDBRecommendation(
+    args: ModifyDBRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDBRecommendationCommandOutput) => void
   ): void;
 
   /**
