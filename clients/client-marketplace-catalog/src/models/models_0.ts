@@ -215,38 +215,105 @@ export interface AmiProductSummary {
 
 /**
  * @public
+ * <p>An object that contains entity ID and the catalog in which the entity is present.</p>
  */
-export interface CancelChangeSetRequest {
+export interface EntityRequest {
   /**
    * @public
-   * <p>Required. The catalog related to the request. Fixed value:
-   *             <code>AWSMarketplace</code>.</p>
+   * <p>The name of the catalog the entity is present in. The only value at this time is
+   *                 <code>AWSMarketplace</code>.</p>
    */
   Catalog: string | undefined;
 
   /**
    * @public
-   * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
-   *             want to cancel.</p>
+   * <p>The ID of the entity.</p>
    */
-  ChangeSetId: string | undefined;
+  EntityId: string | undefined;
 }
 
 /**
  * @public
  */
-export interface CancelChangeSetResponse {
+export interface BatchDescribeEntitiesRequest {
   /**
    * @public
-   * <p>The unique identifier for the change set referenced in this request.</p>
+   * <p>List of entity IDs and the catalogs the entities are present in.</p>
    */
-  ChangeSetId?: string;
+  EntityRequestList: EntityRequest[] | undefined;
+}
+
+/**
+ * @public
+ * <p>An object that contains metadata and details about the entity.</p>
+ */
+export interface EntityDetail {
+  /**
+   * @public
+   * <p>The entity type of the entity, in the format of
+   *             <code>EntityType@Version</code>.</p>
+   */
+  EntityType?: string;
 
   /**
    * @public
-   * <p>The ARN associated with the change set referenced in this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the entity.</p>
    */
-  ChangeSetArn?: string;
+  EntityArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the entity, in the format of <code>EntityId@RevisionId</code>.</p>
+   */
+  EntityIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The last time the entity was modified.</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * @public
+   * <p>An object that contains all the details of the entity.</p>
+   */
+  DetailsDocument?: __DocumentType;
+}
+
+/**
+ * @public
+ * <p>An object that contains an error code and error message.</p>
+ */
+export interface BatchDescribeErrorDetail {
+  /**
+   * @public
+   * <p>The error code returned.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>The error message returned.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchDescribeEntitiesResponse {
+  /**
+   * @public
+   * <p>Details about each entity.</p>
+   */
+  EntityDetails?: Record<string, EntityDetail>;
+
+  /**
+   * @public
+   * <p>A map of errors returned, with <code>EntityId</code> as the key and
+   *                 <code>errorDetail</code> as the value.</p>
+   */
+  Errors?: Record<string, BatchDescribeErrorDetail>;
 }
 
 /**
@@ -268,51 +335,6 @@ export class InternalServiceException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServiceException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The resource is currently in use.</p>
- */
-export class ResourceInUseException extends __BaseException {
-  readonly name: "ResourceInUseException" = "ResourceInUseException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
-    super({
-      name: "ResourceInUseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUseException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -359,6 +381,87 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CancelChangeSetRequest {
+  /**
+   * @public
+   * <p>Required. The catalog related to the request. Fixed value:
+   *             <code>AWSMarketplace</code>.</p>
+   */
+  Catalog: string | undefined;
+
+  /**
+   * @public
+   * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
+   *             want to cancel.</p>
+   */
+  ChangeSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelChangeSetResponse {
+  /**
+   * @public
+   * <p>The unique identifier for the change set referenced in this request.</p>
+   */
+  ChangeSetId?: string;
+
+  /**
+   * @public
+   * <p>The ARN associated with the change set referenced in this request.</p>
+   */
+  ChangeSetArn?: string;
+}
+
+/**
+ * @public
+ * <p>The resource is currently in use.</p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified resource wasn't found.</p>
+ *          <p>HTTP status code: 404</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2363,11 +2466,11 @@ export interface ListEntitiesRequest {
    * @public
    * <p>The type of entities to
    *             retrieve. Valid
-   *             values are: <code>ServerProduct</code>, <code>AmiProduct</code>,
-   *                 <code>ContainerProduct</code>, <code>DataProduct</code>, <code>SaaSProduct</code>,
-   *                 <code>ProcurementPolicy</code>, <code>Experience</code>, <code>Audience</code>,
-   *                 <code>BrandingSettings</code>, <code>Offer</code>, <code>Seller</code>,
-   *                 <code>ResaleAuthorization</code>.</p>
+   *             values are: <code>AmiProduct</code>, <code>ContainerProduct</code>,
+   *                 <code>DataProduct</code>, <code>SaaSProduct</code>, <code>ProcurementPolicy</code>,
+   *                 <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>,
+   *                 <code>Offer</code>, <code>Seller</code>,
+   *             <code>ResaleAuthorization</code>.</p>
    */
   EntityType: string | undefined;
 
@@ -2804,7 +2907,7 @@ export interface Change {
    * @public
    * <p>Change types are single string values that describe your intention for the change.
    *             Each change type is unique for each <code>EntityType</code> provided in the change's
-   *             scope. For more information on change types available for single-AMI products, see
+   *             scope. For more information about change types available for single-AMI products, see
    *                 <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
    *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    */

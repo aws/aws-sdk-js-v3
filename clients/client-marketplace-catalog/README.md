@@ -210,6 +210,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchDescribeEntities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/BatchDescribeEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/BatchDescribeEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/BatchDescribeEntitiesCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelChangeSet
 </summary>
 

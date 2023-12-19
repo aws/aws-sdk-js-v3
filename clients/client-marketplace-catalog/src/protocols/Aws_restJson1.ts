@@ -21,6 +21,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  BatchDescribeEntitiesCommandInput,
+  BatchDescribeEntitiesCommandOutput,
+} from "../commands/BatchDescribeEntitiesCommand";
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "../commands/CancelChangeSetCommand";
 import {
   DeleteResourcePolicyCommandInput,
@@ -69,6 +73,8 @@ import {
   DataProductVisibilityFilter,
   DataProductVisibilityString,
   Entity,
+  EntityDetail,
+  EntityRequest,
   EntityTypeFilters,
   EntityTypeSort,
   Filter,
@@ -125,6 +131,28 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1BatchDescribeEntitiesCommand
+ */
+export const se_BatchDescribeEntitiesCommand = async (
+  input: BatchDescribeEntitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/BatchDescribeEntities");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EntityRequestList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CancelChangeSetCommand
@@ -390,6 +418,63 @@ export const se_UntagResourceCommand = async (
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchDescribeEntitiesCommand
+ */
+export const de_BatchDescribeEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDescribeEntitiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchDescribeEntitiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EntityDetails: (_) => de_EntityDetails(_, context),
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDescribeEntitiesCommandError
+ */
+const de_BatchDescribeEntitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDescribeEntitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.marketplacecatalog#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.marketplacecatalog#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.marketplacecatalog#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.marketplacecatalog#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1342,6 +1427,10 @@ const se_Change = (input: Change, context: __SerdeContext): any => {
 
 // se_Entity omitted.
 
+// se_EntityRequest omitted.
+
+// se_EntityRequestList omitted.
+
 // se_EntityTypeFilters omitted.
 
 // se_EntityTypeSort omitted.
@@ -1498,6 +1587,8 @@ const se_RequestedChangeList = (input: Change[], context: __SerdeContext): any =
 
 // de_AmiProductSummary omitted.
 
+// de_BatchDescribeErrorDetail omitted.
+
 /**
  * deserializeAws_restJson1ChangeSetDescription
  */
@@ -1534,6 +1625,32 @@ const de_ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary =
 
 // de_Entity omitted.
 
+/**
+ * deserializeAws_restJson1EntityDetail
+ */
+const de_EntityDetail = (output: any, context: __SerdeContext): EntityDetail => {
+  return take(output, {
+    DetailsDocument: (_: any) => de_JsonDocumentType(_, context),
+    EntityArn: __expectString,
+    EntityIdentifier: __expectString,
+    EntityType: __expectString,
+    LastModifiedDate: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EntityDetails
+ */
+const de_EntityDetails = (output: any, context: __SerdeContext): Record<string, EntityDetail> => {
+  return Object.entries(output).reduce((acc: Record<string, EntityDetail>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_EntityDetail(value, context);
+    return acc;
+  }, {} as Record<string, EntityDetail>);
+};
+
 // de_EntitySummary omitted.
 
 // de_EntitySummaryList omitted.
@@ -1541,6 +1658,8 @@ const de_ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary =
 // de_ErrorDetail omitted.
 
 // de_ErrorDetailList omitted.
+
+// de_Errors omitted.
 
 /**
  * deserializeAws_restJson1JsonDocumentType

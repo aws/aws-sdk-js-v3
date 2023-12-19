@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./BatchDescribeEntitiesCommand";
 export * from "./CancelChangeSetCommand";
 export * from "./DeleteResourcePolicyCommand";
 export * from "./DescribeChangeSetCommand";

@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchDescribeEntitiesCommand,
+  BatchDescribeEntitiesCommandInput,
+  BatchDescribeEntitiesCommandOutput,
+} from "./commands/BatchDescribeEntitiesCommand";
+import {
   CancelChangeSetCommand,
   CancelChangeSetCommandInput,
   CancelChangeSetCommandOutput,
@@ -61,6 +66,7 @@ import {
 import { MarketplaceCatalogClient, MarketplaceCatalogClientConfig } from "./MarketplaceCatalogClient";
 
 const commands = {
+  BatchDescribeEntitiesCommand,
   CancelChangeSetCommand,
   DeleteResourcePolicyCommand,
   DescribeChangeSetCommand,
@@ -76,6 +82,23 @@ const commands = {
 };
 
 export interface MarketplaceCatalog {
+  /**
+   * @see {@link BatchDescribeEntitiesCommand}
+   */
+  batchDescribeEntities(
+    args: BatchDescribeEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDescribeEntitiesCommandOutput>;
+  batchDescribeEntities(
+    args: BatchDescribeEntitiesCommandInput,
+    cb: (err: any, data?: BatchDescribeEntitiesCommandOutput) => void
+  ): void;
+  batchDescribeEntities(
+    args: BatchDescribeEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDescribeEntitiesCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelChangeSetCommand}
    */

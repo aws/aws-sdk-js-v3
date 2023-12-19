@@ -48,6 +48,10 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  BatchDescribeEntitiesCommandInput,
+  BatchDescribeEntitiesCommandOutput,
+} from "./commands/BatchDescribeEntitiesCommand";
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "./commands/CancelChangeSetCommand";
 import {
   DeleteResourcePolicyCommandInput,
@@ -81,6 +85,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchDescribeEntitiesCommandInput
   | CancelChangeSetCommandInput
   | DeleteResourcePolicyCommandInput
   | DescribeChangeSetCommandInput
@@ -98,6 +103,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchDescribeEntitiesCommandOutput
   | CancelChangeSetCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DescribeChangeSetCommandOutput
