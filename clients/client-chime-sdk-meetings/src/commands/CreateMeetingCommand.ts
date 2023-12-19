@@ -69,6 +69,15 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  *     Audio: { // AudioFeatures
  *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
  *     },
+ *     Video: { // VideoFeatures
+ *       MaxResolution: "None" || "HD" || "FHD",
+ *     },
+ *     Content: { // ContentFeatures
+ *       MaxResolution: "None" || "FHD" || "UHD",
+ *     },
+ *     Attendee: { // AttendeeFeatures
+ *       MaxCount: Number("int"),
+ *     },
  *   },
  *   PrimaryMeetingId: "STRING_VALUE",
  *   TenantIds: [ // TenantIdList
@@ -102,6 +111,15 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * //     MeetingFeatures: { // MeetingFeaturesConfiguration
  * //       Audio: { // AudioFeatures
  * //         EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ * //       },
+ * //       Video: { // VideoFeatures
+ * //         MaxResolution: "None" || "HD" || "FHD",
+ * //       },
+ * //       Content: { // ContentFeatures
+ * //         MaxResolution: "None" || "FHD" || "UHD",
+ * //       },
+ * //       Attendee: { // AttendeeFeatures
+ * //         MaxCount: Number("int"),
  * //       },
  * //     },
  * //     PrimaryMeetingId: "STRING_VALUE",

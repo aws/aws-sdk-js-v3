@@ -64,6 +64,15 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  *     Audio: { // AudioFeatures
  *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
  *     },
+ *     Video: { // VideoFeatures
+ *       MaxResolution: "None" || "HD" || "FHD",
+ *     },
+ *     Content: { // ContentFeatures
+ *       MaxResolution: "None" || "FHD" || "UHD",
+ *     },
+ *     Attendee: { // AttendeeFeatures
+ *       MaxCount: Number("int"),
+ *     },
  *   },
  *   NotificationsConfiguration: { // NotificationsConfiguration
  *     LambdaFunctionArn: "STRING_VALUE",
@@ -112,6 +121,15 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * //     MeetingFeatures: { // MeetingFeaturesConfiguration
  * //       Audio: { // AudioFeatures
  * //         EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ * //       },
+ * //       Video: { // VideoFeatures
+ * //         MaxResolution: "None" || "HD" || "FHD",
+ * //       },
+ * //       Content: { // ContentFeatures
+ * //         MaxResolution: "None" || "FHD" || "UHD",
+ * //       },
+ * //       Attendee: { // AttendeeFeatures
+ * //         MaxCount: Number("int"),
  * //       },
  * //     },
  * //     PrimaryMeetingId: "STRING_VALUE",

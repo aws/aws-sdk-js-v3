@@ -61,10 +61,12 @@ import {
 import { ChimeSDKMeetingsServiceException as __BaseException } from "../models/ChimeSDKMeetingsServiceException";
 import {
   AttendeeCapabilities,
+  AttendeeFeatures,
   AttendeeIdItem,
   AudioFeatures,
   BadRequestException,
   ConflictException,
+  ContentFeatures,
   CreateAttendeeRequestItem,
   EngineTranscribeMedicalSettings,
   EngineTranscribeSettings,
@@ -82,6 +84,7 @@ import {
   TranscriptionConfiguration,
   UnauthorizedException,
   UnprocessableEntityException,
+  VideoFeatures,
 } from "../models/models_0";
 
 /**
@@ -1767,11 +1770,15 @@ const de_UnprocessableEntityExceptionRes = async (
 
 // se_AttendeeCapabilities omitted.
 
+// se_AttendeeFeatures omitted.
+
 // se_AttendeeIdItem omitted.
 
 // se_AttendeeIdsList omitted.
 
 // se_AudioFeatures omitted.
+
+// se_ContentFeatures omitted.
 
 // se_CreateAttendeeRequestItem omitted.
 
@@ -1797,15 +1804,21 @@ const de_UnprocessableEntityExceptionRes = async (
 
 // se_TranscriptionConfiguration omitted.
 
+// se_VideoFeatures omitted.
+
 // de_Attendee omitted.
 
 // de_AttendeeCapabilities omitted.
+
+// de_AttendeeFeatures omitted.
 
 // de_AttendeeList omitted.
 
 // de_AudioFeatures omitted.
 
 // de_BatchCreateAttendeeErrorList omitted.
+
+// de_ContentFeatures omitted.
 
 // de_CreateAttendeeError omitted.
 
@@ -1820,6 +1833,8 @@ const de_UnprocessableEntityExceptionRes = async (
 // de_TagList omitted.
 
 // de_TenantIdList omitted.
+
+// de_VideoFeatures omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

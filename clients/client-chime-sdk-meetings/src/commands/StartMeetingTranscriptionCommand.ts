@@ -44,10 +44,14 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  *             For more information on each parameter and which combinations are valid, refer to the
  *             <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a> API in the
  *             <i>Amazon Transcribe Developer Guide</i>.</p>
- *          <important>
- *             <p>Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon Transcribe is subject to the
- *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial Intelligence Services.</p>
- *          </important>
+ *          <note>
+ *             <p>By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as
+ *             further described in section 50 of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>. Using Amazon Transcribe
+ *             may be subject to federal and state laws or regulations regarding the recording or interception of electronic communications. It is your and your end users’
+ *             responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication
+ *             that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and
+ *             improve AWS AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

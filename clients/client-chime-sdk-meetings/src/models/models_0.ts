@@ -21,25 +21,33 @@ export type MediaCapabilities = (typeof MediaCapabilities)[keyof typeof MediaCap
 
 /**
  * @public
- * <p>The media capabilities of an attendee: audio, video, or content. </p>
+ * <p>The media capabilities of an attendee: audio, video, or content.</p>
  *          <note>
- *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
- *             .</p>
+ *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information, refer to
+ *              and .</p>
  *          </note>
  *          <p>When using capabilities, be aware of these corner cases:</p>
  *          <ul>
  *             <li>
+ *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
+ *                     that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
+ *                     <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
+ *             </li>
+ *             <li>
  *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
- *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
- *                     to receive and you set your <code>content</code> capability to not receive.</p>
+ *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your
+ *                     <code>video</code> capability to receive and you set your <code>content</code> capability to not receive.</p>
  *             </li>
  *             <li>
  *                <p>When you change an <code>audio</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and if the attendee left their microphone unmuted, audio will flow from the attendee to the other meeting participants.</p>
+ *                     and an attendee unmutes their microphone, audio flows from the attendee to the other meeting participants.</p>
  *             </li>
  *             <li>
  *                <p>When you change a <code>video</code> or <code>content</code> capability from <code>None</code> or <code>Receive</code> to <code>Send</code> or <code>SendReceive</code> ,
- *                     and if the attendee turned on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
+ *                     and the attendee turns on their video or content streams, remote attendees can receive those streams, but only after media renegotiation between the client and the Amazon Chime back-end server.</p>
  *             </li>
  *          </ul>
  */
@@ -111,6 +119,14 @@ export interface Attendee {
    *          <p>When using capabilities, be aware of these corner cases:</p>
    *          <ul>
    *             <li>
+   *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
+   *                     that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
+   *                     <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
@@ -126,6 +142,22 @@ export interface Attendee {
    *          </ul>
    */
   Capabilities?: AttendeeCapabilities;
+}
+
+/**
+ * @public
+ * <p>Lists the maximum number of attendees allowed into the meeting.</p>
+ *          <note>
+ *             <p>If you specify <code>FHD</code> for <code>MeetingFeatures:Video:MaxResolution</code>, or if you specify
+ *            <code>UHD</code> for <code>MeetingFeatures:Content:MaxResolution</code>, the maximum number of attendees changes from the default of <code>250</code> to <code>25</code>.</p>
+ *          </note>
+ */
+export interface AttendeeFeatures {
+  /**
+   * @public
+   * <p>The maximum number of attendees allowed into the meeting.</p>
+   */
+  MaxCount?: number;
 }
 
 /**
@@ -611,6 +643,14 @@ export interface CreateAttendeeRequest {
    *          <p>When using capabilities, be aware of these corner cases:</p>
    *          <ul>
    *             <li>
+   *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
+   *                         that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
+   *                         <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
    *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
    *                     to receive and you set your <code>content</code> capability to not receive.</p>
@@ -641,6 +681,76 @@ export interface CreateAttendeeResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ContentResolution = {
+  FHD: "FHD",
+  NONE: "None",
+  UHD: "UHD",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentResolution = (typeof ContentResolution)[keyof typeof ContentResolution];
+
+/**
+ * @public
+ * <p>Lists the content (screen share) features for the meeting. Applies to all attendees.</p>
+ *          <note>
+ *             <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
+ *                 <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
+ *          </note>
+ */
+export interface ContentFeatures {
+  /**
+   * @public
+   * <p>The maximum resolution for the meeting content.</p>
+   *          <note>
+   *             <p>Defaults to <code>FHD</code>. To use <code>UHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code>
+   *          value and override the default size limit of 250 attendees.</p>
+   *          </note>
+   */
+  MaxResolution?: ContentResolution;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoResolution = {
+  FHD: "FHD",
+  HD: "HD",
+  NONE: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoResolution = (typeof VideoResolution)[keyof typeof VideoResolution];
+
+/**
+ * @public
+ * <p>The video features set for the meeting. Applies to all attendees.</p>
+ *          <note>
+ *             <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
+ *                 that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
+ *          </note>
+ */
+export interface VideoFeatures {
+  /**
+   * @public
+   * <p>The maximum video resolution for the meeting. Applies to all attendees.</p>
+   *          <note>
+   *             <p>Defaults to <code>HD</code>. To use <code>FHD</code>, you must also provide a <code>MeetingFeatures:Attendee:MaxCount</code> value and override the default size
+   *             limit of 250 attendees.</p>
+   *          </note>
+   */
+  MaxResolution?: VideoResolution;
+}
+
+/**
+ * @public
  * <p>The configuration settings of the features available to a meeting.</p>
  */
 export interface MeetingFeaturesConfiguration {
@@ -649,6 +759,24 @@ export interface MeetingFeaturesConfiguration {
    * <p>The configuration settings for the audio features available to a meeting.</p>
    */
   Audio?: AudioFeatures;
+
+  /**
+   * @public
+   * <p>The configuration settings for the video features available to a meeting.</p>
+   */
+  Video?: VideoFeatures;
+
+  /**
+   * @public
+   * <p>The configuration settings for the content features available to a meeting.</p>
+   */
+  Content?: ContentFeatures;
+
+  /**
+   * @public
+   * <p>The configuration settings for the attendee features available to a meeting.</p>
+   */
+  Attendee?: AttendeeFeatures;
 }
 
 /**
@@ -658,7 +786,7 @@ export interface MeetingFeaturesConfiguration {
 export interface NotificationsConfiguration {
   /**
    * @public
-   * <p>The ARN of the AWS Lambda function in the notifications configuration.</p>
+   * <p>The ARN of the Amazon Web Services Lambda function in the notifications configuration.</p>
    */
   LambdaFunctionArn?: string;
 
@@ -727,7 +855,7 @@ export interface CreateMeetingRequest {
    *            <code>us-west-1</code>,
    *            <code>us-west-2</code>.
    *        </p>
-   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion: string | undefined;
 
@@ -785,7 +913,7 @@ export interface CreateMeetingRequest {
    *        <i>AWS General Reference</i>.</p>
    *             </li>
    *             <li>
-   *                <p>You can only tag resources that are located in the specified AWS Region for the AWS account.</p>
+   *                <p>You can only tag resources that are located in the specified Amazon Web Services Region for the Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>To add tags to a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for adding tags. For more information, see the
@@ -841,24 +969,44 @@ export interface MediaPlacement {
   /**
    * @public
    * <p>The turn control URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   TurnControlUrl?: string;
 
   /**
    * @public
    * <p>The screen data URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   ScreenDataUrl?: string;
 
   /**
    * @public
    * <p>The screen viewing URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   ScreenViewingUrl?: string;
 
   /**
    * @public
    * <p>The screen sharing URL.</p>
+   *          <important>
+   *             <p>
+   *                <b>This parameter is deprecated and no longer used by the Amazon Chime SDK.</b>
+   *             </p>
+   *          </important>
    */
   ScreenSharingUrl?: string;
 
@@ -904,7 +1052,7 @@ export interface Meeting {
    *             <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>,
    *             <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
    *             <code>us-west-1</code>, <code>us-west-2</code>.</p>
-   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion?: string;
 
@@ -985,7 +1133,7 @@ export interface CreateMeetingWithAttendeesRequest {
    *            <code>us-west-1</code>,
    *            <code>us-west-2</code>.
    *        </p>
-   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
+   *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion: string | undefined;
 
@@ -1353,7 +1501,7 @@ export interface EngineTranscribeMedicalSettings {
 
   /**
    * @public
-   * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
+   * <p>The Amazon Web Services Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
    */
   Region?: TranscribeMedicalRegion;
 
@@ -1519,7 +1667,7 @@ export interface EngineTranscribeSettings {
 
   /**
    * @public
-   * <p>The AWS Region in which to use Amazon Transcribe.</p>
+   * <p>The Amazon Web Services Region in which to use Amazon Transcribe.</p>
    *          <p>If you don't specify a Region, then the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html">MediaRegion</a> of the meeting is used.
    *             However, if Amazon Transcribe is not available in the <code>MediaRegion</code>, then a <code>TranscriptFailed</code> event is sent.</p>
    *          <p>Use <code>auto</code> to use Amazon Transcribe in a Region near the meeting’s <code>MediaRegion</code>.  For more information, refer to

@@ -45,7 +45,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *                 see the documentation for the service whose resource you want to untag.</p>
  *             </li>
  *             <li>
- *                <p>You can only tag resources that are located in the specified AWS Region for the calling AWS account.</p>
+ *                <p>You can only tag resources that are located in the specified Amazon Web Services Region for the calling Amazon Web Services account.</p>
  *             </li>
  *          </ul>
  *          <p>
