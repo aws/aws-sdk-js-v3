@@ -1505,6 +1505,23 @@ export type Tier = (typeof Tier)[keyof typeof Tier];
 
 /**
  * @public
+ * <p>
+ *             The configuration for time-shifted viewing.
+ *         </p>
+ */
+export interface TimeShiftConfiguration {
+  /**
+   * @public
+   * <p>
+   *             The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds,
+   *             and the maximum allowed maximum time delay is 21600 seconds (6 hours).
+   *         </p>
+   */
+  MaxTimeDelaySeconds: number | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateChannelRequest {
   /**
@@ -1548,6 +1565,14 @@ export interface CreateChannelRequest {
    * <p>The tier of the channel.</p>
    */
   Tier?: Tier;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration you want to associate to the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -1627,6 +1652,14 @@ export interface CreateChannelResponse {
    * <p>The tier of the channel.</p>
    */
   Tier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration assigned to the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -1725,6 +1758,14 @@ export interface DescribeChannelResponse {
    * <p>The log configuration for the channel.</p>
    */
   LogConfiguration: LogConfigurationForChannel | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration for the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -2317,6 +2358,14 @@ export interface UpdateChannelRequest {
    * <p>The channel's output properties.</p>
    */
   Outputs: RequestOutputItem[] | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration you want to associate to the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -2388,6 +2437,14 @@ export interface UpdateChannelResponse {
    * <p>The tier associated with this Channel.</p>
    */
   Tier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration for the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**

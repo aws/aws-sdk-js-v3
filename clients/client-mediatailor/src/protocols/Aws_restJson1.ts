@@ -158,6 +158,7 @@ import {
   SlateSource,
   SourceLocation,
   SpliceInsertMessage,
+  TimeShiftConfiguration,
   TimeSignalMessage,
   Transition,
   UpdateProgramScheduleConfiguration,
@@ -232,6 +233,7 @@ export const se_CreateChannelCommand = async (
       PlaybackMode: [],
       tags: [, (_) => _json(_), `Tags`],
       Tier: [],
+      TimeShiftConfiguration: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -965,6 +967,7 @@ export const se_UpdateChannelCommand = async (
     take(input, {
       FillerSlate: (_) => _json(_),
       Outputs: (_) => _json(_),
+      TimeShiftConfiguration: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1179,6 +1182,7 @@ export const de_CreateChannelCommand = async (
     PlaybackMode: __expectString,
     Tags: [, _json, `tags`],
     Tier: __expectString,
+    TimeShiftConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1766,6 +1770,7 @@ export const de_DescribeChannelCommand = async (
     PlaybackMode: __expectString,
     Tags: [, _json, `tags`],
     Tier: __expectString,
+    TimeShiftConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2796,6 +2801,7 @@ export const de_UpdateChannelCommand = async (
     PlaybackMode: __expectString,
     Tags: [, _json, `tags`],
     Tier: __expectString,
+    TimeShiftConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3124,6 +3130,8 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
 // se_SlateSource omitted.
 
 // se_SpliceInsertMessage omitted.
+
+// se_TimeShiftConfiguration omitted.
 
 // se_TimeSignalMessage omitted.
 
@@ -3478,6 +3486,8 @@ const de_SourceLocation = (output: any, context: __SerdeContext): SourceLocation
 };
 
 // de_SpliceInsertMessage omitted.
+
+// de_TimeShiftConfiguration omitted.
 
 // de_TimeSignalMessage omitted.
 

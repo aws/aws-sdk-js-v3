@@ -88,6 +88,9 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //       "AS_RUN",
  * //     ],
  * //   },
+ * //   TimeShiftConfiguration: { // TimeShiftConfiguration
+ * //     MaxTimeDelaySeconds: Number("int"), // required
+ * //   },
  * // };
  *
  * ```
