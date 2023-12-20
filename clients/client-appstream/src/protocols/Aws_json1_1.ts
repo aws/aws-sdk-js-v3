@@ -2331,6 +2331,9 @@ const de_CreateStackCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);

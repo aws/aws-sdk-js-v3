@@ -81,6 +81,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * //         { // UserSetting
  * //           Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
  * //           Permission: "ENABLED" || "DISABLED", // required
+ * //           MaximumLength: Number("int"),
  * //         },
  * //       ],
  * //       ApplicationSettings: { // ApplicationSettingsResponse

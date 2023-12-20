@@ -63,6 +63,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *     { // UserSetting
  *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
  *       Permission: "ENABLED" || "DISABLED", // required
+ *       MaximumLength: Number("int"),
  *     },
  *   ],
  *   ApplicationSettings: { // ApplicationSettings
@@ -115,6 +116,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * //       { // UserSetting
  * //         Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
  * //         Permission: "ENABLED" || "DISABLED", // required
+ * //         MaximumLength: Number("int"),
  * //       },
  * //     ],
  * //     ApplicationSettings: { // ApplicationSettingsResponse
@@ -159,6 +161,9 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The specified resource already exists.</p>
