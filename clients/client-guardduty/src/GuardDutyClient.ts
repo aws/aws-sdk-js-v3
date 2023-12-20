@@ -144,6 +144,10 @@ import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./c
 import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetOrganizationStatisticsCommandInput,
+  GetOrganizationStatisticsCommandOutput,
+} from "./commands/GetOrganizationStatisticsCommand";
+import {
   GetRemainingFreeTrialDaysCommandInput,
   GetRemainingFreeTrialDaysCommandOutput,
 } from "./commands/GetRemainingFreeTrialDaysCommand";
@@ -265,6 +269,7 @@ export type ServiceInputTypes =
   | GetMasterAccountCommandInput
   | GetMemberDetectorsCommandInput
   | GetMembersCommandInput
+  | GetOrganizationStatisticsCommandInput
   | GetRemainingFreeTrialDaysCommandInput
   | GetThreatIntelSetCommandInput
   | GetUsageStatisticsCommandInput
@@ -338,6 +343,7 @@ export type ServiceOutputTypes =
   | GetMasterAccountCommandOutput
   | GetMemberDetectorsCommandOutput
   | GetMembersCommandOutput
+  | GetOrganizationStatisticsCommandOutput
   | GetRemainingFreeTrialDaysCommandOutput
   | GetThreatIntelSetCommandOutput
   | GetUsageStatisticsCommandOutput

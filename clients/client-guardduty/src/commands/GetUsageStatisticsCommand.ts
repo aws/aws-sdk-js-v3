@@ -49,7 +49,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * const client = new GuardDutyClient(config);
  * const input = { // GetUsageStatisticsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES", // required
+ *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES" || "TOP_ACCOUNTS_BY_FEATURE", // required
  *   UsageCriteria: { // UsageCriteria
  *     AccountIds: [ // AccountIds
  *       "STRING_VALUE",
@@ -79,6 +79,20 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //           Amount: "STRING_VALUE",
  * //           Unit: "STRING_VALUE",
  * //         },
+ * //       },
+ * //     ],
+ * //     TopAccountsByFeature: [ // UsageTopAccountsResultList
+ * //       { // UsageTopAccountsResult
+ * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
+ * //         Accounts: [ // UsageTopAccountsByFeatureList
+ * //           { // UsageTopAccountResult
+ * //             AccountId: "STRING_VALUE",
+ * //             Total: {
+ * //               Amount: "STRING_VALUE",
+ * //               Unit: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     SumByDataSource: [ // UsageDataSourceResultList
@@ -111,10 +125,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //     SumByFeature: [ // UsageFeatureResultList
  * //       { // UsageFeatureResult
  * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
- * //         Total: {
- * //           Amount: "STRING_VALUE",
- * //           Unit: "STRING_VALUE",
- * //         },
+ * //         Total: "<Total>",
  * //       },
  * //     ],
  * //   },

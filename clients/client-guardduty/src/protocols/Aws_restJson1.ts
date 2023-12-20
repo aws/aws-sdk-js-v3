@@ -123,6 +123,10 @@ import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../
 import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "../commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
 import {
+  GetOrganizationStatisticsCommandInput,
+  GetOrganizationStatisticsCommandOutput,
+} from "../commands/GetOrganizationStatisticsCommand";
+import {
   GetRemainingFreeTrialDaysCommandInput,
   GetRemainingFreeTrialDaysCommandOutput,
 } from "../commands/GetRemainingFreeTrialDaysCommand";
@@ -301,13 +305,17 @@ import {
   Organization,
   OrganizationAdditionalConfigurationResult,
   OrganizationDataSourceConfigurationsResult,
+  OrganizationDetails,
   OrganizationEbsVolumesResult,
   OrganizationFeatureConfigurationResult,
+  OrganizationFeatureStatistics,
+  OrganizationFeatureStatisticsAdditionalConfiguration,
   OrganizationKubernetesAuditLogsConfigurationResult,
   OrganizationKubernetesConfigurationResult,
   OrganizationMalwareProtectionConfigurationResult,
   OrganizationS3LogsConfigurationResult,
   OrganizationScanEc2InstanceWithFindingsResult,
+  OrganizationStatistics,
   Owner,
   PermissionConfiguration,
   PortProbeAction,
@@ -361,6 +369,8 @@ import {
   UsageFeatureResult,
   UsageResourceResult,
   UsageStatistics,
+  UsageTopAccountResult,
+  UsageTopAccountsResult,
   Volume,
   VolumeDetail,
   VolumeMount,
@@ -1179,6 +1189,24 @@ export const se_GetMembersCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetOrganizationStatisticsCommand
+ */
+export const se_GetOrganizationStatisticsCommand = async (
+  input: GetOrganizationStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/organization/statistics");
+  let body: any;
+  body = "";
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -3721,6 +3749,56 @@ const de_GetMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMembersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.guardduty#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.guardduty#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetOrganizationStatisticsCommand
+ */
+export const de_GetOrganizationStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetOrganizationStatisticsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    OrganizationDetails: [, (_) => de_OrganizationDetails(_, context), `organizationDetails`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetOrganizationStatisticsCommandError
+ */
+const de_GetOrganizationStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationStatisticsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7338,6 +7416,16 @@ const de_OrganizationDataSourceConfigurationsResult = (
 };
 
 /**
+ * deserializeAws_restJson1OrganizationDetails
+ */
+const de_OrganizationDetails = (output: any, context: __SerdeContext): OrganizationDetails => {
+  return take(output, {
+    OrganizationStatistics: [, (_: any) => de_OrganizationStatistics(_, context), `organizationStatistics`],
+    UpdatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `updatedAt`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1OrganizationEbsVolumesResult
  */
 const de_OrganizationEbsVolumesResult = (output: any, context: __SerdeContext): OrganizationEbsVolumesResult => {
@@ -7375,6 +7463,64 @@ const de_OrganizationFeaturesConfigurationsResults = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_OrganizationFeatureConfigurationResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1OrganizationFeatureStatistics
+ */
+const de_OrganizationFeatureStatistics = (output: any, context: __SerdeContext): OrganizationFeatureStatistics => {
+  return take(output, {
+    AdditionalConfiguration: [
+      ,
+      (_: any) => de_OrganizationFeatureStatisticsAdditionalConfigurations(_, context),
+      `additionalConfiguration`,
+    ],
+    EnabledAccountsCount: [, __expectInt32, `enabledAccountsCount`],
+    Name: [, __expectString, `name`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1OrganizationFeatureStatisticsAdditionalConfiguration
+ */
+const de_OrganizationFeatureStatisticsAdditionalConfiguration = (
+  output: any,
+  context: __SerdeContext
+): OrganizationFeatureStatisticsAdditionalConfiguration => {
+  return take(output, {
+    EnabledAccountsCount: [, __expectInt32, `enabledAccountsCount`],
+    Name: [, __expectString, `name`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1OrganizationFeatureStatisticsAdditionalConfigurations
+ */
+const de_OrganizationFeatureStatisticsAdditionalConfigurations = (
+  output: any,
+  context: __SerdeContext
+): OrganizationFeatureStatisticsAdditionalConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OrganizationFeatureStatisticsAdditionalConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1OrganizationFeatureStatisticsResults
+ */
+const de_OrganizationFeatureStatisticsResults = (
+  output: any,
+  context: __SerdeContext
+): OrganizationFeatureStatistics[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OrganizationFeatureStatistics(entry, context);
     });
   return retVal;
 };
@@ -7440,6 +7586,19 @@ const de_OrganizationScanEc2InstanceWithFindingsResult = (
 ): OrganizationScanEc2InstanceWithFindingsResult => {
   return take(output, {
     EbsVolumes: [, (_: any) => de_OrganizationEbsVolumesResult(_, context), `ebsVolumes`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1OrganizationStatistics
+ */
+const de_OrganizationStatistics = (output: any, context: __SerdeContext): OrganizationStatistics => {
+  return take(output, {
+    ActiveAccountsCount: [, __expectInt32, `activeAccountsCount`],
+    CountByFeature: [, (_: any) => de_OrganizationFeatureStatisticsResults(_, context), `countByFeature`],
+    EnabledAccountsCount: [, __expectInt32, `enabledAccountsCount`],
+    MemberAccountsCount: [, __expectInt32, `memberAccountsCount`],
+    TotalAccountsCount: [, __expectInt32, `totalAccountsCount`],
   }) as any;
 };
 
@@ -8204,8 +8363,53 @@ const de_UsageStatistics = (output: any, context: __SerdeContext): UsageStatisti
     SumByDataSource: [, (_: any) => de_UsageDataSourceResultList(_, context), `sumByDataSource`],
     SumByFeature: [, (_: any) => de_UsageFeatureResultList(_, context), `sumByFeature`],
     SumByResource: [, (_: any) => de_UsageResourceResultList(_, context), `sumByResource`],
+    TopAccountsByFeature: [, (_: any) => de_UsageTopAccountsResultList(_, context), `topAccountsByFeature`],
     TopResources: [, (_: any) => de_UsageResourceResultList(_, context), `topResources`],
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UsageTopAccountResult
+ */
+const de_UsageTopAccountResult = (output: any, context: __SerdeContext): UsageTopAccountResult => {
+  return take(output, {
+    AccountId: [, __expectString, `accountId`],
+    Total: [, (_: any) => de_Total(_, context), `total`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UsageTopAccountsByFeatureList
+ */
+const de_UsageTopAccountsByFeatureList = (output: any, context: __SerdeContext): UsageTopAccountResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UsageTopAccountResult(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1UsageTopAccountsResult
+ */
+const de_UsageTopAccountsResult = (output: any, context: __SerdeContext): UsageTopAccountsResult => {
+  return take(output, {
+    Accounts: [, (_: any) => de_UsageTopAccountsByFeatureList(_, context), `accounts`],
+    Feature: [, __expectString, `feature`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UsageTopAccountsResultList
+ */
+const de_UsageTopAccountsResultList = (output: any, context: __SerdeContext): UsageTopAccountsResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UsageTopAccountsResult(entry, context);
+    });
+  return retVal;
 };
 
 /**

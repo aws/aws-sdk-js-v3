@@ -528,6 +528,14 @@ GetMembers
 </details>
 <details>
 <summary>
+GetOrganizationStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/GetOrganizationStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/GetOrganizationStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/GetOrganizationStatisticsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRemainingFreeTrialDays
 </summary>
 

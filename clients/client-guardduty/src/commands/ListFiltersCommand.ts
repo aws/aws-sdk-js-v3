@@ -15,7 +15,7 @@ import {
 } from "@smithy/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
+import { ListFiltersRequest, ListFiltersResponse } from "../models/models_1";
 import { de_ListFiltersCommand, se_ListFiltersCommand } from "../protocols/Aws_restJson1";
 
 /**

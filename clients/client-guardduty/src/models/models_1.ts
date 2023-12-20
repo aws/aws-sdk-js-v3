@@ -17,8 +17,325 @@ import {
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
   ScanResourceCriteria,
+  SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListDetectorsRequest {
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDetectorsResponse {
+  /**
+   * @public
+   * <p>A list of detector IDs.</p>
+   */
+  DetectorIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFiltersRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector that the filter is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFiltersResponse {
+  /**
+   * @public
+   * <p>A list of filter names.</p>
+   */
+  FilterNames: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsRequest {
+  /**
+   * @public
+   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
+   *       list.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>Represents the criteria used for querying findings. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>JSON field name</p>
+   *             </li>
+   *             <li>
+   *                <p>accountId</p>
+   *             </li>
+   *             <li>
+   *                <p>region</p>
+   *             </li>
+   *             <li>
+   *                <p>confidence</p>
+   *             </li>
+   *             <li>
+   *                <p>id</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.accessKeyId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.principalId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.userName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.userType</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.iamInstanceProfile.id</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.imageId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.instanceId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.publicDnsName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.publicIp</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.subnetId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.vpcId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.tags.value</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.resourceType</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.actionType</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.api</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.callerType</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.serviceName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.dnsRequestAction.domain</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.blocked</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.connectionDirection</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.localPortDetails.port</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.protocol</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remotePortDetails.port</p>
+   *             </li>
+   *             <li>
+   *                <p>service.additionalInfo.threatListName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.archived</p>
+   *                <p>When this attribute is set to 'true', only archived findings are listed. When it's set
+   *           to 'false', only unarchived findings are listed. When this attribute is not set, all
+   *           existing findings are listed.</p>
+   *             </li>
+   *             <li>
+   *                <p>service.resourceRole</p>
+   *             </li>
+   *             <li>
+   *                <p>severity</p>
+   *             </li>
+   *             <li>
+   *                <p>type</p>
+   *             </li>
+   *             <li>
+   *                <p>updatedAt</p>
+   *                <p>Type: Timestamp in Unix Epoch millisecond format: 1486685375000</p>
+   *             </li>
+   *          </ul>
+   */
+  FindingCriteria?: FindingCriteria;
+
+  /**
+   * @public
+   * <p>Represents the criteria used for sorting findings.</p>
+   */
+  SortCriteria?: SortCriteria;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsResponse {
+  /**
+   * @public
+   * <p>The IDs of the findings that you're listing.</p>
+   */
+  FindingIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsRequest {
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
 
 /**
  * @public

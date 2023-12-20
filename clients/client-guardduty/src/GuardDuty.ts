@@ -165,6 +165,11 @@ import {
 } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetOrganizationStatisticsCommand,
+  GetOrganizationStatisticsCommandInput,
+  GetOrganizationStatisticsCommandOutput,
+} from "./commands/GetOrganizationStatisticsCommand";
+import {
   GetRemainingFreeTrialDaysCommand,
   GetRemainingFreeTrialDaysCommandInput,
   GetRemainingFreeTrialDaysCommandOutput,
@@ -335,6 +340,7 @@ const commands = {
   GetMasterAccountCommand,
   GetMemberDetectorsCommand,
   GetMembersCommand,
+  GetOrganizationStatisticsCommand,
   GetRemainingFreeTrialDaysCommand,
   GetThreatIntelSetCommand,
   GetUsageStatisticsCommand,
@@ -937,6 +943,23 @@ export interface GuardDuty {
     args: GetMembersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMembersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetOrganizationStatisticsCommand}
+   */
+  getOrganizationStatistics(
+    args: GetOrganizationStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOrganizationStatisticsCommandOutput>;
+  getOrganizationStatistics(
+    args: GetOrganizationStatisticsCommandInput,
+    cb: (err: any, data?: GetOrganizationStatisticsCommandOutput) => void
+  ): void;
+  getOrganizationStatistics(
+    args: GetOrganizationStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOrganizationStatisticsCommandOutput) => void
   ): void;
 
   /**

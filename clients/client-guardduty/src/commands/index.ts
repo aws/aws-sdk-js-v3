@@ -37,6 +37,7 @@ export * from "./GetMalwareScanSettingsCommand";
 export * from "./GetMasterAccountCommand";
 export * from "./GetMemberDetectorsCommand";
 export * from "./GetMembersCommand";
+export * from "./GetOrganizationStatisticsCommand";
 export * from "./GetRemainingFreeTrialDaysCommand";
 export * from "./GetThreatIntelSetCommand";
 export * from "./GetUsageStatisticsCommand";

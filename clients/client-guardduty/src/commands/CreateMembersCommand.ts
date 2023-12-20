@@ -44,6 +44,11 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *       the added member accounts, with the exception of the
  *       organization delegated administrator account. A delegated administrator must enable GuardDuty
  *       prior to being added as a member.</p>
+ *          <p>When you use CreateMembers as an Organizations delegated
+ *       administrator, GuardDuty applies your organization's auto-enable settings to the member
+ *       accounts in this request, irrespective of the accounts being new or existing members. For
+ *       more information about the existing auto-enable settings for your organization, see
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html">DescribeOrganizationConfiguration</a>.</p>
  *          <p>If you are adding accounts by invitation, before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>, use
  *       <code>CreateMembers</code> after GuardDuty has been enabled in potential member accounts.</p>
  *          <p>If you disassociate a member from a GuardDuty

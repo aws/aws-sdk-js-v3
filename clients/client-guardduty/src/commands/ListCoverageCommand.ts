@@ -39,8 +39,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @public
  * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
  *       retrieve all resources associated with the active member accounts in your organization.</p>
- *          <p>Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent running on
- *       their EKS nodes.</p>
+ *          <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on
+ *       their resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

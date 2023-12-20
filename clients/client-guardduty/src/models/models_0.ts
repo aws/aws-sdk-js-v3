@@ -1677,7 +1677,8 @@ export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType
  * <note>
  *             <p>This API is also used when you use GuardDuty Runtime Monitoring
  *       for your Amazon EC2 instances (currently in preview
- *       release) and is subject to change.</p>
+ *       release) and is subject to change. The use of this API is subject to Section 2 of the
+ *       <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> ("Betas and Previews").</p>
  *          </note>
  *          <p>Contains information about the Amazon EC2 instance runtime
  *     coverage details.</p>
@@ -1724,7 +1725,7 @@ export interface CoverageEc2InstanceDetails {
    *          </ul>
    *          <note>
    *             <p>The <code>DISABLED</code> status doesn't apply to Amazon
-   *     EC2 instances and Amazon EKS clusters that run on Amazon EC2 instances.</p>
+   *     EC2 instances and Amazon EKS clusters.</p>
    *          </note>
    */
   ManagementType?: ManagementType;
@@ -1732,13 +1733,13 @@ export interface CoverageEc2InstanceDetails {
 
 /**
  * @public
- * <p>Contains information about AWS Fargate details associated with
+ * <p>Contains information about Amazon Web Services Fargate details associated with
  *       an Amazon ECS cluster.</p>
  */
 export interface FargateDetails {
   /**
    * @public
-   * <p>Runtime coverage issues identified for the resource running on AWS Fargate.</p>
+   * <p>Runtime coverage issues identified for the resource running on Amazon Web Services Fargate.</p>
    */
   Issues?: string[];
 
@@ -1752,14 +1753,12 @@ export interface FargateDetails {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the GuardDuty
-   *         security agent updates for this resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>DISABLED</code> indicates that the deployment of the GuardDuty security agent is disabled for this resource.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <code>MANUAL</code> status doesn't apply to the Amazon Web Services Fargate (Amazon ECS only) woprkloads.</p>
+   *          </note>
    */
   ManagementType?: ManagementType;
 }
@@ -1941,7 +1940,8 @@ export interface CoverageResourceDetails {
    * <note>
    *             <p>This API is also used when you use GuardDuty Runtime Monitoring
    *       for your Amazon EC2 instances (currently in preview
-   *       release) and is subject to change.</p>
+   *       release) and is subject to change. The use of this API is subject to Section 2 of the
+   *       <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> ("Betas and Previews").</p>
    *          </note>
    *          <p>Information about the Amazon EC2 instance assessed
    *       for runtime coverage.</p>
@@ -6955,6 +6955,130 @@ export interface GetMembersResponse {
 
 /**
  * @public
+ * <p>Information about the coverage
+ *       statistic for the additional
+ *     configuration of the feature.</p>
+ */
+export interface OrganizationFeatureStatisticsAdditionalConfiguration {
+  /**
+   * @public
+   * <p>Name of the additional configuration within a feature.</p>
+   */
+  Name?: OrgFeatureAdditionalConfiguration;
+
+  /**
+   * @public
+   * <p>Total number of accounts that have enabled the additional
+   *       configuration.</p>
+   */
+  EnabledAccountsCount?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the number of accounts
+ *       that have enabled a specific feature.</p>
+ */
+export interface OrganizationFeatureStatistics {
+  /**
+   * @public
+   * <p>Name of the feature.</p>
+   */
+  Name?: OrgFeature;
+
+  /**
+   * @public
+   * <p>Total number of accounts that have enabled a specific
+   *       feature.</p>
+   */
+  EnabledAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Name of the additional configuration.</p>
+   */
+  AdditionalConfiguration?: OrganizationFeatureStatisticsAdditionalConfiguration[];
+}
+
+/**
+ * @public
+ * <p>Information about the coverage statistics of the
+ *       features for the entire
+ *       Amazon Web Services organization.</p>
+ *          <p>When you create a new Amazon Web Services organization, it might
+ *       take up to 24 hours to
+ *       generate the statistics summary for this organization.</p>
+ */
+export interface OrganizationStatistics {
+  /**
+   * @public
+   * <p>Total number of accounts in your Amazon Web Services organization.</p>
+   */
+  TotalAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Total number of accounts in your Amazon Web Services organization
+   *       that are associated with GuardDuty.</p>
+   */
+  MemberAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Total number of active accounts in your Amazon Web Services
+   *       organization that are associated with GuardDuty.</p>
+   */
+  ActiveAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Total number of accounts that have enabled GuardDuty.</p>
+   */
+  EnabledAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Retrieves the coverage
+   *       statistics for each feature.</p>
+   */
+  CountByFeature?: OrganizationFeatureStatistics[];
+}
+
+/**
+ * @public
+ * <p>Information about GuardDuty coverage statistics for members
+ *       in your Amazon Web Services organization.</p>
+ */
+export interface OrganizationDetails {
+  /**
+   * @public
+   * <p>The timestamp at which the organization statistics
+   *       was last updated. This is in
+   *       UTC format.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Information about the GuardDuty coverage statistics
+   *       for members in your Amazon Web Services organization.</p>
+   */
+  OrganizationStatistics?: OrganizationStatistics;
+}
+
+/**
+ * @public
+ */
+export interface GetOrganizationStatisticsResponse {
+  /**
+   * @public
+   * <p>Information about the statistics report for your organization.</p>
+   */
+  OrganizationDetails?: OrganizationDetails;
+}
+
+/**
+ * @public
  */
 export interface GetRemainingFreeTrialDaysRequest {
   /**
@@ -7126,6 +7250,7 @@ export const UsageStatisticType = {
   SUM_BY_DATA_SOURCE: "SUM_BY_DATA_SOURCE",
   SUM_BY_FEATURES: "SUM_BY_FEATURES",
   SUM_BY_RESOURCE: "SUM_BY_RESOURCE",
+  TOP_ACCOUNTS_BY_FEATURE: "TOP_ACCOUNTS_BY_FEATURE",
   TOP_RESOURCES: "TOP_RESOURCES",
 } as const;
 
@@ -7272,6 +7397,47 @@ export interface UsageResourceResult {
 
 /**
  * @public
+ * <p>Contains information on the total of usage based on the topmost 50
+ *       account IDs.</p>
+ */
+export interface UsageTopAccountResult {
+  /**
+   * @public
+   * <p>The unique account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+   */
+  Total?: Total;
+}
+
+/**
+ * @public
+ * <p>Information about the usage statistics, calculated
+ *       by top accounts by feature.</p>
+ */
+export interface UsageTopAccountsResult {
+  /**
+   * @public
+   * <p>Features by which you can generate the usage statistics.</p>
+   *          <p>
+   *             <code>RDS_LOGIN_EVENTS</code> is currently not supported
+   *       with <code>topAccountsByFeature</code>.</p>
+   */
+  Feature?: UsageFeature;
+
+  /**
+   * @public
+   * <p>The accounts that contributed to the total usage cost.</p>
+   */
+  Accounts?: UsageTopAccountResult[];
+}
+
+/**
+ * @public
  * <p>Contains the result of GuardDuty usage. If a UsageStatisticType is provided the result for
  *       other types will be null. </p>
  */
@@ -7281,6 +7447,14 @@ export interface UsageStatistics {
    * <p>The usage statistic sum organized by account ID.</p>
    */
   SumByAccount?: UsageAccountResult[];
+
+  /**
+   * @public
+   * <p>Lists the top 50 accounts by feature that have generated the most
+   *       GuardDuty usage, in the order from most to least expensive.</p>
+   *          <p>Currently, this doesn't support <code>RDS_LOGIN_EVENTS</code>.</p>
+   */
+  TopAccountsByFeature?: UsageTopAccountsResult[];
 
   /**
    * @public
@@ -7424,322 +7598,6 @@ export interface ListCoverageResponse {
    * @public
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDetectorsRequest {
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDetectorsResponse {
-  /**
-   * @public
-   * <p>A list of detector IDs.</p>
-   */
-  DetectorIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFiltersRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector that the filter is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFiltersResponse {
-  /**
-   * @public
-   * <p>A list of filter names.</p>
-   */
-  FilterNames: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingsRequest {
-  /**
-   * @public
-   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
-   *       list.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>Represents the criteria used for querying findings. Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>JSON field name</p>
-   *             </li>
-   *             <li>
-   *                <p>accountId</p>
-   *             </li>
-   *             <li>
-   *                <p>region</p>
-   *             </li>
-   *             <li>
-   *                <p>confidence</p>
-   *             </li>
-   *             <li>
-   *                <p>id</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.accessKeyId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.principalId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.userName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.userType</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.iamInstanceProfile.id</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.imageId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.instanceId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.publicDnsName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.publicIp</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.subnetId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.vpcId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.value</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.resourceType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.actionType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.api</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.callerType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.serviceName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.dnsRequestAction.domain</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.blocked</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.connectionDirection</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.localPortDetails.port</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.protocol</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remotePortDetails.port</p>
-   *             </li>
-   *             <li>
-   *                <p>service.additionalInfo.threatListName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.archived</p>
-   *                <p>When this attribute is set to 'true', only archived findings are listed. When it's set
-   *           to 'false', only unarchived findings are listed. When this attribute is not set, all
-   *           existing findings are listed.</p>
-   *             </li>
-   *             <li>
-   *                <p>service.resourceRole</p>
-   *             </li>
-   *             <li>
-   *                <p>severity</p>
-   *             </li>
-   *             <li>
-   *                <p>type</p>
-   *             </li>
-   *             <li>
-   *                <p>updatedAt</p>
-   *                <p>Type: Timestamp in Unix Epoch millisecond format: 1486685375000</p>
-   *             </li>
-   *          </ul>
-   */
-  FindingCriteria?: FindingCriteria;
-
-  /**
-   * @public
-   * <p>Represents the criteria used for sorting findings.</p>
-   */
-  SortCriteria?: SortCriteria;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingsResponse {
-  /**
-   * @public
-   * <p>The IDs of the findings that you're listing.</p>
-   */
-  FindingIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsRequest {
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
    */
   NextToken?: string;
 }
