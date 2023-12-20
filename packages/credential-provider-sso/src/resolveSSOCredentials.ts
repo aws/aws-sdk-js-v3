@@ -9,7 +9,7 @@ import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
 /**
- * @private
+ * @internal
  */
 export const resolveSSOCredentials = async ({
   ssoStartUrl,
@@ -67,9 +67,13 @@ export const resolveSSOCredentials = async ({
   }
 
   const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration } = {} } = ssoResp;
+  // TODO(credentialScope): Extract from ssoResp object with other credential fields
+  // TODO(credentialScope): when this field becomes defined on the shape.
+  const credentialScope = (ssoResp?.roleCredentials as any)?.credentialScope;
+
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
     throw new CredentialsProviderError("SSO returns an invalid temporary credential.", SHOULD_FAIL_CREDENTIAL_CHAIN);
   }
 
-  return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration) };
+  return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration), credentialScope };
 };
