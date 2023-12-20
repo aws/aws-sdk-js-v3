@@ -85,15 +85,15 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
                     "eventStreamPayloadHandlerProvider", writer -> {
                             writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
                             writer.addImport("eventStreamPayloadHandlerProvider", "eventStreamPayloadHandlerProvider",
-                                AwsDependency.MIDDLEWARE_WEBSOCKET.packageName);
+                                AwsDependency.MIDDLEWARE_WEBSOCKET);
                             writer.write("eventStreamPayloadHandlerProvider");
                     },
                     "requestHandler", writer -> {
                             writer.addImport("FetchHttpHandler", "HttpRequestHandler",
-                                TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER.packageName);
+                                TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
                             writer.addDependency(TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
                             writer.addImport("WebSocketFetchHandler", "WebSocketRequestHandler",
-                                AwsDependency.MIDDLEWARE_WEBSOCKET.packageName);
+                                AwsDependency.MIDDLEWARE_WEBSOCKET);
                             writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
                             writer.write("new WebSocketRequestHandler(defaultConfigProvider, "
                                     + "new HttpRequestHandler(defaultConfigProvider))");

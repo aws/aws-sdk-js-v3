@@ -65,7 +65,7 @@ public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
                 "eventStreamPayloadHandlerProvider", writer -> {
                         writer.addDependency(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
                         writer.addImport("eventStreamPayloadHandler", "eventStreamPayloadHandler",
-                            AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.packageName);
+                            AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE);
                         writer.write("(() => eventStreamPayloadHandler)");
                 });
 
