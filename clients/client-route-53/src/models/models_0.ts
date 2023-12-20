@@ -290,6 +290,7 @@ export const CloudWatchRegion = {
   ap_southeast_3: "ap-southeast-3",
   ap_southeast_4: "ap-southeast-4",
   ca_central_1: "ca-central-1",
+  ca_west_1: "ca-west-1",
   cn_north_1: "cn-north-1",
   cn_northwest_1: "cn-northwest-1",
   eu_central_1: "eu-central-1",
@@ -806,6 +807,7 @@ export const VPCRegion = {
   ap_southeast_3: "ap-southeast-3",
   ap_southeast_4: "ap-southeast-4",
   ca_central_1: "ca-central-1",
+  ca_west_1: "ca-west-1",
   cn_north_1: "cn-north-1",
   eu_central_1: "eu-central-1",
   eu_central_2: "eu-central-2",
@@ -1365,6 +1367,7 @@ export const ResourceRecordSetRegion = {
   ap_southeast_3: "ap-southeast-3",
   ap_southeast_4: "ap-southeast-4",
   ca_central_1: "ca-central-1",
+  ca_west_1: "ca-west-1",
   cn_north_1: "cn-north-1",
   cn_northwest_1: "cn-northwest-1",
   eu_central_1: "eu-central-1",
@@ -1483,10 +1486,6 @@ export interface ResourceRecordSet {
    *                </important>
    *             </li>
    *          </ul>
-   *          <p>You can use the * wildcard as the leftmost label in a domain name, for example,
-   * 				<code>*.example.com</code>. You can't use an * for one of the middle labels, for
-   * 			example, <code>marketing.*.example.com</code>. In addition, the * must replace the
-   * 			entire label; for example, you can't specify <code>prod*.example.com</code>.</p>
    */
   Name: string | undefined;
 
