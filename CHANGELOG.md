@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
+
+
+### Features
+
+* **client-appstream:** This release introduces configurable clipboard, allowing admins to specify the maximum length of text that can be copied by the users from their device to the remote session and vice-versa. ([62b4da5](https://github.com/aws/aws-sdk-js-v3/commit/62b4da59269131ec0e541b93bd46fcd6e8a1f4fd))
+* **client-eks:** Add support for cluster insights, new EKS capability that surfaces potentially upgrade impacting issues. ([864e50e](https://github.com/aws/aws-sdk-js-v3/commit/864e50e8f634bb9d994b85204a403071c4163505))
+* **client-guardduty:** This release 1) introduces a new API: GetOrganizationStatistics , and 2) adds a new UsageStatisticType TOP_ACCOUNTS_BY_FEATURE for GetUsageStatistics API ([bc8a22f](https://github.com/aws/aws-sdk-js-v3/commit/bc8a22fcaccbd6e61dc2740553d062294972a1f5))
+* **client-managedblockchain-query:** Adding Confirmation Status and Execution Status to GetTransaction Response. ([fc9a780](https://github.com/aws/aws-sdk-js-v3/commit/fc9a7807213b39e6302312c6d2ab7dba49b0cec7))
+* **client-mediatailor:** Adds the ability to configure time shifting on MediaTailor channels using the TimeShiftConfiguration field ([3633030](https://github.com/aws/aws-sdk-js-v3/commit/36330308ef24300d6c830aa049ebb7709cd06629))
+* **client-route-53:** Amazon Route 53 now supports the Canada West (Calgary) Region (ca-west-1) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([22ad5eb](https://github.com/aws/aws-sdk-js-v3/commit/22ad5ebfcc88f58b11f621ccf2b893bf357ac65d))
+* codegen for paginator factory ([#5590](https://github.com/aws/aws-sdk-js-v3/issues/5590)) ([e54099b](https://github.com/aws/aws-sdk-js-v3/commit/e54099b7c1eb3b1de5737d5494821b1dae045fca))
+
+
+
+
+
 # [3.477.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.476.0...v3.477.0) (2023-12-19)
 
 
