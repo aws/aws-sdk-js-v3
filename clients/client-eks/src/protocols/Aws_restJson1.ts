@@ -96,6 +96,7 @@ import {
   DescribeIdentityProviderConfigCommandInput,
   DescribeIdentityProviderConfigCommandOutput,
 } from "../commands/DescribeIdentityProviderConfigCommand";
+import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "../commands/DescribeInsightCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "../commands/DescribeNodegroupCommand";
 import {
   DescribePodIdentityAssociationCommandInput,
@@ -130,6 +131,7 @@ import {
   ListIdentityProviderConfigsCommandInput,
   ListIdentityProviderConfigsCommandOutput,
 } from "../commands/ListIdentityProviderConfigsCommand";
+import { ListInsightsCommandInput, ListInsightsCommandOutput } from "../commands/ListInsightsCommand";
 import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "../commands/ListNodegroupsCommand";
 import {
   ListPodIdentityAssociationsCommandInput,
@@ -177,18 +179,26 @@ import {
   Addon,
   AssociatedAccessPolicy,
   BadRequestException,
+  Category,
   ClientException,
+  ClientStat,
   Cluster,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
   ControlPlanePlacementRequest,
   CreateAccessConfigRequest,
+  DeprecationDetail,
   EksAnywhereSubscription,
   EksAnywhereSubscriptionTerm,
   EncryptionConfig,
   FargateProfile,
   FargateProfileSelector,
   IdentityProviderConfig,
+  Insight,
+  InsightCategorySpecificSummary,
+  InsightsFilter,
+  InsightStatusValue,
+  InsightSummary,
   InvalidParameterException,
   InvalidRequestException,
   KubernetesNetworkConfigRequest,
@@ -791,6 +801,23 @@ export const se_DescribeIdentityProviderConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeInsightCommand
+ */
+export const se_DescribeInsightCommand = async (
+  input: DescribeInsightCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/clusters/{clusterName}/insights/{id}");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeNodegroupCommand
  */
 export const se_DescribeNodegroupCommand = async (
@@ -1045,6 +1072,31 @@ export const se_ListIdentityProviderConfigsCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListInsightsCommand
+ */
+export const se_ListInsightsCommand = async (
+  input: ListInsightsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/clusters/{clusterName}/insights");
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2935,6 +2987,62 @@ const de_DescribeIdentityProviderConfigCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeInsightCommand
+ */
+export const de_DescribeInsightCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInsightCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeInsightCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    insight: (_) => de_Insight(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeInsightCommandError
+ */
+const de_DescribeInsightCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInsightCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeNodegroupCommand
  */
 export const de_DescribeNodegroupCommand = async (
@@ -3658,6 +3766,63 @@ const de_ListIdentityProviderConfigsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.eks#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListInsightsCommand
+ */
+export const de_ListInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListInsightsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    insights: (_) => de_InsightSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInsightsCommandError
+ */
+const de_ListInsightsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInsightsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await de_ServerExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4815,6 +4980,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_AccessScope omitted.
 
+// se_CategoryList omitted.
+
 // se_ConnectorConfigRequest omitted.
 
 // se_ControlPlanePlacementRequest omitted.
@@ -4834,6 +5001,10 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 // se_FargateProfileSelectors omitted.
 
 // se_IdentityProviderConfig omitted.
+
+// se_InsightsFilter omitted.
+
+// se_InsightStatusValueList omitted.
 
 // se_KubernetesNetworkConfigRequest omitted.
 
@@ -4906,6 +5077,8 @@ const de_AccessEntry = (output: any, context: __SerdeContext): AccessEntry => {
 
 // de_AccessScope omitted.
 
+// de_AdditionalInfoMap omitted.
+
 /**
  * deserializeAws_restJson1Addon
  */
@@ -4973,6 +5146,29 @@ const de_AssociatedAccessPolicy = (output: any, context: __SerdeContext): Associ
 // de_Certificate omitted.
 
 /**
+ * deserializeAws_restJson1ClientStat
+ */
+const de_ClientStat = (output: any, context: __SerdeContext): ClientStat => {
+  return take(output, {
+    lastRequestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    numberOfRequestsLast30Days: __expectInt32,
+    userAgent: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClientStats
+ */
+const de_ClientStats = (output: any, context: __SerdeContext): ClientStat[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClientStat(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1Cluster
  */
 const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
@@ -5025,6 +5221,31 @@ const de_ConnectorConfigResponse = (output: any, context: __SerdeContext): Conne
 };
 
 // de_ControlPlanePlacementResponse omitted.
+
+/**
+ * deserializeAws_restJson1DeprecationDetail
+ */
+const de_DeprecationDetail = (output: any, context: __SerdeContext): DeprecationDetail => {
+  return take(output, {
+    clientStats: (_: any) => de_ClientStats(_, context),
+    replacedWith: __expectString,
+    startServingReplacementVersion: __expectString,
+    stopServingVersion: __expectString,
+    usage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DeprecationDetails
+ */
+const de_DeprecationDetails = (output: any, context: __SerdeContext): DeprecationDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DeprecationDetail(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1EksAnywhereSubscription
@@ -5098,6 +5319,69 @@ const de_FargateProfile = (output: any, context: __SerdeContext): FargateProfile
 // de_IdentityProviderConfigResponse omitted.
 
 // de_IdentityProviderConfigs omitted.
+
+/**
+ * deserializeAws_restJson1Insight
+ */
+const de_Insight = (output: any, context: __SerdeContext): Insight => {
+  return take(output, {
+    additionalInfo: _json,
+    category: __expectString,
+    categorySpecificSummary: (_: any) => de_InsightCategorySpecificSummary(_, context),
+    description: __expectString,
+    id: __expectString,
+    insightStatus: _json,
+    kubernetesVersion: __expectString,
+    lastRefreshTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastTransitionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    recommendation: __expectString,
+    resources: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InsightCategorySpecificSummary
+ */
+const de_InsightCategorySpecificSummary = (output: any, context: __SerdeContext): InsightCategorySpecificSummary => {
+  return take(output, {
+    deprecationDetails: (_: any) => de_DeprecationDetails(_, context),
+  }) as any;
+};
+
+// de_InsightResourceDetail omitted.
+
+// de_InsightResourceDetails omitted.
+
+// de_InsightStatus omitted.
+
+/**
+ * deserializeAws_restJson1InsightSummaries
+ */
+const de_InsightSummaries = (output: any, context: __SerdeContext): InsightSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InsightSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1InsightSummary
+ */
+const de_InsightSummary = (output: any, context: __SerdeContext): InsightSummary => {
+  return take(output, {
+    category: __expectString,
+    description: __expectString,
+    id: __expectString,
+    insightStatus: _json,
+    kubernetesVersion: __expectString,
+    lastRefreshTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastTransitionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  }) as any;
+};
 
 // de_Issue omitted.
 

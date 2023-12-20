@@ -1355,6 +1355,11 @@ export interface CreateAccessEntryRequest {
    * <p>The ARN of the IAM principal for the <code>AccessEntry</code>. You can specify one ARN for each access entry. You can't specify the
    *             same ARN in more than one access entry. This value can't be changed after access entry
    *             creation.</p>
+   *          <p>The valid principals differ depending on the type of the access entry in the <code>type</code> field.
+   *             The only valid ARN is IAM roles for the types of access entries for nodes: <code></code>
+   *             <code></code>. You can use every IAM principal type for <code>STANDARD</code> access entries.
+   *             You can't use the STS session principal type with access entries because this is a temporary
+   *             principal for each session and not a permanent identity that can be assigned permissions.</p>
    *          <p>
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-users-federation-idp">IAM best practices</a> recommend using IAM roles with
    *             temporary credentials, rather than IAM users with long-term credentials.
@@ -1413,7 +1418,9 @@ export interface CreateAccessEntryRequest {
 
   /**
    * @public
-   * <p>If the <code>principalArn</code> is for an IAM role that's used for
+   * <p>The type of the new access entry. Valid values are <code>Standard</code>,
+   *             <code>FARGATE_LINUX</code>, <code>EC2_LINUX</code>, and <code>EC2_WINDOWS</code>.</p>
+   *          <p>If the <code>principalArn</code> is for an IAM role that's used for
    *             self-managed Amazon EC2 nodes, specify <code>EC2_LINUX</code> or
    *                 <code>EC2_WINDOWS</code>. Amazon EKS grants the necessary permissions to the
    *             node for you. If the <code>principalArn</code> is for any other purpose, specify
@@ -1756,8 +1763,8 @@ export interface Logging {
 export interface ControlPlanePlacementRequest {
   /**
    * @public
-   * <p>The name of the placement group for the Kubernetes control plane instances. This setting
-   *             can't be changed after cluster creation. </p>
+   * <p>The name of the placement group for the Kubernetes control plane instances. This
+   *             setting can't be changed after cluster creation. </p>
    */
   groupName?: string;
 }
@@ -4496,6 +4503,259 @@ export interface DescribeIdentityProviderConfigResponse {
 /**
  * @public
  */
+export interface DescribeInsightRequest {
+  /**
+   * @public
+   * <p>The name of the cluster to describe the insight for.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The identity of the insight to describe.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Category = {
+  UPGRADE_READINESS: "UPGRADE_READINESS",
+} as const;
+
+/**
+ * @public
+ */
+export type Category = (typeof Category)[keyof typeof Category];
+
+/**
+ * @public
+ * <p>Details about  clients using the deprecated resources.</p>
+ */
+export interface ClientStat {
+  /**
+   * @public
+   * <p>The user agent of the Kubernetes client using the deprecated resource.</p>
+   */
+  userAgent?: string;
+
+  /**
+   * @public
+   * <p>The number of requests from the Kubernetes client seen over the last 30 days.</p>
+   */
+  numberOfRequestsLast30Days?: number;
+
+  /**
+   * @public
+   * <p>The timestamp of the last request seen from the Kubernetes client.</p>
+   */
+  lastRequestTime?: Date;
+}
+
+/**
+ * @public
+ * <p>The summary information about deprecated resource usage for an insight check in the
+ *                 <code>UPGRADE_READINESS</code> category.</p>
+ */
+export interface DeprecationDetail {
+  /**
+   * @public
+   * <p>The deprecated version of the resource.</p>
+   */
+  usage?: string;
+
+  /**
+   * @public
+   * <p>The newer version of the resource to migrate to if applicable. </p>
+   */
+  replacedWith?: string;
+
+  /**
+   * @public
+   * <p>The version of the software where the deprecated resource version will stop being served.</p>
+   */
+  stopServingVersion?: string;
+
+  /**
+   * @public
+   * <p>The version of the software where the newer resource version became available to migrate to if applicable.</p>
+   */
+  startServingReplacementVersion?: string;
+
+  /**
+   * @public
+   * <p>Details about Kubernetes clients using the deprecated resources.</p>
+   */
+  clientStats?: ClientStat[];
+}
+
+/**
+ * @public
+ * <p>Summary information that relates to the category of the insight. Currently only
+ *             returned with certain insights having category <code>UPGRADE_READINESS</code>.</p>
+ */
+export interface InsightCategorySpecificSummary {
+  /**
+   * @public
+   * <p>The summary information about deprecated resource usage for an insight check in the
+   *                 <code>UPGRADE_READINESS</code> category.</p>
+   */
+  deprecationDetails?: DeprecationDetail[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightStatusValue = {
+  ERROR: "ERROR",
+  PASSING: "PASSING",
+  UNKNOWN: "UNKNOWN",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightStatusValue = (typeof InsightStatusValue)[keyof typeof InsightStatusValue];
+
+/**
+ * @public
+ * <p>The status of the insight.</p>
+ */
+export interface InsightStatus {
+  /**
+   * @public
+   * <p>The status of the resource.</p>
+   */
+  status?: InsightStatusValue;
+
+  /**
+   * @public
+   * <p>Explanation on the reasoning for the status of the resource. </p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * <p>Returns information about the resource being evaluated.</p>
+ */
+export interface InsightResourceDetail {
+  /**
+   * @public
+   * <p>An object containing more detail on the status of the insight resource.</p>
+   */
+  insightStatus?: InsightStatus;
+
+  /**
+   * @public
+   * <p>The Kubernetes resource URI if applicable.</p>
+   */
+  kubernetesResourceUri?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) if applicable.</p>
+   */
+  arn?: string;
+}
+
+/**
+ * @public
+ * <p>A check that provides recommendations to remedy potential upgrade-impacting issues.</p>
+ */
+export interface Insight {
+  /**
+   * @public
+   * <p>The ID of the insight.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The name of the insight.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The category of the insight.</p>
+   */
+  category?: Category;
+
+  /**
+   * @public
+   * <p>The Kubernetes minor version associated with an insight if applicable.</p>
+   */
+  kubernetesVersion?: string;
+
+  /**
+   * @public
+   * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the cluster.</p>
+   */
+  lastRefreshTime?: Date;
+
+  /**
+   * @public
+   * <p>The time the status of the insight last changed.</p>
+   */
+  lastTransitionTime?: Date;
+
+  /**
+   * @public
+   * <p>The description of the insight which includes alert criteria, remediation recommendation, and additional resources (contains Markdown).</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>An object containing more detail on the status of the insight resource.</p>
+   */
+  insightStatus?: InsightStatus;
+
+  /**
+   * @public
+   * <p>A summary of how to remediate the finding of this insight if applicable. </p>
+   */
+  recommendation?: string;
+
+  /**
+   * @public
+   * <p>Links to sources that provide additional context on the insight.</p>
+   */
+  additionalInfo?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The details about each resource listed in the insight check result.</p>
+   */
+  resources?: InsightResourceDetail[];
+
+  /**
+   * @public
+   * <p>Summary information that relates to the category of the insight. Currently only
+   *             returned with certain insights having category <code>UPGRADE_READINESS</code>.</p>
+   */
+  categorySpecificSummary?: InsightCategorySpecificSummary;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInsightResponse {
+  /**
+   * @public
+   * <p>The full description of the insight.</p>
+   */
+  insight?: Insight;
+}
+
+/**
+ * @public
+ */
 export interface DescribeNodegroupRequest {
   /**
    * @public
@@ -5153,8 +5413,152 @@ export interface ListIdentityProviderConfigsResponse {
   /**
    * @public
    * <p>The <code>nextToken</code> value to include in a future
-   *             <code>ListIdentityProviderConfigsResponse</code> request. When the results of a
-   *             <code>ListIdentityProviderConfigsResponse</code> request exceed
+   *                 <code>ListIdentityProviderConfigsResponse</code> request. When the results of a
+   *                 <code>ListIdentityProviderConfigsResponse</code> request exceed
+   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is used only to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The criteria to use for the insights.</p>
+ */
+export interface InsightsFilter {
+  /**
+   * @public
+   * <p>The categories to use to filter insights.</p>
+   */
+  categories?: Category[];
+
+  /**
+   * @public
+   * <p>The Kubernetes versions to use to filter the insights.</p>
+   */
+  kubernetesVersions?: string[];
+
+  /**
+   * @public
+   * <p>The statuses to use to filter the insights. </p>
+   */
+  statuses?: InsightStatusValue[];
+}
+
+/**
+ * @public
+ */
+export interface ListInsightsRequest {
+  /**
+   * @public
+   * <p>The name of the Amazon EKS cluster associated with the insights.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * @public
+   * <p>The criteria to filter your list of insights for your cluster. You can filter which insights are returned by category, associated Kubernetes version, and status.</p>
+   */
+  filter?: InsightsFilter;
+
+  /**
+   * @public
+   * <p>The maximum number of identity provider configurations returned by
+   *                 <code>ListInsights</code> in paginated output. When you use this parameter,
+   *                 <code>ListInsights</code> returns only <code>maxResults</code> results in a single
+   *             page along with a <code>nextToken</code> response element. You can see the remaining
+   *             results of the initial request by sending another <code>ListInsights</code> request with
+   *             the returned <code>nextToken</code> value. This value can be between 1
+   *             and 100. If you don't use this parameter, <code>ListInsights</code>
+   *             returns up to 100 results and a <code>nextToken</code> value, if
+   *             applicable.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The <code>nextToken</code> value returned from a previous paginated <code>ListInsights</code>
+   *             request. When the results of a <code>ListInsights</code> request exceed
+   *                 <code>maxResults</code>, you can use this value to retrieve the next page of
+   *             results. This value is <code>null</code> when there are no more results to
+   *             return.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The summarized description of the insight.</p>
+ */
+export interface InsightSummary {
+  /**
+   * @public
+   * <p>The ID of the insight.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The name of the insight.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The category of the insight.</p>
+   */
+  category?: Category;
+
+  /**
+   * @public
+   * <p>The Kubernetes minor version associated with an insight if applicable. </p>
+   */
+  kubernetesVersion?: string;
+
+  /**
+   * @public
+   * <p>The time Amazon EKS last successfully completed a refresh of this insight check on the cluster.</p>
+   */
+  lastRefreshTime?: Date;
+
+  /**
+   * @public
+   * <p>The time the status of the insight last changed.</p>
+   */
+  lastTransitionTime?: Date;
+
+  /**
+   * @public
+   * <p>The description of the insight which includes alert criteria, remediation recommendation, and additional resources (contains Markdown).</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>An object containing more detail on the status of the insight.</p>
+   */
+  insightStatus?: InsightStatus;
+}
+
+/**
+ * @public
+ */
+export interface ListInsightsResponse {
+  /**
+   * @public
+   * <p>The returned list of insights.</p>
+   */
+  insights?: InsightSummary[];
+
+  /**
+   * @public
+   * <p>The <code>nextToken</code> value to include in a future <code>ListInsights</code>
+   *             request. When the results of a <code>ListInsights</code> request exceed
    *             <code>maxResults</code>, you can use this value to retrieve the next page of
    *             results. This value is <code>null</code> when there are no more results to
    *             return.</p>

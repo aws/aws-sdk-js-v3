@@ -125,6 +125,11 @@ import {
   DescribeIdentityProviderConfigCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigCommand";
 import {
+  DescribeInsightCommand,
+  DescribeInsightCommandInput,
+  DescribeInsightCommandOutput,
+} from "./commands/DescribeInsightCommand";
+import {
   DescribeNodegroupCommand,
   DescribeNodegroupCommandInput,
   DescribeNodegroupCommandOutput,
@@ -185,6 +190,11 @@ import {
   ListIdentityProviderConfigsCommandInput,
   ListIdentityProviderConfigsCommandOutput,
 } from "./commands/ListIdentityProviderConfigsCommand";
+import {
+  ListInsightsCommand,
+  ListInsightsCommandInput,
+  ListInsightsCommandOutput,
+} from "./commands/ListInsightsCommand";
 import {
   ListNodegroupsCommand,
   ListNodegroupsCommandInput,
@@ -277,6 +287,7 @@ const commands = {
   DescribeEksAnywhereSubscriptionCommand,
   DescribeFargateProfileCommand,
   DescribeIdentityProviderConfigCommand,
+  DescribeInsightCommand,
   DescribeNodegroupCommand,
   DescribePodIdentityAssociationCommand,
   DescribeUpdateCommand,
@@ -290,6 +301,7 @@ const commands = {
   ListEksAnywhereSubscriptionsCommand,
   ListFargateProfilesCommand,
   ListIdentityProviderConfigsCommand,
+  ListInsightsCommand,
   ListNodegroupsCommand,
   ListPodIdentityAssociationsCommand,
   ListTagsForResourceCommand,
@@ -712,6 +724,20 @@ export interface EKS {
   ): void;
 
   /**
+   * @see {@link DescribeInsightCommand}
+   */
+  describeInsight(
+    args: DescribeInsightCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInsightCommandOutput>;
+  describeInsight(args: DescribeInsightCommandInput, cb: (err: any, data?: DescribeInsightCommandOutput) => void): void;
+  describeInsight(
+    args: DescribeInsightCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInsightCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeNodegroupCommand}
    */
   describeNodegroup(
@@ -915,6 +941,17 @@ export interface EKS {
     args: ListIdentityProviderConfigsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIdentityProviderConfigsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInsightsCommand}
+   */
+  listInsights(args: ListInsightsCommandInput, options?: __HttpHandlerOptions): Promise<ListInsightsCommandOutput>;
+  listInsights(args: ListInsightsCommandInput, cb: (err: any, data?: ListInsightsCommandOutput) => void): void;
+  listInsights(
+    args: ListInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInsightsCommandOutput) => void
   ): void;
 
   /**

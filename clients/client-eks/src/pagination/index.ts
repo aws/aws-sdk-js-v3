@@ -9,6 +9,7 @@ export * from "./ListClustersPaginator";
 export * from "./ListEksAnywhereSubscriptionsPaginator";
 export * from "./ListFargateProfilesPaginator";
 export * from "./ListIdentityProviderConfigsPaginator";
+export * from "./ListInsightsPaginator";
 export * from "./ListNodegroupsPaginator";
 export * from "./ListPodIdentityAssociationsPaginator";
 export * from "./ListUpdatesPaginator";

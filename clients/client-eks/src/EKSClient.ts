@@ -119,6 +119,7 @@ import {
   DescribeIdentityProviderConfigCommandInput,
   DescribeIdentityProviderConfigCommandOutput,
 } from "./commands/DescribeIdentityProviderConfigCommand";
+import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand";
 import {
   DescribePodIdentityAssociationCommandInput,
@@ -153,6 +154,7 @@ import {
   ListIdentityProviderConfigsCommandInput,
   ListIdentityProviderConfigsCommandOutput,
 } from "./commands/ListIdentityProviderConfigsCommand";
+import { ListInsightsCommandInput, ListInsightsCommandOutput } from "./commands/ListInsightsCommand";
 import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "./commands/ListNodegroupsCommand";
 import {
   ListPodIdentityAssociationsCommandInput,
@@ -233,6 +235,7 @@ export type ServiceInputTypes =
   | DescribeEksAnywhereSubscriptionCommandInput
   | DescribeFargateProfileCommandInput
   | DescribeIdentityProviderConfigCommandInput
+  | DescribeInsightCommandInput
   | DescribeNodegroupCommandInput
   | DescribePodIdentityAssociationCommandInput
   | DescribeUpdateCommandInput
@@ -246,6 +249,7 @@ export type ServiceInputTypes =
   | ListEksAnywhereSubscriptionsCommandInput
   | ListFargateProfilesCommandInput
   | ListIdentityProviderConfigsCommandInput
+  | ListInsightsCommandInput
   | ListNodegroupsCommandInput
   | ListPodIdentityAssociationsCommandInput
   | ListTagsForResourceCommandInput
@@ -292,6 +296,7 @@ export type ServiceOutputTypes =
   | DescribeEksAnywhereSubscriptionCommandOutput
   | DescribeFargateProfileCommandOutput
   | DescribeIdentityProviderConfigCommandOutput
+  | DescribeInsightCommandOutput
   | DescribeNodegroupCommandOutput
   | DescribePodIdentityAssociationCommandOutput
   | DescribeUpdateCommandOutput
@@ -305,6 +310,7 @@ export type ServiceOutputTypes =
   | ListEksAnywhereSubscriptionsCommandOutput
   | ListFargateProfilesCommandOutput
   | ListIdentityProviderConfigsCommandOutput
+  | ListInsightsCommandOutput
   | ListNodegroupsCommandOutput
   | ListPodIdentityAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
