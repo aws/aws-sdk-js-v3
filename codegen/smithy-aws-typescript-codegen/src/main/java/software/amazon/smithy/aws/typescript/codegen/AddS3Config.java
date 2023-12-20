@@ -146,7 +146,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                 }, "signerConstructor", writer -> {
                     writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
                         .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                            AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
+                            AwsDependency.SIGNATURE_V4_MULTIREGION)
                         .write("SignatureV4MultiRegion");
                 });
             case NODE:
@@ -154,21 +154,21 @@ public final class AddS3Config implements TypeScriptIntegration {
                     "useArnRegion", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
                         .addImport("loadConfig", "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName)
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
                         .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                         .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.packageName)
+                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                         .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
                     },
                     "disableS3ExpressSessionAuth", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
                         .addImport("loadConfig", "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName)
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
                         .addDependency(AwsDependency.S3_MIDDLEWARE)
                         .addImport(
                             "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
                             "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
-                            AwsDependency.S3_MIDDLEWARE.packageName
+                            AwsDependency.S3_MIDDLEWARE
                         )
                         .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS)");
                     }

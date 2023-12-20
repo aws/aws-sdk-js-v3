@@ -44,7 +44,7 @@ public final class AddEventBridgePlugin implements TypeScriptIntegration {
                 return MapUtils.of("signerConstructor", writer -> {
                     writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
                     .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                            AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
+                            AwsDependency.SIGNATURE_V4_MULTIREGION)
                     .write("SignatureV4MultiRegion");
                 });
             default:
