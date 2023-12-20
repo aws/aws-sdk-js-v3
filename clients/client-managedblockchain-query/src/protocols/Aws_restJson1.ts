@@ -1028,9 +1028,11 @@ const de_Transaction = (output: any, context: __SerdeContext): Transaction => {
   return take(output, {
     blockHash: __expectString,
     blockNumber: __expectString,
+    confirmationStatus: __expectString,
     contractAddress: __expectString,
     cumulativeGasUsed: __expectString,
     effectiveGasPrice: __expectString,
+    executionStatus: __expectString,
     from: __expectString,
     gasUsed: __expectString,
     network: __expectString,

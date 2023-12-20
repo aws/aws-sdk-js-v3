@@ -92,7 +92,7 @@ export interface AssetContract {
   /**
    * @public
    * <p>The container for the contract identifier containing its blockchain network
-   *              and address.</p>
+   *        and address.</p>
    */
   contractIdentifier: ContractIdentifier | undefined;
 
@@ -572,6 +572,19 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ConfirmationStatus = {
+  FINAL: "FINAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfirmationStatus = (typeof ConfirmationStatus)[keyof typeof ConfirmationStatus];
+
+/**
+ * @public
  * <p>The contract or wallet address by which to filter the request.</p>
  */
 export interface ContractFilter {
@@ -617,6 +630,20 @@ export interface ContractMetadata {
    */
   decimals?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
 
 /**
  * @public
@@ -825,9 +852,26 @@ export interface Transaction {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The status of the transaction.</p>
+   *          <important>
+   *             <p>This property is deprecated. You must use the <code>confirmationStatus</code>
+   *             and the <code>executionStatus</code> properties to determine if the <code>status</code>
+   *             of the transaction is <code>FINAL</code> or <code>FAILED</code>.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Transactions with a <code>status</code> of <code>FINAL</code> will now have the <code>confirmationStatus</code> set
+   *                to <code>FINAL</code> and the <code>executionStatus</code> set to <code>SUCCEEDED</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Transactions with a <code>status</code> of <code>FAILED</code> will now have the <code>confirmationStatus</code> set
+   *                to <code>FINAL</code> and the <code>executionStatus</code> set to <code>FAILED</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </important>
    */
-  status: QueryTransactionStatus | undefined;
+  status?: QueryTransactionStatus;
 
   /**
    * @public
@@ -895,6 +939,18 @@ export interface Transaction {
    * <p>The unique identifier of the transaction. It is generated whenever a transaction is verified and added to the blockchain.</p>
    */
   transactionId?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether the transaction has reached Finality.</p>
+   */
+  confirmationStatus?: ConfirmationStatus;
+
+  /**
+   * @public
+   * <p>Identifies whether the transaction has succeeded or failed.</p>
+   */
+  executionStatus?: ExecutionStatus;
 }
 
 /**

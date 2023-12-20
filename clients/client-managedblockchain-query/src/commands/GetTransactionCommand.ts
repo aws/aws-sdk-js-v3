@@ -63,7 +63,7 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * //     transactionTimestamp: new Date("TIMESTAMP"), // required
  * //     transactionIndex: Number("long"), // required
  * //     numberOfTransactions: Number("long"), // required
- * //     status: "STRING_VALUE", // required
+ * //     status: "STRING_VALUE",
  * //     to: "STRING_VALUE", // required
  * //     from: "STRING_VALUE",
  * //     contractAddress: "STRING_VALUE",
@@ -75,6 +75,8 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * //     signatureS: "STRING_VALUE",
  * //     transactionFee: "STRING_VALUE",
  * //     transactionId: "STRING_VALUE",
+ * //     confirmationStatus: "STRING_VALUE",
+ * //     executionStatus: "STRING_VALUE",
  * //   },
  * // };
  *
