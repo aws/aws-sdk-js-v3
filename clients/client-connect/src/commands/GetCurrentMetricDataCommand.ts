@@ -58,9 +58,12 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
  *     ],
+ *     RoutingStepExpressions: [ // RoutingExpressions
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION",
  *   ],
  *   CurrentMetrics: [ // CurrentMetrics // required
  *     { // CurrentMetric
@@ -93,6 +96,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
  * //         },
+ * //         RoutingStepExpression: "STRING_VALUE",
  * //       },
  * //       Collections: [ // CurrentMetricDataCollections
  * //         { // CurrentMetricData

@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchQueuesResponse } from "../models/models_1";
-import { SearchQueuesRequest } from "../models/models_2";
+import { SearchQueuesRequest, SearchQueuesResponse } from "../models/models_2";
 import { de_SearchQueuesCommand, se_SearchQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**

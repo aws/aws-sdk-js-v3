@@ -96,6 +96,10 @@ import {
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/AssociateTrafficDistributionGroupUserCommand";
 import {
+  AssociateUserProficienciesCommandInput,
+  AssociateUserProficienciesCommandOutput,
+} from "./commands/AssociateUserProficienciesCommand";
+import {
   BatchAssociateAnalyticsDataSetCommandInput,
   BatchAssociateAnalyticsDataSetCommandOutput,
 } from "./commands/BatchAssociateAnalyticsDataSetCommand";
@@ -133,6 +137,10 @@ import {
   CreatePersistentContactAssociationCommandInput,
   CreatePersistentContactAssociationCommandOutput,
 } from "./commands/CreatePersistentContactAssociationCommand";
+import {
+  CreatePredefinedAttributeCommandInput,
+  CreatePredefinedAttributeCommandOutput,
+} from "./commands/CreatePredefinedAttributeCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "./commands/CreatePromptCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "./commands/CreateQuickConnectCommand";
@@ -185,6 +193,10 @@ import {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
+import {
+  DeletePredefinedAttributeCommandInput,
+  DeletePredefinedAttributeCommandOutput,
+} from "./commands/DeletePredefinedAttributeCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "./commands/DeletePromptCommand";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
@@ -249,6 +261,10 @@ import {
   DescribePhoneNumberCommandInput,
   DescribePhoneNumberCommandOutput,
 } from "./commands/DescribePhoneNumberCommand";
+import {
+  DescribePredefinedAttributeCommandInput,
+  DescribePredefinedAttributeCommandOutput,
+} from "./commands/DescribePredefinedAttributeCommand";
 import { DescribePromptCommandInput, DescribePromptCommandOutput } from "./commands/DescribePromptCommand";
 import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "./commands/DescribeQueueCommand";
 import {
@@ -318,6 +334,10 @@ import {
   DisassociateTrafficDistributionGroupUserCommandInput,
   DisassociateTrafficDistributionGroupUserCommandOutput,
 } from "./commands/DisassociateTrafficDistributionGroupUserCommand";
+import {
+  DisassociateUserProficienciesCommandInput,
+  DisassociateUserProficienciesCommandOutput,
+} from "./commands/DisassociateUserProficienciesCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "./commands/DismissUserContactCommand";
 import {
   GetContactAttributesCommandInput,
@@ -402,6 +422,10 @@ import {
 import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "./commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
 import { ListPhoneNumbersV2CommandInput, ListPhoneNumbersV2CommandOutput } from "./commands/ListPhoneNumbersV2Command";
+import {
+  ListPredefinedAttributesCommandInput,
+  ListPredefinedAttributesCommandOutput,
+} from "./commands/ListPredefinedAttributesCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import {
   ListQueueQuickConnectsCommandInput,
@@ -453,6 +477,10 @@ import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
+import {
+  ListUserProficienciesCommandInput,
+  ListUserProficienciesCommandOutput,
+} from "./commands/ListUserProficienciesCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListViewsCommandInput, ListViewsCommandOutput } from "./commands/ListViewsCommand";
 import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "./commands/ListViewVersionsCommand";
@@ -470,10 +498,15 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
 } from "./commands/SearchHoursOfOperationsCommand";
+import {
+  SearchPredefinedAttributesCommandInput,
+  SearchPredefinedAttributesCommandOutput,
+} from "./commands/SearchPredefinedAttributesCommand";
 import { SearchPromptsCommandInput, SearchPromptsCommandOutput } from "./commands/SearchPromptsCommand";
 import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "./commands/SearchQueuesCommand";
 import {
@@ -567,6 +600,10 @@ import {
   UpdateContactFlowNameCommandOutput,
 } from "./commands/UpdateContactFlowNameCommand";
 import {
+  UpdateContactRoutingDataCommandInput,
+  UpdateContactRoutingDataCommandOutput,
+} from "./commands/UpdateContactRoutingDataCommand";
+import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
@@ -595,6 +632,10 @@ import {
   UpdatePhoneNumberMetadataCommandInput,
   UpdatePhoneNumberMetadataCommandOutput,
 } from "./commands/UpdatePhoneNumberMetadataCommand";
+import {
+  UpdatePredefinedAttributeCommandInput,
+  UpdatePredefinedAttributeCommandOutput,
+} from "./commands/UpdatePredefinedAttributeCommand";
 import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "./commands/UpdatePromptCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
@@ -669,6 +710,10 @@ import {
   UpdateUserPhoneConfigCommandOutput,
 } from "./commands/UpdateUserPhoneConfigCommand";
 import {
+  UpdateUserProficienciesCommandInput,
+  UpdateUserProficienciesCommandOutput,
+} from "./commands/UpdateUserProficienciesCommand";
+import {
   UpdateUserRoutingProfileCommandInput,
   UpdateUserRoutingProfileCommandOutput,
 } from "./commands/UpdateUserRoutingProfileCommand";
@@ -707,6 +752,7 @@ export type ServiceInputTypes =
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
   | AssociateTrafficDistributionGroupUserCommandInput
+  | AssociateUserProficienciesCommandInput
   | BatchAssociateAnalyticsDataSetCommandInput
   | BatchDisassociateAnalyticsDataSetCommandInput
   | BatchGetFlowAssociationCommandInput
@@ -721,6 +767,7 @@ export type ServiceInputTypes =
   | CreateIntegrationAssociationCommandInput
   | CreateParticipantCommandInput
   | CreatePersistentContactAssociationCommandInput
+  | CreatePredefinedAttributeCommandInput
   | CreatePromptCommandInput
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
@@ -743,6 +790,7 @@ export type ServiceInputTypes =
   | DeleteHoursOfOperationCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
+  | DeletePredefinedAttributeCommandInput
   | DeletePromptCommandInput
   | DeleteQueueCommandInput
   | DeleteQuickConnectCommandInput
@@ -768,6 +816,7 @@ export type ServiceInputTypes =
   | DescribeInstanceCommandInput
   | DescribeInstanceStorageConfigCommandInput
   | DescribePhoneNumberCommandInput
+  | DescribePredefinedAttributeCommandInput
   | DescribePromptCommandInput
   | DescribeQueueCommandInput
   | DescribeQuickConnectCommandInput
@@ -792,6 +841,7 @@ export type ServiceInputTypes =
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
   | DisassociateTrafficDistributionGroupUserCommandInput
+  | DisassociateUserProficienciesCommandInput
   | DismissUserContactCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
@@ -825,6 +875,7 @@ export type ServiceInputTypes =
   | ListLexBotsCommandInput
   | ListPhoneNumbersCommandInput
   | ListPhoneNumbersV2CommandInput
+  | ListPredefinedAttributesCommandInput
   | ListPromptsCommandInput
   | ListQueueQuickConnectsCommandInput
   | ListQueuesCommandInput
@@ -843,6 +894,7 @@ export type ServiceInputTypes =
   | ListTrafficDistributionGroupsCommandInput
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
+  | ListUserProficienciesCommandInput
   | ListUsersCommandInput
   | ListViewVersionsCommandInput
   | ListViewsCommandInput
@@ -854,7 +906,9 @@ export type ServiceInputTypes =
   | ResumeContactCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchContactsCommandInput
   | SearchHoursOfOperationsCommandInput
+  | SearchPredefinedAttributesCommandInput
   | SearchPromptsCommandInput
   | SearchQueuesCommandInput
   | SearchQuickConnectsCommandInput
@@ -890,6 +944,7 @@ export type ServiceInputTypes =
   | UpdateContactFlowModuleContentCommandInput
   | UpdateContactFlowModuleMetadataCommandInput
   | UpdateContactFlowNameCommandInput
+  | UpdateContactRoutingDataCommandInput
   | UpdateContactScheduleCommandInput
   | UpdateEvaluationFormCommandInput
   | UpdateHoursOfOperationCommandInput
@@ -898,6 +953,7 @@ export type ServiceInputTypes =
   | UpdateParticipantRoleConfigCommandInput
   | UpdatePhoneNumberCommandInput
   | UpdatePhoneNumberMetadataCommandInput
+  | UpdatePredefinedAttributeCommandInput
   | UpdatePromptCommandInput
   | UpdateQueueHoursOfOperationCommandInput
   | UpdateQueueMaxContactsCommandInput
@@ -920,6 +976,7 @@ export type ServiceInputTypes =
   | UpdateUserHierarchyStructureCommandInput
   | UpdateUserIdentityInfoCommandInput
   | UpdateUserPhoneConfigCommandInput
+  | UpdateUserProficienciesCommandInput
   | UpdateUserRoutingProfileCommandInput
   | UpdateUserSecurityProfilesCommandInput
   | UpdateViewContentCommandInput
@@ -943,6 +1000,7 @@ export type ServiceOutputTypes =
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
   | AssociateTrafficDistributionGroupUserCommandOutput
+  | AssociateUserProficienciesCommandOutput
   | BatchAssociateAnalyticsDataSetCommandOutput
   | BatchDisassociateAnalyticsDataSetCommandOutput
   | BatchGetFlowAssociationCommandOutput
@@ -957,6 +1015,7 @@ export type ServiceOutputTypes =
   | CreateIntegrationAssociationCommandOutput
   | CreateParticipantCommandOutput
   | CreatePersistentContactAssociationCommandOutput
+  | CreatePredefinedAttributeCommandOutput
   | CreatePromptCommandOutput
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput
@@ -979,6 +1038,7 @@ export type ServiceOutputTypes =
   | DeleteHoursOfOperationCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
+  | DeletePredefinedAttributeCommandOutput
   | DeletePromptCommandOutput
   | DeleteQueueCommandOutput
   | DeleteQuickConnectCommandOutput
@@ -1004,6 +1064,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceCommandOutput
   | DescribeInstanceStorageConfigCommandOutput
   | DescribePhoneNumberCommandOutput
+  | DescribePredefinedAttributeCommandOutput
   | DescribePromptCommandOutput
   | DescribeQueueCommandOutput
   | DescribeQuickConnectCommandOutput
@@ -1028,6 +1089,7 @@ export type ServiceOutputTypes =
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
   | DisassociateTrafficDistributionGroupUserCommandOutput
+  | DisassociateUserProficienciesCommandOutput
   | DismissUserContactCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
@@ -1061,6 +1123,7 @@ export type ServiceOutputTypes =
   | ListLexBotsCommandOutput
   | ListPhoneNumbersCommandOutput
   | ListPhoneNumbersV2CommandOutput
+  | ListPredefinedAttributesCommandOutput
   | ListPromptsCommandOutput
   | ListQueueQuickConnectsCommandOutput
   | ListQueuesCommandOutput
@@ -1079,6 +1142,7 @@ export type ServiceOutputTypes =
   | ListTrafficDistributionGroupsCommandOutput
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
+  | ListUserProficienciesCommandOutput
   | ListUsersCommandOutput
   | ListViewVersionsCommandOutput
   | ListViewsCommandOutput
@@ -1090,7 +1154,9 @@ export type ServiceOutputTypes =
   | ResumeContactCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchContactsCommandOutput
   | SearchHoursOfOperationsCommandOutput
+  | SearchPredefinedAttributesCommandOutput
   | SearchPromptsCommandOutput
   | SearchQueuesCommandOutput
   | SearchQuickConnectsCommandOutput
@@ -1126,6 +1192,7 @@ export type ServiceOutputTypes =
   | UpdateContactFlowModuleContentCommandOutput
   | UpdateContactFlowModuleMetadataCommandOutput
   | UpdateContactFlowNameCommandOutput
+  | UpdateContactRoutingDataCommandOutput
   | UpdateContactScheduleCommandOutput
   | UpdateEvaluationFormCommandOutput
   | UpdateHoursOfOperationCommandOutput
@@ -1134,6 +1201,7 @@ export type ServiceOutputTypes =
   | UpdateParticipantRoleConfigCommandOutput
   | UpdatePhoneNumberCommandOutput
   | UpdatePhoneNumberMetadataCommandOutput
+  | UpdatePredefinedAttributeCommandOutput
   | UpdatePromptCommandOutput
   | UpdateQueueHoursOfOperationCommandOutput
   | UpdateQueueMaxContactsCommandOutput
@@ -1156,6 +1224,7 @@ export type ServiceOutputTypes =
   | UpdateUserHierarchyStructureCommandOutput
   | UpdateUserIdentityInfoCommandOutput
   | UpdateUserPhoneConfigCommandOutput
+  | UpdateUserProficienciesCommandOutput
   | UpdateUserRoutingProfileCommandOutput
   | UpdateUserSecurityProfilesCommandOutput
   | UpdateViewContentCommandOutput

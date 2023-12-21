@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { PauseContactRequest, PauseContactResponse } from "../models/models_1";
-import { de_PauseContactCommand, se_PauseContactCommand } from "../protocols/Aws_restJson1";
+import { DisassociateUserProficienciesRequest } from "../models/models_1";
+import {
+  de_DisassociateUserProficienciesCommand,
+  se_DisassociateUserProficienciesCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,48 +28,46 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link PauseContactCommand}.
+ * The input for {@link DisassociateUserProficienciesCommand}.
  */
-export interface PauseContactCommandInput extends PauseContactRequest {}
+export interface DisassociateUserProficienciesCommandInput extends DisassociateUserProficienciesRequest {}
 /**
  * @public
  *
- * The output of {@link PauseContactCommand}.
+ * The output of {@link DisassociateUserProficienciesCommand}.
  */
-export interface PauseContactCommandOutput extends PauseContactResponse, __MetadataBearer {}
+export interface DisassociateUserProficienciesCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Allows pausing an ongoing task contact.</p>
+ * <p>Disassociates a set of proficiencies from a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, PauseContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, PauseContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DisassociateUserProficienciesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateUserProficienciesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // PauseContactRequest
- *   ContactId: "STRING_VALUE", // required
+ * const input = { // DisassociateUserProficienciesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactFlowId: "STRING_VALUE",
+ *   UserId: "STRING_VALUE", // required
+ *   UserProficiencies: [ // UserProficiencyDisassociateList // required
+ *     { // UserProficiencyDisassociate
+ *       AttributeName: "STRING_VALUE", // required
+ *       AttributeValue: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
- * const command = new PauseContactCommand(input);
+ * const command = new DisassociateUserProficienciesCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param PauseContactCommandInput - {@link PauseContactCommandInput}
- * @returns {@link PauseContactCommandOutput}
- * @see {@link PauseContactCommandInput} for command's `input` shape.
- * @see {@link PauseContactCommandOutput} for command's `response` shape.
+ * @param DisassociateUserProficienciesCommandInput - {@link DisassociateUserProficienciesCommandInput}
+ * @returns {@link DisassociateUserProficienciesCommandOutput}
+ * @see {@link DisassociateUserProficienciesCommandInput} for command's `input` shape.
+ * @see {@link DisassociateUserProficienciesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
- *    contact state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -76,9 +77,6 @@ export interface PauseContactCommandOutput extends PauseContactResponse, __Metad
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -90,9 +88,9 @@ export interface PauseContactCommandOutput extends PauseContactResponse, __Metad
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class PauseContactCommand extends $Command<
-  PauseContactCommandInput,
-  PauseContactCommandOutput,
+export class DisassociateUserProficienciesCommand extends $Command<
+  DisassociateUserProficienciesCommandInput,
+  DisassociateUserProficienciesCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -107,7 +105,7 @@ export class PauseContactCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: PauseContactCommandInput) {
+  constructor(readonly input: DisassociateUserProficienciesCommandInput) {
     super();
   }
 
@@ -118,15 +116,17 @@ export class PauseContactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PauseContactCommandInput, PauseContactCommandOutput> {
+  ): Handler<DisassociateUserProficienciesCommandInput, DisassociateUserProficienciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PauseContactCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DisassociateUserProficienciesCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "PauseContactCommand";
+    const commandName = "DisassociateUserProficienciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -135,7 +135,7 @@ export class PauseContactCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "PauseContact",
+        operation: "DisassociateUserProficiencies",
       },
     };
     const { requestHandler } = configuration;
@@ -149,14 +149,17 @@ export class PauseContactCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: PauseContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PauseContactCommand(input, context);
+  private serialize(input: DisassociateUserProficienciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DisassociateUserProficienciesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PauseContactCommandOutput> {
-    return de_PauseContactCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DisassociateUserProficienciesCommandOutput> {
+    return de_DisassociateUserProficienciesCommand(output, context);
   }
 }

@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchQuickConnectsRequest, SearchQuickConnectsResponse } from "../models/models_2";
-import { de_SearchQuickConnectsCommand, se_SearchQuickConnectsCommand } from "../protocols/Aws_restJson1";
+import { SearchPredefinedAttributesRequest, SearchPredefinedAttributesResponse } from "../models/models_2";
+import { de_SearchPredefinedAttributesCommand, se_SearchPredefinedAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,56 +25,37 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link SearchQuickConnectsCommand}.
+ * The input for {@link SearchPredefinedAttributesCommand}.
  */
-export interface SearchQuickConnectsCommandInput extends SearchQuickConnectsRequest {}
+export interface SearchPredefinedAttributesCommandInput extends SearchPredefinedAttributesRequest {}
 /**
  * @public
  *
- * The output of {@link SearchQuickConnectsCommand}.
+ * The output of {@link SearchPredefinedAttributesCommand}.
  */
-export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsResponse, __MetadataBearer {}
+export interface SearchPredefinedAttributesCommandOutput extends SearchPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Searches quick connects in an Amazon Connect instance, with optional filtering.</p>
+ * <p>Predefined attributes that meet certain criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchPredefinedAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, SearchPredefinedAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // SearchQuickConnectsRequest
+ * const input = { // SearchPredefinedAttributesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchFilter: { // QuickConnectSearchFilter
- *     TagFilter: { // ControlPlaneTagFilter
- *       OrConditions: [ // TagOrConditionList
- *         [ // TagAndConditionList
- *           { // TagCondition
- *             TagKey: "STRING_VALUE",
- *             TagValue: "STRING_VALUE",
- *           },
- *         ],
- *       ],
- *       AndConditions: [
- *         {
- *           TagKey: "STRING_VALUE",
- *           TagValue: "STRING_VALUE",
- *         },
- *       ],
- *       TagCondition: "<TagCondition>",
- *     },
- *   },
- *   SearchCriteria: { // QuickConnectSearchCriteria
- *     OrConditions: [ // QuickConnectSearchConditionList
+ *   SearchCriteria: { // PredefinedAttributeSearchCriteria
+ *     OrConditions: [ // PredefinedAttributeSearchConditionList
  *       {
  *         OrConditions: [
- *           "<QuickConnectSearchCriteria>",
+ *           "<PredefinedAttributeSearchCriteria>",
  *         ],
  *         AndConditions: [
- *           "<QuickConnectSearchCriteria>",
+ *           "<PredefinedAttributeSearchCriteria>",
  *         ],
  *         StringCondition: { // StringCondition
  *           FieldName: "STRING_VALUE",
@@ -84,7 +65,7 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  *       },
  *     ],
  *     AndConditions: [
- *       "<QuickConnectSearchCriteria>",
+ *       "<PredefinedAttributeSearchCriteria>",
  *     ],
  *     StringCondition: {
  *       FieldName: "STRING_VALUE",
@@ -93,31 +74,16 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  *     },
  *   },
  * };
- * const command = new SearchQuickConnectsCommand(input);
+ * const command = new SearchPredefinedAttributesCommand(input);
  * const response = await client.send(command);
- * // { // SearchQuickConnectsResponse
- * //   QuickConnects: [ // QuickConnectSearchSummaryList
- * //     { // QuickConnect
- * //       QuickConnectARN: "STRING_VALUE",
- * //       QuickConnectId: "STRING_VALUE",
+ * // { // SearchPredefinedAttributesResponse
+ * //   PredefinedAttributes: [ // PredefinedAttributeSearchSummaryList
+ * //     { // PredefinedAttribute
  * //       Name: "STRING_VALUE",
- * //       Description: "STRING_VALUE",
- * //       QuickConnectConfig: { // QuickConnectConfig
- * //         QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
- * //         UserConfig: { // UserQuickConnectConfig
- * //           UserId: "STRING_VALUE", // required
- * //           ContactFlowId: "STRING_VALUE", // required
- * //         },
- * //         QueueConfig: { // QueueQuickConnectConfig
- * //           QueueId: "STRING_VALUE", // required
- * //           ContactFlowId: "STRING_VALUE", // required
- * //         },
- * //         PhoneConfig: { // PhoneNumberQuickConnectConfig
- * //           PhoneNumber: "STRING_VALUE", // required
- * //         },
- * //       },
- * //       Tags: { // TagMap
- * //         "<keys>": "STRING_VALUE",
+ * //       Values: { // PredefinedAttributeValues Union: only one key present
+ * //         StringList: [ // PredefinedAttributeStringValuesList
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       LastModifiedRegion: "STRING_VALUE",
@@ -129,10 +95,10 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  *
  * ```
  *
- * @param SearchQuickConnectsCommandInput - {@link SearchQuickConnectsCommandInput}
- * @returns {@link SearchQuickConnectsCommandOutput}
- * @see {@link SearchQuickConnectsCommandInput} for command's `input` shape.
- * @see {@link SearchQuickConnectsCommandOutput} for command's `response` shape.
+ * @param SearchPredefinedAttributesCommandInput - {@link SearchPredefinedAttributesCommandInput}
+ * @returns {@link SearchPredefinedAttributesCommandOutput}
+ * @see {@link SearchPredefinedAttributesCommandInput} for command's `input` shape.
+ * @see {@link SearchPredefinedAttributesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -154,9 +120,9 @@ export interface SearchQuickConnectsCommandOutput extends SearchQuickConnectsRes
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class SearchQuickConnectsCommand extends $Command<
-  SearchQuickConnectsCommandInput,
-  SearchQuickConnectsCommandOutput,
+export class SearchPredefinedAttributesCommand extends $Command<
+  SearchPredefinedAttributesCommandInput,
+  SearchPredefinedAttributesCommandOutput,
   ConnectClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -171,7 +137,7 @@ export class SearchQuickConnectsCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: SearchQuickConnectsCommandInput) {
+  constructor(readonly input: SearchPredefinedAttributesCommandInput) {
     super();
   }
 
@@ -182,17 +148,17 @@ export class SearchQuickConnectsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SearchQuickConnectsCommandInput, SearchQuickConnectsCommandOutput> {
+  ): Handler<SearchPredefinedAttributesCommandInput, SearchPredefinedAttributesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, SearchQuickConnectsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, SearchPredefinedAttributesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "SearchQuickConnectsCommand";
+    const commandName = "SearchPredefinedAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -201,7 +167,7 @@ export class SearchQuickConnectsCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonConnectService",
-        operation: "SearchQuickConnects",
+        operation: "SearchPredefinedAttributes",
       },
     };
     const { requestHandler } = configuration;
@@ -215,14 +181,17 @@ export class SearchQuickConnectsCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: SearchQuickConnectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchQuickConnectsCommand(input, context);
+  private serialize(input: SearchPredefinedAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_SearchPredefinedAttributesCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchQuickConnectsCommandOutput> {
-    return de_SearchQuickConnectsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<SearchPredefinedAttributesCommandOutput> {
+    return de_SearchPredefinedAttributesCommand(output, context);
   }
 }

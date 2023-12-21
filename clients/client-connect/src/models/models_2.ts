@@ -9,20 +9,24 @@ import {
   AgentStatusState,
   AllowedCapabilities,
   Application,
+  Channel,
   ContactFlowModuleState,
   ContactFlowState,
+  ContactInitiationMethod,
   Evaluation,
   EvaluationAnswerData,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
   EvaluationFormVersionStatus,
   EvaluationNote,
+  HoursOfOperation,
   HoursOfOperationConfig,
   InstanceAttributeType,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   MediaConcurrency,
   OutboundCallerConfig,
+  PredefinedAttributeValues,
   QuickConnectConfig,
   Reference,
   RehydrationType,
@@ -35,6 +39,7 @@ import {
   TaskTemplateStatus,
   UserIdentityInfo,
   UserPhoneConfig,
+  UserProficiency,
   View,
   ViewFilterSensitiveLog,
   ViewInputContent,
@@ -45,20 +50,839 @@ import {
 } from "./models_0";
 
 import {
-  ControlPlaneTagFilter,
-  HierarchyGroupMatchType,
-  HoursOfOperationSearchFilter,
-  PromptSearchFilter,
-  QueueSearchFilter,
+  PredefinedAttribute,
+  Prompt,
+  Queue,
   QueueStatus,
-  QuickConnectSearchFilter,
-  RoutingProfileSearchFilter,
-  SearchableQueueType,
-  SecurityProfilesSearchFilter,
+  QuickConnect,
+  RoutingProfile,
+  SearchCriteria,
+  SearchCriteriaFilterSensitiveLog,
   SignInConfig,
-  StringCondition,
+  Sort,
   TelephonyConfig,
 } from "./models_1";
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchContactsTimeRangeType = {
+  CONNECTED_TO_AGENT_TIMESTAMP: "CONNECTED_TO_AGENT_TIMESTAMP",
+  DISCONNECT_TIMESTAMP: "DISCONNECT_TIMESTAMP",
+  INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
+  SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchContactsTimeRangeType =
+  (typeof SearchContactsTimeRangeType)[keyof typeof SearchContactsTimeRangeType];
+
+/**
+ * @public
+ * <p>A structure of time range that you want to search results</p>
+ */
+export interface SearchContactsTimeRange {
+  /**
+   * @public
+   * <p>The type of timestamp to search</p>
+   */
+  Type: SearchContactsTimeRangeType | undefined;
+
+  /**
+   * @public
+   * <p>The start time of the time range.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The end time of the time range.</p>
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactsRequest {
+  /**
+   * @public
+   * <p>The identifier of Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Time range that you want to search results</p>
+   */
+  TimeRange: SearchContactsTimeRange | undefined;
+
+  /**
+   * @public
+   * <p>The search criteria to be used to return contacts.</p>
+   */
+  SearchCriteria?: SearchCriteria;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies a field to sort by and a sort order</p>
+   */
+  Sort?: Sort;
+}
+
+/**
+ * @public
+ * <p>Information about the agent who accepted the contact.</p>
+ */
+export interface ContactSearchSummaryAgentInfo {
+  /**
+   * @public
+   * <p>The identifier of the agent who accepted the contact.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when the contact was connected to the agent.</p>
+   */
+  ConnectedToAgentTimestamp?: Date;
+}
+
+/**
+ * @public
+ * <p>If this contact was queued, this contains information about the queue.</p>
+ */
+export interface ContactSearchSummaryQueueInfo {
+  /**
+   * @public
+   * <p>The unique identifier for the queue.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when the contact was added to the queue.</p>
+   */
+  EnqueueTimestamp?: Date;
+}
+
+/**
+ * @public
+ * <p>Information of returned contact.</p>
+ */
+export interface ContactSearchSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the contact</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the contact summary.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
+   */
+  InitialContactId?: string;
+
+  /**
+   * @public
+   * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
+   */
+  PreviousContactId?: string;
+
+  /**
+   * @public
+   * <p>Indicates how the contact was initiated.</p>
+   */
+  InitiationMethod?: ContactInitiationMethod;
+
+  /**
+   * @public
+   * <p>How the contact reached your contact center.</p>
+   */
+  Channel?: Channel;
+
+  /**
+   * @public
+   * <p>If this contact was queued, this contains information about the queue.</p>
+   */
+  QueueInfo?: ContactSearchSummaryQueueInfo;
+
+  /**
+   * @public
+   * <p>Information about the agent who accepted the contact.</p>
+   */
+  AgentInfo?: ContactSearchSummaryAgentInfo;
+
+  /**
+   * @public
+   * <p>The date and time this contact was initiated, in UTC time. For INBOUND, this is when the contact arrived. For OUTBOUND, this is when the agent began dialing. For CALLBACK, this is when the callback contact was created. For TRANSFER and QUEUE_TRANSFER, this is when the transfer was initiated. For API, this is when the request arrived. For EXTERNAL_OUTBOUND, this is when the agent started dialing the external participant. For MONITOR, this is when the supervisor started listening to a contact.</p>
+   */
+  InitiationTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
+   */
+  DisconnectTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.</p>
+   */
+  ScheduledTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactsResponse {
+  /**
+   * @public
+   * <p>Information about the contacts.</p>
+   */
+  Contacts: ContactSearchSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of contacts which matched your search query.</p>
+   */
+  TotalCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StringComparisonType = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+  STARTS_WITH: "STARTS_WITH",
+} as const;
+
+/**
+ * @public
+ */
+export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
+
+/**
+ * @public
+ * <p>A leaf node condition which can be used to specify a string condition.</p>
+ *          <note>
+ *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+ *      <code>description</code>.</p>
+ *          </note>
+ */
+export interface StringCondition {
+  /**
+   * @public
+   * <p>The name of the field in the string condition.</p>
+   */
+  FieldName?: string;
+
+  /**
+   * @public
+   * <p>The value of the string.</p>
+   */
+  Value?: string;
+
+  /**
+   * @public
+   * <p>The type of comparison to be made when evaluating the string condition.</p>
+   */
+  ComparisonType?: StringComparisonType;
+}
+
+/**
+ * @public
+ * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
+ *     BPO = 123</code>. </p>
+ */
+export interface TagCondition {
+  /**
+   * @public
+   * <p>The tag key in the tag condition.</p>
+   */
+  TagKey?: string;
+
+  /**
+   * @public
+   * <p>The tag value in the tag condition.</p>
+   */
+  TagValue?: string;
+}
+
+/**
+ * @public
+ * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+ *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+ *          <ul>
+ *             <li>
+ *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+ *      operator</p>
+ *             </li>
+ *             <li>
+ *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+ *      operator.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ControlPlaneTagFilter {
+  /**
+   * @public
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.
+   *   </p>
+   */
+  OrConditions?: TagCondition[][];
+
+  /**
+   * @public
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   */
+  AndConditions?: TagCondition[];
+
+  /**
+   * @public
+   * <p>A leaf node condition which can be used to specify a tag condition. </p>
+   */
+  TagCondition?: TagCondition;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface HoursOfOperationSearchFilter {
+  /**
+   * @public
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationsResponse {
+  /**
+   * @public
+   * <p>Information about the hours of operations.</p>
+   */
+  HoursOfOperations?: HoursOfOperation[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of hours of operations which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ */
+export interface SearchPredefinedAttributesResponse {
+  /**
+   * @public
+   * <p>Predefined attributes matched by the search criteria.</p>
+   */
+  PredefinedAttributes?: PredefinedAttribute[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The approximate number of predefined attributes which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface PromptSearchFilter {
+  /**
+   * @public
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchPromptsResponse {
+  /**
+   * @public
+   * <p>Information about the prompts.</p>
+   */
+  Prompts?: Prompt[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of quick connects which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchableQueueType = {
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchableQueueType = (typeof SearchableQueueType)[keyof typeof SearchableQueueType];
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface QueueSearchFilter {
+  /**
+   * @public
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchQueuesResponse {
+  /**
+   * @public
+   * <p>Information about the queues.</p>
+   */
+  Queues?: Queue[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of queues which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface QuickConnectSearchFilter {
+  /**
+   * @public
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchQuickConnectsResponse {
+  /**
+   * @public
+   * <p>Information about the quick connects.</p>
+   */
+  QuickConnects?: QuickConnect[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of quick connects which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Maximum number (1000) of tags have been returned with current request. Consider changing
+ *    request parameters to get more tags.</p>
+ */
+export class MaximumResultReturnedException extends __BaseException {
+  readonly name: "MaximumResultReturnedException" = "MaximumResultReturnedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaximumResultReturnedException, __BaseException>) {
+    super({
+      name: "MaximumResultReturnedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumResultReturnedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to return tags.</p>
+ */
+export interface TagSearchCondition {
+  /**
+   * @public
+   * <p>The tag key used in the tag search condition.</p>
+   */
+  tagKey?: string;
+
+  /**
+   * @public
+   * <p>The tag value used in the tag search condition.</p>
+   */
+  tagValue?: string;
+
+  /**
+   * @public
+   * <p>The type of comparison to be made when evaluating the tag key in tag search
+   *    condition.</p>
+   */
+  tagKeyComparisonType?: StringComparisonType;
+
+  /**
+   * @public
+   * <p>The type of comparison to be made when evaluating the tag value in tag search
+   *    condition.</p>
+   */
+  tagValueComparisonType?: StringComparisonType;
+}
+
+/**
+ * @public
+ * <p>The search criteria to be used to search tags.</p>
+ */
+export interface ResourceTagsSearchCriteria {
+  /**
+   * @public
+   * <p>The search criteria to be used to return tags.</p>
+   */
+  TagSearchCondition?: TagSearchCondition;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourceTagsRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon
+   *    Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The list of resource types to be used to search tags from. If not provided or if any empty
+   *    list is provided, this API will search from all supported resource types.</p>
+   */
+  ResourceTypes?: string[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The search criteria to be used to return tags.</p>
+   */
+  SearchCriteria?: ResourceTagsSearchCriteria;
+}
+
+/**
+ * @public
+ * <p>A tag set contains tag key and tag value.</p>
+ */
+export interface TagSet {
+  /**
+   * @public
+   * <p>The tag key in the tagSet.</p>
+   */
+  key?: string;
+
+  /**
+   * @public
+   * <p>The tag value in the tagSet.</p>
+   */
+  value?: string;
+}
+
+/**
+ * @public
+ */
+export interface SearchResourceTagsResponse {
+  /**
+   * @public
+   * <p>A list of tags used in the Amazon Connect instance.</p>
+   */
+  Tags?: TagSet[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface RoutingProfileSearchFilter {
+  /**
+   * @public
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ */
+export interface SearchRoutingProfilesResponse {
+  /**
+   * @public
+   * <p>Information about the routing profiles.</p>
+   */
+  RoutingProfiles?: RoutingProfile[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of routing profiles which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface SecurityProfilesSearchFilter {
+  /**
+   * @public
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
+   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+/**
+ * @public
+ * <p>Information about the returned security profiles.</p>
+ */
+export interface SecurityProfileSearchSummary {
+  /**
+   * @public
+   * <p>The identifier of the security profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The organization resource identifier.</p>
+   */
+  OrganizationResourceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the security profile.</p>
+   */
+  SecurityProfileName?: string;
+
+  /**
+   * @public
+   * <p>The description of the security profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface SearchSecurityProfilesResponse {
+  /**
+   * @public
+   * <p>Information about the security profiles.</p>
+   */
+  SecurityProfiles?: SecurityProfileSearchSummary[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The total number of security profiles which matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HierarchyGroupMatchType = {
+  EXACT: "EXACT",
+  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
+} as const;
+
+/**
+ * @public
+ */
+export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
 
 /**
  * @public
@@ -1010,18 +1834,19 @@ export interface StartOutboundVoiceContactRequest {
   /**
    * @public
    * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts can
-   *    have the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
-   *    <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>
+   *    have the following reference types at the time of creation: <code>URL</code> |
+   *     <code>NUMBER</code> | <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>.
+   *     <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>
    */
   References?: Record<string, Reference>;
 
   /**
    * @public
-   * <p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by using
-   *    <code>RelatedContactID</code> copies over contact attributes from the related contact to the new contact. All
-   *    updates to user-defined attributes in the new contact are limited to the individual contact ID.
-   *    There are no limits to the number of contacts that can be linked by using <code>RelatedContactId</code>.
-   *   </p>
+   * <p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by
+   *    using <code>RelatedContactID</code> copies over contact attributes from the related contact to
+   *    the new contact. All updates to user-defined attributes in the new contact are limited to the
+   *    individual contact ID. There are no limits to the number of contacts that can be linked by using
+   *     <code>RelatedContactId</code>. </p>
    */
   RelatedContactId?: string;
 
@@ -1712,7 +2537,8 @@ export interface TagContactRequest {
 
   /**
    * @public
-   * <p>The tags to be assigned to the contact resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * <p>The tags to be assigned to the contact resource. For example, \{ "Tags": \{"key1":"value1",
+   *    "key2":"value2"\} \}.</p>
    *          <note>
    *             <p>Authorization is not supported by this tag.</p>
    *          </note>
@@ -1821,7 +2647,8 @@ export interface UntagContactRequest {
 
   /**
    * @public
-   * <p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be removed.</p>
+   * <p>A list of tag keys. Existing tags on the contact whose keys are members of this list will be
+   *    removed.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -2186,6 +3013,44 @@ export interface UpdateContactFlowNameRequest {
  * @public
  */
 export interface UpdateContactFlowNameResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactRoutingDataRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of seconds to add or subtract from the contact's routing age. Contacts are routed
+   *    to agents on a first-come, first-serve basis. This means that changing their amount of time in
+   *    queue compared to others also changes their position in queue.</p>
+   */
+  QueueTimeAdjustmentSeconds?: number;
+
+  /**
+   * @public
+   * <p>Priority of the contact in the queue. The default priority for new contacts is 5. You can
+   *    raise the priority of a contact compared to other contacts in the queue by assigning them a
+   *    higher priority, such as 1 or 2.</p>
+   */
+  QueuePriority?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactRoutingDataResponse {}
 
 /**
  * @public
@@ -2624,6 +3489,30 @@ export interface UpdatePhoneNumberMetadataRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePredefinedAttributeRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the predefined attribute.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The values of the predefined attribute.</p>
+   */
+  Values?: PredefinedAttributeValues;
 }
 
 /**
@@ -3410,6 +4299,31 @@ export interface UpdateUserPhoneConfigRequest {
 /**
  * @public
  */
+export interface UpdateUserProficienciesRequest {
+  /**
+   * @public
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The proficiencies to be updated for the user. Proficiencies must first be associated to the
+   *    user. You can do this using AssociateUserProficiencies API.</p>
+   */
+  UserProficiencies: UserProficiency[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateUserRoutingProfileRequest {
   /**
    * @public
@@ -3840,6 +4754,36 @@ export interface HoursOfOperationSearchCriteria {
 
 /**
  * @public
+ * <p>The search criteria to be used to return predefined attributes.</p>
+ */
+export interface PredefinedAttributeSearchCriteria {
+  /**
+   * @public
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
+   */
+  OrConditions?: PredefinedAttributeSearchCriteria[];
+
+  /**
+   * @public
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   */
+  AndConditions?: PredefinedAttributeSearchCriteria[];
+
+  /**
+   * @public
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+   *      <code>description</code>.</p>
+   *          </note>
+   */
+  StringCondition?: StringCondition;
+}
+
+/**
+ * @public
  * <p>The search criteria to be used to return prompts.</p>
  */
 export interface PromptSearchCriteria {
@@ -3990,7 +4934,11 @@ export interface SecurityProfileSearchCriteria {
 
   /**
    * @public
-   * <p>A leaf node condition which can be used to specify a string condition. </p>
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code> and
+   *      <code>description</code>.</p>
+   *          </note>
    */
   StringCondition?: StringCondition;
 }
@@ -4160,6 +5108,37 @@ export interface SearchHoursOfOperationsRequest {
    * <p>The search criteria to be used to return hours of operations.</p>
    */
   SearchCriteria?: HoursOfOperationSearchCriteria;
+}
+
+/**
+ * @public
+ */
+export interface SearchPredefinedAttributesRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The search criteria to be used to return predefined attributes.</p>
+   */
+  SearchCriteria?: PredefinedAttributeSearchCriteria;
 }
 
 /**
@@ -4404,6 +5383,14 @@ export interface SearchUsersRequest {
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const SearchContactsRequestFilterSensitiveLog = (obj: SearchContactsRequest): any => ({
+  ...obj,
+  ...(obj.SearchCriteria && { SearchCriteria: SearchCriteriaFilterSensitiveLog(obj.SearchCriteria) }),
+});
 
 /**
  * @internal

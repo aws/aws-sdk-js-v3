@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchHoursOfOperationsResponse } from "../models/models_1";
-import { SearchHoursOfOperationsRequest } from "../models/models_2";
+import { SearchHoursOfOperationsRequest, SearchHoursOfOperationsResponse } from "../models/models_2";
 import { de_SearchHoursOfOperationsCommand, se_SearchHoursOfOperationsCommand } from "../protocols/Aws_restJson1";
 
 /**

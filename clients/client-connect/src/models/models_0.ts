@@ -395,6 +395,42 @@ export interface AgentContactReference {
 
 /**
  * @public
+ * <p>A structure that defines agent hierarchy group levels which can be used to filter search results. Important: Agent hierarchy group level information in search result is a snapshot, it does not represent current agent hierarchy who handled the contact.</p>
+ */
+export interface AgentHierarchyGroups {
+  /**
+   * @public
+   * <p>The identifiers for level 1 hierarchy groups.</p>
+   */
+  L1Ids?: string[];
+
+  /**
+   * @public
+   * <p>The identifiers for level 2 hierarchy groups.</p>
+   */
+  L2Ids?: string[];
+
+  /**
+   * @public
+   * <p>The identifiers for level 3 hierarchy groups.</p>
+   */
+  L3Ids?: string[];
+
+  /**
+   * @public
+   * <p>The identifiers for level 4 hierarchy groups.</p>
+   */
+  L4Ids?: string[];
+
+  /**
+   * @public
+   * <p>The identifiers for level 5 hierarchy groups.</p>
+   */
+  L5Ids?: string[];
+}
+
+/**
+ * @public
  * <p>Information about the agent who accepted the contact.</p>
  */
 export interface AgentInfo {
@@ -1384,6 +1420,56 @@ export interface AssociateTrafficDistributionGroupUserRequest {
  * @public
  */
 export interface AssociateTrafficDistributionGroupUserResponse {}
+
+/**
+ * @public
+ * <p>Information about proficiency of a user.</p>
+ */
+export interface UserProficiency {
+  /**
+   * @public
+   * <p>The name of user's proficiency. You must use name of predefined attribute present in the
+   *    Amazon Connect instance.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of user's proficiency. You must use value of predefined attribute present in the
+   *    Amazon Connect instance.</p>
+   */
+  AttributeValue: string | undefined;
+
+  /**
+   * @public
+   * <p>The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.</p>
+   */
+  Level: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateUserProficienciesRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN of the instance).</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The proficiencies to associate with the user.</p>
+   */
+  UserProficiencies: UserProficiency[] | undefined;
+}
 
 /**
  * @public
@@ -3245,6 +3331,70 @@ export interface CreatePersistentContactAssociationResponse {
    *    for persistent chat.</p>
    */
   ContinuedFromContactId?: string;
+}
+
+/**
+ * @public
+ * <p>Information about values of a predefined attribute.</p>
+ */
+export type PredefinedAttributeValues =
+  | PredefinedAttributeValues.StringListMember
+  | PredefinedAttributeValues.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PredefinedAttributeValues {
+  /**
+   * @public
+   * <p>Predefined attribute values of type string list.</p>
+   */
+  export interface StringListMember {
+    StringList: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    StringList: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PredefinedAttributeValues, visitor: Visitor<T>): T => {
+    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreatePredefinedAttributeRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p> The name of the predefined attribute. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p> The values of the predefined attribute. </p>
+   */
+  Values: PredefinedAttributeValues | undefined;
 }
 
 /**
@@ -5548,6 +5698,24 @@ export interface DeleteIntegrationAssociationRequest {
 /**
  * @public
  */
+export interface DeletePredefinedAttributeRequest {
+  /**
+   * @public
+   * <p> The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p> The name of the predefined attribute.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeletePromptRequest {
   /**
    * @public
@@ -6048,7 +6216,25 @@ export interface Contact {
 
   /**
    * @public
-   * <p>Tags associated with the contact. This contains both Amazon Web Services generated and user-defined tags.</p>
+   * <p>An integer that represents the queue time adjust to be applied to the contact, in seconds
+   *    (longer / larger queue time are routed preferentially). Cannot be specified if the QueuePriority
+   *    is specified. Must be statically defined and a valid integer value.</p>
+   */
+  QueueTimeAdjustmentSeconds?: number;
+
+  /**
+   * @public
+   * <p>An integer that represents the queue priority to be applied to the contact (lower priorities
+   *    are routed preferentially). Cannot be specified if the QueueTimeAdjustmentSeconds is specified.
+   *    Must be statically defined, must be larger than zero, and a valid integer value. Default Value is
+   *    5.</p>
+   */
+  QueuePriority?: number;
+
+  /**
+   * @public
+   * <p>Tags associated with the contact. This contains both Amazon Web Services generated and
+   *    user-defined tags.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -7169,210 +7355,6 @@ export const PhoneNumberCountryCode = {
  * @public
  */
 export type PhoneNumberCountryCode = (typeof PhoneNumberCountryCode)[keyof typeof PhoneNumberCountryCode];
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberWorkflowStatus = {
-  Claimed: "CLAIMED",
-  Failed: "FAILED",
-  InProgress: "IN_PROGRESS",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberWorkflowStatus = (typeof PhoneNumberWorkflowStatus)[keyof typeof PhoneNumberWorkflowStatus];
-
-/**
- * @public
- * <p>The status of the phone number.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>, <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>, or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed.
- *      You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at
- *      a later time to verify if the previous operation has completed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
- *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
- *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
- *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
- *      have one day to retry claiming the phone number before the number is released back to the
- *      inventory for other customers to claim.</p>
- *             </li>
- *          </ul>
- */
-export interface PhoneNumberStatus {
-  /**
-   * @public
-   * <p>The status.</p>
-   */
-  Status?: PhoneNumberWorkflowStatus;
-
-  /**
-   * @public
-   * <p>The status message.</p>
-   */
-  Message?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const PhoneNumberType = {
-  DID: "DID",
-  SHARED: "SHARED",
-  SHORT_CODE: "SHORT_CODE",
-  THIRD_PARTY_DID: "THIRD_PARTY_DID",
-  THIRD_PARTY_TF: "THIRD_PARTY_TF",
-  TOLL_FREE: "TOLL_FREE",
-  UIFN: "UIFN",
-} as const;
-
-/**
- * @public
- */
-export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
-
-/**
- * @public
- * <p>Information about a phone number that has been claimed to your Amazon Connect instance
- *    or traffic distribution group.</p>
- */
-export interface ClaimedPhoneNumberSummary {
-  /**
-   * @public
-   * <p>A unique identifier for the phone number.</p>
-   */
-  PhoneNumberId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
-   */
-  PhoneNumberArn?: string;
-
-  /**
-   * @public
-   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * @public
-   * <p>The ISO country code.</p>
-   */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode;
-
-  /**
-   * @public
-   * <p>The type of phone number.</p>
-   */
-  PhoneNumberType?: PhoneNumberType;
-
-  /**
-   * @public
-   * <p>The description of the phone number.</p>
-   */
-  PhoneNumberDescription?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
-   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
-   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The status of the phone number.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>, <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>, or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed.
-   *      You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at
-   *      a later time to verify if the previous operation has completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
-   *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
-   *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
-   *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
-   *      have one day to retry claiming the phone number before the number is released back to the
-   *      inventory for other customers to claim.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>You will not be billed for the phone number during the 1-day period if number claiming
-   *     fails. </p>
-   *          </note>
-   */
-  PhoneNumberStatus?: PhoneNumberStatus;
-
-  /**
-   * @public
-   * <p>The claimed phone number ARN that was previously imported from the external service, such as
-   *     Amazon Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number
-   *    that was imported from Amazon Pinpoint.</p>
-   */
-  SourcePhoneNumberArn?: string;
-}
-
-/**
- * @public
- */
-export interface DescribePhoneNumberResponse {
-  /**
-   * @public
-   * <p>Information about a phone number that's been claimed to your Amazon Connect instance or
-   *    traffic distribution group.</p>
-   */
-  ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
-}
-
-/**
- * @public
- */
-export interface DescribePromptRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>A unique identifier for the prompt.</p>
-   */
-  PromptId: string | undefined;
-}
 
 /**
  * @internal

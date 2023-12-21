@@ -15,6 +15,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -78,6 +79,10 @@ import {
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "../commands/AssociateTrafficDistributionGroupUserCommand";
 import {
+  AssociateUserProficienciesCommandInput,
+  AssociateUserProficienciesCommandOutput,
+} from "../commands/AssociateUserProficienciesCommand";
+import {
   BatchAssociateAnalyticsDataSetCommandInput,
   BatchAssociateAnalyticsDataSetCommandOutput,
 } from "../commands/BatchAssociateAnalyticsDataSetCommand";
@@ -115,6 +120,10 @@ import {
   CreatePersistentContactAssociationCommandInput,
   CreatePersistentContactAssociationCommandOutput,
 } from "../commands/CreatePersistentContactAssociationCommand";
+import {
+  CreatePredefinedAttributeCommandInput,
+  CreatePredefinedAttributeCommandOutput,
+} from "../commands/CreatePredefinedAttributeCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "../commands/CreatePromptCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "../commands/CreateQuickConnectCommand";
@@ -167,6 +176,10 @@ import {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "../commands/DeleteIntegrationAssociationCommand";
+import {
+  DeletePredefinedAttributeCommandInput,
+  DeletePredefinedAttributeCommandOutput,
+} from "../commands/DeletePredefinedAttributeCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "../commands/DeletePromptCommand";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "../commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "../commands/DeleteQuickConnectCommand";
@@ -231,6 +244,10 @@ import {
   DescribePhoneNumberCommandInput,
   DescribePhoneNumberCommandOutput,
 } from "../commands/DescribePhoneNumberCommand";
+import {
+  DescribePredefinedAttributeCommandInput,
+  DescribePredefinedAttributeCommandOutput,
+} from "../commands/DescribePredefinedAttributeCommand";
 import { DescribePromptCommandInput, DescribePromptCommandOutput } from "../commands/DescribePromptCommand";
 import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "../commands/DescribeQueueCommand";
 import {
@@ -300,6 +317,10 @@ import {
   DisassociateTrafficDistributionGroupUserCommandInput,
   DisassociateTrafficDistributionGroupUserCommandOutput,
 } from "../commands/DisassociateTrafficDistributionGroupUserCommand";
+import {
+  DisassociateUserProficienciesCommandInput,
+  DisassociateUserProficienciesCommandOutput,
+} from "../commands/DisassociateUserProficienciesCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "../commands/DismissUserContactCommand";
 import {
   GetContactAttributesCommandInput,
@@ -384,6 +405,10 @@ import {
 import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "../commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "../commands/ListPhoneNumbersCommand";
 import { ListPhoneNumbersV2CommandInput, ListPhoneNumbersV2CommandOutput } from "../commands/ListPhoneNumbersV2Command";
+import {
+  ListPredefinedAttributesCommandInput,
+  ListPredefinedAttributesCommandOutput,
+} from "../commands/ListPredefinedAttributesCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "../commands/ListPromptsCommand";
 import {
   ListQueueQuickConnectsCommandInput,
@@ -435,6 +460,10 @@ import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
+import {
+  ListUserProficienciesCommandInput,
+  ListUserProficienciesCommandOutput,
+} from "../commands/ListUserProficienciesCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { ListViewsCommandInput, ListViewsCommandOutput } from "../commands/ListViewsCommand";
 import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "../commands/ListViewVersionsCommand";
@@ -452,10 +481,15 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import { SearchContactsCommandInput, SearchContactsCommandOutput } from "../commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
 } from "../commands/SearchHoursOfOperationsCommand";
+import {
+  SearchPredefinedAttributesCommandInput,
+  SearchPredefinedAttributesCommandOutput,
+} from "../commands/SearchPredefinedAttributesCommand";
 import { SearchPromptsCommandInput, SearchPromptsCommandOutput } from "../commands/SearchPromptsCommand";
 import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "../commands/SearchQueuesCommand";
 import {
@@ -549,6 +583,10 @@ import {
   UpdateContactFlowNameCommandOutput,
 } from "../commands/UpdateContactFlowNameCommand";
 import {
+  UpdateContactRoutingDataCommandInput,
+  UpdateContactRoutingDataCommandOutput,
+} from "../commands/UpdateContactRoutingDataCommand";
+import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "../commands/UpdateContactScheduleCommand";
@@ -577,6 +615,10 @@ import {
   UpdatePhoneNumberMetadataCommandInput,
   UpdatePhoneNumberMetadataCommandOutput,
 } from "../commands/UpdatePhoneNumberMetadataCommand";
+import {
+  UpdatePredefinedAttributeCommandInput,
+  UpdatePredefinedAttributeCommandOutput,
+} from "../commands/UpdatePredefinedAttributeCommand";
 import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "../commands/UpdatePromptCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
@@ -651,6 +693,10 @@ import {
   UpdateUserPhoneConfigCommandOutput,
 } from "../commands/UpdateUserPhoneConfigCommand";
 import {
+  UpdateUserProficienciesCommandInput,
+  UpdateUserProficienciesCommandOutput,
+} from "../commands/UpdateUserProficienciesCommand";
+import {
   UpdateUserRoutingProfileCommandInput,
   UpdateUserRoutingProfileCommandOutput,
 } from "../commands/UpdateUserRoutingProfileCommand";
@@ -665,6 +711,7 @@ import {
   AccessDeniedException,
   AgentConfig,
   AgentContactReference,
+  AgentHierarchyGroups,
   AgentInfo,
   AgentStatus,
   AgentStatusReference,
@@ -677,6 +724,7 @@ import {
   Contact,
   ContactDataRequest,
   ContactFlowNotPublishedException,
+  ContactInitiationMethod,
   ContactState,
   CreateCaseActionDefinition,
   CrossChannelBehavior,
@@ -732,7 +780,7 @@ import {
   ParticipantDetailsToAdd,
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
-  PhoneNumberType,
+  PredefinedAttributeValues,
   PropertyValidationException,
   QueueInfo,
   QueueQuickConnectConfig,
@@ -763,14 +811,15 @@ import {
   UpdateCaseActionDefinition,
   UserIdentityInfo,
   UserPhoneConfig,
+  UserProficiency,
   UserQuickConnectConfig,
   View,
   ViewInputContent,
 } from "../models/models_0";
 import {
   ConflictException,
+  ContactAnalysis,
   ContactFilter,
-  ControlPlaneTagFilter,
   Credentials,
   CurrentMetric,
   CurrentMetricData,
@@ -790,25 +839,23 @@ import {
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
-  HoursOfOperationSearchFilter,
   HoursOfOperationSummary,
   InstanceSummary,
   IntervalDetails,
-  MaximumResultReturnedException,
   MetricDataV2,
   MetricFilterV2,
   MetricInterval,
   MetricResultV2,
   MetricV2,
   OutputTypeNotFoundException,
+  PhoneNumberType,
+  PredefinedAttribute,
+  PredefinedAttributeSummary,
   Prompt,
-  PromptSearchFilter,
   PromptSummary,
   Queue,
-  QueueSearchFilter,
   QueueSummary,
   QuickConnect,
-  QuickConnectSearchFilter,
   QuickConnectSummary,
   RealtimeContactAnalysisSegment,
   RealTimeContactAnalysisSegmentAttachments,
@@ -816,29 +863,30 @@ import {
   RealTimeContactAnalysisSegmentTranscript,
   RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisTimeData,
-  ResourceTagsSearchCriteria,
   RoutingProfile,
-  RoutingProfileSearchFilter,
   RoutingProfileSummary,
   Rule,
   RuleSummary,
+  SearchableContactAttributes,
+  SearchableContactAttributesCriteria,
+  SearchCriteria,
   SecurityKey,
   SecurityProfile,
-  SecurityProfilesSearchFilter,
   SecurityProfileSummary,
   SignInConfig,
   SignInDistribution,
-  StringCondition,
-  TagCondition,
-  TagSearchCondition,
+  Sort,
   TaskTemplateMetadata,
   TelephonyConfig,
   Threshold,
   ThresholdV2,
+  Transcript,
+  TranscriptCriteria,
   User,
   UserData,
   UserDataFilters,
   UserNotFoundException,
+  UserProficiencyDisassociate,
   UserSummary,
   Vocabulary,
 } from "../models/models_1";
@@ -849,6 +897,10 @@ import {
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   ContactNotFoundException,
+  ContactSearchSummary,
+  ContactSearchSummaryAgentInfo,
+  ContactSearchSummaryQueueInfo,
+  ControlPlaneTagFilter,
   DestinationNotAllowedException,
   DisconnectReason,
   EvaluationAnswerInput,
@@ -860,18 +912,31 @@ import {
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
   HoursOfOperationSearchCriteria,
+  HoursOfOperationSearchFilter,
+  MaximumResultReturnedException,
   NewSessionDetails,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
+  PredefinedAttributeSearchCriteria,
   PromptSearchCriteria,
+  PromptSearchFilter,
   QueueSearchCriteria,
+  QueueSearchFilter,
   QuickConnectSearchCriteria,
+  QuickConnectSearchFilter,
+  ResourceTagsSearchCriteria,
   RoutingProfileSearchCriteria,
+  RoutingProfileSearchFilter,
+  SearchContactsTimeRange,
   SecurityProfileSearchCriteria,
+  SecurityProfilesSearchFilter,
   SegmentAttributeValue,
+  StringCondition,
+  TagCondition,
+  TagSearchCondition,
   UpdateParticipantRoleConfigChannelInfo,
   UserSearchCriteria,
   UserSearchFilter,
@@ -1209,6 +1274,30 @@ export const se_AssociateTrafficDistributionGroupUserCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateUserProficienciesCommand
+ */
+export const se_AssociateUserProficienciesCommand = async (
+  input: AssociateUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/users/{InstanceId}/{UserId}/associate-proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserProficiencies: (_) => se_UserProficiencyList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1574,6 +1663,30 @@ export const se_CreatePersistentContactAssociationCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreatePredefinedAttributeCommand
+ */
+export const se_CreatePredefinedAttributeCommand = async (
+  input: CreatePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/predefined-attributes/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      Values: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2107,6 +2220,23 @@ export const se_DeleteIntegrationAssociationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeletePredefinedAttributeCommand
+ */
+export const se_DeletePredefinedAttributeCommand = async (
+  input: DeletePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/predefined-attributes/{InstanceId}/{Name}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeletePromptCommand
  */
 export const se_DeletePromptCommand = async (
@@ -2531,6 +2661,23 @@ export const se_DescribePhoneNumberCommand = async (
   const headers: any = {};
   b.bp("/phone-number/{PhoneNumberId}");
   b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribePredefinedAttributeCommand
+ */
+export const se_DescribePredefinedAttributeCommand = async (
+  input: DescribePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/predefined-attributes/{InstanceId}/{Name}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -2983,6 +3130,30 @@ export const se_DisassociateTrafficDistributionGroupUserCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateUserProficienciesCommand
+ */
+export const se_DisassociateUserProficienciesCommand = async (
+  input: DisassociateUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/users/{InstanceId}/{UserId}/disassociate-proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserProficiencies: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -3704,6 +3875,26 @@ export const se_ListPhoneNumbersV2Command = async (
 };
 
 /**
+ * serializeAws_restJson1ListPredefinedAttributesCommand
+ */
+export const se_ListPredefinedAttributesCommand = async (
+  input: ListPredefinedAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/predefined-attributes/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListPromptsCommand
  */
 export const se_ListPromptsCommand = async (
@@ -4078,6 +4269,27 @@ export const se_ListUserHierarchyGroupsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListUserProficienciesCommand
+ */
+export const se_ListUserProficienciesCommand = async (
+  input: ListUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/users/{InstanceId}/{UserId}/proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListUsersCommand
  */
 export const se_ListUsersCommand = async (
@@ -4334,6 +4546,33 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchContactsCommand
+ */
+export const se_SearchContactsCommand = async (
+  input: SearchContactsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contacts");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => _json(_),
+      Sort: (_) => _json(_),
+      TimeRange: (_) => se_SearchContactsTimeRange(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchHoursOfOperationsCommand
  */
 export const se_SearchHoursOfOperationsCommand = async (
@@ -4353,6 +4592,31 @@ export const se_SearchHoursOfOperationsCommand = async (
       NextToken: [],
       SearchCriteria: (_) => se_HoursOfOperationSearchCriteria(_, context),
       SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchPredefinedAttributesCommand
+ */
+export const se_SearchPredefinedAttributesCommand = async (
+  input: SearchPredefinedAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-predefined-attributes");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_PredefinedAttributeSearchCriteria(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -5268,6 +5532,31 @@ export const se_UpdateContactFlowNameCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateContactRoutingDataCommand
+ */
+export const se_UpdateContactRoutingDataCommand = async (
+  input: UpdateContactRoutingDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contacts/{InstanceId}/{ContactId}/routing-data");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      QueuePriority: [],
+      QueueTimeAdjustmentSeconds: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateContactScheduleCommand
  */
 export const se_UpdateContactScheduleCommand = async (
@@ -5469,6 +5758,30 @@ export const se_UpdatePhoneNumberMetadataCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePredefinedAttributeCommand
+ */
+export const se_UpdatePredefinedAttributeCommand = async (
+  input: UpdatePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/predefined-attributes/{InstanceId}/{Name}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Values: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -6012,6 +6325,30 @@ export const se_UpdateUserPhoneConfigCommand = async (
   body = JSON.stringify(
     take(input, {
       PhoneConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateUserProficienciesCommand
+ */
+export const se_UpdateUserProficienciesCommand = async (
+  input: UpdateUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/users/{InstanceId}/{UserId}/proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserProficiencies: (_) => se_UserProficiencyList(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6950,6 +7287,61 @@ const de_AssociateTrafficDistributionGroupUserCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1AssociateUserProficienciesCommand
+ */
+export const de_AssociateUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateUserProficienciesCommandError
+ */
+const de_AssociateUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1BatchAssociateAnalyticsDataSetCommand
  */
 export const de_BatchAssociateAnalyticsDataSetCommand = async (
@@ -7822,6 +8214,67 @@ const de_CreatePersistentContactAssociationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreatePredefinedAttributeCommand
+ */
+export const de_CreatePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePredefinedAttributeCommandError
+ */
+const de_CreatePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -9188,6 +9641,64 @@ const de_DeleteIntegrationAssociationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeletePredefinedAttributeCommand
+ */
+export const de_DeletePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeletePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePredefinedAttributeCommandError
+ */
+const de_DeletePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -10652,6 +11163,65 @@ const de_DescribePhoneNumberCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribePredefinedAttributeCommand
+ */
+export const de_DescribePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PredefinedAttribute: (_) => de_PredefinedAttribute(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribePredefinedAttributeCommandError
+ */
+const de_DescribePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribePromptCommand
  */
 export const de_DescribePromptCommand = async (
@@ -12009,6 +12579,61 @@ const de_DisassociateTrafficDistributionGroupUserCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.connect#ResourceConflictException":
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DisassociateUserProficienciesCommand
+ */
+export const de_DisassociateUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateUserProficienciesCommandError
+ */
+const de_DisassociateUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -14006,6 +14631,66 @@ const de_ListPhoneNumbersV2CommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPredefinedAttributesCommand
+ */
+export const de_ListPredefinedAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPredefinedAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPredefinedAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    PredefinedAttributeSummaryList: (_) => de_PredefinedAttributeSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPredefinedAttributesCommandError
+ */
+const de_ListPredefinedAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPredefinedAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListPromptsCommand
  */
 export const de_ListPromptsCommand = async (
@@ -15092,6 +15777,68 @@ const de_ListUserHierarchyGroupsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListUserProficienciesCommand
+ */
+export const de_ListUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    UserProficiencyList: (_) => de_UserProficiencyList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListUserProficienciesCommandError
+ */
+const de_ListUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListUsersCommand
  */
 export const de_ListUsersCommand = async (
@@ -15763,6 +16510,67 @@ const de_SearchAvailablePhoneNumbersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchContactsCommand
+ */
+export const de_SearchContactsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchContactsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Contacts: (_) => de_Contacts(_, context),
+    NextToken: __expectString,
+    TotalCount: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchContactsCommandError
+ */
+const de_SearchContactsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1SearchHoursOfOperationsCommand
  */
 export const de_SearchHoursOfOperationsCommand = async (
@@ -15792,6 +16600,67 @@ const de_SearchHoursOfOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchHoursOfOperationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SearchPredefinedAttributesCommand
+ */
+export const de_SearchPredefinedAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPredefinedAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchPredefinedAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    NextToken: __expectString,
+    PredefinedAttributes: (_) => de_PredefinedAttributeSearchSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchPredefinedAttributesCommandError
+ */
+const de_SearchPredefinedAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPredefinedAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -17867,6 +18736,64 @@ const de_UpdateContactFlowNameCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateContactRoutingDataCommand
+ */
+export const de_UpdateContactRoutingDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactRoutingDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateContactRoutingDataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateContactRoutingDataCommandError
+ */
+const de_UpdateContactRoutingDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactRoutingDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateContactScheduleCommand
  */
 export const de_UpdateContactScheduleCommand = async (
@@ -18328,6 +19255,61 @@ const de_UpdatePhoneNumberMetadataCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.connect#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdatePredefinedAttributeCommand
+ */
+export const de_UpdatePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePredefinedAttributeCommandError
+ */
+const de_UpdatePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -19596,6 +20578,61 @@ const de_UpdateUserPhoneConfigCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateUserProficienciesCommand
+ */
+export const de_UpdateUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateUserProficienciesCommandError
+ */
+const de_UpdateUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateUserRoutingProfileCommand
  */
 export const de_UpdateUserRoutingProfileCommand = async (
@@ -20334,6 +21371,10 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AgentConfig omitted.
 
+// se_AgentHierarchyGroups omitted.
+
+// se_AgentResourceIdList omitted.
+
 // se_AgentsMinOneMaxHundred omitted.
 
 // se_AllowedAccessControlTags omitted.
@@ -20356,6 +21397,8 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_Campaign omitted.
 
+// se_ChannelList omitted.
+
 // se_Channels omitted.
 
 // se_ChatEvent omitted.
@@ -20365,6 +21408,8 @@ const de_UserNotFoundExceptionRes = async (
 // se_ChatParticipantRoleConfig omitted.
 
 // se_ChatStreamingConfiguration omitted.
+
+// se_ContactAnalysis omitted.
 
 // se_ContactDataRequest omitted.
 
@@ -20577,6 +21622,8 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
 
 // se_HierarchyGroupCondition omitted.
 
+// se_HierarchyGroupIdList omitted.
+
 // se_HierarchyLevelUpdate omitted.
 
 // se_HierarchyStructureUpdate omitted.
@@ -20636,6 +21683,8 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 // se_HoursOfOperationSearchFilter omitted.
 
 // se_HoursOfOperationTimeSlice omitted.
+
+// se_InitiationMethodList omitted.
 
 // se_InstanceStorageConfig omitted.
 
@@ -20718,6 +21767,38 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 // se_PhoneNumberTypes omitted.
 
 /**
+ * serializeAws_restJson1PredefinedAttributeSearchConditionList
+ */
+const se_PredefinedAttributeSearchConditionList = (
+  input: PredefinedAttributeSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PredefinedAttributeSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1PredefinedAttributeSearchCriteria
+ */
+const se_PredefinedAttributeSearchCriteria = (
+  input: PredefinedAttributeSearchCriteria,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AndConditions: (_) => se_PredefinedAttributeSearchConditionList(_, context),
+    OrConditions: (_) => se_PredefinedAttributeSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_PredefinedAttributeStringValuesList omitted.
+
+// se_PredefinedAttributeValues omitted.
+
+/**
  * serializeAws_restJson1PromptSearchConditionList
  */
 const se_PromptSearchConditionList = (input: PromptSearchCriteria[], context: __SerdeContext): any => {
@@ -20740,6 +21821,8 @@ const se_PromptSearchCriteria = (input: PromptSearchCriteria, context: __SerdeCo
 };
 
 // se_PromptSearchFilter omitted.
+
+// se_QueueIdList omitted.
 
 // se_QueueQuickConnectConfig omitted.
 
@@ -20816,6 +21899,8 @@ const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, contex
 
 // se_ResourceTypeList omitted.
 
+// se_RoutingExpressions omitted.
+
 // se_RoutingProfileQueueConfig omitted.
 
 // se_RoutingProfileQueueConfigList omitted.
@@ -20881,6 +21966,29 @@ const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
 
 // se_S3Config omitted.
 
+// se_SearchableContactAttributes omitted.
+
+// se_SearchableContactAttributesCriteria omitted.
+
+// se_SearchableContactAttributesCriteriaList omitted.
+
+// se_SearchableContactAttributeValueList omitted.
+
+/**
+ * serializeAws_restJson1SearchContactsTimeRange
+ */
+const se_SearchContactsTimeRange = (input: SearchContactsTimeRange, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    Type: [],
+  });
+};
+
+// se_SearchCriteria omitted.
+
+// se_SearchTextList omitted.
+
 // se_SecurityProfileIds omitted.
 
 /**
@@ -20925,6 +22033,8 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 // se_SingleSelectOptions omitted.
 
 // se_SingleSelectQuestionRuleCategoryAutomation omitted.
+
+// se_Sort omitted.
 
 // se_StringCondition omitted.
 
@@ -20991,6 +22101,12 @@ const se_ThresholdV2 = (input: ThresholdV2, context: __SerdeContext): any => {
   });
 };
 
+// se_Transcript omitted.
+
+// se_TranscriptCriteria omitted.
+
+// se_TranscriptCriteriaList omitted.
+
 /**
  * serializeAws_restJson1UpdateCaseActionDefinition
  */
@@ -21011,6 +22127,32 @@ const se_UpdateCaseActionDefinition = (input: UpdateCaseActionDefinition, contex
 // se_UserIdList omitted.
 
 // se_UserPhoneConfig omitted.
+
+/**
+ * serializeAws_restJson1UserProficiency
+ */
+const se_UserProficiency = (input: UserProficiency, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeName: [],
+    AttributeValue: [],
+    Level: __serializeFloat,
+  });
+};
+
+// se_UserProficiencyDisassociate omitted.
+
+// se_UserProficiencyDisassociateList omitted.
+
+/**
+ * serializeAws_restJson1UserProficiencyList
+ */
+const se_UserProficiencyList = (input: UserProficiency[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_UserProficiency(entry, context);
+    });
+};
 
 // se_UserQuickConnectConfig omitted.
 
@@ -21202,6 +22344,8 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     Name: __expectString,
     PreviousContactId: __expectString,
     QueueInfo: (_: any) => de_QueueInfo(_, context),
+    QueuePriority: __expectLong,
+    QueueTimeAdjustmentSeconds: __expectInt32,
     RelatedContactId: __expectString,
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
@@ -21224,6 +22368,57 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 // de_ContactFlowSummaryList omitted.
 
 // de_ContactReferences omitted.
+
+/**
+ * deserializeAws_restJson1Contacts
+ */
+const de_Contacts = (output: any, context: __SerdeContext): ContactSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContactSearchSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ContactSearchSummary
+ */
+const de_ContactSearchSummary = (output: any, context: __SerdeContext): ContactSearchSummary => {
+  return take(output, {
+    AgentInfo: (_: any) => de_ContactSearchSummaryAgentInfo(_, context),
+    Arn: __expectString,
+    Channel: __expectString,
+    DisconnectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    InitialContactId: __expectString,
+    InitiationMethod: __expectString,
+    InitiationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PreviousContactId: __expectString,
+    QueueInfo: (_: any) => de_ContactSearchSummaryQueueInfo(_, context),
+    ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ContactSearchSummaryAgentInfo
+ */
+const de_ContactSearchSummaryAgentInfo = (output: any, context: __SerdeContext): ContactSearchSummaryAgentInfo => {
+  return take(output, {
+    ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ContactSearchSummaryQueueInfo
+ */
+const de_ContactSearchSummaryQueueInfo = (output: any, context: __SerdeContext): ContactSearchSummaryQueueInfo => {
+  return take(output, {
+    EnqueueTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+  }) as any;
+};
 
 // de_ContactTagMap omitted.
 
@@ -22067,6 +23262,57 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_PhoneNumberSummaryList omitted.
 
+/**
+ * deserializeAws_restJson1PredefinedAttribute
+ */
+const de_PredefinedAttribute = (output: any, context: __SerdeContext): PredefinedAttribute => {
+  return take(output, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Values: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PredefinedAttributeSearchSummaryList
+ */
+const de_PredefinedAttributeSearchSummaryList = (output: any, context: __SerdeContext): PredefinedAttribute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredefinedAttribute(entry, context);
+    });
+  return retVal;
+};
+
+// de_PredefinedAttributeStringValuesList omitted.
+
+/**
+ * deserializeAws_restJson1PredefinedAttributeSummary
+ */
+const de_PredefinedAttributeSummary = (output: any, context: __SerdeContext): PredefinedAttributeSummary => {
+  return take(output, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PredefinedAttributeSummaryList
+ */
+const de_PredefinedAttributeSummaryList = (output: any, context: __SerdeContext): PredefinedAttributeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredefinedAttributeSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_PredefinedAttributeValues omitted.
+
 // de_ProblemDetail omitted.
 
 // de_Problems omitted.
@@ -22812,6 +24058,29 @@ const de_UserDataList = (output: any, context: __SerdeContext): UserData[] => {
 // de_UserIdList omitted.
 
 // de_UserPhoneConfig omitted.
+
+/**
+ * deserializeAws_restJson1UserProficiency
+ */
+const de_UserProficiency = (output: any, context: __SerdeContext): UserProficiency => {
+  return take(output, {
+    AttributeName: __expectString,
+    AttributeValue: __expectString,
+    Level: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserProficiencyList
+ */
+const de_UserProficiencyList = (output: any, context: __SerdeContext): UserProficiency[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UserProficiency(entry, context);
+    });
+  return retVal;
+};
 
 // de_UserQuickConnectConfig omitted.
 

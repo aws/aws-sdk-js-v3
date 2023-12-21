@@ -88,6 +88,8 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
  * //     },
+ * //     QueueTimeAdjustmentSeconds: Number("int"),
+ * //     QueuePriority: Number("long"),
  * //     Tags: { // ContactTagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },

@@ -8,6 +8,7 @@ import {
   AgentAvailabilityTimer,
   AgentConfig,
   AgentContactReference,
+  AgentHierarchyGroups,
   AgentStatusReference,
   AgentStatusSummary,
   AgentStatusType,
@@ -18,6 +19,7 @@ import {
   ContactFlowModuleState,
   ContactFlowState,
   ContactFlowType,
+  ContactInitiationMethod,
   ContactState,
   DirectoryType,
   Distribution,
@@ -27,7 +29,6 @@ import {
   EventSourceName,
   FlowAssociationResourceType,
   FlowAssociationSummary,
-  HoursOfOperation,
   InstanceStatus,
   InstanceStorageConfig,
   InstanceStorageResourceType,
@@ -40,7 +41,7 @@ import {
   OutboundCallerConfig,
   ParticipantRole,
   PhoneNumberCountryCode,
-  PhoneNumberType,
+  PredefinedAttributeValues,
   QueueReference,
   QuickConnectConfig,
   QuickConnectType,
@@ -57,6 +58,7 @@ import {
   UseCaseType,
   UserIdentityInfo,
   UserPhoneConfig,
+  UserProficiency,
   View,
   ViewFilterSensitiveLog,
   ViewStatus,
@@ -64,6 +66,269 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const PhoneNumberWorkflowStatus = {
+  Claimed: "CLAIMED",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberWorkflowStatus = (typeof PhoneNumberWorkflowStatus)[keyof typeof PhoneNumberWorkflowStatus];
+
+/**
+ * @public
+ * <p>The status of the phone number.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>, <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>, or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed.
+ *      You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at
+ *      a later time to verify if the previous operation has completed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
+ *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
+ *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
+ *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
+ *      have one day to retry claiming the phone number before the number is released back to the
+ *      inventory for other customers to claim.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface PhoneNumberStatus {
+  /**
+   * @public
+   * <p>The status.</p>
+   */
+  Status?: PhoneNumberWorkflowStatus;
+
+  /**
+   * @public
+   * <p>The status message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PhoneNumberType = {
+  DID: "DID",
+  SHARED: "SHARED",
+  SHORT_CODE: "SHORT_CODE",
+  THIRD_PARTY_DID: "THIRD_PARTY_DID",
+  THIRD_PARTY_TF: "THIRD_PARTY_TF",
+  TOLL_FREE: "TOLL_FREE",
+  UIFN: "UIFN",
+} as const;
+
+/**
+ * @public
+ */
+export type PhoneNumberType = (typeof PhoneNumberType)[keyof typeof PhoneNumberType];
+
+/**
+ * @public
+ * <p>Information about a phone number that has been claimed to your Amazon Connect instance
+ *    or traffic distribution group.</p>
+ */
+export interface ClaimedPhoneNumberSummary {
+  /**
+   * @public
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   */
+  PhoneNumberArn?: string;
+
+  /**
+   * @public
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * @public
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode;
+
+  /**
+   * @public
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType?: PhoneNumberType;
+
+  /**
+   * @public
+   * <p>The description of the phone number.</p>
+   */
+  PhoneNumberDescription?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The status of the phone number.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLAIMED</code> means the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> means a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>, <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>, or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html">UpdatePhoneNumberMetadata</a> operation is still in progress and has not yet completed.
+   *      You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> at
+   *      a later time to verify if the previous operation has completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> indicates that the previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a> or <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a> operation has failed. It will include a message indicating the
+   *      failure reason. A common reason for a failure may be that the <code>TargetArn</code> value you
+   *      are claiming or updating a phone number to has reached its limit of total claimed numbers. If
+   *      you received a <code>FAILED</code> status from a <code>ClaimPhoneNumber</code> API call, you
+   *      have one day to retry claiming the phone number before the number is released back to the
+   *      inventory for other customers to claim.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You will not be billed for the phone number during the 1-day period if number claiming
+   *     fails. </p>
+   *          </note>
+   */
+  PhoneNumberStatus?: PhoneNumberStatus;
+
+  /**
+   * @public
+   * <p>The claimed phone number ARN that was previously imported from the external service, such as
+   *     Amazon Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number
+   *    that was imported from Amazon Pinpoint.</p>
+   */
+  SourcePhoneNumberArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribePhoneNumberResponse {
+  /**
+   * @public
+   * <p>Information about a phone number that's been claimed to your Amazon Connect instance or
+   *    traffic distribution group.</p>
+   */
+  ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
+}
+
+/**
+ * @public
+ */
+export interface DescribePredefinedAttributeRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the predefined attribute.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a predefined attribute.</p>
+ */
+export interface PredefinedAttribute {
+  /**
+   * @public
+   * <p>The name of the predefined attribute.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The values of the predefined attribute.</p>
+   */
+  Values?: PredefinedAttributeValues;
+
+  /**
+   * @public
+   * <p>Last modified time.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Last modified region.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribePredefinedAttributeResponse {
+  /**
+   * @public
+   * <p>Information about the predefined attribute.</p>
+   */
+  PredefinedAttribute?: PredefinedAttribute;
+}
+
+/**
+ * @public
+ */
+export interface DescribePromptRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique identifier for the prompt.</p>
+   */
+  PromptId: string | undefined;
+}
 
 /**
  * @public
@@ -1521,6 +1786,48 @@ export interface DisassociateTrafficDistributionGroupUserResponse {}
 
 /**
  * @public
+ * <p>Information about proficiency to be disassociated from the user.</p>
+ */
+export interface UserProficiencyDisassociate {
+  /**
+   * @public
+   * <p>The name of user's proficiency.</p>
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of user's proficiency.</p>
+   */
+  AttributeValue: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateUserProficienciesRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The proficiencies to disassociate from the user.</p>
+   */
+  UserProficiencies: UserProficiencyDisassociate[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface DismissUserContactRequest {
   /**
@@ -1659,6 +1966,13 @@ export interface Filters {
    * <p>A list of up to 100 routing profile IDs or ARNs.</p>
    */
   RoutingProfiles?: string[];
+
+  /**
+   * @public
+   * <p>A list of expressions as a filter, in which an expression is an object of a step in a
+   *    routing criteria.</p>
+   */
+  RoutingStepExpressions?: string[];
 }
 
 /**
@@ -1669,6 +1983,7 @@ export const Grouping = {
   CHANNEL: "CHANNEL",
   QUEUE: "QUEUE",
   ROUTING_PROFILE: "ROUTING_PROFILE",
+  ROUTING_STEP_EXPRESSION: "ROUTING_STEP_EXPRESSION",
 } as const;
 
 /**
@@ -1952,6 +2267,12 @@ export interface Dimensions {
    * <p>Information about the routing profile assigned to the user.</p>
    */
   RoutingProfile?: RoutingProfileReference;
+
+  /**
+   * @public
+   * <p>The expression of a step in a routing criteria.</p>
+   */
+  RoutingStepExpression?: string;
 }
 
 /**
@@ -5740,8 +6061,8 @@ export interface ListPhoneNumbersV2Request {
    * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
    *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. If both <code>TargetArn</code> and <code>InstanceId</code> are not
-   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your
-   *    account in the same AWS Region as the request.</p>
+   *    provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account in
+   *    the same AWS Region as the request.</p>
    */
   InstanceId?: string;
 
@@ -5858,6 +6179,72 @@ export interface ListPhoneNumbersV2Response {
    *    or traffic distribution groups.</p>
    */
   ListPhoneNumbersSummaryList?: ListPhoneNumbersSummary[];
+}
+
+/**
+ * @public
+ */
+export interface ListPredefinedAttributesRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page. </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary of a predefined attribute.</p>
+ */
+export interface PredefinedAttributeSummary {
+  /**
+   * @public
+   * <p>The name of the predefined attribute.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>Last modified time.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>Last modified region.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPredefinedAttributesResponse {
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Summary of the predefined attributes.</p>
+   */
+  PredefinedAttributeSummaryList?: PredefinedAttributeSummary[];
 }
 
 /**
@@ -7839,6 +8226,66 @@ export interface ListUserHierarchyGroupsResponse {
 /**
  * @public
  */
+export interface ListUserProficienciesRequest {
+  /**
+   * @public
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource
+   *    Name (ARN) of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListUserProficienciesResponse {
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Information about the user proficiencies.</p>
+   */
+  UserProficiencyList?: UserProficiency[];
+
+  /**
+   * @public
+   * <p>The last time that the user's proficiencies are were modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The region in which a user's proficiencies were last modified.</p>
+   */
+  LastModifiedRegion?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListUsersRequest {
   /**
    * @public
@@ -8162,7 +8609,8 @@ export interface MonitorContactResponse {
 
 /**
  * @public
- * <p>Operation cannot be performed at this time as there is a  conflict with another operation or contact state.</p>
+ * <p>Operation cannot be performed at this time as there is a conflict with another operation or
+ *    contact state.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -8463,581 +8911,189 @@ export interface SearchAvailablePhoneNumbersResponse {
  * @public
  * @enum
  */
-export const StringComparisonType = {
-  CONTAINS: "CONTAINS",
-  EXACT: "EXACT",
-  STARTS_WITH: "STARTS_WITH",
+export const SearchContactsMatchType = {
+  MATCH_ALL: "MATCH_ALL",
+  MATCH_ANY: "MATCH_ANY",
 } as const;
 
 /**
  * @public
  */
-export type StringComparisonType = (typeof StringComparisonType)[keyof typeof StringComparisonType];
+export type SearchContactsMatchType = (typeof SearchContactsMatchType)[keyof typeof SearchContactsMatchType];
 
 /**
  * @public
- * <p>A leaf node condition which can be used to specify a string condition. </p>
+ * <p>The transcript criteria used to search</p>
  */
-export interface StringCondition {
+export interface TranscriptCriteria {
   /**
    * @public
-   * <p>The name of the field in the string condition.</p>
+   * <p>The participant role in a transcript</p>
    */
-  FieldName?: string;
+  ParticipantRole: ParticipantRole | undefined;
 
   /**
    * @public
-   * <p>The value of the string.</p>
+   * <p>The words or phrases used to search within a transcript.</p>
    */
-  Value?: string;
+  SearchText: string[] | undefined;
 
   /**
    * @public
-   * <p>The type of comparison to be made when evaluating the string condition.</p>
+   * <p>The match type of search texts in a transcript criteria.</p>
    */
-  ComparisonType?: StringComparisonType;
+  MatchType: SearchContactsMatchType | undefined;
 }
 
 /**
  * @public
- * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
- *     BPO = 123</code>. </p>
+ * <p>The transcript object used to search results.</p>
  */
-export interface TagCondition {
+export interface Transcript {
   /**
    * @public
-   * <p>The tag key in the tag condition.</p>
+   * <p>The array of transcript search criteria</p>
    */
-  TagKey?: string;
+  Criteria: TranscriptCriteria[] | undefined;
 
   /**
    * @public
-   * <p>The tag value in the tag condition.</p>
+   * <p>The match type of multiple transcript criteira</p>
    */
-  TagValue?: string;
+  MatchType?: SearchContactsMatchType;
 }
 
 /**
  * @public
- * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
- *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
- *          <ul>
- *             <li>
- *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
- *      operator</p>
- *             </li>
- *             <li>
- *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
- *      operator.</p>
- *             </li>
- *          </ul>
+ * <p>A structure that defines filters can be used to search within outputs analyzed by Amazon Connect Contact Lens in a contact.</p>
  */
-export interface ControlPlaneTagFilter {
+export interface ContactAnalysis {
   /**
    * @public
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.
-   *   </p>
+   * <p>A structure that defines filters can be used to search with text within an Amazon Connect Contact Lens analyzed transcript.</p>
    */
-  OrConditions?: TagCondition[][];
-
-  /**
-   * @public
-   * <p>A list of conditions which would be applied together with an <code>AND</code>
-   *    condition.</p>
-   */
-  AndConditions?: TagCondition[];
-
-  /**
-   * @public
-   * <p>A leaf node condition which can be used to specify a tag condition. </p>
-   */
-  TagCondition?: TagCondition;
+  Transcript?: Transcript;
 }
 
 /**
  * @public
- * <p>Filters to be applied to search results.</p>
+ * <p>The criteria of searchable contact attributes.</p>
  */
-export interface HoursOfOperationSearchFilter {
+export interface SearchableContactAttributesCriteria {
   /**
    * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
+   * <p>The searchable contact attribute key</p>
    */
-  TagFilter?: ControlPlaneTagFilter;
+  Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The array of contact attribute values used to filter search results.</p>
+   */
+  Values: string[] | undefined;
 }
 
 /**
  * @public
+ * <p>A structure that defines searchable contact attributes which can be used to filter search results. </p>
  */
-export interface SearchHoursOfOperationsResponse {
+export interface SearchableContactAttributes {
   /**
    * @public
-   * <p>Information about the hours of operations.</p>
+   * <p>The array of searhale contact attribute criteria</p>
    */
-  HoursOfOperations?: HoursOfOperation[];
+  Criteria: SearchableContactAttributesCriteria[] | undefined;
 
   /**
    * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * <p>The match type of multiple searchable contact attributes criteria.</p>
    */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The total number of hours of operations which matched your search query.</p>
-   */
-  ApproximateTotalCount?: number;
+  MatchType?: SearchContactsMatchType;
 }
 
 /**
  * @public
- * <p>Filters to be applied to search results.</p>
+ * <p>A structure of search criteria to be used to return contacts</p>
  */
-export interface PromptSearchFilter {
+export interface SearchCriteria {
   /**
    * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
+   * <p>The array of agent ids</p>
    */
-  TagFilter?: ControlPlaneTagFilter;
-}
-
-/**
- * @public
- */
-export interface SearchPromptsResponse {
-  /**
-   * @public
-   * <p>Information about the prompts.</p>
-   */
-  Prompts?: Prompt[];
+  AgentIds?: string[];
 
   /**
    * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * <p>The agent hierarchy groups</p>
    */
-  NextToken?: string;
+  AgentHierarchyGroups?: AgentHierarchyGroups;
 
   /**
    * @public
-   * <p>The total number of quick connects which matched your search query.</p>
+   * <p>The array of channels</p>
    */
-  ApproximateTotalCount?: number;
+  Channels?: Channel[];
+
+  /**
+   * @public
+   * <p>The ContactAnalysis object used in search criteria</p>
+   */
+  ContactAnalysis?: ContactAnalysis;
+
+  /**
+   * @public
+   * <p>The array of initiaton methods</p>
+   */
+  InitiationMethods?: ContactInitiationMethod[];
+
+  /**
+   * @public
+   * <p>The array of queue ids.</p>
+   */
+  QueueIds?: string[];
+
+  /**
+   * @public
+   * <p>The SearchableContactAttributes object used in search criteria</p>
+   */
+  SearchableContactAttributes?: SearchableContactAttributes;
 }
 
 /**
  * @public
  * @enum
  */
-export const SearchableQueueType = {
-  STANDARD: "STANDARD",
+export const SortableFieldName = {
+  CHANNEL: "CHANNEL",
+  CONNECTED_TO_AGENT_TIMESTAMP: "CONNECTED_TO_AGENT_TIMESTAMP",
+  DISCONNECT_TIMESTAMP: "DISCONNECT_TIMESTAMP",
+  INITIATION_METHOD: "INITIATION_METHOD",
+  INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
+  SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
 } as const;
 
 /**
  * @public
  */
-export type SearchableQueueType = (typeof SearchableQueueType)[keyof typeof SearchableQueueType];
+export type SortableFieldName = (typeof SortableFieldName)[keyof typeof SortableFieldName];
 
 /**
  * @public
- * <p>Filters to be applied to search results.</p>
+ * <p>A structure that defines the sort by and a sort order</p>
  */
-export interface QueueSearchFilter {
+export interface Sort {
   /**
    * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the field on which to sort.</p>
    */
-  TagFilter?: ControlPlaneTagFilter;
+  FieldName: SortableFieldName | undefined;
+
+  /**
+   * @public
+   * <p>An ascending or descending sort.</p>
+   */
+  Order: SortOrder | undefined;
 }
-
-/**
- * @public
- */
-export interface SearchQueuesResponse {
-  /**
-   * @public
-   * <p>Information about the queues.</p>
-   */
-  Queues?: Queue[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The total number of queues which matched your search query.</p>
-   */
-  ApproximateTotalCount?: number;
-}
-
-/**
- * @public
- * <p>Filters to be applied to search results.</p>
- */
-export interface QuickConnectSearchFilter {
-  /**
-   * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
-   */
-  TagFilter?: ControlPlaneTagFilter;
-}
-
-/**
- * @public
- */
-export interface SearchQuickConnectsResponse {
-  /**
-   * @public
-   * <p>Information about the quick connects.</p>
-   */
-  QuickConnects?: QuickConnect[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The total number of quick connects which matched your search query.</p>
-   */
-  ApproximateTotalCount?: number;
-}
-
-/**
- * @public
- * <p>Maximum number (1000) of tags have been returned with current request. Consider changing
- *    request parameters to get more tags.</p>
- */
-export class MaximumResultReturnedException extends __BaseException {
-  readonly name: "MaximumResultReturnedException" = "MaximumResultReturnedException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaximumResultReturnedException, __BaseException>) {
-    super({
-      name: "MaximumResultReturnedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaximumResultReturnedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * <p>The search criteria to be used to return tags.</p>
- */
-export interface TagSearchCondition {
-  /**
-   * @public
-   * <p>The tag key used in the tag search condition.</p>
-   */
-  tagKey?: string;
-
-  /**
-   * @public
-   * <p>The tag value used in the tag search condition.</p>
-   */
-  tagValue?: string;
-
-  /**
-   * @public
-   * <p>The type of comparison to be made when evaluating the tag key in tag search
-   *    condition.</p>
-   */
-  tagKeyComparisonType?: StringComparisonType;
-
-  /**
-   * @public
-   * <p>The type of comparison to be made when evaluating the tag value in tag search
-   *    condition.</p>
-   */
-  tagValueComparisonType?: StringComparisonType;
-}
-
-/**
- * @public
- * <p>The search criteria to be used to search tags.</p>
- */
-export interface ResourceTagsSearchCriteria {
-  /**
-   * @public
-   * <p>The search criteria to be used to return tags.</p>
-   */
-  TagSearchCondition?: TagSearchCondition;
-}
-
-/**
- * @public
- */
-export interface SearchResourceTagsRequest {
-  /**
-   * @public
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the Amazon
-   *    Resource Name (ARN) of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The list of resource types to be used to search tags from. If not provided or if any empty
-   *    list is provided, this API will search from all supported resource types.</p>
-   */
-  ResourceTypes?: string[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results. Use the value returned in the previous response in
-   *    the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The search criteria to be used to return tags.</p>
-   */
-  SearchCriteria?: ResourceTagsSearchCriteria;
-}
-
-/**
- * @public
- * <p>A tag set contains tag key and tag value.</p>
- */
-export interface TagSet {
-  /**
-   * @public
-   * <p>The tag key in the tagSet.</p>
-   */
-  key?: string;
-
-  /**
-   * @public
-   * <p>The tag value in the tagSet.</p>
-   */
-  value?: string;
-}
-
-/**
- * @public
- */
-export interface SearchResourceTagsResponse {
-  /**
-   * @public
-   * <p>A list of tags used in the Amazon Connect instance.</p>
-   */
-  Tags?: TagSet[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * <p>Filters to be applied to search results.</p>
- */
-export interface RoutingProfileSearchFilter {
-  /**
-   * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
-   */
-  TagFilter?: ControlPlaneTagFilter;
-}
-
-/**
- * @public
- */
-export interface SearchRoutingProfilesResponse {
-  /**
-   * @public
-   * <p>Information about the routing profiles.</p>
-   */
-  RoutingProfiles?: RoutingProfile[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The total number of routing profiles which matched your search query.</p>
-   */
-  ApproximateTotalCount?: number;
-}
-
-/**
- * @public
- * <p>Filters to be applied to search results.</p>
- */
-export interface SecurityProfilesSearchFilter {
-  /**
-   * @public
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>.
-   *    This accepts an <code>OR</code> of <code>AND</code> (List of List) input where: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code>
-   *      operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
-   *      operator.</p>
-   *             </li>
-   *          </ul>
-   */
-  TagFilter?: ControlPlaneTagFilter;
-}
-
-/**
- * @public
- * <p>Information about the returned security profiles.</p>
- */
-export interface SecurityProfileSearchSummary {
-  /**
-   * @public
-   * <p>The identifier of the security profile.</p>
-   */
-  Id?: string;
-
-  /**
-   * @public
-   * <p>The organization resource identifier.</p>
-   */
-  OrganizationResourceId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The name of the security profile.</p>
-   */
-  SecurityProfileName?: string;
-
-  /**
-   * @public
-   * <p>The description of the security profile.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface SearchSecurityProfilesResponse {
-  /**
-   * @public
-   * <p>Information about the security profiles.</p>
-   */
-  SecurityProfiles?: SecurityProfileSearchSummary[];
-
-  /**
-   * @public
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The total number of security profiles which matched your search query.</p>
-   */
-  ApproximateTotalCount?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const HierarchyGroupMatchType = {
-  EXACT: "EXACT",
-  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
-} as const;
-
-/**
- * @public
- */
-export type HierarchyGroupMatchType = (typeof HierarchyGroupMatchType)[keyof typeof HierarchyGroupMatchType];
 
 /**
  * @internal
@@ -9124,4 +9180,60 @@ export const ListViewVersionsResponseFilterSensitiveLog = (obj: ListViewVersions
 export const ReplicateInstanceRequestFilterSensitiveLog = (obj: ReplicateInstanceRequest): any => ({
   ...obj,
   ...(obj.ReplicaAlias && { ReplicaAlias: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranscriptCriteriaFilterSensitiveLog = (obj: TranscriptCriteria): any => ({
+  ...obj,
+  ...(obj.SearchText && { SearchText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
+  ...obj,
+  ...(obj.Criteria && { Criteria: obj.Criteria.map((item) => TranscriptCriteriaFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ContactAnalysisFilterSensitiveLog = (obj: ContactAnalysis): any => ({
+  ...obj,
+  ...(obj.Transcript && { Transcript: TranscriptFilterSensitiveLog(obj.Transcript) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchableContactAttributesCriteriaFilterSensitiveLog = (
+  obj: SearchableContactAttributesCriteria
+): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchableContactAttributesFilterSensitiveLog = (obj: SearchableContactAttributes): any => ({
+  ...obj,
+  ...(obj.Criteria && {
+    Criteria: obj.Criteria.map((item) => SearchableContactAttributesCriteriaFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SearchCriteriaFilterSensitiveLog = (obj: SearchCriteria): any => ({
+  ...obj,
+  ...(obj.ContactAnalysis && { ContactAnalysis: ContactAnalysisFilterSensitiveLog(obj.ContactAnalysis) }),
+  ...(obj.SearchableContactAttributes && {
+    SearchableContactAttributes: SearchableContactAttributesFilterSensitiveLog(obj.SearchableContactAttributes),
+  }),
 });

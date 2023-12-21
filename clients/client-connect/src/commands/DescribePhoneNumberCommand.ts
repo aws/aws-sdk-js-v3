@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribePhoneNumberRequest, DescribePhoneNumberResponse } from "../models/models_0";
+import { DescribePhoneNumberRequest } from "../models/models_0";
+import { DescribePhoneNumberResponse } from "../models/models_1";
 import { de_DescribePhoneNumberCommand, se_DescribePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**

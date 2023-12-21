@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchRoutingProfilesResponse } from "../models/models_1";
-import { SearchRoutingProfilesRequest } from "../models/models_2";
+import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_2";
 import { de_SearchRoutingProfilesCommand, se_SearchRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**

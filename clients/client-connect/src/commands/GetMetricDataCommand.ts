@@ -69,9 +69,12 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
  *     ],
+ *     RoutingStepExpressions: [ // RoutingExpressions
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   Groupings: [ // Groupings
- *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE" || "ROUTING_STEP_EXPRESSION",
  *   ],
  *   HistoricalMetrics: [ // HistoricalMetrics // required
  *     { // HistoricalMetric
@@ -103,6 +106,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
  * //         },
+ * //         RoutingStepExpression: "STRING_VALUE",
  * //       },
  * //       Collections: [ // HistoricalMetricDataCollections
  * //         { // HistoricalMetricData
