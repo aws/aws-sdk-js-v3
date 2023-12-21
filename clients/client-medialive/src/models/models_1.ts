@@ -16,36 +16,36 @@ import {
   ChannelClass,
   ChannelEgressEndpoint,
   ChannelState,
-  ChannelSummary,
   ColorCorrection,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   FrameCaptureGroupSettings,
   Hdr10Settings,
   HlsAdMarkers,
+  HlsAkamaiSettings,
+  HlsBasicPutSettings,
   HlsCaptionLanguageSetting,
-  HlsCdnSettings,
   HlsClientCache,
   HlsCodecSpecification,
   HlsDirectoryStructure,
   HlsDiscontinuityTags,
   HlsEncryptionType,
-  HlsId3SegmentTaggingState,
-  HlsIncompleteSegmentBehavior,
-  IFrameOnlyPlaylistType,
+  HlsMediaStoreSettings,
+  HlsS3Settings,
+  HlsWebdavSettings,
   Input,
   InputAttachment,
   InputClass,
   InputDestination,
   InputDestinationRequest,
   InputDeviceCodec,
+  InputDeviceConfigurableAudioChannelPairConfig,
   InputDeviceConfiguredInput,
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
   InputDeviceOutputType,
   InputDeviceSettings,
-  InputDeviceSummary,
   InputDeviceType,
   InputDeviceUhdSettings,
   InputLocation,
@@ -75,6 +75,85 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * @public
+ * Hls Cdn Settings
+ */
+export interface HlsCdnSettings {
+  /**
+   * @public
+   * Hls Akamai Settings
+   */
+  HlsAkamaiSettings?: HlsAkamaiSettings;
+
+  /**
+   * @public
+   * Hls Basic Put Settings
+   */
+  HlsBasicPutSettings?: HlsBasicPutSettings;
+
+  /**
+   * @public
+   * Hls Media Store Settings
+   */
+  HlsMediaStoreSettings?: HlsMediaStoreSettings;
+
+  /**
+   * @public
+   * Hls S3 Settings
+   */
+  HlsS3Settings?: HlsS3Settings;
+
+  /**
+   * @public
+   * Hls Webdav Settings
+   */
+  HlsWebdavSettings?: HlsWebdavSettings;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsId3SegmentTaggingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsId3SegmentTaggingState = (typeof HlsId3SegmentTaggingState)[keyof typeof HlsId3SegmentTaggingState];
+
+/**
+ * @public
+ * @enum
+ */
+export const IFrameOnlyPlaylistType = {
+  DISABLED: "DISABLED",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type IFrameOnlyPlaylistType = (typeof IFrameOnlyPlaylistType)[keyof typeof IFrameOnlyPlaylistType];
+
+/**
+ * @public
+ * @enum
+ */
+export const HlsIncompleteSegmentBehavior = {
+  AUTO: "AUTO",
+  SUPPRESS: "SUPPRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type HlsIncompleteSegmentBehavior =
+  (typeof HlsIncompleteSegmentBehavior)[keyof typeof HlsIncompleteSegmentBehavior];
 
 /**
  * @public
@@ -5305,12 +5384,6 @@ export interface EncoderSettings {
 
   /**
    * @public
-   * Color correction settings
-   */
-  ColorCorrectionSettings?: ColorCorrectionSettings;
-
-  /**
-   * @public
    * Feature Activations
    */
   FeatureActivations?: FeatureActivations;
@@ -5356,6 +5429,12 @@ export interface EncoderSettings {
    * Thumbnail configuration settings.
    */
   ThumbnailConfiguration?: ThumbnailConfiguration;
+
+  /**
+   * @public
+   * Color Correction Settings
+   */
+  ColorCorrectionSettings?: ColorCorrectionSettings;
 }
 
 /**
@@ -7709,6 +7788,12 @@ export interface InputDeviceConfigurableSettings {
    * To attach this device to a MediaConnect flow, specify these parameters. To detach an existing flow, enter \{\} for the value of mediaconnectSettings. Only UHD devices can specify this parameter.
    */
   MediaconnectSettings?: InputDeviceMediaConnectConfigurableSettings;
+
+  /**
+   * @public
+   * An array of eight audio configurations, one for each audio pair in the source. Set up each audio configuration either to exclude the pair, or to format it and include it in the output from the device. This parameter applies only to UHD devices, and only when the device is configured as the source for a MediaConnect flow. For an HD device, you configure the audio by setting up audio selectors in the channel configuration.
+   */
+  AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[];
 }
 
 /**
@@ -7727,84 +7812,6 @@ export interface ListChannelsRequest {
    * Placeholder documentation for __string
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListChannelsResponse
- */
-export interface ListChannelsResponse {
-  /**
-   * @public
-   * Placeholder documentation for __listOfChannelSummary
-   */
-  Channels?: ChannelSummary[];
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListInputDevicesRequest
- */
-export interface ListInputDevicesRequest {
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListInputDevicesResponse
- */
-export interface ListInputDevicesResponse {
-  /**
-   * @public
-   * The list of input devices.
-   */
-  InputDevices?: InputDeviceSummary[];
-
-  /**
-   * @public
-   * A token to get additional list results.
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * Placeholder documentation for ListInputDeviceTransfersRequest
- */
-export interface ListInputDeviceTransfersRequest {
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  TransferType: string | undefined;
 }
 
 /**

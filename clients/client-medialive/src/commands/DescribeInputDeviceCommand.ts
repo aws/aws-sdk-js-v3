@@ -96,6 +96,12 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  * //       SecretArn: "STRING_VALUE",
  * //       SourceName: "STRING_VALUE",
  * //     },
+ * //     AudioChannelPairs: [ // __listOfInputDeviceUhdAudioChannelPairConfig
+ * //       { // InputDeviceUhdAudioChannelPairConfig
+ * //         Id: Number("int"),
+ * //         Profile: "DISABLED" || "VBR-AAC_HHE-16000" || "VBR-AAC_HE-64000" || "VBR-AAC_LC-128000" || "CBR-AAC_HQ-192000" || "CBR-AAC_HQ-256000" || "CBR-AAC_HQ-384000" || "CBR-AAC_HQ-512000",
+ * //       },
+ * //     ],
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

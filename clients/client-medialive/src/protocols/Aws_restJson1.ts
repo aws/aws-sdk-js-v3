@@ -227,7 +227,6 @@ import {
   HlsAdMarkers,
   HlsAkamaiSettings,
   HlsBasicPutSettings,
-  HlsCdnSettings,
   HlsInputSettings,
   HlsMediaStoreSettings,
   HlsOutputSettings,
@@ -240,12 +239,14 @@ import {
   InputDestination,
   InputDestinationRequest,
   InputDestinationVpc,
+  InputDeviceConfigurableAudioChannelPairConfig,
   InputDeviceHdSettings,
   InputDeviceMediaConnectSettings,
   InputDeviceNetworkSettings,
   InputDeviceRequest,
   InputDeviceSettings,
   InputDeviceSummary,
+  InputDeviceUhdAudioChannelPairConfig,
   InputDeviceUhdSettings,
   InputLocation,
   InputLossFailoverSettings,
@@ -343,6 +344,7 @@ import {
   H265ColorSpaceSettings,
   H265FilterSettings,
   H265Settings,
+  HlsCdnSettings,
   HlsGroupSettings,
   HlsId3SegmentTaggingScheduleActionSettings,
   HlsTimedMetadataScheduleActionSettings,
@@ -6426,6 +6428,20 @@ const se___listOfInputDestinationRequest = (input: InputDestinationRequest[], co
 };
 
 /**
+ * serializeAws_restJson1__listOfInputDeviceConfigurableAudioChannelPairConfig
+ */
+const se___listOfInputDeviceConfigurableAudioChannelPairConfig = (
+  input: InputDeviceConfigurableAudioChannelPairConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InputDeviceConfigurableAudioChannelPairConfig(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfInputDeviceRequest
  */
 const se___listOfInputDeviceRequest = (input: InputDeviceRequest[], context: __SerdeContext): any => {
@@ -7774,10 +7790,28 @@ const se_InputDestinationRequest = (input: InputDestinationRequest, context: __S
 };
 
 /**
+ * serializeAws_restJson1InputDeviceConfigurableAudioChannelPairConfig
+ */
+const se_InputDeviceConfigurableAudioChannelPairConfig = (
+  input: InputDeviceConfigurableAudioChannelPairConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    id: [, , `Id`],
+    profile: [, , `Profile`],
+  });
+};
+
+/**
  * serializeAws_restJson1InputDeviceConfigurableSettings
  */
 const se_InputDeviceConfigurableSettings = (input: InputDeviceConfigurableSettings, context: __SerdeContext): any => {
   return take(input, {
+    audioChannelPairs: [
+      ,
+      (_) => se___listOfInputDeviceConfigurableAudioChannelPairConfig(_, context),
+      `AudioChannelPairs`,
+    ],
     codec: [, , `Codec`],
     configuredInput: [, , `ConfiguredInput`],
     latencyMs: [, , `LatencyMs`],
@@ -9315,6 +9349,21 @@ const de___listOfInputDeviceSummary = (output: any, context: __SerdeContext): In
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_InputDeviceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfInputDeviceUhdAudioChannelPairConfig
+ */
+const de___listOfInputDeviceUhdAudioChannelPairConfig = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceUhdAudioChannelPairConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InputDeviceUhdAudioChannelPairConfig(entry, context);
     });
   return retVal;
 };
@@ -11006,11 +11055,25 @@ const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDevic
 };
 
 /**
+ * deserializeAws_restJson1InputDeviceUhdAudioChannelPairConfig
+ */
+const de_InputDeviceUhdAudioChannelPairConfig = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceUhdAudioChannelPairConfig => {
+  return take(output, {
+    Id: [, __expectInt32, `id`],
+    Profile: [, __expectString, `profile`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1InputDeviceUhdSettings
  */
 const de_InputDeviceUhdSettings = (output: any, context: __SerdeContext): InputDeviceUhdSettings => {
   return take(output, {
     ActiveInput: [, __expectString, `activeInput`],
+    AudioChannelPairs: [, (_: any) => de___listOfInputDeviceUhdAudioChannelPairConfig(_, context), `audioChannelPairs`],
     Codec: [, __expectString, `codec`],
     ConfiguredInput: [, __expectString, `configuredInput`],
     DeviceState: [, __expectString, `deviceState`],

@@ -3875,6 +3875,45 @@ export interface InputDestinationRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const InputDeviceConfigurableAudioChannelPairProfile = {
+  CBR_AAC_HQ_192000: "CBR-AAC_HQ-192000",
+  CBR_AAC_HQ_256000: "CBR-AAC_HQ-256000",
+  CBR_AAC_HQ_384000: "CBR-AAC_HQ-384000",
+  CBR_AAC_HQ_512000: "CBR-AAC_HQ-512000",
+  DISABLED: "DISABLED",
+  VBR_AAC_HE_64000: "VBR-AAC_HE-64000",
+  VBR_AAC_HHE_16000: "VBR-AAC_HHE-16000",
+  VBR_AAC_LC_128000: "VBR-AAC_LC-128000",
+} as const;
+
+/**
+ * @public
+ */
+export type InputDeviceConfigurableAudioChannelPairProfile =
+  (typeof InputDeviceConfigurableAudioChannelPairProfile)[keyof typeof InputDeviceConfigurableAudioChannelPairProfile];
+
+/**
+ * @public
+ * One audio configuration that specifies the format for one audio pair that the device produces as output.
+ */
+export interface InputDeviceConfigurableAudioChannelPairConfig {
+  /**
+   * @public
+   * The ID for one audio pair configuration, a value from 1 to 8.
+   */
+  Id?: number;
+
+  /**
+   * @public
+   * The profile to set for one audio pair configuration. Choose an enumeration value. Each value describes one audio configuration using the format (rate control algorithm)-(codec)_(quality)-(bitrate in bytes). For example, CBR-AAC_HQ-192000. Or choose DISABLED, in which case the device won't produce audio for this pair.
+   */
+  Profile?: InputDeviceConfigurableAudioChannelPairProfile;
+}
+
+/**
+ * @public
  * Settings for an input device.
  */
 export interface InputDeviceRequest {
@@ -4128,6 +4167,45 @@ export type InputDeviceType = (typeof InputDeviceType)[keyof typeof InputDeviceT
  * @public
  * @enum
  */
+export const InputDeviceUhdAudioChannelPairProfile = {
+  CBR_AAC_HQ_192000: "CBR-AAC_HQ-192000",
+  CBR_AAC_HQ_256000: "CBR-AAC_HQ-256000",
+  CBR_AAC_HQ_384000: "CBR-AAC_HQ-384000",
+  CBR_AAC_HQ_512000: "CBR-AAC_HQ-512000",
+  DISABLED: "DISABLED",
+  VBR_AAC_HE_64000: "VBR-AAC_HE-64000",
+  VBR_AAC_HHE_16000: "VBR-AAC_HHE-16000",
+  VBR_AAC_LC_128000: "VBR-AAC_LC-128000",
+} as const;
+
+/**
+ * @public
+ */
+export type InputDeviceUhdAudioChannelPairProfile =
+  (typeof InputDeviceUhdAudioChannelPairProfile)[keyof typeof InputDeviceUhdAudioChannelPairProfile];
+
+/**
+ * @public
+ * One audio configuration that specifies the format for one audio pair that the device produces as output.
+ */
+export interface InputDeviceUhdAudioChannelPairConfig {
+  /**
+   * @public
+   * The ID for one audio pair configuration, a value from 1 to 8.
+   */
+  Id?: number;
+
+  /**
+   * @public
+   * The profile for one audio pair configuration. This property describes one audio configuration in the format (rate control algorithm)-(codec)_(quality)-(bitrate in bytes). For example, CBR-AAC_HQ-192000. Or DISABLED, in which case the device won't produce audio for this pair.
+   */
+  Profile?: InputDeviceUhdAudioChannelPairProfile;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const InputDeviceCodec = {
   AVC: "AVC",
   HEVC: "HEVC",
@@ -4238,6 +4316,12 @@ export interface InputDeviceUhdSettings {
    * Information about the MediaConnect flow attached to the device. Returned only if the outputType is MEDIACONNECT_FLOW.
    */
   MediaconnectSettings?: InputDeviceMediaConnectSettings;
+
+  /**
+   * @public
+   * An array of eight audio configurations, one for each audio pair in the source. Each audio configuration specifies either to exclude the pair, or to format it and include it in the output from the UHD device. Applies only when the device is configured as the source for a MediaConnect flow.
+   */
+  AudioChannelPairs?: InputDeviceUhdAudioChannelPairConfig[];
 }
 
 /**
@@ -6672,82 +6756,3 @@ export interface HlsWebdavSettings {
    */
   RestartDelay?: number;
 }
-
-/**
- * @public
- * Hls Cdn Settings
- */
-export interface HlsCdnSettings {
-  /**
-   * @public
-   * Hls Akamai Settings
-   */
-  HlsAkamaiSettings?: HlsAkamaiSettings;
-
-  /**
-   * @public
-   * Hls Basic Put Settings
-   */
-  HlsBasicPutSettings?: HlsBasicPutSettings;
-
-  /**
-   * @public
-   * Hls Media Store Settings
-   */
-  HlsMediaStoreSettings?: HlsMediaStoreSettings;
-
-  /**
-   * @public
-   * Hls S3 Settings
-   */
-  HlsS3Settings?: HlsS3Settings;
-
-  /**
-   * @public
-   * Hls Webdav Settings
-   */
-  HlsWebdavSettings?: HlsWebdavSettings;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsId3SegmentTaggingState = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type HlsId3SegmentTaggingState = (typeof HlsId3SegmentTaggingState)[keyof typeof HlsId3SegmentTaggingState];
-
-/**
- * @public
- * @enum
- */
-export const IFrameOnlyPlaylistType = {
-  DISABLED: "DISABLED",
-  STANDARD: "STANDARD",
-} as const;
-
-/**
- * @public
- */
-export type IFrameOnlyPlaylistType = (typeof IFrameOnlyPlaylistType)[keyof typeof IFrameOnlyPlaylistType];
-
-/**
- * @public
- * @enum
- */
-export const HlsIncompleteSegmentBehavior = {
-  AUTO: "AUTO",
-  SUPPRESS: "SUPPRESS",
-} as const;
-
-/**
- * @public
- */
-export type HlsIncompleteSegmentBehavior =
-  (typeof HlsIncompleteSegmentBehavior)[keyof typeof HlsIncompleteSegmentBehavior];

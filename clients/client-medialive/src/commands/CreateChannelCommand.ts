@@ -305,15 +305,6 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         Name: "STRING_VALUE", // required
  *       },
  *     ],
- *     ColorCorrectionSettings: { // ColorCorrectionSettings
- *       GlobalColorCorrections: [ // __listOfColorCorrection // required
- *         { // ColorCorrection
- *           InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
- *           OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
- *           Uri: "STRING_VALUE", // required
- *         },
- *       ],
- *     },
  *     FeatureActivations: { // FeatureActivations
  *       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
  *       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
@@ -893,6 +884,15 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *     ThumbnailConfiguration: { // ThumbnailConfiguration
  *       State: "AUTO" || "DISABLED", // required
  *     },
+ *     ColorCorrectionSettings: { // ColorCorrectionSettings
+ *       GlobalColorCorrections: [ // __listOfColorCorrection // required
+ *         { // ColorCorrection
+ *           InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ *           OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ *           Uri: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   InputAttachments: [ // __listOfInputAttachment
  *     { // InputAttachment
@@ -1325,15 +1325,6 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //           Name: "STRING_VALUE", // required
  * //         },
  * //       ],
- * //       ColorCorrectionSettings: { // ColorCorrectionSettings
- * //         GlobalColorCorrections: [ // __listOfColorCorrection // required
- * //           { // ColorCorrection
- * //             InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
- * //             OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
- * //             Uri: "STRING_VALUE", // required
- * //           },
- * //         ],
- * //       },
  * //       FeatureActivations: { // FeatureActivations
  * //         InputPrepareScheduleActions: "DISABLED" || "ENABLED",
  * //         OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
@@ -1912,6 +1903,15 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       ],
  * //       ThumbnailConfiguration: { // ThumbnailConfiguration
  * //         State: "AUTO" || "DISABLED", // required
+ * //       },
+ * //       ColorCorrectionSettings: { // ColorCorrectionSettings
+ * //         GlobalColorCorrections: [ // __listOfColorCorrection // required
+ * //           { // ColorCorrection
+ * //             InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ * //             OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ * //             Uri: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //     Id: "STRING_VALUE",

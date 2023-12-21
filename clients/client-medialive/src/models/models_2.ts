@@ -4,6 +4,7 @@ import {
   ChannelClass,
   ChannelEgressEndpoint,
   ChannelState,
+  ChannelSummary,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   Input,
@@ -14,6 +15,7 @@ import {
   InputDeviceNetworkSettings,
   InputDeviceOutputType,
   InputDeviceRequest,
+  InputDeviceSummary,
   InputDeviceType,
   InputDeviceUhdSettings,
   InputSecurityGroup,
@@ -47,6 +49,84 @@ import {
   Reservation,
   TransferringInputDeviceSummary,
 } from "./models_1";
+
+/**
+ * @public
+ * Placeholder documentation for ListChannelsResponse
+ */
+export interface ListChannelsResponse {
+  /**
+   * @public
+   * Placeholder documentation for __listOfChannelSummary
+   */
+  Channels?: ChannelSummary[];
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListInputDevicesRequest
+ */
+export interface ListInputDevicesRequest {
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListInputDevicesResponse
+ */
+export interface ListInputDevicesResponse {
+  /**
+   * @public
+   * The list of input devices.
+   */
+  InputDevices?: InputDeviceSummary[];
+
+  /**
+   * @public
+   * A token to get additional list results.
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * Placeholder documentation for ListInputDeviceTransfersRequest
+ */
+export interface ListInputDeviceTransfersRequest {
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  TransferType: string | undefined;
+}
 
 /**
  * @public
