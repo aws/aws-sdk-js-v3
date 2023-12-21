@@ -146,6 +146,8 @@ import {
   PineconeFieldMapping,
   PromptConfiguration,
   PromptOverrideConfiguration,
+  RdsConfiguration,
+  RdsFieldMapping,
   RedisEnterpriseCloudConfiguration,
   RedisEnterpriseCloudFieldMapping,
   ResourceNotFoundException,
@@ -3719,6 +3721,10 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
   });
 };
 
+// se_RdsConfiguration omitted.
+
+// se_RdsFieldMapping omitted.
+
 // se_RedisEnterpriseCloudConfiguration omitted.
 
 // se_RedisEnterpriseCloudFieldMapping omitted.
@@ -4205,6 +4211,10 @@ const de_PromptOverrideConfiguration = (output: any, context: __SerdeContext): P
     promptConfigurations: (_: any) => de_PromptConfigurations(_, context),
   }) as any;
 };
+
+// de_RdsConfiguration omitted.
+
+// de_RdsFieldMapping omitted.
 
 // de_RecommendedActions omitted.
 

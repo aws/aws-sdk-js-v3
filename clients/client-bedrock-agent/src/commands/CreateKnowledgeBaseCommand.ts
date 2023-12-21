@@ -56,7 +56,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *     },
  *   },
  *   storageConfiguration: { // StorageConfiguration
- *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD", // required
+ *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS", // required
  *     opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  *       collectionArn: "STRING_VALUE", // required
  *       vectorIndexName: "STRING_VALUE", // required
@@ -85,6 +85,18 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *         metadataField: "STRING_VALUE", // required
  *       },
  *     },
+ *     rdsConfiguration: { // RdsConfiguration
+ *       resourceArn: "STRING_VALUE", // required
+ *       credentialsSecretArn: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *       tableName: "STRING_VALUE", // required
+ *       fieldMapping: { // RdsFieldMapping
+ *         primaryKeyField: "STRING_VALUE", // required
+ *         vectorField: "STRING_VALUE", // required
+ *         textField: "STRING_VALUE", // required
+ *         metadataField: "STRING_VALUE", // required
+ *       },
+ *     },
  *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
@@ -106,7 +118,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
- * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD", // required
+ * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS", // required
  * //       opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  * //         collectionArn: "STRING_VALUE", // required
  * //         vectorIndexName: "STRING_VALUE", // required
@@ -130,6 +142,18 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //         vectorIndexName: "STRING_VALUE", // required
  * //         credentialsSecretArn: "STRING_VALUE", // required
  * //         fieldMapping: { // RedisEnterpriseCloudFieldMapping
+ * //           vectorField: "STRING_VALUE", // required
+ * //           textField: "STRING_VALUE", // required
+ * //           metadataField: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       rdsConfiguration: { // RdsConfiguration
+ * //         resourceArn: "STRING_VALUE", // required
+ * //         credentialsSecretArn: "STRING_VALUE", // required
+ * //         databaseName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //         fieldMapping: { // RdsFieldMapping
+ * //           primaryKeyField: "STRING_VALUE", // required
  * //           vectorField: "STRING_VALUE", // required
  * //           textField: "STRING_VALUE", // required
  * //           metadataField: "STRING_VALUE", // required

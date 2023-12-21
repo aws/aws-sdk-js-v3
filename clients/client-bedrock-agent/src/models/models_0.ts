@@ -2964,6 +2964,72 @@ export interface PineconeConfiguration {
 
 /**
  * @public
+ * A mapping of Bedrock Knowledge Base fields to RDS column names
+ */
+export interface RdsFieldMapping {
+  /**
+   * @public
+   * Name of the column
+   */
+  primaryKeyField: string | undefined;
+
+  /**
+   * @public
+   * Name of the column
+   */
+  vectorField: string | undefined;
+
+  /**
+   * @public
+   * Name of the column
+   */
+  textField: string | undefined;
+
+  /**
+   * @public
+   * Name of the column
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * @public
+ * Contains the configurations to use RDS to store knowledge base data.
+ */
+export interface RdsConfiguration {
+  /**
+   * @public
+   * Arn of a RDS Resource.
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * Arn of a SecretsManager Secret.
+   */
+  credentialsSecretArn: string | undefined;
+
+  /**
+   * @public
+   * Name of the database within RDS
+   */
+  databaseName: string | undefined;
+
+  /**
+   * @public
+   * Name of the table within RDS
+   */
+  tableName: string | undefined;
+
+  /**
+   * @public
+   * A mapping of Bedrock Knowledge Base fields to RDS column names
+   */
+  fieldMapping: RdsFieldMapping | undefined;
+}
+
+/**
+ * @public
  * A mapping of Bedrock Knowledge Base fields to Redis Cloud field names
  */
 export interface RedisEnterpriseCloudFieldMapping {
@@ -3023,6 +3089,7 @@ export interface RedisEnterpriseCloudConfiguration {
 export const KnowledgeBaseStorageType = {
   OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
   PINECONE: "PINECONE",
+  RDS: "RDS",
   REDIS_ENTERPRISE_CLOUD: "REDIS_ENTERPRISE_CLOUD",
 } as const;
 
@@ -3059,6 +3126,12 @@ export interface StorageConfiguration {
    * Contains the configurations to use Redis Enterprise Cloud to store knowledge base data.
    */
   redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration;
+
+  /**
+   * @public
+   * Contains the configurations to use RDS to store knowledge base data.
+   */
+  rdsConfiguration?: RdsConfiguration;
 }
 
 /**
