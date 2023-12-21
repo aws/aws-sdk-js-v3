@@ -89,11 +89,17 @@ export class TagResourceCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: TimestreamQueryClientResolvedConfig) {
+  .m(function (
+    this: any /*Command*/,
+    Command: any /*static*/,
+    cs: any,
+    config: TimestreamQueryClientResolvedConfig,
+    o: any
+  ) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack, isDiscoveredEndpointRequired: true, options }),
+      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
     ];
   })
   .s("Timestream_20181101", "TagResource", {})

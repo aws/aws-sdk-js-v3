@@ -102,7 +102,13 @@ export class DescribeEndpointsCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: TimestreamWriteClientResolvedConfig) {
+  .m(function (
+    this: any /*Command*/,
+    Command: any /*static*/,
+    cs: any,
+    config: TimestreamWriteClientResolvedConfig,
+    o: any
+  ) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
