@@ -19,6 +19,11 @@ import {
   CreateEventIntegrationCommandOutput,
 } from "./commands/CreateEventIntegrationCommand";
 import {
+  DeleteApplicationCommand,
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
+import {
   DeleteDataIntegrationCommand,
   DeleteDataIntegrationCommandInput,
   DeleteDataIntegrationCommandOutput,
@@ -43,6 +48,11 @@ import {
   GetEventIntegrationCommandInput,
   GetEventIntegrationCommandOutput,
 } from "./commands/GetEventIntegrationCommand";
+import {
+  ListApplicationAssociationsCommand,
+  ListApplicationAssociationsCommandInput,
+  ListApplicationAssociationsCommandOutput,
+} from "./commands/ListApplicationAssociationsCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
@@ -99,11 +109,13 @@ const commands = {
   CreateApplicationCommand,
   CreateDataIntegrationCommand,
   CreateEventIntegrationCommand,
+  DeleteApplicationCommand,
   DeleteDataIntegrationCommand,
   DeleteEventIntegrationCommand,
   GetApplicationCommand,
   GetDataIntegrationCommand,
   GetEventIntegrationCommand,
+  ListApplicationAssociationsCommand,
   ListApplicationsCommand,
   ListDataIntegrationAssociationsCommand,
   ListDataIntegrationsCommand,
@@ -167,6 +179,23 @@ export interface AppIntegrations {
     args: CreateEventIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEventIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -249,6 +278,23 @@ export interface AppIntegrations {
     args: GetEventIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationAssociationsCommand}
+   */
+  listApplicationAssociations(
+    args: ListApplicationAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationAssociationsCommandOutput>;
+  listApplicationAssociations(
+    args: ListApplicationAssociationsCommandInput,
+    cb: (err: any, data?: ListApplicationAssociationsCommandOutput) => void
+  ): void;
+  listApplicationAssociations(
+    args: ListApplicationAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationAssociationsCommandOutput) => void
   ): void;
 
   /**

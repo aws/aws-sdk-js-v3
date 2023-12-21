@@ -127,12 +127,16 @@ export interface CreateApplicationRequest {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The events that the application subscribes.</p>
    */
   Subscriptions?: Subscription[];
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The events that the application publishes.</p>
    */
   Publications?: Publication[];
@@ -151,6 +155,12 @@ export interface CreateApplicationRequest {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The configuration of events or requests that the application has access to.</p>
+   */
+  Permissions?: string[];
 }
 
 /**
@@ -276,6 +286,28 @@ export class ThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The operation is not supported.</p>
+ */
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -529,18 +561,18 @@ export interface CreateEventIntegrationResponse {
 /**
  * @public
  */
-export interface DeleteDataIntegrationRequest {
+export interface DeleteApplicationRequest {
   /**
    * @public
-   * <p>A unique identifier for the DataIntegration.</p>
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
    */
-  DataIntegrationIdentifier: string | undefined;
+  Arn: string | undefined;
 }
 
 /**
  * @public
  */
-export interface DeleteDataIntegrationResponse {}
+export interface DeleteApplicationResponse {}
 
 /**
  * @public
@@ -563,6 +595,22 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * @public
+ */
+export interface DeleteDataIntegrationRequest {
+  /**
+   * @public
+   * <p>A unique identifier for the DataIntegration.</p>
+   */
+  DataIntegrationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataIntegrationResponse {}
 
 /**
  * @public
@@ -633,12 +681,16 @@ export interface GetApplicationResponse {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The events that the application subscribes.</p>
    */
   Subscriptions?: Subscription[];
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The events that the application publishes.</p>
    */
   Publications?: Publication[];
@@ -660,6 +712,12 @@ export interface GetApplicationResponse {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The configuration of events or requests that the application has access to.</p>
+   */
+  Permissions?: string[];
 }
 
 /**
@@ -788,6 +846,71 @@ export interface GetEventIntegrationResponse {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    */
   Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListApplicationAssociationsRequest {
+  /**
+   * @public
+   * <p>A unique identifier for the Application.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Summary information about the Application Association.</p>
+ */
+export interface ApplicationAssociationSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application Association.</p>
+   */
+  ApplicationAssociationArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   */
+  ApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>The identifier for the client that is associated with the Application Association.</p>
+   */
+  ClientId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListApplicationAssociationsResponse {
+  /**
+   * @public
+   * <p>List of Application Associations for the Application.</p>
+   */
+  ApplicationAssociations?: ApplicationAssociationSummary[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -1248,15 +1371,25 @@ export interface UpdateApplicationRequest {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The events that the application subscribes.</p>
    */
   Subscriptions?: Subscription[];
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The events that the application publishes.</p>
    */
   Publications?: Publication[];
+
+  /**
+   * @public
+   * <p>The configuration of events or requests that the application has access to.</p>
+   */
+  Permissions?: string[];
 }
 
 /**

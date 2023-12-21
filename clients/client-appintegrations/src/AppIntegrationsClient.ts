@@ -57,6 +57,7 @@ import {
   CreateEventIntegrationCommandInput,
   CreateEventIntegrationCommandOutput,
 } from "./commands/CreateEventIntegrationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteDataIntegrationCommandInput,
   DeleteDataIntegrationCommandOutput,
@@ -71,6 +72,10 @@ import {
   GetEventIntegrationCommandInput,
   GetEventIntegrationCommandOutput,
 } from "./commands/GetEventIntegrationCommand";
+import {
+  ListApplicationAssociationsCommandInput,
+  ListApplicationAssociationsCommandOutput,
+} from "./commands/ListApplicationAssociationsCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListDataIntegrationAssociationsCommandInput,
@@ -121,11 +126,13 @@ export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | CreateDataIntegrationCommandInput
   | CreateEventIntegrationCommandInput
+  | DeleteApplicationCommandInput
   | DeleteDataIntegrationCommandInput
   | DeleteEventIntegrationCommandInput
   | GetApplicationCommandInput
   | GetDataIntegrationCommandInput
   | GetEventIntegrationCommandInput
+  | ListApplicationAssociationsCommandInput
   | ListApplicationsCommandInput
   | ListDataIntegrationAssociationsCommandInput
   | ListDataIntegrationsCommandInput
@@ -145,11 +152,13 @@ export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | CreateDataIntegrationCommandOutput
   | CreateEventIntegrationCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteDataIntegrationCommandOutput
   | DeleteEventIntegrationCommandOutput
   | GetApplicationCommandOutput
   | GetDataIntegrationCommandOutput
   | GetEventIntegrationCommandOutput
+  | ListApplicationAssociationsCommandOutput
   | ListApplicationsCommandOutput
   | ListDataIntegrationAssociationsCommandOutput
   | ListDataIntegrationsCommandOutput

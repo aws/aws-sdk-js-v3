@@ -32,6 +32,7 @@ import {
   CreateEventIntegrationCommandInput,
   CreateEventIntegrationCommandOutput,
 } from "../commands/CreateEventIntegrationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import {
   DeleteDataIntegrationCommandInput,
   DeleteDataIntegrationCommandOutput,
@@ -46,6 +47,10 @@ import {
   GetEventIntegrationCommandInput,
   GetEventIntegrationCommandOutput,
 } from "../commands/GetEventIntegrationCommand";
+import {
+  ListApplicationAssociationsCommandInput,
+  ListApplicationAssociationsCommandOutput,
+} from "../commands/ListApplicationAssociationsCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListDataIntegrationAssociationsCommandInput,
@@ -95,6 +100,7 @@ import {
   ScheduleConfiguration,
   Subscription,
   ThrottlingException,
+  UnsupportedOperationException,
 } from "../models/models_0";
 
 /**
@@ -117,6 +123,7 @@ export const se_CreateApplicationCommand = async (
       Description: [],
       Name: [],
       Namespace: [],
+      Permissions: (_) => _json(_),
       Publications: (_) => _json(_),
       Subscriptions: (_) => _json(_),
       Tags: (_) => _json(_),
@@ -180,6 +187,22 @@ export const se_CreateEventIntegrationCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
+  input: DeleteApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -260,6 +283,26 @@ export const se_GetEventIntegrationCommand = async (
   b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListApplicationAssociationsCommand
+ */
+export const se_ListApplicationAssociationsCommand = async (
+  input: ListApplicationAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/applications/{ApplicationId}/associations");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -440,6 +483,7 @@ export const se_UpdateApplicationCommand = async (
       ApplicationSourceConfig: (_) => _json(_),
       Description: [],
       Name: [],
+      Permissions: (_) => _json(_),
       Publications: (_) => _json(_),
       Subscriptions: (_) => _json(_),
     })
@@ -548,6 +592,9 @@ const de_CreateApplicationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.appintegrations#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -679,6 +726,61 @@ const de_CreateEventIntegrationCommandError = async (
     case "ResourceQuotaExceededException":
     case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
       throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.appintegrations#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteApplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appintegrations#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceError":
+    case "com.amazonaws.appintegrations#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.appintegrations#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appintegrations#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -825,6 +927,7 @@ export const de_GetApplicationCommand = async (
     LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     Namespace: __expectString,
+    Permissions: _json,
     Publications: _json,
     Subscriptions: _json,
     Tags: _json,
@@ -972,6 +1075,66 @@ const de_GetEventIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventIntegrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appintegrations#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceError":
+    case "com.amazonaws.appintegrations#InternalServiceError":
+      throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.appintegrations#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appintegrations#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.appintegrations#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListApplicationAssociationsCommand
+ */
+export const de_ListApplicationAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListApplicationAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationAssociations: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListApplicationAssociationsCommandError
+ */
+const de_ListApplicationAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1499,6 +1662,9 @@ const de_UpdateApplicationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.appintegrations#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1757,6 +1923,26 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * deserializeAws_restJson1UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedOperationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnsupportedOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 // se_ApplicationApprovedOrigins omitted.
 
 // se_ApplicationSourceConfig omitted.
@@ -1775,6 +1961,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ObjectConfiguration omitted.
 
+// se_PermissionList omitted.
+
 // se_Publication omitted.
 
 // se_PublicationList omitted.
@@ -1788,6 +1976,10 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagMap omitted.
 
 // de_ApplicationApprovedOrigins omitted.
+
+// de_ApplicationAssociationsList omitted.
+
+// de_ApplicationAssociationSummary omitted.
 
 /**
  * deserializeAws_restJson1ApplicationsList
@@ -1848,6 +2040,8 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
 // de_FolderList omitted.
 
 // de_ObjectConfiguration omitted.
+
+// de_PermissionList omitted.
 
 // de_Publication omitted.
 

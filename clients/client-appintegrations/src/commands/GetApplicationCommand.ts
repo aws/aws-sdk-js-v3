@@ -82,6 +82,9 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   Permissions: [ // PermissionList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```

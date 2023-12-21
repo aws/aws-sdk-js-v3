@@ -15,8 +15,8 @@ import {
 } from "@smithy/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
-import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../protocols/Aws_restJson1";
+import { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0";
+import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -25,65 +25,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link UpdateApplicationCommand}.
+ * The input for {@link DeleteApplicationCommand}.
  */
-export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateApplicationCommand}.
+ * The output of {@link DeleteApplicationCommand}.
  */
-export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
+export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>This API is in preview release and subject to change.</p>
- *          <p>Updates and persists an Application resource.</p>
+ * <p>Deletes the Application. Only Applications that don't have any Application Associations can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppIntegrationsClient, UpdateApplicationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
- * // const { AppIntegrationsClient, UpdateApplicationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * import { AppIntegrationsClient, DeleteApplicationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
+ * // const { AppIntegrationsClient, DeleteApplicationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
- * const input = { // UpdateApplicationRequest
+ * const input = { // DeleteApplicationRequest
  *   Arn: "STRING_VALUE", // required
- *   Name: "STRING_VALUE",
- *   Description: "STRING_VALUE",
- *   ApplicationSourceConfig: { // ApplicationSourceConfig
- *     ExternalUrlConfig: { // ExternalUrlConfig
- *       AccessUrl: "STRING_VALUE", // required
- *       ApprovedOrigins: [ // ApplicationApprovedOrigins
- *         "STRING_VALUE",
- *       ],
- *     },
- *   },
- *   Subscriptions: [ // SubscriptionList
- *     { // Subscription
- *       Event: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   Publications: [ // PublicationList
- *     { // Publication
- *       Event: "STRING_VALUE", // required
- *       Schema: "STRING_VALUE", // required
- *       Description: "STRING_VALUE",
- *     },
- *   ],
- *   Permissions: [ // PermissionList
- *     "STRING_VALUE",
- *   ],
  * };
- * const command = new UpdateApplicationCommand(input);
+ * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param UpdateApplicationCommandInput - {@link UpdateApplicationCommandInput}
- * @returns {@link UpdateApplicationCommandOutput}
- * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
- * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
+ * @param DeleteApplicationCommandInput - {@link DeleteApplicationCommandInput}
+ * @returns {@link DeleteApplicationCommandOutput}
+ * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -101,28 +74,13 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
  *
- * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
- *
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
- * @example To update an application
- * ```javascript
- * // The following updates an existing application named with a new name.
- * const input = {
- *   "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
- *   "Name": "My New Application Name"
- * };
- * const command = new UpdateApplicationCommand(input);
- * await client.send(command);
- * // example id: update-an-application
- * ```
- *
  */
-export class UpdateApplicationCommand extends $Command<
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
+export class DeleteApplicationCommand extends $Command<
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
   AppIntegrationsClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -137,7 +95,7 @@ export class UpdateApplicationCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: UpdateApplicationCommandInput) {
+  constructor(readonly input: DeleteApplicationCommandInput) {
     super();
   }
 
@@ -148,17 +106,17 @@ export class UpdateApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppIntegrationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateApplicationCommandInput, UpdateApplicationCommandOutput> {
+  ): Handler<DeleteApplicationCommandInput, DeleteApplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateApplicationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteApplicationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppIntegrationsClient";
-    const commandName = "UpdateApplicationCommand";
+    const commandName = "DeleteApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -167,7 +125,7 @@ export class UpdateApplicationCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "AmazonAppIntegrationService",
-        operation: "UpdateApplication",
+        operation: "DeleteApplication",
       },
     };
     const { requestHandler } = configuration;
@@ -181,14 +139,14 @@ export class UpdateApplicationCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateApplicationCommand(input, context);
+  private serialize(input: DeleteApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_DeleteApplicationCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
-    return de_UpdateApplicationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApplicationCommandOutput> {
+    return de_DeleteApplicationCommand(output, context);
   }
 }

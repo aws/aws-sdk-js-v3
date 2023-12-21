@@ -235,6 +235,14 @@ CreateEventIntegration
 </details>
 <details>
 <summary>
+DeleteApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appintegrations/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/DeleteApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDataIntegration
 </summary>
 
@@ -271,6 +279,14 @@ GetEventIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appintegrations/command/GetEventIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/GetEventIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/GetEventIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListApplicationAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appintegrations/command/ListApplicationAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/ListApplicationAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/ListApplicationAssociationsCommandOutput/)
 
 </details>
 <details>

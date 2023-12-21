@@ -74,6 +74,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   Permissions: [ // PermissionList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
@@ -107,6 +110,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
  *
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
