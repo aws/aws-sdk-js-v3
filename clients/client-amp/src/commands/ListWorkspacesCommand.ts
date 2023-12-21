@@ -64,6 +64,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       kmsKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -62,6 +62,7 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     kmsKeyArn: "STRING_VALUE",
  * //   },
  * // };
  *

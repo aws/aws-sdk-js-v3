@@ -50,6 +50,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
@@ -62,6 +63,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

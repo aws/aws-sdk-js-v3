@@ -1100,6 +1100,12 @@ export interface CreateWorkspaceRequest {
    * Optional, user-provided tags for this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Optional, customer managed KMS key used to encrypt data for this workspace
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -1174,6 +1180,12 @@ export interface CreateWorkspaceResponse {
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Customer managed KMS key ARN for this workspace
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -1252,6 +1264,12 @@ export interface WorkspaceDescription {
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * The customer managed KMS key of this workspace.
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -1330,6 +1348,12 @@ export interface WorkspaceSummary {
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Customer managed KMS key ARN for this workspace
+   */
+  kmsKeyArn?: string;
 }
 
 /**

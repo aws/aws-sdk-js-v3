@@ -242,6 +242,7 @@ export const se_CreateWorkspaceCommand = async (
     take(input, {
       alias: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      kmsKeyArn: [],
       tags: (_) => _json(_),
     })
   );
@@ -936,6 +937,7 @@ export const de_CreateWorkspaceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     arn: __expectString,
+    kmsKeyArn: __expectString,
     status: _json,
     tags: _json,
     workspaceId: __expectString,
@@ -2556,6 +2558,7 @@ const de_WorkspaceDescription = (output: any, context: __SerdeContext): Workspac
     alias: __expectString,
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    kmsKeyArn: __expectString,
     prometheusEndpoint: __expectString,
     status: _json,
     tags: _json,
@@ -2573,6 +2576,7 @@ const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSum
     alias: __expectString,
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    kmsKeyArn: __expectString,
     status: _json,
     tags: _json,
     workspaceId: __expectString,
