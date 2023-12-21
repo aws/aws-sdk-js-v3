@@ -40,10 +40,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @deprecated
  *
  * <p>Runs one or more SQL statements.</p>
- *         <note>
- *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
- *                     <code>ExecuteStatement</code> operation.</p>
- *         </note>
+ *          <note>
+ *             <p>This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
+ *             the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,10 +136,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement.</p>
+ *  <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>There are insufficient privileges to make the call.</p>
@@ -148,7 +148,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *  <p>An internal error occurred.</p>
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter is not
+ *  <p>The service specified by the <code>resourceArn</code> parameter isn't
  *             available.</p>
  *
  * @throws {@link RDSDataServiceException}

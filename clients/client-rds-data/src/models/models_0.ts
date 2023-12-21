@@ -5,7 +5,7 @@ import { RDSDataServiceException as __BaseException } from "./RDSDataServiceExce
 
 /**
  * @public
- * <p>You do not have sufficient access to perform this action.</p>
+ * <p>You don't have sufficient access to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -25,7 +25,7 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
- * <p>There is an error in the call or in a SQL statement.</p>
+ * <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -63,6 +63,66 @@ export type TypeHint = (typeof TypeHint)[keyof typeof TypeHint];
 
 /**
  * @public
+ * <p>There was an error in processing the SQL statement.</p>
+ */
+export class DatabaseErrorException extends __BaseException {
+  readonly name: "DatabaseErrorException" = "DatabaseErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DatabaseErrorException, __BaseException>) {
+    super({
+      name: "DatabaseErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DatabaseErrorException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The DB cluster doesn't have a DB instance.</p>
+ */
+export class DatabaseNotFoundException extends __BaseException {
+  readonly name: "DatabaseNotFoundException" = "DatabaseNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DatabaseNotFoundException, __BaseException>) {
+    super({
+      name: "DatabaseNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DatabaseNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The writer instance in the DB cluster isn't available.</p>
+ */
+export class DatabaseUnavailableException extends __BaseException {
+  readonly name: "DatabaseUnavailableException" = "DatabaseUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DatabaseUnavailableException, __BaseException>) {
+    super({
+      name: "DatabaseUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DatabaseUnavailableException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>There are insufficient privileges to make the call.</p>
  */
 export class ForbiddenException extends __BaseException {
@@ -78,6 +138,26 @@ export class ForbiddenException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ForbiddenException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+ */
+export class HttpEndpointNotEnabledException extends __BaseException {
+  readonly name: "HttpEndpointNotEnabledException" = "HttpEndpointNotEnabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HttpEndpointNotEnabledException, __BaseException>) {
+    super({
+      name: "HttpEndpointNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HttpEndpointNotEnabledException.prototype);
   }
 }
 
@@ -103,7 +183,58 @@ export class InternalServerErrorException extends __BaseException {
 
 /**
  * @public
- * <p>The service specified by the <code>resourceArn</code> parameter is not
+ * <p>The Secrets Manager secret used with the request isn't valid.</p>
+ */
+export class InvalidSecretException extends __BaseException {
+  readonly name: "InvalidSecretException" = "InvalidSecretException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSecretException, __BaseException>) {
+    super({
+      name: "InvalidSecretException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecretException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>RDS Data API timed out retrieving the secret.</p>
+ *             </li>
+ *             <li>
+ *                <p>The secret provided wasn't found.</p>
+ *             </li>
+ *             <li>
+ *                <p>The secret couldn't be decrypted.</p>
+ *             </li>
+ *          </ul>
+ */
+export class SecretsErrorException extends __BaseException {
+  readonly name: "SecretsErrorException" = "SecretsErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SecretsErrorException, __BaseException>) {
+    super({
+      name: "SecretsErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SecretsErrorException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The service specified by the <code>resourceArn</code> parameter isn't
  *             available.</p>
  */
 export class ServiceUnavailableError extends __BaseException {
@@ -146,6 +277,26 @@ export class StatementTimeoutException extends __BaseException {
     });
     Object.setPrototypeOf(this, StatementTimeoutException.prototype);
     this.dbConnectionId = opts.dbConnectionId;
+  }
+}
+
+/**
+ * @public
+ * <p>The transaction ID wasn't found.</p>
+ */
+export class TransactionNotFoundException extends __BaseException {
+  readonly name: "TransactionNotFoundException" = "TransactionNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransactionNotFoundException, __BaseException>) {
+    super({
+      name: "TransactionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransactionNotFoundException.prototype);
   }
 }
 
@@ -369,14 +520,14 @@ export interface ExecuteSqlRequest {
    * @public
    * <p>The Amazon Resource Name (ARN) of the secret that enables access to the DB cluster. Enter the database user name and password
    *             for the credentials in the secret.</p>
-   *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
+   *          <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
    */
   awsSecretStoreArn: string | undefined;
 
   /**
    * @public
    * <p>One or more SQL statements to run on the DB cluster.</p>
-   *         <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL
+   *          <p>You can separate SQL statements from each other with a semicolon (;). Any valid SQL
    *             statement is permitted, including data definition, data manipulation, and commit
    *             statements. </p>
    */
@@ -453,10 +604,10 @@ export interface ResultSetOptions {
    *             it is converted to a String value. The value of <code>DOUBLE_OR_LONG</code>
    *             specifies that it is converted to a Long value if its scale is 0, or to a Double
    *             value otherwise.</p>
-   *         <note>
+   *          <note>
    *             <p>Conversion to Double or Long can result in roundoff errors due to precision loss.
    *                 We recommend converting to String, especially when working with currency values.</p>
-   *         </note>
+   *          </note>
    */
   decimalReturnType?: DecimalReturnType;
 
@@ -469,6 +620,37 @@ export interface ResultSetOptions {
    *         </p>
    */
   longReturnType?: LongReturnType;
+}
+
+/**
+ * @public
+ * <p>There was a problem with the result because of one of the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>It contained an unsupported data type.</p>
+ *             </li>
+ *             <li>
+ *                <p>It contained a multidimensional array.</p>
+ *             </li>
+ *             <li>
+ *                <p>The size was too large.</p>
+ *             </li>
+ *          </ul>
+ */
+export class UnsupportedResultException extends __BaseException {
+  readonly name: "UnsupportedResultException" = "UnsupportedResultException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedResultException, __BaseException>) {
+    super({
+      name: "UnsupportedResultException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedResultException.prototype);
+  }
 }
 
 /**
@@ -802,14 +984,14 @@ export interface SqlParameter {
    * @public
    * <p>A hint that specifies the correct object type for data type mapping. Possible values
    *             are as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>DATE</code> - The corresponding <code>String</code> parameter value is sent as an object
    *               of <code>DATE</code> type to the database. The accepted format is <code>YYYY-MM-DD</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DECIMAL</code> - The corresponding <code>String</code> parameter value is sent as an object
    *                     of <code>DECIMAL</code> type to the database.</p>
    *             </li>
@@ -819,7 +1001,7 @@ export interface SqlParameter {
    *            object of <code>JSON</code> type to the database.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TIME</code> - The corresponding <code>String</code> parameter value is sent as an object
    *                     of <code>TIME</code> type to the database. The accepted format is <code>HH:MM:SS[.FFF]</code>.</p>
    *             </li>
@@ -854,11 +1036,10 @@ export interface UpdateResult {
 /**
  * @public
  * <p>Contains the value of a column.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </note>
+ *          </note>
  */
 export type Value =
   | Value.ArrayValuesMember
@@ -1119,7 +1300,7 @@ export interface ExecuteStatementRequest {
    * @public
    * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in
    *             the secret.</p>
-   *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
+   *          <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
    */
   secretArn: string | undefined;
 
@@ -1138,18 +1319,18 @@ export interface ExecuteStatementRequest {
   /**
    * @public
    * <p>The name of the database schema.</p>
-   *         <note>
+   *          <note>
    *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
-   *         </note>
+   *          </note>
    */
   schema?: string;
 
   /**
    * @public
    * <p>The parameters for the SQL statement.</p>
-   *         <note>
+   *          <note>
    *             <p>Array parameters are not supported.</p>
-   *         </note>
+   *          </note>
    */
   parameters?: SqlParameter[];
 
@@ -1158,7 +1339,7 @@ export interface ExecuteStatementRequest {
    * <p>The identifier of a transaction that was started by using the
    *                 <code>BeginTransaction</code> operation. Specify the transaction ID of the
    *             transaction that you want to include the SQL statement in.</p>
-   *         <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>
+   *          <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>
    */
   transactionId?: string;
 
@@ -1173,11 +1354,11 @@ export interface ExecuteStatementRequest {
    * <p>A value that indicates whether to continue running the statement after
    *             the call times out. By default, the statement stops running when the call
    *             times out.</p>
-   *         <note>
+   *          <note>
    *             <p>For DDL statements, we recommend continuing to run the statement after
    *                the call times out. When a DDL statement terminates before it is finished
    *                running, it can result in errors and possibly corrupted data structures.</p>
-   *         </note>
+   *          </note>
    */
   continueAfterTimeout?: boolean;
 
@@ -1193,7 +1374,7 @@ export interface ExecuteStatementRequest {
    *         This parameter only applies to <code>SELECT</code> statements and is ignored for
    *         other types of statements. Allowed values are <code>NONE</code> and <code>JSON</code>.
    *         The default value is <code>NONE</code>. The result is returned in the <code>formattedRecords</code> field.</p>
-   *         <p>For usage information about the JSON format for result sets, see
+   *          <p>For usage information about the JSON format for result sets, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
    *           in the <i>Amazon Aurora User Guide</i>.</p>
    */
@@ -1203,10 +1384,10 @@ export interface ExecuteStatementRequest {
 /**
  * @public
  * <p>A structure value returned by a call.</p>
- *         <note>
+ *          <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </note>
+ *          </note>
  */
 export interface StructValue {
   /**
@@ -1232,7 +1413,7 @@ export interface BatchExecuteStatementRequest {
    * @public
    * <p>The ARN of the secret that enables access to the DB cluster. Enter the database user name and password for the credentials in
    *             the secret.</p>
-   *         <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
+   *          <p>For information about creating the secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html">Create a database secret</a>.</p>
    */
   secretArn: string | undefined;
 
@@ -1251,28 +1432,28 @@ export interface BatchExecuteStatementRequest {
   /**
    * @public
    * <p>The name of the database schema.</p>
-   *         <note>
+   *          <note>
    *             <p>Currently, the <code>schema</code> parameter isn't supported.</p>
-   *         </note>
+   *          </note>
    */
   schema?: string;
 
   /**
    * @public
    * <p>The parameter set for the batch operation.</p>
-   *         <p>The SQL statement is executed as many times as the number of parameter sets provided.
+   *          <p>The SQL statement is executed as many times as the number of parameter sets provided.
    *           To execute a SQL statement with no parameters, use one of the following options:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Specify one or more empty parameter sets.</p>
+   *                <p>Specify one or more empty parameter sets.</p>
    *             </li>
    *             <li>
-   *                 <p>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code> operation.</p>
+   *                <p>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code> operation.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>Array parameters are not supported.</p>
-   *         </note>
+   *          </note>
    */
   parameterSets?: SqlParameter[][];
 
@@ -1281,7 +1462,7 @@ export interface BatchExecuteStatementRequest {
    * <p>The identifier of a transaction that was started by using the
    *                 <code>BeginTransaction</code> operation. Specify the transaction ID of the
    *             transaction that you want to include the SQL statement in.</p>
-   *         <p>If the SQL statement is not part of a transaction, don't set this
+   *          <p>If the SQL statement is not part of a transaction, don't set this
    *             parameter.</p>
    */
   transactionId?: string;
@@ -1303,10 +1484,10 @@ export interface BatchExecuteStatementResponse {
 /**
  * @public
  * <p>A record returned by a call.</p>
- *         <note>
+ *          <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </note>
+ *          </note>
  */
 export interface _Record {
   /**
@@ -1345,13 +1526,12 @@ export interface ExecuteStatementResponse {
   /**
    * @public
    * <p>Values for fields generated during a DML request.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL.
    *                 To get the values of generated fields, use the <code>RETURNING</code> clause. For
    *                 more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From
    *                     Modified Rows</a> in the PostgreSQL documentation.</p>
-   *         </note>
+   *          </note>
    */
   generatedFields?: Field[];
 
@@ -1360,7 +1540,7 @@ export interface ExecuteStatementResponse {
    * <p>A string value that represents the result set of a <code>SELECT</code> statement
    *         in JSON format. This value is only present when the <code>formatRecordsAs</code>
    *         parameter is set to <code>JSON</code>.</p>
-   *         <p>The size limit for this field is currently 10 MB. If the JSON-formatted string representing the
+   *          <p>The size limit for this field is currently 10 MB. If the JSON-formatted string representing the
    *           result set requires more than 10 MB, the call returns an error.</p>
    */
   formattedRecords?: string;
@@ -1369,10 +1549,10 @@ export interface ExecuteStatementResponse {
 /**
  * @public
  * <p>The result set returned by a SQL statement.</p>
- *         <note>
+ *          <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </note>
+ *          </note>
  */
 export interface ResultFrame {
   /**
@@ -1391,11 +1571,10 @@ export interface ResultFrame {
 /**
  * @public
  * <p>The result of a SQL statement.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This data structure is only used with the deprecated <code>ExecuteSql</code> operation.
  *               Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation instead.</p>
- *         </note>
+ *          </note>
  */
 export interface SqlStatementResult {
   /**

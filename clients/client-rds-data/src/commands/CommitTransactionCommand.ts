@@ -65,26 +65,58 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement.</p>
+ *  <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
+ *
+ * @throws {@link DatabaseErrorException} (client fault)
+ *  <p>There was an error in processing the SQL statement.</p>
+ *
+ * @throws {@link DatabaseNotFoundException} (client fault)
+ *  <p>The DB cluster doesn't have a DB instance.</p>
+ *
+ * @throws {@link DatabaseUnavailableException} (server fault)
+ *  <p>The writer instance in the DB cluster isn't available.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>There are insufficient privileges to make the call.</p>
  *
+ * @throws {@link HttpEndpointNotEnabledException} (client fault)
+ *  <p>The HTTP endpoint for using RDS Data API isn't enabled for the DB cluster.</p>
+ *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidSecretException} (client fault)
+ *  <p>The Secrets Manager secret used with the request isn't valid.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  *
+ * @throws {@link SecretsErrorException} (client fault)
+ *  <p>There was a problem with the Secrets Manager secret used with the request, caused by one of the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>RDS Data API timed out retrieving the secret.</p>
+ *             </li>
+ *             <li>
+ *                <p>The secret provided wasn't found.</p>
+ *             </li>
+ *             <li>
+ *                <p>The secret couldn't be decrypted.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter is not
+ *  <p>The service specified by the <code>resourceArn</code> parameter isn't
  *             available.</p>
  *
  * @throws {@link StatementTimeoutException} (client fault)
  *  <p>The execution of the SQL statement timed out.</p>
+ *
+ * @throws {@link TransactionNotFoundException} (client fault)
+ *  <p>The transaction ID wasn't found.</p>
  *
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
