@@ -347,9 +347,14 @@ import {
   DescribeValidDBInstanceModificationsCommandOutput,
 } from "../commands/DescribeValidDBInstanceModificationsCommand";
 import {
+  DisableHttpEndpointCommandInput,
+  DisableHttpEndpointCommandOutput,
+} from "../commands/DisableHttpEndpointCommand";
+import {
   DownloadDBLogFilePortionCommandInput,
   DownloadDBLogFilePortionCommandOutput,
 } from "../commands/DownloadDBLogFilePortionCommand";
+import { EnableHttpEndpointCommandInput, EnableHttpEndpointCommandOutput } from "../commands/EnableHttpEndpointCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "../commands/FailoverDBClusterCommand";
 import {
   FailoverGlobalClusterCommandInput,
@@ -904,10 +909,14 @@ import {
   DescribeTenantDatabasesMessage,
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
+  DisableHttpEndpointRequest,
+  DisableHttpEndpointResponse,
   DocLink,
   DoubleRange,
   DownloadDBLogFilePortionDetails,
   DownloadDBLogFilePortionMessage,
+  EnableHttpEndpointRequest,
+  EnableHttpEndpointResponse,
   EngineDefaults,
   Event,
   EventCategoriesMap,
@@ -928,6 +937,7 @@ import {
   InvalidDBClusterCapacityFault,
   InvalidExportOnlyFault,
   InvalidExportSourceStateFault,
+  InvalidResourceStateFault,
   InvalidRestoreFault,
   InvalidS3BucketFault,
   IssueDetails,
@@ -2722,6 +2732,23 @@ export const se_DescribeValidDBInstanceModificationsCommand = async (
 };
 
 /**
+ * serializeAws_queryDisableHttpEndpointCommand
+ */
+export const se_DisableHttpEndpointCommand = async (
+  input: DisableHttpEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableHttpEndpointRequest(input, context),
+    [_A]: _DHE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDownloadDBLogFilePortionCommand
  */
 export const se_DownloadDBLogFilePortionCommand = async (
@@ -2733,6 +2760,23 @@ export const se_DownloadDBLogFilePortionCommand = async (
   body = buildFormUrlencodedString({
     ...se_DownloadDBLogFilePortionMessage(input, context),
     [_A]: _DDBLFP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryEnableHttpEndpointCommand
+ */
+export const se_EnableHttpEndpointCommand = async (
+  input: EnableHttpEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableHttpEndpointRequest(input, context),
+    [_A]: _EHE,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8675,6 +8719,55 @@ const de_DescribeValidDBInstanceModificationsCommandError = async (
 };
 
 /**
+ * deserializeAws_queryDisableHttpEndpointCommand
+ */
+export const de_DisableHttpEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableHttpEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DisableHttpEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableHttpEndpointResponse(data.DisableHttpEndpointResult, context);
+  const response: DisableHttpEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDisableHttpEndpointCommandError
+ */
+const de_DisableHttpEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableHttpEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.rds#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.rds#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_queryDownloadDBLogFilePortionCommand
  */
 export const de_DownloadDBLogFilePortionCommand = async (
@@ -8713,6 +8806,55 @@ const de_DownloadDBLogFilePortionCommandError = async (
     case "DBLogFileNotFoundFault":
     case "com.amazonaws.rds#DBLogFileNotFoundFault":
       throw await de_DBLogFileNotFoundFaultRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_queryEnableHttpEndpointCommand
+ */
+export const de_EnableHttpEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableHttpEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_EnableHttpEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableHttpEndpointResponse(data.EnableHttpEndpointResult, context);
+  const response: EnableHttpEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryEnableHttpEndpointCommandError
+ */
+const de_EnableHttpEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableHttpEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.rds#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.rds#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -13786,6 +13928,22 @@ const de_InvalidOptionGroupStateFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidResourceStateFaultRes
+ */
+const de_InvalidResourceStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidResourceStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidResourceStateFault(body.Error, context);
+  const exception = new InvalidResourceStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryInvalidRestoreFaultRes
  */
 const de_InvalidRestoreFaultRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidRestoreFault> => {
@@ -17621,6 +17779,17 @@ const se_DescribeValidDBInstanceModificationsMessage = (
 };
 
 /**
+ * serializeAws_queryDisableHttpEndpointRequest
+ */
+const se_DisableHttpEndpointRequest = (input: DisableHttpEndpointRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDownloadDBLogFilePortionMessage
  */
 const se_DownloadDBLogFilePortionMessage = (input: DownloadDBLogFilePortionMessage, context: __SerdeContext): any => {
@@ -17636,6 +17805,17 @@ const se_DownloadDBLogFilePortionMessage = (input: DownloadDBLogFilePortionMessa
   }
   if (input[_NOL] != null) {
     entries[_NOL] = input[_NOL];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryEnableHttpEndpointRequest
+ */
+const se_EnableHttpEndpointRequest = (input: EnableHttpEndpointRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RAe] != null) {
+    entries[_RAe] = input[_RAe];
   }
   return entries;
 };
@@ -24824,6 +25004,20 @@ const de_DescribeValidDBInstanceModificationsResult = (
 };
 
 /**
+ * deserializeAws_queryDisableHttpEndpointResponse
+ */
+const de_DisableHttpEndpointResponse = (output: any, context: __SerdeContext): DisableHttpEndpointResponse => {
+  const contents: any = {};
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectString(output[_RAe]);
+  }
+  if (output[_HEE] != null) {
+    contents[_HEE] = __parseBoolean(output[_HEE]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDocLink
  */
 const de_DocLink = (output: any, context: __SerdeContext): DocLink => {
@@ -24986,6 +25180,20 @@ const de_EC2SecurityGroupList = (output: any, context: __SerdeContext): EC2Secur
     .map((entry: any) => {
       return de_EC2SecurityGroup(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryEnableHttpEndpointResponse
+ */
+const de_EnableHttpEndpointResponse = (output: any, context: __SerdeContext): EnableHttpEndpointResponse => {
+  const contents: any = {};
+  if (output[_RAe] != null) {
+    contents[_RAe] = __expectString(output[_RAe]);
+  }
+  if (output[_HEE] != null) {
+    contents[_HEE] = __parseBoolean(output[_HEE]);
+  }
+  return contents;
 };
 
 /**
@@ -26039,6 +26247,17 @@ const de_InvalidIntegrationStateFault = (output: any, context: __SerdeContext): 
  * deserializeAws_queryInvalidOptionGroupStateFault
  */
 const de_InvalidOptionGroupStateFault = (output: any, context: __SerdeContext): InvalidOptionGroupStateFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidResourceStateFault
+ */
+const de_InvalidResourceStateFault = (output: any, context: __SerdeContext): InvalidResourceStateFault => {
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
@@ -29290,6 +29509,7 @@ const _DET = "DescribeExportTasks";
 const _DF = "DomainFqdn";
 const _DGC = "DeleteGlobalCluster";
 const _DGCe = "DescribeGlobalClusters";
+const _DHE = "DisableHttpEndpoint";
 const _DI = "DeleteIntegration";
 const _DIAMRN = "DomainIAMRoleName";
 const _DIFSBN = "DatabaseInstallationFilesS3BucketName";

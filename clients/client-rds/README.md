@@ -1034,10 +1034,26 @@ DescribeValidDBInstanceModifications
 </details>
 <details>
 <summary>
+DisableHttpEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/DisableHttpEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DisableHttpEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DisableHttpEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
 DownloadDBLogFilePortion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/DownloadDBLogFilePortionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DownloadDBLogFilePortionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DownloadDBLogFilePortionCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableHttpEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/EnableHttpEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/EnableHttpEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/EnableHttpEndpointCommandOutput/)
 
 </details>
 <details>

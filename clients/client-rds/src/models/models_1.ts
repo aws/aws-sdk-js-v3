@@ -6220,6 +6220,54 @@ export interface DescribeValidDBInstanceModificationsResult {
 
 /**
  * @public
+ */
+export interface DisableHttpEndpointRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableHttpEndpointResponse {
+  /**
+   * @public
+   * <p>The ARN of the DB cluster.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the HTTP endpoint is enabled or disabled for the DB cluster.</p>
+   */
+  HttpEndpointEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>The operation can't be performed because another operation is in progress.</p>
+ */
+export class InvalidResourceStateFault extends __BaseException {
+  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
+    super({
+      name: "InvalidResourceStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
  */
@@ -6321,6 +6369,34 @@ export interface DownloadDBLogFilePortionMessage {
    *          </ul>
    */
   NumberOfLines?: number;
+}
+
+/**
+ * @public
+ */
+export interface EnableHttpEndpointRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableHttpEndpointResponse {
+  /**
+   * @public
+   * <p>The ARN of the DB cluster.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the HTTP endpoint is enabled or disabled for the DB cluster.</p>
+   */
+  HttpEndpointEnabled?: boolean;
 }
 
 /**
@@ -7117,12 +7193,16 @@ export interface ModifyDBClusterMessage {
   /**
    * @public
    * <p>Specifies whether to enable the HTTP endpoint for an Aurora Serverless v1 DB cluster. By default, the HTTP endpoint
-   *             is disabled.</p>
-   *          <p>When enabled, the HTTP endpoint provides a connectionless web service API for running
+   *             isn't enabled.</p>
+   *          <p>When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running
    *             SQL queries on the Aurora Serverless v1 DB cluster. You can also query your database
-   *             from inside the RDS console with the query editor.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API for Aurora Serverless v1</a> in the
+   *             from inside the RDS console with the RDS query editor.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the
    *             <i>Amazon Aurora User Guide</i>.</p>
+   *          <note>
+   *             <p>This parameter applies only to Aurora Serverless v1 DB clusters. To enable or disable the HTTP endpoint for an Aurora PostgreSQL
+   *         Serverless v2 or provisioned DB cluster, use the <code>EnableHttpEndpoint</code> and <code>DisableHttpEndpoint</code> operations.</p>
+   *          </note>
    *          <p>Valid for Cluster Type: Aurora DB clusters only</p>
    */
   EnableHttpEndpoint?: boolean;

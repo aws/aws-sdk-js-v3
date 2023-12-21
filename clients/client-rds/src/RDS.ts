@@ -488,10 +488,20 @@ import {
   DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand";
 import {
+  DisableHttpEndpointCommand,
+  DisableHttpEndpointCommandInput,
+  DisableHttpEndpointCommandOutput,
+} from "./commands/DisableHttpEndpointCommand";
+import {
   DownloadDBLogFilePortionCommand,
   DownloadDBLogFilePortionCommandInput,
   DownloadDBLogFilePortionCommandOutput,
 } from "./commands/DownloadDBLogFilePortionCommand";
+import {
+  EnableHttpEndpointCommand,
+  EnableHttpEndpointCommandInput,
+  EnableHttpEndpointCommandOutput,
+} from "./commands/EnableHttpEndpointCommand";
 import {
   FailoverDBClusterCommand,
   FailoverDBClusterCommandInput,
@@ -872,7 +882,9 @@ const commands = {
   DescribeSourceRegionsCommand,
   DescribeTenantDatabasesCommand,
   DescribeValidDBInstanceModificationsCommand,
+  DisableHttpEndpointCommand,
   DownloadDBLogFilePortionCommand,
+  EnableHttpEndpointCommand,
   FailoverDBClusterCommand,
   FailoverGlobalClusterCommand,
   ListTagsForResourceCommand,
@@ -2555,6 +2567,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DisableHttpEndpointCommand}
+   */
+  disableHttpEndpoint(
+    args: DisableHttpEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableHttpEndpointCommandOutput>;
+  disableHttpEndpoint(
+    args: DisableHttpEndpointCommandInput,
+    cb: (err: any, data?: DisableHttpEndpointCommandOutput) => void
+  ): void;
+  disableHttpEndpoint(
+    args: DisableHttpEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableHttpEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DownloadDBLogFilePortionCommand}
    */
   downloadDBLogFilePortion(
@@ -2569,6 +2598,23 @@ export interface RDS {
     args: DownloadDBLogFilePortionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DownloadDBLogFilePortionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableHttpEndpointCommand}
+   */
+  enableHttpEndpoint(
+    args: EnableHttpEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableHttpEndpointCommandOutput>;
+  enableHttpEndpoint(
+    args: EnableHttpEndpointCommandInput,
+    cb: (err: any, data?: EnableHttpEndpointCommandOutput) => void
+  ): void;
+  enableHttpEndpoint(
+    args: EnableHttpEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableHttpEndpointCommandOutput) => void
   ): void;
 
   /**

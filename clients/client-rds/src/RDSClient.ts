@@ -371,9 +371,14 @@ import {
   DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand";
 import {
+  DisableHttpEndpointCommandInput,
+  DisableHttpEndpointCommandOutput,
+} from "./commands/DisableHttpEndpointCommand";
+import {
   DownloadDBLogFilePortionCommandInput,
   DownloadDBLogFilePortionCommandOutput,
 } from "./commands/DownloadDBLogFilePortionCommand";
+import { EnableHttpEndpointCommandInput, EnableHttpEndpointCommandOutput } from "./commands/EnableHttpEndpointCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "./commands/FailoverDBClusterCommand";
 import {
   FailoverGlobalClusterCommandInput,
@@ -662,7 +667,9 @@ export type ServiceInputTypes =
   | DescribeSourceRegionsCommandInput
   | DescribeTenantDatabasesCommandInput
   | DescribeValidDBInstanceModificationsCommandInput
+  | DisableHttpEndpointCommandInput
   | DownloadDBLogFilePortionCommandInput
+  | EnableHttpEndpointCommandInput
   | FailoverDBClusterCommandInput
   | FailoverGlobalClusterCommandInput
   | ListTagsForResourceCommandInput
@@ -821,7 +828,9 @@ export type ServiceOutputTypes =
   | DescribeSourceRegionsCommandOutput
   | DescribeTenantDatabasesCommandOutput
   | DescribeValidDBInstanceModificationsCommandOutput
+  | DisableHttpEndpointCommandOutput
   | DownloadDBLogFilePortionCommandOutput
+  | EnableHttpEndpointCommandOutput
   | FailoverDBClusterCommandOutput
   | FailoverGlobalClusterCommandOutput
   | ListTagsForResourceCommandOutput
