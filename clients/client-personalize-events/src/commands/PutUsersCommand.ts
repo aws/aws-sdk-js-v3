@@ -85,7 +85,7 @@ export class PutUsersCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: PersonalizeEventsClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: PersonalizeEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

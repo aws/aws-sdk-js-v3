@@ -104,7 +104,7 @@ export class UpdateKeysCommand extends $Command
     ...commonParams,
     KvsARN: { type: "contextParams", name: "KvsARN" },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudFrontKeyValueStoreClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: CloudFrontKeyValueStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

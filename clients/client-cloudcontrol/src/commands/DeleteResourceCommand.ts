@@ -159,7 +159,7 @@ export class DeleteResourceCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: CloudControlClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -106,7 +106,7 @@ export class BatchDescribeEntitiesCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: MarketplaceCatalogClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

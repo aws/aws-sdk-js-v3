@@ -103,7 +103,7 @@ export class DescribeAcceleratorOfferingsCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: ElasticInferenceClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: ElasticInferenceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

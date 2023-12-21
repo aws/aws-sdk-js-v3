@@ -114,7 +114,7 @@ export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $C
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SSOAdminClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

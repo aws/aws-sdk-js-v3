@@ -103,7 +103,7 @@ export class AssociateResourceSharePermissionCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: RAMClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

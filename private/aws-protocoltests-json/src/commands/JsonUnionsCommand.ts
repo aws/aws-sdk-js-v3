@@ -94,7 +94,7 @@ export class JsonUnionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: JsonProtocolClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("JsonProtocol", "JsonUnions", {})

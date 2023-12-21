@@ -211,13 +211,7 @@ export class WriteRecordsCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (
-    this: any /*Command*/,
-    Command: any /*static*/,
-    cs: any,
-    config: TimestreamWriteClientResolvedConfig,
-    o: any
-  ) {
+  .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -145,7 +145,7 @@ export class CreateAccountSubscriptionCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: QuickSightClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

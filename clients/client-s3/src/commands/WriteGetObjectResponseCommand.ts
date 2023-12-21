@@ -146,7 +146,7 @@ export class WriteGetObjectResponseCommand extends $Command
     ...commonParams,
     UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

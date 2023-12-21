@@ -86,7 +86,7 @@ export class GetGraphSnapshotCommand extends $Command
     ...commonParams,
     ApiType: { type: "staticContextParams", value: `ControlPlane` },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: NeptuneGraphClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

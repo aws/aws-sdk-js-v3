@@ -97,7 +97,7 @@ export class GetPipelineChangeProgressCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: OSISClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

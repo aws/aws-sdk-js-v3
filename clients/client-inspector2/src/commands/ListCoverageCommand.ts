@@ -176,7 +176,7 @@ export class ListCoverageCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: Inspector2ClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -61,7 +61,7 @@ export class NoInputAndOutputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: JSONRPC10ClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("JsonRpc10", "NoInputAndOutput", {})

@@ -121,7 +121,7 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SSMClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

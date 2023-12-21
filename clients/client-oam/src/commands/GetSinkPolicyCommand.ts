@@ -82,7 +82,7 @@ export class GetSinkPolicyCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: OAMClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

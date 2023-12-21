@@ -134,7 +134,7 @@ export class GetScreenDataCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: HoneycodeClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: HoneycodeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

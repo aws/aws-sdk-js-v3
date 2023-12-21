@@ -235,7 +235,7 @@ export class ListObjectsV2Command extends $Command
     Bucket: { type: "contextParams", name: "Bucket" },
     Prefix: { type: "contextParams", name: "Prefix" },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

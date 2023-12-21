@@ -332,7 +332,7 @@ export class UploadPartCopyCommand extends $Command
     DisableS3ExpressSessionAuth: { type: "staticContextParams", value: true },
     Bucket: { type: "contextParams", name: "Bucket" },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

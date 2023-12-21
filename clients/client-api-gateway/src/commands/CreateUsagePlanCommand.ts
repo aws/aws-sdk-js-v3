@@ -137,7 +137,7 @@ export class CreateUsagePlanCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: APIGatewayClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -63,7 +63,7 @@ export class HttpChecksumRequiredCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: RestJsonProtocolClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize), getApplyMd5BodyChecksumPlugin(config)];
   })
   .s("RestJson", "HttpChecksumRequired", {})

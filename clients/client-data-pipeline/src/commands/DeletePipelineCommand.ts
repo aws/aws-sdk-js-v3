@@ -105,7 +105,7 @@ export class DeletePipelineCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: DataPipelineClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

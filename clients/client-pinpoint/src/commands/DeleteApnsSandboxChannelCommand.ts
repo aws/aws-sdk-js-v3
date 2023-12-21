@@ -101,7 +101,7 @@ export class DeleteApnsSandboxChannelCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: PinpointClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

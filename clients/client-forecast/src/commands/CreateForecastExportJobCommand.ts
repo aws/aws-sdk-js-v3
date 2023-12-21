@@ -116,7 +116,7 @@ export class CreateForecastExportJobCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: ForecastClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

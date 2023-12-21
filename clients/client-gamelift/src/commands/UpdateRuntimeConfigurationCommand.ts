@@ -125,7 +125,7 @@ export class UpdateRuntimeConfigurationCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: GameLiftClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

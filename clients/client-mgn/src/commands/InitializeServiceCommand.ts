@@ -69,7 +69,7 @@ export class InitializeServiceCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: MgnClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

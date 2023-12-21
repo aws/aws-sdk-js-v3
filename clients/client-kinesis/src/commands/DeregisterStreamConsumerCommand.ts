@@ -89,7 +89,7 @@ export class DeregisterStreamConsumerCommand extends $Command
     ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
     StreamARN: { type: "contextParams", name: "StreamARN" },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: KinesisClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

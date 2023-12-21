@@ -100,7 +100,7 @@ export class ListRescoreExecutionPlansCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: KendraRankingClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: KendraRankingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -86,7 +86,7 @@ export class RevokeSigningProfileCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SignerClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

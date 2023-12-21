@@ -131,7 +131,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: RDSClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

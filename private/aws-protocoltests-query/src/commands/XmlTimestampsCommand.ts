@@ -68,7 +68,7 @@ export class XmlTimestampsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: QueryProtocolClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("AwsQuery", "XmlTimestamps", {})

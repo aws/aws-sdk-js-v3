@@ -66,7 +66,7 @@ export class XmlMapWithXmlNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: RestXmlProtocolClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("RestXml", "XmlMapWithXmlNamespace", {})

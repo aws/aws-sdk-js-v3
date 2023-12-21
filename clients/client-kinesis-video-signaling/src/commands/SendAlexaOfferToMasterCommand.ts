@@ -91,7 +91,7 @@ export class SendAlexaOfferToMasterCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: KinesisVideoSignalingClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: KinesisVideoSignalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

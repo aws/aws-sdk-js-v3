@@ -89,7 +89,7 @@ export class StartFleetCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: AppStreamClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

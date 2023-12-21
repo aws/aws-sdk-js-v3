@@ -123,7 +123,7 @@ export class QueryAssistantCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: WisdomClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

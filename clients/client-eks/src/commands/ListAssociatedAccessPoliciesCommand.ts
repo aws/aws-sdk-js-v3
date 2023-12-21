@@ -102,7 +102,7 @@ export class ListAssociatedAccessPoliciesCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: EKSClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

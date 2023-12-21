@@ -64,7 +64,7 @@ export class EchoCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: EchoServiceClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: EchoServiceClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("EchoService", "Echo", {})

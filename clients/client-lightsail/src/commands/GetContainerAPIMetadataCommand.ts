@@ -80,7 +80,7 @@ export class GetContainerAPIMetadataCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: LightsailClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

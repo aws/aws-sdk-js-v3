@@ -94,7 +94,7 @@ export class GetCatalogItemCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: OutpostsClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

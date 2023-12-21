@@ -91,7 +91,7 @@ export class ListOperationsCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: AppRunnerClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

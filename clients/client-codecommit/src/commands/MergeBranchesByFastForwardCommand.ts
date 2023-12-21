@@ -135,13 +135,7 @@ export class MergeBranchesByFastForwardCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (
-    this: any /*Command*/,
-    Command: any /*static*/,
-    cs: any,
-    config: CodeCommitClientResolvedConfig,
-    o: any
-  ) {
+  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

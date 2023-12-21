@@ -103,7 +103,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: ChimeSDKVoiceClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

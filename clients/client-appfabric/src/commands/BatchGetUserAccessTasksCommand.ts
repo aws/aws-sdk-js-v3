@@ -110,7 +110,7 @@ export class BatchGetUserAccessTasksCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: AppFabricClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

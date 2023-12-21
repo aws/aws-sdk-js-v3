@@ -74,7 +74,7 @@ export class DeleteSubscriptionCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: ShieldClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -123,11 +123,7 @@ export class ListUserAssociationsCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (
-    this: any /*Command*/,
-    Command: any /*static*/,
-    config: LicenseManagerUserSubscriptionsClientResolvedConfig
-  ) {
+  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

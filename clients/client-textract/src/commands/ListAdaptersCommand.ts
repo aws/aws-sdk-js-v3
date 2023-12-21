@@ -104,7 +104,7 @@ export class ListAdaptersCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: TextractClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

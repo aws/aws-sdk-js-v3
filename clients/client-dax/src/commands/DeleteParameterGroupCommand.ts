@@ -83,7 +83,7 @@ export class DeleteParameterGroupCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: DAXClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

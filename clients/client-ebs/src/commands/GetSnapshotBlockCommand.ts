@@ -103,7 +103,7 @@ export class GetSnapshotBlockCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: EBSClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -81,7 +81,7 @@ export class UpdateTemplateCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SESClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

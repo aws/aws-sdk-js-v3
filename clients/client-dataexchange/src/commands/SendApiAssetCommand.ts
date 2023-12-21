@@ -96,7 +96,7 @@ export class SendApiAssetCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: DataExchangeClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

@@ -126,7 +126,7 @@ export class GetFreeTierUsageCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: FreeTierClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: FreeTierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

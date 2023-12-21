@@ -95,7 +95,7 @@ export class DeleteFolderCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: WorkDocsClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

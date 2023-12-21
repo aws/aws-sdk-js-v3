@@ -57,7 +57,7 @@ export class OnlyHttpApiKeyAuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: WeatherClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getSigV4AuthPlugin(config),

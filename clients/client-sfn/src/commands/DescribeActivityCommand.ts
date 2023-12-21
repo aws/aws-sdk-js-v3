@@ -78,7 +78,7 @@ export class DescribeActivityCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SFNClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

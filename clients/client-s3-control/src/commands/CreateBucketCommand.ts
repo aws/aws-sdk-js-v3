@@ -144,7 +144,7 @@ export class CreateBucketCommand extends $Command
     OutpostId: { type: "contextParams", name: "OutpostId" },
     Bucket: { type: "contextParams", name: "Bucket" },
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: S3ControlClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

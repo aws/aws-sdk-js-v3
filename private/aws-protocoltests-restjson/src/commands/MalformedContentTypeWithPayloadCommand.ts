@@ -70,7 +70,7 @@ export class MalformedContentTypeWithPayloadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: RestJsonProtocolClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
     return [getSerdePlugin(config, this.serialize, this.deserialize)];
   })
   .s("RestJson", "MalformedContentTypeWithPayload", {})

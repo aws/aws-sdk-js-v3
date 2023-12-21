@@ -78,7 +78,7 @@ export class DeleteSchemaCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SchemasClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

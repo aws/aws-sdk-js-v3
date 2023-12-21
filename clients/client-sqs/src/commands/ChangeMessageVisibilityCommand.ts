@@ -154,7 +154,7 @@ export class ChangeMessageVisibilityCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: SQSClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

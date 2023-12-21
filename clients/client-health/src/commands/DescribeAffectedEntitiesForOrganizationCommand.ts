@@ -139,7 +139,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: HealthClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),

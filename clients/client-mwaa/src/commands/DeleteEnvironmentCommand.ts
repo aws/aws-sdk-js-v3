@@ -74,7 +74,7 @@ export class DeleteEnvironmentCommand extends $Command
   .ep({
     ...commonParams,
   })
-  .m(function (this: any /*Command*/, Command: any /*static*/, config: MWAAClientResolvedConfig) {
+  .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
