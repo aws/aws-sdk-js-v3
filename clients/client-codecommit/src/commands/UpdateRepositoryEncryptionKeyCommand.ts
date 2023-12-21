@@ -15,8 +15,11 @@ import {
 } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { CreateRepositoryInput, CreateRepositoryOutput } from "../models/models_0";
-import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../protocols/Aws_json1_1";
+import { UpdateRepositoryEncryptionKeyInput, UpdateRepositoryEncryptionKeyOutput } from "../models/models_1";
+import {
+  de_UpdateRepositoryEncryptionKeyCommand,
+  se_UpdateRepositoryEncryptionKeyCommand,
+} from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -25,57 +28,45 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateRepositoryCommand}.
+ * The input for {@link UpdateRepositoryEncryptionKeyCommand}.
  */
-export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
+export interface UpdateRepositoryEncryptionKeyCommandInput extends UpdateRepositoryEncryptionKeyInput {}
 /**
  * @public
  *
- * The output of {@link CreateRepositoryCommand}.
+ * The output of {@link UpdateRepositoryEncryptionKeyCommand}.
  */
-export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
+export interface UpdateRepositoryEncryptionKeyCommandOutput
+  extends UpdateRepositoryEncryptionKeyOutput,
+    __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a new, empty repository.</p>
+ * <p>Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CodeCommitClient, CreateRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
- * // const { CodeCommitClient, CreateRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * import { CodeCommitClient, UpdateRepositoryEncryptionKeyCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdateRepositoryEncryptionKeyCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
- * const input = { // CreateRepositoryInput
+ * const input = { // UpdateRepositoryEncryptionKeyInput
  *   repositoryName: "STRING_VALUE", // required
- *   repositoryDescription: "STRING_VALUE",
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   kmsKeyId: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE", // required
  * };
- * const command = new CreateRepositoryCommand(input);
+ * const command = new UpdateRepositoryEncryptionKeyCommand(input);
  * const response = await client.send(command);
- * // { // CreateRepositoryOutput
- * //   repositoryMetadata: { // RepositoryMetadata
- * //     accountId: "STRING_VALUE",
- * //     repositoryId: "STRING_VALUE",
- * //     repositoryName: "STRING_VALUE",
- * //     repositoryDescription: "STRING_VALUE",
- * //     defaultBranch: "STRING_VALUE",
- * //     lastModifiedDate: new Date("TIMESTAMP"),
- * //     creationDate: new Date("TIMESTAMP"),
- * //     cloneUrlHttp: "STRING_VALUE",
- * //     cloneUrlSsh: "STRING_VALUE",
- * //     Arn: "STRING_VALUE",
- * //     kmsKeyId: "STRING_VALUE",
- * //   },
+ * // { // UpdateRepositoryEncryptionKeyOutput
+ * //   repositoryId: "STRING_VALUE",
+ * //   kmsKeyId: "STRING_VALUE",
+ * //   originalKmsKeyId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateRepositoryCommandInput - {@link CreateRepositoryCommandInput}
- * @returns {@link CreateRepositoryCommandOutput}
- * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
- * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
+ * @param UpdateRepositoryEncryptionKeyCommandInput - {@link UpdateRepositoryEncryptionKeyCommandInput}
+ * @returns {@link UpdateRepositoryEncryptionKeyCommandOutput}
+ * @see {@link UpdateRepositoryEncryptionKeyCommandInput} for command's `input` shape.
+ * @see {@link UpdateRepositoryEncryptionKeyCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
@@ -97,11 +88,11 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
  *  <p>No encryption key was found.</p>
  *
+ * @throws {@link EncryptionKeyRequiredException} (client fault)
+ *  <p>A KMS encryption key ID is required but was not specified.</p>
+ *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
  *  <p>The encryption key is not available.</p>
- *
- * @throws {@link InvalidRepositoryDescriptionException} (client fault)
- *  <p>The specified repository description is not valid.</p>
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
  *  <p>A specified repository name is not valid.</p>
@@ -111,34 +102,19 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *                 specified repository does not exist.</p>
  *          </note>
  *
- * @throws {@link InvalidSystemTagUsageException} (client fault)
- *  <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
- *
- * @throws {@link InvalidTagsMapException} (client fault)
- *  <p>The map of tags is not valid.</p>
- *
- * @throws {@link RepositoryLimitExceededException} (client fault)
- *  <p>A repository resource limit was exceeded.</p>
- *
- * @throws {@link RepositoryNameExistsException} (client fault)
- *  <p>The specified repository name already exists.</p>
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
  *  <p>A repository name is required, but was not specified.</p>
- *
- * @throws {@link TagPolicyException} (client fault)
- *  <p>The tag policy is not valid.</p>
- *
- * @throws {@link TooManyTagsException} (client fault)
- *  <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
  *
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
-export class CreateRepositoryCommand extends $Command<
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
+export class UpdateRepositoryEncryptionKeyCommand extends $Command<
+  UpdateRepositoryEncryptionKeyCommandInput,
+  UpdateRepositoryEncryptionKeyCommandOutput,
   CodeCommitClientResolvedConfig
 > {
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
@@ -153,7 +129,7 @@ export class CreateRepositoryCommand extends $Command<
   /**
    * @public
    */
-  constructor(readonly input: CreateRepositoryCommandInput) {
+  constructor(readonly input: UpdateRepositoryEncryptionKeyCommandInput) {
     super();
   }
 
@@ -164,17 +140,17 @@ export class CreateRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateRepositoryCommandInput, CreateRepositoryCommandOutput> {
+  ): Handler<UpdateRepositoryEncryptionKeyCommandInput, UpdateRepositoryEncryptionKeyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateRepositoryCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateRepositoryEncryptionKeyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CodeCommitClient";
-    const commandName = "CreateRepositoryCommand";
+    const commandName = "UpdateRepositoryEncryptionKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
@@ -183,7 +159,7 @@ export class CreateRepositoryCommand extends $Command<
       outputFilterSensitiveLog: (_: any) => _,
       [SMITHY_CONTEXT_KEY]: {
         service: "CodeCommit_20150413",
-        operation: "CreateRepository",
+        operation: "UpdateRepositoryEncryptionKey",
       },
     };
     const { requestHandler } = configuration;
@@ -197,14 +173,17 @@ export class CreateRepositoryCommand extends $Command<
   /**
    * @internal
    */
-  private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateRepositoryCommand(input, context);
+  private serialize(input: UpdateRepositoryEncryptionKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return se_UpdateRepositoryEncryptionKeyCommand(input, context);
   }
 
   /**
    * @internal
    */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
-    return de_CreateRepositoryCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateRepositoryEncryptionKeyCommandOutput> {
+    return de_UpdateRepositoryEncryptionKeyCommand(output, context);
   }
 }

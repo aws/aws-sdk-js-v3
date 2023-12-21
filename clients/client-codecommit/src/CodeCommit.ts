@@ -353,6 +353,11 @@ import {
   UpdateRepositoryDescriptionCommandOutput,
 } from "./commands/UpdateRepositoryDescriptionCommand";
 import {
+  UpdateRepositoryEncryptionKeyCommand,
+  UpdateRepositoryEncryptionKeyCommandInput,
+  UpdateRepositoryEncryptionKeyCommandOutput,
+} from "./commands/UpdateRepositoryEncryptionKeyCommand";
+import {
   UpdateRepositoryNameCommand,
   UpdateRepositoryNameCommandInput,
   UpdateRepositoryNameCommandOutput,
@@ -436,6 +441,7 @@ const commands = {
   UpdatePullRequestStatusCommand,
   UpdatePullRequestTitleCommand,
   UpdateRepositoryDescriptionCommand,
+  UpdateRepositoryEncryptionKeyCommand,
   UpdateRepositoryNameCommand,
 };
 
@@ -1639,6 +1645,23 @@ export interface CodeCommit {
   ): void;
 
   /**
+   * @see {@link UpdateRepositoryEncryptionKeyCommand}
+   */
+  updateRepositoryEncryptionKey(
+    args: UpdateRepositoryEncryptionKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRepositoryEncryptionKeyCommandOutput>;
+  updateRepositoryEncryptionKey(
+    args: UpdateRepositoryEncryptionKeyCommandInput,
+    cb: (err: any, data?: UpdateRepositoryEncryptionKeyCommandOutput) => void
+  ): void;
+  updateRepositoryEncryptionKey(
+    args: UpdateRepositoryEncryptionKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRepositoryEncryptionKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateRepositoryNameCommand}
    */
   updateRepositoryName(
@@ -1687,6 +1710,11 @@ export interface CodeCommit {
  *             <li>
  *                <p>
  *                   <a>UpdateRepositoryDescription</a>, which sets or updates the description of the repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateRepositoryEncryptionKey</a>, which updates the Key Management Service encryption key used
+ *               to encrypt and decrypt a repository.</p>
  *             </li>
  *             <li>
  *                <p>

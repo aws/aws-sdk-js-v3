@@ -1821,6 +1821,55 @@ export interface BatchGetRepositoriesInput {
 
 /**
  * @public
+ * @enum
+ */
+export const BatchGetRepositoriesErrorCodeEnum = {
+  ENCRYPTION_INTEGRITY_CHECKS_FAILED_EXCEPTION: "EncryptionIntegrityChecksFailedException",
+  ENCRYPTION_KEY_ACCESS_DENIED_EXCEPTION: "EncryptionKeyAccessDeniedException",
+  ENCRYPTION_KEY_DISABLED_EXCEPTION: "EncryptionKeyDisabledException",
+  ENCRYPTION_KEY_NOT_FOUND_EXCEPTION: "EncryptionKeyNotFoundException",
+  ENCRYPTION_KEY_UNAVAILABLE_EXCEPTION: "EncryptionKeyUnavailableException",
+  REPOSITORY_DOES_NOT_EXIST_EXCEPTION: "RepositoryDoesNotExistException",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchGetRepositoriesErrorCodeEnum =
+  (typeof BatchGetRepositoriesErrorCodeEnum)[keyof typeof BatchGetRepositoriesErrorCodeEnum];
+
+/**
+ * @public
+ * <p>Returns information about errors in a BatchGetRepositories operation.</p>
+ */
+export interface BatchGetRepositoriesError {
+  /**
+   * @public
+   * <p>The ID of a repository that either could not be found or was not in a valid state.</p>
+   */
+  repositoryId?: string;
+
+  /**
+   * @public
+   * <p>The name of a repository that either could not be found or was not in a valid state.</p>
+   */
+  repositoryName?: string;
+
+  /**
+   * @public
+   * <p>An error code that specifies the type of failure.</p>
+   */
+  errorCode?: BatchGetRepositoriesErrorCodeEnum;
+
+  /**
+   * @public
+   * <p>An error message that provides detail about why the repository either was not found or was not in a valid state.</p>
+   */
+  errorMessage?: string;
+}
+
+/**
+ * @public
  * <p>Information about a repository.</p>
  */
 export interface RepositoryMetadata {
@@ -1883,6 +1932,12 @@ export interface RepositoryMetadata {
    * <p>The Amazon Resource Name (ARN) of the repository.</p>
    */
   Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service encryption key used to encrypt and decrypt the repository.</p>
+   */
+  kmsKeyId?: string;
 }
 
 /**
@@ -1901,6 +1956,12 @@ export interface BatchGetRepositoriesOutput {
    * <p>Returns a list of repository names for which information could not be found.</p>
    */
   repositoriesNotFound?: string[];
+
+  /**
+   * @public
+   * <p>Returns information about any errors returned when attempting to retrieve information about the repositories.</p>
+   */
+  errors?: BatchGetRepositoriesError[];
 }
 
 /**
@@ -3969,6 +4030,16 @@ export interface CreateRepositoryInput {
    * <p>One or more tag key-value pairs to use when tagging this repository.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
+   *             programmatically retrieve a key ID. For more information about acceptable values for kmsKeyID, see
+   *             <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
+   *             the <i>Key Management Service API Reference</i>.</p>
+   *          <p>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services managed key is used.</p>
+   */
+  kmsKeyId?: string;
 }
 
 /**
@@ -3981,6 +4052,47 @@ export interface CreateRepositoryOutput {
    * <p>Information about the newly created repository.</p>
    */
   repositoryMetadata?: RepositoryMetadata;
+}
+
+/**
+ * @public
+ * <p>The Key Management Service encryption key is not valid.</p>
+ */
+export class EncryptionKeyInvalidIdException extends __BaseException {
+  readonly name: "EncryptionKeyInvalidIdException" = "EncryptionKeyInvalidIdException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EncryptionKeyInvalidIdException, __BaseException>) {
+    super({
+      name: "EncryptionKeyInvalidIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyInvalidIdException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not
+ *         in a valid state to support the operation.</p>
+ */
+export class EncryptionKeyInvalidUsageException extends __BaseException {
+  readonly name: "EncryptionKeyInvalidUsageException" = "EncryptionKeyInvalidUsageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EncryptionKeyInvalidUsageException, __BaseException>) {
+    super({
+      name: "EncryptionKeyInvalidUsageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyInvalidUsageException.prototype);
+  }
 }
 
 /**
@@ -7100,98 +7212,4 @@ export interface FileVersion {
    * <p>An array of commit IDs that contain more recent versions of this file. If there are no additional versions of the file, this array will be empty.</p>
    */
   revisionChildren?: string[];
-}
-
-/**
- * @public
- */
-export interface ListFileCommitHistoryResponse {
-  /**
-   * @public
-   * <p>An array of FileVersion objects that form a directed acyclic graph (DAG) of the changes to the file made by the commits that changed the file.</p>
-   */
-  revisionDag: FileVersion[] | undefined;
-
-  /**
-   * @public
-   * <p>An enumeration token that can be used to return the next batch of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
- */
-export class InvalidAuthorArnException extends __BaseException {
-  readonly name: "InvalidAuthorArnException" = "InvalidAuthorArnException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAuthorArnException, __BaseException>) {
-    super({
-      name: "InvalidAuthorArnException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAuthorArnException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
- */
-export class InvalidPullRequestStatusException extends __BaseException {
-  readonly name: "InvalidPullRequestStatusException" = "InvalidPullRequestStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidPullRequestStatusException, __BaseException>) {
-    super({
-      name: "InvalidPullRequestStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidPullRequestStatusException.prototype);
-  }
-}
-
-/**
- * @public
- */
-export interface ListPullRequestsInput {
-  /**
-   * @public
-   * <p>The name of the repository for which you want to list pull requests.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * @public
-   * <p>Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results
-   *         to pull requests created by that user.</p>
-   */
-  authorArn?: string;
-
-  /**
-   * @public
-   * <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
-   */
-  pullRequestStatus?: PullRequestStatusEnum;
-
-  /**
-   * @public
-   * <p>An enumeration token that, when provided in a request, returns the next batch of the
-   *             results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
-   */
-  maxResults?: number;
 }

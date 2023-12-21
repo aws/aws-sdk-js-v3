@@ -39,6 +39,11 @@ CodeCommit API along with usage examples.</p>
 </li>
 <li>
 <p>
+<a>UpdateRepositoryEncryptionKey</a>, which updates the Key Management Service encryption key used
+to encrypt and decrypt a repository.</p>
+</li>
+<li>
+<p>
 <a>UpdateRepositoryName</a>, which changes the name of the
 repository. If you change the name of a repository, no other users of that
 repository can access it until you send them the new HTTPS or SSH URL to
@@ -1198,6 +1203,14 @@ UpdateRepositoryDescription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateRepositoryDescriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryDescriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryDescriptionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateRepositoryEncryptionKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/UpdateRepositoryEncryptionKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryEncryptionKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/UpdateRepositoryEncryptionKeyCommandOutput/)
 
 </details>
 <details>

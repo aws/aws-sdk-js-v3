@@ -76,4 +76,5 @@ export * from "./UpdatePullRequestDescriptionCommand";
 export * from "./UpdatePullRequestStatusCommand";
 export * from "./UpdatePullRequestTitleCommand";
 export * from "./UpdateRepositoryDescriptionCommand";
+export * from "./UpdateRepositoryEncryptionKeyCommand";
 export * from "./UpdateRepositoryNameCommand";

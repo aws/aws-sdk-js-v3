@@ -12,12 +12,107 @@ import {
   ConflictResolution,
   ConflictResolutionStrategyTypeEnum,
   FileModeTypeEnum,
+  FileVersion,
   Location,
   OverrideStatus,
   PullRequest,
   PullRequestStatusEnum,
   RepositoryTrigger,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListFileCommitHistoryResponse {
+  /**
+   * @public
+   * <p>An array of FileVersion objects that form a directed acyclic graph (DAG) of the changes to the file made by the commits that changed the file.</p>
+   */
+  revisionDag: FileVersion[] | undefined;
+
+  /**
+   * @public
+   * <p>An enumeration token that can be used to return the next batch of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
+ */
+export class InvalidAuthorArnException extends __BaseException {
+  readonly name: "InvalidAuthorArnException" = "InvalidAuthorArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAuthorArnException, __BaseException>) {
+    super({
+      name: "InvalidAuthorArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAuthorArnException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
+ */
+export class InvalidPullRequestStatusException extends __BaseException {
+  readonly name: "InvalidPullRequestStatusException" = "InvalidPullRequestStatusException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPullRequestStatusException, __BaseException>) {
+    super({
+      name: "InvalidPullRequestStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPullRequestStatusException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListPullRequestsInput {
+  /**
+   * @public
+   * <p>The name of the repository for which you want to list pull requests.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results
+   *         to pull requests created by that user.</p>
+   */
+  authorArn?: string;
+
+  /**
+   * @public
+   * <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
+   */
+  pullRequestStatus?: PullRequestStatusEnum;
+
+  /**
+   * @public
+   * <p>An enumeration token that, when provided in a request, returns the next batch of the
+   *             results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
+   */
+  maxResults?: number;
+}
 
 /**
  * @public
@@ -2379,6 +2474,69 @@ export interface UpdateRepositoryDescriptionInput {
    * <p>The new comment or description for the specified repository. Repository descriptions are limited to 1,000 characters.</p>
    */
   repositoryDescription?: string;
+}
+
+/**
+ * @public
+ * <p>A KMS encryption key ID is required but was not specified.</p>
+ */
+export class EncryptionKeyRequiredException extends __BaseException {
+  readonly name: "EncryptionKeyRequiredException" = "EncryptionKeyRequiredException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EncryptionKeyRequiredException, __BaseException>) {
+    super({
+      name: "EncryptionKeyRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyRequiredException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateRepositoryEncryptionKeyInput {
+  /**
+   * @public
+   * <p>The name of the repository for which you want to update the KMS encryption key used to encrypt and decrypt the repository.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
+   *             programmatically retrieve a key ID. For more information about acceptable values for keyID, see
+   *             <a href="https://docs.aws.amazon.com/APIReference/API_Decrypt.html#KMS-Decrypt-request-KeyId">KeyId</a> in the Decrypt API description in
+   *         the <i>Key Management Service API Reference</i>.</p>
+   */
+  kmsKeyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRepositoryEncryptionKeyOutput {
+  /**
+   * @public
+   * <p>The ID of the repository.</p>
+   */
+  repositoryId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the encryption key.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the encryption key formerly used to encrypt and decrypt the repository.</p>
+   */
+  originalKmsKeyId?: string;
 }
 
 /**

@@ -71,10 +71,19 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * //       cloneUrlHttp: "STRING_VALUE",
  * //       cloneUrlSsh: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
+ * //       kmsKeyId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   repositoriesNotFound: [ // RepositoryNotFoundList
  * //     "STRING_VALUE",
+ * //   ],
+ * //   errors: [ // BatchGetRepositoriesErrorsList
+ * //     { // BatchGetRepositoriesError
+ * //       repositoryId: "STRING_VALUE",
+ * //       repositoryName: "STRING_VALUE",
+ * //       errorCode: "EncryptionIntegrityChecksFailedException" || "EncryptionKeyAccessDeniedException" || "EncryptionKeyDisabledException" || "EncryptionKeyNotFoundException" || "EncryptionKeyUnavailableException" || "RepositoryDoesNotExistException",
+ * //       errorMessage: "STRING_VALUE",
+ * //     },
  * //   ],
  * // };
  *

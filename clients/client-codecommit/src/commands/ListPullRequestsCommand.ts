@@ -15,8 +15,7 @@ import {
 } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { ListPullRequestsInput } from "../models/models_0";
-import { ListPullRequestsOutput } from "../models/models_1";
+import { ListPullRequestsInput, ListPullRequestsOutput } from "../models/models_1";
 import { de_ListPullRequestsCommand, se_ListPullRequestsCommand } from "../protocols/Aws_json1_1";
 
 /**

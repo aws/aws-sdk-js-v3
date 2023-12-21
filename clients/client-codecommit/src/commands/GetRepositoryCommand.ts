@@ -68,6 +68,7 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * //     cloneUrlHttp: "STRING_VALUE",
  * //     cloneUrlSsh: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *

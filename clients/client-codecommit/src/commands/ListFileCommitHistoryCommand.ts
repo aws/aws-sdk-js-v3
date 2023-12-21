@@ -15,7 +15,8 @@ import {
 } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { ListFileCommitHistoryRequest, ListFileCommitHistoryResponse } from "../models/models_0";
+import { ListFileCommitHistoryRequest } from "../models/models_0";
+import { ListFileCommitHistoryResponse } from "../models/models_1";
 import { de_ListFileCommitHistoryCommand, se_ListFileCommitHistoryCommand } from "../protocols/Aws_json1_1";
 
 /**

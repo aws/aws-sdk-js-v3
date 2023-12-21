@@ -270,6 +270,10 @@ import {
   UpdateRepositoryDescriptionCommandOutput,
 } from "./commands/UpdateRepositoryDescriptionCommand";
 import {
+  UpdateRepositoryEncryptionKeyCommandInput,
+  UpdateRepositoryEncryptionKeyCommandOutput,
+} from "./commands/UpdateRepositoryEncryptionKeyCommand";
+import {
   UpdateRepositoryNameCommandInput,
   UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand";
@@ -365,6 +369,7 @@ export type ServiceInputTypes =
   | UpdatePullRequestStatusCommandInput
   | UpdatePullRequestTitleCommandInput
   | UpdateRepositoryDescriptionCommandInput
+  | UpdateRepositoryEncryptionKeyCommandInput
   | UpdateRepositoryNameCommandInput;
 
 /**
@@ -448,6 +453,7 @@ export type ServiceOutputTypes =
   | UpdatePullRequestStatusCommandOutput
   | UpdatePullRequestTitleCommandOutput
   | UpdateRepositoryDescriptionCommandOutput
+  | UpdateRepositoryEncryptionKeyCommandOutput
   | UpdateRepositoryNameCommandOutput;
 
 /**
@@ -651,6 +657,11 @@ export interface CodeCommitClientResolvedConfig extends CodeCommitClientResolved
  *             <li>
  *                <p>
  *                   <a>UpdateRepositoryDescription</a>, which sets or updates the description of the repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateRepositoryEncryptionKey</a>, which updates the Key Management Service encryption key used
+ *               to encrypt and decrypt a repository.</p>
  *             </li>
  *             <li>
  *                <p>
