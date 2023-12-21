@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.479.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.478.0...v3.479.0) (2023-12-21)
+
+
+### Features
+
+* **client-amp:** This release updates Amazon Managed Service for Prometheus APIs to support customer managed KMS keys. ([9a1b1c8](https://github.com/aws/aws-sdk-js-v3/commit/9a1b1c82ac95eec14f9ec372d94a683e8168bbed))
+* **client-appintegrations:** The Amazon AppIntegrations service adds DeleteApplication API for deleting applications, and updates APIs to support third party applications reacting to workspace events and make data requests to Amazon Connect for agent and contact events. ([83dc3ef](https://github.com/aws/aws-sdk-js-v3/commit/83dc3ef1ff514d13abdc3b2c3b0ed316132cc5fc))
+* **client-bedrock-agent:** This release introduces Amazon Aurora as a vector store on Knowledge Bases for Amazon Bedrock ([b7416af](https://github.com/aws/aws-sdk-js-v3/commit/b7416af3510c210bcbe3df0317e96cc732254b42))
+* **client-codecommit:** AWS CodeCommit now supports customer managed keys from AWS Key Management Service. UpdateRepositoryEncryptionKey is added for updating the key configuration. CreateRepository, GetRepository, BatchGetRepositories are updated with new input or output parameters. ([dc7a599](https://github.com/aws/aws-sdk-js-v3/commit/dc7a599064934d8aec277241bd5375e1cda996b1))
+* **client-connect:** Adds APIs to manage User Proficiencies and Predefined Attributes. Enhances StartOutboundVoiceContact API input. Introduces SearchContacts API. Enhances DescribeContact API. Adds an API to update Routing Attributes in QueuePriority and QueueTimeAdjustmentSeconds. ([a6829ae](https://github.com/aws/aws-sdk-js-v3/commit/a6829ae2965928a7fdc808bc9adb8c6f95c8f4b8))
+* **client-medialive:** MediaLive now supports the ability to configure the audio that an AWS Elemental Link UHD device produces, when the device is configured as the source for a flow in AWS Elemental MediaConnect. ([6325d6e](https://github.com/aws/aws-sdk-js-v3/commit/6325d6ee9dbc016a7ccbbc3c4a3d22d42191e90c))
+* **client-neptune-graph:** Adds Waiters for successful creation and deletion of Graph, Graph Snapshot, Import Task and Private Endpoints for Neptune Analytics ([d4176b5](https://github.com/aws/aws-sdk-js-v3/commit/d4176b5a1512eebc935aa68ee54aaf059a7823d1))
+* **client-rds-data:** This release adds support for using RDS Data API with Aurora PostgreSQL Serverless v2 and provisioned DB clusters. ([3650011](https://github.com/aws/aws-sdk-js-v3/commit/36500118820773f3aa2bbc8cdfd67ee6982338df))
+* **client-rds:** This release adds support for using RDS Data API with Aurora PostgreSQL Serverless v2 and provisioned DB clusters. ([ee4406c](https://github.com/aws/aws-sdk-js-v3/commit/ee4406c0c6bd8aebceb3853ddc98d48b745bafcb))
+* **client-sagemaker:** Amazon SageMaker Training now provides model training container access for debugging purposes. Amazon SageMaker Search now provides the ability to use visibility conditions to limit resource access to a single domain or multiple domains. ([d7c4e6f](https://github.com/aws/aws-sdk-js-v3/commit/d7c4e6f13662568f325012986ffd7a3b7768bbbd))
+* **clients:** update client endpoints as of 2023-12-21 ([0d58cf3](https://github.com/aws/aws-sdk-js-v3/commit/0d58cf3245d38b2b33da3992974c10976ce0dd5d))
+
+
+
+
+
 # [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
 
 

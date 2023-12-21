@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.479.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.478.0...v3.479.0) (2023-12-21)
+
+
+### Features
+
+* **client-rds:** This release adds support for using RDS Data API with Aurora PostgreSQL Serverless v2 and provisioned DB clusters. ([ee4406c](https://github.com/aws/aws-sdk-js-v3/commit/ee4406c0c6bd8aebceb3853ddc98d48b745bafcb))
+
+
+
+
+
 # [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
 
 

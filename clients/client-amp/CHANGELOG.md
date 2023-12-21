@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.479.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.478.0...v3.479.0) (2023-12-21)
+
+
+### Features
+
+* **client-amp:** This release updates Amazon Managed Service for Prometheus APIs to support customer managed KMS keys. ([9a1b1c8](https://github.com/aws/aws-sdk-js-v3/commit/9a1b1c82ac95eec14f9ec372d94a683e8168bbed))
+
+
+
+
+
 # [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
 
 
