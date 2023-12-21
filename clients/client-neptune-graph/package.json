@@ -57,6 +57,7 @@
     "@smithy/util-endpoints": "^1.0.7",
     "@smithy/util-retry": "^2.0.8",
     "@smithy/util-utf8": "^2.0.2",
+    "@smithy/util-waiter": "^2.0.15",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

@@ -14,6 +14,7 @@ export { RuntimeExtension } from "./runtimeExtensions";
 export { NeptuneGraphExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
+export * from "./waiters";
 export * from "./models";
 
 import "@aws-sdk/util-endpoints";
